@@ -1,0 +1,1036 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/app/pages/org-admin/RoleManagement.tsx");import { jsxDEV } from "/@id/__x00__figma:react-jsx-dev-runtime";
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+var _s = $RefreshSig$();
+import { FGCmp } from "/@id/fginspector";
+import { useState } from "/@id/__x00__figma:react-base";
+import {
+  Users,
+  Plus,
+  Edit,
+  Trash2,
+  Shield,
+  CheckCircle,
+  XCircle,
+  Copy,
+  Search
+} from "/node_modules/.vite/deps/lucide-react.js?v=25293e4c";
+export default function RoleManagement() {
+  _s();
+  const [searchQuery, setSearchQuery] = useState("");
+  const [showCreateModal, setShowCreateModal] = useState(false);
+  const [selectedRole, setSelectedRole] = useState(null);
+  const customRoles = [
+    {
+      id: "1",
+      name: "Facility Manager",
+      description: "Manages daily operations and staff at facility level",
+      baseTemplate: "manager-like",
+      staffCount: 8,
+      permissions: {
+        canCreateDocuments: true,
+        canEditAllDocuments: false,
+        canApproveDocuments: true,
+        canDeleteDocuments: false,
+        canUploadFiles: true,
+        canViewAllDocuments: true,
+        canManageStaff: true,
+        canManageRoles: false,
+        canViewReports: true,
+        canConfigureAI: false,
+        canManageIntegrations: false
+      },
+      documentAccess: "all"
+    },
+    {
+      id: "2",
+      name: "Clinical Manager",
+      description: "Oversees clinical operations and quality standards",
+      baseTemplate: "manager-like",
+      staffCount: 5,
+      permissions: {
+        canCreateDocuments: true,
+        canEditAllDocuments: true,
+        canApproveDocuments: true,
+        canDeleteDocuments: false,
+        canUploadFiles: true,
+        canViewAllDocuments: true,
+        canManageStaff: false,
+        canManageRoles: false,
+        canViewReports: true,
+        canConfigureAI: false,
+        canManageIntegrations: false
+      },
+      documentAccess: "category-specific"
+    },
+    {
+      id: "3",
+      name: "Team Leader",
+      description: "Leads a team of support workers",
+      baseTemplate: "staff-like",
+      staffCount: 12,
+      permissions: {
+        canCreateDocuments: false,
+        canEditAllDocuments: false,
+        canApproveDocuments: false,
+        canDeleteDocuments: false,
+        canUploadFiles: false,
+        canViewAllDocuments: true,
+        canManageStaff: false,
+        canManageRoles: false,
+        canViewReports: false,
+        canConfigureAI: false,
+        canManageIntegrations: false
+      },
+      documentAccess: "all"
+    },
+    {
+      id: "4",
+      name: "Compliance Officer",
+      description: "Ensures regulatory compliance and documentation",
+      baseTemplate: "admin-like",
+      staffCount: 3,
+      permissions: {
+        canCreateDocuments: true,
+        canEditAllDocuments: true,
+        canApproveDocuments: true,
+        canDeleteDocuments: false,
+        canUploadFiles: true,
+        canViewAllDocuments: true,
+        canManageStaff: false,
+        canManageRoles: false,
+        canViewReports: true,
+        canConfigureAI: false,
+        canManageIntegrations: false
+      },
+      documentAccess: "all"
+    }
+  ];
+  const systemRoles = [
+    { id: "platform-admin", name: "Platform Admin", staffCount: 1, isSystem: true },
+    { id: "org-admin", name: "Org Admin", staffCount: 2, isSystem: true },
+    { id: "compliance-manager", name: "Compliance Manager", staffCount: 4, isSystem: true },
+    { id: "staff", name: "Staff", staffCount: 45, isSystem: true }
+  ];
+  const filteredRoles = customRoles.filter(
+    (role) => role.name.toLowerCase().includes(searchQuery.toLowerCase()) || role.description.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+  const getTemplateColor = (template) => {
+    switch (template) {
+      case "admin-like":
+        return "text-red-400 bg-red-500/20";
+      case "manager-like":
+        return "text-blue-400 bg-blue-500/20";
+      case "staff-like":
+        return "text-green-400 bg-green-500/20";
+      default:
+        return "text-gray-400 bg-gray-500/20";
+    }
+  };
+  const PermissionBadge = ({ enabled }) => enabled ? /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: CheckCircle, _fgS: "b9zb0", _fgB: 1779104381990, className: "w-4 h-4 text-green-400", "data-fg-b9zb0": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:157:7:4552:50:e:CheckCircle::::::C4Wc" }, void 0, false, {
+    fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+    lineNumber: 177,
+    columnNumber: 3
+  }, this) : /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: XCircle, _fgS: "b9zb1", _fgB: 1779104381990, className: "w-4 h-4 text-gray-600", "data-fg-b9zb1": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:159:7:4619:45:e:XCircle::::::BEhq" }, void 0, false, {
+    fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+    lineNumber: 179,
+    columnNumber: 3
+  }, this);
+  return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb2", _fgB: 1779104381990, _fgD: true, className: "space-y-6", "data-fg-b9zb2": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:164:5:4692:14434:e:div:xtetxtetxtetxtetxtx:1", children: [
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb4", _fgB: 1779104381990, className: "flex items-center justify-between", "data-fg-b9zb4": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:166:7:4747:611:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb5", _fgB: 1779104381990, "data-fg-b9zb5": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:167:9:4807:198:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h1", _fgS: "b9zb6", _fgB: 1779104381990, className: "text-3xl font-bold text-white mb-2", "data-fg-b9zb6": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:168:11:4823:71:e:h1:t", children: "Role Management" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+          lineNumber: 188,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "b9zb8", _fgB: 1779104381990, className: "text-gray-400", "data-fg-b9zb8": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:169:11:4905:85:e:p:t", children: "Create and manage custom roles for your organization" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+          lineNumber: 189,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+        lineNumber: 187,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(
+        FGCmp,
+        {
+          _fgT: "button",
+          _fgS: "b9zb10",
+          _fgB: 1779104381990,
+          onClick: () => setShowCreateModal(true),
+          className: "flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-teal-600 to-teal-500 text-white rounded-lg hover:shadow-lg transition-all font-medium",
+          "data-fg-b9zb10": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:171:9:5014:331:e:button:ete",
+          children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Plus, _fgS: "b9zb11", _fgB: 1779104381990, className: "w-4 h-4", "data-fg-b9zb11": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:175:11:5257:28:e:Plus::::::ISW" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+              lineNumber: 195,
+              columnNumber: 11
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b9zb12", _fgB: 1779104381990, "data-fg-b9zb12": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:176:11:5296:31:e:span:t", children: "Create Custom Role" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+              lineNumber: 196,
+              columnNumber: 11
+            }, this)
+          ]
+        },
+        void 0,
+        true,
+        {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+          lineNumber: 191,
+          columnNumber: 9
+        },
+        this
+      )
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+      lineNumber: 186,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb15", _fgB: 1779104381990, className: "grid grid-cols-1 md:grid-cols-4 gap-4", "data-fg-b9zb15": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:181:7:5386:1893:e:div:etetete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb16", _fgB: 1779104381990, className: "bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-white/10", "data-fg-b9zb16": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:182:9:5450:386:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb17", _fgB: 1779104381990, className: "flex items-center justify-between mb-2", "data-fg-b9zb17": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:183:11:5545:196:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "b9zb18", _fgB: 1779104381990, className: "text-gray-400 text-sm", "data-fg-b9zb18": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:184:13:5614:53:e:p:t", children: "System Roles" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+            lineNumber: 204,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Shield, _fgS: "b9zb20", _fgB: 1779104381990, className: "w-5 h-5 text-blue-400", "data-fg-b9zb20": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:185:13:5680:44:e:Shield::::::B8zf" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+            lineNumber: 205,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+          lineNumber: 203,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "b9zb21", _fgB: 1779104381990, className: "text-3xl font-bold text-white", "data-fg-b9zb21": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:187:11:5752:69:e:p:x", children: systemRoles.length }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+          lineNumber: 207,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+        lineNumber: 202,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb23", _fgB: 1779104381990, className: "bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-white/10", "data-fg-b9zb23": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:189:9:5845:385:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb24", _fgB: 1779104381990, className: "flex items-center justify-between mb-2", "data-fg-b9zb24": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:190:11:5940:195:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "b9zb25", _fgB: 1779104381990, className: "text-gray-400 text-sm", "data-fg-b9zb25": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:191:13:6009:53:e:p:t", children: "Custom Roles" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+            lineNumber: 211,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Users, _fgS: "b9zb27", _fgB: 1779104381990, className: "w-5 h-5 text-teal-400", "data-fg-b9zb27": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:192:13:6075:43:e:Users::::::DV8M" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+            lineNumber: 212,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+          lineNumber: 210,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "b9zb28", _fgB: 1779104381990, className: "text-3xl font-bold text-white", "data-fg-b9zb28": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:194:11:6146:69:e:p:x", children: customRoles.length }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+          lineNumber: 214,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+        lineNumber: 209,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb30", _fgB: 1779104381990, className: "bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-white/10", "data-fg-b9zb30": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:196:9:6239:476:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb31", _fgB: 1779104381990, className: "flex items-center justify-between mb-2", "data-fg-b9zb31": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:197:11:6334:195:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "b9zb32", _fgB: 1779104381990, className: "text-gray-400 text-sm", "data-fg-b9zb32": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:198:13:6403:52:e:p:t", children: "Total Staff" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+            lineNumber: 218,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Users, _fgS: "b9zb34", _fgB: 1779104381990, className: "w-5 h-5 text-green-400", "data-fg-b9zb34": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:199:13:6468:44:e:Users::::::DV8M" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+            lineNumber: 219,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+          lineNumber: 217,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "b9zb35", _fgB: 1779104381990, className: "text-3xl font-bold text-white", "data-fg-b9zb35": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:201:11:6540:160:e:p:x", children: systemRoles.reduce((sum, r) => sum + r.staffCount, 0) + customRoles.reduce((sum, r) => sum + r.staffCount, 0) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+          lineNumber: 221,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+        lineNumber: 216,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb37", _fgB: 1779104381990, className: "bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-white/10", "data-fg-b9zb37": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:203:9:6724:542:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb38", _fgB: 1779104381990, className: "flex items-center justify-between mb-2", "data-fg-b9zb38": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:204:11:6819:203:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "b9zb39", _fgB: 1779104381990, className: "text-gray-400 text-sm", "data-fg-b9zb39": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:205:13:6888:59:e:p:t", children: "Avg Staff per Role" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+            lineNumber: 225,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Users, _fgS: "b9zb41", _fgB: 1779104381990, className: "w-5 h-5 text-purple-400", "data-fg-b9zb41": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:206:13:6960:45:e:Users::::::DV8M" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+            lineNumber: 226,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+          lineNumber: 224,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "b9zb42", _fgB: 1779104381990, className: "text-3xl font-bold text-white", "data-fg-b9zb42": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:208:11:7033:218:e:p:x", children: Math.round((systemRoles.reduce((sum, r) => sum + r.staffCount, 0) + customRoles.reduce((sum, r) => sum + r.staffCount, 0)) / (systemRoles.length + customRoles.length)) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+          lineNumber: 228,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+        lineNumber: 223,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+      lineNumber: 201,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb45", _fgB: 1779104381990, className: "bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-white/10", "data-fg-b9zb45": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:213:7:7314:991:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "b9zb46", _fgB: 1779104381990, className: "text-lg font-semibold text-white mb-4 flex items-center gap-2", "data-fg-b9zb46": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:214:9:7407:182:e:h3:et", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Shield, _fgS: "b9zb47", _fgB: 1779104381990, className: "w-5 h-5 text-blue-400", "data-fg-b9zb47": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:215:11:7496:44:e:Shield::::::B8zf" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+          lineNumber: 235,
+          columnNumber: 11
+        }, this),
+        "System Roles (Read-Only)"
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+        lineNumber: 234,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb49", _fgB: 1779104381990, className: "grid grid-cols-4 gap-4", "data-fg-b9zb49": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:218:9:7598:694:e:div:x", children: systemRoles.map(
+        (role) => /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb51", _fgB: 1779104381990, className: "p-4 bg-white/5 border border-white/10 rounded-lg", "data-fg-b9zb51": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:220:13:7690:573:e:div:etete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb52", _fgB: 1779104381990, className: "flex items-center justify-between mb-2", "data-fg-b9zb52": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:221:15:7785:214:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b9zb53", _fgB: 1779104381990, className: "text-white font-medium", "data-fg-b9zb53": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:222:17:7858:59:e:span:x", children: role.name }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+              lineNumber: 242,
+              columnNumber: 17
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Shield, _fgS: "b9zb55", _fgB: 1779104381990, className: "w-4 h-4 text-gray-400", "data-fg-b9zb55": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:223:17:7934:44:e:Shield::::::B8zf" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+              lineNumber: 243,
+              columnNumber: 17
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+            lineNumber: 241,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb56", _fgB: 1779104381990, className: "text-xs text-gray-400", "data-fg-b9zb56": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:225:15:8014:76:e:div:xt", children: [
+            role.staffCount,
+            " staff members"
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+            lineNumber: 245,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb59", _fgB: 1779104381990, className: "mt-2 px-2 py-1 bg-gray-500/20 text-gray-400 text-xs rounded inline-block", "data-fg-b9zb59": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:226:15:8105:139:e:div:t", children: "System Role" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+            lineNumber: 246,
+            columnNumber: 15
+          }, this)
+        ] }, role.id, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+          lineNumber: 240,
+          columnNumber: 11
+        }, this)
+      ) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+        lineNumber: 238,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+      lineNumber: 233,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb62", _fgB: 1779104381990, className: "bg-white/5 backdrop-blur-lg rounded-2xl border border-white/10", "data-fg-b9zb62": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:235:7:8340:7573:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb63", _fgB: 1779104381990, className: "p-6 border-b border-white/10", "data-fg-b9zb63": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:236:9:8429:896:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb64", _fgB: 1779104381990, className: "flex items-center justify-between", "data-fg-b9zb64": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:237:11:8486:824:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "b9zb65", _fgB: 1779104381990, className: "text-lg font-semibold text-white flex items-center gap-2", "data-fg-b9zb65": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:238:13:8550:199:e:h3:etxt", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Users, _fgS: "b9zb66", _fgB: 1779104381990, className: "w-5 h-5 text-teal-400", "data-fg-b9zb66": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:239:15:8638:43:e:Users::::::DV8M" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+            lineNumber: 259,
+            columnNumber: 15
+          }, this),
+          "Custom Roles (",
+          customRoles.length,
+          ")"
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+          lineNumber: 258,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb70", _fgB: 1779104381990, className: "relative", "data-fg-b9zb70": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:242:13:8762:531:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Search, _fgS: "b9zb71", _fgB: 1779104381990, className: "absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400", "data-fg-b9zb71": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:243:15:8803:85:e:Search::::::B9rK" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+            lineNumber: 263,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "input",
+              _fgS: "b9zb72",
+              _fgB: 1779104381990,
+              type: "text",
+              value: searchQuery,
+              onChange: (e) => setSearchQuery(e.target.value),
+              placeholder: "Search roles...",
+              className: "pl-10 pr-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white text-sm placeholder-gray-500 focus:outline-none focus:border-teal-500/50",
+              "data-fg-b9zb72": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:244:15:8903:371:e:input"
+            },
+            void 0,
+            false,
+            {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+              lineNumber: 264,
+              columnNumber: 15
+            },
+            this
+          )
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+          lineNumber: 262,
+          columnNumber: 13
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+        lineNumber: 257,
+        columnNumber: 11
+      }, this) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+        lineNumber: 256,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb73", _fgB: 1779104381990, className: "p-6 space-y-4", "data-fg-b9zb73": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:255:9:9335:6565:e:div:x", children: filteredRoles.map(
+        (role) => /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb75", _fgB: 1779104381990, className: "border border-white/10 rounded-lg overflow-hidden hover:border-teal-500/30 transition-all", "data-fg-b9zb75": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:257:13:9420:6451:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb76", _fgB: 1779104381990, className: "p-4 bg-white/5", "data-fg-b9zb76": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:258:15:9556:6296:e:div:etxte", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb77", _fgB: 1779104381990, className: "flex items-start justify-between mb-3", "data-fg-b9zb77": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:259:17:9605:2454:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb78", _fgB: 1779104381990, className: "flex-1", "data-fg-b9zb78": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:260:19:9679:1060:e:div:etete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb79", _fgB: 1779104381990, className: "flex items-center gap-3 mb-2", "data-fg-b9zb79": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:261:21:9724:387:e:div:ete", children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h4", _fgS: "b9zb80", _fgB: 1779104381990, className: "text-white font-semibold text-lg", "data-fg-b9zb80": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:262:23:9793:65:e:h4:x", children: role.name }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                  lineNumber: 282,
+                  columnNumber: 23
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b9zb82", _fgB: 1779104381990, className: `px-2 py-1 rounded text-xs font-medium ${getTemplateColor(role.baseTemplate)}`, "data-fg-b9zb82": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:263:23:9881:203:e:span:x", children: role.baseTemplate.replace("-", " ").toUpperCase() }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                  lineNumber: 283,
+                  columnNumber: 23
+                }, this)
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                lineNumber: 281,
+                columnNumber: 21
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "b9zb84", _fgB: 1779104381990, className: "text-sm text-gray-400 mb-2", "data-fg-b9zb84": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:267:21:10132:64:e:p:x", children: role.description }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                lineNumber: 287,
+                columnNumber: 21
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb86", _fgB: 1779104381990, className: "flex items-center gap-4 text-xs text-gray-500", "data-fg-b9zb86": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:268:21:10217:497:e:div:ete", children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b9zb87", _fgB: 1779104381990, className: "flex items-center gap-1", "data-fg-b9zb87": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:269:23:10303:182:e:span:etxt", children: [
+                  /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Users, _fgS: "b9zb88", _fgB: 1779104381990, className: "w-3 h-3", "data-fg-b9zb88": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:270:25:10370:29:e:Users::::::DV8M" }, void 0, false, {
+                    fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                    lineNumber: 290,
+                    columnNumber: 25
+                  }, this),
+                  role.staffCount,
+                  " staff members"
+                ] }, void 0, true, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                  lineNumber: 289,
+                  columnNumber: 23
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b9zb91", _fgB: 1779104381990, className: "capitalize", "data-fg-b9zb91": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:273:23:10508:179:e:span:te", children: [
+                  "Document Access: ",
+                  /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b9zb93", _fgB: 1779104381990, className: "text-teal-400", "data-fg-b9zb93": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:274:42:10579:78:e:span:x", children: role.documentAccess.replace("-", " ") }, void 0, false, {
+                    fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                    lineNumber: 294,
+                    columnNumber: 42
+                  }, this)
+                ] }, void 0, true, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                  lineNumber: 293,
+                  columnNumber: 23
+                }, this)
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                lineNumber: 288,
+                columnNumber: 21
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+              lineNumber: 280,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb95", _fgB: 1779104381990, className: "flex items-center gap-2", "data-fg-b9zb95": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:278:19:10758:1278:e:div:etete", children: [
+              /* @__PURE__ */ jsxDEV(
+                FGCmp,
+                {
+                  _fgT: "button",
+                  _fgS: "b9zb96",
+                  _fgB: 1779104381990,
+                  onClick: () => setSelectedRole(role),
+                  className: "p-2 hover:bg-white/10 rounded transition-all",
+                  title: "Duplicate role",
+                  "data-fg-b9zb96": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:279:21:10820:308:e:button:e",
+                  children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Copy, _fgS: "b9zb97", _fgB: 1779104381990, className: "w-4 h-4 text-gray-400", "data-fg-b9zb97": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:284:23:11056:42:e:Copy::::::CsY9" }, void 0, false, {
+                    fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                    lineNumber: 304,
+                    columnNumber: 23
+                  }, this)
+                },
+                void 0,
+                false,
+                {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                  lineNumber: 299,
+                  columnNumber: 21
+                },
+                this
+              ),
+              /* @__PURE__ */ jsxDEV(
+                FGCmp,
+                {
+                  _fgT: "button",
+                  _fgS: "b9zb98",
+                  _fgB: 1779104381990,
+                  onClick: () => setSelectedRole(role),
+                  className: "p-2 hover:bg-white/10 rounded transition-all",
+                  title: "Edit role",
+                  "data-fg-b9zb98": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:286:21:11149:303:e:button:e",
+                  children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Edit, _fgS: "b9zb99", _fgB: 1779104381990, className: "w-4 h-4 text-blue-400", "data-fg-b9zb99": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:291:23:11380:42:e:Edit::::::C5F4" }, void 0, false, {
+                    fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                    lineNumber: 311,
+                    columnNumber: 23
+                  }, this)
+                },
+                void 0,
+                false,
+                {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                  lineNumber: 306,
+                  columnNumber: 21
+                },
+                this
+              ),
+              /* @__PURE__ */ jsxDEV(
+                FGCmp,
+                {
+                  _fgT: "button",
+                  _fgS: "b9zb100",
+                  _fgB: 1779104381990,
+                  onClick: () => {
+                    if (confirm(`Delete role "${role.name}"? This will reassign ${role.staffCount} staff members to another role.`)) {
+                      alert("Role deleted (mock action)");
+                    }
+                  },
+                  className: "p-2 hover:bg-white/10 rounded transition-all",
+                  title: "Delete role",
+                  "data-fg-b9zb100": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:293:21:11473:538:e:button:e",
+                  children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Trash2, _fgS: "b9zb101", _fgB: 1779104381990, className: "w-4 h-4 text-red-400", "data-fg-b9zb101": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:302:23:11938:43:e:Trash2::::::c98" }, void 0, false, {
+                    fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                    lineNumber: 322,
+                    columnNumber: 23
+                  }, this)
+                },
+                void 0,
+                false,
+                {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                  lineNumber: 313,
+                  columnNumber: 21
+                },
+                this
+              )
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+              lineNumber: 298,
+              columnNumber: 19
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+            lineNumber: 279,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb103", _fgB: 1779104381990, className: "bg-white/5 border border-white/10 rounded-lg p-4", "data-fg-b9zb103": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:308:17:12119:3712:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb104", _fgB: 1779104381990, className: "grid grid-cols-3 gap-4 text-xs", "data-fg-b9zb104": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:309:19:12204:3604:e:div:etete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb105", _fgB: 1779104381990, className: "space-y-2", "data-fg-b9zb105": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:310:21:12273:1260:e:div:etetetete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb106", _fgB: 1779104381990, className: "text-gray-400 font-semibold uppercase mb-2", "data-fg-b9zb106": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:311:23:12323:86:e:div:t", children: "Document Permissions" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                lineNumber: 331,
+                columnNumber: 23
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb108", _fgB: 1779104381990, className: "flex items-center justify-between", "data-fg-b9zb108": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:312:23:12432:250:e:div:ete", children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b9zb109", _fgB: 1779104381990, className: "text-gray-300", "data-fg-b9zb109": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:313:25:12508:55:e:span:t", children: "Create Documents" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                  lineNumber: 333,
+                  columnNumber: 25
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: PermissionBadge, _fgS: "b9zb111", _fgB: 1779104381990, enabled: role.permissions.canCreateDocuments, "data-fg-b9zb111": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:314:25:12588:65:e:PermissionBadge" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                  lineNumber: 334,
+                  columnNumber: 25
+                }, this)
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                lineNumber: 332,
+                columnNumber: 23
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb112", _fgB: 1779104381990, className: "flex items-center justify-between", "data-fg-b9zb112": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:316:23:12705:253:e:div:ete", children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b9zb113", _fgB: 1779104381990, className: "text-gray-300", "data-fg-b9zb113": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:317:25:12781:57:e:span:t", children: "Edit All Documents" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                  lineNumber: 337,
+                  columnNumber: 25
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: PermissionBadge, _fgS: "b9zb115", _fgB: 1779104381990, enabled: role.permissions.canEditAllDocuments, "data-fg-b9zb115": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:318:25:12863:66:e:PermissionBadge" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                  lineNumber: 338,
+                  columnNumber: 25
+                }, this)
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                lineNumber: 336,
+                columnNumber: 23
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb116", _fgB: 1779104381990, className: "flex items-center justify-between", "data-fg-b9zb116": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:320:23:12981:252:e:div:ete", children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b9zb117", _fgB: 1779104381990, className: "text-gray-300", "data-fg-b9zb117": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:321:25:13057:56:e:span:t", children: "Approve Documents" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                  lineNumber: 341,
+                  columnNumber: 25
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: PermissionBadge, _fgS: "b9zb119", _fgB: 1779104381990, enabled: role.permissions.canApproveDocuments, "data-fg-b9zb119": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:322:25:13138:66:e:PermissionBadge" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                  lineNumber: 342,
+                  columnNumber: 25
+                }, this)
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                lineNumber: 340,
+                columnNumber: 23
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb120", _fgB: 1779104381990, className: "flex items-center justify-between", "data-fg-b9zb120": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:324:23:13256:250:e:div:ete", children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b9zb121", _fgB: 1779104381990, className: "text-gray-300", "data-fg-b9zb121": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:325:25:13332:55:e:span:t", children: "Delete Documents" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                  lineNumber: 345,
+                  columnNumber: 25
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: PermissionBadge, _fgS: "b9zb123", _fgB: 1779104381990, enabled: role.permissions.canDeleteDocuments, "data-fg-b9zb123": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:326:25:13412:65:e:PermissionBadge" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                  lineNumber: 346,
+                  columnNumber: 25
+                }, this)
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                lineNumber: 344,
+                columnNumber: 23
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+              lineNumber: 330,
+              columnNumber: 21
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb124", _fgB: 1779104381990, className: "space-y-2", "data-fg-b9zb124": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:330:21:13555:1232:e:div:etetetete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb125", _fgB: 1779104381990, className: "text-gray-400 font-semibold uppercase mb-2", "data-fg-b9zb125": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:331:23:13605:84:e:div:t", children: "System Permissions" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                lineNumber: 351,
+                columnNumber: 23
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb127", _fgB: 1779104381990, className: "flex items-center justify-between", "data-fg-b9zb127": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:332:23:13712:242:e:div:ete", children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b9zb128", _fgB: 1779104381990, className: "text-gray-300", "data-fg-b9zb128": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:333:25:13788:51:e:span:t", children: "Upload Files" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                  lineNumber: 353,
+                  columnNumber: 25
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: PermissionBadge, _fgS: "b9zb130", _fgB: 1779104381990, enabled: role.permissions.canUploadFiles, "data-fg-b9zb130": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:334:25:13864:61:e:PermissionBadge" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                  lineNumber: 354,
+                  columnNumber: 25
+                }, this)
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                lineNumber: 352,
+                columnNumber: 23
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb131", _fgB: 1779104381990, className: "flex items-center justify-between", "data-fg-b9zb131": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:336:23:13977:253:e:div:ete", children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b9zb132", _fgB: 1779104381990, className: "text-gray-300", "data-fg-b9zb132": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:337:25:14053:57:e:span:t", children: "View All Documents" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                  lineNumber: 357,
+                  columnNumber: 25
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: PermissionBadge, _fgS: "b9zb134", _fgB: 1779104381990, enabled: role.permissions.canViewAllDocuments, "data-fg-b9zb134": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:338:25:14135:66:e:PermissionBadge" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                  lineNumber: 358,
+                  columnNumber: 25
+                }, this)
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                lineNumber: 356,
+                columnNumber: 23
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb135", _fgB: 1779104381990, className: "flex items-center justify-between", "data-fg-b9zb135": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:340:23:14253:242:e:div:ete", children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b9zb136", _fgB: 1779104381990, className: "text-gray-300", "data-fg-b9zb136": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:341:25:14329:51:e:span:t", children: "View Reports" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                  lineNumber: 361,
+                  columnNumber: 25
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: PermissionBadge, _fgS: "b9zb138", _fgB: 1779104381990, enabled: role.permissions.canViewReports, "data-fg-b9zb138": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:342:25:14405:61:e:PermissionBadge" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                  lineNumber: 362,
+                  columnNumber: 25
+                }, this)
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                lineNumber: 360,
+                columnNumber: 23
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb139", _fgB: 1779104381990, className: "flex items-center justify-between", "data-fg-b9zb139": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:344:23:14518:242:e:div:ete", children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b9zb140", _fgB: 1779104381990, className: "text-gray-300", "data-fg-b9zb140": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:345:25:14594:51:e:span:t", children: "Configure AI" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                  lineNumber: 365,
+                  columnNumber: 25
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: PermissionBadge, _fgS: "b9zb142", _fgB: 1779104381990, enabled: role.permissions.canConfigureAI, "data-fg-b9zb142": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:346:25:14670:61:e:PermissionBadge" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                  lineNumber: 366,
+                  columnNumber: 25
+                }, this)
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                lineNumber: 364,
+                columnNumber: 23
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+              lineNumber: 350,
+              columnNumber: 21
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb143", _fgB: 1779104381990, className: "space-y-2", "data-fg-b9zb143": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:350:21:14809:974:e:div:etetete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb144", _fgB: 1779104381990, className: "text-gray-400 font-semibold uppercase mb-2", "data-fg-b9zb144": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:351:23:14859:88:e:div:t", children: "Management Permissions" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                lineNumber: 371,
+                columnNumber: 23
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb146", _fgB: 1779104381990, className: "flex items-center justify-between", "data-fg-b9zb146": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:352:23:14970:242:e:div:ete", children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b9zb147", _fgB: 1779104381990, className: "text-gray-300", "data-fg-b9zb147": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:353:25:15046:51:e:span:t", children: "Manage Staff" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                  lineNumber: 373,
+                  columnNumber: 25
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: PermissionBadge, _fgS: "b9zb149", _fgB: 1779104381990, enabled: role.permissions.canManageStaff, "data-fg-b9zb149": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:354:25:15122:61:e:PermissionBadge" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                  lineNumber: 374,
+                  columnNumber: 25
+                }, this)
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                lineNumber: 372,
+                columnNumber: 23
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb150", _fgB: 1779104381990, className: "flex items-center justify-between", "data-fg-b9zb150": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:356:23:15235:242:e:div:ete", children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b9zb151", _fgB: 1779104381990, className: "text-gray-300", "data-fg-b9zb151": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:357:25:15311:51:e:span:t", children: "Manage Roles" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                  lineNumber: 377,
+                  columnNumber: 25
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: PermissionBadge, _fgS: "b9zb153", _fgB: 1779104381990, enabled: role.permissions.canManageRoles, "data-fg-b9zb153": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:358:25:15387:61:e:PermissionBadge" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                  lineNumber: 378,
+                  columnNumber: 25
+                }, this)
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                lineNumber: 376,
+                columnNumber: 23
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb154", _fgB: 1779104381990, className: "flex items-center justify-between", "data-fg-b9zb154": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:360:23:15500:256:e:div:ete", children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b9zb155", _fgB: 1779104381990, className: "text-gray-300", "data-fg-b9zb155": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:361:25:15576:58:e:span:t", children: "Manage Integrations" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                  lineNumber: 381,
+                  columnNumber: 25
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: PermissionBadge, _fgS: "b9zb157", _fgB: 1779104381990, enabled: role.permissions.canManageIntegrations, "data-fg-b9zb157": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:362:25:15659:68:e:PermissionBadge" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                  lineNumber: 382,
+                  columnNumber: 25
+                }, this)
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+                lineNumber: 380,
+                columnNumber: 23
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+              lineNumber: 370,
+              columnNumber: 21
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+            lineNumber: 329,
+            columnNumber: 19
+          }, this) }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+            lineNumber: 328,
+            columnNumber: 17
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+          lineNumber: 278,
+          columnNumber: 15
+        }, this) }, role.id, false, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+          lineNumber: 277,
+          columnNumber: 11
+        }, this)
+      ) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+        lineNumber: 275,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+      lineNumber: 255,
+      columnNumber: 7
+    }, this),
+    showCreateModal && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb160", _fgB: 1779104381990, className: "fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm", "data-fg-b9zb160": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:375:9:15988:3118:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb161", _fgB: 1779104381990, className: "bg-gradient-to-br from-[#0B1F2A] to-[#0d2331] border border-white/10 rounded-xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto", "data-fg-b9zb161": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:376:11:16097:2994:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb162", _fgB: 1779104381990, className: "p-6 border-b border-white/10", "data-fg-b9zb162": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:377:13:16264:252:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h2", _fgS: "b9zb163", _fgB: 1779104381990, className: "text-xl font-semibold text-white", "data-fg-b9zb163": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:378:15:16325:72:e:h2:t", children: "Create Custom Role" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+          lineNumber: 398,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "b9zb165", _fgB: 1779104381990, className: "text-sm text-gray-400 mt-1", "data-fg-b9zb165": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:379:15:16412:85:e:p:t", children: "Define a new role for your organization" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+          lineNumber: 399,
+          columnNumber: 15
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+        lineNumber: 397,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb167", _fgB: 1779104381990, className: "p-6 space-y-6", "data-fg-b9zb167": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:382:13:16530:2544:e:div:etetete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb168", _fgB: 1779104381990, "data-fg-b9zb168": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:383:15:16576:445:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "b9zb169", _fgB: 1779104381990, className: "block text-sm font-medium text-gray-300 mb-2", "data-fg-b9zb169": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:384:17:16598:83:e:label:t", children: "Role Name *" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+            lineNumber: 404,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "input",
+              _fgS: "b9zb171",
+              _fgB: 1779104381990,
+              type: "text",
+              placeholder: "e.g., Facility Manager, Service Coordinator...",
+              className: "w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-teal-500/50",
+              "data-fg-b9zb171": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:385:17:16698:302:e:input"
+            },
+            void 0,
+            false,
+            {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+              lineNumber: 405,
+              columnNumber: 17
+            },
+            this
+          )
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+          lineNumber: 403,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb172", _fgB: 1779104381990, "data-fg-b9zb172": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:392:15:17037:450:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "b9zb173", _fgB: 1779104381990, className: "block text-sm font-medium text-gray-300 mb-2", "data-fg-b9zb173": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:393:17:17059:83:e:label:t", children: "Description" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+            lineNumber: 413,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "textarea",
+              _fgS: "b9zb175",
+              _fgB: 1779104381990,
+              placeholder: "Describe the role's responsibilities...",
+              rows: 3,
+              className: "w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-teal-500/50 resize-none",
+              "data-fg-b9zb175": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:394:17:17159:307:e:textarea"
+            },
+            void 0,
+            false,
+            {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+              lineNumber: 414,
+              columnNumber: 17
+            },
+            this
+          )
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+          lineNumber: 412,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb176", _fgB: 1779104381990, "data-fg-b9zb176": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:401:15:17503:785:e:div:etete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "b9zb177", _fgB: 1779104381990, className: "block text-sm font-medium text-gray-300 mb-2", "data-fg-b9zb177": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:402:17:17525:87:e:label:t", children: "Base Template *" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+            lineNumber: 422,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "select", _fgS: "b9zb179", _fgB: 1779104381990, className: "w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-teal-500/50", "data-fg-b9zb179": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:403:17:17629:475:e:select:etetete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "b9zb180", _fgB: 1779104381990, value: "", "data-fg-b9zb180": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:404:19:17785:51:e:option:t", children: "Select a base template..." }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+              lineNumber: 424,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "b9zb182", _fgB: 1779104381990, value: "admin-like", "data-fg-b9zb182": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:405:19:17855:60:e:option:t", children: "Admin-like (Full Access)" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+              lineNumber: 425,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "b9zb184", _fgB: 1779104381990, value: "manager-like", "data-fg-b9zb184": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:406:19:17934:67:e:option:t", children: "Manager-like (Limited Access)" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+              lineNumber: 426,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "b9zb186", _fgB: 1779104381990, value: "staff-like", "data-fg-b9zb186": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:407:19:18020:58:e:option:t", children: "Staff-like (Read-Only)" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+              lineNumber: 427,
+              columnNumber: 19
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+            lineNumber: 423,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "b9zb188", _fgB: 1779104381990, className: "text-xs text-gray-400 mt-2", "data-fg-b9zb188": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:409:17:18121:146:e:p:t", children: "The template provides default permissions that you can customize" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+            lineNumber: 429,
+            columnNumber: 17
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+          lineNumber: 421,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b9zb190", _fgB: 1779104381990, className: "flex gap-3", "data-fg-b9zb190": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:414:15:18304:751:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "button",
+              _fgS: "b9zb191",
+              _fgB: 1779104381990,
+              onClick: () => setShowCreateModal(false),
+              className: "flex-1 px-4 py-3 bg-white/5 border border-white/10 text-white rounded-lg hover:bg-white/10 transition-all",
+              "data-fg-b9zb191": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:415:17:18349:272:e:button:t",
+              children: "Cancel"
+            },
+            void 0,
+            false,
+            {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+              lineNumber: 435,
+              columnNumber: 17
+            },
+            this
+          ),
+          /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "button",
+              _fgS: "b9zb193",
+              _fgB: 1779104381990,
+              onClick: () => {
+                alert("Role created (mock action)");
+                setShowCreateModal(false);
+              },
+              className: "flex-1 px-4 py-3 bg-gradient-to-r from-teal-600 to-teal-500 text-white rounded-lg hover:shadow-lg transition-all font-medium",
+              "data-fg-b9zb193": "618.71:768.2175:/src/app/pages/org-admin/RoleManagement.tsx:421:17:18638:396:e:button:t",
+              children: "Create Role"
+            },
+            void 0,
+            false,
+            {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+              lineNumber: 441,
+              columnNumber: 17
+            },
+            this
+          )
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+          lineNumber: 434,
+          columnNumber: 15
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+        lineNumber: 402,
+        columnNumber: 13
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+      lineNumber: 396,
+      columnNumber: 11
+    }, this) }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+      lineNumber: 395,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx",
+    lineNumber: 184,
+    columnNumber: 5
+  }, this);
+}
+_s(RoleManagement, "zqFKxnBtCrAIXtEFGWXicfscWGM=");
+_c = RoleManagement;
+var _c;
+$RefreshReg$(_c, "RoleManagement");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/workspaces/default/code/src/app/pages/org-admin/RoleManagement.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,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LDBEQUFFLFdBQVUsOEJBQTJCLHlHQUFDLGdGQUF6QztBQUFBO0FBQUE7QUFBQTtBQUFBLGlCQUVBO0FBQUEsYUFWRjtBQUFBO0FBQUE7QUFBQTtBQUFBLGVBV0E7QUFBQSxRQUVBLHVCQUFDLDREQUFJLFdBQVUsY0FBVyw2R0FDeEI7QUFBQTtBQUFBLFlBQUM7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLGNBQ0MsU0FBUyxNQUFNQyxtQkFBbUIsS0FBSztBQUFBLGNBQ3ZDLFdBQVU7QUFBQSxjQUNiO0FBQUEsY0FBQztBQUFBO0FBQUEsWUFIQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUEsVUFLQTtBQUFBLFVBQ0E7QUFBQSxZQUFDO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQSxjQUNDLFNBQVMsTUFBTTtBQUNiOEMsc0JBQU0sNEJBQTRCO0FBQ2xDOUMsbUNBQW1CLEtBQUs7QUFBQSxjQUMxQjtBQUFBLGNBQ0EsV0FBVTtBQUFBLGNBQ2I7QUFBQSxjQUFDO0FBQUE7QUFBQSxZQU5BO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQSxVQVFBO0FBQUEsYUFmRjtBQUFBO0FBQUE7QUFBQTtBQUFBLGVBZ0JBO0FBQUEsV0FoREY7QUFBQTtBQUFBO0FBQUE7QUFBQSxhQWlEQTtBQUFBLFNBdkRGO0FBQUE7QUFBQTtBQUFBO0FBQUEsV0F3REEsS0F6REY7QUFBQTtBQUFBO0FBQUE7QUFBQSxXQTBEQTtBQUFBLE9BN1FKO0FBQUE7QUFBQTtBQUFBO0FBQUEsU0ErUUE7QUFFSjtBQUFBSixHQWpad0JELGdCQUFjO0FBQUFvRCxLQUFkcEQ7QUFBYyxJQUFBb0Q7QUFBQUMsYUFBQUQsSUFBQSIsIm5hbWVzIjpbInVzZVN0YXRlIiwiVXNlcnMiLCJQbHVzIiwiRWRpdCIsIlRyYXNoMiIsIlNoaWVsZCIsIkNoZWNrQ2lyY2xlIiwiWENpcmNsZSIsIkNvcHkiLCJTZWFyY2giLCJSb2xlTWFuYWdlbWVudCIsIl9zIiwic2VhcmNoUXVlcnkiLCJzZXRTZWFyY2hRdWVyeSIsInNob3dDcmVhdGVNb2RhbCIsInNldFNob3dDcmVhdGVNb2RhbCIsInNlbGVjdGVkUm9sZSIsInNldFNlbGVjdGVkUm9sZSIsImN1c3RvbVJvbGVzIiwiaWQiLCJuYW1lIiwiZGVzY3JpcHRpb24iLCJiYXNlVGVtcGxhdGUiLCJzdGFmZkNvdW50IiwicGVybWlzc2lvbnMiLCJjYW5DcmVhdGVEb2N1bWVudHMiLCJjYW5FZGl0QWxsRG9jdW1lbnRzIiwiY2FuQXBwcm92ZURvY3VtZW50cyIsImNhbkRlbGV0ZURvY3VtZW50cyIsImNhblVwbG9hZEZpbGVzIiwiY2FuVmlld0FsbERvY3VtZW50cyIsImNhbk1hbmFnZVN0YWZmIiwiY2FuTWFuYWdlUm9sZXMiLCJjYW5WaWV3UmVwb3J0cyIsImNhbkNvbmZpZ3VyZUFJIiwiY2FuTWFuYWdlSW50ZWdyYXRpb25zIiwiZG9jdW1lbnRBY2Nlc3MiLCJzeXN0ZW1Sb2xlcyIsImlzU3lzdGVtIiwiZmlsdGVyZWRSb2xlcyIsImZpbHRlciIsInJvbGUiLCJ0b0xvd2VyQ2FzZSIsImluY2x1ZGVzIiwiZ2V0VGVtcGxhdGVDb2xvciIsInRlbXBsYXRlIiwiUGVybWlzc2lvbkJhZGdlIiwiZW5hYmxlZCIsImxlbmd0aCIsInJlZHVjZSIsInN1bSIsInIiLCJNYXRoIiwicm91bmQiLCJtYXAiLCJlIiwidGFyZ2V0IiwidmFsdWUiLCJyZXBsYWNlIiwidG9VcHBlckNhc2UiLCJjb25maXJtIiwiYWxlcnQiLCJfYyIsIiRSZWZyZXNoUmVnJCJdLCJpZ25vcmVMaXN0IjpbXSwic291cmNlcyI6WyJSb2xlTWFuYWdlbWVudC50c3giXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgdXNlU3RhdGUgfSBmcm9tICdyZWFjdCc7XG5pbXBvcnQge1xuICBVc2VycyxcbiAgUGx1cyxcbiAgRWRpdCxcbiAgVHJhc2gyLFxuICBTaGllbGQsXG4gIENoZWNrQ2lyY2xlLFxuICBYQ2lyY2xlLFxuICBDb3B5LFxuICBTZWFyY2gsXG59IGZyb20gJ2x1Y2lkZS1yZWFjdCc7XG5cbmludGVyZmFjZSBDdXN0b21Sb2xlIHtcbiAgaWQ6IHN0cmluZztcbiAgbmFtZTogc3RyaW5nO1xuICBkZXNjcmlwdGlvbjogc3RyaW5nO1xuICBiYXNlVGVtcGxhdGU6ICdhZG1pbi1saWtlJyB8ICdtYW5hZ2VyLWxpa2UnIHwgJ3N0YWZmLWxpa2UnO1xuICBzdGFmZkNvdW50OiBudW1iZXI7XG4gIHBlcm1pc3Npb25zOiB7XG4gICAgY2FuQ3JlYXRlRG9jdW1lbnRzOiBib29sZWFuO1xuICAgIGNhbkVkaXRBbGxEb2N1bWVudHM6IGJvb2xlYW47XG4gICAgY2FuQXBwcm92ZURvY3VtZW50czogYm9vbGVhbjtcbiAgICBjYW5EZWxldGVEb2N1bWVudHM6IGJvb2xlYW47XG4gICAgY2FuVXBsb2FkRmlsZXM6IGJvb2xlYW47XG4gICAgY2FuVmlld0FsbERvY3VtZW50czogYm9vbGVhbjtcbiAgICBjYW5NYW5hZ2VTdGFmZjogYm9vbGVhbjtcbiAgICBjYW5NYW5hZ2VSb2xlczogYm9vbGVhbjtcbiAgICBjYW5WaWV3UmVwb3J0czogYm9vbGVhbjtcbiAgICBjYW5Db25maWd1cmVBSTogYm9vbGVhbjtcbiAgICBjYW5NYW5hZ2VJbnRlZ3JhdGlvbnM6IGJvb2xlYW47XG4gIH07XG4gIGRvY3VtZW50QWNjZXNzOiAnYWxsJyB8ICdjYXRlZ29yeS1zcGVjaWZpYycgfCAnYXNzaWduZWQtb25seSc7XG59XG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIFJvbGVNYW5hZ2VtZW50KCkge1xuICBjb25zdCBbc2VhcmNoUXVlcnksIHNldFNlYXJjaFF1ZXJ5XSA9IHVzZVN0YXRlKCcnKTtcbiAgY29uc3QgW3Nob3dDcmVhdGVNb2RhbCwgc2V0U2hvd0NyZWF0ZU1vZGFsXSA9IHVzZVN0YXRlKGZhbHNlKTtcbiAgY29uc3QgW3NlbGVjdGVkUm9sZSwgc2V0U2VsZWN0ZWRSb2xlXSA9IHVzZVN0YXRlPEN1c3RvbVJvbGUgfCBudWxsPihudWxsKTtcblxuICAvLyBNb2NrIGRhdGEgLSBDdXN0b20gUm9sZXNcbiAgY29uc3QgY3VzdG9tUm9sZXM6IEN1c3RvbVJvbGVbXSA9IFtcbiAgICB7XG4gICAgICBpZDogJzEnLFxuICAgICAgbmFtZTogJ0ZhY2lsaXR5IE1hbmFnZXInLFxuICAgICAgZGVzY3JpcHRpb246ICdNYW5hZ2VzIGRhaWx5IG9wZXJhdGlvbnMgYW5kIHN0YWZmIGF0IGZhY2lsaXR5IGxldmVsJyxcbiAgICAgIGJhc2VUZW1wbGF0ZTogJ21hbmFnZXItbGlrZScsXG4gICAgICBzdGFmZkNvdW50OiA4LFxuICAgICAgcGVybWlzc2lvbnM6IHtcbiAgICAgICAgY2FuQ3JlYXRlRG9jdW1lbnRzOiB0cnVlLFxuICAgICAgICBjYW5FZGl0QWxsRG9jdW1lbnRzOiBmYWxzZSxcbiAgICAgICAgY2FuQXBwcm92ZURvY3VtZW50czogdHJ1ZSxcbiAgICAgICAgY2FuRGVsZXRlRG9jdW1lbnRzOiBmYWxzZSxcbiAgICAgICAgY2FuVXBsb2FkRmlsZXM6IHRydWUsXG4gICAgICAgIGNhblZpZXdBbGxEb2N1bWVudHM6IHRydWUsXG4gICAgICAgIGNhbk1hbmFnZVN0YWZmOiB0cnVlLFxuICAgICAgICBjYW5NYW5hZ2VSb2xlczogZmFsc2UsXG4gICAgICAgIGNhblZpZXdSZXBvcnRzOiB0cnVlLFxuICAgICAgICBjYW5Db25maWd1cmVBSTogZmFsc2UsXG4gICAgICAgIGNhbk1hbmFnZUludGVncmF0aW9uczogZmFsc2UsXG4gICAgICB9LFxuICAgICAgZG9jdW1lbnRBY2Nlc3M6ICdhbGwnLFxuICAgIH0sXG4gICAge1xuICAgICAgaWQ6ICcyJyxcbiAgICAgIG5hbWU6ICdDbGluaWNhbCBNYW5hZ2VyJyxcbiAgICAgIGRlc2NyaXB0aW9uOiAnT3ZlcnNlZXMgY2xpbmljYWwgb3BlcmF0aW9ucyBhbmQgcXVhbGl0eSBzdGFuZGFyZHMnLFxuICAgICAgYmFzZVRlbXBsYXRlOiAnbWFuYWdlci1saWtlJyxcbiAgICAgIHN0YWZmQ291bnQ6IDUsXG4gICAgICBwZXJtaXNzaW9uczoge1xuICAgICAgICBjYW5DcmVhdGVEb2N1bWVudHM6IHRydWUsXG4gICAgICAgIGNhbkVkaXRBbGxEb2N1bWVudHM6IHRydWUsXG4gICAgICAgIGNhbkFwcHJvdmVEb2N1bWVudHM6IHRydWUsXG4gICAgICAgIGNhbkRlbGV0ZURvY3VtZW50czogZmFsc2UsXG4gICAgICAgIGNhblVwbG9hZEZpbGVzOiB0cnVlLFxuICAgICAgICBjYW5WaWV3QWxsRG9jdW1lbnRzOiB0cnVlLFxuICAgICAgICBjYW5NYW5hZ2VTdGFmZjogZmFsc2UsXG4gICAgICAgIGNhbk1hbmFnZVJvbGVzOiBmYWxzZSxcbiAgICAgICAgY2FuVmlld1JlcG9ydHM6IHRydWUsXG4gICAgICAgIGNhbkNvbmZpZ3VyZUFJOiBmYWxzZSxcbiAgICAgICAgY2FuTWFuYWdlSW50ZWdyYXRpb25zOiBmYWxzZSxcbiAgICAgIH0sXG4gICAgICBkb2N1bWVudEFjY2VzczogJ2NhdGVnb3J5LXNwZWNpZmljJyxcbiAgICB9LFxuICAgIHtcbiAgICAgIGlkOiAnMycsXG4gICAgICBuYW1lOiAnVGVhbSBMZWFkZXInLFxuICAgICAgZGVzY3JpcHRpb246ICdMZWFkcyBhIHRlYW0gb2Ygc3VwcG9ydCB3b3JrZXJzJyxcbiAgICAgIGJhc2VUZW1wbGF0ZTogJ3N0YWZmLWxpa2UnLFxuICAgICAgc3RhZmZDb3VudDogMTIsXG4gICAgICBwZXJtaXNzaW9uczoge1xuICAgICAgICBjYW5DcmVhdGVEb2N1bWVudHM6IGZhbHNlLFxuICAgICAgICBjYW5FZGl0QWxsRG9jdW1lbnRzOiBmYWxzZSxcbiAgICAgICAgY2FuQXBwcm92ZURvY3VtZW50czogZmFsc2UsXG4gICAgICAgIGNhbkRlbGV0ZURvY3VtZW50czogZmFsc2UsXG4gICAgICAgIGNhblVwbG9hZEZpbGVzOiBmYWxzZSxcbiAgICAgICAgY2FuVmlld0FsbERvY3VtZW50czogdHJ1ZSxcbiAgICAgICAgY2FuTWFuYWdlU3RhZmY6IGZhbHNlLFxuICAgICAgICBjYW5NYW5hZ2VSb2xlczogZmFsc2UsXG4gICAgICAgIGNhblZpZXdSZXBvcnRzOiBmYWxzZSxcbiAgICAgICAgY2FuQ29uZmlndXJlQUk6IGZhbHNlLFxuICAgICAgICBjYW5NYW5hZ2VJbnRlZ3JhdGlvbnM6IGZhbHNlLFxuICAgICAgfSxcbiAgICAgIGRvY3VtZW50QWNjZXNzOiAnYWxsJyxcbiAgICB9LFxuICAgIHtcbiAgICAgIGlkOiAnNCcsXG4gICAgICBuYW1lOiAnQ29tcGxpYW5jZSBPZmZpY2VyJyxcbiAgICAgIGRlc2NyaXB0aW9uOiAnRW5zdXJlcyByZWd1bGF0b3J5IGNvbXBsaWFuY2UgYW5kIGRvY3VtZW50YXRpb24nLFxuICAgICAgYmFzZVRlbXBsYXRlOiAnYWRtaW4tbGlrZScsXG4gICAgICBzdGFmZkNvdW50OiAzLFxuICAgICAgcGVybWlzc2lvbnM6IHtcbiAgICAgICAgY2FuQ3JlYXRlRG9jdW1lbnRzOiB0cnVlLFxuICAgICAgICBjYW5FZGl0QWxsRG9jdW1lbnRzOiB0cnVlLFxuICAgICAgICBjYW5BcHByb3ZlRG9jdW1lbnRzOiB0cnVlLFxuICAgICAgICBjYW5EZWxldGVEb2N1bWVudHM6IGZhbHNlLFxuICAgICAgICBjYW5VcGxvYWRGaWxlczogdHJ1ZSxcbiAgICAgICAgY2FuVmlld0FsbERvY3VtZW50czogdHJ1ZSxcbiAgICAgICAgY2FuTWFuYWdlU3RhZmY6IGZhbHNlLFxuICAgICAgICBjYW5NYW5hZ2VSb2xlczogZmFsc2UsXG4gICAgICAgIGNhblZpZXdSZXBvcnRzOiB0cnVlLFxuICAgICAgICBjYW5Db25maWd1cmVBSTogZmFsc2UsXG4gICAgICAgIGNhbk1hbmFnZUludGVncmF0aW9uczogZmFsc2UsXG4gICAgICB9LFxuICAgICAgZG9jdW1lbnRBY2Nlc3M6ICdhbGwnLFxuICAgIH0sXG4gIF07XG5cbiAgLy8gU3lzdGVtIHJvbGVzIChyZWFkLW9ubHkpXG4gIGNvbnN0IHN5c3RlbVJvbGVzID0gW1xuICAgIHsgaWQ6ICdwbGF0Zm9ybS1hZG1pbicsIG5hbWU6ICdQbGF0Zm9ybSBBZG1pbicsIHN0YWZmQ291bnQ6IDEsIGlzU3lzdGVtOiB0cnVlIH0sXG4gICAgeyBpZDogJ29yZy1hZG1pbicsIG5hbWU6ICdPcmcgQWRtaW4nLCBzdGFmZkNvdW50OiAyLCBpc1N5c3RlbTogdHJ1ZSB9LFxuICAgIHsgaWQ6ICdjb21wbGlhbmNlLW1hbmFnZXInLCBuYW1lOiAnQ29tcGxpYW5jZSBNYW5hZ2VyJywgc3RhZmZDb3VudDogNCwgaXNTeXN0ZW06IHRydWUgfSxcbiAgICB7IGlkOiAnc3RhZmYnLCBuYW1lOiAnU3RhZmYnLCBzdGFmZkNvdW50OiA0NSwgaXNTeXN0ZW06IHRydWUgfSxcbiAgXTtcblxuICBjb25zdCBmaWx0ZXJlZFJvbGVzID0gY3VzdG9tUm9sZXMuZmlsdGVyKChyb2xlKSA9PlxuICAgIHJvbGUubmFtZS50b0xvd2VyQ2FzZSgpLmluY2x1ZGVzKHNlYXJjaFF1ZXJ5LnRvTG93ZXJDYXNlKCkpIHx8XG4gICAgcm9sZS5kZXNjcmlwdGlvbi50b0xvd2VyQ2FzZSgpLmluY2x1ZGVzKHNlYXJjaFF1ZXJ5LnRvTG93ZXJDYXNlKCkpXG4gICk7XG5cbiAgY29uc3QgZ2V0VGVtcGxhdGVDb2xvciA9ICh0ZW1wbGF0ZTogc3RyaW5nKSA9PiB7XG4gICAgc3dpdGNoICh0ZW1wbGF0ZSkge1xuICAgICAgY2FzZSAnYWRtaW4tbGlrZSc6XG4gICAgICAgIHJldHVybiAndGV4dC1yZWQtNDAwIGJnLXJlZC01MDAvMjAnO1xuICAgICAgY2FzZSAnbWFuYWdlci1saWtlJzpcbiAgICAgICAgcmV0dXJuICd0ZXh0LWJsdWUtNDAwIGJnLWJsdWUtNTAwLzIwJztcbiAgICAgIGNhc2UgJ3N0YWZmLWxpa2UnOlxuICAgICAgICByZXR1cm4gJ3RleHQtZ3JlZW4tNDAwIGJnLWdyZWVuLTUwMC8yMCc7XG4gICAgICBkZWZhdWx0OlxuICAgICAgICByZXR1cm4gJ3RleHQtZ3JheS00MDAgYmctZ3JheS01MDAvMjAnO1xuICAgIH1cbiAgfTtcblxuICBjb25zdCBQZXJtaXNzaW9uQmFkZ2UgPSAoeyBlbmFibGVkIH06IHsgZW5hYmxlZDogYm9vbGVhbiB9KSA9PiAoXG4gICAgZW5hYmxlZCA/IChcbiAgICAgIDxDaGVja0NpcmNsZSBjbGFzc05hbWU9XCJ3LTQgaC00IHRleHQtZ3JlZW4tNDAwXCIgLz5cbiAgICApIDogKFxuICAgICAgPFhDaXJjbGUgY2xhc3NOYW1lPVwidy00IGgtNCB0ZXh0LWdyYXktNjAwXCIgLz5cbiAgICApXG4gICk7XG5cbiAgcmV0dXJuIChcbiAgICA8ZGl2IGNsYXNzTmFtZT1cInNwYWNlLXktNlwiPlxuICAgICAgey8qIEhlYWRlciAqL31cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuXCI+XG4gICAgICAgIDxkaXY+XG4gICAgICAgICAgPGgxIGNsYXNzTmFtZT1cInRleHQtM3hsIGZvbnQtYm9sZCB0ZXh0LXdoaXRlIG1iLTJcIj5Sb2xlIE1hbmFnZW1lbnQ8L2gxPlxuICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtZ3JheS00MDBcIj5DcmVhdGUgYW5kIG1hbmFnZSBjdXN0b20gcm9sZXMgZm9yIHlvdXIgb3JnYW5pemF0aW9uPC9wPlxuICAgICAgICA8L2Rpdj5cbiAgICAgICAgPGJ1dHRvblxuICAgICAgICAgIG9uQ2xpY2s9eygpID0+IHNldFNob3dDcmVhdGVNb2RhbCh0cnVlKX1cbiAgICAgICAgICBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMiBweC00IHB5LTIgYmctZ3JhZGllbnQtdG8tciBmcm9tLXRlYWwtNjAwIHRvLXRlYWwtNTAwIHRleHQtd2hpdGUgcm91bmRlZC1sZyBob3ZlcjpzaGFkb3ctbGcgdHJhbnNpdGlvbi1hbGwgZm9udC1tZWRpdW1cIlxuICAgICAgICA+XG4gICAgICAgICAgPFBsdXMgY2xhc3NOYW1lPVwidy00IGgtNFwiIC8+XG4gICAgICAgICAgPHNwYW4+Q3JlYXRlIEN1c3RvbSBSb2xlPC9zcGFuPlxuICAgICAgICA8L2J1dHRvbj5cbiAgICAgIDwvZGl2PlxuXG4gICAgICB7LyogU3RhdHMgKi99XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cImdyaWQgZ3JpZC1jb2xzLTEgbWQ6Z3JpZC1jb2xzLTQgZ2FwLTRcIj5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJiZy13aGl0ZS81IGJhY2tkcm9wLWJsdXItbGcgcm91bmRlZC0yeGwgcC02IGJvcmRlciBib3JkZXItd2hpdGUvMTBcIj5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlbiBtYi0yXCI+XG4gICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LWdyYXktNDAwIHRleHQtc21cIj5TeXN0ZW0gUm9sZXM8L3A+XG4gICAgICAgICAgICA8U2hpZWxkIGNsYXNzTmFtZT1cInctNSBoLTUgdGV4dC1ibHVlLTQwMFwiIC8+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC0zeGwgZm9udC1ib2xkIHRleHQtd2hpdGVcIj57c3lzdGVtUm9sZXMubGVuZ3RofTwvcD5cbiAgICAgICAgPC9kaXY+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYmctd2hpdGUvNSBiYWNrZHJvcC1ibHVyLWxnIHJvdW5kZWQtMnhsIHAtNiBib3JkZXIgYm9yZGVyLXdoaXRlLzEwXCI+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW4gbWItMlwiPlxuICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC1ncmF5LTQwMCB0ZXh0LXNtXCI+Q3VzdG9tIFJvbGVzPC9wPlxuICAgICAgICAgICAgPFVzZXJzIGNsYXNzTmFtZT1cInctNSBoLTUgdGV4dC10ZWFsLTQwMFwiIC8+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC0zeGwgZm9udC1ib2xkIHRleHQtd2hpdGVcIj57Y3VzdG9tUm9sZXMubGVuZ3RofTwvcD5cbiAgICAgICAgPC9kaXY+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYmctd2hpdGUvNSBiYWNrZHJvcC1ibHVyLWxnIHJvdW5kZWQtMnhsIHAtNiBib3JkZXIgYm9yZGVyLXdoaXRlLzEwXCI+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW4gbWItMlwiPlxuICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC1ncmF5LTQwMCB0ZXh0LXNtXCI+VG90YWwgU3RhZmY8L3A+XG4gICAgICAgICAgICA8VXNlcnMgY2xhc3NOYW1lPVwidy01IGgtNSB0ZXh0LWdyZWVuLTQwMFwiIC8+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC0zeGwgZm9udC1ib2xkIHRleHQtd2hpdGVcIj57c3lzdGVtUm9sZXMucmVkdWNlKChzdW0sIHIpID0+IHN1bSArIHIuc3RhZmZDb3VudCwgMCkgKyBjdXN0b21Sb2xlcy5yZWR1Y2UoKHN1bSwgcikgPT4gc3VtICsgci5zdGFmZkNvdW50LCAwKX08L3A+XG4gICAgICAgIDwvZGl2PlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLXdoaXRlLzUgYmFja2Ryb3AtYmx1ci1sZyByb3VuZGVkLTJ4bCBwLTYgYm9yZGVyIGJvcmRlci13aGl0ZS8xMFwiPlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuIG1iLTJcIj5cbiAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtZ3JheS00MDAgdGV4dC1zbVwiPkF2ZyBTdGFmZiBwZXIgUm9sZTwvcD5cbiAgICAgICAgICAgIDxVc2VycyBjbGFzc05hbWU9XCJ3LTUgaC01IHRleHQtcHVycGxlLTQwMFwiIC8+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC0zeGwgZm9udC1ib2xkIHRleHQtd2hpdGVcIj57TWF0aC5yb3VuZCgoc3lzdGVtUm9sZXMucmVkdWNlKChzdW0sIHIpID0+IHN1bSArIHIuc3RhZmZDb3VudCwgMCkgKyBjdXN0b21Sb2xlcy5yZWR1Y2UoKHN1bSwgcikgPT4gc3VtICsgci5zdGFmZkNvdW50LCAwKSkgLyAoc3lzdGVtUm9sZXMubGVuZ3RoICsgY3VzdG9tUm9sZXMubGVuZ3RoKSl9PC9wPlxuICAgICAgICA8L2Rpdj5cbiAgICAgIDwvZGl2PlxuXG4gICAgICB7LyogU3lzdGVtIFJvbGVzICovfVxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJiZy13aGl0ZS81IGJhY2tkcm9wLWJsdXItbGcgcm91bmRlZC0yeGwgcC02IGJvcmRlciBib3JkZXItd2hpdGUvMTBcIj5cbiAgICAgICAgPGgzIGNsYXNzTmFtZT1cInRleHQtbGcgZm9udC1zZW1pYm9sZCB0ZXh0LXdoaXRlIG1iLTQgZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTJcIj5cbiAgICAgICAgICA8U2hpZWxkIGNsYXNzTmFtZT1cInctNSBoLTUgdGV4dC1ibHVlLTQwMFwiIC8+XG4gICAgICAgICAgU3lzdGVtIFJvbGVzIChSZWFkLU9ubHkpXG4gICAgICAgIDwvaDM+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZ3JpZCBncmlkLWNvbHMtNCBnYXAtNFwiPlxuICAgICAgICAgIHtzeXN0ZW1Sb2xlcy5tYXAoKHJvbGUpID0+IChcbiAgICAgICAgICAgIDxkaXYga2V5PXtyb2xlLmlkfSBjbGFzc05hbWU9XCJwLTQgYmctd2hpdGUvNSBib3JkZXIgYm9yZGVyLXdoaXRlLzEwIHJvdW5kZWQtbGdcIj5cbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW4gbWItMlwiPlxuICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRleHQtd2hpdGUgZm9udC1tZWRpdW1cIj57cm9sZS5uYW1lfTwvc3Bhbj5cbiAgICAgICAgICAgICAgICA8U2hpZWxkIGNsYXNzTmFtZT1cInctNCBoLTQgdGV4dC1ncmF5LTQwMFwiIC8+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC1ncmF5LTQwMFwiPntyb2xlLnN0YWZmQ291bnR9IHN0YWZmIG1lbWJlcnM8L2Rpdj5cbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJtdC0yIHB4LTIgcHktMSBiZy1ncmF5LTUwMC8yMCB0ZXh0LWdyYXktNDAwIHRleHQteHMgcm91bmRlZCBpbmxpbmUtYmxvY2tcIj5cbiAgICAgICAgICAgICAgICBTeXN0ZW0gUm9sZVxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICkpfVxuICAgICAgICA8L2Rpdj5cbiAgICAgIDwvZGl2PlxuXG4gICAgICB7LyogQ3VzdG9tIFJvbGVzICovfVxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJiZy13aGl0ZS81IGJhY2tkcm9wLWJsdXItbGcgcm91bmRlZC0yeGwgYm9yZGVyIGJvcmRlci13aGl0ZS8xMFwiPlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInAtNiBib3JkZXItYiBib3JkZXItd2hpdGUvMTBcIj5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlblwiPlxuICAgICAgICAgICAgPGgzIGNsYXNzTmFtZT1cInRleHQtbGcgZm9udC1zZW1pYm9sZCB0ZXh0LXdoaXRlIGZsZXggaXRlbXMtY2VudGVyIGdhcC0yXCI+XG4gICAgICAgICAgICAgIDxVc2VycyBjbGFzc05hbWU9XCJ3LTUgaC01IHRleHQtdGVhbC00MDBcIiAvPlxuICAgICAgICAgICAgICBDdXN0b20gUm9sZXMgKHtjdXN0b21Sb2xlcy5sZW5ndGh9KVxuICAgICAgICAgICAgPC9oMz5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicmVsYXRpdmVcIj5cbiAgICAgICAgICAgICAgPFNlYXJjaCBjbGFzc05hbWU9XCJhYnNvbHV0ZSBsZWZ0LTMgdG9wLTEvMiAtdHJhbnNsYXRlLXktMS8yIHctNCBoLTQgdGV4dC1ncmF5LTQwMFwiIC8+XG4gICAgICAgICAgICAgIDxpbnB1dFxuICAgICAgICAgICAgICAgIHR5cGU9XCJ0ZXh0XCJcbiAgICAgICAgICAgICAgICB2YWx1ZT17c2VhcmNoUXVlcnl9XG4gICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXRTZWFyY2hRdWVyeShlLnRhcmdldC52YWx1ZSl9XG4gICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9XCJTZWFyY2ggcm9sZXMuLi5cIlxuICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cInBsLTEwIHByLTQgcHktMiBiZy13aGl0ZS81IGJvcmRlciBib3JkZXItd2hpdGUvMTAgcm91bmRlZC1sZyB0ZXh0LXdoaXRlIHRleHQtc20gcGxhY2Vob2xkZXItZ3JheS01MDAgZm9jdXM6b3V0bGluZS1ub25lIGZvY3VzOmJvcmRlci10ZWFsLTUwMC81MFwiXG4gICAgICAgICAgICAgIC8+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJwLTYgc3BhY2UteS00XCI+XG4gICAgICAgICAge2ZpbHRlcmVkUm9sZXMubWFwKChyb2xlKSA9PiAoXG4gICAgICAgICAgICA8ZGl2IGtleT17cm9sZS5pZH0gY2xhc3NOYW1lPVwiYm9yZGVyIGJvcmRlci13aGl0ZS8xMCByb3VuZGVkLWxnIG92ZXJmbG93LWhpZGRlbiBob3Zlcjpib3JkZXItdGVhbC01MDAvMzAgdHJhbnNpdGlvbi1hbGxcIj5cbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJwLTQgYmctd2hpdGUvNVwiPlxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1zdGFydCBqdXN0aWZ5LWJldHdlZW4gbWItM1wiPlxuICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4LTFcIj5cbiAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMyBtYi0yXCI+XG4gICAgICAgICAgICAgICAgICAgICAgPGg0IGNsYXNzTmFtZT1cInRleHQtd2hpdGUgZm9udC1zZW1pYm9sZCB0ZXh0LWxnXCI+e3JvbGUubmFtZX08L2g0PlxuICAgICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT17YHB4LTIgcHktMSByb3VuZGVkIHRleHQteHMgZm9udC1tZWRpdW0gJHtnZXRUZW1wbGF0ZUNvbG9yKHJvbGUuYmFzZVRlbXBsYXRlKX1gfT5cbiAgICAgICAgICAgICAgICAgICAgICAgIHtyb2xlLmJhc2VUZW1wbGF0ZS5yZXBsYWNlKCctJywgJyAnKS50b1VwcGVyQ2FzZSgpfVxuICAgICAgICAgICAgICAgICAgICAgIDwvc3Bhbj5cbiAgICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtc20gdGV4dC1ncmF5LTQwMCBtYi0yXCI+e3JvbGUuZGVzY3JpcHRpb259PC9wPlxuICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC00IHRleHQteHMgdGV4dC1ncmF5LTUwMFwiPlxuICAgICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0xXCI+XG4gICAgICAgICAgICAgICAgICAgICAgICA8VXNlcnMgY2xhc3NOYW1lPVwidy0zIGgtM1wiIC8+XG4gICAgICAgICAgICAgICAgICAgICAgICB7cm9sZS5zdGFmZkNvdW50fSBzdGFmZiBtZW1iZXJzXG4gICAgICAgICAgICAgICAgICAgICAgPC9zcGFuPlxuICAgICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cImNhcGl0YWxpemVcIj5cbiAgICAgICAgICAgICAgICAgICAgICAgIERvY3VtZW50IEFjY2VzczogPHNwYW4gY2xhc3NOYW1lPVwidGV4dC10ZWFsLTQwMFwiPntyb2xlLmRvY3VtZW50QWNjZXNzLnJlcGxhY2UoJy0nLCAnICcpfTwvc3Bhbj5cbiAgICAgICAgICAgICAgICAgICAgICA8L3NwYW4+XG4gICAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0yXCI+XG4gICAgICAgICAgICAgICAgICAgIDxidXR0b25cbiAgICAgICAgICAgICAgICAgICAgICBvbkNsaWNrPXsoKSA9PiBzZXRTZWxlY3RlZFJvbGUocm9sZSl9XG4gICAgICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwicC0yIGhvdmVyOmJnLXdoaXRlLzEwIHJvdW5kZWQgdHJhbnNpdGlvbi1hbGxcIlxuICAgICAgICAgICAgICAgICAgICAgIHRpdGxlPVwiRHVwbGljYXRlIHJvbGVcIlxuICAgICAgICAgICAgICAgICAgICA+XG4gICAgICAgICAgICAgICAgICAgICAgPENvcHkgY2xhc3NOYW1lPVwidy00IGgtNCB0ZXh0LWdyYXktNDAwXCIgLz5cbiAgICAgICAgICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgICAgICAgICAgIDxidXR0b25cbiAgICAgICAgICAgICAgICAgICAgICBvbkNsaWNrPXsoKSA9PiBzZXRTZWxlY3RlZFJvbGUocm9sZSl9XG4gICAgICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwicC0yIGhvdmVyOmJnLXdoaXRlLzEwIHJvdW5kZWQgdHJhbnNpdGlvbi1hbGxcIlxuICAgICAgICAgICAgICAgICAgICAgIHRpdGxlPVwiRWRpdCByb2xlXCJcbiAgICAgICAgICAgICAgICAgICAgPlxuICAgICAgICAgICAgICAgICAgICAgIDxFZGl0IGNsYXNzTmFtZT1cInctNCBoLTQgdGV4dC1ibHVlLTQwMFwiIC8+XG4gICAgICAgICAgICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICAgICAgICAgICAgICA8YnV0dG9uXG4gICAgICAgICAgICAgICAgICAgICAgb25DbGljaz17KCkgPT4ge1xuICAgICAgICAgICAgICAgICAgICAgICAgaWYgKGNvbmZpcm0oYERlbGV0ZSByb2xlIFwiJHtyb2xlLm5hbWV9XCI/IFRoaXMgd2lsbCByZWFzc2lnbiAke3JvbGUuc3RhZmZDb3VudH0gc3RhZmYgbWVtYmVycyB0byBhbm90aGVyIHJvbGUuYCkpIHtcbiAgICAgICAgICAgICAgICAgICAgICAgICAgYWxlcnQoJ1JvbGUgZGVsZXRlZCAobW9jayBhY3Rpb24pJyk7XG4gICAgICAgICAgICAgICAgICAgICAgICB9XG4gICAgICAgICAgICAgICAgICAgICAgfX1cbiAgICAgICAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJwLTIgaG92ZXI6Ymctd2hpdGUvMTAgcm91bmRlZCB0cmFuc2l0aW9uLWFsbFwiXG4gICAgICAgICAgICAgICAgICAgICAgdGl0bGU9XCJEZWxldGUgcm9sZVwiXG4gICAgICAgICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICAgICAgICA8VHJhc2gyIGNsYXNzTmFtZT1cInctNCBoLTQgdGV4dC1yZWQtNDAwXCIgLz5cbiAgICAgICAgICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICA8L2Rpdj5cblxuICAgICAgICAgICAgICAgIHsvKiBQZXJtaXNzaW9uIE1hdHJpeCAqL31cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLXdoaXRlLzUgYm9yZGVyIGJvcmRlci13aGl0ZS8xMCByb3VuZGVkLWxnIHAtNFwiPlxuICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJncmlkIGdyaWQtY29scy0zIGdhcC00IHRleHQteHNcIj5cbiAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJzcGFjZS15LTJcIj5cbiAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQtZ3JheS00MDAgZm9udC1zZW1pYm9sZCB1cHBlcmNhc2UgbWItMlwiPkRvY3VtZW50IFBlcm1pc3Npb25zPC9kaXY+XG4gICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW5cIj5cbiAgICAgICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRleHQtZ3JheS0zMDBcIj5DcmVhdGUgRG9jdW1lbnRzPC9zcGFuPlxuICAgICAgICAgICAgICAgICAgICAgICAgPFBlcm1pc3Npb25CYWRnZSBlbmFibGVkPXtyb2xlLnBlcm1pc3Npb25zLmNhbkNyZWF0ZURvY3VtZW50c30gLz5cbiAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlblwiPlxuICAgICAgICAgICAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwidGV4dC1ncmF5LTMwMFwiPkVkaXQgQWxsIERvY3VtZW50czwvc3Bhbj5cbiAgICAgICAgICAgICAgICAgICAgICAgIDxQZXJtaXNzaW9uQmFkZ2UgZW5hYmxlZD17cm9sZS5wZXJtaXNzaW9ucy5jYW5FZGl0QWxsRG9jdW1lbnRzfSAvPlxuICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuXCI+XG4gICAgICAgICAgICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LWdyYXktMzAwXCI+QXBwcm92ZSBEb2N1bWVudHM8L3NwYW4+XG4gICAgICAgICAgICAgICAgICAgICAgICA8UGVybWlzc2lvbkJhZGdlIGVuYWJsZWQ9e3JvbGUucGVybWlzc2lvbnMuY2FuQXBwcm92ZURvY3VtZW50c30gLz5cbiAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlblwiPlxuICAgICAgICAgICAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwidGV4dC1ncmF5LTMwMFwiPkRlbGV0ZSBEb2N1bWVudHM8L3NwYW4+XG4gICAgICAgICAgICAgICAgICAgICAgICA8UGVybWlzc2lvbkJhZGdlIGVuYWJsZWQ9e3JvbGUucGVybWlzc2lvbnMuY2FuRGVsZXRlRG9jdW1lbnRzfSAvPlxuICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cblxuICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInNwYWNlLXktMlwiPlxuICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC1ncmF5LTQwMCBmb250LXNlbWlib2xkIHVwcGVyY2FzZSBtYi0yXCI+U3lzdGVtIFBlcm1pc3Npb25zPC9kaXY+XG4gICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW5cIj5cbiAgICAgICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRleHQtZ3JheS0zMDBcIj5VcGxvYWQgRmlsZXM8L3NwYW4+XG4gICAgICAgICAgICAgICAgICAgICAgICA8UGVybWlzc2lvbkJhZGdlIGVuYWJsZWQ9e3JvbGUucGVybWlzc2lvbnMuY2FuVXBsb2FkRmlsZXN9IC8+XG4gICAgICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW5cIj5cbiAgICAgICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRleHQtZ3JheS0zMDBcIj5WaWV3IEFsbCBEb2N1bWVudHM8L3NwYW4+XG4gICAgICAgICAgICAgICAgICAgICAgICA8UGVybWlzc2lvbkJhZGdlIGVuYWJsZWQ9e3JvbGUucGVybWlzc2lvbnMuY2FuVmlld0FsbERvY3VtZW50c30gLz5cbiAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlblwiPlxuICAgICAgICAgICAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwidGV4dC1ncmF5LTMwMFwiPlZpZXcgUmVwb3J0czwvc3Bhbj5cbiAgICAgICAgICAgICAgICAgICAgICAgIDxQZXJtaXNzaW9uQmFkZ2UgZW5hYmxlZD17cm9sZS5wZXJtaXNzaW9ucy5jYW5WaWV3UmVwb3J0c30gLz5cbiAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlblwiPlxuICAgICAgICAgICAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwidGV4dC1ncmF5LTMwMFwiPkNvbmZpZ3VyZSBBSTwvc3Bhbj5cbiAgICAgICAgICAgICAgICAgICAgICAgIDxQZXJtaXNzaW9uQmFkZ2UgZW5hYmxlZD17cm9sZS5wZXJtaXNzaW9ucy5jYW5Db25maWd1cmVBSX0gLz5cbiAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJzcGFjZS15LTJcIj5cbiAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQtZ3JheS00MDAgZm9udC1zZW1pYm9sZCB1cHBlcmNhc2UgbWItMlwiPk1hbmFnZW1lbnQgUGVybWlzc2lvbnM8L2Rpdj5cbiAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlblwiPlxuICAgICAgICAgICAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwidGV4dC1ncmF5LTMwMFwiPk1hbmFnZSBTdGFmZjwvc3Bhbj5cbiAgICAgICAgICAgICAgICAgICAgICAgIDxQZXJtaXNzaW9uQmFkZ2UgZW5hYmxlZD17cm9sZS5wZXJtaXNzaW9ucy5jYW5NYW5hZ2VTdGFmZn0gLz5cbiAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlblwiPlxuICAgICAgICAgICAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwidGV4dC1ncmF5LTMwMFwiPk1hbmFnZSBSb2xlczwvc3Bhbj5cbiAgICAgICAgICAgICAgICAgICAgICAgIDxQZXJtaXNzaW9uQmFkZ2UgZW5hYmxlZD17cm9sZS5wZXJtaXNzaW9ucy5jYW5NYW5hZ2VSb2xlc30gLz5cbiAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlblwiPlxuICAgICAgICAgICAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwidGV4dC1ncmF5LTMwMFwiPk1hbmFnZSBJbnRlZ3JhdGlvbnM8L3NwYW4+XG4gICAgICAgICAgICAgICAgICAgICAgICA8UGVybWlzc2lvbkJhZGdlIGVuYWJsZWQ9e3JvbGUucGVybWlzc2lvbnMuY2FuTWFuYWdlSW50ZWdyYXRpb25zfSAvPlxuICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICkpfVxuICAgICAgICA8L2Rpdj5cbiAgICAgIDwvZGl2PlxuXG4gICAgICB7LyogQ3JlYXRlL0VkaXQgUm9sZSBNb2RhbCAqL31cbiAgICAgIHtzaG93Q3JlYXRlTW9kYWwgJiYgKFxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZpeGVkIGluc2V0LTAgei01MCBmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlciBiZy1ibGFjay81MCBiYWNrZHJvcC1ibHVyLXNtXCI+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJiZy1ncmFkaWVudC10by1iciBmcm9tLVsjMEIxRjJBXSB0by1bIzBkMjMzMV0gYm9yZGVyIGJvcmRlci13aGl0ZS8xMCByb3VuZGVkLXhsIHNoYWRvdy0yeGwgdy1mdWxsIG1heC13LTJ4bCBtYXgtaC1bOTB2aF0gb3ZlcmZsb3cteS1hdXRvXCI+XG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInAtNiBib3JkZXItYiBib3JkZXItd2hpdGUvMTBcIj5cbiAgICAgICAgICAgICAgPGgyIGNsYXNzTmFtZT1cInRleHQteGwgZm9udC1zZW1pYm9sZCB0ZXh0LXdoaXRlXCI+Q3JlYXRlIEN1c3RvbSBSb2xlPC9oMj5cbiAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC1zbSB0ZXh0LWdyYXktNDAwIG10LTFcIj5EZWZpbmUgYSBuZXcgcm9sZSBmb3IgeW91ciBvcmdhbml6YXRpb248L3A+XG4gICAgICAgICAgICA8L2Rpdj5cblxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJwLTYgc3BhY2UteS02XCI+XG4gICAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgICAgPGxhYmVsIGNsYXNzTmFtZT1cImJsb2NrIHRleHQtc20gZm9udC1tZWRpdW0gdGV4dC1ncmF5LTMwMCBtYi0yXCI+Um9sZSBOYW1lICo8L2xhYmVsPlxuICAgICAgICAgICAgICAgIDxpbnB1dFxuICAgICAgICAgICAgICAgICAgdHlwZT1cInRleHRcIlxuICAgICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9XCJlLmcuLCBGYWNpbGl0eSBNYW5hZ2VyLCBTZXJ2aWNlIENvb3JkaW5hdG9yLi4uXCJcbiAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cInctZnVsbCBweC00IHB5LTMgYmctd2hpdGUvNSBib3JkZXIgYm9yZGVyLXdoaXRlLzEwIHJvdW5kZWQtbGcgdGV4dC13aGl0ZSBwbGFjZWhvbGRlci1ncmF5LTUwMCBmb2N1czpvdXRsaW5lLW5vbmUgZm9jdXM6Ym9yZGVyLXRlYWwtNTAwLzUwXCJcbiAgICAgICAgICAgICAgICAvPlxuICAgICAgICAgICAgICA8L2Rpdj5cblxuICAgICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICAgIDxsYWJlbCBjbGFzc05hbWU9XCJibG9jayB0ZXh0LXNtIGZvbnQtbWVkaXVtIHRleHQtZ3JheS0zMDAgbWItMlwiPkRlc2NyaXB0aW9uPC9sYWJlbD5cbiAgICAgICAgICAgICAgICA8dGV4dGFyZWFcbiAgICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPVwiRGVzY3JpYmUgdGhlIHJvbGUncyByZXNwb25zaWJpbGl0aWVzLi4uXCJcbiAgICAgICAgICAgICAgICAgIHJvd3M9ezN9XG4gICAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJ3LWZ1bGwgcHgtNCBweS0zIGJnLXdoaXRlLzUgYm9yZGVyIGJvcmRlci13aGl0ZS8xMCByb3VuZGVkLWxnIHRleHQtd2hpdGUgcGxhY2Vob2xkZXItZ3JheS01MDAgZm9jdXM6b3V0bGluZS1ub25lIGZvY3VzOmJvcmRlci10ZWFsLTUwMC81MCByZXNpemUtbm9uZVwiXG4gICAgICAgICAgICAgICAgLz5cbiAgICAgICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgICAgICA8bGFiZWwgY2xhc3NOYW1lPVwiYmxvY2sgdGV4dC1zbSBmb250LW1lZGl1bSB0ZXh0LWdyYXktMzAwIG1iLTJcIj5CYXNlIFRlbXBsYXRlICo8L2xhYmVsPlxuICAgICAgICAgICAgICAgIDxzZWxlY3QgY2xhc3NOYW1lPVwidy1mdWxsIHB4LTQgcHktMyBiZy13aGl0ZS81IGJvcmRlciBib3JkZXItd2hpdGUvMTAgcm91bmRlZC1sZyB0ZXh0LXdoaXRlIGZvY3VzOm91dGxpbmUtbm9uZSBmb2N1czpib3JkZXItdGVhbC01MDAvNTBcIj5cbiAgICAgICAgICAgICAgICAgIDxvcHRpb24gdmFsdWU9XCJcIj5TZWxlY3QgYSBiYXNlIHRlbXBsYXRlLi4uPC9vcHRpb24+XG4gICAgICAgICAgICAgICAgICA8b3B0aW9uIHZhbHVlPVwiYWRtaW4tbGlrZVwiPkFkbWluLWxpa2UgKEZ1bGwgQWNjZXNzKTwvb3B0aW9uPlxuICAgICAgICAgICAgICAgICAgPG9wdGlvbiB2YWx1ZT1cIm1hbmFnZXItbGlrZVwiPk1hbmFnZXItbGlrZSAoTGltaXRlZCBBY2Nlc3MpPC9vcHRpb24+XG4gICAgICAgICAgICAgICAgICA8b3B0aW9uIHZhbHVlPVwic3RhZmYtbGlrZVwiPlN0YWZmLWxpa2UgKFJlYWQtT25seSk8L29wdGlvbj5cbiAgICAgICAgICAgICAgICA8L3NlbGVjdD5cbiAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LXhzIHRleHQtZ3JheS00MDAgbXQtMlwiPlxuICAgICAgICAgICAgICAgICAgVGhlIHRlbXBsYXRlIHByb3ZpZGVzIGRlZmF1bHQgcGVybWlzc2lvbnMgdGhhdCB5b3UgY2FuIGN1c3RvbWl6ZVxuICAgICAgICAgICAgICAgIDwvcD5cbiAgICAgICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGdhcC0zXCI+XG4gICAgICAgICAgICAgICAgPGJ1dHRvblxuICAgICAgICAgICAgICAgICAgb25DbGljaz17KCkgPT4gc2V0U2hvd0NyZWF0ZU1vZGFsKGZhbHNlKX1cbiAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cImZsZXgtMSBweC00IHB5LTMgYmctd2hpdGUvNSBib3JkZXIgYm9yZGVyLXdoaXRlLzEwIHRleHQtd2hpdGUgcm91bmRlZC1sZyBob3ZlcjpiZy13aGl0ZS8xMCB0cmFuc2l0aW9uLWFsbFwiXG4gICAgICAgICAgICAgICAgPlxuICAgICAgICAgICAgICAgICAgQ2FuY2VsXG4gICAgICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgICAgICAgPGJ1dHRvblxuICAgICAgICAgICAgICAgICAgb25DbGljaz17KCkgPT4ge1xuICAgICAgICAgICAgICAgICAgICBhbGVydCgnUm9sZSBjcmVhdGVkIChtb2NrIGFjdGlvbiknKTtcbiAgICAgICAgICAgICAgICAgICAgc2V0U2hvd0NyZWF0ZU1vZGFsKGZhbHNlKTtcbiAgICAgICAgICAgICAgICAgIH19XG4gICAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJmbGV4LTEgcHgtNCBweS0zIGJnLWdyYWRpZW50LXRvLXIgZnJvbS10ZWFsLTYwMCB0by10ZWFsLTUwMCB0ZXh0LXdoaXRlIHJvdW5kZWQtbGcgaG92ZXI6c2hhZG93LWxnIHRyYW5zaXRpb24tYWxsIGZvbnQtbWVkaXVtXCJcbiAgICAgICAgICAgICAgICA+XG4gICAgICAgICAgICAgICAgICBDcmVhdGUgUm9sZVxuICAgICAgICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICA8L2Rpdj5cbiAgICAgICl9XG4gICAgPC9kaXY+XG4gICk7XG59XG4iXSwiZmlsZSI6Ii93b3Jrc3BhY2VzL2RlZmF1bHQvY29kZS9zcmMvYXBwL3BhZ2VzL29yZy1hZG1pbi9Sb2xlTWFuYWdlbWVudC50c3gifQ==

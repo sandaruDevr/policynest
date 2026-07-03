@@ -1,0 +1,569 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/app/pages/platform-admin/AITraining.tsx");import { jsxDEV } from "/@id/__x00__figma:react-jsx-dev-runtime";
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+var _s = $RefreshSig$();
+import { FGCmp } from "/@id/fginspector";
+import { useState } from "/@id/__x00__figma:react-base";
+import { Upload, FileText, Sparkles, Database, TrendingUp, CheckCircle, Clock, Trash2, Eye } from "/node_modules/.vite/deps/lucide-react.js?v=25293e4c";
+import { TrainingDataUploadModal } from "/src/app/components/TrainingDataUploadModal.tsx";
+import { useApp } from "/src/app/contexts/AppContext.tsx";
+const mockTrainingDocs = [
+  { id: "1", name: "Aged Care Act 1997", type: "legislation", source: "Federal Register", uploadDate: "2025-03-15", status: "trained", tokenCount: 45200 },
+  { id: "2", name: "NDIS Practice Standards", type: "legislation", source: "NDIS Commission", uploadDate: "2025-03-14", status: "trained", tokenCount: 38900 },
+  { id: "3", name: "Quality Standards Framework", type: "guideline", source: "Internal", uploadDate: "2025-03-12", status: "processing", tokenCount: 12400 },
+  { id: "4", name: "Charter of Aged Care Rights", type: "legislation", source: "Government", uploadDate: "2025-03-10", status: "trained", tokenCount: 8600 }
+];
+export default function AITraining() {
+  _s();
+  const { addAuditLog } = useApp();
+  const [trainingDocs, setTrainingDocs] = useState(mockTrainingDocs);
+  const [showUploadModal, setShowUploadModal] = useState(false);
+  const handleUploadDocument = (data) => {
+    const newDoc = {
+      id: `doc-${Date.now()}`,
+      name: data.name,
+      type: data.type,
+      source: data.source,
+      uploadDate: (/* @__PURE__ */ new Date()).toISOString().split("T")[0],
+      status: "processing",
+      tokenCount: 0
+    };
+    setTrainingDocs([newDoc, ...trainingDocs]);
+    addAuditLog({
+      action: "Training Data Uploaded",
+      details: `Uploaded training document: ${data.name} (${data.type})`
+    });
+    alert("✅ Document uploaded successfully and added to training queue!");
+    setTimeout(() => {
+      setTrainingDocs((docs) => docs.map(
+        (doc) => doc.id === newDoc.id ? { ...doc, status: "trained", tokenCount: Math.floor(Math.random() * 5e4) + 5e3 } : doc
+      ));
+      addAuditLog({
+        action: "AI Model Trained",
+        details: `Training completed for: ${data.name}`
+      });
+    }, 5e3);
+  };
+  const handleDeleteDocument = (id, name) => {
+    if (confirm(`Are you sure you want to remove "${name}" from training data?`)) {
+      setTrainingDocs(trainingDocs.filter((doc) => doc.id !== id));
+      addAuditLog({
+        action: "Training Data Removed",
+        details: `Removed training document: ${name}`
+      });
+      alert("Document removed from training data!");
+    }
+  };
+  const handleStartTraining = (id, name) => {
+    setTrainingDocs((docs) => docs.map(
+      (doc) => doc.id === id ? { ...doc, status: "processing" } : doc
+    ));
+    addAuditLog({
+      action: "AI Training Started",
+      details: `Started training for: ${name}`
+    });
+    setTimeout(() => {
+      setTrainingDocs((docs) => docs.map(
+        (doc) => doc.id === id ? { ...doc, status: "trained", tokenCount: Math.floor(Math.random() * 5e4) + 5e3 } : doc
+      ));
+      addAuditLog({
+        action: "AI Training Completed",
+        details: `Training completed for: ${name}`
+      });
+      alert("✅ Training completed successfully!");
+    }, 3e3);
+  };
+  const totalTokens = trainingDocs.reduce((sum, doc) => sum + doc.tokenCount, 0);
+  const trainedCount = trainingDocs.filter((doc) => doc.status === "trained").length;
+  const processingCount = trainingDocs.filter((doc) => doc.status === "processing").length;
+  return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "blp0", _fgB: 1779104380836, _fgD: true, className: "space-y-6", "data-fg-blp0": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:114:5:4051:7419:e:div:xtetxtetxtetxtetxte:1", children: [
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "blp2", _fgB: 1779104380836, className: "flex items-center justify-between", "data-fg-blp2": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:116:7:4106:602:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "blp3", _fgB: 1779104380836, "data-fg-blp3": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:117:9:4166:206:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h1", _fgS: "blp4", _fgB: 1779104380836, className: "text-3xl font-bold text-white mb-2", "data-fg-blp4": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:118:11:4182:84:e:h1:t", children: "AI Training & Data Ingestion" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+          lineNumber: 138,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "blp6", _fgB: 1779104380836, className: "text-gray-400", "data-fg-blp6": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:119:11:4277:80:e:p:t", children: "Manage AI training data and legislation library" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+          lineNumber: 139,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+        lineNumber: 137,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(
+        FGCmp,
+        {
+          _fgT: "button",
+          _fgS: "blp8",
+          _fgB: 1779104380836,
+          onClick: () => setShowUploadModal(true),
+          className: "px-4 py-2 bg-gradient-to-r from-purple-600 to-purple-500 text-white rounded-lg hover:shadow-lg transition-all flex items-center gap-2",
+          "data-fg-blp8": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:121:9:4381:314:e:button:et",
+          children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Upload, _fgS: "blp9", _fgB: 1779104380836, className: "w-4 h-4", "data-fg-blp9": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:125:11:4616:30:e:Upload::::::4gZ" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+              lineNumber: 145,
+              columnNumber: 11
+            }, this),
+            "Upload Training Data"
+          ]
+        },
+        void 0,
+        true,
+        {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+          lineNumber: 141,
+          columnNumber: 9
+        },
+        this
+      )
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+      lineNumber: 136,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "blp12", _fgB: 1779104380836, className: "grid grid-cols-1 md:grid-cols-4 gap-6", "data-fg-blp12": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:131:7:4736:1780:e:div:etetete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "blp13", _fgB: 1779104380836, className: "bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/10", "data-fg-blp13": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:132:9:4800:469:e:div:etete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "blp14", _fgB: 1779104380836, className: "flex items-center justify-between mb-2", "data-fg-blp14": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:133:11:4894:196:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Database, _fgS: "blp15", _fgB: 1779104380836, className: "w-5 h-5 text-purple-400", "data-fg-blp15": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:134:13:4963:48:e:Database::::::D6M7" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+            lineNumber: 154,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: TrendingUp, _fgS: "blp16", _fgB: 1779104380836, className: "w-4 h-4 text-green-400", "data-fg-blp16": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:135:13:5024:49:e:TrendingUp::::::tM8" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+            lineNumber: 155,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+          lineNumber: 153,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "blp17", _fgB: 1779104380836, className: "text-2xl font-bold text-white mb-1", "data-fg-blp17": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:137:11:5101:79:e:div:x", children: trainingDocs.length }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+          lineNumber: 157,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "blp19", _fgB: 1779104380836, className: "text-xs text-gray-400", "data-fg-blp19": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:138:11:5191:63:e:div:t", children: "Training Documents" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+          lineNumber: 158,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+        lineNumber: 152,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "blp21", _fgB: 1779104380836, className: "bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/10", "data-fg-blp21": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:141:9:5279:400:e:div:etete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "blp22", _fgB: 1779104380836, className: "flex items-center justify-between mb-2", "data-fg-blp22": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:142:11:5373:136:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: CheckCircle, _fgS: "blp23", _fgB: 1779104380836, className: "w-5 h-5 text-green-400", "data-fg-blp23": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:143:13:5442:50:e:CheckCircle::::::C4Wc" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+          lineNumber: 163,
+          columnNumber: 13
+        }, this) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+          lineNumber: 162,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "blp24", _fgB: 1779104380836, className: "text-2xl font-bold text-white mb-1", "data-fg-blp24": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:145:11:5520:72:e:div:x", children: trainedCount }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+          lineNumber: 165,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "blp26", _fgB: 1779104380836, className: "text-xs text-gray-400", "data-fg-blp26": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:146:11:5603:61:e:div:t", children: "Trained & Active" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+          lineNumber: 166,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+        lineNumber: 161,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "blp28", _fgB: 1779104380836, className: "bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/10", "data-fg-blp28": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:149:9:5689:392:e:div:etete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "blp29", _fgB: 1779104380836, className: "flex items-center justify-between mb-2", "data-fg-blp29": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:150:11:5783:131:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Clock, _fgS: "blp30", _fgB: 1779104380836, className: "w-5 h-5 text-yellow-400", "data-fg-blp30": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:151:13:5852:45:e:Clock::::::EGEm" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+          lineNumber: 171,
+          columnNumber: 13
+        }, this) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+          lineNumber: 170,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "blp31", _fgB: 1779104380836, className: "text-2xl font-bold text-white mb-1", "data-fg-blp31": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:153:11:5925:75:e:div:x", children: processingCount }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+          lineNumber: 173,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "blp33", _fgB: 1779104380836, className: "text-xs text-gray-400", "data-fg-blp33": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:154:11:6011:55:e:div:t", children: "Processing" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+          lineNumber: 174,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+        lineNumber: 169,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "blp35", _fgB: 1779104380836, className: "bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/10", "data-fg-blp35": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:157:9:6091:412:e:div:etete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "blp36", _fgB: 1779104380836, className: "flex items-center justify-between mb-2", "data-fg-blp36": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:158:11:6185:132:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Sparkles, _fgS: "blp37", _fgB: 1779104380836, className: "w-5 h-5 text-teal-400", "data-fg-blp37": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:159:13:6254:46:e:Sparkles::::::DD2N" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+          lineNumber: 179,
+          columnNumber: 13
+        }, this) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+          lineNumber: 178,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "blp38", _fgB: 1779104380836, className: "text-2xl font-bold text-white mb-1", "data-fg-blp38": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:161:11:6328:92:e:div:xt", children: [
+          (totalTokens / 1e3).toFixed(1),
+          "k"
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+          lineNumber: 181,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "blp41", _fgB: 1779104380836, className: "text-xs text-gray-400", "data-fg-blp41": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:162:11:6431:57:e:div:t", children: "Total Tokens" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+          lineNumber: 182,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+        lineNumber: 177,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+      lineNumber: 151,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "blp44", _fgB: 1779104380836, className: "bg-purple-500/10 border border-purple-500/20 rounded-xl p-4", "data-fg-blp44": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:167:7:6550:593:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "blp45", _fgB: 1779104380836, className: "flex items-start gap-3", "data-fg-blp45": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:168:9:6636:494:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Sparkles, _fgS: "blp46", _fgB: 1779104380836, className: "w-5 h-5 text-purple-400 mt-0.5", "data-fg-blp46": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:169:11:6687:55:e:Sparkles::::::DD2N" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+        lineNumber: 189,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "blp47", _fgB: 1779104380836, "data-fg-blp47": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:170:11:6753:362:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "blp48", _fgB: 1779104380836, className: "text-white font-semibold mb-1", "data-fg-blp48": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:171:13:6771:68:e:h3:t", children: "AI Knowledge Base" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+          lineNumber: 191,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "blp50", _fgB: 1779104380836, className: "text-sm text-gray-400", "data-fg-blp50": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:172:13:6852:246:e:p:t", children: "Upload legislation, regulations, and reference documents to train the AI model. The AI will use this data to generate compliant policies and provide intelligent recommendations." }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+          lineNumber: 192,
+          columnNumber: 13
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+        lineNumber: 190,
+        columnNumber: 11
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+      lineNumber: 188,
+      columnNumber: 9
+    }, this) }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+      lineNumber: 187,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "blp53", _fgB: 1779104380836, className: "bg-white/5 backdrop-blur-lg rounded-xl border border-white/10 overflow-hidden", "data-fg-blp53": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:180:7:7190:4078:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "blp54", _fgB: 1779104380836, className: "p-4 border-b border-white/10", "data-fg-blp54": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:181:9:7294:142:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "blp55", _fgB: 1779104380836, className: "text-white font-semibold", "data-fg-blp55": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:182:11:7351:70:e:h3:t", children: "Training Data Repository" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+        lineNumber: 202,
+        columnNumber: 11
+      }, this) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+        lineNumber: 201,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "blp57", _fgB: 1779104380836, className: "overflow-x-auto", "data-fg-blp57": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:185:9:7446:3809:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "table", _fgS: "blp58", _fgB: 1779104380836, className: "w-full", "data-fg-blp58": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:186:11:7490:3750:e:table:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "thead", _fgS: "blp59", _fgB: 1779104380836, className: "bg-white/5 border-b border-white/10", "data-fg-blp59": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:187:13:7529:826:e:thead:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "tr", _fgS: "blp60", _fgB: 1779104380836, "data-fg-blp60": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:188:15:7599:735:e:tr:etetetetetete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "th", _fgS: "blp61", _fgB: 1779104380836, className: "text-left px-6 py-4 text-sm font-semibold text-gray-300", "data-fg-blp61": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:189:17:7620:90:e:th:t", children: "Document Name" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+            lineNumber: 209,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "th", _fgS: "blp63", _fgB: 1779104380836, className: "text-left px-6 py-4 text-sm font-semibold text-gray-300", "data-fg-blp63": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:190:17:7727:81:e:th:t", children: "Type" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+            lineNumber: 210,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "th", _fgS: "blp65", _fgB: 1779104380836, className: "text-left px-6 py-4 text-sm font-semibold text-gray-300", "data-fg-blp65": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:191:17:7825:83:e:th:t", children: "Source" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+            lineNumber: 211,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "th", _fgS: "blp67", _fgB: 1779104380836, className: "text-left px-6 py-4 text-sm font-semibold text-gray-300", "data-fg-blp67": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:192:17:7925:88:e:th:t", children: "Upload Date" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+            lineNumber: 212,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "th", _fgS: "blp69", _fgB: 1779104380836, className: "text-left px-6 py-4 text-sm font-semibold text-gray-300", "data-fg-blp69": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:193:17:8030:83:e:th:t", children: "Tokens" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+            lineNumber: 213,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "th", _fgS: "blp71", _fgB: 1779104380836, className: "text-left px-6 py-4 text-sm font-semibold text-gray-300", "data-fg-blp71": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:194:17:8130:83:e:th:t", children: "Status" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+            lineNumber: 214,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "th", _fgS: "blp73", _fgB: 1779104380836, className: "text-left px-6 py-4 text-sm font-semibold text-gray-300", "data-fg-blp73": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:195:17:8230:84:e:th:t", children: "Actions" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+            lineNumber: 215,
+            columnNumber: 17
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+          lineNumber: 208,
+          columnNumber: 15
+        }, this) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+          lineNumber: 207,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "tbody", _fgS: "blp75", _fgB: 1779104380836, "data-fg-blp75": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:198:13:8368:2853:e:tbody:x", children: trainingDocs.map(
+          (doc) => /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "tr", _fgS: "blp77", _fgB: 1779104380836, className: "border-b border-white/5 hover:bg-white/5 transition-colors", "data-fg-blp77": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:200:17:8435:2747:e:tr:etetetetetete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "td", _fgS: "blp78", _fgB: 1779104380836, className: "px-6 py-4", "data-fg-blp78": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:201:19:8542:297:e:td:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "blp79", _fgB: 1779104380836, className: "flex items-center gap-3", "data-fg-blp79": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:202:21:8589:226:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: FileText, _fgS: "blp80", _fgB: 1779104380836, className: "w-4 h-4 text-gray-400", "data-fg-blp80": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:203:23:8653:46:e:FileText::::::B1i5" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+                lineNumber: 223,
+                columnNumber: 23
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "blp81", _fgB: 1779104380836, className: "text-sm text-white font-medium", "data-fg-blp81": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:204:23:8722:66:e:span:x", children: doc.name }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+                lineNumber: 224,
+                columnNumber: 23
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+              lineNumber: 222,
+              columnNumber: 21
+            }, this) }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+              lineNumber: 221,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "td", _fgS: "blp83", _fgB: 1779104380836, className: "px-6 py-4", "data-fg-blp83": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:207:19:8858:205:e:td:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "blp84", _fgB: 1779104380836, className: "px-2 py-1 bg-teal-500/10 text-teal-400 rounded text-xs", "data-fg-blp84": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:208:21:8905:134:e:span:x", children: doc.type }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+              lineNumber: 228,
+              columnNumber: 21
+            }, this) }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+              lineNumber: 227,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "td", _fgS: "blp86", _fgB: 1779104380836, className: "px-6 py-4 text-sm text-gray-400", "data-fg-blp86": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:212:19:9082:65:e:td:x", children: doc.source }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+              lineNumber: 232,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "td", _fgS: "blp88", _fgB: 1779104380836, className: "px-6 py-4 text-sm text-gray-400", "data-fg-blp88": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:213:19:9166:69:e:td:x", children: doc.uploadDate }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+              lineNumber: 233,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "td", _fgS: "blp90", _fgB: 1779104380836, className: "px-6 py-4 text-sm text-gray-400", "data-fg-blp90": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:214:19:9254:86:e:td:x", children: doc.tokenCount.toLocaleString() }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+              lineNumber: 234,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "td", _fgS: "blp92", _fgB: 1779104380836, className: "px-6 py-4", "data-fg-blp92": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:215:19:9359:553:e:td:e", children: /* @__PURE__ */ jsxDEV(
+              FGCmp,
+              {
+                _fgT: "span",
+                _fgS: "blp93",
+                _fgB: 1779104380836,
+                className: `px-2 py-1 rounded-full text-xs font-medium ${doc.status === "trained" ? "bg-green-500/10 text-green-500" : doc.status === "processing" ? "bg-yellow-500/10 text-yellow-500" : "bg-red-500/10 text-red-500"}`,
+                "data-fg-blp93": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:216:21:9406:482:e:span:x",
+                children: doc.status
+              },
+              void 0,
+              false,
+              {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+                lineNumber: 236,
+                columnNumber: 21
+              },
+              this
+            ) }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+              lineNumber: 235,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "td", _fgS: "blp95", _fgB: 1779104380836, className: "px-6 py-4", "data-fg-blp95": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:228:19:9931:1229:e:td:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "blp96", _fgB: 1779104380836, className: "flex gap-2", "data-fg-blp96": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:229:21:9978:1158:e:div:etetx", children: [
+              /* @__PURE__ */ jsxDEV(
+                FGCmp,
+                {
+                  _fgT: "button",
+                  _fgS: "blp97",
+                  _fgB: 1779104380836,
+                  className: "p-2 hover:bg-white/10 rounded-lg transition-colors",
+                  title: "View",
+                  "data-fg-blp97": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:230:23:10029:253:e:button:e",
+                  children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Eye, _fgS: "blp98", _fgB: 1779104380836, className: "w-4 h-4 text-gray-400", "data-fg-blp98": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:234:25:10209:41:e:Eye::::::EJvT" }, void 0, false, {
+                    fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+                    lineNumber: 254,
+                    columnNumber: 25
+                  }, this)
+                },
+                void 0,
+                false,
+                {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+                  lineNumber: 250,
+                  columnNumber: 23
+                },
+                this
+              ),
+              /* @__PURE__ */ jsxDEV(
+                FGCmp,
+                {
+                  _fgT: "button",
+                  _fgS: "blp99",
+                  _fgB: 1779104380836,
+                  onClick: () => handleDeleteDocument(doc.id, doc.name),
+                  className: "p-2 hover:bg-red-500/20 rounded-lg transition-colors",
+                  title: "Delete",
+                  "data-fg-blp99": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:236:23:10305:339:e:button:e",
+                  children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Trash2, _fgS: "blp100", _fgB: 1779104380836, className: "w-4 h-4 text-gray-400", "data-fg-blp100": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:241:25:10568:44:e:Trash2::::::c98" }, void 0, false, {
+                    fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+                    lineNumber: 261,
+                    columnNumber: 25
+                  }, this)
+                },
+                void 0,
+                false,
+                {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+                  lineNumber: 256,
+                  columnNumber: 23
+                },
+                this
+              ),
+              doc.status === "trained" && /* @__PURE__ */ jsxDEV(
+                FGCmp,
+                {
+                  _fgT: "button",
+                  _fgS: "blp102",
+                  _fgB: 1779104380836,
+                  onClick: () => handleStartTraining(doc.id, doc.name),
+                  className: "p-2 hover:bg-green-500/20 rounded-lg transition-colors",
+                  title: "Start Training",
+                  "data-fg-blp102": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:244:25:10722:362:e:button:e",
+                  children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Sparkles, _fgS: "blp103", _fgB: 1779104380836, className: "w-4 h-4 text-gray-400", "data-fg-blp103": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:249:27:11004:46:e:Sparkles::::::DD2N" }, void 0, false, {
+                    fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+                    lineNumber: 269,
+                    columnNumber: 27
+                  }, this)
+                },
+                void 0,
+                false,
+                {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+                  lineNumber: 264,
+                  columnNumber: 21
+                },
+                this
+              )
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+              lineNumber: 249,
+              columnNumber: 21
+            }, this) }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+              lineNumber: 248,
+              columnNumber: 19
+            }, this)
+          ] }, doc.id, true, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+            lineNumber: 220,
+            columnNumber: 15
+          }, this)
+        ) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+          lineNumber: 218,
+          columnNumber: 13
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+        lineNumber: 206,
+        columnNumber: 11
+      }, this) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+        lineNumber: 205,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+      lineNumber: 200,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(
+      FGCmp,
+      {
+        _fgT: TrainingDataUploadModal,
+        _fgS: "blp105",
+        _fgB: 1779104380836,
+        isOpen: showUploadModal,
+        onClose: () => setShowUploadModal(false),
+        onUpload: handleUploadDocument,
+        "data-fg-blp105": "418.270:418.11477:/src/app/pages/platform-admin/AITraining.tsx:262:7:11303:156:e:TrainingDataUploadModal::::::DHUp"
+      },
+      void 0,
+      false,
+      {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+        lineNumber: 282,
+        columnNumber: 7
+      },
+      this
+    )
+  ] }, void 0, true, {
+    fileName: "/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx",
+    lineNumber: 134,
+    columnNumber: 5
+  }, this);
+}
+_s(AITraining, "hH0liAeeKvFcG4OkN0jQ+QcP/6A=", false, function() {
+  return [useApp];
+});
+_c = AITraining;
+var _c;
+$RefreshReg$(_c, "AITraining");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/workspaces/default/code/src/app/pages/platform-admin/AITraining.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,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QUEsZUEwREE7QUFBQSxXQXRFRjtBQUFBO0FBQUE7QUFBQTtBQUFBLGFBdUVBLEtBeEVGO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUF5RUE7QUFBQSxTQTlFRjtBQUFBO0FBQUE7QUFBQTtBQUFBLFdBK0VBO0FBQUEsSUFHQTtBQUFBLE1BQUM7QUFBQTtBQUFBLGNBQUFIO0FBQUFBLFFBQUE7QUFBQTtBQUFBLFFBQ0MsUUFBUWU7QUFBQUEsUUFDUixTQUFTLE1BQU1DLG1CQUFtQixLQUFLO0FBQUEsUUFDdkMsVUFBVUM7QUFBQUEsUUFDYjtBQUFBO0FBQUEsTUFKQztBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUEsSUFJRDtBQUFBLE9BeEpEO0FBQUE7QUFBQTtBQUFBO0FBQUEsU0F5SkE7QUFFSjtBQUFBTixHQXRQd0JELFlBQVU7QUFBQSxVQUNSVCxNQUFNO0FBQUE7QUFBQTZDLEtBRFJwQztBQUFVLElBQUFvQztBQUFBQyxhQUFBRCxJQUFBIiwibmFtZXMiOlsidXNlU3RhdGUiLCJVcGxvYWQiLCJGaWxlVGV4dCIsIlNwYXJrbGVzIiwiRGF0YWJhc2UiLCJUcmVuZGluZ1VwIiwiQ2hlY2tDaXJjbGUiLCJDbG9jayIsIlRyYXNoMiIsIkV5ZSIsIlRyYWluaW5nRGF0YVVwbG9hZE1vZGFsIiwidXNlQXBwIiwibW9ja1RyYWluaW5nRG9jcyIsImlkIiwibmFtZSIsInR5cGUiLCJzb3VyY2UiLCJ1cGxvYWREYXRlIiwic3RhdHVzIiwidG9rZW5Db3VudCIsIkFJVHJhaW5pbmciLCJfcyIsImFkZEF1ZGl0TG9nIiwidHJhaW5pbmdEb2NzIiwic2V0VHJhaW5pbmdEb2NzIiwic2hvd1VwbG9hZE1vZGFsIiwic2V0U2hvd1VwbG9hZE1vZGFsIiwiaGFuZGxlVXBsb2FkRG9jdW1lbnQiLCJkYXRhIiwibmV3RG9jIiwiRGF0ZSIsIm5vdyIsInRvSVNPU3RyaW5nIiwic3BsaXQiLCJhY3Rpb24iLCJkZXRhaWxzIiwiYWxlcnQiLCJzZXRUaW1lb3V0IiwiZG9jcyIsIm1hcCIsImRvYyIsIk1hdGgiLCJmbG9vciIsInJhbmRvbSIsImhhbmRsZURlbGV0ZURvY3VtZW50IiwiY29uZmlybSIsImZpbHRlciIsImhhbmRsZVN0YXJ0VHJhaW5pbmciLCJ0b3RhbFRva2VucyIsInJlZHVjZSIsInN1bSIsInRyYWluZWRDb3VudCIsImxlbmd0aCIsInByb2Nlc3NpbmdDb3VudCIsInRvRml4ZWQiLCJ0b0xvY2FsZVN0cmluZyIsIl9jIiwiJFJlZnJlc2hSZWckIl0sImlnbm9yZUxpc3QiOltdLCJzb3VyY2VzIjpbIkFJVHJhaW5pbmcudHN4Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IHVzZVN0YXRlIH0gZnJvbSAncmVhY3QnO1xuaW1wb3J0IHsgVXBsb2FkLCBGaWxlVGV4dCwgU3BhcmtsZXMsIERhdGFiYXNlLCBUcmVuZGluZ1VwLCBDaGVja0NpcmNsZSwgQ2xvY2ssIEFsZXJ0Q2lyY2xlLCBQbHVzLCBUcmFzaDIsIEV5ZSB9IGZyb20gJ2x1Y2lkZS1yZWFjdCc7XG5pbXBvcnQgeyBUcmFpbmluZ0RhdGFVcGxvYWRNb2RhbCB9IGZyb20gJy4uLy4uL2NvbXBvbmVudHMvVHJhaW5pbmdEYXRhVXBsb2FkTW9kYWwnO1xuaW1wb3J0IHsgdXNlQXBwIH0gZnJvbSAnLi4vLi4vY29udGV4dHMvQXBwQ29udGV4dCc7XG5cbmludGVyZmFjZSBUcmFpbmluZ0RvY3VtZW50IHtcbiAgaWQ6IHN0cmluZztcbiAgbmFtZTogc3RyaW5nO1xuICB0eXBlOiAnbGVnaXNsYXRpb24nIHwgJ3BvbGljeScgfCAncHJvY2VkdXJlJyB8ICdndWlkZWxpbmUnO1xuICBzb3VyY2U6IHN0cmluZztcbiAgdXBsb2FkRGF0ZTogc3RyaW5nO1xuICBzdGF0dXM6ICdwcm9jZXNzaW5nJyB8ICd0cmFpbmVkJyB8ICdmYWlsZWQnO1xuICB0b2tlbkNvdW50OiBudW1iZXI7XG59XG5cbmNvbnN0IG1vY2tUcmFpbmluZ0RvY3M6IFRyYWluaW5nRG9jdW1lbnRbXSA9IFtcbiAgeyBpZDogJzEnLCBuYW1lOiAnQWdlZCBDYXJlIEFjdCAxOTk3JywgdHlwZTogJ2xlZ2lzbGF0aW9uJywgc291cmNlOiAnRmVkZXJhbCBSZWdpc3RlcicsIHVwbG9hZERhdGU6ICcyMDI1LTAzLTE1Jywgc3RhdHVzOiAndHJhaW5lZCcsIHRva2VuQ291bnQ6IDQ1MjAwIH0sXG4gIHsgaWQ6ICcyJywgbmFtZTogJ05ESVMgUHJhY3RpY2UgU3RhbmRhcmRzJywgdHlwZTogJ2xlZ2lzbGF0aW9uJywgc291cmNlOiAnTkRJUyBDb21taXNzaW9uJywgdXBsb2FkRGF0ZTogJzIwMjUtMDMtMTQnLCBzdGF0dXM6ICd0cmFpbmVkJywgdG9rZW5Db3VudDogMzg5MDAgfSxcbiAgeyBpZDogJzMnLCBuYW1lOiAnUXVhbGl0eSBTdGFuZGFyZHMgRnJhbWV3b3JrJywgdHlwZTogJ2d1aWRlbGluZScsIHNvdXJjZTogJ0ludGVybmFsJywgdXBsb2FkRGF0ZTogJzIwMjUtMDMtMTInLCBzdGF0dXM6ICdwcm9jZXNzaW5nJywgdG9rZW5Db3VudDogMTI0MDAgfSxcbiAgeyBpZDogJzQnLCBuYW1lOiAnQ2hhcnRlciBvZiBBZ2VkIENhcmUgUmlnaHRzJywgdHlwZTogJ2xlZ2lzbGF0aW9uJywgc291cmNlOiAnR292ZXJubWVudCcsIHVwbG9hZERhdGU6ICcyMDI1LTAzLTEwJywgc3RhdHVzOiAndHJhaW5lZCcsIHRva2VuQ291bnQ6IDg2MDAgfSxcbl07XG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIEFJVHJhaW5pbmcoKSB7XG4gIGNvbnN0IHsgYWRkQXVkaXRMb2cgfSA9IHVzZUFwcCgpO1xuICBjb25zdCBbdHJhaW5pbmdEb2NzLCBzZXRUcmFpbmluZ0RvY3NdID0gdXNlU3RhdGU8VHJhaW5pbmdEb2N1bWVudFtdPihtb2NrVHJhaW5pbmdEb2NzKTtcbiAgY29uc3QgW3Nob3dVcGxvYWRNb2RhbCwgc2V0U2hvd1VwbG9hZE1vZGFsXSA9IHVzZVN0YXRlKGZhbHNlKTtcblxuICBjb25zdCBoYW5kbGVVcGxvYWREb2N1bWVudCA9IChkYXRhOiB7XG4gICAgbmFtZTogc3RyaW5nO1xuICAgIHR5cGU6IHN0cmluZztcbiAgICBzb3VyY2U6IHN0cmluZztcbiAgICBmaWxlOiBGaWxlIHwgbnVsbDtcbiAgICB0YWdzOiBzdHJpbmdbXTtcbiAgfSkgPT4ge1xuICAgIGNvbnN0IG5ld0RvYzogVHJhaW5pbmdEb2N1bWVudCA9IHtcbiAgICAgIGlkOiBgZG9jLSR7RGF0ZS5ub3coKX1gLFxuICAgICAgbmFtZTogZGF0YS5uYW1lLFxuICAgICAgdHlwZTogZGF0YS50eXBlIGFzICdsZWdpc2xhdGlvbicgfCAncG9saWN5JyB8ICdwcm9jZWR1cmUnIHwgJ2d1aWRlbGluZScsXG4gICAgICBzb3VyY2U6IGRhdGEuc291cmNlLFxuICAgICAgdXBsb2FkRGF0ZTogbmV3IERhdGUoKS50b0lTT1N0cmluZygpLnNwbGl0KCdUJylbMF0sXG4gICAgICBzdGF0dXM6ICdwcm9jZXNzaW5nJyxcbiAgICAgIHRva2VuQ291bnQ6IDAsXG4gICAgfTtcbiAgICBcbiAgICBzZXRUcmFpbmluZ0RvY3MoW25ld0RvYywgLi4udHJhaW5pbmdEb2NzXSk7XG4gICAgXG4gICAgLy8gQWRkIGF1ZGl0IGxvZ1xuICAgIGFkZEF1ZGl0TG9nKHtcbiAgICAgIGFjdGlvbjogJ1RyYWluaW5nIERhdGEgVXBsb2FkZWQnLFxuICAgICAgZGV0YWlsczogYFVwbG9hZGVkIHRyYWluaW5nIGRvY3VtZW50OiAke2RhdGEubmFtZX0gKCR7ZGF0YS50eXBlfSlgLFxuICAgIH0pO1xuICAgIFxuICAgIGFsZXJ0KCfinIUgRG9jdW1lbnQgdXBsb2FkZWQgc3VjY2Vzc2Z1bGx5IGFuZCBhZGRlZCB0byB0cmFpbmluZyBxdWV1ZSEnKTtcbiAgICBcbiAgICAvLyBTaW11bGF0ZSBwcm9jZXNzaW5nXG4gICAgc2V0VGltZW91dCgoKSA9PiB7XG4gICAgICBzZXRUcmFpbmluZ0RvY3MoZG9jcyA9PiBkb2NzLm1hcChkb2MgPT4gXG4gICAgICAgIGRvYy5pZCA9PT0gbmV3RG9jLmlkIFxuICAgICAgICAgID8geyAuLi5kb2MsIHN0YXR1czogJ3RyYWluZWQnLCB0b2tlbkNvdW50OiBNYXRoLmZsb29yKE1hdGgucmFuZG9tKCkgKiA1MDAwMCkgKyA1MDAwIH1cbiAgICAgICAgICA6IGRvY1xuICAgICAgKSk7XG4gICAgICBcbiAgICAgIGFkZEF1ZGl0TG9nKHtcbiAgICAgICAgYWN0aW9uOiAnQUkgTW9kZWwgVHJhaW5lZCcsXG4gICAgICAgIGRldGFpbHM6IGBUcmFpbmluZyBjb21wbGV0ZWQgZm9yOiAke2RhdGEubmFtZX1gLFxuICAgICAgfSk7XG4gICAgfSwgNTAwMCk7XG4gIH07XG5cbiAgY29uc3QgaGFuZGxlRGVsZXRlRG9jdW1lbnQgPSAoaWQ6IHN0cmluZywgbmFtZTogc3RyaW5nKSA9PiB7XG4gICAgaWYgKGNvbmZpcm0oYEFyZSB5b3Ugc3VyZSB5b3Ugd2FudCB0byByZW1vdmUgXCIke25hbWV9XCIgZnJvbSB0cmFpbmluZyBkYXRhP2ApKSB7XG4gICAgICBzZXRUcmFpbmluZ0RvY3ModHJhaW5pbmdEb2NzLmZpbHRlcigoZG9jKSA9PiBkb2MuaWQgIT09IGlkKSk7XG4gICAgICBcbiAgICAgIGFkZEF1ZGl0TG9nKHtcbiAgICAgICAgYWN0aW9uOiAnVHJhaW5pbmcgRGF0YSBSZW1vdmVkJyxcbiAgICAgICAgZGV0YWlsczogYFJlbW92ZWQgdHJhaW5pbmcgZG9jdW1lbnQ6ICR7bmFtZX1gLFxuICAgICAgfSk7XG4gICAgICBcbiAgICAgIGFsZXJ0KCdEb2N1bWVudCByZW1vdmVkIGZyb20gdHJhaW5pbmcgZGF0YSEnKTtcbiAgICB9XG4gIH07XG5cbiAgY29uc3QgaGFuZGxlU3RhcnRUcmFpbmluZyA9IChpZDogc3RyaW5nLCBuYW1lOiBzdHJpbmcpID0+IHtcbiAgICBzZXRUcmFpbmluZ0RvY3MoZG9jcyA9PiBkb2NzLm1hcChkb2MgPT4gXG4gICAgICBkb2MuaWQgPT09IGlkID8geyAuLi5kb2MsIHN0YXR1czogJ3Byb2Nlc3NpbmcnIGFzIGNvbnN0IH0gOiBkb2NcbiAgICApKTtcbiAgICBcbiAgICBhZGRBdWRpdExvZyh7XG4gICAgICBhY3Rpb246ICdBSSBUcmFpbmluZyBTdGFydGVkJyxcbiAgICAgIGRldGFpbHM6IGBTdGFydGVkIHRyYWluaW5nIGZvcjogJHtuYW1lfWAsXG4gICAgfSk7XG4gICAgXG4gICAgc2V0VGltZW91dCgoKSA9PiB7XG4gICAgICBzZXRUcmFpbmluZ0RvY3MoZG9jcyA9PiBkb2NzLm1hcChkb2MgPT4gXG4gICAgICAgIGRvYy5pZCA9PT0gaWQgXG4gICAgICAgICAgPyB7IC4uLmRvYywgc3RhdHVzOiAndHJhaW5lZCcgYXMgY29uc3QsIHRva2VuQ291bnQ6IE1hdGguZmxvb3IoTWF0aC5yYW5kb20oKSAqIDUwMDAwKSArIDUwMDAgfVxuICAgICAgICAgIDogZG9jXG4gICAgICApKTtcbiAgICAgIFxuICAgICAgYWRkQXVkaXRMb2coe1xuICAgICAgICBhY3Rpb246ICdBSSBUcmFpbmluZyBDb21wbGV0ZWQnLFxuICAgICAgICBkZXRhaWxzOiBgVHJhaW5pbmcgY29tcGxldGVkIGZvcjogJHtuYW1lfWAsXG4gICAgICB9KTtcbiAgICAgIFxuICAgICAgYWxlcnQoJ+KchSBUcmFpbmluZyBjb21wbGV0ZWQgc3VjY2Vzc2Z1bGx5IScpO1xuICAgIH0sIDMwMDApO1xuICB9O1xuXG4gIGNvbnN0IHRvdGFsVG9rZW5zID0gdHJhaW5pbmdEb2NzLnJlZHVjZSgoc3VtLCBkb2MpID0+IHN1bSArIGRvYy50b2tlbkNvdW50LCAwKTtcbiAgY29uc3QgdHJhaW5lZENvdW50ID0gdHJhaW5pbmdEb2NzLmZpbHRlcigoZG9jKSA9PiBkb2Muc3RhdHVzID09PSAndHJhaW5lZCcpLmxlbmd0aDtcbiAgY29uc3QgcHJvY2Vzc2luZ0NvdW50ID0gdHJhaW5pbmdEb2NzLmZpbHRlcigoZG9jKSA9PiBkb2Muc3RhdHVzID09PSAncHJvY2Vzc2luZycpLmxlbmd0aDtcblxuICByZXR1cm4gKFxuICAgIDxkaXYgY2xhc3NOYW1lPVwic3BhY2UteS02XCI+XG4gICAgICB7LyogSGVhZGVyICovfVxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW5cIj5cbiAgICAgICAgPGRpdj5cbiAgICAgICAgICA8aDEgY2xhc3NOYW1lPVwidGV4dC0zeGwgZm9udC1ib2xkIHRleHQtd2hpdGUgbWItMlwiPkFJIFRyYWluaW5nICYgRGF0YSBJbmdlc3Rpb248L2gxPlxuICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtZ3JheS00MDBcIj5NYW5hZ2UgQUkgdHJhaW5pbmcgZGF0YSBhbmQgbGVnaXNsYXRpb24gbGlicmFyeTwvcD5cbiAgICAgICAgPC9kaXY+XG4gICAgICAgIDxidXR0b25cbiAgICAgICAgICBvbkNsaWNrPXsoKSA9PiBzZXRTaG93VXBsb2FkTW9kYWwodHJ1ZSl9XG4gICAgICAgICAgY2xhc3NOYW1lPVwicHgtNCBweS0yIGJnLWdyYWRpZW50LXRvLXIgZnJvbS1wdXJwbGUtNjAwIHRvLXB1cnBsZS01MDAgdGV4dC13aGl0ZSByb3VuZGVkLWxnIGhvdmVyOnNoYWRvdy1sZyB0cmFuc2l0aW9uLWFsbCBmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMlwiXG4gICAgICAgID5cbiAgICAgICAgICA8VXBsb2FkIGNsYXNzTmFtZT1cInctNCBoLTRcIiAvPlxuICAgICAgICAgIFVwbG9hZCBUcmFpbmluZyBEYXRhXG4gICAgICAgIDwvYnV0dG9uPlxuICAgICAgPC9kaXY+XG5cbiAgICAgIHsvKiBTdGF0cyAqL31cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZ3JpZCBncmlkLWNvbHMtMSBtZDpncmlkLWNvbHMtNCBnYXAtNlwiPlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLXdoaXRlLzUgYmFja2Ryb3AtYmx1ci1sZyByb3VuZGVkLXhsIHAtNiBib3JkZXIgYm9yZGVyLXdoaXRlLzEwXCI+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW4gbWItMlwiPlxuICAgICAgICAgICAgPERhdGFiYXNlIGNsYXNzTmFtZT1cInctNSBoLTUgdGV4dC1wdXJwbGUtNDAwXCIgLz5cbiAgICAgICAgICAgIDxUcmVuZGluZ1VwIGNsYXNzTmFtZT1cInctNCBoLTQgdGV4dC1ncmVlbi00MDBcIiAvPlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC0yeGwgZm9udC1ib2xkIHRleHQtd2hpdGUgbWItMVwiPnt0cmFpbmluZ0RvY3MubGVuZ3RofTwvZGl2PlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC14cyB0ZXh0LWdyYXktNDAwXCI+VHJhaW5pbmcgRG9jdW1lbnRzPC9kaXY+XG4gICAgICAgIDwvZGl2PlxuXG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYmctd2hpdGUvNSBiYWNrZHJvcC1ibHVyLWxnIHJvdW5kZWQteGwgcC02IGJvcmRlciBib3JkZXItd2hpdGUvMTBcIj5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlbiBtYi0yXCI+XG4gICAgICAgICAgICA8Q2hlY2tDaXJjbGUgY2xhc3NOYW1lPVwidy01IGgtNSB0ZXh0LWdyZWVuLTQwMFwiIC8+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ0ZXh0LTJ4bCBmb250LWJvbGQgdGV4dC13aGl0ZSBtYi0xXCI+e3RyYWluZWRDb3VudH08L2Rpdj5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC1ncmF5LTQwMFwiPlRyYWluZWQgJiBBY3RpdmU8L2Rpdj5cbiAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJiZy13aGl0ZS81IGJhY2tkcm9wLWJsdXItbGcgcm91bmRlZC14bCBwLTYgYm9yZGVyIGJvcmRlci13aGl0ZS8xMFwiPlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuIG1iLTJcIj5cbiAgICAgICAgICAgIDxDbG9jayBjbGFzc05hbWU9XCJ3LTUgaC01IHRleHQteWVsbG93LTQwMFwiIC8+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ0ZXh0LTJ4bCBmb250LWJvbGQgdGV4dC13aGl0ZSBtYi0xXCI+e3Byb2Nlc3NpbmdDb3VudH08L2Rpdj5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC1ncmF5LTQwMFwiPlByb2Nlc3Npbmc8L2Rpdj5cbiAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJiZy13aGl0ZS81IGJhY2tkcm9wLWJsdXItbGcgcm91bmRlZC14bCBwLTYgYm9yZGVyIGJvcmRlci13aGl0ZS8xMFwiPlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuIG1iLTJcIj5cbiAgICAgICAgICAgIDxTcGFya2xlcyBjbGFzc05hbWU9XCJ3LTUgaC01IHRleHQtdGVhbC00MDBcIiAvPlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC0yeGwgZm9udC1ib2xkIHRleHQtd2hpdGUgbWItMVwiPnsodG90YWxUb2tlbnMgLyAxMDAwKS50b0ZpeGVkKDEpfWs8L2Rpdj5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC1ncmF5LTQwMFwiPlRvdGFsIFRva2VuczwvZGl2PlxuICAgICAgICA8L2Rpdj5cbiAgICAgIDwvZGl2PlxuXG4gICAgICB7LyogSW5mbyBCYW5uZXIgKi99XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLXB1cnBsZS01MDAvMTAgYm9yZGVyIGJvcmRlci1wdXJwbGUtNTAwLzIwIHJvdW5kZWQteGwgcC00XCI+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1zdGFydCBnYXAtM1wiPlxuICAgICAgICAgIDxTcGFya2xlcyBjbGFzc05hbWU9XCJ3LTUgaC01IHRleHQtcHVycGxlLTQwMCBtdC0wLjVcIiAvPlxuICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICA8aDMgY2xhc3NOYW1lPVwidGV4dC13aGl0ZSBmb250LXNlbWlib2xkIG1iLTFcIj5BSSBLbm93bGVkZ2UgQmFzZTwvaDM+XG4gICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LXNtIHRleHQtZ3JheS00MDBcIj5cbiAgICAgICAgICAgICAgVXBsb2FkIGxlZ2lzbGF0aW9uLCByZWd1bGF0aW9ucywgYW5kIHJlZmVyZW5jZSBkb2N1bWVudHMgdG8gdHJhaW4gdGhlIEFJIG1vZGVsLiBUaGUgQUkgd2lsbCB1c2UgdGhpcyBkYXRhIHRvIGdlbmVyYXRlIGNvbXBsaWFudCBwb2xpY2llcyBhbmQgcHJvdmlkZSBpbnRlbGxpZ2VudCByZWNvbW1lbmRhdGlvbnMuXG4gICAgICAgICAgICA8L3A+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvZGl2PlxuICAgICAgPC9kaXY+XG5cbiAgICAgIHsvKiBUcmFpbmluZyBEb2N1bWVudHMgVGFibGUgKi99XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLXdoaXRlLzUgYmFja2Ryb3AtYmx1ci1sZyByb3VuZGVkLXhsIGJvcmRlciBib3JkZXItd2hpdGUvMTAgb3ZlcmZsb3ctaGlkZGVuXCI+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicC00IGJvcmRlci1iIGJvcmRlci13aGl0ZS8xMFwiPlxuICAgICAgICAgIDxoMyBjbGFzc05hbWU9XCJ0ZXh0LXdoaXRlIGZvbnQtc2VtaWJvbGRcIj5UcmFpbmluZyBEYXRhIFJlcG9zaXRvcnk8L2gzPlxuICAgICAgICA8L2Rpdj5cblxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cIm92ZXJmbG93LXgtYXV0b1wiPlxuICAgICAgICAgIDx0YWJsZSBjbGFzc05hbWU9XCJ3LWZ1bGxcIj5cbiAgICAgICAgICAgIDx0aGVhZCBjbGFzc05hbWU9XCJiZy13aGl0ZS81IGJvcmRlci1iIGJvcmRlci13aGl0ZS8xMFwiPlxuICAgICAgICAgICAgICA8dHI+XG4gICAgICAgICAgICAgICAgPHRoIGNsYXNzTmFtZT1cInRleHQtbGVmdCBweC02IHB5LTQgdGV4dC1zbSBmb250LXNlbWlib2xkIHRleHQtZ3JheS0zMDBcIj5Eb2N1bWVudCBOYW1lPC90aD5cbiAgICAgICAgICAgICAgICA8dGggY2xhc3NOYW1lPVwidGV4dC1sZWZ0IHB4LTYgcHktNCB0ZXh0LXNtIGZvbnQtc2VtaWJvbGQgdGV4dC1ncmF5LTMwMFwiPlR5cGU8L3RoPlxuICAgICAgICAgICAgICAgIDx0aCBjbGFzc05hbWU9XCJ0ZXh0LWxlZnQgcHgtNiBweS00IHRleHQtc20gZm9udC1zZW1pYm9sZCB0ZXh0LWdyYXktMzAwXCI+U291cmNlPC90aD5cbiAgICAgICAgICAgICAgICA8dGggY2xhc3NOYW1lPVwidGV4dC1sZWZ0IHB4LTYgcHktNCB0ZXh0LXNtIGZvbnQtc2VtaWJvbGQgdGV4dC1ncmF5LTMwMFwiPlVwbG9hZCBEYXRlPC90aD5cbiAgICAgICAgICAgICAgICA8dGggY2xhc3NOYW1lPVwidGV4dC1sZWZ0IHB4LTYgcHktNCB0ZXh0LXNtIGZvbnQtc2VtaWJvbGQgdGV4dC1ncmF5LTMwMFwiPlRva2VuczwvdGg+XG4gICAgICAgICAgICAgICAgPHRoIGNsYXNzTmFtZT1cInRleHQtbGVmdCBweC02IHB5LTQgdGV4dC1zbSBmb250LXNlbWlib2xkIHRleHQtZ3JheS0zMDBcIj5TdGF0dXM8L3RoPlxuICAgICAgICAgICAgICAgIDx0aCBjbGFzc05hbWU9XCJ0ZXh0LWxlZnQgcHgtNiBweS00IHRleHQtc20gZm9udC1zZW1pYm9sZCB0ZXh0LWdyYXktMzAwXCI+QWN0aW9uczwvdGg+XG4gICAgICAgICAgICAgIDwvdHI+XG4gICAgICAgICAgICA8L3RoZWFkPlxuICAgICAgICAgICAgPHRib2R5PlxuICAgICAgICAgICAgICB7dHJhaW5pbmdEb2NzLm1hcCgoZG9jKSA9PiAoXG4gICAgICAgICAgICAgICAgPHRyIGtleT17ZG9jLmlkfSBjbGFzc05hbWU9XCJib3JkZXItYiBib3JkZXItd2hpdGUvNSBob3ZlcjpiZy13aGl0ZS81IHRyYW5zaXRpb24tY29sb3JzXCI+XG4gICAgICAgICAgICAgICAgICA8dGQgY2xhc3NOYW1lPVwicHgtNiBweS00XCI+XG4gICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTNcIj5cbiAgICAgICAgICAgICAgICAgICAgICA8RmlsZVRleHQgY2xhc3NOYW1lPVwidy00IGgtNCB0ZXh0LWdyYXktNDAwXCIgLz5cbiAgICAgICAgICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LXNtIHRleHQtd2hpdGUgZm9udC1tZWRpdW1cIj57ZG9jLm5hbWV9PC9zcGFuPlxuICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICAgIDwvdGQ+XG4gICAgICAgICAgICAgICAgICA8dGQgY2xhc3NOYW1lPVwicHgtNiBweS00XCI+XG4gICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInB4LTIgcHktMSBiZy10ZWFsLTUwMC8xMCB0ZXh0LXRlYWwtNDAwIHJvdW5kZWQgdGV4dC14c1wiPlxuICAgICAgICAgICAgICAgICAgICAgIHtkb2MudHlwZX1cbiAgICAgICAgICAgICAgICAgICAgPC9zcGFuPlxuICAgICAgICAgICAgICAgICAgPC90ZD5cbiAgICAgICAgICAgICAgICAgIDx0ZCBjbGFzc05hbWU9XCJweC02IHB5LTQgdGV4dC1zbSB0ZXh0LWdyYXktNDAwXCI+e2RvYy5zb3VyY2V9PC90ZD5cbiAgICAgICAgICAgICAgICAgIDx0ZCBjbGFzc05hbWU9XCJweC02IHB5LTQgdGV4dC1zbSB0ZXh0LWdyYXktNDAwXCI+e2RvYy51cGxvYWREYXRlfTwvdGQ+XG4gICAgICAgICAgICAgICAgICA8dGQgY2xhc3NOYW1lPVwicHgtNiBweS00IHRleHQtc20gdGV4dC1ncmF5LTQwMFwiPntkb2MudG9rZW5Db3VudC50b0xvY2FsZVN0cmluZygpfTwvdGQ+XG4gICAgICAgICAgICAgICAgICA8dGQgY2xhc3NOYW1lPVwicHgtNiBweS00XCI+XG4gICAgICAgICAgICAgICAgICAgIDxzcGFuXG4gICAgICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPXtgcHgtMiBweS0xIHJvdW5kZWQtZnVsbCB0ZXh0LXhzIGZvbnQtbWVkaXVtICR7XG4gICAgICAgICAgICAgICAgICAgICAgICBkb2Muc3RhdHVzID09PSAndHJhaW5lZCdcbiAgICAgICAgICAgICAgICAgICAgICAgICAgPyAnYmctZ3JlZW4tNTAwLzEwIHRleHQtZ3JlZW4tNTAwJ1xuICAgICAgICAgICAgICAgICAgICAgICAgICA6IGRvYy5zdGF0dXMgPT09ICdwcm9jZXNzaW5nJ1xuICAgICAgICAgICAgICAgICAgICAgICAgICA/ICdiZy15ZWxsb3ctNTAwLzEwIHRleHQteWVsbG93LTUwMCdcbiAgICAgICAgICAgICAgICAgICAgICAgICAgOiAnYmctcmVkLTUwMC8xMCB0ZXh0LXJlZC01MDAnXG4gICAgICAgICAgICAgICAgICAgICAgfWB9XG4gICAgICAgICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICAgICAgICB7ZG9jLnN0YXR1c31cbiAgICAgICAgICAgICAgICAgICAgPC9zcGFuPlxuICAgICAgICAgICAgICAgICAgPC90ZD5cbiAgICAgICAgICAgICAgICAgIDx0ZCBjbGFzc05hbWU9XCJweC02IHB5LTRcIj5cbiAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGdhcC0yXCI+XG4gICAgICAgICAgICAgICAgICAgICAgPGJ1dHRvblxuICAgICAgICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwicC0yIGhvdmVyOmJnLXdoaXRlLzEwIHJvdW5kZWQtbGcgdHJhbnNpdGlvbi1jb2xvcnNcIlxuICAgICAgICAgICAgICAgICAgICAgICAgdGl0bGU9XCJWaWV3XCJcbiAgICAgICAgICAgICAgICAgICAgICA+XG4gICAgICAgICAgICAgICAgICAgICAgICA8RXllIGNsYXNzTmFtZT1cInctNCBoLTQgdGV4dC1ncmF5LTQwMFwiIC8+XG4gICAgICAgICAgICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgICAgICAgICAgICAgPGJ1dHRvblxuICAgICAgICAgICAgICAgICAgICAgICAgb25DbGljaz17KCkgPT4gaGFuZGxlRGVsZXRlRG9jdW1lbnQoZG9jLmlkLCBkb2MubmFtZSl9XG4gICAgICAgICAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJwLTIgaG92ZXI6YmctcmVkLTUwMC8yMCByb3VuZGVkLWxnIHRyYW5zaXRpb24tY29sb3JzXCJcbiAgICAgICAgICAgICAgICAgICAgICAgIHRpdGxlPVwiRGVsZXRlXCJcbiAgICAgICAgICAgICAgICAgICAgICA+XG4gICAgICAgICAgICAgICAgICAgICAgICA8VHJhc2gyIGNsYXNzTmFtZT1cInctNCBoLTQgdGV4dC1ncmF5LTQwMFwiIC8+XG4gICAgICAgICAgICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgICAgICAgICAgICAge2RvYy5zdGF0dXMgPT09ICd0cmFpbmVkJyAmJiAoXG4gICAgICAgICAgICAgICAgICAgICAgICA8YnV0dG9uXG4gICAgICAgICAgICAgICAgICAgICAgICAgIG9uQ2xpY2s9eygpID0+IGhhbmRsZVN0YXJ0VHJhaW5pbmcoZG9jLmlkLCBkb2MubmFtZSl9XG4gICAgICAgICAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cInAtMiBob3ZlcjpiZy1ncmVlbi01MDAvMjAgcm91bmRlZC1sZyB0cmFuc2l0aW9uLWNvbG9yc1wiXG4gICAgICAgICAgICAgICAgICAgICAgICAgIHRpdGxlPVwiU3RhcnQgVHJhaW5pbmdcIlxuICAgICAgICAgICAgICAgICAgICAgICAgPlxuICAgICAgICAgICAgICAgICAgICAgICAgICA8U3BhcmtsZXMgY2xhc3NOYW1lPVwidy00IGgtNCB0ZXh0LWdyYXktNDAwXCIgLz5cbiAgICAgICAgICAgICAgICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICAgICAgICAgICAgICAgICl9XG4gICAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgPC90ZD5cbiAgICAgICAgICAgICAgICA8L3RyPlxuICAgICAgICAgICAgICApKX1cbiAgICAgICAgICAgIDwvdGJvZHk+XG4gICAgICAgICAgPC90YWJsZT5cbiAgICAgICAgPC9kaXY+XG4gICAgICA8L2Rpdj5cblxuICAgICAgey8qIFVwbG9hZCBNb2RhbCAqL31cbiAgICAgIDxUcmFpbmluZ0RhdGFVcGxvYWRNb2RhbFxuICAgICAgICBpc09wZW49e3Nob3dVcGxvYWRNb2RhbH1cbiAgICAgICAgb25DbG9zZT17KCkgPT4gc2V0U2hvd1VwbG9hZE1vZGFsKGZhbHNlKX1cbiAgICAgICAgb25VcGxvYWQ9e2hhbmRsZVVwbG9hZERvY3VtZW50fVxuICAgICAgLz5cbiAgICA8L2Rpdj5cbiAgKTtcbn0iXSwiZmlsZSI6Ii93b3Jrc3BhY2VzL2RlZmF1bHQvY29kZS9zcmMvYXBwL3BhZ2VzL3BsYXRmb3JtLWFkbWluL0FJVHJhaW5pbmcudHN4In0=

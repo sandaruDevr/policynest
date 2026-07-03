@@ -1,0 +1,382 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/app/pages/org-admin/Reports.tsx");import { jsxDEV } from "/@id/__x00__figma:react-jsx-dev-runtime";
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/workspaces/default/code/src/app/pages/org-admin/Reports.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+var _s = $RefreshSig$();
+import { FGCmp } from "/@id/fginspector";
+import { useState } from "/@id/__x00__figma:react-base";
+import { BarChart3, Download, FileText, X } from "/node_modules/.vite/deps/lucide-react.js?v=25293e4c";
+export default function Reports() {
+  _s();
+  const [showGenerateModal, setShowGenerateModal] = useState(false);
+  const reportTypes = [
+    {
+      name: "Incident Trends",
+      description: "Analysis of incidents over time with trends",
+      icon: BarChart3
+    },
+    {
+      name: "Training Completion",
+      description: "Staff training progress and completion rates",
+      icon: FileText
+    },
+    {
+      name: "Policy Usage",
+      description: "Most viewed and referenced policies",
+      icon: FileText
+    },
+    {
+      name: "AI Interactions",
+      description: "AI assistant usage statistics and insights",
+      icon: BarChart3
+    }
+  ];
+  return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cadn0", _fgB: 1779104381794, _fgD: true, className: "space-y-6", "data-fg-cadn0": "418.263:418.5925:/src/app/pages/org-admin/Reports.tsx:31:5:784:5133:e:div:xtetxtetxtetxtx:1", children: [
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cadn2", _fgB: 1779104381794, "data-fg-cadn2": "418.263:418.5925:/src/app/pages/org-admin/Reports.tsx:33:7:839:175:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h1", _fgS: "cadn3", _fgB: 1779104381794, className: "text-3xl font-bold text-white mb-2", "data-fg-cadn3": "418.263:418.5925:/src/app/pages/org-admin/Reports.tsx:34:9:853:63:e:h1:t", children: "Reports" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/Reports.tsx",
+        lineNumber: 54,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "cadn5", _fgB: 1779104381794, className: "text-gray-400", "data-fg-cadn5": "418.263:418.5925:/src/app/pages/org-admin/Reports.tsx:35:9:925:76:e:p:t", children: "Generate operational and compliance reports" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/Reports.tsx",
+        lineNumber: 55,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/Reports.tsx",
+      lineNumber: 53,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cadn8", _fgB: 1779104381794, className: "grid grid-cols-1 md:grid-cols-2 gap-6", "data-fg-cadn8": "418.263:418.5925:/src/app/pages/org-admin/Reports.tsx:39:7:1049:874:e:div:x", children: reportTypes.map(
+      (report, i) => /* @__PURE__ */ jsxDEV(
+        FGCmp,
+        {
+          _fgT: "div",
+          _fgS: "cadn10",
+          _fgB: 1779104381794,
+          className: "bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-white/10 hover:border-teal-500/50 transition-all cursor-pointer",
+          onClick: () => setShowGenerateModal(true),
+          "data-fg-cadn10": "418.263:418.5925:/src/app/pages/org-admin/Reports.tsx:41:11:1157:741:e:div:etetete",
+          children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: report.icon, _fgS: "cadn11", _fgB: 1779104381794, className: "w-10 h-10 text-teal-500 mb-4", "data-fg-cadn11": "418.263:418.5925:/src/app/pages/org-admin/Reports.tsx:46:13:1407:56:e:report.icon" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/Reports.tsx",
+              lineNumber: 66,
+              columnNumber: 13
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "cadn12", _fgB: 1779104381794, className: "text-xl font-semibold text-white mb-2", "data-fg-cadn12": "418.263:418.5925:/src/app/pages/org-admin/Reports.tsx:47:13:1476:72:e:h3:x", children: report.name }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/Reports.tsx",
+              lineNumber: 67,
+              columnNumber: 13
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "cadn14", _fgB: 1779104381794, className: "text-gray-400 mb-4", "data-fg-cadn14": "418.263:418.5925:/src/app/pages/org-admin/Reports.tsx:48:13:1561:58:e:p:x", children: report.description }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/Reports.tsx",
+              lineNumber: 68,
+              columnNumber: 13
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "button", _fgS: "cadn16", _fgB: 1779104381794, className: "px-4 py-2 bg-gradient-to-r from-teal-600 to-teal-500 text-white rounded-lg hover:shadow-lg transition-all flex items-center gap-2", "data-fg-cadn16": "418.263:418.5925:/src/app/pages/org-admin/Reports.tsx:49:13:1632:249:e:button:et", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Download, _fgS: "cadn17", _fgB: 1779104381794, className: "w-4 h-4", "data-fg-cadn17": "418.263:418.5925:/src/app/pages/org-admin/Reports.tsx:50:15:1797:32:e:Download::::::yh6" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/Reports.tsx",
+                lineNumber: 70,
+                columnNumber: 15
+              }, this),
+              "Generate Report"
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/Reports.tsx",
+              lineNumber: 69,
+              columnNumber: 13
+            }, this)
+          ]
+        },
+        i,
+        true,
+        {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/Reports.tsx",
+          lineNumber: 61,
+          columnNumber: 9
+        },
+        this
+      )
+    ) }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/Reports.tsx",
+      lineNumber: 59,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cadn20", _fgB: 1779104381794, className: "bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-white/10", "data-fg-cadn20": "418.263:418.5925:/src/app/pages/org-admin/Reports.tsx:58:7:1960:1446:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "cadn21", _fgB: 1779104381794, className: "text-xl font-semibold text-white mb-4", "data-fg-cadn21": "418.263:418.5925:/src/app/pages/org-admin/Reports.tsx:59:9:2053:73:e:h3:t", children: "Recent Reports" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/Reports.tsx",
+        lineNumber: 79,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cadn23", _fgB: 1779104381794, className: "space-y-3", "data-fg-cadn23": "418.263:418.5925:/src/app/pages/org-admin/Reports.tsx:60:9:2135:1258:e:div:x", children: [
+        { name: "Monthly Compliance Report", date: "2025-03-01", format: "PDF" },
+        { name: "Q1 Training Analytics", date: "2025-03-15", format: "Excel" },
+        { name: "Incident Summary - February", date: "2025-03-01", format: "PDF" }
+      ].map(
+        (report, i) => /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cadn25", _fgB: 1779104381794, className: "flex items-center justify-between p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors", "data-fg-cadn25": "418.263:418.5925:/src/app/pages/org-admin/Reports.tsx:66:13:2479:885:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cadn26", _fgB: 1779104381794, className: "flex items-center gap-3", "data-fg-cadn26": "418.263:418.5925:/src/app/pages/org-admin/Reports.tsx:67:15:2615:317:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: FileText, _fgS: "cadn27", _fgB: 1779104381794, className: "w-5 h-5 text-teal-500", "data-fg-cadn27": "418.263:418.5925:/src/app/pages/org-admin/Reports.tsx:68:17:2673:46:e:FileText::::::B1i5" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/Reports.tsx",
+              lineNumber: 88,
+              columnNumber: 17
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cadn28", _fgB: 1779104381794, "data-fg-cadn28": "418.263:418.5925:/src/app/pages/org-admin/Reports.tsx:69:17:2736:175:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "cadn29", _fgB: 1779104381794, className: "text-white font-medium", "data-fg-cadn29": "418.263:418.5925:/src/app/pages/org-admin/Reports.tsx:70:19:2760:55:e:p:x", children: report.name }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/Reports.tsx",
+                lineNumber: 90,
+                columnNumber: 19
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "cadn31", _fgB: 1779104381794, className: "text-sm text-gray-400", "data-fg-cadn31": "418.263:418.5925:/src/app/pages/org-admin/Reports.tsx:71:19:2834:54:e:p:x", children: report.date }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/Reports.tsx",
+                lineNumber: 91,
+                columnNumber: 19
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/Reports.tsx",
+              lineNumber: 89,
+              columnNumber: 17
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/Reports.tsx",
+            lineNumber: 87,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cadn33", _fgB: 1779104381794, className: "flex items-center gap-3", "data-fg-cadn33": "418.263:418.5925:/src/app/pages/org-admin/Reports.tsx:74:15:2947:398:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "cadn34", _fgB: 1779104381794, className: "px-2 py-1 rounded text-xs font-medium bg-purple-500/20 text-purple-400", "data-fg-cadn34": "418.263:418.5925:/src/app/pages/org-admin/Reports.tsx:75:17:3005:147:e:span:x", children: report.format }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/Reports.tsx",
+              lineNumber: 95,
+              columnNumber: 17
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "button", _fgS: "cadn36", _fgB: 1779104381794, className: "px-3 py-1 bg-teal-600 text-white rounded text-sm hover:bg-teal-500 transition-all", "data-fg-cadn36": "418.263:418.5925:/src/app/pages/org-admin/Reports.tsx:78:17:3169:155:e:button:t", children: "Download" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/Reports.tsx",
+              lineNumber: 98,
+              columnNumber: 17
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/Reports.tsx",
+            lineNumber: 94,
+            columnNumber: 15
+          }, this)
+        ] }, i, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/Reports.tsx",
+          lineNumber: 86,
+          columnNumber: 11
+        }, this)
+      ) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/Reports.tsx",
+        lineNumber: 80,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/Reports.tsx",
+      lineNumber: 78,
+      columnNumber: 7
+    }, this),
+    showGenerateModal && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cadn40", _fgB: 1779104381794, className: "fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-6", "data-fg-cadn40": "418.263:418.5925:/src/app/pages/org-admin/Reports.tsx:89:9:3482:2415:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cadn41", _fgB: 1779104381794, className: "bg-[#0B1F2A] border border-white/10 rounded-2xl p-6 max-w-md w-full", "data-fg-cadn41": "418.263:418.5925:/src/app/pages/org-admin/Reports.tsx:90:11:3595:2287:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cadn42", _fgB: 1779104381794, className: "flex items-center justify-between mb-6", "data-fg-cadn42": "418.263:418.5925:/src/app/pages/org-admin/Reports.tsx:91:13:3693:449:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h2", _fgS: "cadn43", _fgB: 1779104381794, className: "text-2xl font-bold text-white", "data-fg-cadn43": "418.263:418.5925:/src/app/pages/org-admin/Reports.tsx:92:15:3764:66:e:h2:t", children: "Generate Report" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/Reports.tsx",
+          lineNumber: 112,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "button",
+            _fgS: "cadn45",
+            _fgB: 1779104381794,
+            onClick: () => setShowGenerateModal(false),
+            className: "w-8 h-8 rounded-lg hover:bg-white/5 flex items-center justify-center transition-colors",
+            "data-fg-cadn45": "418.263:418.5925:/src/app/pages/org-admin/Reports.tsx:93:15:3845:278:e:button:e",
+            children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: X, _fgS: "cadn46", _fgB: 1779104381794, className: "w-5 h-5 text-gray-400", "data-fg-cadn46": "418.263:418.5925:/src/app/pages/org-admin/Reports.tsx:97:17:4060:39:e:X::::::TvS" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/Reports.tsx",
+              lineNumber: 117,
+              columnNumber: 17
+            }, this)
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/Reports.tsx",
+            lineNumber: 113,
+            columnNumber: 15
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/Reports.tsx",
+        lineNumber: 111,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "form", _fgS: "cadn47", _fgB: 1779104381794, className: "space-y-4", "data-fg-cadn47": "418.263:418.5925:/src/app/pages/org-admin/Reports.tsx:100:13:4155:1710:e:form:etete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cadn48", _fgB: 1779104381794, "data-fg-cadn48": "418.263:418.5925:/src/app/pages/org-admin/Reports.tsx:101:15:4198:649:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "cadn49", _fgB: 1779104381794, className: "block text-sm font-medium text-gray-300 mb-2", "data-fg-cadn49": "418.263:418.5925:/src/app/pages/org-admin/Reports.tsx:102:17:4220:82:e:label:t", children: "Date Range" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/Reports.tsx",
+            lineNumber: 122,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cadn51", _fgB: 1779104381794, className: "grid grid-cols-2 gap-3", "data-fg-cadn51": "418.263:418.5925:/src/app/pages/org-admin/Reports.tsx:103:17:4319:507:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(
+              FGCmp,
+              {
+                _fgT: "input",
+                _fgS: "cadn52",
+                _fgB: 1779104381794,
+                type: "date",
+                className: "px-4 py-2 bg-[#0B1F2A] border border-white/10 rounded-lg text-white focus:outline-none focus:border-teal-500/50",
+                "data-fg-cadn52": "418.263:418.5925:/src/app/pages/org-admin/Reports.tsx:104:19:4378:203:e:input"
+              },
+              void 0,
+              false,
+              {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/Reports.tsx",
+                lineNumber: 124,
+                columnNumber: 19
+              },
+              this
+            ),
+            /* @__PURE__ */ jsxDEV(
+              FGCmp,
+              {
+                _fgT: "input",
+                _fgS: "cadn53",
+                _fgB: 1779104381794,
+                type: "date",
+                className: "px-4 py-2 bg-[#0B1F2A] border border-white/10 rounded-lg text-white focus:outline-none focus:border-teal-500/50",
+                "data-fg-cadn53": "418.263:418.5925:/src/app/pages/org-admin/Reports.tsx:108:19:4600:203:e:input"
+              },
+              void 0,
+              false,
+              {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/Reports.tsx",
+                lineNumber: 128,
+                columnNumber: 19
+              },
+              this
+            )
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/Reports.tsx",
+            lineNumber: 123,
+            columnNumber: 17
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/Reports.tsx",
+          lineNumber: 121,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cadn54", _fgB: 1779104381794, "data-fg-cadn54": "418.263:418.5925:/src/app/pages/org-admin/Reports.tsx:114:15:4862:429:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "cadn55", _fgB: 1779104381794, className: "block text-sm font-medium text-gray-300 mb-2", "data-fg-cadn55": "418.263:418.5925:/src/app/pages/org-admin/Reports.tsx:115:17:4884:85:e:label:t", children: "Export Format" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/Reports.tsx",
+            lineNumber: 135,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "select", _fgS: "cadn57", _fgB: 1779104381794, className: "w-full px-4 py-2 bg-[#0B1F2A] border border-white/10 rounded-lg text-white focus:outline-none focus:border-teal-500/50", "data-fg-cadn57": "418.263:418.5925:/src/app/pages/org-admin/Reports.tsx:116:17:4986:284:e:select:etete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "cadn58", _fgB: 1779104381794, "data-fg-cadn58": "418.263:418.5925:/src/app/pages/org-admin/Reports.tsx:117:19:5144:20:e:option:t", children: "PDF" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/Reports.tsx",
+              lineNumber: 137,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "cadn60", _fgB: 1779104381794, "data-fg-cadn60": "418.263:418.5925:/src/app/pages/org-admin/Reports.tsx:118:19:5183:20:e:option:t", children: "CSV" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/Reports.tsx",
+              lineNumber: 138,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "cadn62", _fgB: 1779104381794, "data-fg-cadn62": "418.263:418.5925:/src/app/pages/org-admin/Reports.tsx:119:19:5222:22:e:option:t", children: "Excel" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/Reports.tsx",
+              lineNumber: 139,
+              columnNumber: 19
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/Reports.tsx",
+            lineNumber: 136,
+            columnNumber: 17
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/Reports.tsx",
+          lineNumber: 134,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "button",
+            _fgS: "cadn64",
+            _fgB: 1779104381794,
+            type: "submit",
+            onClick: (e) => {
+              e.preventDefault();
+              alert("Report generated successfully!");
+              setShowGenerateModal(false);
+            },
+            className: "w-full px-4 py-3 bg-gradient-to-r from-teal-600 to-teal-500 text-white rounded-lg hover:shadow-lg transition-all flex items-center justify-center gap-2",
+            "data-fg-cadn64": "418.263:418.5925:/src/app/pages/org-admin/Reports.tsx:122:15:5306:539:e:button:et",
+            children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Download, _fgS: "cadn65", _fgB: 1779104381794, className: "w-4 h-4", "data-fg-cadn65": "418.263:418.5925:/src/app/pages/org-admin/Reports.tsx:131:17:5753:32:e:Download::::::yh6" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/Reports.tsx",
+                lineNumber: 151,
+                columnNumber: 17
+              }, this),
+              "Generate & Download"
+            ]
+          },
+          void 0,
+          true,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/Reports.tsx",
+            lineNumber: 142,
+            columnNumber: 15
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/Reports.tsx",
+        lineNumber: 120,
+        columnNumber: 13
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/Reports.tsx",
+      lineNumber: 110,
+      columnNumber: 11
+    }, this) }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/Reports.tsx",
+      lineNumber: 109,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "/workspaces/default/code/src/app/pages/org-admin/Reports.tsx",
+    lineNumber: 51,
+    columnNumber: 5
+  }, this);
+}
+_s(Reports, "lmnqvy/dc53y1zZyqAZhWA2VS8U=");
+_c = Reports;
+var _c;
+$RefreshReg$(_c, "Reports");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/workspaces/default/code/src/app/pages/org-admin/Reports.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/workspaces/default/code/src/app/pages/org-admin/Reports.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,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VSwwSEFBdUgsMEdBQ3ZJO0FBQUEsbUNBQUMsbUtBQU8sbUJBQVI7QUFBQTtBQUFBO0FBQUE7QUFBQSxtQkFBVztBQUFBLFlBQ1gsdUJBQUMsbUtBQU8sbUJBQVI7QUFBQTtBQUFBO0FBQUE7QUFBQSxtQkFBVztBQUFBLFlBQ1gsdUJBQUMsbUtBQU8scUJBQVI7QUFBQTtBQUFBO0FBQUE7QUFBQSxtQkFBYTtBQUFBLGVBSGY7QUFBQTtBQUFBO0FBQUE7QUFBQSxpQkFJQTtBQUFBLGFBTkY7QUFBQTtBQUFBO0FBQUE7QUFBQSxlQU9BO0FBQUEsUUFDQTtBQUFBLFVBQUM7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLFlBQ0MsTUFBSztBQUFBLFlBQ0wsU0FBUyxDQUFDYyxNQUFNO0FBQ2RBLGdCQUFFQyxlQUFlO0FBQ2pCQyxvQkFBTSxnQ0FBZ0M7QUFDdENaLG1DQUFxQixLQUFLO0FBQUEsWUFDNUI7QUFBQSxZQUNBLFdBQVU7QUFBQSxZQUNiO0FBQUEsWUFDRztBQUFBLHFDQUFDLGVBQUFOLFVBQUEscUNBQVMsV0FBVSxXQUFTLGdIQUE3QjtBQUFBO0FBQUE7QUFBQTtBQUFBLHFCQUE2QjtBQUFBO0FBQUE7QUFBQTtBQUFBLFVBVC9CO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQSxRQVdBO0FBQUEsV0FqQ0Y7QUFBQTtBQUFBO0FBQUE7QUFBQSxhQWtDQTtBQUFBLFNBNUNGO0FBQUE7QUFBQTtBQUFBO0FBQUEsV0E2Q0EsS0E5Q0Y7QUFBQTtBQUFBO0FBQUE7QUFBQSxXQStDQTtBQUFBLE9BekdKO0FBQUE7QUFBQTtBQUFBO0FBQUEsU0EyR0E7QUFFSjtBQUFBSSxHQXhJd0JELFNBQU87QUFBQWdCLEtBQVBoQjtBQUFPLElBQUFnQjtBQUFBQyxhQUFBRCxJQUFBIiwibmFtZXMiOlsidXNlU3RhdGUiLCJCYXJDaGFydDMiLCJEb3dubG9hZCIsIkZpbGVUZXh0IiwiWCIsIlJlcG9ydHMiLCJfcyIsInNob3dHZW5lcmF0ZU1vZGFsIiwic2V0U2hvd0dlbmVyYXRlTW9kYWwiLCJyZXBvcnRUeXBlcyIsIm5hbWUiLCJkZXNjcmlwdGlvbiIsImljb24iLCJtYXAiLCJyZXBvcnQiLCJpIiwiZGF0ZSIsImZvcm1hdCIsImUiLCJwcmV2ZW50RGVmYXVsdCIsImFsZXJ0IiwiX2MiLCIkUmVmcmVzaFJlZyQiXSwiaWdub3JlTGlzdCI6W10sInNvdXJjZXMiOlsiUmVwb3J0cy50c3giXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgdXNlU3RhdGUgfSBmcm9tICdyZWFjdCc7XG5pbXBvcnQgeyBCYXJDaGFydDMsIERvd25sb2FkLCBGaWxlVGV4dCwgQ2FsZW5kYXIsIFggfSBmcm9tICdsdWNpZGUtcmVhY3QnO1xuXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBSZXBvcnRzKCkge1xuICBjb25zdCBbc2hvd0dlbmVyYXRlTW9kYWwsIHNldFNob3dHZW5lcmF0ZU1vZGFsXSA9IHVzZVN0YXRlKGZhbHNlKTtcblxuICBjb25zdCByZXBvcnRUeXBlcyA9IFtcbiAgICB7XG4gICAgICBuYW1lOiAnSW5jaWRlbnQgVHJlbmRzJyxcbiAgICAgIGRlc2NyaXB0aW9uOiAnQW5hbHlzaXMgb2YgaW5jaWRlbnRzIG92ZXIgdGltZSB3aXRoIHRyZW5kcycsXG4gICAgICBpY29uOiBCYXJDaGFydDMsXG4gICAgfSxcbiAgICB7XG4gICAgICBuYW1lOiAnVHJhaW5pbmcgQ29tcGxldGlvbicsXG4gICAgICBkZXNjcmlwdGlvbjogJ1N0YWZmIHRyYWluaW5nIHByb2dyZXNzIGFuZCBjb21wbGV0aW9uIHJhdGVzJyxcbiAgICAgIGljb246IEZpbGVUZXh0LFxuICAgIH0sXG4gICAge1xuICAgICAgbmFtZTogJ1BvbGljeSBVc2FnZScsXG4gICAgICBkZXNjcmlwdGlvbjogJ01vc3Qgdmlld2VkIGFuZCByZWZlcmVuY2VkIHBvbGljaWVzJyxcbiAgICAgIGljb246IEZpbGVUZXh0LFxuICAgIH0sXG4gICAge1xuICAgICAgbmFtZTogJ0FJIEludGVyYWN0aW9ucycsXG4gICAgICBkZXNjcmlwdGlvbjogJ0FJIGFzc2lzdGFudCB1c2FnZSBzdGF0aXN0aWNzIGFuZCBpbnNpZ2h0cycsXG4gICAgICBpY29uOiBCYXJDaGFydDMsXG4gICAgfSxcbiAgXTtcblxuICByZXR1cm4gKFxuICAgIDxkaXYgY2xhc3NOYW1lPVwic3BhY2UteS02XCI+XG4gICAgICB7LyogSGVhZGVyICovfVxuICAgICAgPGRpdj5cbiAgICAgICAgPGgxIGNsYXNzTmFtZT1cInRleHQtM3hsIGZvbnQtYm9sZCB0ZXh0LXdoaXRlIG1iLTJcIj5SZXBvcnRzPC9oMT5cbiAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC1ncmF5LTQwMFwiPkdlbmVyYXRlIG9wZXJhdGlvbmFsIGFuZCBjb21wbGlhbmNlIHJlcG9ydHM8L3A+XG4gICAgICA8L2Rpdj5cblxuICAgICAgey8qIFJlcG9ydCBUeXBlcyAqL31cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZ3JpZCBncmlkLWNvbHMtMSBtZDpncmlkLWNvbHMtMiBnYXAtNlwiPlxuICAgICAgICB7cmVwb3J0VHlwZXMubWFwKChyZXBvcnQsIGkpID0+IChcbiAgICAgICAgICA8ZGl2XG4gICAgICAgICAgICBrZXk9e2l9XG4gICAgICAgICAgICBjbGFzc05hbWU9XCJiZy13aGl0ZS81IGJhY2tkcm9wLWJsdXItbGcgcm91bmRlZC0yeGwgcC02IGJvcmRlciBib3JkZXItd2hpdGUvMTAgaG92ZXI6Ym9yZGVyLXRlYWwtNTAwLzUwIHRyYW5zaXRpb24tYWxsIGN1cnNvci1wb2ludGVyXCJcbiAgICAgICAgICAgIG9uQ2xpY2s9eygpID0+IHNldFNob3dHZW5lcmF0ZU1vZGFsKHRydWUpfVxuICAgICAgICAgID5cbiAgICAgICAgICAgIDxyZXBvcnQuaWNvbiBjbGFzc05hbWU9XCJ3LTEwIGgtMTAgdGV4dC10ZWFsLTUwMCBtYi00XCIgLz5cbiAgICAgICAgICAgIDxoMyBjbGFzc05hbWU9XCJ0ZXh0LXhsIGZvbnQtc2VtaWJvbGQgdGV4dC13aGl0ZSBtYi0yXCI+e3JlcG9ydC5uYW1lfTwvaDM+XG4gICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LWdyYXktNDAwIG1iLTRcIj57cmVwb3J0LmRlc2NyaXB0aW9ufTwvcD5cbiAgICAgICAgICAgIDxidXR0b24gY2xhc3NOYW1lPVwicHgtNCBweS0yIGJnLWdyYWRpZW50LXRvLXIgZnJvbS10ZWFsLTYwMCB0by10ZWFsLTUwMCB0ZXh0LXdoaXRlIHJvdW5kZWQtbGcgaG92ZXI6c2hhZG93LWxnIHRyYW5zaXRpb24tYWxsIGZsZXggaXRlbXMtY2VudGVyIGdhcC0yXCI+XG4gICAgICAgICAgICAgIDxEb3dubG9hZCBjbGFzc05hbWU9XCJ3LTQgaC00XCIgLz5cbiAgICAgICAgICAgICAgR2VuZXJhdGUgUmVwb3J0XG4gICAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgKSl9XG4gICAgICA8L2Rpdj5cblxuICAgICAgey8qIFJlY2VudCBSZXBvcnRzICovfVxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJiZy13aGl0ZS81IGJhY2tkcm9wLWJsdXItbGcgcm91bmRlZC0yeGwgcC02IGJvcmRlciBib3JkZXItd2hpdGUvMTBcIj5cbiAgICAgICAgPGgzIGNsYXNzTmFtZT1cInRleHQteGwgZm9udC1zZW1pYm9sZCB0ZXh0LXdoaXRlIG1iLTRcIj5SZWNlbnQgUmVwb3J0czwvaDM+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwic3BhY2UteS0zXCI+XG4gICAgICAgICAge1tcbiAgICAgICAgICAgIHsgbmFtZTogJ01vbnRobHkgQ29tcGxpYW5jZSBSZXBvcnQnLCBkYXRlOiAnMjAyNS0wMy0wMScsIGZvcm1hdDogJ1BERicgfSxcbiAgICAgICAgICAgIHsgbmFtZTogJ1ExIFRyYWluaW5nIEFuYWx5dGljcycsIGRhdGU6ICcyMDI1LTAzLTE1JywgZm9ybWF0OiAnRXhjZWwnIH0sXG4gICAgICAgICAgICB7IG5hbWU6ICdJbmNpZGVudCBTdW1tYXJ5IC0gRmVicnVhcnknLCBkYXRlOiAnMjAyNS0wMy0wMScsIGZvcm1hdDogJ1BERicgfSxcbiAgICAgICAgICBdLm1hcCgocmVwb3J0LCBpKSA9PiAoXG4gICAgICAgICAgICA8ZGl2IGtleT17aX0gY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuIHAtNCBiZy13aGl0ZS81IHJvdW5kZWQtbGcgaG92ZXI6Ymctd2hpdGUvMTAgdHJhbnNpdGlvbi1jb2xvcnNcIj5cbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtM1wiPlxuICAgICAgICAgICAgICAgIDxGaWxlVGV4dCBjbGFzc05hbWU9XCJ3LTUgaC01IHRleHQtdGVhbC01MDBcIiAvPlxuICAgICAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LXdoaXRlIGZvbnQtbWVkaXVtXCI+e3JlcG9ydC5uYW1lfTwvcD5cbiAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtc20gdGV4dC1ncmF5LTQwMFwiPntyZXBvcnQuZGF0ZX08L3A+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0zXCI+XG4gICAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwicHgtMiBweS0xIHJvdW5kZWQgdGV4dC14cyBmb250LW1lZGl1bSBiZy1wdXJwbGUtNTAwLzIwIHRleHQtcHVycGxlLTQwMFwiPlxuICAgICAgICAgICAgICAgICAge3JlcG9ydC5mb3JtYXR9XG4gICAgICAgICAgICAgICAgPC9zcGFuPlxuICAgICAgICAgICAgICAgIDxidXR0b24gY2xhc3NOYW1lPVwicHgtMyBweS0xIGJnLXRlYWwtNjAwIHRleHQtd2hpdGUgcm91bmRlZCB0ZXh0LXNtIGhvdmVyOmJnLXRlYWwtNTAwIHRyYW5zaXRpb24tYWxsXCI+XG4gICAgICAgICAgICAgICAgICBEb3dubG9hZFxuICAgICAgICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICkpfVxuICAgICAgICA8L2Rpdj5cbiAgICAgIDwvZGl2PlxuXG4gICAgICB7LyogR2VuZXJhdGUgUmVwb3J0IE1vZGFsICovfVxuICAgICAge3Nob3dHZW5lcmF0ZU1vZGFsICYmIChcbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmaXhlZCBpbnNldC0wIGJnLWJsYWNrLzUwIGJhY2tkcm9wLWJsdXItc20gei01MCBmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlciBwLTZcIj5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLVsjMEIxRjJBXSBib3JkZXIgYm9yZGVyLXdoaXRlLzEwIHJvdW5kZWQtMnhsIHAtNiBtYXgtdy1tZCB3LWZ1bGxcIj5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuIG1iLTZcIj5cbiAgICAgICAgICAgICAgPGgyIGNsYXNzTmFtZT1cInRleHQtMnhsIGZvbnQtYm9sZCB0ZXh0LXdoaXRlXCI+R2VuZXJhdGUgUmVwb3J0PC9oMj5cbiAgICAgICAgICAgICAgPGJ1dHRvblxuICAgICAgICAgICAgICAgIG9uQ2xpY2s9eygpID0+IHNldFNob3dHZW5lcmF0ZU1vZGFsKGZhbHNlKX1cbiAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJ3LTggaC04IHJvdW5kZWQtbGcgaG92ZXI6Ymctd2hpdGUvNSBmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlciB0cmFuc2l0aW9uLWNvbG9yc1wiXG4gICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICA8WCBjbGFzc05hbWU9XCJ3LTUgaC01IHRleHQtZ3JheS00MDBcIiAvPlxuICAgICAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPGZvcm0gY2xhc3NOYW1lPVwic3BhY2UteS00XCI+XG4gICAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgICAgPGxhYmVsIGNsYXNzTmFtZT1cImJsb2NrIHRleHQtc20gZm9udC1tZWRpdW0gdGV4dC1ncmF5LTMwMCBtYi0yXCI+RGF0ZSBSYW5nZTwvbGFiZWw+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJncmlkIGdyaWQtY29scy0yIGdhcC0zXCI+XG4gICAgICAgICAgICAgICAgICA8aW5wdXRcbiAgICAgICAgICAgICAgICAgICAgdHlwZT1cImRhdGVcIlxuICAgICAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJweC00IHB5LTIgYmctWyMwQjFGMkFdIGJvcmRlciBib3JkZXItd2hpdGUvMTAgcm91bmRlZC1sZyB0ZXh0LXdoaXRlIGZvY3VzOm91dGxpbmUtbm9uZSBmb2N1czpib3JkZXItdGVhbC01MDAvNTBcIlxuICAgICAgICAgICAgICAgICAgLz5cbiAgICAgICAgICAgICAgICAgIDxpbnB1dFxuICAgICAgICAgICAgICAgICAgICB0eXBlPVwiZGF0ZVwiXG4gICAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cInB4LTQgcHktMiBiZy1bIzBCMUYyQV0gYm9yZGVyIGJvcmRlci13aGl0ZS8xMCByb3VuZGVkLWxnIHRleHQtd2hpdGUgZm9jdXM6b3V0bGluZS1ub25lIGZvY3VzOmJvcmRlci10ZWFsLTUwMC81MFwiXG4gICAgICAgICAgICAgICAgICAvPlxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgICAgICA8bGFiZWwgY2xhc3NOYW1lPVwiYmxvY2sgdGV4dC1zbSBmb250LW1lZGl1bSB0ZXh0LWdyYXktMzAwIG1iLTJcIj5FeHBvcnQgRm9ybWF0PC9sYWJlbD5cbiAgICAgICAgICAgICAgICA8c2VsZWN0IGNsYXNzTmFtZT1cInctZnVsbCBweC00IHB5LTIgYmctWyMwQjFGMkFdIGJvcmRlciBib3JkZXItd2hpdGUvMTAgcm91bmRlZC1sZyB0ZXh0LXdoaXRlIGZvY3VzOm91dGxpbmUtbm9uZSBmb2N1czpib3JkZXItdGVhbC01MDAvNTBcIj5cbiAgICAgICAgICAgICAgICAgIDxvcHRpb24+UERGPC9vcHRpb24+XG4gICAgICAgICAgICAgICAgICA8b3B0aW9uPkNTVjwvb3B0aW9uPlxuICAgICAgICAgICAgICAgICAgPG9wdGlvbj5FeGNlbDwvb3B0aW9uPlxuICAgICAgICAgICAgICAgIDwvc2VsZWN0PlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgPGJ1dHRvblxuICAgICAgICAgICAgICAgIHR5cGU9XCJzdWJtaXRcIlxuICAgICAgICAgICAgICAgIG9uQ2xpY2s9eyhlKSA9PiB7XG4gICAgICAgICAgICAgICAgICBlLnByZXZlbnREZWZhdWx0KCk7XG4gICAgICAgICAgICAgICAgICBhbGVydCgnUmVwb3J0IGdlbmVyYXRlZCBzdWNjZXNzZnVsbHkhJyk7XG4gICAgICAgICAgICAgICAgICBzZXRTaG93R2VuZXJhdGVNb2RhbChmYWxzZSk7XG4gICAgICAgICAgICAgICAgfX1cbiAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJ3LWZ1bGwgcHgtNCBweS0zIGJnLWdyYWRpZW50LXRvLXIgZnJvbS10ZWFsLTYwMCB0by10ZWFsLTUwMCB0ZXh0LXdoaXRlIHJvdW5kZWQtbGcgaG92ZXI6c2hhZG93LWxnIHRyYW5zaXRpb24tYWxsIGZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktY2VudGVyIGdhcC0yXCJcbiAgICAgICAgICAgICAgPlxuICAgICAgICAgICAgICAgIDxEb3dubG9hZCBjbGFzc05hbWU9XCJ3LTQgaC00XCIgLz5cbiAgICAgICAgICAgICAgICBHZW5lcmF0ZSAmIERvd25sb2FkXG4gICAgICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICAgICAgPC9mb3JtPlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICA8L2Rpdj5cbiAgICAgICl9XG4gICAgPC9kaXY+XG4gICk7XG59XG4iXSwiZmlsZSI6Ii93b3Jrc3BhY2VzL2RlZmF1bHQvY29kZS9zcmMvYXBwL3BhZ2VzL29yZy1hZG1pbi9SZXBvcnRzLnRzeCJ9

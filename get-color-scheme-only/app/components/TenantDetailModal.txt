@@ -1,0 +1,754 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/app/components/TenantDetailModal.tsx");import { jsxDEV } from "/@id/__x00__figma:react-jsx-dev-runtime";
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/workspaces/default/code/src/app/components/TenantDetailModal.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+var _s = $RefreshSig$();
+import { FGCmp } from "/@id/fginspector";
+import { useState } from "/@id/__x00__figma:react-base";
+import { X, Building, Users, FileText, DollarSign, Activity, CreditCard, CheckCircle, Clock, TrendingUp, Shield } from "/node_modules/.vite/deps/lucide-react.js?v=25293e4c";
+const mockUsers = [
+  { id: "1", name: "John Doe", email: "john@acme.com", role: "Owner", status: "active", lastActive: "2 hours ago" },
+  { id: "2", name: "Jane Smith", email: "jane@acme.com", role: "Org Admin", status: "active", lastActive: "1 day ago" },
+  { id: "3", name: "Mike Johnson", email: "mike@acme.com", role: "Compliance Manager", status: "active", lastActive: "3 hours ago" }
+];
+const mockPolicies = [
+  { id: "1", name: "Resident Rights Policy", category: "Policies", status: "published", lastUpdated: "2025-03-15" },
+  { id: "2", name: "Medication Management", category: "Procedures", status: "published", lastUpdated: "2025-03-12" },
+  { id: "3", name: "Incident Report Form", category: "Forms", status: "published", lastUpdated: "2025-03-10" }
+];
+const mockBillingHistory = [
+  { id: "1", date: "2025-03-01", amount: "$2,499", status: "paid", invoice: "INV-001234" },
+  { id: "2", date: "2025-02-01", amount: "$2,499", status: "paid", invoice: "INV-001233" },
+  { id: "3", date: "2025-01-01", amount: "$2,499", status: "paid", invoice: "INV-001232" }
+];
+const mockActivityLogs = [
+  { id: "1", user: "John Doe", action: "Created document", target: "Safety Policy v2.0", timestamp: "2 hours ago" },
+  { id: "2", user: "Jane Smith", action: "Updated user permissions", target: "Mike Johnson", timestamp: "1 day ago" },
+  { id: "3", user: "Mike Johnson", action: "Approved document", target: "Training Procedure", timestamp: "2 days ago" }
+];
+export default function TenantDetailModal({ tenant, onClose }) {
+  _s();
+  const [activeTab, setActiveTab] = useState("overview");
+  const tabs = [
+    { id: "overview", label: "Overview", icon: Building },
+    { id: "users", label: "Users", icon: Users },
+    { id: "policies", label: "Policy Usage", icon: FileText },
+    { id: "billing", label: "Billing", icon: DollarSign },
+    { id: "activity", label: "Activity Logs", icon: Activity }
+  ];
+  return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv0", _fgB: 1779104382784, _fgD: true, className: "fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-6", "data-fg-cliv0": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:56:5:2426:12322:e:div:e:1", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv1", _fgB: 1779104382784, className: "bg-[#0B1F2A] border border-white/10 rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col", "data-fg-cliv1": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:57:7:2535:12202:e:div:xtetxtetxtetxte", children: [
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv3", _fgB: 1779104382784, className: "p-6 border-b border-white/10", "data-fg-cliv3": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:59:9:2692:1053:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv4", _fgB: 1779104382784, className: "flex items-center justify-between", "data-fg-cliv4": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:60:11:2749:981:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv5", _fgB: 1779104382784, "data-fg-cliv5": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:61:13:2813:207:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h2", _fgS: "cliv6", _fgB: 1779104382784, className: "text-2xl font-bold text-white mb-1", "data-fg-cliv6": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:62:15:2833:69:e:h2:x", children: tenant.name }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+          lineNumber: 82,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "cliv8", _fgB: 1779104382784, className: "text-gray-400 text-sm", "data-fg-cliv8": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:63:15:2917:84:e:p:tx", children: [
+          "Tenant ID: TNT-",
+          tenant.id.padStart(6, "0")
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+          lineNumber: 83,
+          columnNumber: 15
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+        lineNumber: 81,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv11", _fgB: 1779104382784, className: "flex items-center gap-3", "data-fg-cliv11": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:65:13:3033:680:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "cliv12", _fgB: 1779104382784, className: `px-3 py-1 rounded-full text-sm font-medium ${tenant.status === "active" ? "bg-green-500/10 text-green-500" : tenant.status === "trial" ? "bg-blue-500/10 text-blue-500" : "bg-red-500/10 text-red-500"}`, "data-fg-cliv12": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:66:15:3089:338:e:span:x", children: tenant.status }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+          lineNumber: 86,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "button",
+            _fgS: "cliv14",
+            _fgB: 1779104382784,
+            onClick: onClose,
+            className: "w-8 h-8 rounded-lg hover:bg-white/5 flex items-center justify-center transition-colors",
+            "data-fg-cliv14": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:73:15:3442:252:e:button:e",
+            children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: X, _fgS: "cliv15", _fgB: 1779104382784, className: "w-5 h-5 text-gray-400", "data-fg-cliv15": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:77:17:3631:39:e:X::::::TvS" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+              lineNumber: 97,
+              columnNumber: 17
+            }, this)
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+            lineNumber: 93,
+            columnNumber: 15
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+        lineNumber: 85,
+        columnNumber: 13
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+      lineNumber: 80,
+      columnNumber: 11
+    }, this) }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+      lineNumber: 79,
+      columnNumber: 9
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv17", _fgB: 1779104382784, className: "px-6 border-b border-white/10 flex gap-1", "data-fg-cliv17": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:84:9:3776:685:e:div:x", children: tabs.map((tab) => {
+      const Icon = tab.icon;
+      return /* @__PURE__ */ jsxDEV(
+        FGCmp,
+        {
+          _fgT: "button",
+          _fgS: "cliv19",
+          _fgB: 1779104382784,
+          onClick: () => setActiveTab(tab.id),
+          className: `px-4 py-3 text-sm font-medium transition-colors flex items-center gap-2 ${activeTab === tab.id ? "text-white border-b-2 border-teal-500" : "text-gray-400 hover:text-white"}`,
+          "data-fg-cliv19": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:88:15:3936:481:e:button:etx",
+          children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Icon, _fgS: "cliv20", _fgB: 1779104382784, className: "w-4 h-4", "data-fg-cliv20": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:97:17:4337:28:e:Icon" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+              lineNumber: 117,
+              columnNumber: 17
+            }, this),
+            tab.label
+          ]
+        },
+        tab.id,
+        true,
+        {
+          fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+          lineNumber: 108,
+          columnNumber: 15
+        },
+        this
+      );
+    }) }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+      lineNumber: 104,
+      columnNumber: 9
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv23", _fgB: 1779104382784, className: "flex-1 overflow-y-auto p-6", "data-fg-cliv23": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:105:9:4499:9494:e:div:xtxtxtxtx", children: [
+      activeTab === "overview" && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv25", _fgB: 1779104382784, className: "space-y-6", "data-fg-cliv25": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:107:13:4597:2215:e:div:xtetxte", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv27", _fgB: 1779104382784, className: "grid grid-cols-1 md:grid-cols-3 gap-4", "data-fg-cliv27": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:109:15:4672:1673:e:div:etete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv28", _fgB: 1779104382784, className: "bg-white/5 backdrop-blur-lg rounded-xl p-4 border border-white/10", "data-fg-cliv28": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:110:17:4744:518:e:div:etete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv29", _fgB: 1779104382784, className: "flex items-center justify-between mb-2", "data-fg-cliv29": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:111:19:4846:218:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: FileText, _fgS: "cliv30", _fgB: 1779104382784, className: "w-5 h-5 text-teal-400", "data-fg-cliv30": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:112:21:4923:46:e:FileText::::::B1i5" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+                lineNumber: 132,
+                columnNumber: 21
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: TrendingUp, _fgS: "cliv31", _fgB: 1779104382784, className: "w-4 h-4 text-green-400", "data-fg-cliv31": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:113:21:4990:49:e:TrendingUp::::::tM8" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+                lineNumber: 133,
+                columnNumber: 21
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+              lineNumber: 131,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv32", _fgB: 1779104382784, className: "text-2xl font-bold text-white mb-1", "data-fg-cliv32": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:115:19:5083:78:e:div:x", children: tenant.policyCount }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+              lineNumber: 135,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv34", _fgB: 1779104382784, className: "text-xs text-gray-400", "data-fg-cliv34": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:116:19:5180:59:e:div:t", children: "Total Policies" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+              lineNumber: 136,
+              columnNumber: 19
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+            lineNumber: 130,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv36", _fgB: 1779104382784, className: "bg-white/5 backdrop-blur-lg rounded-xl p-4 border border-white/10", "data-fg-cliv36": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:119:17:5296:512:e:div:etete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv37", _fgB: 1779104382784, className: "flex items-center justify-between mb-2", "data-fg-cliv37": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:120:19:5398:216:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Users, _fgS: "cliv38", _fgB: 1779104382784, className: "w-5 h-5 text-blue-400", "data-fg-cliv38": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:121:21:5475:43:e:Users::::::DV8M" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+                lineNumber: 141,
+                columnNumber: 21
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: CheckCircle, _fgS: "cliv39", _fgB: 1779104382784, className: "w-4 h-4 text-green-400", "data-fg-cliv39": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:122:21:5539:50:e:CheckCircle::::::C4Wc" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+                lineNumber: 142,
+                columnNumber: 21
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+              lineNumber: 140,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv40", _fgB: 1779104382784, className: "text-2xl font-bold text-white mb-1", "data-fg-cliv40": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:124:19:5633:76:e:div:x", children: tenant.userCount }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+              lineNumber: 144,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv42", _fgB: 1779104382784, className: "text-xs text-gray-400", "data-fg-cliv42": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:125:19:5728:57:e:div:t", children: "Active Users" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+              lineNumber: 145,
+              columnNumber: 19
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+            lineNumber: 139,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv44", _fgB: 1779104382784, className: "bg-white/5 backdrop-blur-lg rounded-xl p-4 border border-white/10", "data-fg-cliv44": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:128:17:5826:498:e:div:etete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv45", _fgB: 1779104382784, className: "flex items-center justify-between mb-2", "data-fg-cliv45": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:129:19:5928:214:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Shield, _fgS: "cliv46", _fgB: 1779104382784, className: "w-5 h-5 text-purple-400", "data-fg-cliv46": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:130:21:6005:46:e:Shield::::::B8zf" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+                lineNumber: 150,
+                columnNumber: 21
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Clock, _fgS: "cliv47", _fgB: 1779104382784, className: "w-4 h-4 text-yellow-400", "data-fg-cliv47": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:131:21:6072:45:e:Clock::::::EGEm" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+                lineNumber: 151,
+                columnNumber: 21
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+              lineNumber: 149,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv48", _fgB: 1779104382784, className: "text-2xl font-bold text-white mb-1", "data-fg-cliv48": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:133:19:6161:61:e:div:t", children: "98%" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+              lineNumber: 153,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv50", _fgB: 1779104382784, className: "text-xs text-gray-400", "data-fg-cliv50": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:134:19:6241:60:e:div:t", children: "Compliance Rate" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+              lineNumber: 154,
+              columnNumber: 19
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+            lineNumber: 148,
+            columnNumber: 17
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+          lineNumber: 129,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv53", _fgB: 1779104382784, className: "space-y-3", "data-fg-cliv53": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:139:15:6391:402:e:div:etetetete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: InfoRow, _fgS: "cliv54", _fgB: 1779104382784, label: "Sector", value: tenant.sector, "data-fg-cliv54": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:140:17:6435:48:e:InfoRow::::::snx" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+            lineNumber: 160,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: InfoRow, _fgS: "cliv55", _fgB: 1779104382784, label: "Jurisdiction", value: tenant.jurisdiction, "data-fg-cliv55": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:141:17:6500:60:e:InfoRow::::::snx" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+            lineNumber: 161,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: InfoRow, _fgS: "cliv56", _fgB: 1779104382784, label: "Subscription Plan", value: tenant.plan, "data-fg-cliv56": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:142:17:6577:57:e:InfoRow::::::snx" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+            lineNumber: 162,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: InfoRow, _fgS: "cliv57", _fgB: 1779104382784, label: "Created Date", value: "2024-01-15", "data-fg-cliv57": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:143:17:6651:51:e:InfoRow::::::snx" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+            lineNumber: 163,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: InfoRow, _fgS: "cliv58", _fgB: 1779104382784, label: "Last Activity", value: "2 hours ago", "data-fg-cliv58": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:144:17:6719:53:e:InfoRow::::::snx" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+            lineNumber: 164,
+            columnNumber: 17
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+          lineNumber: 159,
+          columnNumber: 15
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+        lineNumber: 127,
+        columnNumber: 11
+      }, this),
+      activeTab === "users" && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv60", _fgB: 1779104382784, className: "space-y-4", "data-fg-cliv60": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:150:13:6877:1487:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv61", _fgB: 1779104382784, className: "flex items-center justify-between mb-4", "data-fg-cliv61": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:151:15:6919:476:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv62", _fgB: 1779104382784, "data-fg-cliv62": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:152:17:6992:204:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "cliv63", _fgB: 1779104382784, className: "text-white font-semibold mb-1", "data-fg-cliv63": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:153:19:7016:66:e:h3:t", children: "User Management" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+              lineNumber: 173,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "cliv65", _fgB: 1779104382784, className: "text-sm text-gray-400", "data-fg-cliv65": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:154:19:7101:72:e:p:xt", children: [
+              mockUsers.length,
+              " active users"
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+              lineNumber: 174,
+              columnNumber: 19
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+            lineNumber: 172,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "button", _fgS: "cliv68", _fgB: 1779104382784, className: "px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-500 transition-all text-sm", "data-fg-cliv68": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:156:17:7213:161:e:button:t", children: "Invite User" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+            lineNumber: 176,
+            columnNumber: 17
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+          lineNumber: 171,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv70", _fgB: 1779104382784, className: "space-y-2", "data-fg-cliv70": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:161:15:7411:934:e:div:x", children: mockUsers.map(
+          (user) => /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv72", _fgB: 1779104382784, className: "bg-white/5 backdrop-blur-lg rounded-lg p-4 border border-white/10", "data-fg-cliv72": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:163:19:7500:804:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv73", _fgB: 1779104382784, className: "flex items-center justify-between", "data-fg-cliv73": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:164:21:7618:661:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv74", _fgB: 1779104382784, "data-fg-cliv74": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:165:23:7692:198:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv75", _fgB: 1779104382784, className: "text-white font-medium", "data-fg-cliv75": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:166:25:7722:57:e:div:x", children: user.name }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+                lineNumber: 186,
+                columnNumber: 25
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv77", _fgB: 1779104382784, className: "text-sm text-gray-400", "data-fg-cliv77": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:167:25:7804:57:e:div:x", children: user.email }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+                lineNumber: 187,
+                columnNumber: 25
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+              lineNumber: 185,
+              columnNumber: 23
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv79", _fgB: 1779104382784, className: "flex items-center gap-3", "data-fg-cliv79": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:169:23:7913:339:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "cliv80", _fgB: 1779104382784, className: "px-3 py-1 bg-teal-500/10 text-teal-400 rounded text-xs font-medium", "data-fg-cliv80": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:170:25:7979:155:e:span:x", children: user.role }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+                lineNumber: 190,
+                columnNumber: 25
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "cliv82", _fgB: 1779104382784, className: "text-xs text-gray-500", "data-fg-cliv82": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:173:25:8159:64:e:span:x", children: user.lastActive }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+                lineNumber: 193,
+                columnNumber: 25
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+              lineNumber: 189,
+              columnNumber: 23
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+            lineNumber: 184,
+            columnNumber: 21
+          }, this) }, user.id, false, {
+            fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+            lineNumber: 183,
+            columnNumber: 15
+          }, this)
+        ) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+          lineNumber: 181,
+          columnNumber: 15
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+        lineNumber: 170,
+        columnNumber: 11
+      }, this),
+      activeTab === "policies" && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv85", _fgB: 1779104382784, className: "space-y-4", "data-fg-cliv85": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:183:13:8432:1814:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv86", _fgB: 1779104382784, className: "mb-4", "data-fg-cliv86": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:184:15:8474:231:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "cliv87", _fgB: 1779104382784, className: "text-white font-semibold mb-1", "data-fg-cliv87": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:185:17:8513:75:e:h3:t", children: "Policy Usage & Analytics" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+            lineNumber: 205,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "cliv89", _fgB: 1779104382784, className: "text-sm text-gray-400", "data-fg-cliv89": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:186:17:8605:79:e:p:xt", children: [
+            mockPolicies.length,
+            " documents in use"
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+            lineNumber: 206,
+            columnNumber: 17
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+          lineNumber: 204,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv92", _fgB: 1779104382784, className: "bg-white/5 backdrop-blur-lg rounded-xl p-4 border border-white/10 overflow-hidden", "data-fg-cliv92": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:189:15:8721:1506:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "table", _fgS: "cliv93", _fgB: 1779104382784, className: "w-full", "data-fg-cliv93": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:190:17:8837:1369:e:table:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "thead", _fgS: "cliv94", _fgB: 1779104382784, "data-fg-cliv94": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:191:19:8882:541:e:thead:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "tr", _fgS: "cliv95", _fgB: 1779104382784, className: "border-b border-white/10", "data-fg-cliv95": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:192:21:8910:486:e:tr:etetete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "th", _fgS: "cliv96", _fgB: 1779104382784, className: "text-left py-3 text-sm font-semibold text-gray-300", "data-fg-cliv96": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:193:23:8974:85:e:th:t", children: "Document Name" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+              lineNumber: 213,
+              columnNumber: 23
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "th", _fgS: "cliv98", _fgB: 1779104382784, className: "text-left py-3 text-sm font-semibold text-gray-300", "data-fg-cliv98": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:194:23:9082:80:e:th:t", children: "Category" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+              lineNumber: 214,
+              columnNumber: 23
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "th", _fgS: "cliv100", _fgB: 1779104382784, className: "text-left py-3 text-sm font-semibold text-gray-300", "data-fg-cliv100": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:195:23:9185:78:e:th:t", children: "Status" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+              lineNumber: 215,
+              columnNumber: 23
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "th", _fgS: "cliv102", _fgB: 1779104382784, className: "text-left py-3 text-sm font-semibold text-gray-300", "data-fg-cliv102": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:196:23:9286:84:e:th:t", children: "Last Updated" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+              lineNumber: 216,
+              columnNumber: 23
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+            lineNumber: 212,
+            columnNumber: 21
+          }, this) }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+            lineNumber: 211,
+            columnNumber: 19
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "tbody", _fgS: "cliv104", _fgB: 1779104382784, "data-fg-cliv104": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:199:19:9442:739:e:tbody:x", children: mockPolicies.map(
+            (policy) => /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "tr", _fgS: "cliv106", _fgB: 1779104382784, className: "border-b border-white/5", "data-fg-cliv106": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:201:23:9524:606:e:tr:etetete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "td", _fgS: "cliv107", _fgB: 1779104382784, className: "py-3 text-sm text-white", "data-fg-cliv107": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:202:25:9605:58:e:td:x", children: policy.name }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+                lineNumber: 222,
+                columnNumber: 25
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "td", _fgS: "cliv109", _fgB: 1779104382784, className: "py-3 text-sm text-gray-400", "data-fg-cliv109": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:203:25:9688:65:e:td:x", children: policy.category }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+                lineNumber: 223,
+                columnNumber: 25
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "td", _fgS: "cliv111", _fgB: 1779104382784, className: "py-3", "data-fg-cliv111": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:204:25:9778:231:e:td:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "cliv112", _fgB: 1779104382784, className: "px-2 py-1 bg-green-500/10 text-green-500 rounded text-xs", "data-fg-cliv112": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:205:27:9826:153:e:span:x", children: policy.status }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+                lineNumber: 225,
+                columnNumber: 27
+              }, this) }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+                lineNumber: 224,
+                columnNumber: 25
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "td", _fgS: "cliv114", _fgB: 1779104382784, className: "py-3 text-sm text-gray-400", "data-fg-cliv114": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:209:25:10034:68:e:td:x", children: policy.lastUpdated }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+                lineNumber: 229,
+                columnNumber: 25
+              }, this)
+            ] }, policy.id, true, {
+              fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+              lineNumber: 221,
+              columnNumber: 19
+            }, this)
+          ) }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+            lineNumber: 219,
+            columnNumber: 19
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+          lineNumber: 210,
+          columnNumber: 17
+        }, this) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+          lineNumber: 209,
+          columnNumber: 15
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+        lineNumber: 203,
+        columnNumber: 11
+      }, this),
+      activeTab === "billing" && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv117", _fgB: 1779104382784, className: "space-y-6", "data-fg-cliv117": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:219:13:10313:2429:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv118", _fgB: 1779104382784, className: "bg-white/5 backdrop-blur-lg rounded-xl p-5 border border-white/10", "data-fg-cliv118": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:220:15:10355:1161:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv119", _fgB: 1779104382784, className: "flex items-center justify-between mb-4", "data-fg-cliv119": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:221:17:10455:536:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv120", _fgB: 1779104382784, "data-fg-cliv120": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:222:19:10530:200:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv121", _fgB: 1779104382784, className: "text-sm text-gray-400 mb-1", "data-fg-cliv121": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:223:21:10556:62:e:div:t", children: "Current Plan" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+                lineNumber: 243,
+                columnNumber: 21
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv123", _fgB: 1779104382784, className: "text-2xl font-bold text-white", "data-fg-cliv123": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:224:21:10639:66:e:div:x", children: tenant.plan }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+                lineNumber: 244,
+                columnNumber: 21
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+              lineNumber: 242,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv125", _fgB: 1779104382784, className: "text-right", "data-fg-cliv125": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:226:19:10749:219:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv126", _fgB: 1779104382784, className: "text-sm text-gray-400 mb-1", "data-fg-cliv126": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:227:21:10798:62:e:div:t", children: "Monthly Rate" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+                lineNumber: 247,
+                columnNumber: 21
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv128", _fgB: 1779104382784, className: "text-2xl font-bold text-teal-400", "data-fg-cliv128": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:228:21:10881:62:e:div:t", children: "$2,499" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+                lineNumber: 248,
+                columnNumber: 21
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+              lineNumber: 246,
+              columnNumber: 19
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+            lineNumber: 241,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv130", _fgB: 1779104382784, className: "flex gap-3 pt-4 border-t border-white/10", "data-fg-cliv130": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:231:17:11008:487:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "button", _fgS: "cliv131", _fgB: 1779104382784, className: "flex-1 px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-500 transition-all text-sm", "data-fg-cliv131": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:232:19:11085:173:e:button:t", children: "Upgrade Plan" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+              lineNumber: 252,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "button", _fgS: "cliv133", _fgB: 1779104382784, className: "flex-1 px-4 py-2 bg-white/5 border border-white/10 text-white rounded-lg hover:bg-white/10 transition-all text-sm", "data-fg-cliv133": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:235:19:11277:195:e:button:t", children: "View Invoice" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+              lineNumber: 255,
+              columnNumber: 19
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+            lineNumber: 251,
+            columnNumber: 17
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+          lineNumber: 240,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv135", _fgB: 1779104382784, "data-fg-cliv135": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:241:15:11532:1191:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "cliv136", _fgB: 1779104382784, className: "text-white font-semibold mb-3", "data-fg-cliv136": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:242:17:11554:66:e:h3:t", children: "Billing History" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+            lineNumber: 262,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv138", _fgB: 1779104382784, className: "space-y-2", "data-fg-cliv138": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:243:17:11637:1065:e:div:x", children: mockBillingHistory.map(
+            (bill) => /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv140", _fgB: 1779104382784, className: "bg-white/5 backdrop-blur-lg rounded-lg p-4 border border-white/10 flex items-center justify-between", "data-fg-cliv140": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:245:21:11739:918:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv141", _fgB: 1779104382784, className: "flex items-center gap-4", "data-fg-cliv141": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:246:23:11893:374:e:div:ete", children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: CreditCard, _fgS: "cliv142", _fgB: 1779104382784, className: "w-5 h-5 text-gray-400", "data-fg-cliv142": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:247:25:11959:48:e:CreditCard::::::BwVT" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+                  lineNumber: 267,
+                  columnNumber: 25
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv143", _fgB: 1779104382784, "data-fg-cliv143": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:248:25:12032:206:e:div:ete", children: [
+                  /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv144", _fgB: 1779104382784, className: "text-white font-medium", "data-fg-cliv144": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:249:27:12064:60:e:div:x", children: bill.invoice }, void 0, false, {
+                    fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+                    lineNumber: 269,
+                    columnNumber: 27
+                  }, this),
+                  /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv146", _fgB: 1779104382784, className: "text-sm text-gray-400", "data-fg-cliv146": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:250:27:12151:56:e:div:x", children: bill.date }, void 0, false, {
+                    fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+                    lineNumber: 270,
+                    columnNumber: 27
+                  }, this)
+                ] }, void 0, true, {
+                  fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+                  lineNumber: 268,
+                  columnNumber: 25
+                }, this)
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+                lineNumber: 266,
+                columnNumber: 23
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv148", _fgB: 1779104382784, className: "flex items-center gap-3", "data-fg-cliv148": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:253:23:12290:340:e:div:ete", children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv149", _fgB: 1779104382784, className: "text-white font-semibold", "data-fg-cliv149": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:254:25:12356:61:e:div:x", children: bill.amount }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+                  lineNumber: 274,
+                  columnNumber: 25
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "cliv151", _fgB: 1779104382784, className: "px-3 py-1 bg-green-500/10 text-green-500 rounded text-xs font-medium", "data-fg-cliv151": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:255:25:12442:159:e:span:x", children: bill.status }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+                  lineNumber: 275,
+                  columnNumber: 25
+                }, this)
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+                lineNumber: 273,
+                columnNumber: 23
+              }, this)
+            ] }, bill.id, true, {
+              fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+              lineNumber: 265,
+              columnNumber: 17
+            }, this)
+          ) }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+            lineNumber: 263,
+            columnNumber: 17
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+          lineNumber: 261,
+          columnNumber: 15
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+        lineNumber: 239,
+        columnNumber: 11
+      }, this),
+      activeTab === "activity" && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv154", _fgB: 1779104382784, className: "space-y-4", "data-fg-cliv154": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:267:13:12810:1155:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv155", _fgB: 1779104382784, className: "mb-4", "data-fg-cliv155": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:268:15:12852:217:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "cliv156", _fgB: 1779104382784, className: "text-white font-semibold mb-1", "data-fg-cliv156": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:269:17:12891:66:e:h3:t", children: "Recent Activity" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+            lineNumber: 289,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "cliv158", _fgB: 1779104382784, className: "text-sm text-gray-400", "data-fg-cliv158": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:270:17:12974:74:e:p:t", children: "Audit trail of all tenant actions" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+            lineNumber: 290,
+            columnNumber: 17
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+          lineNumber: 288,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv160", _fgB: 1779104382784, className: "space-y-2", "data-fg-cliv160": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:273:15:13085:861:e:div:x", children: mockActivityLogs.map(
+          (log) => /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv162", _fgB: 1779104382784, className: "bg-white/5 backdrop-blur-lg rounded-lg p-4 border border-white/10", "data-fg-cliv162": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:275:19:13180:725:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv163", _fgB: 1779104382784, className: "flex items-start gap-3", "data-fg-cliv163": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:276:21:13297:583:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Activity, _fgS: "cliv164", _fgB: 1779104382784, className: "w-5 h-5 text-teal-400 mt-0.5", "data-fg-cliv164": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:277:23:13360:53:e:Activity::::::Y0P" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+              lineNumber: 297,
+              columnNumber: 23
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv165", _fgB: 1779104382784, className: "flex-1", "data-fg-cliv165": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:278:23:13436:417:e:div:etete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv166", _fgB: 1779104382784, className: "text-white font-medium", "data-fg-cliv166": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:279:25:13485:58:e:div:x", children: log.action }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+                lineNumber: 299,
+                columnNumber: 25
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv168", _fgB: 1779104382784, className: "text-sm text-gray-400 mt-1", "data-fg-cliv168": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:280:25:13568:166:e:div:etx", children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "cliv169", _fgB: 1779104382784, className: "text-teal-400", "data-fg-cliv169": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:281:27:13639:49:e:span:x", children: log.user }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+                  lineNumber: 301,
+                  columnNumber: 27
+                }, this),
+                " • ",
+                log.target
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+                lineNumber: 300,
+                columnNumber: 25
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv173", _fgB: 1779104382784, className: "text-xs text-gray-500 mt-2", "data-fg-cliv173": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:283:25:13759:65:e:div:x", children: log.timestamp }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+                lineNumber: 303,
+                columnNumber: 25
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+              lineNumber: 298,
+              columnNumber: 23
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+            lineNumber: 296,
+            columnNumber: 21
+          }, this) }, log.id, false, {
+            fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+            lineNumber: 295,
+            columnNumber: 15
+          }, this)
+        ) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+          lineNumber: 293,
+          columnNumber: 15
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+        lineNumber: 287,
+        columnNumber: 11
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+      lineNumber: 125,
+      columnNumber: 9
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv176", _fgB: 1779104382784, className: "p-6 border-t border-white/10 flex gap-3", "data-fg-cliv176": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:294:9:14034:690:e:div:etete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "button", _fgS: "cliv177", _fgB: 1779104382784, className: "flex-1 px-4 py-2 bg-white/5 border border-white/10 text-white rounded-lg hover:bg-white/10 transition-all text-sm font-medium", "data-fg-cliv177": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:295:11:14102:193:e:button:t", children: "Open Workspace" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+        lineNumber: 315,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "button", _fgS: "cliv179", _fgB: 1779104382784, className: "flex-1 px-4 py-2 bg-white/5 border border-white/10 text-white rounded-lg hover:bg-white/10 transition-all text-sm font-medium", "data-fg-cliv179": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:298:11:14306:190:e:button:t", children: "Impersonate" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+        lineNumber: 318,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "button", _fgS: "cliv181", _fgB: 1779104382784, className: "flex-1 px-4 py-2 bg-red-500/10 border border-red-500/20 text-red-500 rounded-lg hover:bg-red-500/20 transition-all text-sm font-medium", "data-fg-cliv181": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:301:11:14507:202:e:button:t", children: "Suspend Tenant" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+        lineNumber: 321,
+        columnNumber: 11
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+      lineNumber: 314,
+      columnNumber: 9
+    }, this)
+  ] }, void 0, true, {
+    fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+    lineNumber: 77,
+    columnNumber: 7
+  }, this) }, void 0, false, {
+    fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+    lineNumber: 76,
+    columnNumber: 5
+  }, this);
+}
+_s(TenantDetailModal, "chU/96YDf6tpLdqvgqS2ZL+A4Bo=");
+_c = TenantDetailModal;
+function InfoRow({ label, value }) {
+  return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cliv183", _fgB: 1779104382784, _fgD: true, className: "flex justify-between items-center p-3 bg-white/5 rounded-lg", "data-fg-cliv183": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:312:5:14843:219:e:div:ete:1", children: [
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "cliv184", _fgB: 1779104382784, className: "text-sm text-gray-400", "data-fg-cliv184": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:313:7:14927:54:e:span:x", children: label }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+      lineNumber: 333,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "cliv186", _fgB: 1779104382784, className: "text-sm text-white font-medium", "data-fg-cliv186": "418.165:418.15070:/src/app/components/TenantDetailModal.tsx:314:7:14988:63:e:span:x", children: value }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+      lineNumber: 334,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "/workspaces/default/code/src/app/components/TenantDetailModal.tsx",
+    lineNumber: 332,
+    columnNumber: 5
+  }, this);
+}
+_c2 = InfoRow;
+var _c, _c2;
+$RefreshReg$(_c, "TenantDetailModal");
+$RefreshReg$(_c2, "InfoRow");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/workspaces/default/code/src/app/components/TenantDetailModal.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/workspaces/default/code/src/app/components/TenantDetailModal.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,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RUE7QUFBQSxTQVRGO0FBQUE7QUFBQTtBQUFBO0FBQUEsV0FVQTtBQUFBLE9BdlBGO0FBQUE7QUFBQTtBQUFBO0FBQUEsU0F3UEEsS0F6UEY7QUFBQTtBQUFBO0FBQUE7QUFBQSxTQTBQQTtBQUVKO0FBQUFxQixHQXhRd0JILG1CQUFpQjtBQUFBdUIsS0FBakJ2QjtBQTBReEIsU0FBU2UsUUFBUSxFQUFFUixPQUFPaUIsTUFBd0MsR0FBRztBQUNuRSxTQUNFLHVCQUFDLGtFQUFHLE1BQUMsV0FBVSwrREFBNEQsOEdBQ3pFO0FBQUEsMkJBQUMsNkRBQUssV0FBVSx5QkFBc0IsMEdBQUdqQixtQkFBekM7QUFBQTtBQUFBO0FBQUE7QUFBQSxXQUErQztBQUFBLElBQy9DLHVCQUFDLDZEQUFLLFdBQVUsa0NBQStCLDBHQUFHaUIsbUJBQWxEO0FBQUE7QUFBQTtBQUFBO0FBQUEsV0FBd0Q7QUFBQSxPQUYxRDtBQUFBO0FBQUE7QUFBQTtBQUFBLFNBR0E7QUFFSjtBQUFBQyxNQVBTVjtBQUFPLElBQUFRLElBQUFFO0FBQUFDLGFBQUFILElBQUE7QUFBQUcsYUFBQUQsS0FBQSIsIm5hbWVzIjpbInVzZVN0YXRlIiwiWCIsIkJ1aWxkaW5nIiwiVXNlcnMiLCJGaWxlVGV4dCIsIkRvbGxhclNpZ24iLCJBY3Rpdml0eSIsIkNyZWRpdENhcmQiLCJDaGVja0NpcmNsZSIsIkNsb2NrIiwiVHJlbmRpbmdVcCIsIlNoaWVsZCIsIm1vY2tVc2VycyIsImlkIiwibmFtZSIsImVtYWlsIiwicm9sZSIsInN0YXR1cyIsImxhc3RBY3RpdmUiLCJtb2NrUG9saWNpZXMiLCJjYXRlZ29yeSIsImxhc3RVcGRhdGVkIiwibW9ja0JpbGxpbmdIaXN0b3J5IiwiZGF0ZSIsImFtb3VudCIsImludm9pY2UiLCJtb2NrQWN0aXZpdHlMb2dzIiwidXNlciIsImFjdGlvbiIsInRhcmdldCIsInRpbWVzdGFtcCIsIlRlbmFudERldGFpbE1vZGFsIiwidGVuYW50Iiwib25DbG9zZSIsIl9zIiwiYWN0aXZlVGFiIiwic2V0QWN0aXZlVGFiIiwidGFicyIsImxhYmVsIiwiaWNvbiIsInBhZFN0YXJ0IiwibWFwIiwidGFiIiwiSWNvbiIsInBvbGljeUNvdW50IiwidXNlckNvdW50IiwiSW5mb1JvdyIsInNlY3RvciIsImp1cmlzZGljdGlvbiIsInBsYW4iLCJsZW5ndGgiLCJwb2xpY3kiLCJiaWxsIiwibG9nIiwiX2MiLCJ2YWx1ZSIsIl9jMiIsIiRSZWZyZXNoUmVnJCJdLCJpZ25vcmVMaXN0IjpbXSwic291cmNlcyI6WyJUZW5hbnREZXRhaWxNb2RhbC50c3giXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgdXNlU3RhdGUgfSBmcm9tICdyZWFjdCc7XG5pbXBvcnQgeyBYLCBCdWlsZGluZywgVXNlcnMsIEZpbGVUZXh0LCBEb2xsYXJTaWduLCBBY3Rpdml0eSwgTWFpbCwgUGhvbmUsIE1hcFBpbiwgQ2FsZW5kYXIsIENyZWRpdENhcmQsIENoZWNrQ2lyY2xlLCBDbG9jaywgVHJlbmRpbmdVcCwgU2hpZWxkIH0gZnJvbSAnbHVjaWRlLXJlYWN0JztcblxuaW50ZXJmYWNlIFRlbmFudCB7XG4gIGlkOiBzdHJpbmc7XG4gIG5hbWU6IHN0cmluZztcbiAgc2VjdG9yOiBzdHJpbmc7XG4gIGp1cmlzZGljdGlvbjogc3RyaW5nO1xuICBwbGFuOiBzdHJpbmc7XG4gIHN0YXR1czogJ2FjdGl2ZScgfCAnc3VzcGVuZGVkJyB8ICd0cmlhbCc7XG4gIHBvbGljeUNvdW50OiBudW1iZXI7XG4gIHVzZXJDb3VudDogbnVtYmVyO1xufVxuXG5pbnRlcmZhY2UgVGVuYW50RGV0YWlsTW9kYWxQcm9wcyB7XG4gIHRlbmFudDogVGVuYW50O1xuICBvbkNsb3NlOiAoKSA9PiB2b2lkO1xufVxuXG5jb25zdCBtb2NrVXNlcnMgPSBbXG4gIHsgaWQ6ICcxJywgbmFtZTogJ0pvaG4gRG9lJywgZW1haWw6ICdqb2huQGFjbWUuY29tJywgcm9sZTogJ093bmVyJywgc3RhdHVzOiAnYWN0aXZlJywgbGFzdEFjdGl2ZTogJzIgaG91cnMgYWdvJyB9LFxuICB7IGlkOiAnMicsIG5hbWU6ICdKYW5lIFNtaXRoJywgZW1haWw6ICdqYW5lQGFjbWUuY29tJywgcm9sZTogJ09yZyBBZG1pbicsIHN0YXR1czogJ2FjdGl2ZScsIGxhc3RBY3RpdmU6ICcxIGRheSBhZ28nIH0sXG4gIHsgaWQ6ICczJywgbmFtZTogJ01pa2UgSm9obnNvbicsIGVtYWlsOiAnbWlrZUBhY21lLmNvbScsIHJvbGU6ICdDb21wbGlhbmNlIE1hbmFnZXInLCBzdGF0dXM6ICdhY3RpdmUnLCBsYXN0QWN0aXZlOiAnMyBob3VycyBhZ28nIH0sXG5dO1xuXG5jb25zdCBtb2NrUG9saWNpZXMgPSBbXG4gIHsgaWQ6ICcxJywgbmFtZTogJ1Jlc2lkZW50IFJpZ2h0cyBQb2xpY3knLCBjYXRlZ29yeTogJ1BvbGljaWVzJywgc3RhdHVzOiAncHVibGlzaGVkJywgbGFzdFVwZGF0ZWQ6ICcyMDI1LTAzLTE1JyB9LFxuICB7IGlkOiAnMicsIG5hbWU6ICdNZWRpY2F0aW9uIE1hbmFnZW1lbnQnLCBjYXRlZ29yeTogJ1Byb2NlZHVyZXMnLCBzdGF0dXM6ICdwdWJsaXNoZWQnLCBsYXN0VXBkYXRlZDogJzIwMjUtMDMtMTInIH0sXG4gIHsgaWQ6ICczJywgbmFtZTogJ0luY2lkZW50IFJlcG9ydCBGb3JtJywgY2F0ZWdvcnk6ICdGb3JtcycsIHN0YXR1czogJ3B1Ymxpc2hlZCcsIGxhc3RVcGRhdGVkOiAnMjAyNS0wMy0xMCcgfSxcbl07XG5cbmNvbnN0IG1vY2tCaWxsaW5nSGlzdG9yeSA9IFtcbiAgeyBpZDogJzEnLCBkYXRlOiAnMjAyNS0wMy0wMScsIGFtb3VudDogJyQyLDQ5OScsIHN0YXR1czogJ3BhaWQnLCBpbnZvaWNlOiAnSU5WLTAwMTIzNCcgfSxcbiAgeyBpZDogJzInLCBkYXRlOiAnMjAyNS0wMi0wMScsIGFtb3VudDogJyQyLDQ5OScsIHN0YXR1czogJ3BhaWQnLCBpbnZvaWNlOiAnSU5WLTAwMTIzMycgfSxcbiAgeyBpZDogJzMnLCBkYXRlOiAnMjAyNS0wMS0wMScsIGFtb3VudDogJyQyLDQ5OScsIHN0YXR1czogJ3BhaWQnLCBpbnZvaWNlOiAnSU5WLTAwMTIzMicgfSxcbl07XG5cbmNvbnN0IG1vY2tBY3Rpdml0eUxvZ3MgPSBbXG4gIHsgaWQ6ICcxJywgdXNlcjogJ0pvaG4gRG9lJywgYWN0aW9uOiAnQ3JlYXRlZCBkb2N1bWVudCcsIHRhcmdldDogJ1NhZmV0eSBQb2xpY3kgdjIuMCcsIHRpbWVzdGFtcDogJzIgaG91cnMgYWdvJyB9LFxuICB7IGlkOiAnMicsIHVzZXI6ICdKYW5lIFNtaXRoJywgYWN0aW9uOiAnVXBkYXRlZCB1c2VyIHBlcm1pc3Npb25zJywgdGFyZ2V0OiAnTWlrZSBKb2huc29uJywgdGltZXN0YW1wOiAnMSBkYXkgYWdvJyB9LFxuICB7IGlkOiAnMycsIHVzZXI6ICdNaWtlIEpvaG5zb24nLCBhY3Rpb246ICdBcHByb3ZlZCBkb2N1bWVudCcsIHRhcmdldDogJ1RyYWluaW5nIFByb2NlZHVyZScsIHRpbWVzdGFtcDogJzIgZGF5cyBhZ28nIH0sXG5dO1xuXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBUZW5hbnREZXRhaWxNb2RhbCh7IHRlbmFudCwgb25DbG9zZSB9OiBUZW5hbnREZXRhaWxNb2RhbFByb3BzKSB7XG4gIGNvbnN0IFthY3RpdmVUYWIsIHNldEFjdGl2ZVRhYl0gPSB1c2VTdGF0ZSgnb3ZlcnZpZXcnKTtcblxuICBjb25zdCB0YWJzID0gW1xuICAgIHsgaWQ6ICdvdmVydmlldycsIGxhYmVsOiAnT3ZlcnZpZXcnLCBpY29uOiBCdWlsZGluZyB9LFxuICAgIHsgaWQ6ICd1c2VycycsIGxhYmVsOiAnVXNlcnMnLCBpY29uOiBVc2VycyB9LFxuICAgIHsgaWQ6ICdwb2xpY2llcycsIGxhYmVsOiAnUG9saWN5IFVzYWdlJywgaWNvbjogRmlsZVRleHQgfSxcbiAgICB7IGlkOiAnYmlsbGluZycsIGxhYmVsOiAnQmlsbGluZycsIGljb246IERvbGxhclNpZ24gfSxcbiAgICB7IGlkOiAnYWN0aXZpdHknLCBsYWJlbDogJ0FjdGl2aXR5IExvZ3MnLCBpY29uOiBBY3Rpdml0eSB9LFxuICBdO1xuXG4gIHJldHVybiAoXG4gICAgPGRpdiBjbGFzc05hbWU9XCJmaXhlZCBpbnNldC0wIGJnLWJsYWNrLzUwIGJhY2tkcm9wLWJsdXItc20gei01MCBmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlciBwLTZcIj5cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYmctWyMwQjFGMkFdIGJvcmRlciBib3JkZXItd2hpdGUvMTAgcm91bmRlZC0yeGwgdy1mdWxsIG1heC13LTR4bCBtYXgtaC1bOTB2aF0gb3ZlcmZsb3ctaGlkZGVuIGZsZXggZmxleC1jb2xcIj5cbiAgICAgICAgey8qIEhlYWRlciAqL31cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJwLTYgYm9yZGVyLWIgYm9yZGVyLXdoaXRlLzEwXCI+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW5cIj5cbiAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgIDxoMiBjbGFzc05hbWU9XCJ0ZXh0LTJ4bCBmb250LWJvbGQgdGV4dC13aGl0ZSBtYi0xXCI+e3RlbmFudC5uYW1lfTwvaDI+XG4gICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtZ3JheS00MDAgdGV4dC1zbVwiPlRlbmFudCBJRDogVE5ULXt0ZW5hbnQuaWQucGFkU3RhcnQoNiwgJzAnKX08L3A+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTNcIj5cbiAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPXtgcHgtMyBweS0xIHJvdW5kZWQtZnVsbCB0ZXh0LXNtIGZvbnQtbWVkaXVtICR7XG4gICAgICAgICAgICAgICAgdGVuYW50LnN0YXR1cyA9PT0gJ2FjdGl2ZScgPyAnYmctZ3JlZW4tNTAwLzEwIHRleHQtZ3JlZW4tNTAwJyA6XG4gICAgICAgICAgICAgICAgdGVuYW50LnN0YXR1cyA9PT0gJ3RyaWFsJyA/ICdiZy1ibHVlLTUwMC8xMCB0ZXh0LWJsdWUtNTAwJyA6XG4gICAgICAgICAgICAgICAgJ2JnLXJlZC01MDAvMTAgdGV4dC1yZWQtNTAwJ1xuICAgICAgICAgICAgICB9YH0+XG4gICAgICAgICAgICAgICAge3RlbmFudC5zdGF0dXN9XG4gICAgICAgICAgICAgIDwvc3Bhbj5cbiAgICAgICAgICAgICAgPGJ1dHRvblxuICAgICAgICAgICAgICAgIG9uQ2xpY2s9e29uQ2xvc2V9XG4gICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwidy04IGgtOCByb3VuZGVkLWxnIGhvdmVyOmJnLXdoaXRlLzUgZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1jZW50ZXIgdHJhbnNpdGlvbi1jb2xvcnNcIlxuICAgICAgICAgICAgICA+XG4gICAgICAgICAgICAgICAgPFggY2xhc3NOYW1lPVwidy01IGgtNSB0ZXh0LWdyYXktNDAwXCIgLz5cbiAgICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgey8qIFRhYnMgKi99XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicHgtNiBib3JkZXItYiBib3JkZXItd2hpdGUvMTAgZmxleCBnYXAtMVwiPlxuICAgICAgICAgIHt0YWJzLm1hcCgodGFiKSA9PiB7XG4gICAgICAgICAgICBjb25zdCBJY29uID0gdGFiLmljb247XG4gICAgICAgICAgICByZXR1cm4gKFxuICAgICAgICAgICAgICA8YnV0dG9uXG4gICAgICAgICAgICAgICAga2V5PXt0YWIuaWR9XG4gICAgICAgICAgICAgICAgb25DbGljaz17KCkgPT4gc2V0QWN0aXZlVGFiKHRhYi5pZCl9XG4gICAgICAgICAgICAgICAgY2xhc3NOYW1lPXtgcHgtNCBweS0zIHRleHQtc20gZm9udC1tZWRpdW0gdHJhbnNpdGlvbi1jb2xvcnMgZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTIgJHtcbiAgICAgICAgICAgICAgICAgIGFjdGl2ZVRhYiA9PT0gdGFiLmlkXG4gICAgICAgICAgICAgICAgICAgID8gJ3RleHQtd2hpdGUgYm9yZGVyLWItMiBib3JkZXItdGVhbC01MDAnXG4gICAgICAgICAgICAgICAgICAgIDogJ3RleHQtZ3JheS00MDAgaG92ZXI6dGV4dC13aGl0ZSdcbiAgICAgICAgICAgICAgICB9YH1cbiAgICAgICAgICAgICAgPlxuICAgICAgICAgICAgICAgIDxJY29uIGNsYXNzTmFtZT1cInctNCBoLTRcIiAvPlxuICAgICAgICAgICAgICAgIHt0YWIubGFiZWx9XG4gICAgICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICAgICAgKTtcbiAgICAgICAgICB9KX1cbiAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgey8qIFRhYiBDb250ZW50ICovfVxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXgtMSBvdmVyZmxvdy15LWF1dG8gcC02XCI+XG4gICAgICAgICAge2FjdGl2ZVRhYiA9PT0gJ292ZXJ2aWV3JyAmJiAoXG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInNwYWNlLXktNlwiPlxuICAgICAgICAgICAgICB7LyogU3RhdHMgR3JpZCAqL31cbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJncmlkIGdyaWQtY29scy0xIG1kOmdyaWQtY29scy0zIGdhcC00XCI+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJiZy13aGl0ZS81IGJhY2tkcm9wLWJsdXItbGcgcm91bmRlZC14bCBwLTQgYm9yZGVyIGJvcmRlci13aGl0ZS8xMFwiPlxuICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW4gbWItMlwiPlxuICAgICAgICAgICAgICAgICAgICA8RmlsZVRleHQgY2xhc3NOYW1lPVwidy01IGgtNSB0ZXh0LXRlYWwtNDAwXCIgLz5cbiAgICAgICAgICAgICAgICAgICAgPFRyZW5kaW5nVXAgY2xhc3NOYW1lPVwidy00IGgtNCB0ZXh0LWdyZWVuLTQwMFwiIC8+XG4gICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC0yeGwgZm9udC1ib2xkIHRleHQtd2hpdGUgbWItMVwiPnt0ZW5hbnQucG9saWN5Q291bnR9PC9kaXY+XG4gICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC1ncmF5LTQwMFwiPlRvdGFsIFBvbGljaWVzPC9kaXY+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgXG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJiZy13aGl0ZS81IGJhY2tkcm9wLWJsdXItbGcgcm91bmRlZC14bCBwLTQgYm9yZGVyIGJvcmRlci13aGl0ZS8xMFwiPlxuICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW4gbWItMlwiPlxuICAgICAgICAgICAgICAgICAgICA8VXNlcnMgY2xhc3NOYW1lPVwidy01IGgtNSB0ZXh0LWJsdWUtNDAwXCIgLz5cbiAgICAgICAgICAgICAgICAgICAgPENoZWNrQ2lyY2xlIGNsYXNzTmFtZT1cInctNCBoLTQgdGV4dC1ncmVlbi00MDBcIiAvPlxuICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQtMnhsIGZvbnQtYm9sZCB0ZXh0LXdoaXRlIG1iLTFcIj57dGVuYW50LnVzZXJDb3VudH08L2Rpdj5cbiAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC14cyB0ZXh0LWdyYXktNDAwXCI+QWN0aXZlIFVzZXJzPC9kaXY+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLXdoaXRlLzUgYmFja2Ryb3AtYmx1ci1sZyByb3VuZGVkLXhsIHAtNCBib3JkZXIgYm9yZGVyLXdoaXRlLzEwXCI+XG4gICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlbiBtYi0yXCI+XG4gICAgICAgICAgICAgICAgICAgIDxTaGllbGQgY2xhc3NOYW1lPVwidy01IGgtNSB0ZXh0LXB1cnBsZS00MDBcIiAvPlxuICAgICAgICAgICAgICAgICAgICA8Q2xvY2sgY2xhc3NOYW1lPVwidy00IGgtNCB0ZXh0LXllbGxvdy00MDBcIiAvPlxuICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQtMnhsIGZvbnQtYm9sZCB0ZXh0LXdoaXRlIG1iLTFcIj45OCU8L2Rpdj5cbiAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC14cyB0ZXh0LWdyYXktNDAwXCI+Q29tcGxpYW5jZSBSYXRlPC9kaXY+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgIDwvZGl2PlxuXG4gICAgICAgICAgICAgIHsvKiBEZXRhaWxzICovfVxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInNwYWNlLXktM1wiPlxuICAgICAgICAgICAgICAgIDxJbmZvUm93IGxhYmVsPVwiU2VjdG9yXCIgdmFsdWU9e3RlbmFudC5zZWN0b3J9IC8+XG4gICAgICAgICAgICAgICAgPEluZm9Sb3cgbGFiZWw9XCJKdXJpc2RpY3Rpb25cIiB2YWx1ZT17dGVuYW50Lmp1cmlzZGljdGlvbn0gLz5cbiAgICAgICAgICAgICAgICA8SW5mb1JvdyBsYWJlbD1cIlN1YnNjcmlwdGlvbiBQbGFuXCIgdmFsdWU9e3RlbmFudC5wbGFufSAvPlxuICAgICAgICAgICAgICAgIDxJbmZvUm93IGxhYmVsPVwiQ3JlYXRlZCBEYXRlXCIgdmFsdWU9XCIyMDI0LTAxLTE1XCIgLz5cbiAgICAgICAgICAgICAgICA8SW5mb1JvdyBsYWJlbD1cIkxhc3QgQWN0aXZpdHlcIiB2YWx1ZT1cIjIgaG91cnMgYWdvXCIgLz5cbiAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICApfVxuXG4gICAgICAgICAge2FjdGl2ZVRhYiA9PT0gJ3VzZXJzJyAmJiAoXG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInNwYWNlLXktNFwiPlxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlbiBtYi00XCI+XG4gICAgICAgICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgICAgICAgIDxoMyBjbGFzc05hbWU9XCJ0ZXh0LXdoaXRlIGZvbnQtc2VtaWJvbGQgbWItMVwiPlVzZXIgTWFuYWdlbWVudDwvaDM+XG4gICAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LXNtIHRleHQtZ3JheS00MDBcIj57bW9ja1VzZXJzLmxlbmd0aH0gYWN0aXZlIHVzZXJzPC9wPlxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgIDxidXR0b24gY2xhc3NOYW1lPVwicHgtNCBweS0yIGJnLXRlYWwtNjAwIHRleHQtd2hpdGUgcm91bmRlZC1sZyBob3ZlcjpiZy10ZWFsLTUwMCB0cmFuc2l0aW9uLWFsbCB0ZXh0LXNtXCI+XG4gICAgICAgICAgICAgICAgICBJbnZpdGUgVXNlclxuICAgICAgICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICAgICAgICA8L2Rpdj5cblxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInNwYWNlLXktMlwiPlxuICAgICAgICAgICAgICAgIHttb2NrVXNlcnMubWFwKCh1c2VyKSA9PiAoXG4gICAgICAgICAgICAgICAgICA8ZGl2IGtleT17dXNlci5pZH0gY2xhc3NOYW1lPVwiYmctd2hpdGUvNSBiYWNrZHJvcC1ibHVyLWxnIHJvdW5kZWQtbGcgcC00IGJvcmRlciBib3JkZXItd2hpdGUvMTBcIj5cbiAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW5cIj5cbiAgICAgICAgICAgICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ0ZXh0LXdoaXRlIGZvbnQtbWVkaXVtXCI+e3VzZXIubmFtZX08L2Rpdj5cbiAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC1zbSB0ZXh0LWdyYXktNDAwXCI+e3VzZXIuZW1haWx9PC9kaXY+XG4gICAgICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtM1wiPlxuICAgICAgICAgICAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwicHgtMyBweS0xIGJnLXRlYWwtNTAwLzEwIHRleHQtdGVhbC00MDAgcm91bmRlZCB0ZXh0LXhzIGZvbnQtbWVkaXVtXCI+XG4gICAgICAgICAgICAgICAgICAgICAgICAgIHt1c2VyLnJvbGV9XG4gICAgICAgICAgICAgICAgICAgICAgICA8L3NwYW4+XG4gICAgICAgICAgICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LXhzIHRleHQtZ3JheS01MDBcIj57dXNlci5sYXN0QWN0aXZlfTwvc3Bhbj5cbiAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICApKX1cbiAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICApfVxuXG4gICAgICAgICAge2FjdGl2ZVRhYiA9PT0gJ3BvbGljaWVzJyAmJiAoXG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInNwYWNlLXktNFwiPlxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cIm1iLTRcIj5cbiAgICAgICAgICAgICAgICA8aDMgY2xhc3NOYW1lPVwidGV4dC13aGl0ZSBmb250LXNlbWlib2xkIG1iLTFcIj5Qb2xpY3kgVXNhZ2UgJiBBbmFseXRpY3M8L2gzPlxuICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtc20gdGV4dC1ncmF5LTQwMFwiPnttb2NrUG9saWNpZXMubGVuZ3RofSBkb2N1bWVudHMgaW4gdXNlPC9wPlxuICAgICAgICAgICAgICA8L2Rpdj5cblxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLXdoaXRlLzUgYmFja2Ryb3AtYmx1ci1sZyByb3VuZGVkLXhsIHAtNCBib3JkZXIgYm9yZGVyLXdoaXRlLzEwIG92ZXJmbG93LWhpZGRlblwiPlxuICAgICAgICAgICAgICAgIDx0YWJsZSBjbGFzc05hbWU9XCJ3LWZ1bGxcIj5cbiAgICAgICAgICAgICAgICAgIDx0aGVhZD5cbiAgICAgICAgICAgICAgICAgICAgPHRyIGNsYXNzTmFtZT1cImJvcmRlci1iIGJvcmRlci13aGl0ZS8xMFwiPlxuICAgICAgICAgICAgICAgICAgICAgIDx0aCBjbGFzc05hbWU9XCJ0ZXh0LWxlZnQgcHktMyB0ZXh0LXNtIGZvbnQtc2VtaWJvbGQgdGV4dC1ncmF5LTMwMFwiPkRvY3VtZW50IE5hbWU8L3RoPlxuICAgICAgICAgICAgICAgICAgICAgIDx0aCBjbGFzc05hbWU9XCJ0ZXh0LWxlZnQgcHktMyB0ZXh0LXNtIGZvbnQtc2VtaWJvbGQgdGV4dC1ncmF5LTMwMFwiPkNhdGVnb3J5PC90aD5cbiAgICAgICAgICAgICAgICAgICAgICA8dGggY2xhc3NOYW1lPVwidGV4dC1sZWZ0IHB5LTMgdGV4dC1zbSBmb250LXNlbWlib2xkIHRleHQtZ3JheS0zMDBcIj5TdGF0dXM8L3RoPlxuICAgICAgICAgICAgICAgICAgICAgIDx0aCBjbGFzc05hbWU9XCJ0ZXh0LWxlZnQgcHktMyB0ZXh0LXNtIGZvbnQtc2VtaWJvbGQgdGV4dC1ncmF5LTMwMFwiPkxhc3QgVXBkYXRlZDwvdGg+XG4gICAgICAgICAgICAgICAgICAgIDwvdHI+XG4gICAgICAgICAgICAgICAgICA8L3RoZWFkPlxuICAgICAgICAgICAgICAgICAgPHRib2R5PlxuICAgICAgICAgICAgICAgICAgICB7bW9ja1BvbGljaWVzLm1hcCgocG9saWN5KSA9PiAoXG4gICAgICAgICAgICAgICAgICAgICAgPHRyIGtleT17cG9saWN5LmlkfSBjbGFzc05hbWU9XCJib3JkZXItYiBib3JkZXItd2hpdGUvNVwiPlxuICAgICAgICAgICAgICAgICAgICAgICAgPHRkIGNsYXNzTmFtZT1cInB5LTMgdGV4dC1zbSB0ZXh0LXdoaXRlXCI+e3BvbGljeS5uYW1lfTwvdGQ+XG4gICAgICAgICAgICAgICAgICAgICAgICA8dGQgY2xhc3NOYW1lPVwicHktMyB0ZXh0LXNtIHRleHQtZ3JheS00MDBcIj57cG9saWN5LmNhdGVnb3J5fTwvdGQ+XG4gICAgICAgICAgICAgICAgICAgICAgICA8dGQgY2xhc3NOYW1lPVwicHktM1wiPlxuICAgICAgICAgICAgICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJweC0yIHB5LTEgYmctZ3JlZW4tNTAwLzEwIHRleHQtZ3JlZW4tNTAwIHJvdW5kZWQgdGV4dC14c1wiPlxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHtwb2xpY3kuc3RhdHVzfVxuICAgICAgICAgICAgICAgICAgICAgICAgICA8L3NwYW4+XG4gICAgICAgICAgICAgICAgICAgICAgICA8L3RkPlxuICAgICAgICAgICAgICAgICAgICAgICAgPHRkIGNsYXNzTmFtZT1cInB5LTMgdGV4dC1zbSB0ZXh0LWdyYXktNDAwXCI+e3BvbGljeS5sYXN0VXBkYXRlZH08L3RkPlxuICAgICAgICAgICAgICAgICAgICAgIDwvdHI+XG4gICAgICAgICAgICAgICAgICAgICkpfVxuICAgICAgICAgICAgICAgICAgPC90Ym9keT5cbiAgICAgICAgICAgICAgICA8L3RhYmxlPlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICl9XG5cbiAgICAgICAgICB7YWN0aXZlVGFiID09PSAnYmlsbGluZycgJiYgKFxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJzcGFjZS15LTZcIj5cbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJiZy13aGl0ZS81IGJhY2tkcm9wLWJsdXItbGcgcm91bmRlZC14bCBwLTUgYm9yZGVyIGJvcmRlci13aGl0ZS8xMFwiPlxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuIG1iLTRcIj5cbiAgICAgICAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC1zbSB0ZXh0LWdyYXktNDAwIG1iLTFcIj5DdXJyZW50IFBsYW48L2Rpdj5cbiAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ0ZXh0LTJ4bCBmb250LWJvbGQgdGV4dC13aGl0ZVwiPnt0ZW5hbnQucGxhbn08L2Rpdj5cbiAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ0ZXh0LXJpZ2h0XCI+XG4gICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC1zbSB0ZXh0LWdyYXktNDAwIG1iLTFcIj5Nb250aGx5IFJhdGU8L2Rpdj5cbiAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ0ZXh0LTJ4bCBmb250LWJvbGQgdGV4dC10ZWFsLTQwMFwiPiQyLDQ5OTwvZGl2PlxuICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGdhcC0zIHB0LTQgYm9yZGVyLXQgYm9yZGVyLXdoaXRlLzEwXCI+XG4gICAgICAgICAgICAgICAgICA8YnV0dG9uIGNsYXNzTmFtZT1cImZsZXgtMSBweC00IHB5LTIgYmctdGVhbC02MDAgdGV4dC13aGl0ZSByb3VuZGVkLWxnIGhvdmVyOmJnLXRlYWwtNTAwIHRyYW5zaXRpb24tYWxsIHRleHQtc21cIj5cbiAgICAgICAgICAgICAgICAgICAgVXBncmFkZSBQbGFuXG4gICAgICAgICAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgICAgICAgICAgIDxidXR0b24gY2xhc3NOYW1lPVwiZmxleC0xIHB4LTQgcHktMiBiZy13aGl0ZS81IGJvcmRlciBib3JkZXItd2hpdGUvMTAgdGV4dC13aGl0ZSByb3VuZGVkLWxnIGhvdmVyOmJnLXdoaXRlLzEwIHRyYW5zaXRpb24tYWxsIHRleHQtc21cIj5cbiAgICAgICAgICAgICAgICAgICAgVmlldyBJbnZvaWNlXG4gICAgICAgICAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgICAgICA8aDMgY2xhc3NOYW1lPVwidGV4dC13aGl0ZSBmb250LXNlbWlib2xkIG1iLTNcIj5CaWxsaW5nIEhpc3Rvcnk8L2gzPlxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwic3BhY2UteS0yXCI+XG4gICAgICAgICAgICAgICAgICB7bW9ja0JpbGxpbmdIaXN0b3J5Lm1hcCgoYmlsbCkgPT4gKFxuICAgICAgICAgICAgICAgICAgICA8ZGl2IGtleT17YmlsbC5pZH0gY2xhc3NOYW1lPVwiYmctd2hpdGUvNSBiYWNrZHJvcC1ibHVyLWxnIHJvdW5kZWQtbGcgcC00IGJvcmRlciBib3JkZXItd2hpdGUvMTAgZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuXCI+XG4gICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtNFwiPlxuICAgICAgICAgICAgICAgICAgICAgICAgPENyZWRpdENhcmQgY2xhc3NOYW1lPVwidy01IGgtNSB0ZXh0LWdyYXktNDAwXCIgLz5cbiAgICAgICAgICAgICAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC13aGl0ZSBmb250LW1lZGl1bVwiPntiaWxsLmludm9pY2V9PC9kaXY+XG4gICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC1zbSB0ZXh0LWdyYXktNDAwXCI+e2JpbGwuZGF0ZX08L2Rpdj5cbiAgICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTNcIj5cbiAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC13aGl0ZSBmb250LXNlbWlib2xkXCI+e2JpbGwuYW1vdW50fTwvZGl2PlxuICAgICAgICAgICAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwicHgtMyBweS0xIGJnLWdyZWVuLTUwMC8xMCB0ZXh0LWdyZWVuLTUwMCByb3VuZGVkIHRleHQteHMgZm9udC1tZWRpdW1cIj5cbiAgICAgICAgICAgICAgICAgICAgICAgICAge2JpbGwuc3RhdHVzfVxuICAgICAgICAgICAgICAgICAgICAgICAgPC9zcGFuPlxuICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICAgICkpfVxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICl9XG5cbiAgICAgICAgICB7YWN0aXZlVGFiID09PSAnYWN0aXZpdHknICYmIChcbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwic3BhY2UteS00XCI+XG4gICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwibWItNFwiPlxuICAgICAgICAgICAgICAgIDxoMyBjbGFzc05hbWU9XCJ0ZXh0LXdoaXRlIGZvbnQtc2VtaWJvbGQgbWItMVwiPlJlY2VudCBBY3Rpdml0eTwvaDM+XG4gICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC1zbSB0ZXh0LWdyYXktNDAwXCI+QXVkaXQgdHJhaWwgb2YgYWxsIHRlbmFudCBhY3Rpb25zPC9wPlxuICAgICAgICAgICAgICA8L2Rpdj5cblxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInNwYWNlLXktMlwiPlxuICAgICAgICAgICAgICAgIHttb2NrQWN0aXZpdHlMb2dzLm1hcCgobG9nKSA9PiAoXG4gICAgICAgICAgICAgICAgICA8ZGl2IGtleT17bG9nLmlkfSBjbGFzc05hbWU9XCJiZy13aGl0ZS81IGJhY2tkcm9wLWJsdXItbGcgcm91bmRlZC1sZyBwLTQgYm9yZGVyIGJvcmRlci13aGl0ZS8xMFwiPlxuICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtc3RhcnQgZ2FwLTNcIj5cbiAgICAgICAgICAgICAgICAgICAgICA8QWN0aXZpdHkgY2xhc3NOYW1lPVwidy01IGgtNSB0ZXh0LXRlYWwtNDAwIG10LTAuNVwiIC8+XG4gICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4LTFcIj5cbiAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC13aGl0ZSBmb250LW1lZGl1bVwiPntsb2cuYWN0aW9ufTwvZGl2PlxuICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ0ZXh0LXNtIHRleHQtZ3JheS00MDAgbXQtMVwiPlxuICAgICAgICAgICAgICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LXRlYWwtNDAwXCI+e2xvZy51c2VyfTwvc3Bhbj4g4oCiIHtsb2cudGFyZ2V0fVxuICAgICAgICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC1ncmF5LTUwMCBtdC0yXCI+e2xvZy50aW1lc3RhbXB9PC9kaXY+XG4gICAgICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgKSl9XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgKX1cbiAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgey8qIEZvb3RlciBBY3Rpb25zICovfVxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInAtNiBib3JkZXItdCBib3JkZXItd2hpdGUvMTAgZmxleCBnYXAtM1wiPlxuICAgICAgICAgIDxidXR0b24gY2xhc3NOYW1lPVwiZmxleC0xIHB4LTQgcHktMiBiZy13aGl0ZS81IGJvcmRlciBib3JkZXItd2hpdGUvMTAgdGV4dC13aGl0ZSByb3VuZGVkLWxnIGhvdmVyOmJnLXdoaXRlLzEwIHRyYW5zaXRpb24tYWxsIHRleHQtc20gZm9udC1tZWRpdW1cIj5cbiAgICAgICAgICAgIE9wZW4gV29ya3NwYWNlXG4gICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgPGJ1dHRvbiBjbGFzc05hbWU9XCJmbGV4LTEgcHgtNCBweS0yIGJnLXdoaXRlLzUgYm9yZGVyIGJvcmRlci13aGl0ZS8xMCB0ZXh0LXdoaXRlIHJvdW5kZWQtbGcgaG92ZXI6Ymctd2hpdGUvMTAgdHJhbnNpdGlvbi1hbGwgdGV4dC1zbSBmb250LW1lZGl1bVwiPlxuICAgICAgICAgICAgSW1wZXJzb25hdGVcbiAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgICA8YnV0dG9uIGNsYXNzTmFtZT1cImZsZXgtMSBweC00IHB5LTIgYmctcmVkLTUwMC8xMCBib3JkZXIgYm9yZGVyLXJlZC01MDAvMjAgdGV4dC1yZWQtNTAwIHJvdW5kZWQtbGcgaG92ZXI6YmctcmVkLTUwMC8yMCB0cmFuc2l0aW9uLWFsbCB0ZXh0LXNtIGZvbnQtbWVkaXVtXCI+XG4gICAgICAgICAgICBTdXNwZW5kIFRlbmFudFxuICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICA8L2Rpdj5cbiAgICAgIDwvZGl2PlxuICAgIDwvZGl2PlxuICApO1xufVxuXG5mdW5jdGlvbiBJbmZvUm93KHsgbGFiZWwsIHZhbHVlIH06IHsgbGFiZWw6IHN0cmluZzsgdmFsdWU6IHN0cmluZyB9KSB7XG4gIHJldHVybiAoXG4gICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGp1c3RpZnktYmV0d2VlbiBpdGVtcy1jZW50ZXIgcC0zIGJnLXdoaXRlLzUgcm91bmRlZC1sZ1wiPlxuICAgICAgPHNwYW4gY2xhc3NOYW1lPVwidGV4dC1zbSB0ZXh0LWdyYXktNDAwXCI+e2xhYmVsfTwvc3Bhbj5cbiAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRleHQtc20gdGV4dC13aGl0ZSBmb250LW1lZGl1bVwiPnt2YWx1ZX08L3NwYW4+XG4gICAgPC9kaXY+XG4gICk7XG59XG4iXSwiZmlsZSI6Ii93b3Jrc3BhY2VzL2RlZmF1bHQvY29kZS9zcmMvYXBwL2NvbXBvbmVudHMvVGVuYW50RGV0YWlsTW9kYWwudHN4In0=

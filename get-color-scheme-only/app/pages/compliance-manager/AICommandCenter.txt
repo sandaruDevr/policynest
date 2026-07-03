@@ -1,0 +1,44 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/app/pages/compliance-manager/AICommandCenter.tsx");import { jsxDEV } from "/@id/__x00__figma:react-jsx-dev-runtime";
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/workspaces/default/code/src/app/pages/compliance-manager/AICommandCenter.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+import { FGCmp } from "/@id/fginspector";
+import AICommandCenter from "/src/app/pages/org-admin/AICommandCenter.tsx";
+export default function ComplianceManagerAICommandCenter() {
+  return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: AICommandCenter, _fgS: "pqb0", _fgB: 1779104382147, _fgD: true, "data-fg-pqb0": "418.229:418.254:/src/app/pages/compliance-manager/AICommandCenter.tsx:5:10:231:19:e:AICommandCenter::1::::HVq" }, void 0, false, {
+    fileName: "/workspaces/default/code/src/app/pages/compliance-manager/AICommandCenter.tsx",
+    lineNumber: 25,
+    columnNumber: 10
+  }, this);
+}
+_c = ComplianceManagerAICommandCenter;
+var _c;
+$RefreshReg$(_c, "ComplianceManagerAICommandCenter");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/workspaces/default/code/src/app/pages/compliance-manager/AICommandCenter.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/workspaces/default/code/src/app/pages/compliance-manager/AICommandCenter.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6IkFBSVM7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBSFQsT0FBT0EscUJBQXFCO0FBRTVCLHdCQUF3QkMsbUNBQW1DO0FBQ3pELFNBQU8sdUJBQUMsZUFBQUQsaUJBQUEseUNBQWUseUlBQWhCO0FBQUE7QUFBQTtBQUFBO0FBQUEsU0FBZ0I7QUFDekI7QUFBQUUsS0FGd0JEO0FBQWdDLElBQUFDO0FBQUFDLGFBQUFELElBQUEiLCJuYW1lcyI6WyJBSUNvbW1hbmRDZW50ZXIiLCJDb21wbGlhbmNlTWFuYWdlckFJQ29tbWFuZENlbnRlciIsIl9jIiwiJFJlZnJlc2hSZWckIl0sImlnbm9yZUxpc3QiOltdLCJzb3VyY2VzIjpbIkFJQ29tbWFuZENlbnRlci50c3giXSwic291cmNlc0NvbnRlbnQiOlsiLy8gV3JhcHBlciBmb3IgQ29tcGxpYW5jZSBNYW5hZ2VyIC0gcmV1c2VzIE9yZyBBZG1pbiBBSSBDb21tYW5kIENlbnRlciB3aXRoIGNvbXBsaWFuY2UtbWFuYWdlciByb2xlXG5pbXBvcnQgQUlDb21tYW5kQ2VudGVyIGZyb20gJy4uL29yZy1hZG1pbi9BSUNvbW1hbmRDZW50ZXInO1xuXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBDb21wbGlhbmNlTWFuYWdlckFJQ29tbWFuZENlbnRlcigpIHtcbiAgcmV0dXJuIDxBSUNvbW1hbmRDZW50ZXIgLz47XG59XG4iXSwiZmlsZSI6Ii93b3Jrc3BhY2VzL2RlZmF1bHQvY29kZS9zcmMvYXBwL3BhZ2VzL2NvbXBsaWFuY2UtbWFuYWdlci9BSUNvbW1hbmRDZW50ZXIudHN4In0=

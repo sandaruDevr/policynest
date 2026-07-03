@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html,
+  body {
+    height: 100%;
+    background: theme("colors.canvas.DEFAULT");
+    color: theme("colors.ink.DEFAULT");
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    font-feature-settings:
+      "ss01" on,
+      "cv11" on;
+  }
+
+  ::selection {
+    background: rgba(108, 84, 245, 0.35);
+    color: #fff;
+  }
+
+  /* Native scrollbar refinement */
+  *::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  *::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+  *::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.12);
+    background-clip: padding-box;
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .surface-card {
+    @apply rounded-2xl bg-surface border border-hairline backdrop-blur-md shadow-elev2;
+  }
+  .surface-card-strong {
+    @apply rounded-2xl bg-surface-strong border border-hairline-strong backdrop-blur-md shadow-elev2;
+  }
+  .surface-soft {
+    @apply rounded-xl bg-surface-subtle border border-hairline-subtle;
+  }
+
+  .focus-ring {
+    @apply outline-none focus-visible:ring-2 focus-visible:ring-brand-400/70 focus-visible:ring-offset-2 focus-visible:ring-offset-canvas;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Premium shimmer for skeletons */
+  .skeleton {
+    @apply relative overflow-hidden bg-white/5 rounded-md;
+  }
+  .skeleton::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      transparent 0,
+      rgba(255, 255, 255, 0.06) 50%,
+      transparent 100%
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 1.6s linear infinite;
+  }
+
+  /* Subtle dotted background */
+  .bg-dots {
+    background-image: radial-gradient(
+      rgba(255, 255, 255, 0.05) 1px,
+      transparent 1px
+    );
+    background-size: 22px 22px;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+}
+
+/* Tighten prose typography spacing for markdown content */
+@layer base {
+  .prose h1 { margin-top: 0.5rem; margin-bottom: 0.5rem; }
+  .prose h2 { margin-top: 0.75rem; margin-bottom: 0.5rem; }
+  .prose h3 { margin-top: 0.5rem; margin-bottom: 0.25rem; }
+  .prose h4 { margin-top: 0.5rem; margin-bottom: 0.25rem; }
+  .prose p { margin-top: 0.5rem; margin-bottom: 0.5rem; }
+  .prose ul { margin-top: 0.5rem; margin-bottom: 0.5rem; }
+  .prose ol { margin-top: 0.5rem; margin-bottom: 0.5rem; }
+  .prose li { margin-top: 0; margin-bottom: 0.25rem; }
+  .prose blockquote { margin-top: 0.5rem; margin-bottom: 0.5rem; }
+  .prose hr { margin-top: 1rem; margin-bottom: 1rem; }
+  .prose table { margin-top: 0.75rem; margin-bottom: 0.75rem; }
+  .prose pre { margin-top: 0.5rem; margin-bottom: 0.5rem; }
+
+  /* CRITICAL: paragraphs inside list items get full prose margins — zero them */
+  .prose li > p { margin-top: 0 !important; margin-bottom: 0 !important; }
+
+  /* Tight spacing between consecutive list items */
+  .prose li + li { margin-top: 0 !important; }
+
+  /* Tighten space between a paragraph and a list that follows it */
+  .prose p + ul, .prose p + ol { margin-top: 0.25rem !important; }
+
+  /* Ensure headings that immediately follow lists or paragraphs have minimal gap */
+  .prose ul + h2, .prose ol + h2,
+  .prose ul + h3, .prose ol + h3,
+  .prose p + h2, .prose p + h3 { margin-top: 0.5rem !important; }
+}

@@ -1,0 +1,186 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/app/components/TopBar.tsx");import { jsxDEV } from "/@id/__x00__figma:react-jsx-dev-runtime";
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/workspaces/default/code/src/app/components/TopBar.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+var _s = $RefreshSig$();
+import { FGCmp } from "/@id/fginspector";
+import { Bell, Search, User, LogOut } from "/node_modules/.vite/deps/lucide-react.js?v=25293e4c";
+import { useNavigate } from "/node_modules/.vite/deps/react-router.js?v=d6d2548b";
+import logo from "/@id/__x00__figma:asset/5f89b30332c9cbe8f68705cd2c85bdcad46833fb.png?import";
+import LanguageSwitcher from "/src/app/components/LanguageSwitcher.tsx";
+export default function TopBar() {
+  _s();
+  const navigate = useNavigate();
+  return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "header", _fgS: "jnd0", _fgB: 1779104382737, _fgD: true, className: "fixed top-0 left-0 right-0 h-16 bg-[#0B1F2A]/80 backdrop-blur-xl border-b border-white/8 z-50", "data-fg-jnd0": "418.167:758.73:/src/app/components/TopBar.tsx:10:5:317:2041:e:header:e:1", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "jnd1", _fgB: 1779104382737, className: "h-full flex items-center justify-between px-6", "data-fg-jnd1": "418.167:758.73:/src/app/components/TopBar.tsx:11:7:438:1906:e:div:xtetxtetxte", children: [
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "jnd3", _fgB: 1779104382737, className: "flex items-center gap-3", "data-fg-jnd3": "418.167:758.73:/src/app/components/TopBar.tsx:13:9:531:184:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "img", _fgS: "jnd4", _fgB: 1779104382737, src: logo, alt: "PolicyNest", className: "h-8", "data-fg-jnd4": "418.167:758.73:/src/app/components/TopBar.tsx:14:11:583:51:e:img" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/components/TopBar.tsx",
+        lineNumber: 34,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "jnd5", _fgB: 1779104382737, className: "text-xs text-gray-400", "data-fg-jnd5": "418.167:758.73:/src/app/components/TopBar.tsx:15:11:645:55:e:p:t", children: "Platform Admin" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/components/TopBar.tsx",
+        lineNumber: 35,
+        columnNumber: 11
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/components/TopBar.tsx",
+      lineNumber: 33,
+      columnNumber: 9
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "jnd8", _fgB: 1779104382737, className: "flex-1 max-w-xl mx-8", "data-fg-jnd8": "418.167:758.73:/src/app/components/TopBar.tsx:19:9:748:490:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "jnd9", _fgB: 1779104382737, className: "relative", "data-fg-jnd9": "418.167:758.73:/src/app/components/TopBar.tsx:20:11:797:426:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Search, _fgS: "jnd10", _fgB: 1779104382737, className: "absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400", "data-fg-jnd10": "418.167:758.73:/src/app/components/TopBar.tsx:21:13:836:85:e:Search::::::B9rK" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/components/TopBar.tsx",
+        lineNumber: 41,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(
+        FGCmp,
+        {
+          _fgT: "input",
+          _fgS: "jnd11",
+          _fgB: 1779104382737,
+          type: "text",
+          placeholder: "Search anything...",
+          className: "w-full pl-10 pr-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-white placeholder-gray-500 focus:outline-none focus:border-teal-500/50",
+          "data-fg-jnd11": "418.167:758.73:/src/app/components/TopBar.tsx:22:13:934:272:e:input"
+        },
+        void 0,
+        false,
+        {
+          fileName: "/workspaces/default/code/src/app/components/TopBar.tsx",
+          lineNumber: 42,
+          columnNumber: 13
+        },
+        this
+      )
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/components/TopBar.tsx",
+      lineNumber: 40,
+      columnNumber: 11
+    }, this) }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/components/TopBar.tsx",
+      lineNumber: 39,
+      columnNumber: 9
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "jnd13", _fgB: 1779104382737, className: "flex items-center gap-4", "data-fg-jnd13": "418.167:758.73:/src/app/components/TopBar.tsx:31:9:1272:1059:e:div:etetetete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "button", _fgS: "jnd14", _fgB: 1779104382737, className: "relative p-2 hover:bg-white/5 rounded-lg transition-colors", "data-fg-jnd14": "418.167:758.73:/src/app/components/TopBar.tsx:32:11:1324:247:e:button:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Bell, _fgS: "jnd15", _fgB: 1779104382737, className: "w-5 h-5 text-gray-400", "data-fg-jnd15": "418.167:758.73:/src/app/components/TopBar.tsx:33:13:1416:42:e:Bell::::::CiHR" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/TopBar.tsx",
+          lineNumber: 53,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "jnd16", _fgB: 1779104382737, className: "absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full", "data-fg-jnd16": "418.167:758.73:/src/app/components/TopBar.tsx:34:13:1471:80:e:span:_" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/TopBar.tsx",
+          lineNumber: 54,
+          columnNumber: 13
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/components/TopBar.tsx",
+        lineNumber: 52,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: LanguageSwitcher, _fgS: "jnd17", _fgB: 1779104382737, "data-fg-jnd17": "418.167:758.73:/src/app/components/TopBar.tsx:37:11:1583:20:e:LanguageSwitcher::::::BA6m" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/components/TopBar.tsx",
+        lineNumber: 57,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "jnd18", _fgB: 1779104382737, className: "h-8 w-px bg-white/10", "data-fg-jnd18": "418.167:758.73:/src/app/components/TopBar.tsx:39:11:1615:44:e:div:_" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/components/TopBar.tsx",
+        lineNumber: 59,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "button", _fgS: "jnd19", _fgB: 1779104382737, className: "flex items-center gap-2 hover:bg-white/5 px-3 py-2 rounded-lg transition-colors", "data-fg-jnd19": "418.167:758.73:/src/app/components/TopBar.tsx:41:11:1681:383:e:button:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "jnd20", _fgB: 1779104382737, className: "w-8 h-8 rounded-full bg-gradient-to-br from-teal-600 to-teal-500 flex items-center justify-center", "data-fg-jnd20": "418.167:758.73:/src/app/components/TopBar.tsx:42:13:1794:188:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: User, _fgS: "jnd21", _fgB: 1779104382737, className: "w-4 h-4 text-white", "data-fg-jnd21": "418.167:758.73:/src/app/components/TopBar.tsx:43:15:1924:39:e:User::::::wpV" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/TopBar.tsx",
+          lineNumber: 63,
+          columnNumber: 15
+        }, this) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/TopBar.tsx",
+          lineNumber: 62,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "jnd22", _fgB: 1779104382737, className: "text-sm text-white", "data-fg-jnd22": "418.167:758.73:/src/app/components/TopBar.tsx:45:13:1995:49:e:span:t", children: "Admin" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/TopBar.tsx",
+          lineNumber: 65,
+          columnNumber: 13
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/components/TopBar.tsx",
+        lineNumber: 61,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV(
+        FGCmp,
+        {
+          _fgT: "button",
+          _fgS: "jnd24",
+          _fgB: 1779104382737,
+          onClick: () => navigate("/"),
+          className: "p-2 hover:bg-white/5 rounded-lg transition-colors",
+          title: "Logout",
+          "data-fg-jnd24": "418.167:758.73:/src/app/components/TopBar.tsx:48:11:2076:240:e:button:e",
+          children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: LogOut, _fgS: "jnd25", _fgB: 1779104382737, className: "w-5 h-5 text-gray-400", "data-fg-jnd25": "418.167:758.73:/src/app/components/TopBar.tsx:53:13:2252:44:e:LogOut::::::B3pg" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/TopBar.tsx",
+            lineNumber: 73,
+            columnNumber: 13
+          }, this)
+        },
+        void 0,
+        false,
+        {
+          fileName: "/workspaces/default/code/src/app/components/TopBar.tsx",
+          lineNumber: 68,
+          columnNumber: 11
+        },
+        this
+      )
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/components/TopBar.tsx",
+      lineNumber: 51,
+      columnNumber: 9
+    }, this)
+  ] }, void 0, true, {
+    fileName: "/workspaces/default/code/src/app/components/TopBar.tsx",
+    lineNumber: 31,
+    columnNumber: 7
+  }, this) }, void 0, false, {
+    fileName: "/workspaces/default/code/src/app/components/TopBar.tsx",
+    lineNumber: 30,
+    columnNumber: 5
+  }, this);
+}
+_s(TopBar, "CzcTeTziyjMsSrAVmHuCCb6+Bfg=", false, function() {
+  return [useNavigate];
+});
+_c = TopBar;
+var _c;
+$RefreshReg$(_c, "TopBar");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/workspaces/default/code/src/app/components/TopBar.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/workspaces/default/code/src/app/components/TopBar.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,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QTtBQUFBO0FBQUE7QUFBQSxXQXdCQTtBQUFBLE9BNUNGO0FBQUE7QUFBQTtBQUFBO0FBQUEsU0E2Q0EsS0E5Q0Y7QUFBQTtBQUFBO0FBQUE7QUFBQSxTQStDQTtBQUVKO0FBQUFLLEdBckR3QkQsUUFBTTtBQUFBLFVBQ1hILFdBQVc7QUFBQTtBQUFBTSxLQUROSDtBQUFNLElBQUFHO0FBQUFDLGFBQUFELElBQUEiLCJuYW1lcyI6WyJCZWxsIiwiU2VhcmNoIiwiVXNlciIsIkxvZ091dCIsInVzZU5hdmlnYXRlIiwibG9nbyIsIkxhbmd1YWdlU3dpdGNoZXIiLCJUb3BCYXIiLCJfcyIsIm5hdmlnYXRlIiwiX2MiLCIkUmVmcmVzaFJlZyQiXSwiaWdub3JlTGlzdCI6W10sInNvdXJjZXMiOlsiVG9wQmFyLnRzeCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBCZWxsLCBTZWFyY2gsIFVzZXIsIExvZ091dCB9IGZyb20gJ2x1Y2lkZS1yZWFjdCc7XG5pbXBvcnQgeyB1c2VOYXZpZ2F0ZSB9IGZyb20gJ3JlYWN0LXJvdXRlcic7XG5pbXBvcnQgbG9nbyBmcm9tICdmaWdtYTphc3NldC81Zjg5YjMwMzMyYzljYmU4ZjY4NzA1Y2QyYzg1YmRjYWQ0NjgzM2ZiLnBuZyc7XG5pbXBvcnQgTGFuZ3VhZ2VTd2l0Y2hlciBmcm9tICcuL0xhbmd1YWdlU3dpdGNoZXInO1xuXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBUb3BCYXIoKSB7XG4gIGNvbnN0IG5hdmlnYXRlID0gdXNlTmF2aWdhdGUoKTtcblxuICByZXR1cm4gKFxuICAgIDxoZWFkZXIgY2xhc3NOYW1lPVwiZml4ZWQgdG9wLTAgbGVmdC0wIHJpZ2h0LTAgaC0xNiBiZy1bIzBCMUYyQV0vODAgYmFja2Ryb3AtYmx1ci14bCBib3JkZXItYiBib3JkZXItd2hpdGUvOCB6LTUwXCI+XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cImgtZnVsbCBmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW4gcHgtNlwiPlxuICAgICAgICB7LyogTG9nbyAqL31cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtM1wiPlxuICAgICAgICAgIDxpbWcgc3JjPXtsb2dvfSBhbHQ9XCJQb2xpY3lOZXN0XCIgY2xhc3NOYW1lPVwiaC04XCIgLz5cbiAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LXhzIHRleHQtZ3JheS00MDBcIj5QbGF0Zm9ybSBBZG1pbjwvcD5cbiAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgey8qIFNlYXJjaCAqL31cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4LTEgbWF4LXcteGwgbXgtOFwiPlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicmVsYXRpdmVcIj5cbiAgICAgICAgICAgIDxTZWFyY2ggY2xhc3NOYW1lPVwiYWJzb2x1dGUgbGVmdC0zIHRvcC0xLzIgLXRyYW5zbGF0ZS15LTEvMiB3LTQgaC00IHRleHQtZ3JheS00MDBcIiAvPlxuICAgICAgICAgICAgPGlucHV0XG4gICAgICAgICAgICAgIHR5cGU9XCJ0ZXh0XCJcbiAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9XCJTZWFyY2ggYW55dGhpbmcuLi5cIlxuICAgICAgICAgICAgICBjbGFzc05hbWU9XCJ3LWZ1bGwgcGwtMTAgcHItNCBweS0yIGJnLXdoaXRlLzUgYm9yZGVyIGJvcmRlci13aGl0ZS8xMCByb3VuZGVkLWxnIHRleHQtc20gdGV4dC13aGl0ZSBwbGFjZWhvbGRlci1ncmF5LTUwMCBmb2N1czpvdXRsaW5lLW5vbmUgZm9jdXM6Ym9yZGVyLXRlYWwtNTAwLzUwXCJcbiAgICAgICAgICAgIC8+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvZGl2PlxuXG4gICAgICAgIHsvKiBBY3Rpb25zICovfVxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC00XCI+XG4gICAgICAgICAgPGJ1dHRvbiBjbGFzc05hbWU9XCJyZWxhdGl2ZSBwLTIgaG92ZXI6Ymctd2hpdGUvNSByb3VuZGVkLWxnIHRyYW5zaXRpb24tY29sb3JzXCI+XG4gICAgICAgICAgICA8QmVsbCBjbGFzc05hbWU9XCJ3LTUgaC01IHRleHQtZ3JheS00MDBcIiAvPlxuICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwiYWJzb2x1dGUgdG9wLTEgcmlnaHQtMSB3LTIgaC0yIGJnLXJlZC01MDAgcm91bmRlZC1mdWxsXCI+PC9zcGFuPlxuICAgICAgICAgIDwvYnV0dG9uPlxuXG4gICAgICAgICAgPExhbmd1YWdlU3dpdGNoZXIgLz5cblxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiaC04IHctcHggYmctd2hpdGUvMTBcIj48L2Rpdj5cbiAgICAgICAgICBcbiAgICAgICAgICA8YnV0dG9uIGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0yIGhvdmVyOmJnLXdoaXRlLzUgcHgtMyBweS0yIHJvdW5kZWQtbGcgdHJhbnNpdGlvbi1jb2xvcnNcIj5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidy04IGgtOCByb3VuZGVkLWZ1bGwgYmctZ3JhZGllbnQtdG8tYnIgZnJvbS10ZWFsLTYwMCB0by10ZWFsLTUwMCBmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlclwiPlxuICAgICAgICAgICAgICA8VXNlciBjbGFzc05hbWU9XCJ3LTQgaC00IHRleHQtd2hpdGVcIiAvPlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LXNtIHRleHQtd2hpdGVcIj5BZG1pbjwvc3Bhbj5cbiAgICAgICAgICA8L2J1dHRvbj5cblxuICAgICAgICAgIDxidXR0b24gXG4gICAgICAgICAgICBvbkNsaWNrPXsoKSA9PiBuYXZpZ2F0ZSgnLycpfVxuICAgICAgICAgICAgY2xhc3NOYW1lPVwicC0yIGhvdmVyOmJnLXdoaXRlLzUgcm91bmRlZC1sZyB0cmFuc2l0aW9uLWNvbG9yc1wiXG4gICAgICAgICAgICB0aXRsZT1cIkxvZ291dFwiXG4gICAgICAgICAgPlxuICAgICAgICAgICAgPExvZ091dCBjbGFzc05hbWU9XCJ3LTUgaC01IHRleHQtZ3JheS00MDBcIiAvPlxuICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICA8L2Rpdj5cbiAgICAgIDwvZGl2PlxuICAgIDwvaGVhZGVyPlxuICApO1xufSJdLCJmaWxlIjoiL3dvcmtzcGFjZXMvZGVmYXVsdC9jb2RlL3NyYy9hcHAvY29tcG9uZW50cy9Ub3BCYXIudHN4In0=

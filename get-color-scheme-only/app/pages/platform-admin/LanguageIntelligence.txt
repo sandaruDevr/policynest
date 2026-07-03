@@ -1,0 +1,816 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/app/pages/platform-admin/LanguageIntelligence.tsx");import { jsxDEV } from "/@id/__x00__figma:react-jsx-dev-runtime";
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+var _s = $RefreshSig$();
+import { FGCmp } from "/@id/fginspector";
+import { useState } from "/@id/__x00__figma:react-base";
+import { Plus, Globe, Volume2 } from "/node_modules/.vite/deps/lucide-react.js?v=25293e4c";
+export default function LanguageIntelligence() {
+  _s();
+  const [languages, setLanguages] = useState(
+    [
+      { code: "en", name: "English", coverage: 100, status: "complete" },
+      { code: "es", name: "Spanish", coverage: 95, status: "complete" },
+      { code: "fr", name: "French", coverage: 88, status: "in-progress" },
+      { code: "de", name: "German", coverage: 92, status: "complete" },
+      { code: "zh", name: "Chinese", coverage: 76, status: "in-progress" }
+    ]
+  );
+  const [showAddLanguageModal, setShowAddLanguageModal] = useState(false);
+  const [showEditLanguageModal, setShowEditLanguageModal] = useState(false);
+  const [showAddTermModal, setShowAddTermModal] = useState(false);
+  const [selectedLanguage, setSelectedLanguage] = useState(null);
+  return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "ckiq0", _fgB: 1779104380864, _fgD: true, className: "space-y-6", "data-fg-ckiq0": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:19:5:863:10593:e:div:etxtetxtetxtetxtxtxtxtxtx:1", children: [
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "ckiq1", _fgB: 1779104380864, className: "flex items-center justify-between", "data-fg-ckiq1": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:20:7:897:575:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "ckiq2", _fgB: 1779104380864, "data-fg-ckiq2": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:21:9:957:182:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h1", _fgS: "ckiq3", _fgB: 1779104380864, className: "text-3xl font-bold text-white mb-2", "data-fg-ckiq3": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:22:11:973:77:e:h1:t", children: "Language Intelligence" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+          lineNumber: 42,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "ckiq5", _fgB: 1779104380864, className: "text-gray-400", "data-fg-ckiq5": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:23:11:1061:63:e:p:t", children: "Translation and voice settings" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+          lineNumber: 43,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+        lineNumber: 41,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(
+        FGCmp,
+        {
+          _fgT: "button",
+          _fgS: "ckiq7",
+          _fgB: 1779104380864,
+          onClick: () => setShowAddLanguageModal(true),
+          className: "px-4 py-2 bg-gradient-to-r from-teal-600 to-teal-500 text-white rounded-lg hover:shadow-lg transition-all flex items-center gap-2",
+          "data-fg-ckiq7": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:25:9:1148:311:e:button:et",
+          children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Plus, _fgS: "ckiq8", _fgB: 1779104380864, className: "w-4 h-4", "data-fg-ckiq8": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:29:11:1385:28:e:Plus::::::ISW" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+              lineNumber: 49,
+              columnNumber: 11
+            }, this),
+            "Add Language Pack"
+          ]
+        },
+        void 0,
+        true,
+        {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+          lineNumber: 45,
+          columnNumber: 9
+        },
+        this
+      )
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+      lineNumber: 40,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "ckiq11", _fgB: 1779104380864, className: "bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/10", "data-fg-ckiq11": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:35:7:1509:1821:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "ckiq12", _fgB: 1779104380864, className: "text-lg font-semibold text-white mb-4", "data-fg-ckiq12": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:36:9:1601:73:e:h3:t", children: "Language Packs" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+        lineNumber: 56,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "ckiq14", _fgB: 1779104380864, className: "space-y-3", "data-fg-ckiq14": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:37:9:1683:1634:e:div:x", children: languages.map(
+        (lang) => /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "ckiq16", _fgB: 1779104380864, className: "p-4 bg-white/5 rounded-lg flex items-center justify-between", "data-fg-ckiq16": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:39:13:1760:1528:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "ckiq17", _fgB: 1779104380864, className: "flex items-center gap-4", "data-fg-ckiq17": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:40:15:1868:318:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Globe, _fgS: "ckiq18", _fgB: 1779104380864, className: "w-8 h-8 text-teal-500", "data-fg-ckiq18": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:41:17:1926:43:e:Globe::::::Cyd3" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+              lineNumber: 61,
+              columnNumber: 17
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "ckiq19", _fgB: 1779104380864, "data-fg-ckiq19": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:42:17:1986:179:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h4", _fgS: "ckiq20", _fgB: 1779104380864, className: "text-white font-medium", "data-fg-ckiq20": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:43:19:2010:55:e:h4:x", children: lang.name }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+                lineNumber: 63,
+                columnNumber: 19
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "ckiq22", _fgB: 1779104380864, className: "text-xs text-gray-400", "data-fg-ckiq22": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:44:19:2084:58:e:p:tx", children: [
+                "Code: ",
+                lang.code
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+                lineNumber: 64,
+                columnNumber: 19
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+              lineNumber: 62,
+              columnNumber: 17
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+            lineNumber: 60,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "ckiq25", _fgB: 1779104380864, className: "flex items-center gap-4", "data-fg-ckiq25": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:47:15:2201:1068:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "ckiq26", _fgB: 1779104380864, className: "w-48", "data-fg-ckiq26": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:48:17:2259:608:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "ckiq27", _fgB: 1779104380864, className: "flex justify-between items-center mb-1", "data-fg-ckiq27": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:49:19:2300:238:e:div:ete", children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "ckiq28", _fgB: 1779104380864, className: "text-xs text-gray-400", "data-fg-ckiq28": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:50:21:2377:55:e:span:t", children: "Coverage" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+                  lineNumber: 70,
+                  columnNumber: 21
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "ckiq30", _fgB: 1779104380864, className: "text-xs text-white", "data-fg-ckiq30": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:51:21:2453:60:e:span:xt", children: [
+                  lang.coverage,
+                  "%"
+                ] }, void 0, true, {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+                  lineNumber: 71,
+                  columnNumber: 21
+                }, this)
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+                lineNumber: 69,
+                columnNumber: 19
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "ckiq33", _fgB: 1779104380864, className: "w-full h-2 bg-white/10 rounded-full overflow-hidden", "data-fg-ckiq33": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:53:19:2557:287:e:div:e", children: /* @__PURE__ */ jsxDEV(
+                FGCmp,
+                {
+                  _fgT: "div",
+                  _fgS: "ckiq34",
+                  _fgB: 1779104380864,
+                  className: "h-full bg-gradient-to-r from-teal-600 to-teal-500",
+                  style: { width: `${lang.coverage}%` },
+                  "data-fg-ckiq34": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:54:21:2647:172:e:div"
+                },
+                void 0,
+                false,
+                {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+                  lineNumber: 74,
+                  columnNumber: 21
+                },
+                this
+              ) }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+                lineNumber: 73,
+                columnNumber: 19
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+              lineNumber: 68,
+              columnNumber: 17
+            }, this),
+            /* @__PURE__ */ jsxDEV(
+              FGCmp,
+              {
+                _fgT: "button",
+                _fgS: "ckiq35",
+                _fgB: 1779104380864,
+                onClick: () => {
+                  setSelectedLanguage(lang);
+                  setShowEditLanguageModal(true);
+                },
+                className: "px-3 py-1 bg-white/5 border border-white/10 text-white rounded text-sm hover:bg-white/10 transition-all",
+                "data-fg-ckiq35": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:60:17:2884:364:e:button:t",
+                children: "Edit"
+              },
+              void 0,
+              false,
+              {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+                lineNumber: 80,
+                columnNumber: 17
+              },
+              this
+            )
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+            lineNumber: 67,
+            columnNumber: 15
+          }, this)
+        ] }, lang.code, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+          lineNumber: 59,
+          columnNumber: 11
+        }, this)
+      ) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+        lineNumber: 57,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+      lineNumber: 55,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "ckiq38", _fgB: 1779104380864, className: "bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/10", "data-fg-ckiq38": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:76:7:3367:1905:e:div:etete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "ckiq39", _fgB: 1779104380864, className: "text-lg font-semibold text-white mb-4 flex items-center gap-2", "data-fg-ckiq39": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:77:9:3459:159:e:h3:et", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Volume2, _fgS: "ckiq40", _fgB: 1779104380864, className: "w-5 h-5", "data-fg-ckiq40": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:78:11:3548:31:e:Volume2::::::DWM4" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+          lineNumber: 98,
+          columnNumber: 11
+        }, this),
+        "Voice Settings"
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+        lineNumber: 97,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "ckiq42", _fgB: 1779104380864, className: "grid grid-cols-1 md:grid-cols-3 gap-4", "data-fg-ckiq42": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:81:9:3627:1450:e:div:etete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "ckiq43", _fgB: 1779104380864, "data-fg-ckiq43": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:82:11:3693:468:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "ckiq44", _fgB: 1779104380864, className: "block text-sm font-medium text-gray-300 mb-2", "data-fg-ckiq44": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:83:13:3711:82:e:label:t", children: "Voice Type" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+            lineNumber: 103,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "select", _fgS: "ckiq46", _fgB: 1779104380864, className: "w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-teal-500/50", "data-fg-ckiq46": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:84:13:3806:338:e:select:etete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "ckiq47", _fgB: 1779104380864, value: "neural", "data-fg-ckiq47": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:85:15:3958:38:e:option:t", children: "Neural" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+              lineNumber: 105,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "ckiq49", _fgB: 1779104380864, value: "standard", "data-fg-ckiq49": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:86:15:4011:42:e:option:t", children: "Standard" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+              lineNumber: 106,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "ckiq51", _fgB: 1779104380864, value: "conversational", "data-fg-ckiq51": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:87:15:4068:54:e:option:t", children: "Conversational" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+              lineNumber: 107,
+              columnNumber: 15
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+            lineNumber: 104,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+          lineNumber: 102,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "ckiq53", _fgB: 1779104380864, "data-fg-ckiq53": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:90:11:4172:435:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "ckiq54", _fgB: 1779104380864, className: "block text-sm font-medium text-gray-300 mb-2", "data-fg-ckiq54": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:91:13:4190:77:e:label:t", children: "Speed" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+            lineNumber: 111,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "select", _fgS: "ckiq56", _fgB: 1779104380864, className: "w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-teal-500/50", "data-fg-ckiq56": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:92:13:4280:310:e:select:etete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "ckiq57", _fgB: 1779104380864, value: "slow", "data-fg-ckiq57": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:93:15:4432:34:e:option:t", children: "Slow" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+              lineNumber: 113,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "ckiq59", _fgB: 1779104380864, value: "normal", "data-fg-ckiq59": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:94:15:4481:38:e:option:t", children: "Normal" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+              lineNumber: 114,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "ckiq61", _fgB: 1779104380864, value: "fast", "data-fg-ckiq61": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:95:15:4534:34:e:option:t", children: "Fast" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+              lineNumber: 115,
+              columnNumber: 15
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+            lineNumber: 112,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+          lineNumber: 110,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "ckiq63", _fgB: 1779104380864, "data-fg-ckiq63": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:98:11:4618:444:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "ckiq64", _fgB: 1779104380864, className: "block text-sm font-medium text-gray-300 mb-2", "data-fg-ckiq64": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:99:13:4636:78:e:label:t", children: "Accent" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+            lineNumber: 119,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "select", _fgS: "ckiq66", _fgB: 1779104380864, className: "w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-teal-500/50", "data-fg-ckiq66": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:100:13:4727:318:e:select:etete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "ckiq67", _fgB: 1779104380864, value: "us", "data-fg-ckiq67": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:101:15:4879:38:e:option:t", children: "US English" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+              lineNumber: 121,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "ckiq69", _fgB: 1779104380864, value: "uk", "data-fg-ckiq69": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:102:15:4932:38:e:option:t", children: "UK English" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+              lineNumber: 122,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "ckiq71", _fgB: 1779104380864, value: "au", "data-fg-ckiq71": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:103:15:4985:38:e:option:t", children: "Australian" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+              lineNumber: 123,
+              columnNumber: 15
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+            lineNumber: 120,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+          lineNumber: 118,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+        lineNumber: 101,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "button", _fgS: "ckiq73", _fgB: 1779104380864, className: "mt-4 px-4 py-2 bg-gradient-to-r from-teal-600 to-teal-500 text-white rounded-lg hover:shadow-lg transition-all", "data-fg-ckiq73": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:107:9:5086:173:e:button:t", children: "Save Settings" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+        lineNumber: 127,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+      lineNumber: 96,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "ckiq76", _fgB: 1779104380864, className: "bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/10", "data-fg-ckiq76": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:113:7:5309:978:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "ckiq77", _fgB: 1779104380864, className: "flex items-center justify-between mb-4", "data-fg-ckiq77": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:114:9:5401:404:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "ckiq78", _fgB: 1779104380864, className: "text-lg font-semibold text-white", "data-fg-ckiq78": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:115:11:5468:68:e:h3:t", children: "Glossary Terms" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+          lineNumber: 135,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "button",
+            _fgS: "ckiq80",
+            _fgB: 1779104380864,
+            onClick: () => setShowAddTermModal(true),
+            className: "px-3 py-1 bg-white/5 border border-white/10 text-white rounded text-sm hover:bg-white/10 transition-all",
+            "data-fg-ckiq80": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:116:11:5547:243:e:button:t",
+            children: "Add Term"
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+            lineNumber: 136,
+            columnNumber: 11
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+        lineNumber: 134,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "ckiq82", _fgB: 1779104380864, className: "space-y-2", "data-fg-ckiq82": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:123:9:5814:460:e:div:x", children: ["Emergency", "Evacuation", "Fire Warden", "Assembly Point"].map(
+        (term) => /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "ckiq84", _fgB: 1779104380864, className: "p-3 bg-white/5 rounded-lg flex items-center justify-between", "data-fg-ckiq84": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:125:13:5942:303:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "ckiq85", _fgB: 1779104380864, className: "text-white", "data-fg-ckiq85": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:126:15:6045:42:e:span:x", children: term }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+            lineNumber: 146,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "button", _fgS: "ckiq87", _fgB: 1779104380864, className: "px-2 py-1 bg-green-500/10 text-green-500 rounded text-xs", "data-fg-ckiq87": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:127:15:6102:124:e:button:t", children: "Locked" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+            lineNumber: 147,
+            columnNumber: 15
+          }, this)
+        ] }, term, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+          lineNumber: 145,
+          columnNumber: 11
+        }, this)
+      ) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+        lineNumber: 143,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+      lineNumber: 133,
+      columnNumber: 7
+    }, this),
+    showAddLanguageModal && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Modal, _fgS: "ckiq91", _fgB: 1779104380864, title: "Add Language Pack", onClose: () => setShowAddLanguageModal(false), "data-fg-ckiq91": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:137:9:6368:1482:e:Modal:e:::::EJod", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "ckiq92", _fgB: 1779104380864, className: "space-y-4", "data-fg-ckiq92": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:138:11:6459:1374:e:div:etete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "ckiq93", _fgB: 1779104380864, "data-fg-ckiq93": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:139:13:6499:615:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "ckiq94", _fgB: 1779104380864, className: "block text-sm font-medium text-gray-300 mb-2", "data-fg-ckiq94": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:140:15:6519:80:e:label:t", children: "Language" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+          lineNumber: 160,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "select", _fgS: "ckiq96", _fgB: 1779104380864, className: "w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-teal-500/50", "data-fg-ckiq96": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:141:15:6614:481:e:select:etetetetete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "ckiq97", _fgB: 1779104380864, value: "", "data-fg-ckiq97": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:142:17:6768:41:e:option:t", children: "Select language" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+            lineNumber: 162,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "ckiq99", _fgB: 1779104380864, value: "it", "data-fg-ckiq99": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:143:17:6826:35:e:option:t", children: "Italian" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+            lineNumber: 163,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "ckiq101", _fgB: 1779104380864, value: "pt", "data-fg-ckiq101": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:144:17:6878:38:e:option:t", children: "Portuguese" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+            lineNumber: 164,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "ckiq103", _fgB: 1779104380864, value: "ja", "data-fg-ckiq103": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:145:17:6933:36:e:option:t", children: "Japanese" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+            lineNumber: 165,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "ckiq105", _fgB: 1779104380864, value: "ko", "data-fg-ckiq105": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:146:17:6986:34:e:option:t", children: "Korean" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+            lineNumber: 166,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "ckiq107", _fgB: 1779104380864, value: "ar", "data-fg-ckiq107": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:147:17:7037:34:e:option:t", children: "Arabic" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+            lineNumber: 167,
+            columnNumber: 17
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+          lineNumber: 161,
+          columnNumber: 15
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+        lineNumber: 159,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "ckiq109", _fgB: 1779104380864, "data-fg-ckiq109": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:150:13:7127:489:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "ckiq110", _fgB: 1779104380864, className: "block text-sm font-medium text-gray-300 mb-2", "data-fg-ckiq110": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:151:15:7147:92:e:label:t", children: "Translation Provider" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+          lineNumber: 171,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "select", _fgS: "ckiq112", _fgB: 1779104380864, className: "w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-teal-500/50", "data-fg-ckiq112": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:152:15:7254:343:e:select:etete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "ckiq113", _fgB: 1779104380864, value: "google", "data-fg-ckiq113": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:153:17:7408:48:e:option:t", children: "Google Translate" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+            lineNumber: 173,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "ckiq115", _fgB: 1779104380864, value: "azure", "data-fg-ckiq115": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:154:17:7473:47:e:option:t", children: "Azure Translator" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+            lineNumber: 174,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "ckiq117", _fgB: 1779104380864, value: "deepl", "data-fg-ckiq117": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:155:17:7537:36:e:option:t", children: "DeepL" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+            lineNumber: 175,
+            columnNumber: 17
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+          lineNumber: 172,
+          columnNumber: 15
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+        lineNumber: 170,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "button", _fgS: "ckiq119", _fgB: 1779104380864, className: "w-full px-4 py-3 bg-gradient-to-r from-teal-600 to-teal-500 text-white rounded-lg hover:shadow-lg transition-all", "data-fg-ckiq119": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:158:13:7629:187:e:button:t", children: "Add Language Pack" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+        lineNumber: 178,
+        columnNumber: 13
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+      lineNumber: 158,
+      columnNumber: 11
+    }, this) }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+      lineNumber: 157,
+      columnNumber: 7
+    }, this),
+    showEditLanguageModal && selectedLanguage && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Modal, _fgS: "ckiq123", _fgB: 1779104380864, title: `Edit ${selectedLanguage.name}`, onClose: () => setShowEditLanguageModal(false), "data-fg-ckiq123": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:167:9:7962:1551:e:Modal:e:::::EJod", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "ckiq124", _fgB: 1779104380864, className: "space-y-4", "data-fg-ckiq124": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:168:11:8068:1428:e:div:etetete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "ckiq125", _fgB: 1779104380864, "data-fg-ckiq125": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:169:13:8108:388:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "ckiq126", _fgB: 1779104380864, className: "block text-sm font-medium text-gray-300 mb-2", "data-fg-ckiq126": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:170:15:8128:85:e:label:t", children: "Language Name" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+          lineNumber: 190,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "input",
+            _fgS: "ckiq128",
+            _fgB: 1779104380864,
+            type: "text",
+            defaultValue: selectedLanguage.name,
+            className: "w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-teal-500/50",
+            "data-fg-ckiq128": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:171:15:8228:249:e:input"
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+            lineNumber: 191,
+            columnNumber: 15
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+        lineNumber: 189,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "ckiq129", _fgB: 1779104380864, "data-fg-ckiq129": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:177:13:8509:388:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "ckiq130", _fgB: 1779104380864, className: "block text-sm font-medium text-gray-300 mb-2", "data-fg-ckiq130": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:178:15:8529:85:e:label:t", children: "Language Code" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+          lineNumber: 198,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "input",
+            _fgS: "ckiq132",
+            _fgB: 1779104380864,
+            type: "text",
+            defaultValue: selectedLanguage.code,
+            className: "w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-teal-500/50",
+            "data-fg-ckiq132": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:179:15:8629:249:e:input"
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+            lineNumber: 199,
+            columnNumber: 15
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+        lineNumber: 197,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "ckiq133", _fgB: 1779104380864, "data-fg-ckiq133": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:185:13:8910:374:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "ckiq134", _fgB: 1779104380864, className: "block text-sm font-medium text-gray-300 mb-2", "data-fg-ckiq134": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:186:15:8930:110:e:label:txt", children: [
+          "Coverage: ",
+          selectedLanguage.coverage,
+          "%"
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+          lineNumber: 206,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "input",
+            _fgS: "ckiq138",
+            _fgB: 1779104380864,
+            type: "range",
+            min: "0",
+            max: "100",
+            defaultValue: selectedLanguage.coverage,
+            className: "w-full accent-teal-500",
+            "data-fg-ckiq138": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:187:15:9055:210:e:input"
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+            lineNumber: 207,
+            columnNumber: 15
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+        lineNumber: 205,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "button", _fgS: "ckiq139", _fgB: 1779104380864, className: "w-full px-4 py-3 bg-gradient-to-r from-teal-600 to-teal-500 text-white rounded-lg hover:shadow-lg transition-all", "data-fg-ckiq139": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:195:13:9297:182:e:button:t", children: "Save Changes" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+        lineNumber: 215,
+        columnNumber: 13
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+      lineNumber: 188,
+      columnNumber: 11
+    }, this) }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+      lineNumber: 187,
+      columnNumber: 7
+    }, this),
+    showAddTermModal && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Modal, _fgS: "ckiq143", _fgB: 1779104380864, title: "Add Glossary Term", onClose: () => setShowAddTermModal(false), "data-fg-ckiq143": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:204:9:9590:1846:e:Modal:e:::::EJod", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "ckiq144", _fgB: 1779104380864, className: "space-y-4", "data-fg-ckiq144": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:205:11:9677:1742:e:div:etetete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "ckiq145", _fgB: 1779104380864, "data-fg-ckiq145": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:206:13:9717:367:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "ckiq146", _fgB: 1779104380864, className: "block text-sm font-medium text-gray-300 mb-2", "data-fg-ckiq146": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:207:15:9737:76:e:label:t", children: "Term" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+          lineNumber: 227,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "input",
+            _fgS: "ckiq148",
+            _fgB: 1779104380864,
+            type: "text",
+            className: "w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-teal-500/50",
+            placeholder: "Enter term",
+            "data-fg-ckiq148": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:208:15:9828:237:e:input"
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+            lineNumber: 228,
+            columnNumber: 15
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+        lineNumber: 226,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "ckiq149", _fgB: 1779104380864, "data-fg-ckiq149": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:214:13:10097:374:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "ckiq150", _fgB: 1779104380864, className: "block text-sm font-medium text-gray-300 mb-2", "data-fg-ckiq150": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:215:15:10117:82:e:label:t", children: "Definition" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+          lineNumber: 235,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "textarea",
+            _fgS: "ckiq152",
+            _fgB: 1779104380864,
+            className: "w-full h-24 px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-teal-500/50 resize-none",
+            placeholder: "Enter definition...",
+            "data-fg-ckiq152": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:216:15:10214:238:e:textarea"
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+            lineNumber: 236,
+            columnNumber: 15
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+        lineNumber: 234,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "ckiq153", _fgB: 1779104380864, "data-fg-ckiq153": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:221:13:10484:727:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "ckiq154", _fgB: 1779104380864, className: "block text-sm font-medium text-gray-300 mb-2", "data-fg-ckiq154": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:222:15:10504:84:e:label:t", children: "Translations" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+          lineNumber: 242,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "ckiq156", _fgB: 1779104380864, className: "space-y-2", "data-fg-ckiq156": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:223:15:10603:589:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "input",
+              _fgS: "ckiq157",
+              _fgB: 1779104380864,
+              type: "text",
+              placeholder: "Spanish translation",
+              className: "w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-teal-500/50",
+              "data-fg-ckiq157": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:224:17:10647:254:e:input"
+            },
+            void 0,
+            false,
+            {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+              lineNumber: 244,
+              columnNumber: 17
+            },
+            this
+          ),
+          /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "input",
+              _fgS: "ckiq158",
+              _fgB: 1779104380864,
+              type: "text",
+              placeholder: "French translation",
+              className: "w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-teal-500/50",
+              "data-fg-ckiq158": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:229:17:10918:253:e:input"
+            },
+            void 0,
+            false,
+            {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+              lineNumber: 249,
+              columnNumber: 17
+            },
+            this
+          )
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+          lineNumber: 243,
+          columnNumber: 15
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+        lineNumber: 241,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "button", _fgS: "ckiq159", _fgB: 1779104380864, className: "w-full px-4 py-3 bg-gradient-to-r from-teal-600 to-teal-500 text-white rounded-lg hover:shadow-lg transition-all", "data-fg-ckiq159": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:236:13:11224:178:e:button:t", children: "Add Term" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+        lineNumber: 256,
+        columnNumber: 13
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+      lineNumber: 225,
+      columnNumber: 11
+    }, this) }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+      lineNumber: 224,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+    lineNumber: 39,
+    columnNumber: 5
+  }, this);
+}
+_s(LanguageIntelligence, "hp4XlE7bKrnsgbawB/DmMiUtXDQ=");
+_c = LanguageIntelligence;
+function Modal({ title, onClose, children }) {
+  return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "ckiq161", _fgB: 1779104380864, _fgD: true, className: "fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-6", "data-fg-ckiq161": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:248:5:11532:668:e:div:e:1", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "ckiq162", _fgB: 1779104380864, className: "bg-[#0B1F2A] border border-white/10 rounded-2xl p-6 max-w-2xl w-full max-h-[80vh] overflow-y-auto", "data-fg-ckiq162": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:249:7:11641:548:e:div:etc", children: [
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "ckiq163", _fgB: 1779104380864, className: "flex items-center justify-between mb-6", "data-fg-ckiq163": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:250:9:11765:392:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h2", _fgS: "ckiq164", _fgB: 1779104380864, className: "text-2xl font-bold text-white", "data-fg-ckiq164": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:251:11:11832:58:e:h2:x", children: title }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+        lineNumber: 271,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV(
+        FGCmp,
+        {
+          _fgT: "button",
+          _fgS: "ckiq166",
+          _fgB: 1779104380864,
+          onClick: onClose,
+          className: "w-8 h-8 rounded-lg hover:bg-white/5 flex items-center justify-center transition-colors",
+          "data-fg-ckiq166": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:252:11:11901:241:e:button:e",
+          children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "ckiq167", _fgB: 1779104380864, className: "text-gray-400 text-xl", "data-fg-ckiq167": "418.274:418.12208:/src/app/pages/platform-admin/LanguageIntelligence.tsx:256:13:12074:48:e:span:t", children: "×" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+            lineNumber: 276,
+            columnNumber: 13
+          }, this)
+        },
+        void 0,
+        false,
+        {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+          lineNumber: 272,
+          columnNumber: 11
+        },
+        this
+      )
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+      lineNumber: 270,
+      columnNumber: 9
+    }, this),
+    children
+  ] }, void 0, true, {
+    fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+    lineNumber: 269,
+    columnNumber: 7
+  }, this) }, void 0, false, {
+    fileName: "/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx",
+    lineNumber: 268,
+    columnNumber: 5
+  }, this);
+}
+_c2 = Modal;
+var _c, _c2;
+$RefreshReg$(_c, "LanguageIntelligence");
+$RefreshReg$(_c2, "Modal");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/workspaces/default/code/src/app/pages/platform-admin/LanguageIntelligence.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,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QUFBQTtBQUFBO0FBQUEsV0FvQ0E7QUFBQSxPQTdOSjtBQUFBO0FBQUE7QUFBQTtBQUFBLFNBK05BO0FBRUo7QUFBQVosR0FoUHdCRCxzQkFBb0I7QUFBQXFCLEtBQXBCckI7QUFrUHhCLFNBQVNvQixNQUFNLEVBQUVFLE9BQU9DLFNBQVNDLFNBQWMsR0FBRztBQUNoRCxTQUNFLHVCQUFDLGtFQUFHLE1BQUMsV0FBVSx3RkFBcUYseUhBQ2xHLGlDQUFDLDREQUFJLFdBQVUscUdBQWtHLHlIQUMvRztBQUFBLDJCQUFDLDREQUFJLFdBQVUsMENBQXVDLHlIQUNwRDtBQUFBLDZCQUFDLDJEQUFHLFdBQVUsaUNBQThCLHNIQUFHRixtQkFBL0M7QUFBQTtBQUFBO0FBQUE7QUFBQSxhQUFxRDtBQUFBLE1BQ3JEO0FBQUEsUUFBQztBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUEsVUFDQyxTQUFTQztBQUFBQSxVQUNULFdBQVU7QUFBQSxVQUNiO0FBQUEsVUFDRyxpQ0FBQyw2REFBSyxXQUFVLHlCQUFzQix3SEFBRSxpQkFBeEM7QUFBQTtBQUFBO0FBQUE7QUFBQSxpQkFBeUM7QUFBQTtBQUFBLFFBSjNDO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQSxNQUtBO0FBQUEsU0FQRjtBQUFBO0FBQUE7QUFBQTtBQUFBLFdBUUE7QUFBQSxJQUNDQztBQUFBQSxPQVZIO0FBQUE7QUFBQTtBQUFBO0FBQUEsU0FXQSxLQVpGO0FBQUE7QUFBQTtBQUFBO0FBQUEsU0FhQTtBQUVKO0FBQUFDLE1BakJTTDtBQUFLLElBQUFDLElBQUFJO0FBQUFDLGFBQUFMLElBQUE7QUFBQUssYUFBQUQsS0FBQSIsIm5hbWVzIjpbInVzZVN0YXRlIiwiUGx1cyIsIkdsb2JlIiwiVm9sdW1lMiIsIkxhbmd1YWdlSW50ZWxsaWdlbmNlIiwiX3MiLCJsYW5ndWFnZXMiLCJzZXRMYW5ndWFnZXMiLCJjb2RlIiwibmFtZSIsImNvdmVyYWdlIiwic3RhdHVzIiwic2hvd0FkZExhbmd1YWdlTW9kYWwiLCJzZXRTaG93QWRkTGFuZ3VhZ2VNb2RhbCIsInNob3dFZGl0TGFuZ3VhZ2VNb2RhbCIsInNldFNob3dFZGl0TGFuZ3VhZ2VNb2RhbCIsInNob3dBZGRUZXJtTW9kYWwiLCJzZXRTaG93QWRkVGVybU1vZGFsIiwic2VsZWN0ZWRMYW5ndWFnZSIsInNldFNlbGVjdGVkTGFuZ3VhZ2UiLCJtYXAiLCJsYW5nIiwid2lkdGgiLCJ0ZXJtIiwiTW9kYWwiLCJfYyIsInRpdGxlIiwib25DbG9zZSIsImNoaWxkcmVuIiwiX2MyIiwiJFJlZnJlc2hSZWckIl0sImlnbm9yZUxpc3QiOltdLCJzb3VyY2VzIjpbIkxhbmd1YWdlSW50ZWxsaWdlbmNlLnRzeCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyB1c2VTdGF0ZSB9IGZyb20gJ3JlYWN0JztcbmltcG9ydCB7IFBsdXMsIEdsb2JlLCBWb2x1bWUyLCBFZGl0IH0gZnJvbSAnbHVjaWRlLXJlYWN0JztcblxuZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24gTGFuZ3VhZ2VJbnRlbGxpZ2VuY2UoKSB7XG4gIGNvbnN0IFtsYW5ndWFnZXMsIHNldExhbmd1YWdlc10gPSB1c2VTdGF0ZShbXG4gICAgeyBjb2RlOiAnZW4nLCBuYW1lOiAnRW5nbGlzaCcsIGNvdmVyYWdlOiAxMDAsIHN0YXR1czogJ2NvbXBsZXRlJyB9LFxuICAgIHsgY29kZTogJ2VzJywgbmFtZTogJ1NwYW5pc2gnLCBjb3ZlcmFnZTogOTUsIHN0YXR1czogJ2NvbXBsZXRlJyB9LFxuICAgIHsgY29kZTogJ2ZyJywgbmFtZTogJ0ZyZW5jaCcsIGNvdmVyYWdlOiA4OCwgc3RhdHVzOiAnaW4tcHJvZ3Jlc3MnIH0sXG4gICAgeyBjb2RlOiAnZGUnLCBuYW1lOiAnR2VybWFuJywgY292ZXJhZ2U6IDkyLCBzdGF0dXM6ICdjb21wbGV0ZScgfSxcbiAgICB7IGNvZGU6ICd6aCcsIG5hbWU6ICdDaGluZXNlJywgY292ZXJhZ2U6IDc2LCBzdGF0dXM6ICdpbi1wcm9ncmVzcycgfSxcbiAgXSk7XG5cbiAgY29uc3QgW3Nob3dBZGRMYW5ndWFnZU1vZGFsLCBzZXRTaG93QWRkTGFuZ3VhZ2VNb2RhbF0gPSB1c2VTdGF0ZShmYWxzZSk7XG4gIGNvbnN0IFtzaG93RWRpdExhbmd1YWdlTW9kYWwsIHNldFNob3dFZGl0TGFuZ3VhZ2VNb2RhbF0gPSB1c2VTdGF0ZShmYWxzZSk7XG4gIGNvbnN0IFtzaG93QWRkVGVybU1vZGFsLCBzZXRTaG93QWRkVGVybU1vZGFsXSA9IHVzZVN0YXRlKGZhbHNlKTtcbiAgY29uc3QgW3NlbGVjdGVkTGFuZ3VhZ2UsIHNldFNlbGVjdGVkTGFuZ3VhZ2VdID0gdXNlU3RhdGU8YW55PihudWxsKTtcblxuICByZXR1cm4gKFxuICAgIDxkaXYgY2xhc3NOYW1lPVwic3BhY2UteS02XCI+XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlblwiPlxuICAgICAgICA8ZGl2PlxuICAgICAgICAgIDxoMSBjbGFzc05hbWU9XCJ0ZXh0LTN4bCBmb250LWJvbGQgdGV4dC13aGl0ZSBtYi0yXCI+TGFuZ3VhZ2UgSW50ZWxsaWdlbmNlPC9oMT5cbiAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LWdyYXktNDAwXCI+VHJhbnNsYXRpb24gYW5kIHZvaWNlIHNldHRpbmdzPC9wPlxuICAgICAgICA8L2Rpdj5cbiAgICAgICAgPGJ1dHRvbiBcbiAgICAgICAgICBvbkNsaWNrPXsoKSA9PiBzZXRTaG93QWRkTGFuZ3VhZ2VNb2RhbCh0cnVlKX1cbiAgICAgICAgICBjbGFzc05hbWU9XCJweC00IHB5LTIgYmctZ3JhZGllbnQtdG8tciBmcm9tLXRlYWwtNjAwIHRvLXRlYWwtNTAwIHRleHQtd2hpdGUgcm91bmRlZC1sZyBob3ZlcjpzaGFkb3ctbGcgdHJhbnNpdGlvbi1hbGwgZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTJcIlxuICAgICAgICA+XG4gICAgICAgICAgPFBsdXMgY2xhc3NOYW1lPVwidy00IGgtNFwiIC8+XG4gICAgICAgICAgQWRkIExhbmd1YWdlIFBhY2tcbiAgICAgICAgPC9idXR0b24+XG4gICAgICA8L2Rpdj5cblxuICAgICAgey8qIExhbmd1YWdlIFBhY2tzICovfVxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJiZy13aGl0ZS81IGJhY2tkcm9wLWJsdXItbGcgcm91bmRlZC14bCBwLTYgYm9yZGVyIGJvcmRlci13aGl0ZS8xMFwiPlxuICAgICAgICA8aDMgY2xhc3NOYW1lPVwidGV4dC1sZyBmb250LXNlbWlib2xkIHRleHQtd2hpdGUgbWItNFwiPkxhbmd1YWdlIFBhY2tzPC9oMz5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJzcGFjZS15LTNcIj5cbiAgICAgICAgICB7bGFuZ3VhZ2VzLm1hcCgobGFuZykgPT4gKFxuICAgICAgICAgICAgPGRpdiBrZXk9e2xhbmcuY29kZX0gY2xhc3NOYW1lPVwicC00IGJnLXdoaXRlLzUgcm91bmRlZC1sZyBmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW5cIj5cbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtNFwiPlxuICAgICAgICAgICAgICAgIDxHbG9iZSBjbGFzc05hbWU9XCJ3LTggaC04IHRleHQtdGVhbC01MDBcIiAvPlxuICAgICAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgICAgICA8aDQgY2xhc3NOYW1lPVwidGV4dC13aGl0ZSBmb250LW1lZGl1bVwiPntsYW5nLm5hbWV9PC9oND5cbiAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC1ncmF5LTQwMFwiPkNvZGU6IHtsYW5nLmNvZGV9PC9wPlxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtNFwiPlxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidy00OFwiPlxuICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGp1c3RpZnktYmV0d2VlbiBpdGVtcy1jZW50ZXIgbWItMVwiPlxuICAgICAgICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LXhzIHRleHQtZ3JheS00MDBcIj5Db3ZlcmFnZTwvc3Bhbj5cbiAgICAgICAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwidGV4dC14cyB0ZXh0LXdoaXRlXCI+e2xhbmcuY292ZXJhZ2V9JTwvc3Bhbj5cbiAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ3LWZ1bGwgaC0yIGJnLXdoaXRlLzEwIHJvdW5kZWQtZnVsbCBvdmVyZmxvdy1oaWRkZW5cIj5cbiAgICAgICAgICAgICAgICAgICAgPGRpdlxuICAgICAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cImgtZnVsbCBiZy1ncmFkaWVudC10by1yIGZyb20tdGVhbC02MDAgdG8tdGVhbC01MDBcIlxuICAgICAgICAgICAgICAgICAgICAgIHN0eWxlPXt7IHdpZHRoOiBgJHtsYW5nLmNvdmVyYWdlfSVgIH19XG4gICAgICAgICAgICAgICAgICAgIC8+XG4gICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICA8YnV0dG9uIFxuICAgICAgICAgICAgICAgICAgb25DbGljaz17KCkgPT4ge1xuICAgICAgICAgICAgICAgICAgICBzZXRTZWxlY3RlZExhbmd1YWdlKGxhbmcpO1xuICAgICAgICAgICAgICAgICAgICBzZXRTaG93RWRpdExhbmd1YWdlTW9kYWwodHJ1ZSk7XG4gICAgICAgICAgICAgICAgICB9fVxuICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwicHgtMyBweS0xIGJnLXdoaXRlLzUgYm9yZGVyIGJvcmRlci13aGl0ZS8xMCB0ZXh0LXdoaXRlIHJvdW5kZWQgdGV4dC1zbSBob3ZlcjpiZy13aGl0ZS8xMCB0cmFuc2l0aW9uLWFsbFwiXG4gICAgICAgICAgICAgICAgPlxuICAgICAgICAgICAgICAgICAgRWRpdFxuICAgICAgICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICkpfVxuICAgICAgICA8L2Rpdj5cbiAgICAgIDwvZGl2PlxuXG4gICAgICB7LyogVm9pY2UgU2V0dGluZ3MgKi99XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLXdoaXRlLzUgYmFja2Ryb3AtYmx1ci1sZyByb3VuZGVkLXhsIHAtNiBib3JkZXIgYm9yZGVyLXdoaXRlLzEwXCI+XG4gICAgICAgIDxoMyBjbGFzc05hbWU9XCJ0ZXh0LWxnIGZvbnQtc2VtaWJvbGQgdGV4dC13aGl0ZSBtYi00IGZsZXggaXRlbXMtY2VudGVyIGdhcC0yXCI+XG4gICAgICAgICAgPFZvbHVtZTIgY2xhc3NOYW1lPVwidy01IGgtNVwiIC8+XG4gICAgICAgICAgVm9pY2UgU2V0dGluZ3NcbiAgICAgICAgPC9oMz5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJncmlkIGdyaWQtY29scy0xIG1kOmdyaWQtY29scy0zIGdhcC00XCI+XG4gICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgIDxsYWJlbCBjbGFzc05hbWU9XCJibG9jayB0ZXh0LXNtIGZvbnQtbWVkaXVtIHRleHQtZ3JheS0zMDAgbWItMlwiPlZvaWNlIFR5cGU8L2xhYmVsPlxuICAgICAgICAgICAgPHNlbGVjdCBjbGFzc05hbWU9XCJ3LWZ1bGwgcHgtNCBweS0yIGJnLXdoaXRlLzUgYm9yZGVyIGJvcmRlci13aGl0ZS8xMCByb3VuZGVkLWxnIHRleHQtd2hpdGUgZm9jdXM6b3V0bGluZS1ub25lIGZvY3VzOmJvcmRlci10ZWFsLTUwMC81MFwiPlxuICAgICAgICAgICAgICA8b3B0aW9uIHZhbHVlPVwibmV1cmFsXCI+TmV1cmFsPC9vcHRpb24+XG4gICAgICAgICAgICAgIDxvcHRpb24gdmFsdWU9XCJzdGFuZGFyZFwiPlN0YW5kYXJkPC9vcHRpb24+XG4gICAgICAgICAgICAgIDxvcHRpb24gdmFsdWU9XCJjb252ZXJzYXRpb25hbFwiPkNvbnZlcnNhdGlvbmFsPC9vcHRpb24+XG4gICAgICAgICAgICA8L3NlbGVjdD5cbiAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgPGxhYmVsIGNsYXNzTmFtZT1cImJsb2NrIHRleHQtc20gZm9udC1tZWRpdW0gdGV4dC1ncmF5LTMwMCBtYi0yXCI+U3BlZWQ8L2xhYmVsPlxuICAgICAgICAgICAgPHNlbGVjdCBjbGFzc05hbWU9XCJ3LWZ1bGwgcHgtNCBweS0yIGJnLXdoaXRlLzUgYm9yZGVyIGJvcmRlci13aGl0ZS8xMCByb3VuZGVkLWxnIHRleHQtd2hpdGUgZm9jdXM6b3V0bGluZS1ub25lIGZvY3VzOmJvcmRlci10ZWFsLTUwMC81MFwiPlxuICAgICAgICAgICAgICA8b3B0aW9uIHZhbHVlPVwic2xvd1wiPlNsb3c8L29wdGlvbj5cbiAgICAgICAgICAgICAgPG9wdGlvbiB2YWx1ZT1cIm5vcm1hbFwiPk5vcm1hbDwvb3B0aW9uPlxuICAgICAgICAgICAgICA8b3B0aW9uIHZhbHVlPVwiZmFzdFwiPkZhc3Q8L29wdGlvbj5cbiAgICAgICAgICAgIDwvc2VsZWN0PlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICA8bGFiZWwgY2xhc3NOYW1lPVwiYmxvY2sgdGV4dC1zbSBmb250LW1lZGl1bSB0ZXh0LWdyYXktMzAwIG1iLTJcIj5BY2NlbnQ8L2xhYmVsPlxuICAgICAgICAgICAgPHNlbGVjdCBjbGFzc05hbWU9XCJ3LWZ1bGwgcHgtNCBweS0yIGJnLXdoaXRlLzUgYm9yZGVyIGJvcmRlci13aGl0ZS8xMCByb3VuZGVkLWxnIHRleHQtd2hpdGUgZm9jdXM6b3V0bGluZS1ub25lIGZvY3VzOmJvcmRlci10ZWFsLTUwMC81MFwiPlxuICAgICAgICAgICAgICA8b3B0aW9uIHZhbHVlPVwidXNcIj5VUyBFbmdsaXNoPC9vcHRpb24+XG4gICAgICAgICAgICAgIDxvcHRpb24gdmFsdWU9XCJ1a1wiPlVLIEVuZ2xpc2g8L29wdGlvbj5cbiAgICAgICAgICAgICAgPG9wdGlvbiB2YWx1ZT1cImF1XCI+QXVzdHJhbGlhbjwvb3B0aW9uPlxuICAgICAgICAgICAgPC9zZWxlY3Q+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvZGl2PlxuICAgICAgICA8YnV0dG9uIGNsYXNzTmFtZT1cIm10LTQgcHgtNCBweS0yIGJnLWdyYWRpZW50LXRvLXIgZnJvbS10ZWFsLTYwMCB0by10ZWFsLTUwMCB0ZXh0LXdoaXRlIHJvdW5kZWQtbGcgaG92ZXI6c2hhZG93LWxnIHRyYW5zaXRpb24tYWxsXCI+XG4gICAgICAgICAgU2F2ZSBTZXR0aW5nc1xuICAgICAgICA8L2J1dHRvbj5cbiAgICAgIDwvZGl2PlxuXG4gICAgICB7LyogR2xvc3NhcnkgVGVybXMgKi99XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLXdoaXRlLzUgYmFja2Ryb3AtYmx1ci1sZyByb3VuZGVkLXhsIHAtNiBib3JkZXIgYm9yZGVyLXdoaXRlLzEwXCI+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuIG1iLTRcIj5cbiAgICAgICAgICA8aDMgY2xhc3NOYW1lPVwidGV4dC1sZyBmb250LXNlbWlib2xkIHRleHQtd2hpdGVcIj5HbG9zc2FyeSBUZXJtczwvaDM+XG4gICAgICAgICAgPGJ1dHRvbiBcbiAgICAgICAgICAgIG9uQ2xpY2s9eygpID0+IHNldFNob3dBZGRUZXJtTW9kYWwodHJ1ZSl9XG4gICAgICAgICAgICBjbGFzc05hbWU9XCJweC0zIHB5LTEgYmctd2hpdGUvNSBib3JkZXIgYm9yZGVyLXdoaXRlLzEwIHRleHQtd2hpdGUgcm91bmRlZCB0ZXh0LXNtIGhvdmVyOmJnLXdoaXRlLzEwIHRyYW5zaXRpb24tYWxsXCJcbiAgICAgICAgICA+XG4gICAgICAgICAgICBBZGQgVGVybVxuICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICA8L2Rpdj5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJzcGFjZS15LTJcIj5cbiAgICAgICAgICB7WydFbWVyZ2VuY3knLCAnRXZhY3VhdGlvbicsICdGaXJlIFdhcmRlbicsICdBc3NlbWJseSBQb2ludCddLm1hcCgodGVybSkgPT4gKFxuICAgICAgICAgICAgPGRpdiBrZXk9e3Rlcm19IGNsYXNzTmFtZT1cInAtMyBiZy13aGl0ZS81IHJvdW5kZWQtbGcgZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuXCI+XG4gICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRleHQtd2hpdGVcIj57dGVybX08L3NwYW4+XG4gICAgICAgICAgICAgIDxidXR0b24gY2xhc3NOYW1lPVwicHgtMiBweS0xIGJnLWdyZWVuLTUwMC8xMCB0ZXh0LWdyZWVuLTUwMCByb3VuZGVkIHRleHQteHNcIj5cbiAgICAgICAgICAgICAgICBMb2NrZWRcbiAgICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICApKX1cbiAgICAgICAgPC9kaXY+XG4gICAgICA8L2Rpdj5cblxuICAgICAgey8qIEFkZCBMYW5ndWFnZSBQYWNrIE1vZGFsICovfVxuICAgICAge3Nob3dBZGRMYW5ndWFnZU1vZGFsICYmIChcbiAgICAgICAgPE1vZGFsIHRpdGxlPVwiQWRkIExhbmd1YWdlIFBhY2tcIiBvbkNsb3NlPXsoKSA9PiBzZXRTaG93QWRkTGFuZ3VhZ2VNb2RhbChmYWxzZSl9PlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwic3BhY2UteS00XCI+XG4gICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICA8bGFiZWwgY2xhc3NOYW1lPVwiYmxvY2sgdGV4dC1zbSBmb250LW1lZGl1bSB0ZXh0LWdyYXktMzAwIG1iLTJcIj5MYW5ndWFnZTwvbGFiZWw+XG4gICAgICAgICAgICAgIDxzZWxlY3QgY2xhc3NOYW1lPVwidy1mdWxsIHB4LTQgcHktMiBiZy13aGl0ZS81IGJvcmRlciBib3JkZXItd2hpdGUvMTAgcm91bmRlZC1sZyB0ZXh0LXdoaXRlIGZvY3VzOm91dGxpbmUtbm9uZSBmb2N1czpib3JkZXItdGVhbC01MDAvNTBcIj5cbiAgICAgICAgICAgICAgICA8b3B0aW9uIHZhbHVlPVwiXCI+U2VsZWN0IGxhbmd1YWdlPC9vcHRpb24+XG4gICAgICAgICAgICAgICAgPG9wdGlvbiB2YWx1ZT1cIml0XCI+SXRhbGlhbjwvb3B0aW9uPlxuICAgICAgICAgICAgICAgIDxvcHRpb24gdmFsdWU9XCJwdFwiPlBvcnR1Z3Vlc2U8L29wdGlvbj5cbiAgICAgICAgICAgICAgICA8b3B0aW9uIHZhbHVlPVwiamFcIj5KYXBhbmVzZTwvb3B0aW9uPlxuICAgICAgICAgICAgICAgIDxvcHRpb24gdmFsdWU9XCJrb1wiPktvcmVhbjwvb3B0aW9uPlxuICAgICAgICAgICAgICAgIDxvcHRpb24gdmFsdWU9XCJhclwiPkFyYWJpYzwvb3B0aW9uPlxuICAgICAgICAgICAgICA8L3NlbGVjdD5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgICAgPGxhYmVsIGNsYXNzTmFtZT1cImJsb2NrIHRleHQtc20gZm9udC1tZWRpdW0gdGV4dC1ncmF5LTMwMCBtYi0yXCI+VHJhbnNsYXRpb24gUHJvdmlkZXI8L2xhYmVsPlxuICAgICAgICAgICAgICA8c2VsZWN0IGNsYXNzTmFtZT1cInctZnVsbCBweC00IHB5LTIgYmctd2hpdGUvNSBib3JkZXIgYm9yZGVyLXdoaXRlLzEwIHJvdW5kZWQtbGcgdGV4dC13aGl0ZSBmb2N1czpvdXRsaW5lLW5vbmUgZm9jdXM6Ym9yZGVyLXRlYWwtNTAwLzUwXCI+XG4gICAgICAgICAgICAgICAgPG9wdGlvbiB2YWx1ZT1cImdvb2dsZVwiPkdvb2dsZSBUcmFuc2xhdGU8L29wdGlvbj5cbiAgICAgICAgICAgICAgICA8b3B0aW9uIHZhbHVlPVwiYXp1cmVcIj5BenVyZSBUcmFuc2xhdG9yPC9vcHRpb24+XG4gICAgICAgICAgICAgICAgPG9wdGlvbiB2YWx1ZT1cImRlZXBsXCI+RGVlcEw8L29wdGlvbj5cbiAgICAgICAgICAgICAgPC9zZWxlY3Q+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDxidXR0b24gY2xhc3NOYW1lPVwidy1mdWxsIHB4LTQgcHktMyBiZy1ncmFkaWVudC10by1yIGZyb20tdGVhbC02MDAgdG8tdGVhbC01MDAgdGV4dC13aGl0ZSByb3VuZGVkLWxnIGhvdmVyOnNoYWRvdy1sZyB0cmFuc2l0aW9uLWFsbFwiPlxuICAgICAgICAgICAgICBBZGQgTGFuZ3VhZ2UgUGFja1xuICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvTW9kYWw+XG4gICAgICApfVxuXG4gICAgICB7LyogRWRpdCBMYW5ndWFnZSBQYWNrIE1vZGFsICovfVxuICAgICAge3Nob3dFZGl0TGFuZ3VhZ2VNb2RhbCAmJiBzZWxlY3RlZExhbmd1YWdlICYmIChcbiAgICAgICAgPE1vZGFsIHRpdGxlPXtgRWRpdCAke3NlbGVjdGVkTGFuZ3VhZ2UubmFtZX1gfSBvbkNsb3NlPXsoKSA9PiBzZXRTaG93RWRpdExhbmd1YWdlTW9kYWwoZmFsc2UpfT5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInNwYWNlLXktNFwiPlxuICAgICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgICAgPGxhYmVsIGNsYXNzTmFtZT1cImJsb2NrIHRleHQtc20gZm9udC1tZWRpdW0gdGV4dC1ncmF5LTMwMCBtYi0yXCI+TGFuZ3VhZ2UgTmFtZTwvbGFiZWw+XG4gICAgICAgICAgICAgIDxpbnB1dFxuICAgICAgICAgICAgICAgIHR5cGU9XCJ0ZXh0XCJcbiAgICAgICAgICAgICAgICBkZWZhdWx0VmFsdWU9e3NlbGVjdGVkTGFuZ3VhZ2UubmFtZX1cbiAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJ3LWZ1bGwgcHgtNCBweS0yIGJnLXdoaXRlLzUgYm9yZGVyIGJvcmRlci13aGl0ZS8xMCByb3VuZGVkLWxnIHRleHQtd2hpdGUgZm9jdXM6b3V0bGluZS1ub25lIGZvY3VzOmJvcmRlci10ZWFsLTUwMC81MFwiXG4gICAgICAgICAgICAgIC8+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgIDxsYWJlbCBjbGFzc05hbWU9XCJibG9jayB0ZXh0LXNtIGZvbnQtbWVkaXVtIHRleHQtZ3JheS0zMDAgbWItMlwiPkxhbmd1YWdlIENvZGU8L2xhYmVsPlxuICAgICAgICAgICAgICA8aW5wdXRcbiAgICAgICAgICAgICAgICB0eXBlPVwidGV4dFwiXG4gICAgICAgICAgICAgICAgZGVmYXVsdFZhbHVlPXtzZWxlY3RlZExhbmd1YWdlLmNvZGV9XG4gICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwidy1mdWxsIHB4LTQgcHktMiBiZy13aGl0ZS81IGJvcmRlciBib3JkZXItd2hpdGUvMTAgcm91bmRlZC1sZyB0ZXh0LXdoaXRlIGZvY3VzOm91dGxpbmUtbm9uZSBmb2N1czpib3JkZXItdGVhbC01MDAvNTBcIlxuICAgICAgICAgICAgICAvPlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICA8bGFiZWwgY2xhc3NOYW1lPVwiYmxvY2sgdGV4dC1zbSBmb250LW1lZGl1bSB0ZXh0LWdyYXktMzAwIG1iLTJcIj5Db3ZlcmFnZToge3NlbGVjdGVkTGFuZ3VhZ2UuY292ZXJhZ2V9JTwvbGFiZWw+XG4gICAgICAgICAgICAgIDxpbnB1dFxuICAgICAgICAgICAgICAgIHR5cGU9XCJyYW5nZVwiXG4gICAgICAgICAgICAgICAgbWluPVwiMFwiXG4gICAgICAgICAgICAgICAgbWF4PVwiMTAwXCJcbiAgICAgICAgICAgICAgICBkZWZhdWx0VmFsdWU9e3NlbGVjdGVkTGFuZ3VhZ2UuY292ZXJhZ2V9XG4gICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwidy1mdWxsIGFjY2VudC10ZWFsLTUwMFwiXG4gICAgICAgICAgICAgIC8+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDxidXR0b24gY2xhc3NOYW1lPVwidy1mdWxsIHB4LTQgcHktMyBiZy1ncmFkaWVudC10by1yIGZyb20tdGVhbC02MDAgdG8tdGVhbC01MDAgdGV4dC13aGl0ZSByb3VuZGVkLWxnIGhvdmVyOnNoYWRvdy1sZyB0cmFuc2l0aW9uLWFsbFwiPlxuICAgICAgICAgICAgICBTYXZlIENoYW5nZXNcbiAgICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICA8L01vZGFsPlxuICAgICAgKX1cblxuICAgICAgey8qIEFkZCBUZXJtIE1vZGFsICovfVxuICAgICAge3Nob3dBZGRUZXJtTW9kYWwgJiYgKFxuICAgICAgICA8TW9kYWwgdGl0bGU9XCJBZGQgR2xvc3NhcnkgVGVybVwiIG9uQ2xvc2U9eygpID0+IHNldFNob3dBZGRUZXJtTW9kYWwoZmFsc2UpfT5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInNwYWNlLXktNFwiPlxuICAgICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgICAgPGxhYmVsIGNsYXNzTmFtZT1cImJsb2NrIHRleHQtc20gZm9udC1tZWRpdW0gdGV4dC1ncmF5LTMwMCBtYi0yXCI+VGVybTwvbGFiZWw+XG4gICAgICAgICAgICAgIDxpbnB1dFxuICAgICAgICAgICAgICAgIHR5cGU9XCJ0ZXh0XCJcbiAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJ3LWZ1bGwgcHgtNCBweS0yIGJnLXdoaXRlLzUgYm9yZGVyIGJvcmRlci13aGl0ZS8xMCByb3VuZGVkLWxnIHRleHQtd2hpdGUgZm9jdXM6b3V0bGluZS1ub25lIGZvY3VzOmJvcmRlci10ZWFsLTUwMC81MFwiXG4gICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9XCJFbnRlciB0ZXJtXCJcbiAgICAgICAgICAgICAgLz5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgICAgPGxhYmVsIGNsYXNzTmFtZT1cImJsb2NrIHRleHQtc20gZm9udC1tZWRpdW0gdGV4dC1ncmF5LTMwMCBtYi0yXCI+RGVmaW5pdGlvbjwvbGFiZWw+XG4gICAgICAgICAgICAgIDx0ZXh0YXJlYVxuICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cInctZnVsbCBoLTI0IHB4LTQgcHktMyBiZy13aGl0ZS81IGJvcmRlciBib3JkZXItd2hpdGUvMTAgcm91bmRlZC1sZyB0ZXh0LXdoaXRlIGZvY3VzOm91dGxpbmUtbm9uZSBmb2N1czpib3JkZXItdGVhbC01MDAvNTAgcmVzaXplLW5vbmVcIlxuICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPVwiRW50ZXIgZGVmaW5pdGlvbi4uLlwiXG4gICAgICAgICAgICAgIC8+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgIDxsYWJlbCBjbGFzc05hbWU9XCJibG9jayB0ZXh0LXNtIGZvbnQtbWVkaXVtIHRleHQtZ3JheS0zMDAgbWItMlwiPlRyYW5zbGF0aW9uczwvbGFiZWw+XG4gICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwic3BhY2UteS0yXCI+XG4gICAgICAgICAgICAgICAgPGlucHV0XG4gICAgICAgICAgICAgICAgICB0eXBlPVwidGV4dFwiXG4gICAgICAgICAgICAgICAgICBwbGFjZWhvbGRlcj1cIlNwYW5pc2ggdHJhbnNsYXRpb25cIlxuICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwidy1mdWxsIHB4LTQgcHktMiBiZy13aGl0ZS81IGJvcmRlciBib3JkZXItd2hpdGUvMTAgcm91bmRlZC1sZyB0ZXh0LXdoaXRlIGZvY3VzOm91dGxpbmUtbm9uZSBmb2N1czpib3JkZXItdGVhbC01MDAvNTBcIlxuICAgICAgICAgICAgICAgIC8+XG4gICAgICAgICAgICAgICAgPGlucHV0XG4gICAgICAgICAgICAgICAgICB0eXBlPVwidGV4dFwiXG4gICAgICAgICAgICAgICAgICBwbGFjZWhvbGRlcj1cIkZyZW5jaCB0cmFuc2xhdGlvblwiXG4gICAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJ3LWZ1bGwgcHgtNCBweS0yIGJnLXdoaXRlLzUgYm9yZGVyIGJvcmRlci13aGl0ZS8xMCByb3VuZGVkLWxnIHRleHQtd2hpdGUgZm9jdXM6b3V0bGluZS1ub25lIGZvY3VzOmJvcmRlci10ZWFsLTUwMC81MFwiXG4gICAgICAgICAgICAgICAgLz5cbiAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDxidXR0b24gY2xhc3NOYW1lPVwidy1mdWxsIHB4LTQgcHktMyBiZy1ncmFkaWVudC10by1yIGZyb20tdGVhbC02MDAgdG8tdGVhbC01MDAgdGV4dC13aGl0ZSByb3VuZGVkLWxnIGhvdmVyOnNoYWRvdy1sZyB0cmFuc2l0aW9uLWFsbFwiPlxuICAgICAgICAgICAgICBBZGQgVGVybVxuICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvTW9kYWw+XG4gICAgICApfVxuICAgIDwvZGl2PlxuICApO1xufVxuXG5mdW5jdGlvbiBNb2RhbCh7IHRpdGxlLCBvbkNsb3NlLCBjaGlsZHJlbiB9OiBhbnkpIHtcbiAgcmV0dXJuIChcbiAgICA8ZGl2IGNsYXNzTmFtZT1cImZpeGVkIGluc2V0LTAgYmctYmxhY2svNTAgYmFja2Ryb3AtYmx1ci1zbSB6LTUwIGZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktY2VudGVyIHAtNlwiPlxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJiZy1bIzBCMUYyQV0gYm9yZGVyIGJvcmRlci13aGl0ZS8xMCByb3VuZGVkLTJ4bCBwLTYgbWF4LXctMnhsIHctZnVsbCBtYXgtaC1bODB2aF0gb3ZlcmZsb3cteS1hdXRvXCI+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuIG1iLTZcIj5cbiAgICAgICAgICA8aDIgY2xhc3NOYW1lPVwidGV4dC0yeGwgZm9udC1ib2xkIHRleHQtd2hpdGVcIj57dGl0bGV9PC9oMj5cbiAgICAgICAgICA8YnV0dG9uXG4gICAgICAgICAgICBvbkNsaWNrPXtvbkNsb3NlfVxuICAgICAgICAgICAgY2xhc3NOYW1lPVwidy04IGgtOCByb3VuZGVkLWxnIGhvdmVyOmJnLXdoaXRlLzUgZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1jZW50ZXIgdHJhbnNpdGlvbi1jb2xvcnNcIlxuICAgICAgICAgID5cbiAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRleHQtZ3JheS00MDAgdGV4dC14bFwiPsOXPC9zcGFuPlxuICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICA8L2Rpdj5cbiAgICAgICAge2NoaWxkcmVufVxuICAgICAgPC9kaXY+XG4gICAgPC9kaXY+XG4gICk7XG59XG4iXSwiZmlsZSI6Ii93b3Jrc3BhY2VzL2RlZmF1bHQvY29kZS9zcmMvYXBwL3BhZ2VzL3BsYXRmb3JtLWFkbWluL0xhbmd1YWdlSW50ZWxsaWdlbmNlLnRzeCJ9

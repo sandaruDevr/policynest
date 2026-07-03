@@ -1,0 +1,80 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/app/layouts/PlatformAdminLayout.tsx");import { jsxDEV } from "/@id/__x00__figma:react-jsx-dev-runtime";
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/workspaces/default/code/src/app/layouts/PlatformAdminLayout.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+import { FGCmp } from "/@id/fginspector";
+import { Outlet } from "/node_modules/.vite/deps/react-router.js?v=d6d2548b";
+import Sidebar from "/src/app/components/Sidebar.tsx";
+import TopBar from "/src/app/components/TopBar.tsx";
+import GlobalSOSButton from "/src/app/components/GlobalSOSButton.tsx";
+export default function PlatformAdminLayout() {
+  return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cnnm0", _fgB: 1779104380152, _fgD: true, className: "min-h-screen bg-[#0B1F2A] text-[#E6F1F4]", style: { fontFamily: "Inter Tight, Inter, system-ui, sans-serif" }, "data-fg-cnnm0": "418.224:418.592:/src/app/layouts/PlatformAdminLayout.tsx:8:5:252:333:e:div:ete:1", children: [
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: TopBar, _fgS: "cnnm1", _fgB: 1779104380152, "data-fg-cnnm1": "418.224:418.592:/src/app/layouts/PlatformAdminLayout.tsx:9:7:385:10:e:TopBar::::::ZSP" }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/layouts/PlatformAdminLayout.tsx",
+      lineNumber: 29,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cnnm2", _fgB: 1779104380152, className: "flex", "data-fg-cnnm2": "418.224:418.592:/src/app/layouts/PlatformAdminLayout.tsx:10:7:402:172:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Sidebar, _fgS: "cnnm3", _fgB: 1779104380152, "data-fg-cnnm3": "418.224:418.592:/src/app/layouts/PlatformAdminLayout.tsx:11:9:433:11:e:Sidebar::::::DGRN" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/layouts/PlatformAdminLayout.tsx",
+        lineNumber: 31,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "main", _fgS: "cnnm4", _fgB: 1779104380152, className: "flex-1 ml-64 mt-16 p-8", "data-fg-cnnm4": "418.224:418.592:/src/app/layouts/PlatformAdminLayout.tsx:12:9:453:108:e:main:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: GlobalSOSButton, _fgS: "cnnm5", _fgB: 1779104380152, "data-fg-cnnm5": "418.224:418.592:/src/app/layouts/PlatformAdminLayout.tsx:13:11:505:19:e:GlobalSOSButton::::::BBWF" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/layouts/PlatformAdminLayout.tsx",
+          lineNumber: 33,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(Outlet, { "data-fg-cnnm6": "418.224:418.592:/src/app/layouts/PlatformAdminLayout.tsx:14:11:535:10:e:Outlet::::::1VG" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/layouts/PlatformAdminLayout.tsx",
+          lineNumber: 34,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/layouts/PlatformAdminLayout.tsx",
+        lineNumber: 32,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/layouts/PlatformAdminLayout.tsx",
+      lineNumber: 30,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "/workspaces/default/code/src/app/layouts/PlatformAdminLayout.tsx",
+    lineNumber: 28,
+    columnNumber: 5
+  }, this);
+}
+_c = PlatformAdminLayout;
+var _c;
+$RefreshReg$(_c, "PlatformAdminLayout");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/workspaces/default/code/src/app/layouts/PlatformAdminLayout.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/workspaces/default/code/src/app/layouts/PlatformAdminLayout.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6IkFBUU07Ozs7Ozs7Ozs7Ozs7Ozs7O0FBUk4sU0FBU0EsY0FBYztBQUN2QixPQUFPQyxhQUFhO0FBQ3BCLE9BQU9DLFlBQVk7QUFDbkIsT0FBT0MscUJBQXFCO0FBRTVCLHdCQUF3QkMsc0JBQXNCO0FBQzVDLFNBQ0UsdUJBQUMsZ0VBQUcsTUFBQyxXQUFVLDRDQUEyQyxPQUFPLEVBQUVDLFlBQVksNENBQTRDLEdBQUMscUdBQzFIO0FBQUEsMkJBQUMsZUFBQUgsUUFBQSxvQ0FBTSw0R0FBUDtBQUFBO0FBQUE7QUFBQTtBQUFBLFdBQU87QUFBQSxJQUNQLHVCQUFDLDBEQUFJLFdBQVUsUUFBSyxvR0FDbEI7QUFBQSw2QkFBQyxlQUFBRCxTQUFBLG9DQUFPLCtHQUFSO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUFBUTtBQUFBLE1BQ1IsdUJBQUMsMkRBQUssV0FBVSwwQkFBdUIscUdBQ3JDO0FBQUEsK0JBQUMsZUFBQUUsaUJBQUEsb0NBQWUsd0hBQWhCO0FBQUE7QUFBQTtBQUFBO0FBQUEsZUFBZ0I7QUFBQSxRQUNoQix1QkFBQyxVQUFNLDhHQUFQO0FBQUE7QUFBQTtBQUFBO0FBQUEsZUFBTztBQUFBLFdBRlQ7QUFBQTtBQUFBO0FBQUE7QUFBQSxhQUdBO0FBQUEsU0FMRjtBQUFBO0FBQUE7QUFBQTtBQUFBLFdBTUE7QUFBQSxPQVJGO0FBQUE7QUFBQTtBQUFBO0FBQUEsU0FTQTtBQUVKO0FBQUFHLEtBYndCRjtBQUFtQixJQUFBRTtBQUFBQyxhQUFBRCxJQUFBIiwibmFtZXMiOlsiT3V0bGV0IiwiU2lkZWJhciIsIlRvcEJhciIsIkdsb2JhbFNPU0J1dHRvbiIsIlBsYXRmb3JtQWRtaW5MYXlvdXQiLCJmb250RmFtaWx5IiwiX2MiLCIkUmVmcmVzaFJlZyQiXSwiaWdub3JlTGlzdCI6W10sInNvdXJjZXMiOlsiUGxhdGZvcm1BZG1pbkxheW91dC50c3giXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgT3V0bGV0IH0gZnJvbSAncmVhY3Qtcm91dGVyJztcbmltcG9ydCBTaWRlYmFyIGZyb20gJy4uL2NvbXBvbmVudHMvU2lkZWJhcic7XG5pbXBvcnQgVG9wQmFyIGZyb20gJy4uL2NvbXBvbmVudHMvVG9wQmFyJztcbmltcG9ydCBHbG9iYWxTT1NCdXR0b24gZnJvbSAnLi4vY29tcG9uZW50cy9HbG9iYWxTT1NCdXR0b24nO1xuXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBQbGF0Zm9ybUFkbWluTGF5b3V0KCkge1xuICByZXR1cm4gKFxuICAgIDxkaXYgY2xhc3NOYW1lPVwibWluLWgtc2NyZWVuIGJnLVsjMEIxRjJBXSB0ZXh0LVsjRTZGMUY0XVwiIHN0eWxlPXt7IGZvbnRGYW1pbHk6ICdJbnRlciBUaWdodCwgSW50ZXIsIHN5c3RlbS11aSwgc2Fucy1zZXJpZicgfX0+XG4gICAgICA8VG9wQmFyIC8+XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXhcIj5cbiAgICAgICAgPFNpZGViYXIgLz5cbiAgICAgICAgPG1haW4gY2xhc3NOYW1lPVwiZmxleC0xIG1sLTY0IG10LTE2IHAtOFwiPlxuICAgICAgICAgIDxHbG9iYWxTT1NCdXR0b24gLz5cbiAgICAgICAgICA8T3V0bGV0IC8+XG4gICAgICAgIDwvbWFpbj5cbiAgICAgIDwvZGl2PlxuICAgIDwvZGl2PlxuICApO1xufSJdLCJmaWxlIjoiL3dvcmtzcGFjZXMvZGVmYXVsdC9jb2RlL3NyYy9hcHAvbGF5b3V0cy9QbGF0Zm9ybUFkbWluTGF5b3V0LnRzeCJ9

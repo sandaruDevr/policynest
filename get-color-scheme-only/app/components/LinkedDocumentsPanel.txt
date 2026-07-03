@@ -1,0 +1,502 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/app/components/LinkedDocumentsPanel.tsx");import { jsxDEV } from "/@id/__x00__figma:react-jsx-dev-runtime";
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+import { FGCmp } from "/@id/fginspector";
+import { FileText, FileCheck, FileSpreadsheet, FileCode, ChevronRight, Plus, Link as LinkIcon } from "/node_modules/.vite/deps/lucide-react.js?v=25293e4c";
+export function LinkedDocumentsPanel({
+  currentDocument,
+  allDocuments,
+  onDocumentClick,
+  onAttachDocument,
+  canEdit = false
+}) {
+  const getDocumentIcon = (docType) => {
+    switch (docType) {
+      case "policy":
+        return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: FileText, _fgS: "bsh40", _fgB: 1779104383755, className: "w-4 h-4", "data-fg-bsh40": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:24:16:692:32:e:FileText::::::B1i5" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+          lineNumber: 44,
+          columnNumber: 16
+        }, this);
+      case "procedure":
+        return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: FileCheck, _fgS: "bsh41", _fgB: 1779104383755, className: "w-4 h-4", "data-fg-bsh41": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:26:16:765:33:e:FileCheck::::::k3S" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+          lineNumber: 46,
+          columnNumber: 16
+        }, this);
+      case "form":
+        return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: FileSpreadsheet, _fgS: "bsh42", _fgB: 1779104383755, className: "w-4 h-4", "data-fg-bsh42": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:28:16:834:39:e:FileSpreadsheet::::::EINS" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+          lineNumber: 48,
+          columnNumber: 16
+        }, this);
+      case "guideline":
+        return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: FileCode, _fgS: "bsh43", _fgB: 1779104383755, className: "w-4 h-4", "data-fg-bsh43": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:30:16:914:32:e:FileCode::::::D8SN" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+          lineNumber: 50,
+          columnNumber: 16
+        }, this);
+      default:
+        return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: FileText, _fgS: "bsh44", _fgB: 1779104383755, className: "w-4 h-4", "data-fg-bsh44": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:32:16:978:32:e:FileText::::::B1i5" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+          lineNumber: 52,
+          columnNumber: 16
+        }, this);
+    }
+  };
+  const getDocumentTypeColor = (docType) => {
+    switch (docType) {
+      case "policy":
+        return "text-teal-400 bg-teal-500/10";
+      case "procedure":
+        return "text-blue-400 bg-blue-500/10";
+      case "form":
+        return "text-purple-400 bg-purple-500/10";
+      case "guideline":
+        return "text-amber-400 bg-amber-500/10";
+      default:
+        return "text-gray-400 bg-gray-500/10";
+    }
+  };
+  const getDocumentTypeLabel = (docType) => {
+    switch (docType) {
+      case "policy":
+        return "Policy";
+      case "procedure":
+        return "Procedure";
+      case "form":
+        return "Form/Template";
+      case "guideline":
+        return "Guideline";
+      default:
+        return docType;
+    }
+  };
+  const parentDocument = currentDocument.parentId ? allDocuments.find((doc) => doc.id === currentDocument.parentId) : null;
+  const childDocuments = currentDocument.childDocuments ? allDocuments.filter((doc) => currentDocument.childDocuments?.includes(doc.id)) : allDocuments.filter((doc) => doc.parentId === currentDocument.id);
+  const linkedForms = currentDocument.linkedForms ? allDocuments.filter((doc) => currentDocument.linkedForms?.includes(doc.id)) : [];
+  const renderDocumentLink = (doc, relationship) => /* @__PURE__ */ jsxDEV(
+    FGCmp,
+    {
+      _fgT: "div",
+      _fgS: "bsh45",
+      _fgB: 1779104383755,
+      onClick: () => onDocumentClick?.(doc.id),
+      className: "flex items-center gap-3 p-3 bg-white/5 border border-white/10 rounded-lg cursor-pointer hover:bg-white/10 transition-all group",
+      "data-fg-bsh45": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:82:5:2424:1009:e:div:etete",
+      children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bsh46", _fgB: 1779104383755, className: `p-2 rounded-lg ${getDocumentTypeColor(doc.documentType)}`, "data-fg-bsh46": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:87:7:2653:133:e:div:x", children: getDocumentIcon(doc.documentType) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+          lineNumber: 107,
+          columnNumber: 7
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bsh48", _fgB: 1779104383755, className: "flex-1 min-w-0", "data-fg-bsh48": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:91:7:2800:520:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bsh49", _fgB: 1779104383755, className: "text-sm text-white font-medium truncate group-hover:text-teal-400 transition-colors", "data-fg-bsh49": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:92:9:2841:138:e:div:x", children: doc.title }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+            lineNumber: 112,
+            columnNumber: 9
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bsh411", _fgB: 1779104383755, className: "text-xs text-gray-500 flex items-center gap-2 mt-0.5", "data-fg-bsh411": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:95:9:2988:319:e:div:etetetete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "bsh412", _fgB: 1779104383755, className: "capitalize", "data-fg-bsh412": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:96:11:3069:76:e:span:x", children: getDocumentTypeLabel(doc.documentType) }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+              lineNumber: 116,
+              columnNumber: 11
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "bsh414", _fgB: 1779104383755, "data-fg-bsh414": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:97:11:3156:14:e:span:t", children: "•" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+              lineNumber: 117,
+              columnNumber: 11
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "bsh416", _fgB: 1779104383755, "data-fg-bsh416": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:98:11:3181:27:e:span:tx", children: [
+              "v",
+              doc.version
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+              lineNumber: 118,
+              columnNumber: 11
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "bsh419", _fgB: 1779104383755, "data-fg-bsh419": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:99:11:3219:14:e:span:t", children: "•" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+              lineNumber: 119,
+              columnNumber: 11
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "bsh421", _fgB: 1779104383755, className: "capitalize", "data-fg-bsh421": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:100:11:3244:48:e:span:x", children: doc.status }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+              lineNumber: 120,
+              columnNumber: 11
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+            lineNumber: 115,
+            columnNumber: 9
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+          lineNumber: 111,
+          columnNumber: 7
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: ChevronRight, _fgS: "bsh423", _fgB: 1779104383755, className: "w-4 h-4 text-gray-500 group-hover:text-teal-400 transition-colors", "data-fg-bsh423": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:104:7:3328:94:e:ChevronRight::::::ByYJ" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+          lineNumber: 124,
+          columnNumber: 7
+        }, this)
+      ]
+    },
+    doc.id,
+    true,
+    {
+      fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+      lineNumber: 102,
+      columnNumber: 3
+    },
+    this
+  );
+  return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bsh424", _fgB: 1779104383755, _fgD: true, className: "space-y-6", "data-fg-bsh424": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:109:5:3455:5350:e:div:xtetxtxtxtxtxtxtxte:1", children: [
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bsh426", _fgB: 1779104383755, className: "flex items-center justify-between", "data-fg-bsh426": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:111:7:3510:624:e:div:etx", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bsh427", _fgB: 1779104383755, className: "flex items-center gap-2", "data-fg-bsh427": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:112:9:3570:186:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: LinkIcon, _fgS: "bsh428", _fgB: 1779104383755, className: "w-5 h-5 text-teal-400", "data-fg-bsh428": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:113:11:3622:46:e:LinkIcon::::::Cfpx" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+          lineNumber: 133,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "bsh429", _fgB: 1779104383755, className: "text-white font-semibold", "data-fg-bsh429": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:114:11:3679:62:e:h3:t", children: "Linked Documents" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+          lineNumber: 134,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+        lineNumber: 132,
+        columnNumber: 9
+      }, this),
+      canEdit && /* @__PURE__ */ jsxDEV(
+        FGCmp,
+        {
+          _fgT: "button",
+          _fgS: "bsh432",
+          _fgB: 1779104383755,
+          onClick: onAttachDocument,
+          className: "flex items-center gap-1 px-3 py-1.5 bg-teal-500/20 border border-teal-500/30 text-teal-400 rounded-lg hover:bg-teal-500/30 transition-all text-sm",
+          "data-fg-bsh432": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:117:11:3789:321:e:button:ete",
+          children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Plus, _fgS: "bsh433", _fgB: 1779104383755, className: "w-4 h-4", "data-fg-bsh433": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:121:13:4030:28:e:Plus::::::ISW" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+              lineNumber: 141,
+              columnNumber: 13
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "bsh434", _fgB: 1779104383755, "data-fg-bsh434": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:122:13:4071:19:e:span:t", children: "Attach" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+              lineNumber: 142,
+              columnNumber: 13
+            }, this)
+          ]
+        },
+        void 0,
+        true,
+        {
+          fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+          lineNumber: 137,
+          columnNumber: 9
+        },
+        this
+      )
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+      lineNumber: 131,
+      columnNumber: 7
+    }, this),
+    (parentDocument || childDocuments.length > 0) && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bsh438", _fgB: 1779104383755, className: "p-4 bg-blue-500/10 border border-blue-500/20 rounded-lg", "data-fg-bsh438": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:129:9:4240:1884:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bsh439", _fgB: 1779104383755, className: "text-xs font-semibold text-blue-400 mb-3 uppercase tracking-wide", "data-fg-bsh439": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:130:11:4324:130:e:div:t", children: "Document Hierarchy" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+        lineNumber: 150,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bsh441", _fgB: 1779104383755, className: "space-y-3", "data-fg-bsh441": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:133:11:4465:1644:e:div:xtxtxtetxtx", children: [
+        parentDocument && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bsh444", _fgB: 1779104383755, "data-fg-bsh444": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:136:15:4576:173:e:div:etx", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bsh445", _fgB: 1779104383755, className: "text-xs text-gray-500 mb-2", "data-fg-bsh445": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:137:17:4598:67:e:div:t", children: "↑ Parent Document" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+            lineNumber: 157,
+            columnNumber: 17
+          }, this),
+          renderDocumentLink(parentDocument, "parent")
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+          lineNumber: 156,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bsh449", _fgB: 1779104383755, "data-fg-bsh449": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:143:13:4815:883:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bsh450", _fgB: 1779104383755, className: "text-xs text-gray-500 mb-2", "data-fg-bsh450": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:144:15:4835:68:e:div:t", children: "→ Current Document" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+            lineNumber: 164,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bsh452", _fgB: 1779104383755, className: "p-3 bg-teal-500/20 border-2 border-teal-500/40 rounded-lg", "data-fg-bsh452": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:145:15:4918:761:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bsh453", _fgB: 1779104383755, className: "flex items-center gap-3", "data-fg-bsh453": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:146:17:5010:648:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bsh454", _fgB: 1779104383755, className: `p-2 rounded-lg ${getDocumentTypeColor(currentDocument.documentType)}`, "data-fg-bsh454": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:147:19:5070:181:e:div:x", children: getDocumentIcon(currentDocument.documentType) }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+              lineNumber: 167,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bsh456", _fgB: 1779104383755, "data-fg-bsh456": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:150:19:5270:365:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bsh457", _fgB: 1779104383755, className: "text-sm text-white font-semibold", "data-fg-bsh457": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:151:21:5296:123:e:div:x", children: currentDocument.title }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+                lineNumber: 171,
+                columnNumber: 21
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bsh459", _fgB: 1779104383755, className: "text-xs text-gray-400", "data-fg-bsh459": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:154:21:5440:170:e:div:xtx", children: [
+                getDocumentTypeLabel(currentDocument.documentType),
+                " • v",
+                currentDocument.version
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+                lineNumber: 174,
+                columnNumber: 21
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+              lineNumber: 170,
+              columnNumber: 19
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+            lineNumber: 166,
+            columnNumber: 17
+          }, this) }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+            lineNumber: 165,
+            columnNumber: 15
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+          lineNumber: 163,
+          columnNumber: 13
+        }, this),
+        childDocuments.length > 0 && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bsh465", _fgB: 1779104383755, "data-fg-bsh465": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:164:15:5794:283:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bsh466", _fgB: 1779104383755, className: "text-xs text-gray-500 mb-2", "data-fg-bsh466": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:165:17:5816:93:e:div:txt", children: [
+            "↓ Child Documents (",
+            childDocuments.length,
+            ")"
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+            lineNumber: 185,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bsh470", _fgB: 1779104383755, className: "space-y-2", "data-fg-bsh470": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:166:17:5926:130:e:div:x", children: childDocuments.map((doc) => renderDocumentLink(doc, "child")) }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+            lineNumber: 186,
+            columnNumber: 17
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+          lineNumber: 184,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+        lineNumber: 153,
+        columnNumber: 11
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+      lineNumber: 149,
+      columnNumber: 7
+    }, this),
+    linkedForms.length > 0 && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bsh474", _fgB: 1779104383755, "data-fg-bsh474": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:177:9:6215:519:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bsh475", _fgB: 1779104383755, className: "text-sm font-medium text-white mb-3 flex items-center gap-2", "data-fg-bsh475": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:178:11:6231:361:e:div:etete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: FileSpreadsheet, _fgS: "bsh476", _fgB: 1779104383755, className: "w-4 h-4 text-purple-400", "data-fg-bsh476": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:179:13:6321:55:e:FileSpreadsheet::::::EINS" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+          lineNumber: 199,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "bsh477", _fgB: 1779104383755, "data-fg-bsh477": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:180:13:6389:39:e:span:t", children: "Attached Forms & Templates" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+          lineNumber: 200,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "bsh479", _fgB: 1779104383755, className: "px-2 py-0.5 bg-purple-500/20 text-purple-400 rounded text-xs", "data-fg-bsh479": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:181:13:6441:134:e:span:x", children: linkedForms.length }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+          lineNumber: 201,
+          columnNumber: 13
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+        lineNumber: 198,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bsh481", _fgB: 1779104383755, className: "space-y-2", "data-fg-bsh481": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:185:11:6603:116:e:div:x", children: linkedForms.map((form) => renderDocumentLink(form, "form")) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+        lineNumber: 205,
+        columnNumber: 11
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+      lineNumber: 197,
+      columnNumber: 7
+    }, this),
+    !parentDocument && childDocuments.length === 0 && linkedForms.length === 0 && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bsh485", _fgB: 1779104383755, className: "text-center py-8", "data-fg-bsh485": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:193:9:6866:367:e:div:etetx", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: LinkIcon, _fgS: "bsh486", _fgB: 1779104383755, className: "w-12 h-12 mx-auto mb-3 text-gray-600 opacity-50", "data-fg-bsh486": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:194:11:6911:72:e:LinkIcon::::::Cfpx" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+        lineNumber: 214,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "bsh487", _fgB: 1779104383755, className: "text-gray-500 text-sm", "data-fg-bsh487": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:195:11:6994:60:e:p:t", children: "No linked documents" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+        lineNumber: 215,
+        columnNumber: 11
+      }, this),
+      canEdit && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "bsh490", _fgB: 1779104383755, className: "text-gray-600 text-xs mt-1", "data-fg-bsh490": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:197:13:7091:114:e:p:t", children: 'Click "Attach" to link related documents' }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+        lineNumber: 217,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+      lineNumber: 213,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bsh493", _fgB: 1779104383755, className: "p-4 bg-white/5 border border-white/10 rounded-lg", "data-fg-bsh493": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:205:7:7290:1504:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bsh494", _fgB: 1779104383755, className: "text-xs font-semibold text-gray-400 mb-3 uppercase tracking-wide", "data-fg-bsh494": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:206:9:7365:134:e:div:t", children: "Document Pyramid Structure" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+        lineNumber: 226,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bsh496", _fgB: 1779104383755, className: "space-y-2 text-xs text-gray-500", "data-fg-bsh496": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:209:9:7508:1273:e:div:etetete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bsh497", _fgB: 1779104383755, className: "flex items-start gap-2", "data-fg-bsh497": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:210:11:7568:287:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bsh498", _fgB: 1779104383755, className: "w-2 h-2 rounded-full bg-teal-400 mt-1.5 flex-shrink-0", "data-fg-bsh498": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:211:13:7621:73:e:div" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+            lineNumber: 231,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bsh499", _fgB: 1779104383755, "data-fg-bsh499": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:212:13:7707:131:e:div:et", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "bsh4100", _fgB: 1779104383755, className: "text-teal-400 font-medium", "data-fg-bsh4100": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:213:15:7727:57:e:span:t", children: "Policy" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+              lineNumber: 233,
+              columnNumber: 15
+            }, this),
+            " - Defines WHAT and WHY (Top Level)"
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+            lineNumber: 232,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+          lineNumber: 230,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bsh4103", _fgB: 1779104383755, className: "flex items-start gap-2", "data-fg-bsh4103": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:216:11:7866:287:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bsh4104", _fgB: 1779104383755, className: "w-2 h-2 rounded-full bg-blue-400 mt-1.5 flex-shrink-0", "data-fg-bsh4104": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:217:13:7919:73:e:div" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+            lineNumber: 237,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bsh4105", _fgB: 1779104383755, "data-fg-bsh4105": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:218:13:8005:131:e:div:et", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "bsh4106", _fgB: 1779104383755, className: "text-blue-400 font-medium", "data-fg-bsh4106": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:219:15:8025:60:e:span:t", children: "Procedure" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+              lineNumber: 239,
+              columnNumber: 15
+            }, this),
+            " - Explains HOW (Implementation)"
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+            lineNumber: 238,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+          lineNumber: 236,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bsh4109", _fgB: 1779104383755, className: "flex items-start gap-2", "data-fg-bsh4109": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:222:11:8164:298:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bsh4110", _fgB: 1779104383755, className: "w-2 h-2 rounded-full bg-purple-400 mt-1.5 flex-shrink-0", "data-fg-bsh4110": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:223:13:8217:75:e:div" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+            lineNumber: 243,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bsh4111", _fgB: 1779104383755, "data-fg-bsh4111": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:224:13:8305:140:e:div:et", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "bsh4112", _fgB: 1779104383755, className: "text-purple-400 font-medium", "data-fg-bsh4112": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:225:15:8325:66:e:span:t", children: "Form/Template" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+              lineNumber: 245,
+              columnNumber: 15
+            }, this),
+            " - Records EVIDENCE (Documentation)"
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+            lineNumber: 244,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+          lineNumber: 242,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bsh4115", _fgB: 1779104383755, className: "flex items-start gap-2", "data-fg-bsh4115": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:228:11:8473:293:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bsh4116", _fgB: 1779104383755, className: "w-2 h-2 rounded-full bg-amber-400 mt-1.5 flex-shrink-0", "data-fg-bsh4116": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:229:13:8526:74:e:div" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+            lineNumber: 249,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bsh4117", _fgB: 1779104383755, "data-fg-bsh4117": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:230:13:8613:136:e:div:et", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "bsh4118", _fgB: 1779104383755, className: "text-amber-400 font-medium", "data-fg-bsh4118": "418.156:418.8813:/src/app/components/LinkedDocumentsPanel.tsx:231:15:8633:61:e:span:t", children: "Guideline" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+              lineNumber: 251,
+              columnNumber: 15
+            }, this),
+            " - Provides CONTEXT (Best Practices)"
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+            lineNumber: 250,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+          lineNumber: 248,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+        lineNumber: 229,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+      lineNumber: 225,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx",
+    lineNumber: 129,
+    columnNumber: 5
+  }, this);
+}
+_c = LinkedDocumentsPanel;
+var _c;
+$RefreshReg$(_c, "LinkedDocumentsPanel");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/workspaces/default/code/src/app/components/LinkedDocumentsPanel.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,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QkFBdUIsOEdBQ3BDO0FBQUEsaUNBQUMsNERBQUksV0FBVSwwREFBd0QsMkdBQXZFO0FBQUE7QUFBQTtBQUFBO0FBQUEsaUJBQXVFO0FBQUEsVUFDdkUsdUJBQUMseUtBQ0M7QUFBQSxtQ0FBQyw2REFBSyxXQUFVLDhCQUEyQiw0R0FBRSx5QkFBN0M7QUFBQTtBQUFBO0FBQUE7QUFBQSxtQkFBc0Q7QUFBQSxZQUFPO0FBQUEsZUFEL0Q7QUFBQTtBQUFBO0FBQUE7QUFBQSxpQkFFQTtBQUFBLGFBSkY7QUFBQTtBQUFBO0FBQUE7QUFBQSxlQUtBO0FBQUEsV0F4QkY7QUFBQTtBQUFBO0FBQUE7QUFBQSxhQXlCQTtBQUFBLFNBN0JGO0FBQUE7QUFBQTtBQUFBO0FBQUEsV0E4QkE7QUFBQSxPQTlIRjtBQUFBO0FBQUE7QUFBQTtBQUFBLFNBK0hBO0FBRUo7QUFBQXVCLEtBak9nQjVCO0FBQW9CLElBQUE0QjtBQUFBQyxhQUFBRCxJQUFBIiwibmFtZXMiOlsiRmlsZVRleHQiLCJGaWxlQ2hlY2siLCJGaWxlU3ByZWFkc2hlZXQiLCJGaWxlQ29kZSIsIkNoZXZyb25SaWdodCIsIlBsdXMiLCJMaW5rIiwiTGlua0ljb24iLCJMaW5rZWREb2N1bWVudHNQYW5lbCIsImN1cnJlbnREb2N1bWVudCIsImFsbERvY3VtZW50cyIsIm9uRG9jdW1lbnRDbGljayIsIm9uQXR0YWNoRG9jdW1lbnQiLCJjYW5FZGl0IiwiZ2V0RG9jdW1lbnRJY29uIiwiZG9jVHlwZSIsImdldERvY3VtZW50VHlwZUNvbG9yIiwiZ2V0RG9jdW1lbnRUeXBlTGFiZWwiLCJwYXJlbnREb2N1bWVudCIsInBhcmVudElkIiwiZmluZCIsImRvYyIsImlkIiwiY2hpbGREb2N1bWVudHMiLCJmaWx0ZXIiLCJpbmNsdWRlcyIsImxpbmtlZEZvcm1zIiwicmVuZGVyRG9jdW1lbnRMaW5rIiwicmVsYXRpb25zaGlwIiwiZG9jdW1lbnRUeXBlIiwidGl0bGUiLCJ2ZXJzaW9uIiwic3RhdHVzIiwibGVuZ3RoIiwibWFwIiwiZm9ybSIsIl9jIiwiJFJlZnJlc2hSZWckIl0sImlnbm9yZUxpc3QiOltdLCJzb3VyY2VzIjpbIkxpbmtlZERvY3VtZW50c1BhbmVsLnRzeCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSAncmVhY3QnO1xuaW1wb3J0IHsgRmlsZVRleHQsIEZpbGVDaGVjaywgRmlsZVNwcmVhZHNoZWV0LCBGaWxlQ29kZSwgQ2hldnJvblJpZ2h0LCBQbHVzLCBMaW5rIGFzIExpbmtJY29uIH0gZnJvbSAnbHVjaWRlLXJlYWN0JztcbmltcG9ydCB0eXBlIHsgUG9saWN5RG9jdW1lbnQgfSBmcm9tICcuLi9kYXRhL2RvY3VtZW50cyc7XG5cbmludGVyZmFjZSBMaW5rZWREb2N1bWVudHNQYW5lbFByb3BzIHtcbiAgY3VycmVudERvY3VtZW50OiBQb2xpY3lEb2N1bWVudDtcbiAgYWxsRG9jdW1lbnRzOiBQb2xpY3lEb2N1bWVudFtdO1xuICBvbkRvY3VtZW50Q2xpY2s/OiAoZG9jdW1lbnRJZDogc3RyaW5nKSA9PiB2b2lkO1xuICBvbkF0dGFjaERvY3VtZW50PzogKCkgPT4gdm9pZDtcbiAgY2FuRWRpdD86IGJvb2xlYW47XG59XG5cbmV4cG9ydCBmdW5jdGlvbiBMaW5rZWREb2N1bWVudHNQYW5lbCh7IFxuICBjdXJyZW50RG9jdW1lbnQsIFxuICBhbGxEb2N1bWVudHMsXG4gIG9uRG9jdW1lbnRDbGljayxcbiAgb25BdHRhY2hEb2N1bWVudCxcbiAgY2FuRWRpdCA9IGZhbHNlXG59OiBMaW5rZWREb2N1bWVudHNQYW5lbFByb3BzKSB7XG4gIFxuICBjb25zdCBnZXREb2N1bWVudEljb24gPSAoZG9jVHlwZTogc3RyaW5nKSA9PiB7XG4gICAgc3dpdGNoIChkb2NUeXBlKSB7XG4gICAgICBjYXNlICdwb2xpY3knOlxuICAgICAgICByZXR1cm4gPEZpbGVUZXh0IGNsYXNzTmFtZT1cInctNCBoLTRcIiAvPjtcbiAgICAgIGNhc2UgJ3Byb2NlZHVyZSc6XG4gICAgICAgIHJldHVybiA8RmlsZUNoZWNrIGNsYXNzTmFtZT1cInctNCBoLTRcIiAvPjtcbiAgICAgIGNhc2UgJ2Zvcm0nOlxuICAgICAgICByZXR1cm4gPEZpbGVTcHJlYWRzaGVldCBjbGFzc05hbWU9XCJ3LTQgaC00XCIgLz47XG4gICAgICBjYXNlICdndWlkZWxpbmUnOlxuICAgICAgICByZXR1cm4gPEZpbGVDb2RlIGNsYXNzTmFtZT1cInctNCBoLTRcIiAvPjtcbiAgICAgIGRlZmF1bHQ6XG4gICAgICAgIHJldHVybiA8RmlsZVRleHQgY2xhc3NOYW1lPVwidy00IGgtNFwiIC8+O1xuICAgIH1cbiAgfTtcblxuICBjb25zdCBnZXREb2N1bWVudFR5cGVDb2xvciA9IChkb2NUeXBlOiBzdHJpbmcpID0+IHtcbiAgICBzd2l0Y2ggKGRvY1R5cGUpIHtcbiAgICAgIGNhc2UgJ3BvbGljeSc6XG4gICAgICAgIHJldHVybiAndGV4dC10ZWFsLTQwMCBiZy10ZWFsLTUwMC8xMCc7XG4gICAgICBjYXNlICdwcm9jZWR1cmUnOlxuICAgICAgICByZXR1cm4gJ3RleHQtYmx1ZS00MDAgYmctYmx1ZS01MDAvMTAnO1xuICAgICAgY2FzZSAnZm9ybSc6XG4gICAgICAgIHJldHVybiAndGV4dC1wdXJwbGUtNDAwIGJnLXB1cnBsZS01MDAvMTAnO1xuICAgICAgY2FzZSAnZ3VpZGVsaW5lJzpcbiAgICAgICAgcmV0dXJuICd0ZXh0LWFtYmVyLTQwMCBiZy1hbWJlci01MDAvMTAnO1xuICAgICAgZGVmYXVsdDpcbiAgICAgICAgcmV0dXJuICd0ZXh0LWdyYXktNDAwIGJnLWdyYXktNTAwLzEwJztcbiAgICB9XG4gIH07XG5cbiAgY29uc3QgZ2V0RG9jdW1lbnRUeXBlTGFiZWwgPSAoZG9jVHlwZTogc3RyaW5nKSA9PiB7XG4gICAgc3dpdGNoIChkb2NUeXBlKSB7XG4gICAgICBjYXNlICdwb2xpY3knOlxuICAgICAgICByZXR1cm4gJ1BvbGljeSc7XG4gICAgICBjYXNlICdwcm9jZWR1cmUnOlxuICAgICAgICByZXR1cm4gJ1Byb2NlZHVyZSc7XG4gICAgICBjYXNlICdmb3JtJzpcbiAgICAgICAgcmV0dXJuICdGb3JtL1RlbXBsYXRlJztcbiAgICAgIGNhc2UgJ2d1aWRlbGluZSc6XG4gICAgICAgIHJldHVybiAnR3VpZGVsaW5lJztcbiAgICAgIGRlZmF1bHQ6XG4gICAgICAgIHJldHVybiBkb2NUeXBlO1xuICAgIH1cbiAgfTtcblxuICAvLyBHZXQgcGFyZW50IGRvY3VtZW50XG4gIGNvbnN0IHBhcmVudERvY3VtZW50ID0gY3VycmVudERvY3VtZW50LnBhcmVudElkIFxuICAgID8gYWxsRG9jdW1lbnRzLmZpbmQoZG9jID0+IGRvYy5pZCA9PT0gY3VycmVudERvY3VtZW50LnBhcmVudElkKVxuICAgIDogbnVsbDtcblxuICAvLyBHZXQgY2hpbGQgZG9jdW1lbnRzXG4gIGNvbnN0IGNoaWxkRG9jdW1lbnRzID0gY3VycmVudERvY3VtZW50LmNoaWxkRG9jdW1lbnRzXG4gICAgPyBhbGxEb2N1bWVudHMuZmlsdGVyKGRvYyA9PiBjdXJyZW50RG9jdW1lbnQuY2hpbGREb2N1bWVudHM/LmluY2x1ZGVzKGRvYy5pZCkpXG4gICAgOiBhbGxEb2N1bWVudHMuZmlsdGVyKGRvYyA9PiBkb2MucGFyZW50SWQgPT09IGN1cnJlbnREb2N1bWVudC5pZCk7XG5cbiAgLy8gR2V0IGxpbmtlZCBmb3Jtc1xuICBjb25zdCBsaW5rZWRGb3JtcyA9IGN1cnJlbnREb2N1bWVudC5saW5rZWRGb3Jtc1xuICAgID8gYWxsRG9jdW1lbnRzLmZpbHRlcihkb2MgPT4gY3VycmVudERvY3VtZW50LmxpbmtlZEZvcm1zPy5pbmNsdWRlcyhkb2MuaWQpKVxuICAgIDogW107XG5cbiAgY29uc3QgcmVuZGVyRG9jdW1lbnRMaW5rID0gKGRvYzogUG9saWN5RG9jdW1lbnQsIHJlbGF0aW9uc2hpcDogc3RyaW5nKSA9PiAoXG4gICAgPGRpdlxuICAgICAga2V5PXtkb2MuaWR9XG4gICAgICBvbkNsaWNrPXsoKSA9PiBvbkRvY3VtZW50Q2xpY2s/Lihkb2MuaWQpfVxuICAgICAgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTMgcC0zIGJnLXdoaXRlLzUgYm9yZGVyIGJvcmRlci13aGl0ZS8xMCByb3VuZGVkLWxnIGN1cnNvci1wb2ludGVyIGhvdmVyOmJnLXdoaXRlLzEwIHRyYW5zaXRpb24tYWxsIGdyb3VwXCJcbiAgICA+XG4gICAgICA8ZGl2IGNsYXNzTmFtZT17YHAtMiByb3VuZGVkLWxnICR7Z2V0RG9jdW1lbnRUeXBlQ29sb3IoZG9jLmRvY3VtZW50VHlwZSl9YH0+XG4gICAgICAgIHtnZXREb2N1bWVudEljb24oZG9jLmRvY3VtZW50VHlwZSl9XG4gICAgICA8L2Rpdj5cbiAgICAgIFxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4LTEgbWluLXctMFwiPlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQtc20gdGV4dC13aGl0ZSBmb250LW1lZGl1bSB0cnVuY2F0ZSBncm91cC1ob3Zlcjp0ZXh0LXRlYWwtNDAwIHRyYW5zaXRpb24tY29sb3JzXCI+XG4gICAgICAgICAge2RvYy50aXRsZX1cbiAgICAgICAgPC9kaXY+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC14cyB0ZXh0LWdyYXktNTAwIGZsZXggaXRlbXMtY2VudGVyIGdhcC0yIG10LTAuNVwiPlxuICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cImNhcGl0YWxpemVcIj57Z2V0RG9jdW1lbnRUeXBlTGFiZWwoZG9jLmRvY3VtZW50VHlwZSl9PC9zcGFuPlxuICAgICAgICAgIDxzcGFuPuKAojwvc3Bhbj5cbiAgICAgICAgICA8c3Bhbj52e2RvYy52ZXJzaW9ufTwvc3Bhbj5cbiAgICAgICAgICA8c3Bhbj7igKI8L3NwYW4+XG4gICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwiY2FwaXRhbGl6ZVwiPntkb2Muc3RhdHVzfTwvc3Bhbj5cbiAgICAgICAgPC9kaXY+XG4gICAgICA8L2Rpdj5cblxuICAgICAgPENoZXZyb25SaWdodCBjbGFzc05hbWU9XCJ3LTQgaC00IHRleHQtZ3JheS01MDAgZ3JvdXAtaG92ZXI6dGV4dC10ZWFsLTQwMCB0cmFuc2l0aW9uLWNvbG9yc1wiIC8+XG4gICAgPC9kaXY+XG4gICk7XG5cbiAgcmV0dXJuIChcbiAgICA8ZGl2IGNsYXNzTmFtZT1cInNwYWNlLXktNlwiPlxuICAgICAgey8qIEhlYWRlciAqL31cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuXCI+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTJcIj5cbiAgICAgICAgICA8TGlua0ljb24gY2xhc3NOYW1lPVwidy01IGgtNSB0ZXh0LXRlYWwtNDAwXCIgLz5cbiAgICAgICAgICA8aDMgY2xhc3NOYW1lPVwidGV4dC13aGl0ZSBmb250LXNlbWlib2xkXCI+TGlua2VkIERvY3VtZW50czwvaDM+XG4gICAgICAgIDwvZGl2PlxuICAgICAgICB7Y2FuRWRpdCAmJiAoXG4gICAgICAgICAgPGJ1dHRvblxuICAgICAgICAgICAgb25DbGljaz17b25BdHRhY2hEb2N1bWVudH1cbiAgICAgICAgICAgIGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0xIHB4LTMgcHktMS41IGJnLXRlYWwtNTAwLzIwIGJvcmRlciBib3JkZXItdGVhbC01MDAvMzAgdGV4dC10ZWFsLTQwMCByb3VuZGVkLWxnIGhvdmVyOmJnLXRlYWwtNTAwLzMwIHRyYW5zaXRpb24tYWxsIHRleHQtc21cIlxuICAgICAgICAgID5cbiAgICAgICAgICAgIDxQbHVzIGNsYXNzTmFtZT1cInctNCBoLTRcIiAvPlxuICAgICAgICAgICAgPHNwYW4+QXR0YWNoPC9zcGFuPlxuICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICApfVxuICAgICAgPC9kaXY+XG5cbiAgICAgIHsvKiBEb2N1bWVudCBIaWVyYXJjaHkgUGF0aCAqL31cbiAgICAgIHsocGFyZW50RG9jdW1lbnQgfHwgY2hpbGREb2N1bWVudHMubGVuZ3RoID4gMCkgJiYgKFxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInAtNCBiZy1ibHVlLTUwMC8xMCBib3JkZXIgYm9yZGVyLWJsdWUtNTAwLzIwIHJvdW5kZWQtbGdcIj5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQteHMgZm9udC1zZW1pYm9sZCB0ZXh0LWJsdWUtNDAwIG1iLTMgdXBwZXJjYXNlIHRyYWNraW5nLXdpZGVcIj5cbiAgICAgICAgICAgIERvY3VtZW50IEhpZXJhcmNoeVxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwic3BhY2UteS0zXCI+XG4gICAgICAgICAgICB7LyogUGFyZW50IERvY3VtZW50ICovfVxuICAgICAgICAgICAge3BhcmVudERvY3VtZW50ICYmIChcbiAgICAgICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC1ncmF5LTUwMCBtYi0yXCI+4oaRIFBhcmVudCBEb2N1bWVudDwvZGl2PlxuICAgICAgICAgICAgICAgIHtyZW5kZXJEb2N1bWVudExpbmsocGFyZW50RG9jdW1lbnQsICdwYXJlbnQnKX1cbiAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICApfVxuXG4gICAgICAgICAgICB7LyogQ3VycmVudCBEb2N1bWVudCAqL31cbiAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC14cyB0ZXh0LWdyYXktNTAwIG1iLTJcIj7ihpIgQ3VycmVudCBEb2N1bWVudDwvZGl2PlxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInAtMyBiZy10ZWFsLTUwMC8yMCBib3JkZXItMiBib3JkZXItdGVhbC01MDAvNDAgcm91bmRlZC1sZ1wiPlxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTNcIj5cbiAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPXtgcC0yIHJvdW5kZWQtbGcgJHtnZXREb2N1bWVudFR5cGVDb2xvcihjdXJyZW50RG9jdW1lbnQuZG9jdW1lbnRUeXBlKX1gfT5cbiAgICAgICAgICAgICAgICAgICAge2dldERvY3VtZW50SWNvbihjdXJyZW50RG9jdW1lbnQuZG9jdW1lbnRUeXBlKX1cbiAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ0ZXh0LXNtIHRleHQtd2hpdGUgZm9udC1zZW1pYm9sZFwiPlxuICAgICAgICAgICAgICAgICAgICAgIHtjdXJyZW50RG9jdW1lbnQudGl0bGV9XG4gICAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC1ncmF5LTQwMFwiPlxuICAgICAgICAgICAgICAgICAgICAgIHtnZXREb2N1bWVudFR5cGVMYWJlbChjdXJyZW50RG9jdW1lbnQuZG9jdW1lbnRUeXBlKX0g4oCiIHZ7Y3VycmVudERvY3VtZW50LnZlcnNpb259XG4gICAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICAgIHsvKiBDaGlsZCBEb2N1bWVudHMgKi99XG4gICAgICAgICAgICB7Y2hpbGREb2N1bWVudHMubGVuZ3RoID4gMCAmJiAoXG4gICAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ0ZXh0LXhzIHRleHQtZ3JheS01MDAgbWItMlwiPuKGkyBDaGlsZCBEb2N1bWVudHMgKHtjaGlsZERvY3VtZW50cy5sZW5ndGh9KTwvZGl2PlxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwic3BhY2UteS0yXCI+XG4gICAgICAgICAgICAgICAgICB7Y2hpbGREb2N1bWVudHMubWFwKGRvYyA9PiByZW5kZXJEb2N1bWVudExpbmsoZG9jLCAnY2hpbGQnKSl9XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgKX1cbiAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgPC9kaXY+XG4gICAgICApfVxuXG4gICAgICB7LyogTGlua2VkIEZvcm1zL1RlbXBsYXRlcyAqL31cbiAgICAgIHtsaW5rZWRGb3Jtcy5sZW5ndGggPiAwICYmIChcbiAgICAgICAgPGRpdj5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQtc20gZm9udC1tZWRpdW0gdGV4dC13aGl0ZSBtYi0zIGZsZXggaXRlbXMtY2VudGVyIGdhcC0yXCI+XG4gICAgICAgICAgICA8RmlsZVNwcmVhZHNoZWV0IGNsYXNzTmFtZT1cInctNCBoLTQgdGV4dC1wdXJwbGUtNDAwXCIgLz5cbiAgICAgICAgICAgIDxzcGFuPkF0dGFjaGVkIEZvcm1zICYgVGVtcGxhdGVzPC9zcGFuPlxuICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwicHgtMiBweS0wLjUgYmctcHVycGxlLTUwMC8yMCB0ZXh0LXB1cnBsZS00MDAgcm91bmRlZCB0ZXh0LXhzXCI+XG4gICAgICAgICAgICAgIHtsaW5rZWRGb3Jtcy5sZW5ndGh9XG4gICAgICAgICAgICA8L3NwYW4+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJzcGFjZS15LTJcIj5cbiAgICAgICAgICAgIHtsaW5rZWRGb3Jtcy5tYXAoZm9ybSA9PiByZW5kZXJEb2N1bWVudExpbmsoZm9ybSwgJ2Zvcm0nKSl9XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvZGl2PlxuICAgICAgKX1cblxuICAgICAgey8qIEVtcHR5IFN0YXRlICovfVxuICAgICAgeyFwYXJlbnREb2N1bWVudCAmJiBjaGlsZERvY3VtZW50cy5sZW5ndGggPT09IDAgJiYgbGlua2VkRm9ybXMubGVuZ3RoID09PSAwICYmIChcbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ0ZXh0LWNlbnRlciBweS04XCI+XG4gICAgICAgICAgPExpbmtJY29uIGNsYXNzTmFtZT1cInctMTIgaC0xMiBteC1hdXRvIG1iLTMgdGV4dC1ncmF5LTYwMCBvcGFjaXR5LTUwXCIgLz5cbiAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LWdyYXktNTAwIHRleHQtc21cIj5ObyBsaW5rZWQgZG9jdW1lbnRzPC9wPlxuICAgICAgICAgIHtjYW5FZGl0ICYmIChcbiAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtZ3JheS02MDAgdGV4dC14cyBtdC0xXCI+XG4gICAgICAgICAgICAgIENsaWNrIFwiQXR0YWNoXCIgdG8gbGluayByZWxhdGVkIGRvY3VtZW50c1xuICAgICAgICAgICAgPC9wPlxuICAgICAgICAgICl9XG4gICAgICAgIDwvZGl2PlxuICAgICAgKX1cblxuICAgICAgey8qIERvY3VtZW50IFR5cGUgSW5mb3JtYXRpb24gKi99XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cInAtNCBiZy13aGl0ZS81IGJvcmRlciBib3JkZXItd2hpdGUvMTAgcm91bmRlZC1sZ1wiPlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQteHMgZm9udC1zZW1pYm9sZCB0ZXh0LWdyYXktNDAwIG1iLTMgdXBwZXJjYXNlIHRyYWNraW5nLXdpZGVcIj5cbiAgICAgICAgICBEb2N1bWVudCBQeXJhbWlkIFN0cnVjdHVyZVxuICAgICAgICA8L2Rpdj5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJzcGFjZS15LTIgdGV4dC14cyB0ZXh0LWdyYXktNTAwXCI+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLXN0YXJ0IGdhcC0yXCI+XG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInctMiBoLTIgcm91bmRlZC1mdWxsIGJnLXRlYWwtNDAwIG10LTEuNSBmbGV4LXNocmluay0wXCIgLz5cbiAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRleHQtdGVhbC00MDAgZm9udC1tZWRpdW1cIj5Qb2xpY3k8L3NwYW4+IC0gRGVmaW5lcyBXSEFUIGFuZCBXSFkgKFRvcCBMZXZlbClcbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1zdGFydCBnYXAtMlwiPlxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ3LTIgaC0yIHJvdW5kZWQtZnVsbCBiZy1ibHVlLTQwMCBtdC0xLjUgZmxleC1zaHJpbmstMFwiIC8+XG4gICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LWJsdWUtNDAwIGZvbnQtbWVkaXVtXCI+UHJvY2VkdXJlPC9zcGFuPiAtIEV4cGxhaW5zIEhPVyAoSW1wbGVtZW50YXRpb24pXG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtc3RhcnQgZ2FwLTJcIj5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidy0yIGgtMiByb3VuZGVkLWZ1bGwgYmctcHVycGxlLTQwMCBtdC0xLjUgZmxleC1zaHJpbmstMFwiIC8+XG4gICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LXB1cnBsZS00MDAgZm9udC1tZWRpdW1cIj5Gb3JtL1RlbXBsYXRlPC9zcGFuPiAtIFJlY29yZHMgRVZJREVOQ0UgKERvY3VtZW50YXRpb24pXG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtc3RhcnQgZ2FwLTJcIj5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidy0yIGgtMiByb3VuZGVkLWZ1bGwgYmctYW1iZXItNDAwIG10LTEuNSBmbGV4LXNocmluay0wXCIgLz5cbiAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRleHQtYW1iZXItNDAwIGZvbnQtbWVkaXVtXCI+R3VpZGVsaW5lPC9zcGFuPiAtIFByb3ZpZGVzIENPTlRFWFQgKEJlc3QgUHJhY3RpY2VzKVxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvZGl2PlxuICAgICAgPC9kaXY+XG4gICAgPC9kaXY+XG4gICk7XG59XG4iXSwiZmlsZSI6Ii93b3Jrc3BhY2VzL2RlZmF1bHQvY29kZS9zcmMvYXBwL2NvbXBvbmVudHMvTGlua2VkRG9jdW1lbnRzUGFuZWwudHN4In0=

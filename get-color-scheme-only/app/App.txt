@@ -1,0 +1,55 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/app/App.tsx");import { jsxDEV } from "/@id/__x00__figma:react-jsx-dev-runtime";
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/workspaces/default/code/src/app/App.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+import { FGCmp } from "/@id/fginspector";
+import { RouterProvider } from "/node_modules/.vite/deps/react-router.js?v=d6d2548b";
+import { router } from "/src/app/routes.tsx";
+import { AppProvider } from "/src/app/contexts/AppContext.tsx";
+import { ErrorBoundary } from "/src/app/components/ErrorBoundary.tsx";
+export default function App() {
+  return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: ErrorBoundary, _fgS: "d3bl0", _fgB: 1779104379402, _fgD: true, "data-fg-d3bl0": "0.8:355.182:/src/app/App.tsx:9:5:282:120:e:ErrorBoundary:e:1::::Dnqp", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: AppProvider, _fgS: "d3bl1", _fgB: 1779104379402, "data-fg-d3bl1": "0.8:355.182:/src/app/App.tsx:10:7:304:77:e:AppProvider:e:::::BK69", children: /* @__PURE__ */ jsxDEV(RouterProvider, { router, "data-fg-d3bl2": "0.8:355.182:/src/app/App.tsx:11:9:326:34:e:RouterProvider::::::CE1n" }, void 0, false, {
+    fileName: "/workspaces/default/code/src/app/App.tsx",
+    lineNumber: 31,
+    columnNumber: 9
+  }, this) }, void 0, false, {
+    fileName: "/workspaces/default/code/src/app/App.tsx",
+    lineNumber: 30,
+    columnNumber: 7
+  }, this) }, void 0, false, {
+    fileName: "/workspaces/default/code/src/app/App.tsx",
+    lineNumber: 29,
+    columnNumber: 5
+  }, this);
+}
+_c = App;
+var _c;
+$RefreshReg$(_c, "App");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/workspaces/default/code/src/app/App.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/workspaces/default/code/src/app/App.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6IkFBVVE7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBVlIsU0FBU0Esc0JBQXNCO0FBQy9CLFNBQVNDLGNBQWM7QUFDdkIsU0FBU0MsbUJBQW1CO0FBQzVCLFNBQVNDLHFCQUFxQjtBQUc5Qix3QkFBd0JDLE1BQU07QUFDNUIsU0FDRSx1QkFBQyxlQUFBRCxlQUFBLHlJQUNDLGlDQUFDLGVBQUFELGFBQUEsMEhBQ0MsaUNBQUMsa0JBQWUsUUFBZSwwRkFBL0I7QUFBQTtBQUFBO0FBQUE7QUFBQSxTQUErQixLQURqQztBQUFBO0FBQUE7QUFBQTtBQUFBLFNBRUEsS0FIRjtBQUFBO0FBQUE7QUFBQTtBQUFBLFNBSUE7QUFFSjtBQUFBRyxLQVJ3QkQ7QUFBRyxJQUFBQztBQUFBQyxhQUFBRCxJQUFBIiwibmFtZXMiOlsiUm91dGVyUHJvdmlkZXIiLCJyb3V0ZXIiLCJBcHBQcm92aWRlciIsIkVycm9yQm91bmRhcnkiLCJBcHAiLCJfYyIsIiRSZWZyZXNoUmVnJCJdLCJpZ25vcmVMaXN0IjpbXSwic291cmNlcyI6WyJBcHAudHN4Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IFJvdXRlclByb3ZpZGVyIH0gZnJvbSAncmVhY3Qtcm91dGVyJztcbmltcG9ydCB7IHJvdXRlciB9IGZyb20gJy4vcm91dGVzJztcbmltcG9ydCB7IEFwcFByb3ZpZGVyIH0gZnJvbSAnLi9jb250ZXh0cy9BcHBDb250ZXh0JztcbmltcG9ydCB7IEVycm9yQm91bmRhcnkgfSBmcm9tICcuL2NvbXBvbmVudHMvRXJyb3JCb3VuZGFyeSc7XG5cbi8vIFBvbGljeU5lc3QgUGxhdGZvcm0gQWRtaW4gRGFzaGJvYXJkXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBBcHAoKSB7XG4gIHJldHVybiAoXG4gICAgPEVycm9yQm91bmRhcnk+XG4gICAgICA8QXBwUHJvdmlkZXI+XG4gICAgICAgIDxSb3V0ZXJQcm92aWRlciByb3V0ZXI9e3JvdXRlcn0gLz5cbiAgICAgIDwvQXBwUHJvdmlkZXI+XG4gICAgPC9FcnJvckJvdW5kYXJ5PlxuICApO1xufSJdLCJmaWxlIjoiL3dvcmtzcGFjZXMvZGVmYXVsdC9jb2RlL3NyYy9hcHAvQXBwLnRzeCJ9

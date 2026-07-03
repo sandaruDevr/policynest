@@ -1,0 +1,44 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/app/pages/compliance-manager/WebsiteCMS.tsx");import { jsxDEV } from "/@id/__x00__figma:react-jsx-dev-runtime";
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/workspaces/default/code/src/app/pages/compliance-manager/WebsiteCMS.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+import { FGCmp } from "/@id/fginspector";
+import OrgWebsiteCMS from "/src/app/pages/org-admin/WebsiteCMS.tsx";
+export default function ComplianceManagerWebsiteCMS() {
+  return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: OrgWebsiteCMS, _fgS: "ctpf0", _fgB: 1779104382161, _fgD: true, "data-fg-ctpf0": "418.249:418.225:/src/app/pages/compliance-manager/WebsiteCMS.tsx:5:10:204:17:e:OrgWebsiteCMS::1::::DehM" }, void 0, false, {
+    fileName: "/workspaces/default/code/src/app/pages/compliance-manager/WebsiteCMS.tsx",
+    lineNumber: 25,
+    columnNumber: 10
+  }, this);
+}
+_c = ComplianceManagerWebsiteCMS;
+var _c;
+$RefreshReg$(_c, "ComplianceManagerWebsiteCMS");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/workspaces/default/code/src/app/pages/compliance-manager/WebsiteCMS.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/workspaces/default/code/src/app/pages/compliance-manager/WebsiteCMS.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6IkFBSVM7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBSFQsT0FBT0EsbUJBQW1CO0FBRTFCLHdCQUF3QkMsOEJBQThCO0FBQ3BELFNBQU8sdUJBQUMsZUFBQUQsZUFBQSwwQ0FBYSxvSUFBZDtBQUFBO0FBQUE7QUFBQTtBQUFBLFNBQWM7QUFDdkI7QUFBQUUsS0FGd0JEO0FBQTJCLElBQUFDO0FBQUFDLGFBQUFELElBQUEiLCJuYW1lcyI6WyJPcmdXZWJzaXRlQ01TIiwiQ29tcGxpYW5jZU1hbmFnZXJXZWJzaXRlQ01TIiwiX2MiLCIkUmVmcmVzaFJlZyQiXSwiaWdub3JlTGlzdCI6W10sInNvdXJjZXMiOlsiV2Vic2l0ZUNNUy50c3giXSwic291cmNlc0NvbnRlbnQiOlsiLy8gV3JhcHBlciBmb3IgQ29tcGxpYW5jZSBNYW5hZ2VyIC0gcmV1c2VzIE9yZyBBZG1pbiBXZWJzaXRlIENNUyAobGltaXRlZC92aWV3LW9ubHkpXG5pbXBvcnQgT3JnV2Vic2l0ZUNNUyBmcm9tICcuLi9vcmctYWRtaW4vV2Vic2l0ZUNNUyc7XG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIENvbXBsaWFuY2VNYW5hZ2VyV2Vic2l0ZUNNUygpIHtcbiAgcmV0dXJuIDxPcmdXZWJzaXRlQ01TIC8+O1xufVxuIl0sImZpbGUiOiIvd29ya3NwYWNlcy9kZWZhdWx0L2NvZGUvc3JjL2FwcC9wYWdlcy9jb21wbGlhbmNlLW1hbmFnZXIvV2Vic2l0ZUNNUy50c3gifQ==

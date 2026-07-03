@@ -1,0 +1,601 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/app/pages/platform-admin/PlatformConfig.tsx");import { jsxDEV } from "/@id/__x00__figma:react-jsx-dev-runtime";
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+var _s = $RefreshSig$();
+import { FGCmp } from "/@id/fginspector";
+import { useState } from "/@id/__x00__figma:react-base";
+import { Settings, Save } from "/node_modules/.vite/deps/lucide-react.js?v=25293e4c";
+export default function PlatformConfig() {
+  _s();
+  const [config, setConfig] = useState({
+    timezone: "UTC",
+    language: "en",
+    dateFormat: "YYYY-MM-DD",
+    emailNotifications: true,
+    slackNotifications: false
+  });
+  const featureFlags = [
+    { id: "ai_assistant", name: "AI Assistant", enabled: true, description: "AI-powered policy generation" },
+    { id: "voice_interface", name: "Voice Interface", enabled: true, description: "Voice command support" },
+    { id: "advanced_analytics", name: "Advanced Analytics", enabled: false, description: "Enhanced reporting features" },
+    { id: "multi_language", name: "Multi-Language", enabled: true, description: "Translation support" },
+    { id: "api_v2", name: "API v2", enabled: false, description: "Next generation API" }
+  ];
+  return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dg9w0", _fgB: 1779104381130, _fgD: true, className: "space-y-6", "data-fg-dg9w0": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:22:5:887:8238:e:div:etxtetxtetxtetxtetxte:1", children: [
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dg9w1", _fgB: 1779104381130, className: "flex items-center justify-between", "data-fg-dg9w1": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:23:7:921:491:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dg9w2", _fgB: 1779104381130, "data-fg-dg9w2": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:24:9:981:179:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h1", _fgS: "dg9w3", _fgB: 1779104381130, className: "text-3xl font-bold text-white mb-2", "data-fg-dg9w3": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:25:11:997:71:e:h1:t", children: "Platform Config" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+          lineNumber: 45,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dg9w5", _fgB: 1779104381130, className: "text-gray-400", "data-fg-dg9w5": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:26:11:1079:66:e:p:t", children: "System settings and configuration" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+          lineNumber: 46,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+        lineNumber: 44,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "button", _fgS: "dg9w7", _fgB: 1779104381130, className: "px-4 py-2 bg-gradient-to-r from-teal-600 to-teal-500 text-white rounded-lg hover:shadow-lg transition-all flex items-center gap-2", "data-fg-dg9w7": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:28:9:1169:230:e:button:et", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Save, _fgS: "dg9w8", _fgB: 1779104381130, className: "w-4 h-4", "data-fg-dg9w8": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:29:11:1330:28:e:Save::::::cxn" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+          lineNumber: 49,
+          columnNumber: 11
+        }, this),
+        "Save Changes"
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+        lineNumber: 48,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+      lineNumber: 43,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dg9w11", _fgB: 1779104381130, className: "bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/10", "data-fg-dg9w11": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:35:7:1450:2293:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "dg9w12", _fgB: 1779104381130, className: "text-lg font-semibold text-white mb-4 flex items-center gap-2", "data-fg-dg9w12": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:36:9:1542:161:e:h3:et", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Settings, _fgS: "dg9w13", _fgB: 1779104381130, className: "w-5 h-5", "data-fg-dg9w13": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:37:11:1631:32:e:Settings::::::D4nh" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+          lineNumber: 57,
+          columnNumber: 11
+        }, this),
+        "System Settings"
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+        lineNumber: 56,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dg9w15", _fgB: 1779104381130, className: "grid grid-cols-1 md:grid-cols-2 gap-4", "data-fg-dg9w15": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:40:9:1712:2018:e:div:etete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dg9w16", _fgB: 1779104381130, "data-fg-dg9w16": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:41:11:1778:649:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "dg9w17", _fgB: 1779104381130, className: "block text-sm font-medium text-gray-300 mb-2", "data-fg-dg9w17": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:42:13:1796:88:e:label:t", children: "Default Timezone" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+            lineNumber: 62,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "select",
+              _fgS: "dg9w19",
+              _fgB: 1779104381130,
+              value: config.timezone,
+              onChange: (e) => setConfig({ ...config, timezone: e.target.value }),
+              className: "w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-teal-500/50",
+              "data-fg-dg9w19": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:43:13:1897:513:e:select:etetete",
+              children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "dg9w20", _fgB: 1779104381130, value: "UTC", "data-fg-dg9w20": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:48:15:2197:32:e:option:t", children: "UTC" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+                  lineNumber: 68,
+                  columnNumber: 15
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "dg9w22", _fgB: 1779104381130, value: "EST", "data-fg-dg9w22": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:49:15:2244:41:e:option:t", children: "Eastern Time" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+                  lineNumber: 69,
+                  columnNumber: 15
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "dg9w24", _fgB: 1779104381130, value: "PST", "data-fg-dg9w24": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:50:15:2300:41:e:option:t", children: "Pacific Time" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+                  lineNumber: 70,
+                  columnNumber: 15
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "dg9w26", _fgB: 1779104381130, value: "GMT", "data-fg-dg9w26": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:51:15:2356:32:e:option:t", children: "GMT" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+                  lineNumber: 71,
+                  columnNumber: 15
+                }, this)
+              ]
+            },
+            void 0,
+            true,
+            {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+              lineNumber: 63,
+              columnNumber: 13
+            },
+            this
+          )
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+          lineNumber: 61,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dg9w28", _fgB: 1779104381130, "data-fg-dg9w28": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:54:11:2438:641:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "dg9w29", _fgB: 1779104381130, className: "block text-sm font-medium text-gray-300 mb-2", "data-fg-dg9w29": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:55:13:2456:88:e:label:t", children: "Default Language" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+            lineNumber: 75,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "select",
+              _fgS: "dg9w31",
+              _fgB: 1779104381130,
+              value: config.language,
+              onChange: (e) => setConfig({ ...config, language: e.target.value }),
+              className: "w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-teal-500/50",
+              "data-fg-dg9w31": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:56:13:2557:505:e:select:etetete",
+              children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "dg9w32", _fgB: 1779104381130, value: "en", "data-fg-dg9w32": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:61:15:2857:35:e:option:t", children: "English" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+                  lineNumber: 81,
+                  columnNumber: 15
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "dg9w34", _fgB: 1779104381130, value: "es", "data-fg-dg9w34": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:62:15:2907:35:e:option:t", children: "Spanish" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+                  lineNumber: 82,
+                  columnNumber: 15
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "dg9w36", _fgB: 1779104381130, value: "fr", "data-fg-dg9w36": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:63:15:2957:34:e:option:t", children: "French" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+                  lineNumber: 83,
+                  columnNumber: 15
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "dg9w38", _fgB: 1779104381130, value: "de", "data-fg-dg9w38": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:64:15:3006:34:e:option:t", children: "German" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+                  lineNumber: 84,
+                  columnNumber: 15
+                }, this)
+              ]
+            },
+            void 0,
+            true,
+            {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+              lineNumber: 76,
+              columnNumber: 13
+            },
+            this
+          )
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+          lineNumber: 74,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dg9w40", _fgB: 1779104381130, "data-fg-dg9w40": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:67:11:3090:625:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "dg9w41", _fgB: 1779104381130, className: "block text-sm font-medium text-gray-300 mb-2", "data-fg-dg9w41": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:68:13:3108:83:e:label:t", children: "Date Format" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+            lineNumber: 88,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "select",
+              _fgS: "dg9w43",
+              _fgB: 1779104381130,
+              value: config.dateFormat,
+              onChange: (e) => setConfig({ ...config, dateFormat: e.target.value }),
+              className: "w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-teal-500/50",
+              "data-fg-dg9w43": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:69:13:3204:494:e:select:etete",
+              children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "dg9w44", _fgB: 1779104381130, value: "YYYY-MM-DD", "data-fg-dg9w44": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:74:15:3508:46:e:option:t", children: "YYYY-MM-DD" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+                  lineNumber: 94,
+                  columnNumber: 15
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "dg9w46", _fgB: 1779104381130, value: "MM/DD/YYYY", "data-fg-dg9w46": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:75:15:3569:46:e:option:t", children: "MM/DD/YYYY" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+                  lineNumber: 95,
+                  columnNumber: 15
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "dg9w48", _fgB: 1779104381130, value: "DD/MM/YYYY", "data-fg-dg9w48": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:76:15:3630:46:e:option:t", children: "DD/MM/YYYY" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+                  lineNumber: 96,
+                  columnNumber: 15
+                }, this)
+              ]
+            },
+            void 0,
+            true,
+            {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+              lineNumber: 89,
+              columnNumber: 13
+            },
+            this
+          )
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+          lineNumber: 87,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+        lineNumber: 60,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+      lineNumber: 55,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dg9w51", _fgB: 1779104381130, className: "bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/10", "data-fg-dg9w51": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:83:7:3787:1924:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "dg9w52", _fgB: 1779104381130, className: "text-lg font-semibold text-white mb-4", "data-fg-dg9w52": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:84:9:3879:80:e:h3:t", children: "Notification Settings" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+        lineNumber: 104,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dg9w54", _fgB: 1779104381130, className: "space-y-4", "data-fg-dg9w54": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:85:9:3968:1730:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dg9w55", _fgB: 1779104381130, className: "flex items-center justify-between p-4 bg-white/5 rounded-lg", "data-fg-dg9w55": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:86:11:4006:833:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dg9w56", _fgB: 1779104381130, "data-fg-dg9w56": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:87:13:4096:191:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h4", _fgS: "dg9w57", _fgB: 1779104381130, className: "text-white font-medium mb-1", "data-fg-dg9w57": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:88:15:4116:68:e:h4:t", children: "Email Notifications" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+              lineNumber: 108,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dg9w59", _fgB: 1779104381130, className: "text-sm text-gray-400", "data-fg-dg9w59": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:89:15:4199:69:e:p:t", children: "Send system alerts via email" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+              lineNumber: 109,
+              columnNumber: 15
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+            lineNumber: 107,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "button",
+              _fgS: "dg9w61",
+              _fgB: 1779104381130,
+              onClick: () => setConfig({ ...config, emailNotifications: !config.emailNotifications }),
+              className: `w-12 h-6 rounded-full transition-all ${config.emailNotifications ? "bg-teal-500" : "bg-gray-600"}`,
+              "data-fg-dg9w61": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:91:13:4300:522:e:button:e",
+              children: /* @__PURE__ */ jsxDEV(
+                FGCmp,
+                {
+                  _fgT: "div",
+                  _fgS: "dg9w62",
+                  _fgB: 1779104381130,
+                  className: `w-5 h-5 bg-white rounded-full transition-transform ${config.emailNotifications ? "translate-x-6" : "translate-x-1"}`,
+                  "data-fg-dg9w62": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:97:15:4597:203:e:div"
+                },
+                void 0,
+                false,
+                {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+                  lineNumber: 117,
+                  columnNumber: 15
+                },
+                this
+              )
+            },
+            void 0,
+            false,
+            {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+              lineNumber: 111,
+              columnNumber: 13
+            },
+            this
+          )
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+          lineNumber: 106,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dg9w63", _fgB: 1779104381130, className: "flex items-center justify-between p-4 bg-white/5 rounded-lg", "data-fg-dg9w63": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:104:11:4850:833:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dg9w64", _fgB: 1779104381130, "data-fg-dg9w64": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:105:13:4940:191:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h4", _fgS: "dg9w65", _fgB: 1779104381130, className: "text-white font-medium mb-1", "data-fg-dg9w65": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:106:15:4960:68:e:h4:t", children: "Slack Notifications" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+              lineNumber: 126,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dg9w67", _fgB: 1779104381130, className: "text-sm text-gray-400", "data-fg-dg9w67": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:107:15:5043:69:e:p:t", children: "Send alerts to Slack channel" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+              lineNumber: 127,
+              columnNumber: 15
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+            lineNumber: 125,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "button",
+              _fgS: "dg9w69",
+              _fgB: 1779104381130,
+              onClick: () => setConfig({ ...config, slackNotifications: !config.slackNotifications }),
+              className: `w-12 h-6 rounded-full transition-all ${config.slackNotifications ? "bg-teal-500" : "bg-gray-600"}`,
+              "data-fg-dg9w69": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:109:13:5144:522:e:button:e",
+              children: /* @__PURE__ */ jsxDEV(
+                FGCmp,
+                {
+                  _fgT: "div",
+                  _fgS: "dg9w70",
+                  _fgB: 1779104381130,
+                  className: `w-5 h-5 bg-white rounded-full transition-transform ${config.slackNotifications ? "translate-x-6" : "translate-x-1"}`,
+                  "data-fg-dg9w70": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:115:15:5441:203:e:div"
+                },
+                void 0,
+                false,
+                {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+                  lineNumber: 135,
+                  columnNumber: 15
+                },
+                this
+              )
+            },
+            void 0,
+            false,
+            {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+              lineNumber: 129,
+              columnNumber: 13
+            },
+            this
+          )
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+          lineNumber: 124,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+        lineNumber: 105,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+      lineNumber: 103,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dg9w72", _fgB: 1779104381130, className: "bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/10", "data-fg-dg9w72": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:126:7:5756:762:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "dg9w73", _fgB: 1779104381130, className: "text-lg font-semibold text-white mb-4", "data-fg-dg9w73": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:127:9:5848:81:e:h3:t", children: "Notification Templates" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+        lineNumber: 147,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dg9w75", _fgB: 1779104381130, className: "space-y-2", "data-fg-dg9w75": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:128:9:5938:567:e:div:x", children: ["Welcome Email", "Password Reset", "Policy Update", "System Alert"].map(
+        (template) => /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dg9w77", _fgB: 1779104381130, className: "p-3 bg-white/5 rounded-lg flex items-center justify-between hover:bg-white/10 transition-all", "data-fg-dg9w77": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:130:13:6078:398:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "dg9w78", _fgB: 1779104381130, className: "text-white", "data-fg-dg9w78": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:131:15:6218:46:e:span:x", children: template }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+            lineNumber: 151,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "button", _fgS: "dg9w80", _fgB: 1779104381130, className: "px-3 py-1 bg-white/5 border border-white/10 text-white rounded text-sm hover:bg-white/10 transition-all", "data-fg-dg9w80": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:132:15:6279:178:e:button:t", children: "Edit Template" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+            lineNumber: 152,
+            columnNumber: 15
+          }, this)
+        ] }, template, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+          lineNumber: 150,
+          columnNumber: 11
+        }, this)
+      ) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+        lineNumber: 148,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+      lineNumber: 146,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dg9w83", _fgB: 1779104381130, className: "bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/10", "data-fg-dg9w83": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:141:7:6554:1046:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "dg9w84", _fgB: 1779104381130, className: "text-lg font-semibold text-white mb-4", "data-fg-dg9w84": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:142:9:6646:72:e:h3:t", children: "Feature Flags" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+        lineNumber: 162,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dg9w86", _fgB: 1779104381130, className: "space-y-3", "data-fg-dg9w86": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:143:9:6727:860:e:div:x", children: featureFlags.map(
+        (flag) => /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dg9w88", _fgB: 1779104381130, className: "p-4 bg-white/5 rounded-lg flex items-center justify-between", "data-fg-dg9w88": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:145:13:6807:751:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dg9w89", _fgB: 1779104381130, className: "flex-1", "data-fg-dg9w89": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:146:15:6913:198:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h4", _fgS: "dg9w90", _fgB: 1779104381130, className: "text-white font-medium mb-1", "data-fg-dg9w90": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:147:17:6954:60:e:h4:x", children: flag.name }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+              lineNumber: 167,
+              columnNumber: 17
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dg9w92", _fgB: 1779104381130, className: "text-sm text-gray-400", "data-fg-dg9w92": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:148:17:7031:59:e:p:x", children: flag.description }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+              lineNumber: 168,
+              columnNumber: 17
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+            lineNumber: 166,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "button",
+              _fgS: "dg9w94",
+              _fgB: 1779104381130,
+              className: `w-12 h-6 rounded-full transition-all ${flag.enabled ? "bg-teal-500" : "bg-gray-600"}`,
+              "data-fg-dg9w94": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:150:15:7126:413:e:button:e",
+              children: /* @__PURE__ */ jsxDEV(
+                FGCmp,
+                {
+                  _fgT: "div",
+                  _fgS: "dg9w95",
+                  _fgB: 1779104381130,
+                  className: `w-5 h-5 bg-white rounded-full transition-transform ${flag.enabled ? "translate-x-6" : "translate-x-1"}`,
+                  "data-fg-dg9w95": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:155:17:7317:198:e:div"
+                },
+                void 0,
+                false,
+                {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+                  lineNumber: 175,
+                  columnNumber: 17
+                },
+                this
+              )
+            },
+            void 0,
+            false,
+            {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+              lineNumber: 170,
+              columnNumber: 15
+            },
+            this
+          )
+        ] }, flag.id, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+          lineNumber: 165,
+          columnNumber: 11
+        }, this)
+      ) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+        lineNumber: 163,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+      lineNumber: 161,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dg9w97", _fgB: 1779104381130, className: "bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/10", "data-fg-dg9w97": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:167:7:7631:1483:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dg9w98", _fgB: 1779104381130, className: "flex items-center justify-between mb-4", "data-fg-dg9w98": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:168:9:7723:328:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "dg9w99", _fgB: 1779104381130, className: "text-lg font-semibold text-white", "data-fg-dg9w99": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:169:11:7790:62:e:h3:t", children: "API Keys" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+          lineNumber: 189,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "button", _fgS: "dg9w101", _fgB: 1779104381130, className: "px-3 py-1 bg-white/5 border border-white/10 text-white rounded text-sm hover:bg-white/10 transition-all", "data-fg-dg9w101": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:170:11:7863:173:e:button:t", children: "Generate New Key" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+          lineNumber: 190,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+        lineNumber: 188,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dg9w103", _fgB: 1779104381130, className: "space-y-2", "data-fg-dg9w103": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:174:9:8060:1041:e:div:x", children: [
+        { name: "Production API", key: "pk_live_***************", created: "2025-01-15" },
+        { name: "Development API", key: "pk_dev_***************", created: "2025-02-10" }
+      ].map(
+        (api, i) => /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dg9w105", _fgB: 1779104381130, className: "p-3 bg-white/5 rounded-lg", "data-fg-dg9w105": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:179:13:8333:739:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dg9w106", _fgB: 1779104381130, className: "flex items-center justify-between mb-1", "data-fg-dg9w106": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:180:15:8399:408:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "dg9w107", _fgB: 1779104381130, className: "text-white font-medium", "data-fg-dg9w107": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:181:17:8472:58:e:span:x", children: api.name }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+              lineNumber: 201,
+              columnNumber: 17
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dg9w109", _fgB: 1779104381130, className: "flex gap-2", "data-fg-dg9w109": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:182:17:8547:239:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "button", _fgS: "dg9w110", _fgB: 1779104381130, className: "text-xs text-teal-500 hover:text-teal-400", "data-fg-dg9w110": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:183:19:8594:75:e:button:t", children: "Copy" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+                lineNumber: 203,
+                columnNumber: 19
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "button", _fgS: "dg9w112", _fgB: 1779104381130, className: "text-xs text-red-500 hover:text-red-400", "data-fg-dg9w112": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:184:19:8688:75:e:button:t", children: "Revoke" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+                lineNumber: 204,
+                columnNumber: 19
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+              lineNumber: 202,
+              columnNumber: 17
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+            lineNumber: 200,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dg9w114", _fgB: 1779104381130, className: "flex items-center justify-between", "data-fg-dg9w114": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:187:15:8822:231:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "code", _fgS: "dg9w115", _fgB: 1779104381130, className: "text-xs text-gray-400", "data-fg-dg9w115": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:188:17:8890:56:e:code:x", children: api.key }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+              lineNumber: 208,
+              columnNumber: 17
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "dg9w117", _fgB: 1779104381130, className: "text-xs text-gray-500", "data-fg-dg9w117": "418.275:418.9133:/src/app/pages/platform-admin/PlatformConfig.tsx:189:17:8963:69:e:span:tx", children: [
+              "Created: ",
+              api.created
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+              lineNumber: 209,
+              columnNumber: 17
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+            lineNumber: 207,
+            columnNumber: 15
+          }, this)
+        ] }, i, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+          lineNumber: 199,
+          columnNumber: 11
+        }, this)
+      ) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+        lineNumber: 194,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+      lineNumber: 187,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx",
+    lineNumber: 42,
+    columnNumber: 5
+  }, this);
+}
+_s(PlatformConfig, "vQTvHrzsPfsQDYT2bjRf/Ka5aU0=");
+_c = PlatformConfig;
+var _c;
+$RefreshReg$(_c, "PlatformConfig");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/workspaces/default/code/src/app/pages/platform-admin/PlatformConfig.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,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QUFVLHlCQUFzQixpSEFBRTtBQUFBO0FBQUEsY0FBVUUsSUFBSUQ7QUFBQUEsaUJBQXREO0FBQUE7QUFBQTtBQUFBO0FBQUEsbUJBQThEO0FBQUEsZUFGaEU7QUFBQTtBQUFBO0FBQUE7QUFBQSxpQkFHQTtBQUFBLGFBWFFFLEdBQVY7QUFBQTtBQUFBO0FBQUE7QUFBQSxlQVlBO0FBQUEsTUFDRCxLQWxCSDtBQUFBO0FBQUE7QUFBQTtBQUFBLGFBbUJBO0FBQUEsU0ExQkY7QUFBQTtBQUFBO0FBQUE7QUFBQSxXQTJCQTtBQUFBLE9BNUtGO0FBQUE7QUFBQTtBQUFBO0FBQUEsU0E2S0E7QUFFSjtBQUFBdEIsR0FqTXdCRCxnQkFBYztBQUFBd0IsS0FBZHhCO0FBQWMsSUFBQXdCO0FBQUFDLGFBQUFELElBQUEiLCJuYW1lcyI6WyJ1c2VTdGF0ZSIsIlNldHRpbmdzIiwiU2F2ZSIsIlBsYXRmb3JtQ29uZmlnIiwiX3MiLCJjb25maWciLCJzZXRDb25maWciLCJ0aW1lem9uZSIsImxhbmd1YWdlIiwiZGF0ZUZvcm1hdCIsImVtYWlsTm90aWZpY2F0aW9ucyIsInNsYWNrTm90aWZpY2F0aW9ucyIsImZlYXR1cmVGbGFncyIsImlkIiwibmFtZSIsImVuYWJsZWQiLCJkZXNjcmlwdGlvbiIsImUiLCJ0YXJnZXQiLCJ2YWx1ZSIsIm1hcCIsInRlbXBsYXRlIiwiZmxhZyIsImtleSIsImNyZWF0ZWQiLCJhcGkiLCJpIiwiX2MiLCIkUmVmcmVzaFJlZyQiXSwiaWdub3JlTGlzdCI6W10sInNvdXJjZXMiOlsiUGxhdGZvcm1Db25maWcudHN4Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IHVzZVN0YXRlIH0gZnJvbSAncmVhY3QnO1xuaW1wb3J0IHsgU2V0dGluZ3MsIFNhdmUgfSBmcm9tICdsdWNpZGUtcmVhY3QnO1xuXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBQbGF0Zm9ybUNvbmZpZygpIHtcbiAgY29uc3QgW2NvbmZpZywgc2V0Q29uZmlnXSA9IHVzZVN0YXRlKHtcbiAgICB0aW1lem9uZTogJ1VUQycsXG4gICAgbGFuZ3VhZ2U6ICdlbicsXG4gICAgZGF0ZUZvcm1hdDogJ1lZWVktTU0tREQnLFxuICAgIGVtYWlsTm90aWZpY2F0aW9uczogdHJ1ZSxcbiAgICBzbGFja05vdGlmaWNhdGlvbnM6IGZhbHNlLFxuICB9KTtcblxuICBjb25zdCBmZWF0dXJlRmxhZ3MgPSBbXG4gICAgeyBpZDogJ2FpX2Fzc2lzdGFudCcsIG5hbWU6ICdBSSBBc3Npc3RhbnQnLCBlbmFibGVkOiB0cnVlLCBkZXNjcmlwdGlvbjogJ0FJLXBvd2VyZWQgcG9saWN5IGdlbmVyYXRpb24nIH0sXG4gICAgeyBpZDogJ3ZvaWNlX2ludGVyZmFjZScsIG5hbWU6ICdWb2ljZSBJbnRlcmZhY2UnLCBlbmFibGVkOiB0cnVlLCBkZXNjcmlwdGlvbjogJ1ZvaWNlIGNvbW1hbmQgc3VwcG9ydCcgfSxcbiAgICB7IGlkOiAnYWR2YW5jZWRfYW5hbHl0aWNzJywgbmFtZTogJ0FkdmFuY2VkIEFuYWx5dGljcycsIGVuYWJsZWQ6IGZhbHNlLCBkZXNjcmlwdGlvbjogJ0VuaGFuY2VkIHJlcG9ydGluZyBmZWF0dXJlcycgfSxcbiAgICB7IGlkOiAnbXVsdGlfbGFuZ3VhZ2UnLCBuYW1lOiAnTXVsdGktTGFuZ3VhZ2UnLCBlbmFibGVkOiB0cnVlLCBkZXNjcmlwdGlvbjogJ1RyYW5zbGF0aW9uIHN1cHBvcnQnIH0sXG4gICAgeyBpZDogJ2FwaV92MicsIG5hbWU6ICdBUEkgdjInLCBlbmFibGVkOiBmYWxzZSwgZGVzY3JpcHRpb246ICdOZXh0IGdlbmVyYXRpb24gQVBJJyB9LFxuICBdO1xuXG4gIHJldHVybiAoXG4gICAgPGRpdiBjbGFzc05hbWU9XCJzcGFjZS15LTZcIj5cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuXCI+XG4gICAgICAgIDxkaXY+XG4gICAgICAgICAgPGgxIGNsYXNzTmFtZT1cInRleHQtM3hsIGZvbnQtYm9sZCB0ZXh0LXdoaXRlIG1iLTJcIj5QbGF0Zm9ybSBDb25maWc8L2gxPlxuICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtZ3JheS00MDBcIj5TeXN0ZW0gc2V0dGluZ3MgYW5kIGNvbmZpZ3VyYXRpb248L3A+XG4gICAgICAgIDwvZGl2PlxuICAgICAgICA8YnV0dG9uIGNsYXNzTmFtZT1cInB4LTQgcHktMiBiZy1ncmFkaWVudC10by1yIGZyb20tdGVhbC02MDAgdG8tdGVhbC01MDAgdGV4dC13aGl0ZSByb3VuZGVkLWxnIGhvdmVyOnNoYWRvdy1sZyB0cmFuc2l0aW9uLWFsbCBmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMlwiPlxuICAgICAgICAgIDxTYXZlIGNsYXNzTmFtZT1cInctNCBoLTRcIiAvPlxuICAgICAgICAgIFNhdmUgQ2hhbmdlc1xuICAgICAgICA8L2J1dHRvbj5cbiAgICAgIDwvZGl2PlxuXG4gICAgICB7LyogU3lzdGVtIFNldHRpbmdzICovfVxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJiZy13aGl0ZS81IGJhY2tkcm9wLWJsdXItbGcgcm91bmRlZC14bCBwLTYgYm9yZGVyIGJvcmRlci13aGl0ZS8xMFwiPlxuICAgICAgICA8aDMgY2xhc3NOYW1lPVwidGV4dC1sZyBmb250LXNlbWlib2xkIHRleHQtd2hpdGUgbWItNCBmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMlwiPlxuICAgICAgICAgIDxTZXR0aW5ncyBjbGFzc05hbWU9XCJ3LTUgaC01XCIgLz5cbiAgICAgICAgICBTeXN0ZW0gU2V0dGluZ3NcbiAgICAgICAgPC9oMz5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJncmlkIGdyaWQtY29scy0xIG1kOmdyaWQtY29scy0yIGdhcC00XCI+XG4gICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgIDxsYWJlbCBjbGFzc05hbWU9XCJibG9jayB0ZXh0LXNtIGZvbnQtbWVkaXVtIHRleHQtZ3JheS0zMDAgbWItMlwiPkRlZmF1bHQgVGltZXpvbmU8L2xhYmVsPlxuICAgICAgICAgICAgPHNlbGVjdFxuICAgICAgICAgICAgICB2YWx1ZT17Y29uZmlnLnRpbWV6b25lfVxuICAgICAgICAgICAgICBvbkNoYW5nZT17KGUpID0+IHNldENvbmZpZyh7IC4uLmNvbmZpZywgdGltZXpvbmU6IGUudGFyZ2V0LnZhbHVlIH0pfVxuICAgICAgICAgICAgICBjbGFzc05hbWU9XCJ3LWZ1bGwgcHgtNCBweS0yIGJnLXdoaXRlLzUgYm9yZGVyIGJvcmRlci13aGl0ZS8xMCByb3VuZGVkLWxnIHRleHQtd2hpdGUgZm9jdXM6b3V0bGluZS1ub25lIGZvY3VzOmJvcmRlci10ZWFsLTUwMC81MFwiXG4gICAgICAgICAgICA+XG4gICAgICAgICAgICAgIDxvcHRpb24gdmFsdWU9XCJVVENcIj5VVEM8L29wdGlvbj5cbiAgICAgICAgICAgICAgPG9wdGlvbiB2YWx1ZT1cIkVTVFwiPkVhc3Rlcm4gVGltZTwvb3B0aW9uPlxuICAgICAgICAgICAgICA8b3B0aW9uIHZhbHVlPVwiUFNUXCI+UGFjaWZpYyBUaW1lPC9vcHRpb24+XG4gICAgICAgICAgICAgIDxvcHRpb24gdmFsdWU9XCJHTVRcIj5HTVQ8L29wdGlvbj5cbiAgICAgICAgICAgIDwvc2VsZWN0PlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICA8bGFiZWwgY2xhc3NOYW1lPVwiYmxvY2sgdGV4dC1zbSBmb250LW1lZGl1bSB0ZXh0LWdyYXktMzAwIG1iLTJcIj5EZWZhdWx0IExhbmd1YWdlPC9sYWJlbD5cbiAgICAgICAgICAgIDxzZWxlY3RcbiAgICAgICAgICAgICAgdmFsdWU9e2NvbmZpZy5sYW5ndWFnZX1cbiAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXRDb25maWcoeyAuLi5jb25maWcsIGxhbmd1YWdlOiBlLnRhcmdldC52YWx1ZSB9KX1cbiAgICAgICAgICAgICAgY2xhc3NOYW1lPVwidy1mdWxsIHB4LTQgcHktMiBiZy13aGl0ZS81IGJvcmRlciBib3JkZXItd2hpdGUvMTAgcm91bmRlZC1sZyB0ZXh0LXdoaXRlIGZvY3VzOm91dGxpbmUtbm9uZSBmb2N1czpib3JkZXItdGVhbC01MDAvNTBcIlxuICAgICAgICAgICAgPlxuICAgICAgICAgICAgICA8b3B0aW9uIHZhbHVlPVwiZW5cIj5FbmdsaXNoPC9vcHRpb24+XG4gICAgICAgICAgICAgIDxvcHRpb24gdmFsdWU9XCJlc1wiPlNwYW5pc2g8L29wdGlvbj5cbiAgICAgICAgICAgICAgPG9wdGlvbiB2YWx1ZT1cImZyXCI+RnJlbmNoPC9vcHRpb24+XG4gICAgICAgICAgICAgIDxvcHRpb24gdmFsdWU9XCJkZVwiPkdlcm1hbjwvb3B0aW9uPlxuICAgICAgICAgICAgPC9zZWxlY3Q+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgIDxsYWJlbCBjbGFzc05hbWU9XCJibG9jayB0ZXh0LXNtIGZvbnQtbWVkaXVtIHRleHQtZ3JheS0zMDAgbWItMlwiPkRhdGUgRm9ybWF0PC9sYWJlbD5cbiAgICAgICAgICAgIDxzZWxlY3RcbiAgICAgICAgICAgICAgdmFsdWU9e2NvbmZpZy5kYXRlRm9ybWF0fVxuICAgICAgICAgICAgICBvbkNoYW5nZT17KGUpID0+IHNldENvbmZpZyh7IC4uLmNvbmZpZywgZGF0ZUZvcm1hdDogZS50YXJnZXQudmFsdWUgfSl9XG4gICAgICAgICAgICAgIGNsYXNzTmFtZT1cInctZnVsbCBweC00IHB5LTIgYmctd2hpdGUvNSBib3JkZXIgYm9yZGVyLXdoaXRlLzEwIHJvdW5kZWQtbGcgdGV4dC13aGl0ZSBmb2N1czpvdXRsaW5lLW5vbmUgZm9jdXM6Ym9yZGVyLXRlYWwtNTAwLzUwXCJcbiAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgPG9wdGlvbiB2YWx1ZT1cIllZWVktTU0tRERcIj5ZWVlZLU1NLUREPC9vcHRpb24+XG4gICAgICAgICAgICAgIDxvcHRpb24gdmFsdWU9XCJNTS9ERC9ZWVlZXCI+TU0vREQvWVlZWTwvb3B0aW9uPlxuICAgICAgICAgICAgICA8b3B0aW9uIHZhbHVlPVwiREQvTU0vWVlZWVwiPkREL01NL1lZWVk8L29wdGlvbj5cbiAgICAgICAgICAgIDwvc2VsZWN0PlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICA8L2Rpdj5cbiAgICAgIDwvZGl2PlxuXG4gICAgICB7LyogTm90aWZpY2F0aW9uIFNldHRpbmdzICovfVxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJiZy13aGl0ZS81IGJhY2tkcm9wLWJsdXItbGcgcm91bmRlZC14bCBwLTYgYm9yZGVyIGJvcmRlci13aGl0ZS8xMFwiPlxuICAgICAgICA8aDMgY2xhc3NOYW1lPVwidGV4dC1sZyBmb250LXNlbWlib2xkIHRleHQtd2hpdGUgbWItNFwiPk5vdGlmaWNhdGlvbiBTZXR0aW5nczwvaDM+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwic3BhY2UteS00XCI+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW4gcC00IGJnLXdoaXRlLzUgcm91bmRlZC1sZ1wiPlxuICAgICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgICAgPGg0IGNsYXNzTmFtZT1cInRleHQtd2hpdGUgZm9udC1tZWRpdW0gbWItMVwiPkVtYWlsIE5vdGlmaWNhdGlvbnM8L2g0PlxuICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LXNtIHRleHQtZ3JheS00MDBcIj5TZW5kIHN5c3RlbSBhbGVydHMgdmlhIGVtYWlsPC9wPlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICA8YnV0dG9uXG4gICAgICAgICAgICAgIG9uQ2xpY2s9eygpID0+IHNldENvbmZpZyh7IC4uLmNvbmZpZywgZW1haWxOb3RpZmljYXRpb25zOiAhY29uZmlnLmVtYWlsTm90aWZpY2F0aW9ucyB9KX1cbiAgICAgICAgICAgICAgY2xhc3NOYW1lPXtgdy0xMiBoLTYgcm91bmRlZC1mdWxsIHRyYW5zaXRpb24tYWxsICR7XG4gICAgICAgICAgICAgICAgY29uZmlnLmVtYWlsTm90aWZpY2F0aW9ucyA/ICdiZy10ZWFsLTUwMCcgOiAnYmctZ3JheS02MDAnXG4gICAgICAgICAgICAgIH1gfVxuICAgICAgICAgICAgPlxuICAgICAgICAgICAgICA8ZGl2XG4gICAgICAgICAgICAgICAgY2xhc3NOYW1lPXtgdy01IGgtNSBiZy13aGl0ZSByb3VuZGVkLWZ1bGwgdHJhbnNpdGlvbi10cmFuc2Zvcm0gJHtcbiAgICAgICAgICAgICAgICAgIGNvbmZpZy5lbWFpbE5vdGlmaWNhdGlvbnMgPyAndHJhbnNsYXRlLXgtNicgOiAndHJhbnNsYXRlLXgtMSdcbiAgICAgICAgICAgICAgICB9YH1cbiAgICAgICAgICAgICAgLz5cbiAgICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuIHAtNCBiZy13aGl0ZS81IHJvdW5kZWQtbGdcIj5cbiAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgIDxoNCBjbGFzc05hbWU9XCJ0ZXh0LXdoaXRlIGZvbnQtbWVkaXVtIG1iLTFcIj5TbGFjayBOb3RpZmljYXRpb25zPC9oND5cbiAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC1zbSB0ZXh0LWdyYXktNDAwXCI+U2VuZCBhbGVydHMgdG8gU2xhY2sgY2hhbm5lbDwvcD5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPGJ1dHRvblxuICAgICAgICAgICAgICBvbkNsaWNrPXsoKSA9PiBzZXRDb25maWcoeyAuLi5jb25maWcsIHNsYWNrTm90aWZpY2F0aW9uczogIWNvbmZpZy5zbGFja05vdGlmaWNhdGlvbnMgfSl9XG4gICAgICAgICAgICAgIGNsYXNzTmFtZT17YHctMTIgaC02IHJvdW5kZWQtZnVsbCB0cmFuc2l0aW9uLWFsbCAke1xuICAgICAgICAgICAgICAgIGNvbmZpZy5zbGFja05vdGlmaWNhdGlvbnMgPyAnYmctdGVhbC01MDAnIDogJ2JnLWdyYXktNjAwJ1xuICAgICAgICAgICAgICB9YH1cbiAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgPGRpdlxuICAgICAgICAgICAgICAgIGNsYXNzTmFtZT17YHctNSBoLTUgYmctd2hpdGUgcm91bmRlZC1mdWxsIHRyYW5zaXRpb24tdHJhbnNmb3JtICR7XG4gICAgICAgICAgICAgICAgICBjb25maWcuc2xhY2tOb3RpZmljYXRpb25zID8gJ3RyYW5zbGF0ZS14LTYnIDogJ3RyYW5zbGF0ZS14LTEnXG4gICAgICAgICAgICAgICAgfWB9XG4gICAgICAgICAgICAgIC8+XG4gICAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgPC9kaXY+XG4gICAgICA8L2Rpdj5cblxuICAgICAgey8qIE5vdGlmaWNhdGlvbiBUZW1wbGF0ZXMgKi99XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLXdoaXRlLzUgYmFja2Ryb3AtYmx1ci1sZyByb3VuZGVkLXhsIHAtNiBib3JkZXIgYm9yZGVyLXdoaXRlLzEwXCI+XG4gICAgICAgIDxoMyBjbGFzc05hbWU9XCJ0ZXh0LWxnIGZvbnQtc2VtaWJvbGQgdGV4dC13aGl0ZSBtYi00XCI+Tm90aWZpY2F0aW9uIFRlbXBsYXRlczwvaDM+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwic3BhY2UteS0yXCI+XG4gICAgICAgICAge1snV2VsY29tZSBFbWFpbCcsICdQYXNzd29yZCBSZXNldCcsICdQb2xpY3kgVXBkYXRlJywgJ1N5c3RlbSBBbGVydCddLm1hcCgodGVtcGxhdGUpID0+IChcbiAgICAgICAgICAgIDxkaXYga2V5PXt0ZW1wbGF0ZX0gY2xhc3NOYW1lPVwicC0zIGJnLXdoaXRlLzUgcm91bmRlZC1sZyBmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW4gaG92ZXI6Ymctd2hpdGUvMTAgdHJhbnNpdGlvbi1hbGxcIj5cbiAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwidGV4dC13aGl0ZVwiPnt0ZW1wbGF0ZX08L3NwYW4+XG4gICAgICAgICAgICAgIDxidXR0b24gY2xhc3NOYW1lPVwicHgtMyBweS0xIGJnLXdoaXRlLzUgYm9yZGVyIGJvcmRlci13aGl0ZS8xMCB0ZXh0LXdoaXRlIHJvdW5kZWQgdGV4dC1zbSBob3ZlcjpiZy13aGl0ZS8xMCB0cmFuc2l0aW9uLWFsbFwiPlxuICAgICAgICAgICAgICAgIEVkaXQgVGVtcGxhdGVcbiAgICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICApKX1cbiAgICAgICAgPC9kaXY+XG4gICAgICA8L2Rpdj5cblxuICAgICAgey8qIEZlYXR1cmUgRmxhZ3MgKi99XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLXdoaXRlLzUgYmFja2Ryb3AtYmx1ci1sZyByb3VuZGVkLXhsIHAtNiBib3JkZXIgYm9yZGVyLXdoaXRlLzEwXCI+XG4gICAgICAgIDxoMyBjbGFzc05hbWU9XCJ0ZXh0LWxnIGZvbnQtc2VtaWJvbGQgdGV4dC13aGl0ZSBtYi00XCI+RmVhdHVyZSBGbGFnczwvaDM+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwic3BhY2UteS0zXCI+XG4gICAgICAgICAge2ZlYXR1cmVGbGFncy5tYXAoKGZsYWcpID0+IChcbiAgICAgICAgICAgIDxkaXYga2V5PXtmbGFnLmlkfSBjbGFzc05hbWU9XCJwLTQgYmctd2hpdGUvNSByb3VuZGVkLWxnIGZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlblwiPlxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXgtMVwiPlxuICAgICAgICAgICAgICAgIDxoNCBjbGFzc05hbWU9XCJ0ZXh0LXdoaXRlIGZvbnQtbWVkaXVtIG1iLTFcIj57ZmxhZy5uYW1lfTwvaDQ+XG4gICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC1zbSB0ZXh0LWdyYXktNDAwXCI+e2ZsYWcuZGVzY3JpcHRpb259PC9wPlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgPGJ1dHRvblxuICAgICAgICAgICAgICAgIGNsYXNzTmFtZT17YHctMTIgaC02IHJvdW5kZWQtZnVsbCB0cmFuc2l0aW9uLWFsbCAke1xuICAgICAgICAgICAgICAgICAgZmxhZy5lbmFibGVkID8gJ2JnLXRlYWwtNTAwJyA6ICdiZy1ncmF5LTYwMCdcbiAgICAgICAgICAgICAgICB9YH1cbiAgICAgICAgICAgICAgPlxuICAgICAgICAgICAgICAgIDxkaXZcbiAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT17YHctNSBoLTUgYmctd2hpdGUgcm91bmRlZC1mdWxsIHRyYW5zaXRpb24tdHJhbnNmb3JtICR7XG4gICAgICAgICAgICAgICAgICAgIGZsYWcuZW5hYmxlZCA/ICd0cmFuc2xhdGUteC02JyA6ICd0cmFuc2xhdGUteC0xJ1xuICAgICAgICAgICAgICAgICAgfWB9XG4gICAgICAgICAgICAgICAgLz5cbiAgICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICApKX1cbiAgICAgICAgPC9kaXY+XG4gICAgICA8L2Rpdj5cblxuICAgICAgey8qIEFQSSBLZXlzICovfVxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJiZy13aGl0ZS81IGJhY2tkcm9wLWJsdXItbGcgcm91bmRlZC14bCBwLTYgYm9yZGVyIGJvcmRlci13aGl0ZS8xMFwiPlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlbiBtYi00XCI+XG4gICAgICAgICAgPGgzIGNsYXNzTmFtZT1cInRleHQtbGcgZm9udC1zZW1pYm9sZCB0ZXh0LXdoaXRlXCI+QVBJIEtleXM8L2gzPlxuICAgICAgICAgIDxidXR0b24gY2xhc3NOYW1lPVwicHgtMyBweS0xIGJnLXdoaXRlLzUgYm9yZGVyIGJvcmRlci13aGl0ZS8xMCB0ZXh0LXdoaXRlIHJvdW5kZWQgdGV4dC1zbSBob3ZlcjpiZy13aGl0ZS8xMCB0cmFuc2l0aW9uLWFsbFwiPlxuICAgICAgICAgICAgR2VuZXJhdGUgTmV3IEtleVxuICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICA8L2Rpdj5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJzcGFjZS15LTJcIj5cbiAgICAgICAgICB7W1xuICAgICAgICAgICAgeyBuYW1lOiAnUHJvZHVjdGlvbiBBUEknLCBrZXk6ICdwa19saXZlXyoqKioqKioqKioqKioqKicsIGNyZWF0ZWQ6ICcyMDI1LTAxLTE1JyB9LFxuICAgICAgICAgICAgeyBuYW1lOiAnRGV2ZWxvcG1lbnQgQVBJJywga2V5OiAncGtfZGV2XyoqKioqKioqKioqKioqKicsIGNyZWF0ZWQ6ICcyMDI1LTAyLTEwJyB9LFxuICAgICAgICAgIF0ubWFwKChhcGksIGkpID0+IChcbiAgICAgICAgICAgIDxkaXYga2V5PXtpfSBjbGFzc05hbWU9XCJwLTMgYmctd2hpdGUvNSByb3VuZGVkLWxnXCI+XG4gICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuIG1iLTFcIj5cbiAgICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LXdoaXRlIGZvbnQtbWVkaXVtXCI+e2FwaS5uYW1lfTwvc3Bhbj5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggZ2FwLTJcIj5cbiAgICAgICAgICAgICAgICAgIDxidXR0b24gY2xhc3NOYW1lPVwidGV4dC14cyB0ZXh0LXRlYWwtNTAwIGhvdmVyOnRleHQtdGVhbC00MDBcIj5Db3B5PC9idXR0b24+XG4gICAgICAgICAgICAgICAgICA8YnV0dG9uIGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC1yZWQtNTAwIGhvdmVyOnRleHQtcmVkLTQwMFwiPlJldm9rZTwvYnV0dG9uPlxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW5cIj5cbiAgICAgICAgICAgICAgICA8Y29kZSBjbGFzc05hbWU9XCJ0ZXh0LXhzIHRleHQtZ3JheS00MDBcIj57YXBpLmtleX08L2NvZGU+XG4gICAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwidGV4dC14cyB0ZXh0LWdyYXktNTAwXCI+Q3JlYXRlZDoge2FwaS5jcmVhdGVkfTwvc3Bhbj5cbiAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICApKX1cbiAgICAgICAgPC9kaXY+XG4gICAgICA8L2Rpdj5cbiAgICA8L2Rpdj5cbiAgKTtcbn1cbiJdLCJmaWxlIjoiL3dvcmtzcGFjZXMvZGVmYXVsdC9jb2RlL3NyYy9hcHAvcGFnZXMvcGxhdGZvcm0tYWRtaW4vUGxhdGZvcm1Db25maWcudHN4In0=

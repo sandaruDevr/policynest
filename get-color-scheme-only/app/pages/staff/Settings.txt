@@ -1,0 +1,44 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/app/pages/staff/Settings.tsx");import { jsxDEV } from "/@id/__x00__figma:react-jsx-dev-runtime";
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/workspaces/default/code/src/app/pages/staff/Settings.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+import { FGCmp } from "/@id/fginspector";
+import OrgSettings from "/src/app/pages/org-admin/OrgSettings.tsx";
+export default function StaffSettings() {
+  return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: OrgSettings, _fgS: "cmgr0", _fgB: 1779104382418, _fgD: true, "data-fg-cmgr0": "418.301:418.184:/src/app/pages/staff/Settings.tsx:5:10:165:15:e:OrgSettings::1::::Docb" }, void 0, false, {
+    fileName: "/workspaces/default/code/src/app/pages/staff/Settings.tsx",
+    lineNumber: 25,
+    columnNumber: 10
+  }, this);
+}
+_c = StaffSettings;
+var _c;
+$RefreshReg$(_c, "StaffSettings");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/workspaces/default/code/src/app/pages/staff/Settings.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/workspaces/default/code/src/app/pages/staff/Settings.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6IkFBSVM7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBSFQsT0FBT0EsaUJBQWlCO0FBRXhCLHdCQUF3QkMsZ0JBQWdCO0FBQ3RDLFNBQU8sdUJBQUMsZUFBQUQsYUFBQSwwQ0FBVyxtSEFBWjtBQUFBO0FBQUE7QUFBQTtBQUFBLFNBQVk7QUFDckI7QUFBQUUsS0FGd0JEO0FBQWEsSUFBQUM7QUFBQUMsYUFBQUQsSUFBQSIsIm5hbWVzIjpbIk9yZ1NldHRpbmdzIiwiU3RhZmZTZXR0aW5ncyIsIl9jIiwiJFJlZnJlc2hSZWckIl0sImlnbm9yZUxpc3QiOltdLCJzb3VyY2VzIjpbIlNldHRpbmdzLnRzeCJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBXcmFwcGVyIGZvciBTdGFmZiAtIHJldXNlcyBPcmcgQWRtaW4gU2V0dGluZ3MgKHZpZXctb25seSlcbmltcG9ydCBPcmdTZXR0aW5ncyBmcm9tICcuLi9vcmctYWRtaW4vT3JnU2V0dGluZ3MnO1xuXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBTdGFmZlNldHRpbmdzKCkge1xuICByZXR1cm4gPE9yZ1NldHRpbmdzIC8+O1xufVxuIl0sImZpbGUiOiIvd29ya3NwYWNlcy9kZWZhdWx0L2NvZGUvc3JjL2FwcC9wYWdlcy9zdGFmZi9TZXR0aW5ncy50c3gifQ==

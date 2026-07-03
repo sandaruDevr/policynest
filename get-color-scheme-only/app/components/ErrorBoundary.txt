@@ -1,0 +1,158 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/app/components/ErrorBoundary.tsx");import { jsxDEV } from "/@id/__x00__figma:react-jsx-dev-runtime";
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+import { FGCmp } from "/@id/fginspector";
+import { Component } from "/@id/__x00__figma:react-base";
+import { AlertTriangle, Home, RefreshCw } from "/node_modules/.vite/deps/lucide-react.js?v=25293e4c";
+export class ErrorBoundary extends Component {
+  constructor(props) {
+    super(props);
+    this.handleReset = () => {
+      this.setState({ hasError: false, error: null });
+      window.location.href = "/";
+    };
+    this.handleReload = () => {
+      window.location.reload();
+    };
+    this.state = { hasError: false, error: null };
+  }
+  static getDerivedStateFromError(error) {
+    return { hasError: true, error };
+  }
+  componentDidCatch(error, errorInfo) {
+    console.error("ErrorBoundary caught an error:", error, errorInfo);
+  }
+  render() {
+    if (this.state.hasError) {
+      return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dqbv0", _fgB: 1779104380038, className: "min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center p-6", "data-fg-dqbv0": "418.153:418.3042:/src/app/components/ErrorBoundary.tsx:39:9:855:2132:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dqbv1", _fgB: 1779104380038, className: "absolute inset-0 overflow-hidden", "data-fg-dqbv1": "418.153:418.3042:/src/app/components/ErrorBoundary.tsx:40:11:993:302:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dqbv2", _fgB: 1779104380038, className: "absolute -top-1/2 -left-1/2 w-full h-full bg-red-500/10 rounded-full blur-3xl", "data-fg-dqbv2": "418.153:418.3042:/src/app/components/ErrorBoundary.tsx:41:13:1056:101:e:div:_" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/ErrorBoundary.tsx",
+            lineNumber: 45,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dqbv3", _fgB: 1779104380038, className: "absolute -bottom-1/2 -right-1/2 w-full h-full bg-orange-500/10 rounded-full blur-3xl", "data-fg-dqbv3": "418.153:418.3042:/src/app/components/ErrorBoundary.tsx:42:13:1170:108:e:div:_" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/ErrorBoundary.tsx",
+            lineNumber: 46,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/ErrorBoundary.tsx",
+          lineNumber: 44,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dqbv4", _fgB: 1779104380038, className: "relative z-10 text-center max-w-2xl", "data-fg-dqbv4": "418.153:418.3042:/src/app/components/ErrorBoundary.tsx:45:11:1307:1665:e:div:etetetxte", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dqbv5", _fgB: 1779104380038, className: "inline-block p-4 bg-white/5 backdrop-blur-lg rounded-2xl border border-red-500/20 mb-8", "data-fg-dqbv5": "418.153:418.3042:/src/app/components/ErrorBoundary.tsx:46:13:1373:190:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: AlertTriangle, _fgS: "dqbv6", _fgB: 1779104380038, className: "w-16 h-16 text-red-500", "data-fg-dqbv6": "418.153:418.3042:/src/app/components/ErrorBoundary.tsx:47:15:1492:52:e:AlertTriangle::::::Ruk" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/ErrorBoundary.tsx",
+            lineNumber: 51,
+            columnNumber: 15
+          }, this) }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/ErrorBoundary.tsx",
+            lineNumber: 50,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h1", _fgS: "dqbv7", _fgB: 1779104380038, className: "text-4xl font-bold text-white mb-4", "data-fg-dqbv7": "418.153:418.3042:/src/app/components/ErrorBoundary.tsx:50:13:1589:76:e:h1:t", children: "Something Went Wrong" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/ErrorBoundary.tsx",
+            lineNumber: 54,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dqbv9", _fgB: 1779104380038, className: "text-xl text-gray-300 mb-2", "data-fg-dqbv9": "418.153:418.3042:/src/app/components/ErrorBoundary.tsx:51:13:1678:133:e:p:t", children: "We encountered an unexpected error while loading this page." }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/ErrorBoundary.tsx",
+            lineNumber: 55,
+            columnNumber: 13
+          }, this),
+          this.state.error && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dqbv12", _fgB: 1779104380038, className: "my-6 p-4 bg-red-500/10 border border-red-500/20 rounded-lg text-left", "data-fg-dqbv12": "418.153:418.3042:/src/app/components/ErrorBoundary.tsx:56:15:1874:236:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dqbv13", _fgB: 1779104380038, className: "text-sm text-red-400 font-mono", "data-fg-dqbv13": "418.153:418.3042:/src/app/components/ErrorBoundary.tsx:57:17:1977:112:e:p:x", children: this.state.error.message }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/ErrorBoundary.tsx",
+            lineNumber: 61,
+            columnNumber: 17
+          }, this) }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/ErrorBoundary.tsx",
+            lineNumber: 60,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dqbv15", _fgB: 1779104380038, className: "flex gap-4 justify-center mt-8", "data-fg-dqbv15": "418.153:418.3042:/src/app/components/ErrorBoundary.tsx:63:13:2151:804:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(
+              FGCmp,
+              {
+                _fgT: "button",
+                _fgS: "dqbv16",
+                _fgB: 1779104380038,
+                onClick: this.handleReload,
+                className: "flex items-center gap-2 px-6 py-3 bg-white/5 border border-white/10 text-white rounded-lg hover:bg-white/10 transition-all duration-300",
+                "data-fg-dqbv16": "418.153:418.3042:/src/app/components/ErrorBoundary.tsx:64:15:2214:333:e:button:et",
+                children: [
+                  /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: RefreshCw, _fgS: "dqbv17", _fgB: 1779104380038, className: "w-5 h-5", "data-fg-dqbv17": "418.153:418.3042:/src/app/components/ErrorBoundary.tsx:68:17:2462:33:e:RefreshCw::::::FaX" }, void 0, false, {
+                    fileName: "/workspaces/default/code/src/app/components/ErrorBoundary.tsx",
+                    lineNumber: 72,
+                    columnNumber: 17
+                  }, this),
+                  "Reload Page"
+                ]
+              },
+              void 0,
+              true,
+              {
+                fileName: "/workspaces/default/code/src/app/components/ErrorBoundary.tsx",
+                lineNumber: 68,
+                columnNumber: 15
+              },
+              this
+            ),
+            /* @__PURE__ */ jsxDEV(
+              FGCmp,
+              {
+                _fgT: "button",
+                _fgS: "dqbv19",
+                _fgB: 1779104380038,
+                onClick: this.handleReset,
+                className: "flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-teal-600 to-teal-500 text-white rounded-lg hover:shadow-lg hover:shadow-teal-500/50 transition-all duration-300",
+                "data-fg-dqbv19": "418.153:418.3042:/src/app/components/ErrorBoundary.tsx:72:15:2577:359:e:button:et",
+                children: [
+                  /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Home, _fgS: "dqbv20", _fgB: 1779104380038, className: "w-5 h-5", "data-fg-dqbv20": "418.153:418.3042:/src/app/components/ErrorBoundary.tsx:76:17:2856:28:e:Home::::::DVHp" }, void 0, false, {
+                    fileName: "/workspaces/default/code/src/app/components/ErrorBoundary.tsx",
+                    lineNumber: 80,
+                    columnNumber: 17
+                  }, this),
+                  "Return Home"
+                ]
+              },
+              void 0,
+              true,
+              {
+                fileName: "/workspaces/default/code/src/app/components/ErrorBoundary.tsx",
+                lineNumber: 76,
+                columnNumber: 15
+              },
+              this
+            )
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/ErrorBoundary.tsx",
+            lineNumber: 67,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/ErrorBoundary.tsx",
+          lineNumber: 49,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/components/ErrorBoundary.tsx",
+        lineNumber: 43,
+        columnNumber: 9
+      }, this);
+    }
+    return this.props.children;
+  }
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/workspaces/default/code/src/app/components/ErrorBoundary.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/workspaces/default/code/src/app/components/ErrorBoundary.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,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QTtBQUFBO0FBQUE7QUFBQSxZQU1BO0FBQUEsZUFmRjtBQUFBO0FBQUE7QUFBQTtBQUFBLGlCQWdCQTtBQUFBLGFBbENGO0FBQUE7QUFBQTtBQUFBO0FBQUEsZUFtQ0E7QUFBQSxXQXpDRjtBQUFBO0FBQUE7QUFBQTtBQUFBLGFBMENBO0FBQUEsSUFFSjtBQUVBLFdBQU8sS0FBS0ksTUFBTWlCO0FBQUFBLEVBQ3BCO0FBQ0YiLCJuYW1lcyI6WyJDb21wb25lbnQiLCJBbGVydFRyaWFuZ2xlIiwiSG9tZSIsIlJlZnJlc2hDdyIsIkVycm9yQm91bmRhcnkiLCJjb25zdHJ1Y3RvciIsInByb3BzIiwiaGFuZGxlUmVzZXQiLCJzZXRTdGF0ZSIsImhhc0Vycm9yIiwiZXJyb3IiLCJ3aW5kb3ciLCJsb2NhdGlvbiIsImhyZWYiLCJoYW5kbGVSZWxvYWQiLCJyZWxvYWQiLCJzdGF0ZSIsImdldERlcml2ZWRTdGF0ZUZyb21FcnJvciIsImNvbXBvbmVudERpZENhdGNoIiwiZXJyb3JJbmZvIiwiY29uc29sZSIsInJlbmRlciIsIm1lc3NhZ2UiLCJjaGlsZHJlbiJdLCJpZ25vcmVMaXN0IjpbXSwic291cmNlcyI6WyJFcnJvckJvdW5kYXJ5LnRzeCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBDb21wb25lbnQsIFJlYWN0Tm9kZSB9IGZyb20gJ3JlYWN0JztcbmltcG9ydCB7IEFsZXJ0VHJpYW5nbGUsIEhvbWUsIFJlZnJlc2hDdyB9IGZyb20gJ2x1Y2lkZS1yZWFjdCc7XG5cbmludGVyZmFjZSBQcm9wcyB7XG4gIGNoaWxkcmVuOiBSZWFjdE5vZGU7XG59XG5cbmludGVyZmFjZSBTdGF0ZSB7XG4gIGhhc0Vycm9yOiBib29sZWFuO1xuICBlcnJvcjogRXJyb3IgfCBudWxsO1xufVxuXG5leHBvcnQgY2xhc3MgRXJyb3JCb3VuZGFyeSBleHRlbmRzIENvbXBvbmVudDxQcm9wcywgU3RhdGU+IHtcbiAgY29uc3RydWN0b3IocHJvcHM6IFByb3BzKSB7XG4gICAgc3VwZXIocHJvcHMpO1xuICAgIHRoaXMuc3RhdGUgPSB7IGhhc0Vycm9yOiBmYWxzZSwgZXJyb3I6IG51bGwgfTtcbiAgfVxuXG4gIHN0YXRpYyBnZXREZXJpdmVkU3RhdGVGcm9tRXJyb3IoZXJyb3I6IEVycm9yKTogU3RhdGUge1xuICAgIHJldHVybiB7IGhhc0Vycm9yOiB0cnVlLCBlcnJvciB9O1xuICB9XG5cbiAgY29tcG9uZW50RGlkQ2F0Y2goZXJyb3I6IEVycm9yLCBlcnJvckluZm86IGFueSkge1xuICAgIGNvbnNvbGUuZXJyb3IoJ0Vycm9yQm91bmRhcnkgY2F1Z2h0IGFuIGVycm9yOicsIGVycm9yLCBlcnJvckluZm8pO1xuICB9XG5cbiAgaGFuZGxlUmVzZXQgPSAoKSA9PiB7XG4gICAgdGhpcy5zZXRTdGF0ZSh7IGhhc0Vycm9yOiBmYWxzZSwgZXJyb3I6IG51bGwgfSk7XG4gICAgd2luZG93LmxvY2F0aW9uLmhyZWYgPSAnLyc7XG4gIH07XG5cbiAgaGFuZGxlUmVsb2FkID0gKCkgPT4ge1xuICAgIHdpbmRvdy5sb2NhdGlvbi5yZWxvYWQoKTtcbiAgfTtcblxuICByZW5kZXIoKSB7XG4gICAgaWYgKHRoaXMuc3RhdGUuaGFzRXJyb3IpIHtcbiAgICAgIHJldHVybiAoXG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwibWluLWgtc2NyZWVuIGJnLWdyYWRpZW50LXRvLWJyIGZyb20tc2xhdGUtOTAwIHZpYS1zbGF0ZS04MDAgdG8tc2xhdGUtOTAwIGZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktY2VudGVyIHAtNlwiPlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYWJzb2x1dGUgaW5zZXQtMCBvdmVyZmxvdy1oaWRkZW5cIj5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYWJzb2x1dGUgLXRvcC0xLzIgLWxlZnQtMS8yIHctZnVsbCBoLWZ1bGwgYmctcmVkLTUwMC8xMCByb3VuZGVkLWZ1bGwgYmx1ci0zeGxcIj48L2Rpdj5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYWJzb2x1dGUgLWJvdHRvbS0xLzIgLXJpZ2h0LTEvMiB3LWZ1bGwgaC1mdWxsIGJnLW9yYW5nZS01MDAvMTAgcm91bmRlZC1mdWxsIGJsdXItM3hsXCI+PC9kaXY+XG4gICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInJlbGF0aXZlIHotMTAgdGV4dC1jZW50ZXIgbWF4LXctMnhsXCI+XG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImlubGluZS1ibG9jayBwLTQgYmctd2hpdGUvNSBiYWNrZHJvcC1ibHVyLWxnIHJvdW5kZWQtMnhsIGJvcmRlciBib3JkZXItcmVkLTUwMC8yMCBtYi04XCI+XG4gICAgICAgICAgICAgIDxBbGVydFRyaWFuZ2xlIGNsYXNzTmFtZT1cInctMTYgaC0xNiB0ZXh0LXJlZC01MDBcIiAvPlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICBcbiAgICAgICAgICAgIDxoMSBjbGFzc05hbWU9XCJ0ZXh0LTR4bCBmb250LWJvbGQgdGV4dC13aGl0ZSBtYi00XCI+U29tZXRoaW5nIFdlbnQgV3Jvbmc8L2gxPlxuICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC14bCB0ZXh0LWdyYXktMzAwIG1iLTJcIj5cbiAgICAgICAgICAgICAgV2UgZW5jb3VudGVyZWQgYW4gdW5leHBlY3RlZCBlcnJvciB3aGlsZSBsb2FkaW5nIHRoaXMgcGFnZS5cbiAgICAgICAgICAgIDwvcD5cbiAgICAgICAgICAgIFxuICAgICAgICAgICAge3RoaXMuc3RhdGUuZXJyb3IgJiYgKFxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cIm15LTYgcC00IGJnLXJlZC01MDAvMTAgYm9yZGVyIGJvcmRlci1yZWQtNTAwLzIwIHJvdW5kZWQtbGcgdGV4dC1sZWZ0XCI+XG4gICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC1zbSB0ZXh0LXJlZC00MDAgZm9udC1tb25vXCI+XG4gICAgICAgICAgICAgICAgICB7dGhpcy5zdGF0ZS5lcnJvci5tZXNzYWdlfVxuICAgICAgICAgICAgICAgIDwvcD5cbiAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICApfVxuICAgICAgICAgICAgXG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggZ2FwLTQganVzdGlmeS1jZW50ZXIgbXQtOFwiPlxuICAgICAgICAgICAgICA8YnV0dG9uXG4gICAgICAgICAgICAgICAgb25DbGljaz17dGhpcy5oYW5kbGVSZWxvYWR9XG4gICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTIgcHgtNiBweS0zIGJnLXdoaXRlLzUgYm9yZGVyIGJvcmRlci13aGl0ZS8xMCB0ZXh0LXdoaXRlIHJvdW5kZWQtbGcgaG92ZXI6Ymctd2hpdGUvMTAgdHJhbnNpdGlvbi1hbGwgZHVyYXRpb24tMzAwXCJcbiAgICAgICAgICAgICAgPlxuICAgICAgICAgICAgICAgIDxSZWZyZXNoQ3cgY2xhc3NOYW1lPVwidy01IGgtNVwiIC8+XG4gICAgICAgICAgICAgICAgUmVsb2FkIFBhZ2VcbiAgICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgICAgIFxuICAgICAgICAgICAgICA8YnV0dG9uXG4gICAgICAgICAgICAgICAgb25DbGljaz17dGhpcy5oYW5kbGVSZXNldH1cbiAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMiBweC02IHB5LTMgYmctZ3JhZGllbnQtdG8tciBmcm9tLXRlYWwtNjAwIHRvLXRlYWwtNTAwIHRleHQtd2hpdGUgcm91bmRlZC1sZyBob3ZlcjpzaGFkb3ctbGcgaG92ZXI6c2hhZG93LXRlYWwtNTAwLzUwIHRyYW5zaXRpb24tYWxsIGR1cmF0aW9uLTMwMFwiXG4gICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICA8SG9tZSBjbGFzc05hbWU9XCJ3LTUgaC01XCIgLz5cbiAgICAgICAgICAgICAgICBSZXR1cm4gSG9tZVxuICAgICAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICA8L2Rpdj5cbiAgICAgICk7XG4gICAgfVxuXG4gICAgcmV0dXJuIHRoaXMucHJvcHMuY2hpbGRyZW47XG4gIH1cbn1cbiJdLCJmaWxlIjoiL3dvcmtzcGFjZXMvZGVmYXVsdC9jb2RlL3NyYy9hcHAvY29tcG9uZW50cy9FcnJvckJvdW5kYXJ5LnRzeCJ9

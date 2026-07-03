@@ -1,0 +1,44 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/app/pages/compliance-manager/StaffDirectory.tsx");import { jsxDEV } from "/@id/__x00__figma:react-jsx-dev-runtime";
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/workspaces/default/code/src/app/pages/compliance-manager/StaffDirectory.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+import { FGCmp } from "/@id/fginspector";
+import StaffDirectory from "/src/app/pages/org-admin/StaffDirectory.tsx";
+export default function ComplianceManagerStaffDirectory() {
+  return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: StaffDirectory, _fgS: "cnak0", _fgB: 1779104382156, _fgD: true, "data-fg-cnak0": "418.245:418.219:/src/app/pages/compliance-manager/StaffDirectory.tsx:5:10:197:18:e:StaffDirectory::1::::CQrP" }, void 0, false, {
+    fileName: "/workspaces/default/code/src/app/pages/compliance-manager/StaffDirectory.tsx",
+    lineNumber: 25,
+    columnNumber: 10
+  }, this);
+}
+_c = ComplianceManagerStaffDirectory;
+var _c;
+$RefreshReg$(_c, "ComplianceManagerStaffDirectory");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/workspaces/default/code/src/app/pages/compliance-manager/StaffDirectory.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/workspaces/default/code/src/app/pages/compliance-manager/StaffDirectory.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6IkFBSVM7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBSFQsT0FBT0Esb0JBQW9CO0FBRTNCLHdCQUF3QkMsa0NBQWtDO0FBQ3hELFNBQU8sdUJBQUMsZUFBQUQsZ0JBQUEsMENBQWMseUlBQWY7QUFBQTtBQUFBO0FBQUE7QUFBQSxTQUFlO0FBQ3hCO0FBQUFFLEtBRndCRDtBQUErQixJQUFBQztBQUFBQyxhQUFBRCxJQUFBIiwibmFtZXMiOlsiU3RhZmZEaXJlY3RvcnkiLCJDb21wbGlhbmNlTWFuYWdlclN0YWZmRGlyZWN0b3J5IiwiX2MiLCIkUmVmcmVzaFJlZyQiXSwiaWdub3JlTGlzdCI6W10sInNvdXJjZXMiOlsiU3RhZmZEaXJlY3RvcnkudHN4Il0sInNvdXJjZXNDb250ZW50IjpbIi8vIFdyYXBwZXIgZm9yIENvbXBsaWFuY2UgTWFuYWdlciAtIHJldXNlcyBPcmcgQWRtaW4gU3RhZmYgRGlyZWN0b3J5XG5pbXBvcnQgU3RhZmZEaXJlY3RvcnkgZnJvbSAnLi4vb3JnLWFkbWluL1N0YWZmRGlyZWN0b3J5JztcblxuZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24gQ29tcGxpYW5jZU1hbmFnZXJTdGFmZkRpcmVjdG9yeSgpIHtcbiAgcmV0dXJuIDxTdGFmZkRpcmVjdG9yeSAvPjtcbn1cbiJdLCJmaWxlIjoiL3dvcmtzcGFjZXMvZGVmYXVsdC9jb2RlL3NyYy9hcHAvcGFnZXMvY29tcGxpYW5jZS1tYW5hZ2VyL1N0YWZmRGlyZWN0b3J5LnRzeCJ9

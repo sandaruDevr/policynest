@@ -1,0 +1,981 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/app/pages/org-admin/SubscriptionUsage.tsx");import { jsxDEV } from "/@id/__x00__figma:react-jsx-dev-runtime";
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+import { FGCmp } from "/@id/fginspector";
+import { Users, FileText, Sparkles, TrendingUp, AlertTriangle, CreditCard, Package } from "/node_modules/.vite/deps/lucide-react.js?v=25293e4c";
+export default function SubscriptionUsage() {
+  const subscriptionData = {
+    planName: "Professional Plan",
+    planType: "Annual",
+    renewalDate: "2026-12-15",
+    users: {
+      total: 50,
+      used: 38
+    },
+    policies: {
+      total: 100,
+      created: 67
+    },
+    aiTokens: {
+      total: 1e4,
+      used: 6200,
+      remaining: 3800
+    }
+  };
+  const getUsagePercentage = (used, total) => {
+    return Math.round(used / total * 100);
+  };
+  const getStatusColor = (percentage) => {
+    if (percentage >= 90) return "red";
+    if (percentage >= 80) return "yellow";
+    return "green";
+  };
+  const usersPercentage = getUsagePercentage(subscriptionData.users.used, subscriptionData.users.total);
+  const policiesPercentage = getUsagePercentage(subscriptionData.policies.created, subscriptionData.policies.total);
+  const tokensPercentage = getUsagePercentage(subscriptionData.aiTokens.used, subscriptionData.aiTokens.total);
+  return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo80", _fgB: 1779104381865, _fgD: true, className: "space-y-6", "data-fg-bpo80": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:39:5:1128:14570:e:div:xtetxtetxtetxtetxtx:1", children: [
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo82", _fgB: 1779104381865, "data-fg-bpo82": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:41:7:1183:194:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h1", _fgS: "bpo83", _fgB: 1779104381865, className: "text-3xl font-bold text-white mb-2", "data-fg-bpo83": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:42:9:1197:76:e:h1:t", children: "Subscription & Usage" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+        lineNumber: 62,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "bpo85", _fgB: 1779104381865, className: "text-gray-400", "data-fg-bpo85": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:43:9:1282:82:e:p:t", children: "Monitor your plan limits and resource consumption" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+        lineNumber: 63,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+      lineNumber: 61,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo88", _fgB: 1779104381865, className: "bg-gradient-to-br from-teal-500/10 via-teal-500/5 to-transparent backdrop-blur-lg rounded-2xl p-6 border border-teal-500/20", "data-fg-bpo88": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:47:7:1412:1405:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo89", _fgB: 1779104381865, className: "flex items-center gap-3 mb-4", "data-fg-bpo89": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:48:9:1562:475:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo810", _fgB: 1779104381865, className: "w-12 h-12 rounded-xl bg-gradient-to-br from-teal-600 to-teal-500 flex items-center justify-center", "data-fg-bpo810": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:49:11:1619:187:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Package, _fgS: "bpo811", _fgB: 1779104381865, className: "w-6 h-6 text-white", "data-fg-bpo811": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:50:13:1747:42:e:Package::::::BczM" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+          lineNumber: 70,
+          columnNumber: 13
+        }, this) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+          lineNumber: 69,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo812", _fgB: 1779104381865, "data-fg-bpo812": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:52:11:1817:205:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h2", _fgS: "bpo813", _fgB: 1779104381865, className: "text-xl font-semibold text-white", "data-fg-bpo813": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:53:13:1835:81:e:h2:x", children: subscriptionData.planName }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+            lineNumber: 73,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "bpo815", _fgB: 1779104381865, className: "text-sm text-gray-400", "data-fg-bpo815": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:54:13:1929:76:e:p:xt", children: [
+            subscriptionData.planType,
+            " Billing"
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+            lineNumber: 74,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+          lineNumber: 72,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+        lineNumber: 68,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo818", _fgB: 1779104381865, className: "grid grid-cols-1 md:grid-cols-2 gap-4 mt-6", "data-fg-bpo818": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:58:9:2047:757:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo819", _fgB: 1779104381865, className: "p-4 bg-white/5 rounded-lg", "data-fg-bpo819": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:59:11:2118:340:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo820", _fgB: 1779104381865, className: "flex items-center gap-2 text-gray-400 text-sm mb-1", "data-fg-bpo820": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:60:13:2174:176:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: CreditCard, _fgS: "bpo821", _fgB: 1779104381865, className: "w-4 h-4", "data-fg-bpo821": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:61:15:2257:34:e:CreditCard::::::BwVT" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+              lineNumber: 81,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "bpo822", _fgB: 1779104381865, "data-fg-bpo822": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:62:15:2306:25:e:span:t", children: "Renewal Date" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+              lineNumber: 82,
+              columnNumber: 15
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+            lineNumber: 80,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo824", _fgB: 1779104381865, className: "text-white font-semibold", "data-fg-bpo824": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:64:13:2363:78:e:div:x", children: subscriptionData.renewalDate }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+            lineNumber: 84,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+          lineNumber: 79,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo826", _fgB: 1779104381865, className: "p-4 bg-white/5 rounded-lg", "data-fg-bpo826": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:67:11:2470:319:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo827", _fgB: 1779104381865, className: "flex items-center gap-2 text-gray-400 text-sm mb-1", "data-fg-bpo827": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:68:13:2526:175:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: TrendingUp, _fgS: "bpo828", _fgB: 1779104381865, className: "w-4 h-4", "data-fg-bpo828": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:69:15:2609:34:e:TrendingUp::::::tM8" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+              lineNumber: 89,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "bpo829", _fgB: 1779104381865, "data-fg-bpo829": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:70:15:2658:24:e:span:t", children: "Plan Status" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+              lineNumber: 90,
+              columnNumber: 15
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+            lineNumber: 88,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo831", _fgB: 1779104381865, className: "text-green-400 font-semibold", "data-fg-bpo831": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:72:13:2714:58:e:div:t", children: "Active" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+            lineNumber: 92,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+          lineNumber: 87,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+        lineNumber: 78,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+      lineNumber: 67,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo834", _fgB: 1779104381865, className: "grid grid-cols-1 md:grid-cols-3 gap-6", "data-fg-bpo834": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:78:7:2860:6491:e:div:xtetxtetxte", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo836", _fgB: 1779104381865, className: "bg-[#0f2832] border border-[#1a3440] rounded-xl p-6", "data-fg-bpo836": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:80:9:2952:2068:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo837", _fgB: 1779104381865, className: "flex items-center justify-between mb-4", "data-fg-bpo837": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:81:11:3032:574:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo838", _fgB: 1779104381865, className: "flex items-center gap-3", "data-fg-bpo838": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:82:13:3101:488:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo839", _fgB: 1779104381865, className: `w-10 h-10 rounded-lg bg-${getStatusColor(usersPercentage)}-500/20 flex items-center justify-center`, "data-fg-bpo839": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:83:15:3157:231:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Users, _fgS: "bpo840", _fgB: 1779104381865, className: `w-5 h-5 text-${getStatusColor(usersPercentage)}-400`, "data-fg-bpo840": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:84:17:3292:75:e:Users::::::DV8M" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+            lineNumber: 104,
+            columnNumber: 17
+          }, this) }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+            lineNumber: 103,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo841", _fgB: 1779104381865, "data-fg-bpo841": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:86:15:3403:167:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "bpo842", _fgB: 1779104381865, className: "text-white font-semibold", "data-fg-bpo842": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:87:17:3425:51:e:h3:t", children: "Users" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+              lineNumber: 107,
+              columnNumber: 17
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "bpo844", _fgB: 1779104381865, className: "text-xs text-gray-400", "data-fg-bpo844": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:88:17:3493:56:e:p:t", children: "Active vs Total" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+              lineNumber: 108,
+              columnNumber: 17
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+            lineNumber: 106,
+            columnNumber: 15
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+          lineNumber: 102,
+          columnNumber: 13
+        }, this) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+          lineNumber: 101,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo846", _fgB: 1779104381865, className: "space-y-3", "data-fg-bpo846": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:93:11:3618:1387:e:div:etxtete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo847", _fgB: 1779104381865, className: "flex items-end justify-between", "data-fg-bpo847": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:94:13:3658:493:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo848", _fgB: 1779104381865, "data-fg-bpo848": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:95:15:3721:411:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo849", _fgB: 1779104381865, className: "text-3xl font-bold text-white", "data-fg-bpo849": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:96:17:3743:198:e:div:xte", children: [
+              subscriptionData.users.used,
+              " ",
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "bpo851", _fgB: 1779104381865, className: "text-lg text-gray-400", "data-fg-bpo851": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:97:49:3839:79:e:span:tx", children: [
+                "/ ",
+                subscriptionData.users.total
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+                lineNumber: 117,
+                columnNumber: 49
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+              lineNumber: 116,
+              columnNumber: 17
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo854", _fgB: 1779104381865, className: `text-sm font-medium text-${getStatusColor(usersPercentage)}-400 mt-1`, "data-fg-bpo854": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:99:17:3958:153:e:div:xt", children: [
+              usersPercentage,
+              "% Used"
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+              lineNumber: 119,
+              columnNumber: 17
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+            lineNumber: 115,
+            columnNumber: 15
+          }, this) }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+            lineNumber: 114,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo858", _fgB: 1779104381865, className: "w-full bg-white/5 rounded-full h-2 overflow-hidden", "data-fg-bpo858": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:106:13:4198:340:e:div:e", children: /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "div",
+              _fgS: "bpo859",
+              _fgB: 1779104381865,
+              className: `h-full bg-gradient-to-r from-${getStatusColor(usersPercentage)}-600 to-${getStatusColor(usersPercentage)}-500 transition-all`,
+              style: { width: `${usersPercentage}%` },
+              "data-fg-bpo859": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:107:15:4281:238:e:div:_"
+            },
+            void 0,
+            false,
+            {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+              lineNumber: 127,
+              columnNumber: 15
+            },
+            this
+          ) }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+            lineNumber: 126,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo860", _fgB: 1779104381865, className: "flex items-center justify-between text-xs text-gray-400", "data-fg-bpo860": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:113:13:4552:436:e:div:etx", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "bpo861", _fgB: 1779104381865, "data-fg-bpo861": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:114:15:4640:83:e:span:xt", children: [
+              subscriptionData.users.total - subscriptionData.users.used,
+              " remaining"
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+              lineNumber: 134,
+              columnNumber: 15
+            }, this),
+            usersPercentage >= 80 && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "bpo865", _fgB: 1779104381865, className: "flex items-center gap-1 text-yellow-400", "data-fg-bpo865": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:116:17:4782:170:e:span:et", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: AlertTriangle, _fgS: "bpo866", _fgB: 1779104381865, className: "w-3 h-3", "data-fg-bpo866": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:117:19:4859:37:e:AlertTriangle::::::Ruk" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+                lineNumber: 137,
+                columnNumber: 19
+              }, this),
+              "Nearing limit"
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+              lineNumber: 136,
+              columnNumber: 15
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+            lineNumber: 133,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+          lineNumber: 113,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+        lineNumber: 100,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo869", _fgB: 1779104381865, className: "bg-[#0f2832] border border-[#1a3440] rounded-xl p-6", "data-fg-bpo869": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:126:9:5061:2117:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo870", _fgB: 1779104381865, className: "flex items-center justify-between mb-4", "data-fg-bpo870": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:127:11:5141:587:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo871", _fgB: 1779104381865, className: "flex items-center gap-3", "data-fg-bpo871": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:128:13:5210:501:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo872", _fgB: 1779104381865, className: `w-10 h-10 rounded-lg bg-${getStatusColor(policiesPercentage)}-500/20 flex items-center justify-center`, "data-fg-bpo872": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:129:15:5266:240:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: FileText, _fgS: "bpo873", _fgB: 1779104381865, className: `w-5 h-5 text-${getStatusColor(policiesPercentage)}-400`, "data-fg-bpo873": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:130:17:5404:81:e:FileText::::::B1i5" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+            lineNumber: 150,
+            columnNumber: 17
+          }, this) }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+            lineNumber: 149,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo874", _fgB: 1779104381865, "data-fg-bpo874": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:132:15:5521:171:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "bpo875", _fgB: 1779104381865, className: "text-white font-semibold", "data-fg-bpo875": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:133:17:5543:54:e:h3:t", children: "Policies" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+              lineNumber: 153,
+              columnNumber: 17
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "bpo877", _fgB: 1779104381865, className: "text-xs text-gray-400", "data-fg-bpo877": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:134:17:5614:57:e:p:t", children: "Created vs Limit" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+              lineNumber: 154,
+              columnNumber: 17
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+            lineNumber: 152,
+            columnNumber: 15
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+          lineNumber: 148,
+          columnNumber: 13
+        }, this) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+          lineNumber: 147,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo879", _fgB: 1779104381865, className: "space-y-3", "data-fg-bpo879": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:139:11:5740:1423:e:div:etxtete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo880", _fgB: 1779104381865, className: "flex items-end justify-between", "data-fg-bpo880": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:140:13:5780:508:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo881", _fgB: 1779104381865, "data-fg-bpo881": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:141:15:5843:426:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo882", _fgB: 1779104381865, className: "text-3xl font-bold text-white", "data-fg-bpo882": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:142:17:5865:207:e:div:xte", children: [
+              subscriptionData.policies.created,
+              " ",
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "bpo884", _fgB: 1779104381865, className: "text-lg text-gray-400", "data-fg-bpo884": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:143:55:5967:82:e:span:tx", children: [
+                "/ ",
+                subscriptionData.policies.total
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+                lineNumber: 163,
+                columnNumber: 55
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+              lineNumber: 162,
+              columnNumber: 17
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo887", _fgB: 1779104381865, className: `text-sm font-medium text-${getStatusColor(policiesPercentage)}-400 mt-1`, "data-fg-bpo887": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:145:17:6089:159:e:div:xt", children: [
+              policiesPercentage,
+              "% Used"
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+              lineNumber: 165,
+              columnNumber: 17
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+            lineNumber: 161,
+            columnNumber: 15
+          }, this) }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+            lineNumber: 160,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo891", _fgB: 1779104381865, className: "w-full bg-white/5 rounded-full h-2 overflow-hidden", "data-fg-bpo891": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:152:13:6335:349:e:div:e", children: /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "div",
+              _fgS: "bpo892",
+              _fgB: 1779104381865,
+              className: `h-full bg-gradient-to-r from-${getStatusColor(policiesPercentage)}-600 to-${getStatusColor(policiesPercentage)}-500 transition-all`,
+              style: { width: `${policiesPercentage}%` },
+              "data-fg-bpo892": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:153:15:6418:247:e:div:_"
+            },
+            void 0,
+            false,
+            {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+              lineNumber: 173,
+              columnNumber: 15
+            },
+            this
+          ) }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+            lineNumber: 172,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo893", _fgB: 1779104381865, className: "flex items-center justify-between text-xs text-gray-400", "data-fg-bpo893": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:159:13:6698:448:e:div:etx", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "bpo894", _fgB: 1779104381865, "data-fg-bpo894": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:160:15:6786:92:e:span:xt", children: [
+              subscriptionData.policies.total - subscriptionData.policies.created,
+              " remaining"
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+              lineNumber: 180,
+              columnNumber: 15
+            }, this),
+            policiesPercentage >= 80 && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "bpo898", _fgB: 1779104381865, className: "flex items-center gap-1 text-yellow-400", "data-fg-bpo898": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:162:17:6940:170:e:span:et", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: AlertTriangle, _fgS: "bpo899", _fgB: 1779104381865, className: "w-3 h-3", "data-fg-bpo899": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:163:19:7017:37:e:AlertTriangle::::::Ruk" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+                lineNumber: 183,
+                columnNumber: 19
+              }, this),
+              "Nearing limit"
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+              lineNumber: 182,
+              columnNumber: 15
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+            lineNumber: 179,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+          lineNumber: 159,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+        lineNumber: 146,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8102", _fgB: 1779104381865, className: "bg-[#0f2832] border border-[#1a3440] rounded-xl p-6", "data-fg-bpo8102": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:172:9:7220:2118:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8103", _fgB: 1779104381865, className: "flex items-center justify-between mb-4", "data-fg-bpo8103": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:173:11:7300:584:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8104", _fgB: 1779104381865, className: "flex items-center gap-3", "data-fg-bpo8104": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:174:13:7369:498:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8105", _fgB: 1779104381865, className: `w-10 h-10 rounded-lg bg-${getStatusColor(tokensPercentage)}-500/20 flex items-center justify-center`, "data-fg-bpo8105": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:175:15:7425:236:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Sparkles, _fgS: "bpo8106", _fgB: 1779104381865, className: `w-5 h-5 text-${getStatusColor(tokensPercentage)}-400`, "data-fg-bpo8106": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:176:17:7561:79:e:Sparkles::::::DD2N" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+            lineNumber: 196,
+            columnNumber: 17
+          }, this) }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+            lineNumber: 195,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8107", _fgB: 1779104381865, "data-fg-bpo8107": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:178:15:7676:172:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "bpo8108", _fgB: 1779104381865, className: "text-white font-semibold", "data-fg-bpo8108": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:179:17:7698:55:e:h3:t", children: "AI Tokens" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+              lineNumber: 199,
+              columnNumber: 17
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "bpo8110", _fgB: 1779104381865, className: "text-xs text-gray-400", "data-fg-bpo8110": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:180:17:7770:57:e:p:t", children: "Used / Remaining" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+              lineNumber: 200,
+              columnNumber: 17
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+            lineNumber: 198,
+            columnNumber: 15
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+          lineNumber: 194,
+          columnNumber: 13
+        }, this) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+          lineNumber: 193,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8112", _fgB: 1779104381865, className: "space-y-3", "data-fg-bpo8112": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:185:11:7896:1427:e:div:etxtete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8113", _fgB: 1779104381865, className: "flex items-end justify-between", "data-fg-bpo8113": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:186:13:7936:535:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8114", _fgB: 1779104381865, "data-fg-bpo8114": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:187:15:7999:453:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8115", _fgB: 1779104381865, className: "text-3xl font-bold text-white", "data-fg-bpo8115": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:188:17:8021:238:e:div:xte", children: [
+              subscriptionData.aiTokens.used.toLocaleString(),
+              " ",
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "bpo8117", _fgB: 1779104381865, className: "text-lg text-gray-400", "data-fg-bpo8117": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:189:69:8137:99:e:span:tx", children: [
+                "/ ",
+                subscriptionData.aiTokens.total.toLocaleString()
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+                lineNumber: 209,
+                columnNumber: 69
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+              lineNumber: 208,
+              columnNumber: 17
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8120", _fgB: 1779104381865, className: `text-sm font-medium text-${getStatusColor(tokensPercentage)}-400 mt-1`, "data-fg-bpo8120": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:191:17:8276:155:e:div:xt", children: [
+              tokensPercentage,
+              "% Used"
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+              lineNumber: 211,
+              columnNumber: 17
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+            lineNumber: 207,
+            columnNumber: 15
+          }, this) }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+            lineNumber: 206,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8124", _fgB: 1779104381865, className: "w-full bg-white/5 rounded-full h-2 overflow-hidden", "data-fg-bpo8124": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:198:13:8518:343:e:div:e", children: /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "div",
+              _fgS: "bpo8125",
+              _fgB: 1779104381865,
+              className: `h-full bg-gradient-to-r from-${getStatusColor(tokensPercentage)}-600 to-${getStatusColor(tokensPercentage)}-500 transition-all`,
+              style: { width: `${tokensPercentage}%` },
+              "data-fg-bpo8125": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:199:15:8601:241:e:div:_"
+            },
+            void 0,
+            false,
+            {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+              lineNumber: 219,
+              columnNumber: 15
+            },
+            this
+          ) }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+            lineNumber: 218,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8126", _fgB: 1779104381865, className: "flex items-center justify-between text-xs text-gray-400", "data-fg-bpo8126": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:205:13:8875:431:e:div:etx", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "bpo8127", _fgB: 1779104381865, "data-fg-bpo8127": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:206:15:8963:77:e:span:xt", children: [
+              subscriptionData.aiTokens.remaining.toLocaleString(),
+              " remaining"
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+              lineNumber: 226,
+              columnNumber: 15
+            }, this),
+            tokensPercentage >= 80 && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "bpo8131", _fgB: 1779104381865, className: "flex items-center gap-1 text-yellow-400", "data-fg-bpo8131": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:208:17:9100:170:e:span:et", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: AlertTriangle, _fgS: "bpo8132", _fgB: 1779104381865, className: "w-3 h-3", "data-fg-bpo8132": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:209:19:9177:37:e:AlertTriangle::::::Ruk" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+                lineNumber: 229,
+                columnNumber: 19
+              }, this),
+              "Nearing limit"
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+              lineNumber: 228,
+              columnNumber: 15
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+            lineNumber: 225,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+          lineNumber: 205,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+        lineNumber: 192,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+      lineNumber: 98,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8135", _fgB: 1779104381865, className: "bg-[#0f2832] border border-[#1a3440] rounded-xl p-6", "data-fg-bpo8135": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:219:7:9398:4898:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h2", _fgS: "bpo8136", _fgB: 1779104381865, className: "text-xl font-bold text-white mb-6", "data-fg-bpo8136": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:220:9:9476:79:e:h2:t", children: "Detailed Usage Breakdown" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+        lineNumber: 240,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8138", _fgB: 1779104381865, className: "space-y-6", "data-fg-bpo8138": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:222:9:9565:4718:e:div:xtetxtetxte", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8140", _fgB: 1779104381865, "data-fg-bpo8140": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:224:11:9637:1489:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8141", _fgB: 1779104381865, className: "flex items-center justify-between mb-3", "data-fg-bpo8141": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:225:13:9655:439:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "bpo8142", _fgB: 1779104381865, className: "text-white font-semibold flex items-center gap-2", "data-fg-bpo8142": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:226:15:9726:177:e:h3:et", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Users, _fgS: "bpo8143", _fgB: 1779104381865, className: "w-5 h-5 text-purple-400", "data-fg-bpo8143": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:227:17:9808:45:e:Users::::::DV8M" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+                lineNumber: 247,
+                columnNumber: 17
+              }, this),
+              "User Accounts"
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+              lineNumber: 246,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "bpo8145", _fgB: 1779104381865, className: "text-sm text-gray-400", "data-fg-bpo8145": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:230:15:9918:157:e:span:xtxt", children: [
+              subscriptionData.users.used,
+              " of ",
+              subscriptionData.users.total,
+              " seats occupied"
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+              lineNumber: 250,
+              columnNumber: 15
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+            lineNumber: 245,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8150", _fgB: 1779104381865, className: "grid grid-cols-1 md:grid-cols-4 gap-4", "data-fg-bpo8150": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:234:13:10107:1002:e:div:etetete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8151", _fgB: 1779104381865, className: "p-4 bg-white/5 rounded-lg", "data-fg-bpo8151": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:235:15:10177:209:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8152", _fgB: 1779104381865, className: "text-2xl font-bold text-white", "data-fg-bpo8152": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:236:17:10237:55:e:div:t", children: "12" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+                lineNumber: 256,
+                columnNumber: 17
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8154", _fgB: 1779104381865, className: "text-xs text-gray-400 mt-1", "data-fg-bpo8154": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:237:17:10309:56:e:div:t", children: "Admins" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+                lineNumber: 257,
+                columnNumber: 17
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+              lineNumber: 255,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8156", _fgB: 1779104381865, className: "p-4 bg-white/5 rounded-lg", "data-fg-bpo8156": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:239:15:10401:221:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8157", _fgB: 1779104381865, className: "text-2xl font-bold text-white", "data-fg-bpo8157": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:240:17:10461:54:e:div:t", children: "8" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+                lineNumber: 260,
+                columnNumber: 17
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8159", _fgB: 1779104381865, className: "text-xs text-gray-400 mt-1", "data-fg-bpo8159": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:241:17:10532:69:e:div:t", children: "Compliance Managers" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+                lineNumber: 261,
+                columnNumber: 17
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+              lineNumber: 259,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8161", _fgB: 1779104381865, className: "p-4 bg-white/5 rounded-lg", "data-fg-bpo8161": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:243:15:10637:216:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8162", _fgB: 1779104381865, className: "text-2xl font-bold text-white", "data-fg-bpo8162": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:244:17:10697:55:e:div:t", children: "18" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+                lineNumber: 264,
+                columnNumber: 17
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8164", _fgB: 1779104381865, className: "text-xs text-gray-400 mt-1", "data-fg-bpo8164": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:245:17:10769:63:e:div:t", children: "Staff Members" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+                lineNumber: 265,
+                columnNumber: 17
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+              lineNumber: 263,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8166", _fgB: 1779104381865, className: "p-4 bg-white/5 rounded-lg", "data-fg-bpo8166": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:247:15:10868:222:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8167", _fgB: 1779104381865, className: "text-2xl font-bold text-green-400", "data-fg-bpo8167": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:248:17:10928:59:e:div:t", children: "12" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+                lineNumber: 268,
+                columnNumber: 17
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8169", _fgB: 1779104381865, className: "text-xs text-gray-400 mt-1", "data-fg-bpo8169": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:249:17:11004:65:e:div:t", children: "Available Seats" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+                lineNumber: 269,
+                columnNumber: 17
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+              lineNumber: 267,
+              columnNumber: 15
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+            lineNumber: 254,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+          lineNumber: 244,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8172", _fgB: 1779104381865, "data-fg-bpo8172": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:255:11:11175:1490:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8173", _fgB: 1779104381865, className: "flex items-center justify-between mb-3", "data-fg-bpo8173": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:256:13:11193:454:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "bpo8174", _fgB: 1779104381865, className: "text-white font-semibold flex items-center gap-2", "data-fg-bpo8174": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:257:15:11264:181:e:h3:et", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: FileText, _fgS: "bpo8175", _fgB: 1779104381865, className: "w-5 h-5 text-blue-400", "data-fg-bpo8175": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:258:17:11346:46:e:FileText::::::B1i5" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+                lineNumber: 278,
+                columnNumber: 17
+              }, this),
+              "Policy Documents"
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+              lineNumber: 277,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "bpo8177", _fgB: 1779104381865, className: "text-sm text-gray-400", "data-fg-bpo8177": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:261:15:11460:168:e:span:xtxt", children: [
+              subscriptionData.policies.created,
+              " of ",
+              subscriptionData.policies.total,
+              " policies created"
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+              lineNumber: 281,
+              columnNumber: 15
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+            lineNumber: 276,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8182", _fgB: 1779104381865, className: "grid grid-cols-1 md:grid-cols-4 gap-4", "data-fg-bpo8182": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:265:13:11660:988:e:div:etetete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8183", _fgB: 1779104381865, className: "p-4 bg-white/5 rounded-lg", "data-fg-bpo8183": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:266:15:11730:211:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8184", _fgB: 1779104381865, className: "text-2xl font-bold text-white", "data-fg-bpo8184": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:267:17:11790:55:e:div:t", children: "28" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+                lineNumber: 287,
+                columnNumber: 17
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8186", _fgB: 1779104381865, className: "text-xs text-gray-400 mt-1", "data-fg-bpo8186": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:268:17:11862:58:e:div:t", children: "Policies" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+                lineNumber: 288,
+                columnNumber: 17
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+              lineNumber: 286,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8188", _fgB: 1779104381865, className: "p-4 bg-white/5 rounded-lg", "data-fg-bpo8188": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:270:15:11956:213:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8189", _fgB: 1779104381865, className: "text-2xl font-bold text-white", "data-fg-bpo8189": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:271:17:12016:55:e:div:t", children: "22" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+                lineNumber: 291,
+                columnNumber: 17
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8191", _fgB: 1779104381865, className: "text-xs text-gray-400 mt-1", "data-fg-bpo8191": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:272:17:12088:60:e:div:t", children: "Procedures" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+                lineNumber: 292,
+                columnNumber: 17
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+              lineNumber: 290,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8193", _fgB: 1779104381865, className: "p-4 bg-white/5 rounded-lg", "data-fg-bpo8193": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:274:15:12184:218:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8194", _fgB: 1779104381865, className: "text-2xl font-bold text-white", "data-fg-bpo8194": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:275:17:12244:55:e:div:t", children: "12" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+                lineNumber: 295,
+                columnNumber: 17
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8196", _fgB: 1779104381865, className: "text-xs text-gray-400 mt-1", "data-fg-bpo8196": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:276:17:12316:65:e:div:t", children: "Forms/Templates" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+                lineNumber: 296,
+                columnNumber: 17
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+              lineNumber: 294,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8198", _fgB: 1779104381865, className: "p-4 bg-white/5 rounded-lg", "data-fg-bpo8198": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:278:15:12417:212:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8199", _fgB: 1779104381865, className: "text-2xl font-bold text-white", "data-fg-bpo8199": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:279:17:12477:54:e:div:t", children: "5" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+                lineNumber: 299,
+                columnNumber: 17
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8201", _fgB: 1779104381865, className: "text-xs text-gray-400 mt-1", "data-fg-bpo8201": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:280:17:12548:60:e:div:t", children: "Guidelines" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+                lineNumber: 300,
+                columnNumber: 17
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+              lineNumber: 298,
+              columnNumber: 15
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+            lineNumber: 285,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+          lineNumber: 275,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8204", _fgB: 1779104381865, "data-fg-bpo8204": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:286:11:12715:1553:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8205", _fgB: 1779104381865, className: "flex items-center justify-between mb-3", "data-fg-bpo8205": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:287:13:12733:480:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "bpo8206", _fgB: 1779104381865, className: "text-white font-semibold flex items-center gap-2", "data-fg-bpo8206": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:288:15:12804:181:e:h3:et", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Sparkles, _fgS: "bpo8207", _fgB: 1779104381865, className: "w-5 h-5 text-purple-400", "data-fg-bpo8207": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:289:17:12886:48:e:Sparkles::::::DD2N" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+                lineNumber: 309,
+                columnNumber: 17
+              }, this),
+              "AI Token Usage"
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+              lineNumber: 308,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "bpo8209", _fgB: 1779104381865, className: "text-sm text-gray-400", "data-fg-bpo8209": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:292:15:13000:194:e:span:xtxt", children: [
+              subscriptionData.aiTokens.used.toLocaleString(),
+              " of ",
+              subscriptionData.aiTokens.total.toLocaleString(),
+              " tokens used"
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+              lineNumber: 312,
+              columnNumber: 15
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+            lineNumber: 307,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8214", _fgB: 1779104381865, className: "grid grid-cols-1 md:grid-cols-4 gap-4", "data-fg-bpo8214": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:296:13:13226:1025:e:div:etetete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8215", _fgB: 1779104381865, className: "p-4 bg-white/5 rounded-lg", "data-fg-bpo8215": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:297:15:13296:223:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8216", _fgB: 1779104381865, className: "text-2xl font-bold text-white", "data-fg-bpo8216": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:298:17:13356:58:e:div:t", children: "3,200" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+                lineNumber: 318,
+                columnNumber: 17
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8218", _fgB: 1779104381865, className: "text-xs text-gray-400 mt-1", "data-fg-bpo8218": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:299:17:13431:67:e:div:t", children: "Policy Generation" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+                lineNumber: 319,
+                columnNumber: 17
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+              lineNumber: 317,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8220", _fgB: 1779104381865, className: "p-4 bg-white/5 rounded-lg", "data-fg-bpo8220": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:301:15:13534:223:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8221", _fgB: 1779104381865, className: "text-2xl font-bold text-white", "data-fg-bpo8221": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:302:17:13594:58:e:div:t", children: "1,800" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+                lineNumber: 322,
+                columnNumber: 17
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8223", _fgB: 1779104381865, className: "text-xs text-gray-400 mt-1", "data-fg-bpo8223": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:303:17:13669:67:e:div:t", children: "Compliance Checks" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+                lineNumber: 323,
+                columnNumber: 17
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+              lineNumber: 321,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8225", _fgB: 1779104381865, className: "p-4 bg-white/5 rounded-lg", "data-fg-bpo8225": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:305:15:13772:219:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8226", _fgB: 1779104381865, className: "text-2xl font-bold text-white", "data-fg-bpo8226": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:306:17:13832:58:e:div:t", children: "1,200" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+                lineNumber: 326,
+                columnNumber: 17
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8228", _fgB: 1779104381865, className: "text-xs text-gray-400 mt-1", "data-fg-bpo8228": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:307:17:13907:63:e:div:t", children: "Staff Queries" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+                lineNumber: 327,
+                columnNumber: 17
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+              lineNumber: 325,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8230", _fgB: 1779104381865, className: "p-4 bg-white/5 rounded-lg", "data-fg-bpo8230": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:309:15:14006:226:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8231", _fgB: 1779104381865, className: "text-2xl font-bold text-green-400", "data-fg-bpo8231": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:310:17:14066:62:e:div:t", children: "3,800" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+                lineNumber: 330,
+                columnNumber: 17
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8233", _fgB: 1779104381865, className: "text-xs text-gray-400 mt-1", "data-fg-bpo8233": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:311:17:14145:66:e:div:t", children: "Tokens Remaining" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+                lineNumber: 331,
+                columnNumber: 17
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+              lineNumber: 329,
+              columnNumber: 15
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+            lineNumber: 316,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+          lineNumber: 306,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+        lineNumber: 242,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+      lineNumber: 239,
+      columnNumber: 7
+    }, this),
+    (usersPercentage >= 80 || policiesPercentage >= 80 || tokensPercentage >= 80) && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8237", _fgB: 1779104381865, className: "bg-yellow-500/10 border border-yellow-500/20 rounded-xl p-6", "data-fg-bpo8237": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:320:9:14419:1259:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8238", _fgB: 1779104381865, className: "flex items-start gap-3", "data-fg-bpo8238": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:321:11:14507:1156:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: AlertTriangle, _fgS: "bpo8239", _fgB: 1779104381865, className: "w-6 h-6 text-yellow-400 flex-shrink-0 mt-1", "data-fg-bpo8239": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:322:13:14560:72:e:AlertTriangle::::::Ruk" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+        lineNumber: 342,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8240", _fgB: 1779104381865, className: "flex-1", "data-fg-bpo8240": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:323:13:14645:1001:e:div:etete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "bpo8241", _fgB: 1779104381865, className: "text-white font-semibold mb-2", "data-fg-bpo8241": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:324:15:14684:71:e:h3:t", children: "Resource Usage Alert" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+          lineNumber: 344,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bpo8243", _fgB: 1779104381865, className: "space-y-2 text-sm text-gray-300", "data-fg-bpo8243": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:325:15:14770:668:e:div:xtxtx", children: [
+          usersPercentage >= 80 && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "bpo8245", _fgB: 1779104381865, "data-fg-bpo8245": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:327:19:14882:118:e:p:txt", children: [
+            "• You're approaching your user limit (",
+            usersPercentage,
+            "% used). Consider upgrading your plan to add more users."
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+            lineNumber: 347,
+            columnNumber: 15
+          }, this),
+          policiesPercentage >= 80 && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "bpo8250", _fgB: 1779104381865, "data-fg-bpo8250": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:330:19:15085:118:e:p:txt", children: [
+            "• Policy limit is nearly reached (",
+            policiesPercentage,
+            "% used). You may need to archive old policies or upgrade."
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+            lineNumber: 350,
+            columnNumber: 15
+          }, this),
+          tokensPercentage >= 80 && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "bpo8255", _fgB: 1779104381865, "data-fg-bpo8255": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:333:19:15286:112:e:p:txtxt", children: [
+            "• AI token usage is high (",
+            tokensPercentage,
+            "% used). Tokens will reset on ",
+            subscriptionData.renewalDate,
+            "."
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+            lineNumber: 353,
+            columnNumber: 15
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+          lineNumber: 345,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "button", _fgS: "bpo8261", _fgB: 1779104381865, className: "mt-4 px-6 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition-colors font-medium", "data-fg-bpo8261": "529.76:529.15706:/src/app/pages/org-admin/SubscriptionUsage.tsx:336:15:15453:174:e:button:t", children: "Upgrade Plan" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+          lineNumber: 356,
+          columnNumber: 15
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+        lineNumber: 343,
+        columnNumber: 13
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+      lineNumber: 341,
+      columnNumber: 11
+    }, this) }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+      lineNumber: 340,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx",
+    lineNumber: 59,
+    columnNumber: 5
+  }, this);
+}
+_c = SubscriptionUsage;
+var _c;
+$RefreshReg$(_c, "SubscriptionUsage");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/workspaces/default/code/src/app/pages/org-admin/SubscriptionUsage.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,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RW5IQyxzQkFBc0IsTUFDckIsdUJBQUMseUtBQUU7QUFBQTtBQUFBLFlBQW1DQTtBQUFBQSxZQUFtQjtBQUFBLGVBQXpEO0FBQUE7QUFBQTtBQUFBO0FBQUEsaUJBQWtIO0FBQUEsVUFFbkhDLG9CQUFvQixNQUNuQix1QkFBQywyS0FBRTtBQUFBO0FBQUEsWUFBMkJBO0FBQUFBLFlBQWlCO0FBQUEsWUFBK0JsQixpQkFBaUJHO0FBQUFBLFlBQVk7QUFBQSxlQUEzRztBQUFBO0FBQUE7QUFBQTtBQUFBLGlCQUE0RztBQUFBLGFBUmhIO0FBQUE7QUFBQTtBQUFBO0FBQUEsZUFVQTtBQUFBLFFBQ0EsdUJBQUMsK0RBQU8sV0FBVSx3R0FBcUcsa0hBQUMsNEJBQXhIO0FBQUE7QUFBQTtBQUFBO0FBQUEsZUFFQTtBQUFBLFdBZkY7QUFBQTtBQUFBO0FBQUE7QUFBQSxhQWdCQTtBQUFBLFNBbEJGO0FBQUE7QUFBQTtBQUFBO0FBQUEsV0FtQkEsS0FwQkY7QUFBQTtBQUFBO0FBQUE7QUFBQSxXQXFCQTtBQUFBLE9BOVNKO0FBQUE7QUFBQTtBQUFBO0FBQUEsU0FnVEE7QUFFSjtBQUFBa0IsS0F0VndCdEI7QUFBaUIsSUFBQXNCO0FBQUFDLGFBQUFELElBQUEiLCJuYW1lcyI6WyJVc2VycyIsIkZpbGVUZXh0IiwiU3BhcmtsZXMiLCJUcmVuZGluZ1VwIiwiQWxlcnRUcmlhbmdsZSIsIkNyZWRpdENhcmQiLCJQYWNrYWdlIiwiU3Vic2NyaXB0aW9uVXNhZ2UiLCJzdWJzY3JpcHRpb25EYXRhIiwicGxhbk5hbWUiLCJwbGFuVHlwZSIsInJlbmV3YWxEYXRlIiwidXNlcnMiLCJ0b3RhbCIsInVzZWQiLCJwb2xpY2llcyIsImNyZWF0ZWQiLCJhaVRva2VucyIsInJlbWFpbmluZyIsImdldFVzYWdlUGVyY2VudGFnZSIsIk1hdGgiLCJyb3VuZCIsImdldFN0YXR1c0NvbG9yIiwicGVyY2VudGFnZSIsInVzZXJzUGVyY2VudGFnZSIsInBvbGljaWVzUGVyY2VudGFnZSIsInRva2Vuc1BlcmNlbnRhZ2UiLCJ3aWR0aCIsInRvTG9jYWxlU3RyaW5nIiwiX2MiLCIkUmVmcmVzaFJlZyQiXSwiaWdub3JlTGlzdCI6W10sInNvdXJjZXMiOlsiU3Vic2NyaXB0aW9uVXNhZ2UudHN4Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IFVzZXJzLCBGaWxlVGV4dCwgU3BhcmtsZXMsIFRyZW5kaW5nVXAsIEFsZXJ0VHJpYW5nbGUsIENyZWRpdENhcmQsIFBhY2thZ2UgfSBmcm9tICdsdWNpZGUtcmVhY3QnO1xuXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBTdWJzY3JpcHRpb25Vc2FnZSgpIHtcbiAgLy8gTW9jayBzdWJzY3JpcHRpb24gZGF0YVxuICBjb25zdCBzdWJzY3JpcHRpb25EYXRhID0ge1xuICAgIHBsYW5OYW1lOiAnUHJvZmVzc2lvbmFsIFBsYW4nLFxuICAgIHBsYW5UeXBlOiAnQW5udWFsJyxcbiAgICByZW5ld2FsRGF0ZTogJzIwMjYtMTItMTUnLFxuICAgIHVzZXJzOiB7XG4gICAgICB0b3RhbDogNTAsXG4gICAgICB1c2VkOiAzOCxcbiAgICB9LFxuICAgIHBvbGljaWVzOiB7XG4gICAgICB0b3RhbDogMTAwLFxuICAgICAgY3JlYXRlZDogNjcsXG4gICAgfSxcbiAgICBhaVRva2Vuczoge1xuICAgICAgdG90YWw6IDEwMDAwLFxuICAgICAgdXNlZDogNjIwMCxcbiAgICAgIHJlbWFpbmluZzogMzgwMCxcbiAgICB9LFxuICB9O1xuXG4gIGNvbnN0IGdldFVzYWdlUGVyY2VudGFnZSA9ICh1c2VkOiBudW1iZXIsIHRvdGFsOiBudW1iZXIpID0+IHtcbiAgICByZXR1cm4gTWF0aC5yb3VuZCgodXNlZCAvIHRvdGFsKSAqIDEwMCk7XG4gIH07XG5cbiAgY29uc3QgZ2V0U3RhdHVzQ29sb3IgPSAocGVyY2VudGFnZTogbnVtYmVyKSA9PiB7XG4gICAgaWYgKHBlcmNlbnRhZ2UgPj0gOTApIHJldHVybiAncmVkJztcbiAgICBpZiAocGVyY2VudGFnZSA+PSA4MCkgcmV0dXJuICd5ZWxsb3cnO1xuICAgIHJldHVybiAnZ3JlZW4nO1xuICB9O1xuXG4gIGNvbnN0IHVzZXJzUGVyY2VudGFnZSA9IGdldFVzYWdlUGVyY2VudGFnZShzdWJzY3JpcHRpb25EYXRhLnVzZXJzLnVzZWQsIHN1YnNjcmlwdGlvbkRhdGEudXNlcnMudG90YWwpO1xuICBjb25zdCBwb2xpY2llc1BlcmNlbnRhZ2UgPSBnZXRVc2FnZVBlcmNlbnRhZ2Uoc3Vic2NyaXB0aW9uRGF0YS5wb2xpY2llcy5jcmVhdGVkLCBzdWJzY3JpcHRpb25EYXRhLnBvbGljaWVzLnRvdGFsKTtcbiAgY29uc3QgdG9rZW5zUGVyY2VudGFnZSA9IGdldFVzYWdlUGVyY2VudGFnZShzdWJzY3JpcHRpb25EYXRhLmFpVG9rZW5zLnVzZWQsIHN1YnNjcmlwdGlvbkRhdGEuYWlUb2tlbnMudG90YWwpO1xuXG4gIHJldHVybiAoXG4gICAgPGRpdiBjbGFzc05hbWU9XCJzcGFjZS15LTZcIj5cbiAgICAgIHsvKiBIZWFkZXIgKi99XG4gICAgICA8ZGl2PlxuICAgICAgICA8aDEgY2xhc3NOYW1lPVwidGV4dC0zeGwgZm9udC1ib2xkIHRleHQtd2hpdGUgbWItMlwiPlN1YnNjcmlwdGlvbiAmIFVzYWdlPC9oMT5cbiAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC1ncmF5LTQwMFwiPk1vbml0b3IgeW91ciBwbGFuIGxpbWl0cyBhbmQgcmVzb3VyY2UgY29uc3VtcHRpb248L3A+XG4gICAgICA8L2Rpdj5cblxuICAgICAgey8qIEN1cnJlbnQgUGxhbiAqL31cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYmctZ3JhZGllbnQtdG8tYnIgZnJvbS10ZWFsLTUwMC8xMCB2aWEtdGVhbC01MDAvNSB0by10cmFuc3BhcmVudCBiYWNrZHJvcC1ibHVyLWxnIHJvdW5kZWQtMnhsIHAtNiBib3JkZXIgYm9yZGVyLXRlYWwtNTAwLzIwXCI+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTMgbWItNFwiPlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidy0xMiBoLTEyIHJvdW5kZWQteGwgYmctZ3JhZGllbnQtdG8tYnIgZnJvbS10ZWFsLTYwMCB0by10ZWFsLTUwMCBmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlclwiPlxuICAgICAgICAgICAgPFBhY2thZ2UgY2xhc3NOYW1lPVwidy02IGgtNiB0ZXh0LXdoaXRlXCIgLz5cbiAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgPGgyIGNsYXNzTmFtZT1cInRleHQteGwgZm9udC1zZW1pYm9sZCB0ZXh0LXdoaXRlXCI+e3N1YnNjcmlwdGlvbkRhdGEucGxhbk5hbWV9PC9oMj5cbiAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtc20gdGV4dC1ncmF5LTQwMFwiPntzdWJzY3JpcHRpb25EYXRhLnBsYW5UeXBlfSBCaWxsaW5nPC9wPlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICA8L2Rpdj5cblxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImdyaWQgZ3JpZC1jb2xzLTEgbWQ6Z3JpZC1jb2xzLTIgZ2FwLTQgbXQtNlwiPlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicC00IGJnLXdoaXRlLzUgcm91bmRlZC1sZ1wiPlxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMiB0ZXh0LWdyYXktNDAwIHRleHQtc20gbWItMVwiPlxuICAgICAgICAgICAgICA8Q3JlZGl0Q2FyZCBjbGFzc05hbWU9XCJ3LTQgaC00XCIgLz5cbiAgICAgICAgICAgICAgPHNwYW4+UmVuZXdhbCBEYXRlPC9zcGFuPlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQtd2hpdGUgZm9udC1zZW1pYm9sZFwiPntzdWJzY3JpcHRpb25EYXRhLnJlbmV3YWxEYXRlfTwvZGl2PlxuICAgICAgICAgIDwvZGl2PlxuXG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJwLTQgYmctd2hpdGUvNSByb3VuZGVkLWxnXCI+XG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0yIHRleHQtZ3JheS00MDAgdGV4dC1zbSBtYi0xXCI+XG4gICAgICAgICAgICAgIDxUcmVuZGluZ1VwIGNsYXNzTmFtZT1cInctNCBoLTRcIiAvPlxuICAgICAgICAgICAgICA8c3Bhbj5QbGFuIFN0YXR1czwvc3Bhbj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ0ZXh0LWdyZWVuLTQwMCBmb250LXNlbWlib2xkXCI+QWN0aXZlPC9kaXY+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvZGl2PlxuICAgICAgPC9kaXY+XG5cbiAgICAgIHsvKiBVc2FnZSBPdmVydmlldyBDYXJkcyAqL31cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZ3JpZCBncmlkLWNvbHMtMSBtZDpncmlkLWNvbHMtMyBnYXAtNlwiPlxuICAgICAgICB7LyogVXNlcnMgVXNhZ2UgKi99XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYmctWyMwZjI4MzJdIGJvcmRlciBib3JkZXItWyMxYTM0NDBdIHJvdW5kZWQteGwgcC02XCI+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW4gbWItNFwiPlxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtM1wiPlxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT17YHctMTAgaC0xMCByb3VuZGVkLWxnIGJnLSR7Z2V0U3RhdHVzQ29sb3IodXNlcnNQZXJjZW50YWdlKX0tNTAwLzIwIGZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktY2VudGVyYH0+XG4gICAgICAgICAgICAgICAgPFVzZXJzIGNsYXNzTmFtZT17YHctNSBoLTUgdGV4dC0ke2dldFN0YXR1c0NvbG9yKHVzZXJzUGVyY2VudGFnZSl9LTQwMGB9IC8+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICAgIDxoMyBjbGFzc05hbWU9XCJ0ZXh0LXdoaXRlIGZvbnQtc2VtaWJvbGRcIj5Vc2VyczwvaDM+XG4gICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC14cyB0ZXh0LWdyYXktNDAwXCI+QWN0aXZlIHZzIFRvdGFsPC9wPlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDwvZGl2PlxuXG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJzcGFjZS15LTNcIj5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1lbmQganVzdGlmeS1iZXR3ZWVuXCI+XG4gICAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ0ZXh0LTN4bCBmb250LWJvbGQgdGV4dC13aGl0ZVwiPlxuICAgICAgICAgICAgICAgICAge3N1YnNjcmlwdGlvbkRhdGEudXNlcnMudXNlZH0gPHNwYW4gY2xhc3NOYW1lPVwidGV4dC1sZyB0ZXh0LWdyYXktNDAwXCI+LyB7c3Vic2NyaXB0aW9uRGF0YS51c2Vycy50b3RhbH08L3NwYW4+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9e2B0ZXh0LXNtIGZvbnQtbWVkaXVtIHRleHQtJHtnZXRTdGF0dXNDb2xvcih1c2Vyc1BlcmNlbnRhZ2UpfS00MDAgbXQtMWB9PlxuICAgICAgICAgICAgICAgICAge3VzZXJzUGVyY2VudGFnZX0lIFVzZWRcbiAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICA8L2Rpdj5cblxuICAgICAgICAgICAgey8qIFByb2dyZXNzIEJhciAqL31cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidy1mdWxsIGJnLXdoaXRlLzUgcm91bmRlZC1mdWxsIGgtMiBvdmVyZmxvdy1oaWRkZW5cIj5cbiAgICAgICAgICAgICAgPGRpdlxuICAgICAgICAgICAgICAgIGNsYXNzTmFtZT17YGgtZnVsbCBiZy1ncmFkaWVudC10by1yIGZyb20tJHtnZXRTdGF0dXNDb2xvcih1c2Vyc1BlcmNlbnRhZ2UpfS02MDAgdG8tJHtnZXRTdGF0dXNDb2xvcih1c2Vyc1BlcmNlbnRhZ2UpfS01MDAgdHJhbnNpdGlvbi1hbGxgfVxuICAgICAgICAgICAgICAgIHN0eWxlPXt7IHdpZHRoOiBgJHt1c2Vyc1BlcmNlbnRhZ2V9JWAgfX1cbiAgICAgICAgICAgICAgPjwvZGl2PlxuICAgICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuIHRleHQteHMgdGV4dC1ncmF5LTQwMFwiPlxuICAgICAgICAgICAgICA8c3Bhbj57c3Vic2NyaXB0aW9uRGF0YS51c2Vycy50b3RhbCAtIHN1YnNjcmlwdGlvbkRhdGEudXNlcnMudXNlZH0gcmVtYWluaW5nPC9zcGFuPlxuICAgICAgICAgICAgICB7dXNlcnNQZXJjZW50YWdlID49IDgwICYmIChcbiAgICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMSB0ZXh0LXllbGxvdy00MDBcIj5cbiAgICAgICAgICAgICAgICAgIDxBbGVydFRyaWFuZ2xlIGNsYXNzTmFtZT1cInctMyBoLTNcIiAvPlxuICAgICAgICAgICAgICAgICAgTmVhcmluZyBsaW1pdFxuICAgICAgICAgICAgICAgIDwvc3Bhbj5cbiAgICAgICAgICAgICAgKX1cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICA8L2Rpdj5cblxuICAgICAgICB7LyogUG9saWNpZXMgVXNhZ2UgKi99XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYmctWyMwZjI4MzJdIGJvcmRlciBib3JkZXItWyMxYTM0NDBdIHJvdW5kZWQteGwgcC02XCI+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW4gbWItNFwiPlxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtM1wiPlxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT17YHctMTAgaC0xMCByb3VuZGVkLWxnIGJnLSR7Z2V0U3RhdHVzQ29sb3IocG9saWNpZXNQZXJjZW50YWdlKX0tNTAwLzIwIGZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktY2VudGVyYH0+XG4gICAgICAgICAgICAgICAgPEZpbGVUZXh0IGNsYXNzTmFtZT17YHctNSBoLTUgdGV4dC0ke2dldFN0YXR1c0NvbG9yKHBvbGljaWVzUGVyY2VudGFnZSl9LTQwMGB9IC8+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICAgIDxoMyBjbGFzc05hbWU9XCJ0ZXh0LXdoaXRlIGZvbnQtc2VtaWJvbGRcIj5Qb2xpY2llczwvaDM+XG4gICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC14cyB0ZXh0LWdyYXktNDAwXCI+Q3JlYXRlZCB2cyBMaW1pdDwvcD5cbiAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICA8L2Rpdj5cblxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwic3BhY2UteS0zXCI+XG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtZW5kIGp1c3RpZnktYmV0d2VlblwiPlxuICAgICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC0zeGwgZm9udC1ib2xkIHRleHQtd2hpdGVcIj5cbiAgICAgICAgICAgICAgICAgIHtzdWJzY3JpcHRpb25EYXRhLnBvbGljaWVzLmNyZWF0ZWR9IDxzcGFuIGNsYXNzTmFtZT1cInRleHQtbGcgdGV4dC1ncmF5LTQwMFwiPi8ge3N1YnNjcmlwdGlvbkRhdGEucG9saWNpZXMudG90YWx9PC9zcGFuPlxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPXtgdGV4dC1zbSBmb250LW1lZGl1bSB0ZXh0LSR7Z2V0U3RhdHVzQ29sb3IocG9saWNpZXNQZXJjZW50YWdlKX0tNDAwIG10LTFgfT5cbiAgICAgICAgICAgICAgICAgIHtwb2xpY2llc1BlcmNlbnRhZ2V9JSBVc2VkXG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICAgIHsvKiBQcm9ncmVzcyBCYXIgKi99XG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInctZnVsbCBiZy13aGl0ZS81IHJvdW5kZWQtZnVsbCBoLTIgb3ZlcmZsb3ctaGlkZGVuXCI+XG4gICAgICAgICAgICAgIDxkaXZcbiAgICAgICAgICAgICAgICBjbGFzc05hbWU9e2BoLWZ1bGwgYmctZ3JhZGllbnQtdG8tciBmcm9tLSR7Z2V0U3RhdHVzQ29sb3IocG9saWNpZXNQZXJjZW50YWdlKX0tNjAwIHRvLSR7Z2V0U3RhdHVzQ29sb3IocG9saWNpZXNQZXJjZW50YWdlKX0tNTAwIHRyYW5zaXRpb24tYWxsYH1cbiAgICAgICAgICAgICAgICBzdHlsZT17eyB3aWR0aDogYCR7cG9saWNpZXNQZXJjZW50YWdlfSVgIH19XG4gICAgICAgICAgICAgID48L2Rpdj5cbiAgICAgICAgICAgIDwvZGl2PlxuXG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlbiB0ZXh0LXhzIHRleHQtZ3JheS00MDBcIj5cbiAgICAgICAgICAgICAgPHNwYW4+e3N1YnNjcmlwdGlvbkRhdGEucG9saWNpZXMudG90YWwgLSBzdWJzY3JpcHRpb25EYXRhLnBvbGljaWVzLmNyZWF0ZWR9IHJlbWFpbmluZzwvc3Bhbj5cbiAgICAgICAgICAgICAge3BvbGljaWVzUGVyY2VudGFnZSA+PSA4MCAmJiAoXG4gICAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTEgdGV4dC15ZWxsb3ctNDAwXCI+XG4gICAgICAgICAgICAgICAgICA8QWxlcnRUcmlhbmdsZSBjbGFzc05hbWU9XCJ3LTMgaC0zXCIgLz5cbiAgICAgICAgICAgICAgICAgIE5lYXJpbmcgbGltaXRcbiAgICAgICAgICAgICAgICA8L3NwYW4+XG4gICAgICAgICAgICAgICl9XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgey8qIEFJIFRva2VucyBVc2FnZSAqL31cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJiZy1bIzBmMjgzMl0gYm9yZGVyIGJvcmRlci1bIzFhMzQ0MF0gcm91bmRlZC14bCBwLTZcIj5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlbiBtYi00XCI+XG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0zXCI+XG4gICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPXtgdy0xMCBoLTEwIHJvdW5kZWQtbGcgYmctJHtnZXRTdGF0dXNDb2xvcih0b2tlbnNQZXJjZW50YWdlKX0tNTAwLzIwIGZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktY2VudGVyYH0+XG4gICAgICAgICAgICAgICAgPFNwYXJrbGVzIGNsYXNzTmFtZT17YHctNSBoLTUgdGV4dC0ke2dldFN0YXR1c0NvbG9yKHRva2Vuc1BlcmNlbnRhZ2UpfS00MDBgfSAvPlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgICAgICA8aDMgY2xhc3NOYW1lPVwidGV4dC13aGl0ZSBmb250LXNlbWlib2xkXCI+QUkgVG9rZW5zPC9oMz5cbiAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LXhzIHRleHQtZ3JheS00MDBcIj5Vc2VkIC8gUmVtYWluaW5nPC9wPlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDwvZGl2PlxuXG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJzcGFjZS15LTNcIj5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1lbmQganVzdGlmeS1iZXR3ZWVuXCI+XG4gICAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ0ZXh0LTN4bCBmb250LWJvbGQgdGV4dC13aGl0ZVwiPlxuICAgICAgICAgICAgICAgICAge3N1YnNjcmlwdGlvbkRhdGEuYWlUb2tlbnMudXNlZC50b0xvY2FsZVN0cmluZygpfSA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LWxnIHRleHQtZ3JheS00MDBcIj4vIHtzdWJzY3JpcHRpb25EYXRhLmFpVG9rZW5zLnRvdGFsLnRvTG9jYWxlU3RyaW5nKCl9PC9zcGFuPlxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPXtgdGV4dC1zbSBmb250LW1lZGl1bSB0ZXh0LSR7Z2V0U3RhdHVzQ29sb3IodG9rZW5zUGVyY2VudGFnZSl9LTQwMCBtdC0xYH0+XG4gICAgICAgICAgICAgICAgICB7dG9rZW5zUGVyY2VudGFnZX0lIFVzZWRcbiAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICA8L2Rpdj5cblxuICAgICAgICAgICAgey8qIFByb2dyZXNzIEJhciAqL31cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidy1mdWxsIGJnLXdoaXRlLzUgcm91bmRlZC1mdWxsIGgtMiBvdmVyZmxvdy1oaWRkZW5cIj5cbiAgICAgICAgICAgICAgPGRpdlxuICAgICAgICAgICAgICAgIGNsYXNzTmFtZT17YGgtZnVsbCBiZy1ncmFkaWVudC10by1yIGZyb20tJHtnZXRTdGF0dXNDb2xvcih0b2tlbnNQZXJjZW50YWdlKX0tNjAwIHRvLSR7Z2V0U3RhdHVzQ29sb3IodG9rZW5zUGVyY2VudGFnZSl9LTUwMCB0cmFuc2l0aW9uLWFsbGB9XG4gICAgICAgICAgICAgICAgc3R5bGU9e3sgd2lkdGg6IGAke3Rva2Vuc1BlcmNlbnRhZ2V9JWAgfX1cbiAgICAgICAgICAgICAgPjwvZGl2PlxuICAgICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuIHRleHQteHMgdGV4dC1ncmF5LTQwMFwiPlxuICAgICAgICAgICAgICA8c3Bhbj57c3Vic2NyaXB0aW9uRGF0YS5haVRva2Vucy5yZW1haW5pbmcudG9Mb2NhbGVTdHJpbmcoKX0gcmVtYWluaW5nPC9zcGFuPlxuICAgICAgICAgICAgICB7dG9rZW5zUGVyY2VudGFnZSA+PSA4MCAmJiAoXG4gICAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTEgdGV4dC15ZWxsb3ctNDAwXCI+XG4gICAgICAgICAgICAgICAgICA8QWxlcnRUcmlhbmdsZSBjbGFzc05hbWU9XCJ3LTMgaC0zXCIgLz5cbiAgICAgICAgICAgICAgICAgIE5lYXJpbmcgbGltaXRcbiAgICAgICAgICAgICAgICA8L3NwYW4+XG4gICAgICAgICAgICAgICl9XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgPC9kaXY+XG4gICAgICA8L2Rpdj5cblxuICAgICAgey8qIERldGFpbGVkIFVzYWdlIEJyZWFrZG93biAqL31cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYmctWyMwZjI4MzJdIGJvcmRlciBib3JkZXItWyMxYTM0NDBdIHJvdW5kZWQteGwgcC02XCI+XG4gICAgICAgIDxoMiBjbGFzc05hbWU9XCJ0ZXh0LXhsIGZvbnQtYm9sZCB0ZXh0LXdoaXRlIG1iLTZcIj5EZXRhaWxlZCBVc2FnZSBCcmVha2Rvd248L2gyPlxuXG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwic3BhY2UteS02XCI+XG4gICAgICAgICAgey8qIFVzZXJzIEJyZWFrZG93biAqL31cbiAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW4gbWItM1wiPlxuICAgICAgICAgICAgICA8aDMgY2xhc3NOYW1lPVwidGV4dC13aGl0ZSBmb250LXNlbWlib2xkIGZsZXggaXRlbXMtY2VudGVyIGdhcC0yXCI+XG4gICAgICAgICAgICAgICAgPFVzZXJzIGNsYXNzTmFtZT1cInctNSBoLTUgdGV4dC1wdXJwbGUtNDAwXCIgLz5cbiAgICAgICAgICAgICAgICBVc2VyIEFjY291bnRzXG4gICAgICAgICAgICAgIDwvaDM+XG4gICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRleHQtc20gdGV4dC1ncmF5LTQwMFwiPlxuICAgICAgICAgICAgICAgIHtzdWJzY3JpcHRpb25EYXRhLnVzZXJzLnVzZWR9IG9mIHtzdWJzY3JpcHRpb25EYXRhLnVzZXJzLnRvdGFsfSBzZWF0cyBvY2N1cGllZFxuICAgICAgICAgICAgICA8L3NwYW4+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZ3JpZCBncmlkLWNvbHMtMSBtZDpncmlkLWNvbHMtNCBnYXAtNFwiPlxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInAtNCBiZy13aGl0ZS81IHJvdW5kZWQtbGdcIj5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQtMnhsIGZvbnQtYm9sZCB0ZXh0LXdoaXRlXCI+MTI8L2Rpdj5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC1ncmF5LTQwMCBtdC0xXCI+QWRtaW5zPC9kaXY+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInAtNCBiZy13aGl0ZS81IHJvdW5kZWQtbGdcIj5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQtMnhsIGZvbnQtYm9sZCB0ZXh0LXdoaXRlXCI+ODwvZGl2PlxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC14cyB0ZXh0LWdyYXktNDAwIG10LTFcIj5Db21wbGlhbmNlIE1hbmFnZXJzPC9kaXY+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInAtNCBiZy13aGl0ZS81IHJvdW5kZWQtbGdcIj5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQtMnhsIGZvbnQtYm9sZCB0ZXh0LXdoaXRlXCI+MTg8L2Rpdj5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC1ncmF5LTQwMCBtdC0xXCI+U3RhZmYgTWVtYmVyczwvZGl2PlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJwLTQgYmctd2hpdGUvNSByb3VuZGVkLWxnXCI+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ0ZXh0LTJ4bCBmb250LWJvbGQgdGV4dC1ncmVlbi00MDBcIj4xMjwvZGl2PlxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC14cyB0ZXh0LWdyYXktNDAwIG10LTFcIj5BdmFpbGFibGUgU2VhdHM8L2Rpdj5cbiAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICA8L2Rpdj5cblxuICAgICAgICAgIHsvKiBQb2xpY2llcyBCcmVha2Rvd24gKi99XG4gICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuIG1iLTNcIj5cbiAgICAgICAgICAgICAgPGgzIGNsYXNzTmFtZT1cInRleHQtd2hpdGUgZm9udC1zZW1pYm9sZCBmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMlwiPlxuICAgICAgICAgICAgICAgIDxGaWxlVGV4dCBjbGFzc05hbWU9XCJ3LTUgaC01IHRleHQtYmx1ZS00MDBcIiAvPlxuICAgICAgICAgICAgICAgIFBvbGljeSBEb2N1bWVudHNcbiAgICAgICAgICAgICAgPC9oMz5cbiAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwidGV4dC1zbSB0ZXh0LWdyYXktNDAwXCI+XG4gICAgICAgICAgICAgICAge3N1YnNjcmlwdGlvbkRhdGEucG9saWNpZXMuY3JlYXRlZH0gb2Yge3N1YnNjcmlwdGlvbkRhdGEucG9saWNpZXMudG90YWx9IHBvbGljaWVzIGNyZWF0ZWRcbiAgICAgICAgICAgICAgPC9zcGFuPlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImdyaWQgZ3JpZC1jb2xzLTEgbWQ6Z3JpZC1jb2xzLTQgZ2FwLTRcIj5cbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJwLTQgYmctd2hpdGUvNSByb3VuZGVkLWxnXCI+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ0ZXh0LTJ4bCBmb250LWJvbGQgdGV4dC13aGl0ZVwiPjI4PC9kaXY+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ0ZXh0LXhzIHRleHQtZ3JheS00MDAgbXQtMVwiPlBvbGljaWVzPC9kaXY+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInAtNCBiZy13aGl0ZS81IHJvdW5kZWQtbGdcIj5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQtMnhsIGZvbnQtYm9sZCB0ZXh0LXdoaXRlXCI+MjI8L2Rpdj5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC1ncmF5LTQwMCBtdC0xXCI+UHJvY2VkdXJlczwvZGl2PlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJwLTQgYmctd2hpdGUvNSByb3VuZGVkLWxnXCI+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ0ZXh0LTJ4bCBmb250LWJvbGQgdGV4dC13aGl0ZVwiPjEyPC9kaXY+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ0ZXh0LXhzIHRleHQtZ3JheS00MDAgbXQtMVwiPkZvcm1zL1RlbXBsYXRlczwvZGl2PlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJwLTQgYmctd2hpdGUvNSByb3VuZGVkLWxnXCI+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ0ZXh0LTJ4bCBmb250LWJvbGQgdGV4dC13aGl0ZVwiPjU8L2Rpdj5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC1ncmF5LTQwMCBtdC0xXCI+R3VpZGVsaW5lczwvZGl2PlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDwvZGl2PlxuXG4gICAgICAgICAgey8qIEFJIFRva2VucyBCcmVha2Rvd24gKi99XG4gICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuIG1iLTNcIj5cbiAgICAgICAgICAgICAgPGgzIGNsYXNzTmFtZT1cInRleHQtd2hpdGUgZm9udC1zZW1pYm9sZCBmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMlwiPlxuICAgICAgICAgICAgICAgIDxTcGFya2xlcyBjbGFzc05hbWU9XCJ3LTUgaC01IHRleHQtcHVycGxlLTQwMFwiIC8+XG4gICAgICAgICAgICAgICAgQUkgVG9rZW4gVXNhZ2VcbiAgICAgICAgICAgICAgPC9oMz5cbiAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwidGV4dC1zbSB0ZXh0LWdyYXktNDAwXCI+XG4gICAgICAgICAgICAgICAge3N1YnNjcmlwdGlvbkRhdGEuYWlUb2tlbnMudXNlZC50b0xvY2FsZVN0cmluZygpfSBvZiB7c3Vic2NyaXB0aW9uRGF0YS5haVRva2Vucy50b3RhbC50b0xvY2FsZVN0cmluZygpfSB0b2tlbnMgdXNlZFxuICAgICAgICAgICAgICA8L3NwYW4+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZ3JpZCBncmlkLWNvbHMtMSBtZDpncmlkLWNvbHMtNCBnYXAtNFwiPlxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInAtNCBiZy13aGl0ZS81IHJvdW5kZWQtbGdcIj5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQtMnhsIGZvbnQtYm9sZCB0ZXh0LXdoaXRlXCI+MywyMDA8L2Rpdj5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC1ncmF5LTQwMCBtdC0xXCI+UG9saWN5IEdlbmVyYXRpb248L2Rpdj5cbiAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicC00IGJnLXdoaXRlLzUgcm91bmRlZC1sZ1wiPlxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC0yeGwgZm9udC1ib2xkIHRleHQtd2hpdGVcIj4xLDgwMDwvZGl2PlxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC14cyB0ZXh0LWdyYXktNDAwIG10LTFcIj5Db21wbGlhbmNlIENoZWNrczwvZGl2PlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJwLTQgYmctd2hpdGUvNSByb3VuZGVkLWxnXCI+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ0ZXh0LTJ4bCBmb250LWJvbGQgdGV4dC13aGl0ZVwiPjEsMjAwPC9kaXY+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ0ZXh0LXhzIHRleHQtZ3JheS00MDAgbXQtMVwiPlN0YWZmIFF1ZXJpZXM8L2Rpdj5cbiAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicC00IGJnLXdoaXRlLzUgcm91bmRlZC1sZ1wiPlxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC0yeGwgZm9udC1ib2xkIHRleHQtZ3JlZW4tNDAwXCI+Myw4MDA8L2Rpdj5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC1ncmF5LTQwMCBtdC0xXCI+VG9rZW5zIFJlbWFpbmluZzwvZGl2PlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICA8L2Rpdj5cbiAgICAgIDwvZGl2PlxuXG4gICAgICB7LyogV2FybmluZ3MgKi99XG4gICAgICB7KHVzZXJzUGVyY2VudGFnZSA+PSA4MCB8fCBwb2xpY2llc1BlcmNlbnRhZ2UgPj0gODAgfHwgdG9rZW5zUGVyY2VudGFnZSA+PSA4MCkgJiYgKFxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLXllbGxvdy01MDAvMTAgYm9yZGVyIGJvcmRlci15ZWxsb3ctNTAwLzIwIHJvdW5kZWQteGwgcC02XCI+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLXN0YXJ0IGdhcC0zXCI+XG4gICAgICAgICAgICA8QWxlcnRUcmlhbmdsZSBjbGFzc05hbWU9XCJ3LTYgaC02IHRleHQteWVsbG93LTQwMCBmbGV4LXNocmluay0wIG10LTFcIiAvPlxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4LTFcIj5cbiAgICAgICAgICAgICAgPGgzIGNsYXNzTmFtZT1cInRleHQtd2hpdGUgZm9udC1zZW1pYm9sZCBtYi0yXCI+UmVzb3VyY2UgVXNhZ2UgQWxlcnQ8L2gzPlxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInNwYWNlLXktMiB0ZXh0LXNtIHRleHQtZ3JheS0zMDBcIj5cbiAgICAgICAgICAgICAgICB7dXNlcnNQZXJjZW50YWdlID49IDgwICYmIChcbiAgICAgICAgICAgICAgICAgIDxwPuKAoiBZb3UncmUgYXBwcm9hY2hpbmcgeW91ciB1c2VyIGxpbWl0ICh7dXNlcnNQZXJjZW50YWdlfSUgdXNlZCkuIENvbnNpZGVyIHVwZ3JhZGluZyB5b3VyIHBsYW4gdG8gYWRkIG1vcmUgdXNlcnMuPC9wPlxuICAgICAgICAgICAgICAgICl9XG4gICAgICAgICAgICAgICAge3BvbGljaWVzUGVyY2VudGFnZSA+PSA4MCAmJiAoXG4gICAgICAgICAgICAgICAgICA8cD7igKIgUG9saWN5IGxpbWl0IGlzIG5lYXJseSByZWFjaGVkICh7cG9saWNpZXNQZXJjZW50YWdlfSUgdXNlZCkuIFlvdSBtYXkgbmVlZCB0byBhcmNoaXZlIG9sZCBwb2xpY2llcyBvciB1cGdyYWRlLjwvcD5cbiAgICAgICAgICAgICAgICApfVxuICAgICAgICAgICAgICAgIHt0b2tlbnNQZXJjZW50YWdlID49IDgwICYmIChcbiAgICAgICAgICAgICAgICAgIDxwPuKAoiBBSSB0b2tlbiB1c2FnZSBpcyBoaWdoICh7dG9rZW5zUGVyY2VudGFnZX0lIHVzZWQpLiBUb2tlbnMgd2lsbCByZXNldCBvbiB7c3Vic2NyaXB0aW9uRGF0YS5yZW5ld2FsRGF0ZX0uPC9wPlxuICAgICAgICAgICAgICAgICl9XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICA8YnV0dG9uIGNsYXNzTmFtZT1cIm10LTQgcHgtNiBweS0yIGJnLXllbGxvdy01MDAgdGV4dC13aGl0ZSByb3VuZGVkLWxnIGhvdmVyOmJnLXllbGxvdy02MDAgdHJhbnNpdGlvbi1jb2xvcnMgZm9udC1tZWRpdW1cIj5cbiAgICAgICAgICAgICAgICBVcGdyYWRlIFBsYW5cbiAgICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgPC9kaXY+XG4gICAgICApfVxuICAgIDwvZGl2PlxuICApO1xufVxuIl0sImZpbGUiOiIvd29ya3NwYWNlcy9kZWZhdWx0L2NvZGUvc3JjL2FwcC9wYWdlcy9vcmctYWRtaW4vU3Vic2NyaXB0aW9uVXNhZ2UudHN4In0=

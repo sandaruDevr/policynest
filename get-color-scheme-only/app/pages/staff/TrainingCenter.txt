@@ -1,0 +1,549 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/app/pages/staff/TrainingCenter.tsx");import { Fragment, jsxDEV } from "/@id/__x00__figma:react-jsx-dev-runtime";
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+var _s = $RefreshSig$();
+import { FGCmp } from "/@id/fginspector";
+import { useState } from "/@id/__x00__figma:react-base";
+import {
+  GraduationCap,
+  Search,
+  FileText,
+  CheckCircle,
+  Clock,
+  Play,
+  BookOpen,
+  Award
+} from "/node_modules/.vite/deps/lucide-react.js?v=25293e4c";
+const mockModules = [
+  {
+    id: "mod-001",
+    title: "Emergency Response Training",
+    linkedPolicy: "Emergency Evacuation Procedures",
+    difficulty: "intermediate",
+    duration: "45 min",
+    progress: 100,
+    status: "completed",
+    score: 92
+  },
+  {
+    id: "mod-002",
+    title: "Data Privacy Fundamentals",
+    linkedPolicy: "Data Privacy Guidelines",
+    difficulty: "beginner",
+    duration: "30 min",
+    progress: 65,
+    status: "in-progress",
+    dueDate: "2026-04-15"
+  },
+  {
+    id: "mod-003",
+    title: "Workplace Safety Standards",
+    linkedPolicy: "Workplace Safety Standards",
+    difficulty: "beginner",
+    duration: "40 min",
+    progress: 0,
+    status: "not-started",
+    dueDate: "2026-04-20"
+  },
+  {
+    id: "mod-004",
+    title: "Medication Management",
+    linkedPolicy: "Medication Administration Policy",
+    difficulty: "advanced",
+    duration: "60 min",
+    progress: 100,
+    status: "completed",
+    score: 88
+  }
+];
+export default function StaffTrainingCenter() {
+  _s();
+  const [modules] = useState(mockModules);
+  const [searchQuery, setSearchQuery] = useState("");
+  const filteredModules = modules.filter(
+    (module) => module.title.toLowerCase().includes(searchQuery.toLowerCase()) || module.linkedPolicy.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+  const completed = modules.filter((m) => m.status === "completed").length;
+  const inProgress = modules.filter((m) => m.status === "in-progress").length;
+  const avgScore = modules.filter((m) => m.score).reduce((acc, m) => acc + (m.score || 0), 0) / modules.filter((m) => m.score).length || 0;
+  const getDifficultyBadge = (difficulty) => {
+    const config = {
+      beginner: { bg: "bg-green-500/20", text: "text-green-400" },
+      intermediate: { bg: "bg-yellow-500/20", text: "text-yellow-400" },
+      advanced: { bg: "bg-red-500/20", text: "text-red-400" }
+    };
+    const style = config[difficulty] || config.beginner;
+    return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "c6fd0", _fgB: 1779104382270, className: `px-2 py-1 rounded text-xs font-medium ${style.bg} ${style.text} capitalize`, "data-fg-c6fd0": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:93:7:2492:130:e:span:x", children: difficulty }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+      lineNumber: 113,
+      columnNumber: 7
+    }, this);
+  };
+  const getStatusBadge = (status) => {
+    const config = {
+      "not-started": { bg: "bg-gray-500/20", text: "text-gray-400", label: "Not Started" },
+      "in-progress": { bg: "bg-blue-500/20", text: "text-blue-400", label: "In Progress" },
+      "completed": { bg: "bg-green-500/20", text: "text-green-400", label: "Completed" }
+    };
+    const style = config[status] || config["not-started"];
+    return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "c6fd2", _fgB: 1779104382270, className: `px-2 py-1 rounded-full text-xs font-medium ${style.bg} ${style.text}`, "data-fg-c6fd2": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:107:7:3086:125:e:span:x", children: style.label }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+      lineNumber: 127,
+      columnNumber: 7
+    }, this);
+  };
+  return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "c6fd4", _fgB: 1779104382270, _fgD: true, className: "space-y-6", "data-fg-c6fd4": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:114:5:3240:6894:e:div:xtetxtetxtetxtetx:1", children: [
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "c6fd6", _fgB: 1779104382270, className: "flex items-center justify-between", "data-fg-c6fd6": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:116:7:3295:254:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "c6fd7", _fgB: 1779104382270, "data-fg-c6fd7": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:117:9:3355:181:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h1", _fgS: "c6fd8", _fgB: 1779104382270, className: "text-3xl font-bold text-white mb-2", "data-fg-c6fd8": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:118:11:3371:67:e:h1:t", children: "My Training" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+        lineNumber: 138,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "c6fd10", _fgB: 1779104382270, className: "text-gray-400", "data-fg-c6fd10": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:119:11:3449:72:e:p:t", children: "Complete your assigned training modules" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+        lineNumber: 139,
+        columnNumber: 11
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+      lineNumber: 137,
+      columnNumber: 9
+    }, this) }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+      lineNumber: 136,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "c6fd13", _fgB: 1779104382270, className: "grid grid-cols-1 md:grid-cols-4 gap-4", "data-fg-c6fd13": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:124:7:3577:1616:e:div:etetete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "c6fd14", _fgB: 1779104382270, className: "p-4 bg-[#0f2832] border border-[#1a3440] rounded-xl", "data-fg-c6fd14": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:125:9:3641:383:e:div:etete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "c6fd15", _fgB: 1779104382270, className: "flex items-center justify-between mb-2", "data-fg-c6fd15": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:126:11:3721:134:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: BookOpen, _fgS: "c6fd16", _fgB: 1779104382270, className: "w-5 h-5 text-purple-400", "data-fg-c6fd16": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:127:13:3790:48:e:BookOpen::::::BP4H" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+          lineNumber: 147,
+          columnNumber: 13
+        }, this) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+          lineNumber: 146,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "c6fd17", _fgB: 1779104382270, className: "text-2xl font-bold text-white mb-1", "data-fg-c6fd17": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:129:11:3866:74:e:div:x", children: modules.length }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+          lineNumber: 149,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "c6fd19", _fgB: 1779104382270, className: "text-xs text-gray-400", "data-fg-c6fd19": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:130:11:3951:58:e:div:t", children: "Total Modules" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+          lineNumber: 150,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+        lineNumber: 145,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "c6fd21", _fgB: 1779104382270, className: "p-4 bg-[#0f2832] border border-[#1a3440] rounded-xl", "data-fg-c6fd21": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:132:9:4033:376:e:div:etete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "c6fd22", _fgB: 1779104382270, className: "flex items-center justify-between mb-2", "data-fg-c6fd22": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:133:11:4113:136:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: CheckCircle, _fgS: "c6fd23", _fgB: 1779104382270, className: "w-5 h-5 text-green-400", "data-fg-c6fd23": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:134:13:4182:50:e:CheckCircle::::::C4Wc" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+          lineNumber: 154,
+          columnNumber: 13
+        }, this) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+          lineNumber: 153,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "c6fd24", _fgB: 1779104382270, className: "text-2xl font-bold text-white mb-1", "data-fg-c6fd24": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:136:11:4260:69:e:div:x", children: completed }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+          lineNumber: 156,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "c6fd26", _fgB: 1779104382270, className: "text-xs text-gray-400", "data-fg-c6fd26": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:137:11:4340:54:e:div:t", children: "Completed" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+          lineNumber: 157,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+        lineNumber: 152,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "c6fd28", _fgB: 1779104382270, className: "p-4 bg-[#0f2832] border border-[#1a3440] rounded-xl", "data-fg-c6fd28": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:139:9:4418:372:e:div:etete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "c6fd29", _fgB: 1779104382270, className: "flex items-center justify-between mb-2", "data-fg-c6fd29": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:140:11:4498:129:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Clock, _fgS: "c6fd30", _fgB: 1779104382270, className: "w-5 h-5 text-blue-400", "data-fg-c6fd30": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:141:13:4567:43:e:Clock::::::EGEm" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+          lineNumber: 161,
+          columnNumber: 13
+        }, this) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+          lineNumber: 160,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "c6fd31", _fgB: 1779104382270, className: "text-2xl font-bold text-white mb-1", "data-fg-c6fd31": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:143:11:4638:70:e:div:x", children: inProgress }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+          lineNumber: 163,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "c6fd33", _fgB: 1779104382270, className: "text-xs text-gray-400", "data-fg-c6fd33": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:144:11:4719:56:e:div:t", children: "In Progress" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+          lineNumber: 164,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+        lineNumber: 159,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "c6fd35", _fgB: 1779104382270, className: "p-4 bg-[#0f2832] border border-[#1a3440] rounded-xl", "data-fg-c6fd35": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:146:9:4799:381:e:div:etete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "c6fd36", _fgB: 1779104382270, className: "flex items-center justify-between mb-2", "data-fg-c6fd36": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:147:11:4879:129:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Award, _fgS: "c6fd37", _fgB: 1779104382270, className: "w-5 h-5 text-teal-400", "data-fg-c6fd37": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:148:13:4948:43:e:Award::::::B1kh" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+          lineNumber: 168,
+          columnNumber: 13
+        }, this) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+          lineNumber: 167,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "c6fd38", _fgB: 1779104382270, className: "text-2xl font-bold text-white mb-1", "data-fg-c6fd38": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:150:11:5019:81:e:div:xt", children: [
+          Math.round(avgScore),
+          "%"
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+          lineNumber: 170,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "c6fd41", _fgB: 1779104382270, className: "text-xs text-gray-400", "data-fg-c6fd41": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:151:11:5111:54:e:div:t", children: "Avg Score" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+          lineNumber: 171,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+        lineNumber: 166,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+      lineNumber: 144,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "c6fd44", _fgB: 1779104382270, className: "bg-[#0f2832] border border-[#1a3440] rounded-xl p-4", "data-fg-c6fd44": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:156:7:5222:609:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "c6fd45", _fgB: 1779104382270, className: "relative", "data-fg-c6fd45": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:157:9:5300:518:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Search, _fgS: "c6fd46", _fgB: 1779104382270, className: "absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400", "data-fg-c6fd46": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:158:11:5337:95:e:Search::::::B9rK" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+        lineNumber: 178,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV(
+        FGCmp,
+        {
+          _fgT: "input",
+          _fgS: "c6fd47",
+          _fgB: 1779104382270,
+          type: "text",
+          value: searchQuery,
+          onChange: (e) => setSearchQuery(e.target.value),
+          placeholder: "Search training modules...",
+          className: "w-full pl-10 pr-4 py-2 bg-[#0B1F2A] border border-[#1a3440] rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-teal-500/50",
+          "data-fg-c6fd47": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:159:11:5443:360:e:input"
+        },
+        void 0,
+        false,
+        {
+          fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+          lineNumber: 179,
+          columnNumber: 11
+        },
+        this
+      )
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+      lineNumber: 177,
+      columnNumber: 9
+    }, this) }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+      lineNumber: 176,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "c6fd49", _fgB: 1779104382270, className: "grid grid-cols-1 md:grid-cols-2 gap-4", "data-fg-c6fd49": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:170:7:5870:3939:e:div:x", children: filteredModules.map(
+      (module) => /* @__PURE__ */ jsxDEV(
+        FGCmp,
+        {
+          _fgT: "div",
+          _fgS: "c6fd51",
+          _fgB: 1779104382270,
+          className: "bg-[#0f2832] border border-[#1a3440] rounded-xl p-6 hover:border-purple-500/30 transition-all cursor-pointer",
+          onClick: () => alert(`Opening training module: ${module.title}`),
+          "data-fg-c6fd51": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:172:11:5979:3805:e:div:etxtxtxtetxte",
+          children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "c6fd52", _fgB: 1779104382270, className: "flex items-start justify-between mb-4", "data-fg-c6fd52": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:177:13:6247:981:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "c6fd53", _fgB: 1779104382270, className: "flex-1", "data-fg-c6fd53": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:178:15:6317:404:e:div:etete", children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "c6fd54", _fgB: 1779104382270, className: "text-lg font-bold text-white mb-1", "data-fg-c6fd54": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:179:17:6358:69:e:h3:x", children: module.title }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+                  lineNumber: 199,
+                  columnNumber: 17
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "c6fd56", _fgB: 1779104382270, className: "text-sm text-gray-400 mb-2", "data-fg-c6fd56": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:180:17:6444:67:e:p:x", children: module.linkedPolicy }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+                  lineNumber: 200,
+                  columnNumber: 17
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "c6fd58", _fgB: 1779104382270, className: "flex items-center gap-2", "data-fg-c6fd58": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:181:17:6528:172:e:div:xtx", children: [
+                  getDifficultyBadge(module.difficulty),
+                  getStatusBadge(module.status)
+                ] }, void 0, true, {
+                  fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+                  lineNumber: 201,
+                  columnNumber: 17
+                }, this)
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+                lineNumber: 198,
+                columnNumber: 15
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "c6fd61", _fgB: 1779104382270, className: "w-12 h-12 rounded-lg bg-purple-500/20 flex items-center justify-center flex-shrink-0", "data-fg-c6fd61": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:186:15:6736:473:e:div:x", children: module.status === "completed" ? /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: CheckCircle, _fgS: "c6fd63", _fgB: 1779104382270, className: "w-6 h-6 text-green-400", "data-fg-c6fd63": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:188:19:6908:50:e:CheckCircle::::::C4Wc" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+                lineNumber: 208,
+                columnNumber: 15
+              }, this) : module.status === "in-progress" ? /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Play, _fgS: "c6fd64", _fgB: 1779104382270, className: "w-6 h-6 text-blue-400", "data-fg-c6fd64": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:190:19:7033:42:e:Play::::::IIc" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+                lineNumber: 210,
+                columnNumber: 15
+              }, this) : /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: GraduationCap, _fgS: "c6fd65", _fgB: 1779104382270, className: "w-6 h-6 text-purple-400", "data-fg-c6fd65": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:192:19:7116:53:e:GraduationCap::::::CR9S" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+                lineNumber: 212,
+                columnNumber: 15
+              }, this) }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+                lineNumber: 206,
+                columnNumber: 15
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+              lineNumber: 197,
+              columnNumber: 13
+            }, this),
+            module.progress > 0 && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "c6fd68", _fgB: 1779104382270, className: "mb-4", "data-fg-c6fd68": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:199:15:7315:579:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "c6fd69", _fgB: 1779104382270, className: "flex items-center justify-between text-xs text-gray-400 mb-1", "data-fg-c6fd69": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:200:17:7354:191:e:div:ete", children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "c6fd70", _fgB: 1779104382270, "data-fg-c6fd70": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:201:19:7451:21:e:span:t", children: "Progress" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+                  lineNumber: 221,
+                  columnNumber: 19
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "c6fd72", _fgB: 1779104382270, "data-fg-c6fd72": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:202:19:7491:31:e:span:xt", children: [
+                  module.progress,
+                  "%"
+                ] }, void 0, true, {
+                  fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+                  lineNumber: 222,
+                  columnNumber: 19
+                }, this)
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+                lineNumber: 220,
+                columnNumber: 17
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "c6fd75", _fgB: 1779104382270, className: "w-full h-2 bg-white/10 rounded-full overflow-hidden", "data-fg-c6fd75": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:204:17:7562:311:e:div:e", children: /* @__PURE__ */ jsxDEV(
+                FGCmp,
+                {
+                  _fgT: "div",
+                  _fgS: "c6fd76",
+                  _fgB: 1779104382270,
+                  className: "h-full bg-gradient-to-r from-purple-600 to-purple-500 rounded-full transition-all",
+                  style: { width: `${module.progress}%` },
+                  "data-fg-c6fd76": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:205:19:7650:200:e:div"
+                },
+                void 0,
+                false,
+                {
+                  fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+                  lineNumber: 225,
+                  columnNumber: 19
+                },
+                this
+              ) }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+                lineNumber: 224,
+                columnNumber: 17
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+              lineNumber: 219,
+              columnNumber: 11
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "c6fd78", _fgB: 1779104382270, className: "flex items-center justify-between text-sm", "data-fg-c6fd78": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:214:13:7952:791:e:div:etx", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "c6fd79", _fgB: 1779104382270, className: "flex items-center gap-4 text-gray-400", "data-fg-c6fd79": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:215:15:8026:492:e:div:etx", children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "c6fd80", _fgB: 1779104382270, className: "flex items-center gap-1", "data-fg-c6fd80": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:216:17:8098:161:e:div:ete", children: [
+                  /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Clock, _fgS: "c6fd81", _fgB: 1779104382270, className: "w-4 h-4", "data-fg-c6fd81": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:217:19:8158:29:e:Clock::::::EGEm" }, void 0, false, {
+                    fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+                    lineNumber: 237,
+                    columnNumber: 19
+                  }, this),
+                  /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "c6fd82", _fgB: 1779104382270, "data-fg-c6fd82": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:218:19:8206:30:e:span:x", children: module.duration }, void 0, false, {
+                    fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+                    lineNumber: 238,
+                    columnNumber: 19
+                  }, this)
+                ] }, void 0, true, {
+                  fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+                  lineNumber: 236,
+                  columnNumber: 17
+                }, this),
+                module.score && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "c6fd85", _fgB: 1779104382270, className: "flex items-center gap-1", "data-fg-c6fd85": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:221:19:8313:165:e:div:ete", children: [
+                  /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Award, _fgS: "c6fd86", _fgB: 1779104382270, className: "w-4 h-4", "data-fg-c6fd86": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:222:21:8375:29:e:Award::::::B1kh" }, void 0, false, {
+                    fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+                    lineNumber: 242,
+                    columnNumber: 21
+                  }, this),
+                  /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "c6fd87", _fgB: 1779104382270, "data-fg-c6fd87": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:223:21:8425:28:e:span:xt", children: [
+                    module.score,
+                    "%"
+                  ] }, void 0, true, {
+                    fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+                    lineNumber: 243,
+                    columnNumber: 21
+                  }, this)
+                ] }, void 0, true, {
+                  fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+                  lineNumber: 241,
+                  columnNumber: 15
+                }, this)
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+                lineNumber: 235,
+                columnNumber: 15
+              }, this),
+              module.dueDate && module.status !== "completed" && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "c6fd91", _fgB: 1779104382270, className: "text-xs text-yellow-400", "data-fg-c6fd91": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:228:17:8603:104:e:div:tx", children: [
+                "Due: ",
+                module.dueDate
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+                lineNumber: 248,
+                columnNumber: 13
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+              lineNumber: 234,
+              columnNumber: 13
+            }, this),
+            /* @__PURE__ */ jsxDEV(
+              FGCmp,
+              {
+                _fgT: "button",
+                _fgS: "c6fd95",
+                _fgB: 1779104382270,
+                className: "w-full mt-4 px-4 py-2 bg-purple-500/20 border border-purple-500/30 text-purple-400 rounded-lg hover:bg-purple-500/30 transition-all flex items-center justify-center gap-2",
+                onClick: (e) => {
+                  e.stopPropagation();
+                  alert(module.status === "completed" ? "Review module" : module.status === "in-progress" ? "Continue training" : "Start training");
+                },
+                "data-fg-c6fd95": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:235:13:8791:976:e:button:x",
+                children: module.status === "completed" ? /* @__PURE__ */ jsxDEV(Fragment, { children: [
+                  /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: FileText, _fgS: "c6fd98", _fgB: 1779104382270, className: "w-4 h-4", "data-fg-c6fd98": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:244:19:9329:32:e:FileText::::::B1i5" }, void 0, false, {
+                    fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+                    lineNumber: 264,
+                    columnNumber: 19
+                  }, this),
+                  "Review Module"
+                ] }, void 0, true, {
+                  fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+                  lineNumber: 263,
+                  columnNumber: 13
+                }, this) : module.status === "in-progress" ? /* @__PURE__ */ jsxDEV(Fragment, { children: [
+                  /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Play, _fgS: "c6fd101", _fgB: 1779104382270, className: "w-4 h-4", "data-fg-c6fd101": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:249:19:9505:28:e:Play::::::IIc" }, void 0, false, {
+                    fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+                    lineNumber: 269,
+                    columnNumber: 19
+                  }, this),
+                  "Continue Training"
+                ] }, void 0, true, {
+                  fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+                  lineNumber: 268,
+                  columnNumber: 13
+                }, this) : /* @__PURE__ */ jsxDEV(Fragment, { children: [
+                  /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Play, _fgS: "c6fd104", _fgB: 1779104382270, className: "w-4 h-4", "data-fg-c6fd104": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:254:19:9647:28:e:Play::::::IIc" }, void 0, false, {
+                    fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+                    lineNumber: 274,
+                    columnNumber: 19
+                  }, this),
+                  "Start Training"
+                ] }, void 0, true, {
+                  fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+                  lineNumber: 273,
+                  columnNumber: 13
+                }, this)
+              },
+              void 0,
+              false,
+              {
+                fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+                lineNumber: 255,
+                columnNumber: 13
+              },
+              this
+            )
+          ]
+        },
+        module.id,
+        true,
+        {
+          fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+          lineNumber: 192,
+          columnNumber: 9
+        },
+        this
+      )
+    ) }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+      lineNumber: 190,
+      columnNumber: 7
+    }, this),
+    filteredModules.length === 0 && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "c6fd107", _fgB: 1779104382270, className: "bg-[#0f2832] border border-[#1a3440] rounded-xl p-12 text-center", "data-fg-c6fd107": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:264:9:9860:254:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: GraduationCap, _fgS: "c6fd108", _fgB: 1779104382270, className: "w-16 h-16 text-gray-600 mx-auto mb-4 opacity-50", "data-fg-c6fd108": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:265:11:9953:77:e:GraduationCap::::::CR9S" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+        lineNumber: 285,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "c6fd109", _fgB: 1779104382270, className: "text-gray-400", "data-fg-c6fd109": "418.307:423.10168:/src/app/pages/staff/TrainingCenter.tsx:266:11:10041:58:e:p:t", children: "No training modules found" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+        lineNumber: 286,
+        columnNumber: 11
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+      lineNumber: 284,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx",
+    lineNumber: 134,
+    columnNumber: 5
+  }, this);
+}
+_s(StaffTrainingCenter, "27ZOUDhFcdTMkNqpBpn1UPU7A7s=");
+_c = StaffTrainingCenter;
+var _c;
+$RefreshReg$(_c, "StaffTrainingCenter");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/workspaces/default/code/src/app/pages/staff/TrainingCenter.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,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QUdBLElBRUEsbUNBQ0U7QUFBQSx5Q0FBQyxlQUFBQSxNQUFBLHNDQUFLLFdBQVUsV0FBUyxpSEFBekI7QUFBQTtBQUFBO0FBQUE7QUFBQSx5QkFBeUI7QUFBQTtBQUFBLHFCQUQzQjtBQUFBO0FBQUE7QUFBQTtBQUFBLHVCQUdBO0FBQUE7QUFBQSxjQXJCSjtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUEsWUF1QkE7QUFBQTtBQUFBO0FBQUEsUUFyRktvQixPQUFPaEI7QUFBQUEsUUFEZDtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLE1BdUZBO0FBQUEsSUFDRCxLQTFGSDtBQUFBO0FBQUE7QUFBQTtBQUFBLFdBMkZBO0FBQUEsSUFFQ2MsZ0JBQWdCTyxXQUFXLEtBQzFCLHVCQUFDLDREQUFJLFdBQVUsb0VBQWlFLHlHQUM5RTtBQUFBLDZCQUFDLGVBQUE5QixlQUFBLHNDQUFjLFdBQVUsbURBQWlELDJIQUExRTtBQUFBO0FBQUE7QUFBQTtBQUFBLGFBQTBFO0FBQUEsTUFDMUUsdUJBQUMsMERBQUUsV0FBVSxpQkFBYyxzR0FBRSx5Q0FBN0I7QUFBQTtBQUFBO0FBQUE7QUFBQSxhQUFzRDtBQUFBLFNBRnhEO0FBQUE7QUFBQTtBQUFBO0FBQUEsV0FHQTtBQUFBLE9BekpKO0FBQUE7QUFBQTtBQUFBO0FBQUEsU0EySkE7QUFFSjtBQUFBbUIsR0F6TXdCRCxxQkFBbUI7QUFBQW9DLEtBQW5CcEM7QUFBbUIsSUFBQW9DO0FBQUFDLGFBQUFELElBQUEiLCJuYW1lcyI6WyJ1c2VTdGF0ZSIsIkdyYWR1YXRpb25DYXAiLCJTZWFyY2giLCJGaWxlVGV4dCIsIkNoZWNrQ2lyY2xlIiwiQ2xvY2siLCJQbGF5IiwiQm9va09wZW4iLCJBd2FyZCIsIm1vY2tNb2R1bGVzIiwiaWQiLCJ0aXRsZSIsImxpbmtlZFBvbGljeSIsImRpZmZpY3VsdHkiLCJkdXJhdGlvbiIsInByb2dyZXNzIiwic3RhdHVzIiwic2NvcmUiLCJkdWVEYXRlIiwiU3RhZmZUcmFpbmluZ0NlbnRlciIsIl9zIiwibW9kdWxlcyIsInNlYXJjaFF1ZXJ5Iiwic2V0U2VhcmNoUXVlcnkiLCJmaWx0ZXJlZE1vZHVsZXMiLCJmaWx0ZXIiLCJtb2R1bGUiLCJ0b0xvd2VyQ2FzZSIsImluY2x1ZGVzIiwiY29tcGxldGVkIiwibSIsImxlbmd0aCIsImluUHJvZ3Jlc3MiLCJhdmdTY29yZSIsInJlZHVjZSIsImFjYyIsImdldERpZmZpY3VsdHlCYWRnZSIsImNvbmZpZyIsImJlZ2lubmVyIiwiYmciLCJ0ZXh0IiwiaW50ZXJtZWRpYXRlIiwiYWR2YW5jZWQiLCJzdHlsZSIsImdldFN0YXR1c0JhZGdlIiwibGFiZWwiLCJNYXRoIiwicm91bmQiLCJlIiwidGFyZ2V0IiwidmFsdWUiLCJtYXAiLCJhbGVydCIsIndpZHRoIiwic3RvcFByb3BhZ2F0aW9uIiwiX2MiLCIkUmVmcmVzaFJlZyQiXSwiaWdub3JlTGlzdCI6W10sInNvdXJjZXMiOlsiVHJhaW5pbmdDZW50ZXIudHN4Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IHVzZVN0YXRlIH0gZnJvbSAncmVhY3QnO1xuaW1wb3J0IHtcbiAgR3JhZHVhdGlvbkNhcCxcbiAgU2VhcmNoLFxuICBWaWRlbyxcbiAgRmlsZVRleHQsXG4gIENoZWNrQ2lyY2xlLFxuICBDbG9jayxcbiAgUGxheSxcbiAgQm9va09wZW4sXG4gIEF3YXJkLFxuICBUcmVuZGluZ1VwLFxufSBmcm9tICdsdWNpZGUtcmVhY3QnO1xuXG5pbnRlcmZhY2UgVHJhaW5pbmdNb2R1bGUge1xuICBpZDogc3RyaW5nO1xuICB0aXRsZTogc3RyaW5nO1xuICBsaW5rZWRQb2xpY3k6IHN0cmluZztcbiAgZGlmZmljdWx0eTogJ2JlZ2lubmVyJyB8ICdpbnRlcm1lZGlhdGUnIHwgJ2FkdmFuY2VkJztcbiAgZHVyYXRpb246IHN0cmluZztcbiAgcHJvZ3Jlc3M6IG51bWJlcjtcbiAgc3RhdHVzOiAnbm90LXN0YXJ0ZWQnIHwgJ2luLXByb2dyZXNzJyB8ICdjb21wbGV0ZWQnO1xuICBkdWVEYXRlPzogc3RyaW5nO1xuICBzY29yZT86IG51bWJlcjtcbn1cblxuY29uc3QgbW9ja01vZHVsZXM6IFRyYWluaW5nTW9kdWxlW10gPSBbXG4gIHtcbiAgICBpZDogJ21vZC0wMDEnLFxuICAgIHRpdGxlOiAnRW1lcmdlbmN5IFJlc3BvbnNlIFRyYWluaW5nJyxcbiAgICBsaW5rZWRQb2xpY3k6ICdFbWVyZ2VuY3kgRXZhY3VhdGlvbiBQcm9jZWR1cmVzJyxcbiAgICBkaWZmaWN1bHR5OiAnaW50ZXJtZWRpYXRlJyxcbiAgICBkdXJhdGlvbjogJzQ1IG1pbicsXG4gICAgcHJvZ3Jlc3M6IDEwMCxcbiAgICBzdGF0dXM6ICdjb21wbGV0ZWQnLFxuICAgIHNjb3JlOiA5MixcbiAgfSxcbiAge1xuICAgIGlkOiAnbW9kLTAwMicsXG4gICAgdGl0bGU6ICdEYXRhIFByaXZhY3kgRnVuZGFtZW50YWxzJyxcbiAgICBsaW5rZWRQb2xpY3k6ICdEYXRhIFByaXZhY3kgR3VpZGVsaW5lcycsXG4gICAgZGlmZmljdWx0eTogJ2JlZ2lubmVyJyxcbiAgICBkdXJhdGlvbjogJzMwIG1pbicsXG4gICAgcHJvZ3Jlc3M6IDY1LFxuICAgIHN0YXR1czogJ2luLXByb2dyZXNzJyxcbiAgICBkdWVEYXRlOiAnMjAyNi0wNC0xNScsXG4gIH0sXG4gIHtcbiAgICBpZDogJ21vZC0wMDMnLFxuICAgIHRpdGxlOiAnV29ya3BsYWNlIFNhZmV0eSBTdGFuZGFyZHMnLFxuICAgIGxpbmtlZFBvbGljeTogJ1dvcmtwbGFjZSBTYWZldHkgU3RhbmRhcmRzJyxcbiAgICBkaWZmaWN1bHR5OiAnYmVnaW5uZXInLFxuICAgIGR1cmF0aW9uOiAnNDAgbWluJyxcbiAgICBwcm9ncmVzczogMCxcbiAgICBzdGF0dXM6ICdub3Qtc3RhcnRlZCcsXG4gICAgZHVlRGF0ZTogJzIwMjYtMDQtMjAnLFxuICB9LFxuICB7XG4gICAgaWQ6ICdtb2QtMDA0JyxcbiAgICB0aXRsZTogJ01lZGljYXRpb24gTWFuYWdlbWVudCcsXG4gICAgbGlua2VkUG9saWN5OiAnTWVkaWNhdGlvbiBBZG1pbmlzdHJhdGlvbiBQb2xpY3knLFxuICAgIGRpZmZpY3VsdHk6ICdhZHZhbmNlZCcsXG4gICAgZHVyYXRpb246ICc2MCBtaW4nLFxuICAgIHByb2dyZXNzOiAxMDAsXG4gICAgc3RhdHVzOiAnY29tcGxldGVkJyxcbiAgICBzY29yZTogODgsXG4gIH0sXG5dO1xuXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBTdGFmZlRyYWluaW5nQ2VudGVyKCkge1xuICBjb25zdCBbbW9kdWxlc10gPSB1c2VTdGF0ZTxUcmFpbmluZ01vZHVsZVtdPihtb2NrTW9kdWxlcyk7XG4gIGNvbnN0IFtzZWFyY2hRdWVyeSwgc2V0U2VhcmNoUXVlcnldID0gdXNlU3RhdGUoJycpO1xuXG4gIGNvbnN0IGZpbHRlcmVkTW9kdWxlcyA9IG1vZHVsZXMuZmlsdGVyKG1vZHVsZSA9PlxuICAgIG1vZHVsZS50aXRsZS50b0xvd2VyQ2FzZSgpLmluY2x1ZGVzKHNlYXJjaFF1ZXJ5LnRvTG93ZXJDYXNlKCkpIHx8XG4gICAgbW9kdWxlLmxpbmtlZFBvbGljeS50b0xvd2VyQ2FzZSgpLmluY2x1ZGVzKHNlYXJjaFF1ZXJ5LnRvTG93ZXJDYXNlKCkpXG4gICk7XG5cbiAgY29uc3QgY29tcGxldGVkID0gbW9kdWxlcy5maWx0ZXIobSA9PiBtLnN0YXR1cyA9PT0gJ2NvbXBsZXRlZCcpLmxlbmd0aDtcbiAgY29uc3QgaW5Qcm9ncmVzcyA9IG1vZHVsZXMuZmlsdGVyKG0gPT4gbS5zdGF0dXMgPT09ICdpbi1wcm9ncmVzcycpLmxlbmd0aDtcbiAgY29uc3QgYXZnU2NvcmUgPSBtb2R1bGVzXG4gICAgLmZpbHRlcihtID0+IG0uc2NvcmUpXG4gICAgLnJlZHVjZSgoYWNjLCBtKSA9PiBhY2MgKyAobS5zY29yZSB8fCAwKSwgMCkgLyBtb2R1bGVzLmZpbHRlcihtID0+IG0uc2NvcmUpLmxlbmd0aCB8fCAwO1xuXG4gIGNvbnN0IGdldERpZmZpY3VsdHlCYWRnZSA9IChkaWZmaWN1bHR5OiBzdHJpbmcpID0+IHtcbiAgICBjb25zdCBjb25maWcgPSB7XG4gICAgICBiZWdpbm5lcjogeyBiZzogJ2JnLWdyZWVuLTUwMC8yMCcsIHRleHQ6ICd0ZXh0LWdyZWVuLTQwMCcgfSxcbiAgICAgIGludGVybWVkaWF0ZTogeyBiZzogJ2JnLXllbGxvdy01MDAvMjAnLCB0ZXh0OiAndGV4dC15ZWxsb3ctNDAwJyB9LFxuICAgICAgYWR2YW5jZWQ6IHsgYmc6ICdiZy1yZWQtNTAwLzIwJywgdGV4dDogJ3RleHQtcmVkLTQwMCcgfSxcbiAgICB9O1xuICAgIGNvbnN0IHN0eWxlID0gY29uZmlnW2RpZmZpY3VsdHkgYXMga2V5b2YgdHlwZW9mIGNvbmZpZ10gfHwgY29uZmlnLmJlZ2lubmVyO1xuICAgIHJldHVybiAoXG4gICAgICA8c3BhbiBjbGFzc05hbWU9e2BweC0yIHB5LTEgcm91bmRlZCB0ZXh0LXhzIGZvbnQtbWVkaXVtICR7c3R5bGUuYmd9ICR7c3R5bGUudGV4dH0gY2FwaXRhbGl6ZWB9PlxuICAgICAgICB7ZGlmZmljdWx0eX1cbiAgICAgIDwvc3Bhbj5cbiAgICApO1xuICB9O1xuXG4gIGNvbnN0IGdldFN0YXR1c0JhZGdlID0gKHN0YXR1czogc3RyaW5nKSA9PiB7XG4gICAgY29uc3QgY29uZmlnID0ge1xuICAgICAgJ25vdC1zdGFydGVkJzogeyBiZzogJ2JnLWdyYXktNTAwLzIwJywgdGV4dDogJ3RleHQtZ3JheS00MDAnLCBsYWJlbDogJ05vdCBTdGFydGVkJyB9LFxuICAgICAgJ2luLXByb2dyZXNzJzogeyBiZzogJ2JnLWJsdWUtNTAwLzIwJywgdGV4dDogJ3RleHQtYmx1ZS00MDAnLCBsYWJlbDogJ0luIFByb2dyZXNzJyB9LFxuICAgICAgJ2NvbXBsZXRlZCc6IHsgYmc6ICdiZy1ncmVlbi01MDAvMjAnLCB0ZXh0OiAndGV4dC1ncmVlbi00MDAnLCBsYWJlbDogJ0NvbXBsZXRlZCcgfSxcbiAgICB9O1xuICAgIGNvbnN0IHN0eWxlID0gY29uZmlnW3N0YXR1cyBhcyBrZXlvZiB0eXBlb2YgY29uZmlnXSB8fCBjb25maWdbJ25vdC1zdGFydGVkJ107XG4gICAgcmV0dXJuIChcbiAgICAgIDxzcGFuIGNsYXNzTmFtZT17YHB4LTIgcHktMSByb3VuZGVkLWZ1bGwgdGV4dC14cyBmb250LW1lZGl1bSAke3N0eWxlLmJnfSAke3N0eWxlLnRleHR9YH0+XG4gICAgICAgIHtzdHlsZS5sYWJlbH1cbiAgICAgIDwvc3Bhbj5cbiAgICApO1xuICB9O1xuXG4gIHJldHVybiAoXG4gICAgPGRpdiBjbGFzc05hbWU9XCJzcGFjZS15LTZcIj5cbiAgICAgIHsvKiBIZWFkZXIgKi99XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlblwiPlxuICAgICAgICA8ZGl2PlxuICAgICAgICAgIDxoMSBjbGFzc05hbWU9XCJ0ZXh0LTN4bCBmb250LWJvbGQgdGV4dC13aGl0ZSBtYi0yXCI+TXkgVHJhaW5pbmc8L2gxPlxuICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtZ3JheS00MDBcIj5Db21wbGV0ZSB5b3VyIGFzc2lnbmVkIHRyYWluaW5nIG1vZHVsZXM8L3A+XG4gICAgICAgIDwvZGl2PlxuICAgICAgPC9kaXY+XG5cbiAgICAgIHsvKiBTdGF0cyAqL31cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZ3JpZCBncmlkLWNvbHMtMSBtZDpncmlkLWNvbHMtNCBnYXAtNFwiPlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInAtNCBiZy1bIzBmMjgzMl0gYm9yZGVyIGJvcmRlci1bIzFhMzQ0MF0gcm91bmRlZC14bFwiPlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuIG1iLTJcIj5cbiAgICAgICAgICAgIDxCb29rT3BlbiBjbGFzc05hbWU9XCJ3LTUgaC01IHRleHQtcHVycGxlLTQwMFwiIC8+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ0ZXh0LTJ4bCBmb250LWJvbGQgdGV4dC13aGl0ZSBtYi0xXCI+e21vZHVsZXMubGVuZ3RofTwvZGl2PlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC14cyB0ZXh0LWdyYXktNDAwXCI+VG90YWwgTW9kdWxlczwvZGl2PlxuICAgICAgICA8L2Rpdj5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJwLTQgYmctWyMwZjI4MzJdIGJvcmRlciBib3JkZXItWyMxYTM0NDBdIHJvdW5kZWQteGxcIj5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlbiBtYi0yXCI+XG4gICAgICAgICAgICA8Q2hlY2tDaXJjbGUgY2xhc3NOYW1lPVwidy01IGgtNSB0ZXh0LWdyZWVuLTQwMFwiIC8+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ0ZXh0LTJ4bCBmb250LWJvbGQgdGV4dC13aGl0ZSBtYi0xXCI+e2NvbXBsZXRlZH08L2Rpdj5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC1ncmF5LTQwMFwiPkNvbXBsZXRlZDwvZGl2PlxuICAgICAgICA8L2Rpdj5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJwLTQgYmctWyMwZjI4MzJdIGJvcmRlciBib3JkZXItWyMxYTM0NDBdIHJvdW5kZWQteGxcIj5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlbiBtYi0yXCI+XG4gICAgICAgICAgICA8Q2xvY2sgY2xhc3NOYW1lPVwidy01IGgtNSB0ZXh0LWJsdWUtNDAwXCIgLz5cbiAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQtMnhsIGZvbnQtYm9sZCB0ZXh0LXdoaXRlIG1iLTFcIj57aW5Qcm9ncmVzc308L2Rpdj5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC1ncmF5LTQwMFwiPkluIFByb2dyZXNzPC9kaXY+XG4gICAgICAgIDwvZGl2PlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInAtNCBiZy1bIzBmMjgzMl0gYm9yZGVyIGJvcmRlci1bIzFhMzQ0MF0gcm91bmRlZC14bFwiPlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuIG1iLTJcIj5cbiAgICAgICAgICAgIDxBd2FyZCBjbGFzc05hbWU9XCJ3LTUgaC01IHRleHQtdGVhbC00MDBcIiAvPlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC0yeGwgZm9udC1ib2xkIHRleHQtd2hpdGUgbWItMVwiPntNYXRoLnJvdW5kKGF2Z1Njb3JlKX0lPC9kaXY+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ0ZXh0LXhzIHRleHQtZ3JheS00MDBcIj5BdmcgU2NvcmU8L2Rpdj5cbiAgICAgICAgPC9kaXY+XG4gICAgICA8L2Rpdj5cblxuICAgICAgey8qIFNlYXJjaCAqL31cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYmctWyMwZjI4MzJdIGJvcmRlciBib3JkZXItWyMxYTM0NDBdIHJvdW5kZWQteGwgcC00XCI+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicmVsYXRpdmVcIj5cbiAgICAgICAgICA8U2VhcmNoIGNsYXNzTmFtZT1cImFic29sdXRlIGxlZnQtMyB0b3AtMS8yIHRyYW5zZm9ybSAtdHJhbnNsYXRlLXktMS8yIHctNCBoLTQgdGV4dC1ncmF5LTQwMFwiIC8+XG4gICAgICAgICAgPGlucHV0XG4gICAgICAgICAgICB0eXBlPVwidGV4dFwiXG4gICAgICAgICAgICB2YWx1ZT17c2VhcmNoUXVlcnl9XG4gICAgICAgICAgICBvbkNoYW5nZT17KGUpID0+IHNldFNlYXJjaFF1ZXJ5KGUudGFyZ2V0LnZhbHVlKX1cbiAgICAgICAgICAgIHBsYWNlaG9sZGVyPVwiU2VhcmNoIHRyYWluaW5nIG1vZHVsZXMuLi5cIlxuICAgICAgICAgICAgY2xhc3NOYW1lPVwidy1mdWxsIHBsLTEwIHByLTQgcHktMiBiZy1bIzBCMUYyQV0gYm9yZGVyIGJvcmRlci1bIzFhMzQ0MF0gcm91bmRlZC1sZyB0ZXh0LXdoaXRlIHBsYWNlaG9sZGVyLWdyYXktNTAwIGZvY3VzOm91dGxpbmUtbm9uZSBmb2N1czpib3JkZXItdGVhbC01MDAvNTBcIlxuICAgICAgICAgIC8+XG4gICAgICAgIDwvZGl2PlxuICAgICAgPC9kaXY+XG5cbiAgICAgIHsvKiBUcmFpbmluZyBNb2R1bGVzICovfVxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJncmlkIGdyaWQtY29scy0xIG1kOmdyaWQtY29scy0yIGdhcC00XCI+XG4gICAgICAgIHtmaWx0ZXJlZE1vZHVsZXMubWFwKChtb2R1bGUpID0+IChcbiAgICAgICAgICA8ZGl2XG4gICAgICAgICAgICBrZXk9e21vZHVsZS5pZH1cbiAgICAgICAgICAgIGNsYXNzTmFtZT1cImJnLVsjMGYyODMyXSBib3JkZXIgYm9yZGVyLVsjMWEzNDQwXSByb3VuZGVkLXhsIHAtNiBob3Zlcjpib3JkZXItcHVycGxlLTUwMC8zMCB0cmFuc2l0aW9uLWFsbCBjdXJzb3ItcG9pbnRlclwiXG4gICAgICAgICAgICBvbkNsaWNrPXsoKSA9PiBhbGVydChgT3BlbmluZyB0cmFpbmluZyBtb2R1bGU6ICR7bW9kdWxlLnRpdGxlfWApfVxuICAgICAgICAgID5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1zdGFydCBqdXN0aWZ5LWJldHdlZW4gbWItNFwiPlxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXgtMVwiPlxuICAgICAgICAgICAgICAgIDxoMyBjbGFzc05hbWU9XCJ0ZXh0LWxnIGZvbnQtYm9sZCB0ZXh0LXdoaXRlIG1iLTFcIj57bW9kdWxlLnRpdGxlfTwvaDM+XG4gICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC1zbSB0ZXh0LWdyYXktNDAwIG1iLTJcIj57bW9kdWxlLmxpbmtlZFBvbGljeX08L3A+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMlwiPlxuICAgICAgICAgICAgICAgICAge2dldERpZmZpY3VsdHlCYWRnZShtb2R1bGUuZGlmZmljdWx0eSl9XG4gICAgICAgICAgICAgICAgICB7Z2V0U3RhdHVzQmFkZ2UobW9kdWxlLnN0YXR1cyl9XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInctMTIgaC0xMiByb3VuZGVkLWxnIGJnLXB1cnBsZS01MDAvMjAgZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1jZW50ZXIgZmxleC1zaHJpbmstMFwiPlxuICAgICAgICAgICAgICAgIHttb2R1bGUuc3RhdHVzID09PSAnY29tcGxldGVkJyA/IChcbiAgICAgICAgICAgICAgICAgIDxDaGVja0NpcmNsZSBjbGFzc05hbWU9XCJ3LTYgaC02IHRleHQtZ3JlZW4tNDAwXCIgLz5cbiAgICAgICAgICAgICAgICApIDogbW9kdWxlLnN0YXR1cyA9PT0gJ2luLXByb2dyZXNzJyA/IChcbiAgICAgICAgICAgICAgICAgIDxQbGF5IGNsYXNzTmFtZT1cInctNiBoLTYgdGV4dC1ibHVlLTQwMFwiIC8+XG4gICAgICAgICAgICAgICAgKSA6IChcbiAgICAgICAgICAgICAgICAgIDxHcmFkdWF0aW9uQ2FwIGNsYXNzTmFtZT1cInctNiBoLTYgdGV4dC1wdXJwbGUtNDAwXCIgLz5cbiAgICAgICAgICAgICAgICApfVxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDwvZGl2PlxuXG4gICAgICAgICAgICB7LyogUHJvZ3Jlc3MgQmFyICovfVxuICAgICAgICAgICAge21vZHVsZS5wcm9ncmVzcyA+IDAgJiYgKFxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cIm1iLTRcIj5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlbiB0ZXh0LXhzIHRleHQtZ3JheS00MDAgbWItMVwiPlxuICAgICAgICAgICAgICAgICAgPHNwYW4+UHJvZ3Jlc3M8L3NwYW4+XG4gICAgICAgICAgICAgICAgICA8c3Bhbj57bW9kdWxlLnByb2dyZXNzfSU8L3NwYW4+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ3LWZ1bGwgaC0yIGJnLXdoaXRlLzEwIHJvdW5kZWQtZnVsbCBvdmVyZmxvdy1oaWRkZW5cIj5cbiAgICAgICAgICAgICAgICAgIDxkaXZcbiAgICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwiaC1mdWxsIGJnLWdyYWRpZW50LXRvLXIgZnJvbS1wdXJwbGUtNjAwIHRvLXB1cnBsZS01MDAgcm91bmRlZC1mdWxsIHRyYW5zaXRpb24tYWxsXCJcbiAgICAgICAgICAgICAgICAgICAgc3R5bGU9e3sgd2lkdGg6IGAke21vZHVsZS5wcm9ncmVzc30lYCB9fVxuICAgICAgICAgICAgICAgICAgLz5cbiAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICApfVxuXG4gICAgICAgICAgICB7LyogTWV0YWRhdGEgKi99XG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlbiB0ZXh0LXNtXCI+XG4gICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTQgdGV4dC1ncmF5LTQwMFwiPlxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTFcIj5cbiAgICAgICAgICAgICAgICAgIDxDbG9jayBjbGFzc05hbWU9XCJ3LTQgaC00XCIgLz5cbiAgICAgICAgICAgICAgICAgIDxzcGFuPnttb2R1bGUuZHVyYXRpb259PC9zcGFuPlxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgIHttb2R1bGUuc2NvcmUgJiYgKFxuICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMVwiPlxuICAgICAgICAgICAgICAgICAgICA8QXdhcmQgY2xhc3NOYW1lPVwidy00IGgtNFwiIC8+XG4gICAgICAgICAgICAgICAgICAgIDxzcGFuPnttb2R1bGUuc2NvcmV9JTwvc3Bhbj5cbiAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICl9XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICB7bW9kdWxlLmR1ZURhdGUgJiYgbW9kdWxlLnN0YXR1cyAhPT0gJ2NvbXBsZXRlZCcgJiYgKFxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC14cyB0ZXh0LXllbGxvdy00MDBcIj5cbiAgICAgICAgICAgICAgICAgIER1ZToge21vZHVsZS5kdWVEYXRlfVxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICApfVxuICAgICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICAgIHsvKiBBY3Rpb24gQnV0dG9uICovfVxuICAgICAgICAgICAgPGJ1dHRvblxuICAgICAgICAgICAgICBjbGFzc05hbWU9XCJ3LWZ1bGwgbXQtNCBweC00IHB5LTIgYmctcHVycGxlLTUwMC8yMCBib3JkZXIgYm9yZGVyLXB1cnBsZS01MDAvMzAgdGV4dC1wdXJwbGUtNDAwIHJvdW5kZWQtbGcgaG92ZXI6YmctcHVycGxlLTUwMC8zMCB0cmFuc2l0aW9uLWFsbCBmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlciBnYXAtMlwiXG4gICAgICAgICAgICAgIG9uQ2xpY2s9eyhlKSA9PiB7XG4gICAgICAgICAgICAgICAgZS5zdG9wUHJvcGFnYXRpb24oKTtcbiAgICAgICAgICAgICAgICBhbGVydChtb2R1bGUuc3RhdHVzID09PSAnY29tcGxldGVkJyA/ICdSZXZpZXcgbW9kdWxlJyA6IG1vZHVsZS5zdGF0dXMgPT09ICdpbi1wcm9ncmVzcycgPyAnQ29udGludWUgdHJhaW5pbmcnIDogJ1N0YXJ0IHRyYWluaW5nJyk7XG4gICAgICAgICAgICAgIH19XG4gICAgICAgICAgICA+XG4gICAgICAgICAgICAgIHttb2R1bGUuc3RhdHVzID09PSAnY29tcGxldGVkJyA/IChcbiAgICAgICAgICAgICAgICA8PlxuICAgICAgICAgICAgICAgICAgPEZpbGVUZXh0IGNsYXNzTmFtZT1cInctNCBoLTRcIiAvPlxuICAgICAgICAgICAgICAgICAgUmV2aWV3IE1vZHVsZVxuICAgICAgICAgICAgICAgIDwvPlxuICAgICAgICAgICAgICApIDogbW9kdWxlLnN0YXR1cyA9PT0gJ2luLXByb2dyZXNzJyA/IChcbiAgICAgICAgICAgICAgICA8PlxuICAgICAgICAgICAgICAgICAgPFBsYXkgY2xhc3NOYW1lPVwidy00IGgtNFwiIC8+XG4gICAgICAgICAgICAgICAgICBDb250aW51ZSBUcmFpbmluZ1xuICAgICAgICAgICAgICAgIDwvPlxuICAgICAgICAgICAgICApIDogKFxuICAgICAgICAgICAgICAgIDw+XG4gICAgICAgICAgICAgICAgICA8UGxheSBjbGFzc05hbWU9XCJ3LTQgaC00XCIgLz5cbiAgICAgICAgICAgICAgICAgIFN0YXJ0IFRyYWluaW5nXG4gICAgICAgICAgICAgICAgPC8+XG4gICAgICAgICAgICAgICl9XG4gICAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgKSl9XG4gICAgICA8L2Rpdj5cblxuICAgICAge2ZpbHRlcmVkTW9kdWxlcy5sZW5ndGggPT09IDAgJiYgKFxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLVsjMGYyODMyXSBib3JkZXIgYm9yZGVyLVsjMWEzNDQwXSByb3VuZGVkLXhsIHAtMTIgdGV4dC1jZW50ZXJcIj5cbiAgICAgICAgICA8R3JhZHVhdGlvbkNhcCBjbGFzc05hbWU9XCJ3LTE2IGgtMTYgdGV4dC1ncmF5LTYwMCBteC1hdXRvIG1iLTQgb3BhY2l0eS01MFwiIC8+XG4gICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC1ncmF5LTQwMFwiPk5vIHRyYWluaW5nIG1vZHVsZXMgZm91bmQ8L3A+XG4gICAgICAgIDwvZGl2PlxuICAgICAgKX1cbiAgICA8L2Rpdj5cbiAgKTtcbn1cbiJdLCJmaWxlIjoiL3dvcmtzcGFjZXMvZGVmYXVsdC9jb2RlL3NyYy9hcHAvcGFnZXMvc3RhZmYvVHJhaW5pbmdDZW50ZXIudHN4In0=

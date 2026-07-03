@@ -1,0 +1,60 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/app/pages/compliance-manager/IncidentTracker.tsx");import { jsxDEV } from "/@id/__x00__figma:react-jsx-dev-runtime";
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/workspaces/default/code/src/app/pages/compliance-manager/IncidentTracker.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+import { FGCmp } from "/@id/fginspector";
+import IncidentManager from "/src/app/pages/org-admin/IncidentManager.tsx";
+export default function ComplianceManagerIncidentTracker() {
+  return /* @__PURE__ */ jsxDEV(
+    FGCmp,
+    {
+      _fgT: IncidentManager,
+      _fgS: "dwjp0",
+      _fgB: 1779104382162,
+      _fgD: true,
+      role: "compliance-manager",
+      userId: "staff-comp-001",
+      userFacilities: [],
+      "data-fg-dwjp0": "418.238:418.257:/src/app/pages/compliance-manager/IncidentTracker.tsx:5:5:137:112:e:IncidentManager::1::::CFav"
+    },
+    void 0,
+    false,
+    {
+      fileName: "/workspaces/default/code/src/app/pages/compliance-manager/IncidentTracker.tsx",
+      lineNumber: 25,
+      columnNumber: 5
+    },
+    this
+  );
+}
+_c = ComplianceManagerIncidentTracker;
+var _c;
+$RefreshReg$(_c, "ComplianceManagerIncidentTracker");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/workspaces/default/code/src/app/pages/compliance-manager/IncidentTracker.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/workspaces/default/code/src/app/pages/compliance-manager/IncidentTracker.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6IkFBSUk7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBSkosT0FBT0EscUJBQXFCO0FBRTVCLHdCQUF3QkMsbUNBQW1DO0FBQ3pELFNBQ0U7QUFBQSxJQUFDO0FBQUE7QUFBQSxZQUFBRDtBQUFBQSxNQUFBO0FBQUE7QUFBQTtBQUFBLE1BQ0MsTUFBSztBQUFBLE1BQ0wsUUFBTztBQUFBLE1BQ1AsZ0JBQWdCO0FBQUEsTUFDbkI7QUFBQTtBQUFBLElBSkM7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLEVBSUQ7QUFFSDtBQUFBRSxLQVJ3QkQ7QUFBZ0MsSUFBQUM7QUFBQUMsYUFBQUQsSUFBQSIsIm5hbWVzIjpbIkluY2lkZW50TWFuYWdlciIsIkNvbXBsaWFuY2VNYW5hZ2VySW5jaWRlbnRUcmFja2VyIiwiX2MiLCIkUmVmcmVzaFJlZyQiXSwiaWdub3JlTGlzdCI6W10sInNvdXJjZXMiOlsiSW5jaWRlbnRUcmFja2VyLnRzeCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgSW5jaWRlbnRNYW5hZ2VyIGZyb20gJy4uL29yZy1hZG1pbi9JbmNpZGVudE1hbmFnZXInO1xuXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBDb21wbGlhbmNlTWFuYWdlckluY2lkZW50VHJhY2tlcigpIHtcbiAgcmV0dXJuIChcbiAgICA8SW5jaWRlbnRNYW5hZ2VyIFxuICAgICAgcm9sZT1cImNvbXBsaWFuY2UtbWFuYWdlclwiXG4gICAgICB1c2VySWQ9XCJzdGFmZi1jb21wLTAwMVwiXG4gICAgICB1c2VyRmFjaWxpdGllcz17W119XG4gICAgLz5cbiAgKTtcbn1cbiJdLCJmaWxlIjoiL3dvcmtzcGFjZXMvZGVmYXVsdC9jb2RlL3NyYy9hcHAvcGFnZXMvY29tcGxpYW5jZS1tYW5hZ2VyL0luY2lkZW50VHJhY2tlci50c3gifQ==

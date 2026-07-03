@@ -1,0 +1,176 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/app/components/LanguageSwitcher.tsx");import { jsxDEV } from "/@id/__x00__figma:react-jsx-dev-runtime";
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/workspaces/default/code/src/app/components/LanguageSwitcher.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+var _s = $RefreshSig$();
+import { FGCmp } from "/@id/fginspector";
+import { useState, useRef, useEffect } from "/@id/__x00__figma:react-base";
+import { Globe, Check } from "/node_modules/.vite/deps/lucide-react.js?v=25293e4c";
+import { useLanguage } from "/src/app/contexts/LanguageContext.tsx";
+const languages = [
+  { code: "en", label: "English", nativeLabel: "English" },
+  { code: "ar", label: "Arabic", nativeLabel: "العربية" }
+];
+export default function LanguageSwitcher() {
+  _s();
+  const { language, setLanguage } = useLanguage();
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef(null);
+  const currentLanguage = languages.find((lang) => lang.code === language) || languages[0];
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    }
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen]);
+  const handleLanguageSelect = (langCode) => {
+    setLanguage(langCode);
+    setIsOpen(false);
+  };
+  return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "stu0", _fgB: 1779104382773, _fgD: true, className: "relative", ref: dropdownRef, "data-fg-stu0": "758.3469:758.2975:/src/app/components/LanguageSwitcher.tsx:45:5:1238:1729:e:div:etx:1", children: [
+    /* @__PURE__ */ jsxDEV(
+      FGCmp,
+      {
+        _fgT: "button",
+        _fgS: "stu1",
+        _fgB: 1779104382773,
+        onClick: () => setIsOpen(!isOpen),
+        className: "flex items-center gap-2 p-2 hover:bg-white/5 rounded-lg transition-colors",
+        title: "Change Language",
+        "data-fg-stu1": "758.3469:758.2975:/src/app/components/LanguageSwitcher.tsx:46:7:1289:374:e:button:ete",
+        children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Globe, _fgS: "stu2", _fgB: 1779104382773, className: "w-5 h-5 text-gray-400", "data-fg-stu2": "758.3469:758.2975:/src/app/components/LanguageSwitcher.tsx:51:9:1482:43:e:Globe::::::Cyd3" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/LanguageSwitcher.tsx",
+            lineNumber: 71,
+            columnNumber: 9
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "stu3", _fgB: 1779104382773, className: "text-xs font-semibold text-gray-400 uppercase", "data-fg-stu3": "758.3469:758.2975:/src/app/components/LanguageSwitcher.tsx:52:9:1534:113:e:span:x", children: currentLanguage.code }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/LanguageSwitcher.tsx",
+            lineNumber: 72,
+            columnNumber: 9
+          }, this)
+        ]
+      },
+      void 0,
+      true,
+      {
+        fileName: "/workspaces/default/code/src/app/components/LanguageSwitcher.tsx",
+        lineNumber: 66,
+        columnNumber: 7
+      },
+      this
+    ),
+    isOpen && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "stu6", _fgB: 1779104382773, className: "absolute top-full right-0 mt-2 w-48 bg-[#0d2331] backdrop-blur-xl border border-white/10 rounded-lg shadow-2xl overflow-hidden z-50", "data-fg-stu6": "758.3469:758.2975:/src/app/components/LanguageSwitcher.tsx:58:9:1692:1255:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "stu7", _fgB: 1779104382773, className: "py-2", "data-fg-stu7": "758.3469:758.2975:/src/app/components/LanguageSwitcher.tsx:59:11:1852:863:e:div:x", children: languages.map(
+        (lang) => /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "button",
+            _fgS: "stu9",
+            _fgB: 1779104382773,
+            onClick: () => handleLanguageSelect(lang.code),
+            className: `w-full flex items-center justify-between px-4 py-2.5 transition-colors ${language === lang.code ? "bg-teal-500/10 text-teal-400" : "text-gray-300 hover:bg-white/5"}`,
+            "data-fg-stu9": "758.3469:758.2975:/src/app/components/LanguageSwitcher.tsx:61:15:1928:754:e:button:etx",
+            children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "stu10", _fgB: 1779104382773, className: "flex items-center gap-3", "data-fg-stu10": "758.3469:758.2975:/src/app/components/LanguageSwitcher.tsx:70:17:2335:235:e:div:ete", children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "stu11", _fgB: 1779104382773, className: "text-sm font-medium", "data-fg-stu11": "758.3469:758.2975:/src/app/components/LanguageSwitcher.tsx:71:19:2395:63:e:span:x", children: lang.nativeLabel }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/components/LanguageSwitcher.tsx",
+                  lineNumber: 91,
+                  columnNumber: 19
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "stu13", _fgB: 1779104382773, className: "text-xs text-gray-500 uppercase", "data-fg-stu13": "758.3469:758.2975:/src/app/components/LanguageSwitcher.tsx:72:19:2477:70:e:span:txt", children: [
+                  "(",
+                  lang.code,
+                  ")"
+                ] }, void 0, true, {
+                  fileName: "/workspaces/default/code/src/app/components/LanguageSwitcher.tsx",
+                  lineNumber: 92,
+                  columnNumber: 19
+                }, this)
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/components/LanguageSwitcher.tsx",
+                lineNumber: 90,
+                columnNumber: 17
+              }, this),
+              language === lang.code && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Check, _fgS: "stu18", _fgB: 1779104382773, className: "w-4 h-4 text-teal-400", "data-fg-stu18": "758.3469:758.2975:/src/app/components/LanguageSwitcher.tsx:74:44:2614:43:e:Check::::::Dijm" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/LanguageSwitcher.tsx",
+                lineNumber: 94,
+                columnNumber: 44
+              }, this)
+            ]
+          },
+          lang.code,
+          true,
+          {
+            fileName: "/workspaces/default/code/src/app/components/LanguageSwitcher.tsx",
+            lineNumber: 81,
+            columnNumber: 11
+          },
+          this
+        )
+      ) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/components/LanguageSwitcher.tsx",
+        lineNumber: 79,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "stu19", _fgB: 1779104382773, className: "border-t border-white/10 px-4 py-2 bg-white/5", "data-fg-stu19": "758.3469:758.2975:/src/app/components/LanguageSwitcher.tsx:79:11:2727:205:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "stu20", _fgB: 1779104382773, className: "text-xs text-gray-500", "data-fg-stu20": "758.3469:758.2975:/src/app/components/LanguageSwitcher.tsx:80:13:2803:112:e:p:t", children: "System language affects UI and AI responses" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/components/LanguageSwitcher.tsx",
+        lineNumber: 100,
+        columnNumber: 13
+      }, this) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/components/LanguageSwitcher.tsx",
+        lineNumber: 99,
+        columnNumber: 11
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/components/LanguageSwitcher.tsx",
+      lineNumber: 78,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "/workspaces/default/code/src/app/components/LanguageSwitcher.tsx",
+    lineNumber: 65,
+    columnNumber: 5
+  }, this);
+}
+_s(LanguageSwitcher, "GD+hP6PMNyKS+TFYXNlUSYLuDlk=", false, function() {
+  return [useLanguage];
+});
+_c = LanguageSwitcher;
+var _c;
+$RefreshReg$(_c, "LanguageSwitcher");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/workspaces/default/code/src/app/components/LanguageSwitcher.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/workspaces/default/code/src/app/components/LanguageSwitcher.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,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QUEsb0NBQU0sV0FBVSx5QkFBdUIsaUhBQXhDO0FBQUE7QUFBQTtBQUFBO0FBQUEscUJBQXdDO0FBQUE7QUFBQTtBQUFBLFVBWjlEZSxLQUFLWjtBQUFBQSxVQURaO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUEsUUFjQTtBQUFBLE1BQ0QsS0FqQkg7QUFBQTtBQUFBO0FBQUE7QUFBQSxhQWtCQTtBQUFBLE1BRUEsdUJBQUMsMERBQUksV0FBVSxpREFBOEMsc0dBQzNELGlDQUFDLHdEQUFFLFdBQVUseUJBQXNCLG9HQUFDLDJEQUFwQztBQUFBO0FBQUE7QUFBQTtBQUFBLGFBRUEsS0FIRjtBQUFBO0FBQUE7QUFBQTtBQUFBLGFBSUE7QUFBQSxTQXpCRjtBQUFBO0FBQUE7QUFBQTtBQUFBLFdBMEJBO0FBQUEsT0F2Q0o7QUFBQTtBQUFBO0FBQUE7QUFBQSxTQXlDQTtBQUVKO0FBQUFJLEdBeEV3QkQsa0JBQWdCO0FBQUEsVUFDSkwsV0FBVztBQUFBO0FBQUEwQixLQUR2QnJCO0FBQWdCLElBQUFxQjtBQUFBQyxhQUFBRCxJQUFBIiwibmFtZXMiOlsidXNlU3RhdGUiLCJ1c2VSZWYiLCJ1c2VFZmZlY3QiLCJHbG9iZSIsIkNoZWNrIiwidXNlTGFuZ3VhZ2UiLCJsYW5ndWFnZXMiLCJjb2RlIiwibGFiZWwiLCJuYXRpdmVMYWJlbCIsIkxhbmd1YWdlU3dpdGNoZXIiLCJfcyIsImxhbmd1YWdlIiwic2V0TGFuZ3VhZ2UiLCJpc09wZW4iLCJzZXRJc09wZW4iLCJkcm9wZG93blJlZiIsImN1cnJlbnRMYW5ndWFnZSIsImZpbmQiLCJsYW5nIiwiaGFuZGxlQ2xpY2tPdXRzaWRlIiwiZXZlbnQiLCJjdXJyZW50IiwiY29udGFpbnMiLCJ0YXJnZXQiLCJkb2N1bWVudCIsImFkZEV2ZW50TGlzdGVuZXIiLCJyZW1vdmVFdmVudExpc3RlbmVyIiwiaGFuZGxlTGFuZ3VhZ2VTZWxlY3QiLCJsYW5nQ29kZSIsIm1hcCIsIl9jIiwiJFJlZnJlc2hSZWckIl0sImlnbm9yZUxpc3QiOltdLCJzb3VyY2VzIjpbIkxhbmd1YWdlU3dpdGNoZXIudHN4Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IHVzZVN0YXRlLCB1c2VSZWYsIHVzZUVmZmVjdCB9IGZyb20gJ3JlYWN0JztcbmltcG9ydCB7IEdsb2JlLCBDaGVjayB9IGZyb20gJ2x1Y2lkZS1yZWFjdCc7XG5pbXBvcnQgeyB1c2VMYW5ndWFnZSwgTGFuZ3VhZ2UgfSBmcm9tICcuLi9jb250ZXh0cy9MYW5ndWFnZUNvbnRleHQnO1xuXG5pbnRlcmZhY2UgTGFuZ3VhZ2VPcHRpb24ge1xuICBjb2RlOiBMYW5ndWFnZTtcbiAgbGFiZWw6IHN0cmluZztcbiAgbmF0aXZlTGFiZWw6IHN0cmluZztcbn1cblxuY29uc3QgbGFuZ3VhZ2VzOiBMYW5ndWFnZU9wdGlvbltdID0gW1xuICB7IGNvZGU6ICdlbicsIGxhYmVsOiAnRW5nbGlzaCcsIG5hdGl2ZUxhYmVsOiAnRW5nbGlzaCcgfSxcbiAgeyBjb2RlOiAnYXInLCBsYWJlbDogJ0FyYWJpYycsIG5hdGl2ZUxhYmVsOiAn2KfZhNi52LHYqNmK2KknIH0sXG5dO1xuXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBMYW5ndWFnZVN3aXRjaGVyKCkge1xuICBjb25zdCB7IGxhbmd1YWdlLCBzZXRMYW5ndWFnZSB9ID0gdXNlTGFuZ3VhZ2UoKTtcbiAgY29uc3QgW2lzT3Blbiwgc2V0SXNPcGVuXSA9IHVzZVN0YXRlKGZhbHNlKTtcbiAgY29uc3QgZHJvcGRvd25SZWYgPSB1c2VSZWY8SFRNTERpdkVsZW1lbnQ+KG51bGwpO1xuXG4gIGNvbnN0IGN1cnJlbnRMYW5ndWFnZSA9IGxhbmd1YWdlcy5maW5kKChsYW5nKSA9PiBsYW5nLmNvZGUgPT09IGxhbmd1YWdlKSB8fCBsYW5ndWFnZXNbMF07XG5cbiAgdXNlRWZmZWN0KCgpID0+IHtcbiAgICBmdW5jdGlvbiBoYW5kbGVDbGlja091dHNpZGUoZXZlbnQ6IE1vdXNlRXZlbnQpIHtcbiAgICAgIGlmIChkcm9wZG93blJlZi5jdXJyZW50ICYmICFkcm9wZG93blJlZi5jdXJyZW50LmNvbnRhaW5zKGV2ZW50LnRhcmdldCBhcyBOb2RlKSkge1xuICAgICAgICBzZXRJc09wZW4oZmFsc2UpO1xuICAgICAgfVxuICAgIH1cblxuICAgIGlmIChpc09wZW4pIHtcbiAgICAgIGRvY3VtZW50LmFkZEV2ZW50TGlzdGVuZXIoJ21vdXNlZG93bicsIGhhbmRsZUNsaWNrT3V0c2lkZSk7XG4gICAgfVxuXG4gICAgcmV0dXJuICgpID0+IHtcbiAgICAgIGRvY3VtZW50LnJlbW92ZUV2ZW50TGlzdGVuZXIoJ21vdXNlZG93bicsIGhhbmRsZUNsaWNrT3V0c2lkZSk7XG4gICAgfTtcbiAgfSwgW2lzT3Blbl0pO1xuXG4gIGNvbnN0IGhhbmRsZUxhbmd1YWdlU2VsZWN0ID0gKGxhbmdDb2RlOiBMYW5ndWFnZSkgPT4ge1xuICAgIHNldExhbmd1YWdlKGxhbmdDb2RlKTtcbiAgICBzZXRJc09wZW4oZmFsc2UpO1xuICB9O1xuXG4gIHJldHVybiAoXG4gICAgPGRpdiBjbGFzc05hbWU9XCJyZWxhdGl2ZVwiIHJlZj17ZHJvcGRvd25SZWZ9PlxuICAgICAgPGJ1dHRvblxuICAgICAgICBvbkNsaWNrPXsoKSA9PiBzZXRJc09wZW4oIWlzT3Blbil9XG4gICAgICAgIGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0yIHAtMiBob3ZlcjpiZy13aGl0ZS81IHJvdW5kZWQtbGcgdHJhbnNpdGlvbi1jb2xvcnNcIlxuICAgICAgICB0aXRsZT1cIkNoYW5nZSBMYW5ndWFnZVwiXG4gICAgICA+XG4gICAgICAgIDxHbG9iZSBjbGFzc05hbWU9XCJ3LTUgaC01IHRleHQtZ3JheS00MDBcIiAvPlxuICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LXhzIGZvbnQtc2VtaWJvbGQgdGV4dC1ncmF5LTQwMCB1cHBlcmNhc2VcIj5cbiAgICAgICAgICB7Y3VycmVudExhbmd1YWdlLmNvZGV9XG4gICAgICAgIDwvc3Bhbj5cbiAgICAgIDwvYnV0dG9uPlxuXG4gICAgICB7aXNPcGVuICYmIChcbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJhYnNvbHV0ZSB0b3AtZnVsbCByaWdodC0wIG10LTIgdy00OCBiZy1bIzBkMjMzMV0gYmFja2Ryb3AtYmx1ci14bCBib3JkZXIgYm9yZGVyLXdoaXRlLzEwIHJvdW5kZWQtbGcgc2hhZG93LTJ4bCBvdmVyZmxvdy1oaWRkZW4gei01MFwiPlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicHktMlwiPlxuICAgICAgICAgICAge2xhbmd1YWdlcy5tYXAoKGxhbmcpID0+IChcbiAgICAgICAgICAgICAgPGJ1dHRvblxuICAgICAgICAgICAgICAgIGtleT17bGFuZy5jb2RlfVxuICAgICAgICAgICAgICAgIG9uQ2xpY2s9eygpID0+IGhhbmRsZUxhbmd1YWdlU2VsZWN0KGxhbmcuY29kZSl9XG4gICAgICAgICAgICAgICAgY2xhc3NOYW1lPXtgdy1mdWxsIGZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlbiBweC00IHB5LTIuNSB0cmFuc2l0aW9uLWNvbG9ycyAke1xuICAgICAgICAgICAgICAgICAgbGFuZ3VhZ2UgPT09IGxhbmcuY29kZVxuICAgICAgICAgICAgICAgICAgICA/ICdiZy10ZWFsLTUwMC8xMCB0ZXh0LXRlYWwtNDAwJ1xuICAgICAgICAgICAgICAgICAgICA6ICd0ZXh0LWdyYXktMzAwIGhvdmVyOmJnLXdoaXRlLzUnXG4gICAgICAgICAgICAgICAgfWB9XG4gICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0zXCI+XG4gICAgICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LXNtIGZvbnQtbWVkaXVtXCI+e2xhbmcubmF0aXZlTGFiZWx9PC9zcGFuPlxuICAgICAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwidGV4dC14cyB0ZXh0LWdyYXktNTAwIHVwcGVyY2FzZVwiPih7bGFuZy5jb2RlfSk8L3NwYW4+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAge2xhbmd1YWdlID09PSBsYW5nLmNvZGUgJiYgPENoZWNrIGNsYXNzTmFtZT1cInctNCBoLTQgdGV4dC10ZWFsLTQwMFwiIC8+fVxuICAgICAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgICAgICkpfVxuICAgICAgICAgIDwvZGl2PlxuXG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJib3JkZXItdCBib3JkZXItd2hpdGUvMTAgcHgtNCBweS0yIGJnLXdoaXRlLzVcIj5cbiAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC1ncmF5LTUwMFwiPlxuICAgICAgICAgICAgICBTeXN0ZW0gbGFuZ3VhZ2UgYWZmZWN0cyBVSSBhbmQgQUkgcmVzcG9uc2VzXG4gICAgICAgICAgICA8L3A+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvZGl2PlxuICAgICAgKX1cbiAgICA8L2Rpdj5cbiAgKTtcbn1cbiJdLCJmaWxlIjoiL3dvcmtzcGFjZXMvZGVmYXVsdC9jb2RlL3NyYy9hcHAvY29tcG9uZW50cy9MYW5ndWFnZVN3aXRjaGVyLnRzeCJ9

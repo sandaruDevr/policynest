@@ -1,0 +1,44 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/app/pages/compliance-manager/Settings.tsx");import { jsxDEV } from "/@id/__x00__figma:react-jsx-dev-runtime";
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/workspaces/default/code/src/app/pages/compliance-manager/Settings.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+import { FGCmp } from "/@id/fginspector";
+import OrgSettings from "/src/app/pages/org-admin/OrgSettings.tsx";
+export default function ComplianceManagerSettings() {
+  return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: OrgSettings, _fgS: "d2yu0", _fgB: 1779104382158, _fgD: true, "data-fg-d2yu0": "418.244:418.197:/src/app/pages/compliance-manager/Settings.tsx:5:10:178:15:e:OrgSettings::1::::Docb" }, void 0, false, {
+    fileName: "/workspaces/default/code/src/app/pages/compliance-manager/Settings.tsx",
+    lineNumber: 25,
+    columnNumber: 10
+  }, this);
+}
+_c = ComplianceManagerSettings;
+var _c;
+$RefreshReg$(_c, "ComplianceManagerSettings");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/workspaces/default/code/src/app/pages/compliance-manager/Settings.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/workspaces/default/code/src/app/pages/compliance-manager/Settings.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6IkFBSVM7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBSFQsT0FBT0EsaUJBQWlCO0FBRXhCLHdCQUF3QkMsNEJBQTRCO0FBQ2xELFNBQU8sdUJBQUMsZUFBQUQsYUFBQSwwQ0FBVyxnSUFBWjtBQUFBO0FBQUE7QUFBQTtBQUFBLFNBQVk7QUFDckI7QUFBQUUsS0FGd0JEO0FBQXlCLElBQUFDO0FBQUFDLGFBQUFELElBQUEiLCJuYW1lcyI6WyJPcmdTZXR0aW5ncyIsIkNvbXBsaWFuY2VNYW5hZ2VyU2V0dGluZ3MiLCJfYyIsIiRSZWZyZXNoUmVnJCJdLCJpZ25vcmVMaXN0IjpbXSwic291cmNlcyI6WyJTZXR0aW5ncy50c3giXSwic291cmNlc0NvbnRlbnQiOlsiLy8gV3JhcHBlciBmb3IgQ29tcGxpYW5jZSBNYW5hZ2VyIC0gcmV1c2VzIE9yZyBBZG1pbiBTZXR0aW5nc1xuaW1wb3J0IE9yZ1NldHRpbmdzIGZyb20gJy4uL29yZy1hZG1pbi9PcmdTZXR0aW5ncyc7XG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIENvbXBsaWFuY2VNYW5hZ2VyU2V0dGluZ3MoKSB7XG4gIHJldHVybiA8T3JnU2V0dGluZ3MgLz47XG59XG4iXSwiZmlsZSI6Ii93b3Jrc3BhY2VzL2RlZmF1bHQvY29kZS9zcmMvYXBwL3BhZ2VzL2NvbXBsaWFuY2UtbWFuYWdlci9TZXR0aW5ncy50c3gifQ==

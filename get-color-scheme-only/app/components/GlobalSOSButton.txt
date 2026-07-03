@@ -1,0 +1,530 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/app/components/GlobalSOSButton.tsx");import { Fragment, jsxDEV } from "/@id/__x00__figma:react-jsx-dev-runtime";
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/workspaces/default/code/src/app/components/GlobalSOSButton.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+var _s = $RefreshSig$();
+import { FGCmp } from "/@id/fginspector";
+import { useState } from "/@id/__x00__figma:react-base";
+import {
+  AlertTriangle,
+  Flame,
+  HeartPulse,
+  Shield,
+  Waves,
+  Phone,
+  X
+} from "/node_modules/.vite/deps/lucide-react.js?v=25293e4c";
+const protocols = [
+  {
+    id: "fire",
+    title: "Fire Emergency",
+    icon: Flame,
+    color: "from-red-600 to-red-500",
+    emergency: "911",
+    steps: [
+      "Activate fire alarm immediately",
+      "Evacuate all personnel via nearest safe exit",
+      "Close doors behind you (do not lock)",
+      "Assemble at designated assembly point",
+      "Call 911 and notify Safety Officer"
+    ],
+    contacts: [
+      { name: "Fire Department", phone: "911" },
+      { name: "Safety Officer", phone: "555-0123" }
+    ]
+  },
+  {
+    id: "medical",
+    title: "Medical Emergency",
+    icon: HeartPulse,
+    color: "from-pink-600 to-pink-500",
+    emergency: "911",
+    steps: [
+      "Call 911 immediately",
+      "Stay with the person - do not move them",
+      "If trained, provide first aid",
+      "Notify on-site medical staff",
+      "Secure the area and maintain calm"
+    ],
+    contacts: [
+      { name: "Emergency Services", phone: "911" },
+      { name: "On-Site Medical", phone: "555-0100" }
+    ]
+  },
+  {
+    id: "security",
+    title: "Security Threat",
+    icon: Shield,
+    color: "from-orange-600 to-orange-500",
+    emergency: "911",
+    steps: [
+      "Alert security and call 911",
+      "Secure yourself in safe location",
+      "Lock doors and stay quiet",
+      "Turn off lights and silence phones",
+      "Wait for official all-clear"
+    ],
+    contacts: [
+      { name: "Police", phone: "911" },
+      { name: "Security", phone: "555-0199" }
+    ]
+  },
+  {
+    id: "flood",
+    title: "Flood/Water",
+    icon: Waves,
+    color: "from-blue-600 to-blue-500",
+    emergency: "911",
+    steps: [
+      "Turn off electrical equipment",
+      "Move to higher ground immediately",
+      "Do not walk through moving water",
+      "Call emergency services",
+      "Evacuate if instructed"
+    ],
+    contacts: [
+      { name: "Emergency Services", phone: "911" },
+      { name: "Facilities", phone: "555-0145" }
+    ]
+  },
+  {
+    id: "general",
+    title: "General Emergency",
+    icon: AlertTriangle,
+    color: "from-yellow-600 to-yellow-500",
+    emergency: "911",
+    steps: [
+      "Assess the situation calmly",
+      "Call appropriate emergency services",
+      "Follow facility emergency procedures",
+      "Notify supervisor and safety officer",
+      "Document the incident"
+    ],
+    contacts: [
+      { name: "Emergency Services", phone: "911" },
+      { name: "Safety Manager", phone: "555-0123" }
+    ]
+  }
+];
+export default function GlobalSOSButton() {
+  _s();
+  const [showMenu, setShowMenu] = useState(false);
+  const [selectedProtocol, setSelectedProtocol] = useState(null);
+  const handleProtocolSelect = (protocol) => {
+    setSelectedProtocol(protocol);
+    setShowMenu(false);
+  };
+  const handleCall = (phone) => {
+    alert(`📞 Calling ${phone}...`);
+  };
+  return /* @__PURE__ */ jsxDEV(Fragment, { children: [
+    /* @__PURE__ */ jsxDEV(
+      FGCmp,
+      {
+        _fgT: "button",
+        _fgS: "cvrn2",
+        _fgB: 1779104382744,
+        onClick: () => setShowMenu(true),
+        className: "fixed bottom-6 right-6 z-40 w-16 h-16 bg-gradient-to-r from-red-600 to-red-500 text-white rounded-full shadow-2xl hover:shadow-red-500/50 hover:scale-110 transition-all flex items-center justify-center animate-pulse",
+        title: "Emergency SOS",
+        "data-fg-cvrn2": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:132:7:3313:385:e:button:e",
+        children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: AlertTriangle, _fgS: "cvrn3", _fgB: 1779104382744, className: "w-8 h-8", "data-fg-cvrn3": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:137:9:3645:37:e:AlertTriangle::::::Ruk" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+          lineNumber: 157,
+          columnNumber: 9
+        }, this)
+      },
+      void 0,
+      false,
+      {
+        fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+        lineNumber: 152,
+        columnNumber: 7
+      },
+      this
+    ),
+    showMenu && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cvrn6", _fgB: 1779104382744, className: "fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4", "data-fg-cvrn6": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:142:9:3767:2487:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cvrn7", _fgB: 1779104382744, className: "bg-[#0f2832] border border-[#1a3440] rounded-2xl w-full max-w-4xl", "data-fg-cvrn7": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:143:11:3880:2359:e:div:etete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cvrn8", _fgB: 1779104382744, className: "p-6 border-b border-[#1a3440] flex items-center justify-between", "data-fg-cvrn8": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:144:13:3976:786:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cvrn9", _fgB: 1779104382744, "data-fg-cvrn9": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:145:15:4072:385:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h2", _fgS: "cvrn10", _fgB: 1779104382744, className: "text-2xl font-bold text-white flex items-center gap-2", "data-fg-cvrn10": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:146:17:4094:199:e:h2:et", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: AlertTriangle, _fgS: "cvrn11", _fgB: 1779104382744, className: "w-6 h-6 text-red-400", "data-fg-cvrn11": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:147:19:4183:50:e:AlertTriangle::::::Ruk" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+              lineNumber: 167,
+              columnNumber: 19
+            }, this),
+            "Emergency Protocols"
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+            lineNumber: 166,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "cvrn13", _fgB: 1779104382744, className: "text-sm text-gray-400 mt-1", "data-fg-cvrn13": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:150:17:4310:126:e:p:t", children: "Select emergency type for immediate protocol" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+            lineNumber: 170,
+            columnNumber: 17
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+          lineNumber: 165,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "button",
+            _fgS: "cvrn15",
+            _fgB: 1779104382744,
+            onClick: () => setShowMenu(false),
+            className: "w-10 h-10 rounded-lg hover:bg-white/5 flex items-center justify-center transition-colors",
+            "data-fg-cvrn15": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:154:15:4472:271:e:button:e",
+            children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: X, _fgS: "cvrn16", _fgB: 1779104382744, className: "w-5 h-5 text-gray-400", "data-fg-cvrn16": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:158:17:4680:39:e:X::::::TvS" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+              lineNumber: 178,
+              columnNumber: 17
+            }, this)
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+            lineNumber: 174,
+            columnNumber: 15
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+        lineNumber: 164,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cvrn17", _fgB: 1779104382744, className: "p-6 grid grid-cols-2 md:grid-cols-3 gap-4", "data-fg-cvrn17": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:162:13:4776:1100:e:div:x", children: protocols.map((protocol) => {
+        const Icon = protocol.icon;
+        return /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "button",
+            _fgS: "cvrn19",
+            _fgB: 1779104382744,
+            onClick: () => handleProtocolSelect(protocol),
+            className: "p-6 bg-[#0B1F2A] border border-[#1a3440] rounded-xl hover:border-red-500/50 transition-all group",
+            "data-fg-cvrn19": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:166:19:4968:852:e:button:etete",
+            children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cvrn20", _fgB: 1779104382744, className: `w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r ${protocol.color} flex items-center justify-center group-hover:scale-110 transition-transform`, "data-fg-cvrn20": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:171:21:5250:255:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Icon, _fgS: "cvrn21", _fgB: 1779104382744, className: "w-8 h-8 text-white", "data-fg-cvrn21": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:172:23:5439:39:e:Icon" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+                lineNumber: 192,
+                columnNumber: 23
+              }, this) }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+                lineNumber: 191,
+                columnNumber: 21
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "cvrn22", _fgB: 1779104382744, className: "text-white font-semibold text-center mb-2", "data-fg-cvrn22": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:174:21:5526:123:e:h3:x", children: protocol.title }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+                lineNumber: 194,
+                columnNumber: 21
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "cvrn24", _fgB: 1779104382744, className: "text-sm text-gray-400 text-center", "data-fg-cvrn24": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:177:21:5670:122:e:p:tx", children: [
+                "Call ",
+                protocol.emergency
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+                lineNumber: 197,
+                columnNumber: 21
+              }, this)
+            ]
+          },
+          protocol.id,
+          true,
+          {
+            fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+            lineNumber: 186,
+            columnNumber: 17
+          },
+          this
+        );
+      }) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+        lineNumber: 182,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cvrn27", _fgB: 1779104382744, className: "p-6 border-t border-[#1a3440] bg-[#0B1F2A]", "data-fg-cvrn27": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:185:13:5890:332:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cvrn28", _fgB: 1779104382744, className: "flex items-center gap-3 text-sm text-gray-400", "data-fg-cvrn28": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:186:15:5965:238:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Phone, _fgS: "cvrn29", _fgB: 1779104382744, className: "w-4 h-4 text-red-400", "data-fg-cvrn29": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:187:17:6045:42:e:Phone::::::DmpI" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+          lineNumber: 207,
+          columnNumber: 17
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "cvrn30", _fgB: 1779104382744, "data-fg-cvrn30": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:188:17:6104:78:e:span:t", children: "For immediate life-threatening emergencies, always call 911 first" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+          lineNumber: 208,
+          columnNumber: 17
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+        lineNumber: 206,
+        columnNumber: 15
+      }, this) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+        lineNumber: 205,
+        columnNumber: 13
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+      lineNumber: 163,
+      columnNumber: 11
+    }, this) }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+      lineNumber: 162,
+      columnNumber: 7
+    }, this),
+    selectedProtocol && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cvrn34", _fgB: 1779104382744, className: "fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4", "data-fg-cvrn34": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:197:9:6338:4033:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cvrn35", _fgB: 1779104382744, className: "bg-[#0f2832] border border-[#1a3440] rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto", "data-fg-cvrn35": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:198:11:6451:3905:e:div:etxtetxtetxte", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cvrn36", _fgB: 1779104382744, className: `p-6 border-b border-[#1a3440] bg-gradient-to-r ${selectedProtocol.color}`, "data-fg-cvrn36": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:199:13:6576:1076:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cvrn37", _fgB: 1779104382744, className: "flex items-center justify-between", "data-fg-cvrn37": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:200:15:6683:950:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cvrn38", _fgB: 1779104382744, className: "flex items-center gap-3", "data-fg-cvrn38": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:201:17:6751:558:e:div:xte", children: [
+          (() => {
+            const Icon = selectedProtocol.icon;
+            return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Icon, _fgS: "cvrn40", _fgB: 1779104382744, className: "w-8 h-8 text-white", "data-fg-cvrn40": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:204:28:6904:39:e:Icon" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+              lineNumber: 224,
+              columnNumber: 26
+            }, this);
+          })(),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cvrn41", _fgB: 1779104382744, "data-fg-cvrn41": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:206:19:6987:299:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h2", _fgS: "cvrn42", _fgB: 1779104382744, className: "text-2xl font-bold text-white", "data-fg-cvrn42": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:207:21:7013:119:e:h2:x", children: selectedProtocol.title }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+              lineNumber: 227,
+              columnNumber: 21
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "cvrn44", _fgB: 1779104382744, className: "text-white/80 text-sm mt-1", "data-fg-cvrn44": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:210:21:7153:108:e:p:t", children: "Emergency Protocol" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+              lineNumber: 230,
+              columnNumber: 21
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+            lineNumber: 226,
+            columnNumber: 19
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+          lineNumber: 221,
+          columnNumber: 17
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "button",
+            _fgS: "cvrn46",
+            _fgB: 1779104382744,
+            onClick: () => setSelectedProtocol(null),
+            className: "w-10 h-10 rounded-lg hover:bg-white/20 flex items-center justify-center transition-colors",
+            "data-fg-cvrn46": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:215:17:7326:286:e:button:e",
+            children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: X, _fgS: "cvrn47", _fgB: 1779104382744, className: "w-5 h-5 text-white", "data-fg-cvrn47": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:219:19:7550:36:e:X::::::TvS" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+              lineNumber: 239,
+              columnNumber: 19
+            }, this)
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+            lineNumber: 235,
+            columnNumber: 17
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+        lineNumber: 220,
+        columnNumber: 15
+      }, this) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+        lineNumber: 219,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cvrn49", _fgB: 1779104382744, className: "p-6 bg-red-500/10 border-b border-red-500/30", "data-fg-cvrn49": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:225:13:7701:481:e:div:e", children: /* @__PURE__ */ jsxDEV(
+        FGCmp,
+        {
+          _fgT: "button",
+          _fgS: "cvrn50",
+          _fgB: 1779104382744,
+          onClick: () => handleCall(selectedProtocol.emergency),
+          className: "w-full px-6 py-4 bg-red-600 text-white rounded-xl hover:bg-red-700 transition-all flex items-center justify-center gap-3 text-lg font-bold",
+          "data-fg-cvrn50": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:226:15:7778:385:e:button:etxt",
+          children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Phone, _fgS: "cvrn51", _fgB: 1779104382744, className: "w-6 h-6", "data-fg-cvrn51": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:230:17:8056:29:e:Phone::::::DmpI" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+              lineNumber: 250,
+              columnNumber: 17
+            }, this),
+            "CALL ",
+            selectedProtocol.emergency,
+            " NOW"
+          ]
+        },
+        void 0,
+        true,
+        {
+          fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+          lineNumber: 246,
+          columnNumber: 15
+        },
+        this
+      ) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+        lineNumber: 245,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cvrn56", _fgB: 1779104382744, className: "p-6 border-b border-[#1a3440]", "data-fg-cvrn56": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:236:13:8222:683:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "cvrn57", _fgB: 1779104382744, className: "text-lg font-bold text-white mb-4", "data-fg-cvrn57": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:237:15:8284:70:e:h3:t", children: "Emergency Steps" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+          lineNumber: 257,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "ol", _fgS: "cvrn59", _fgB: 1779104382744, className: "space-y-3", "data-fg-cvrn59": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:238:15:8369:517:e:ol:x", children: selectedProtocol.steps.map(
+          (step, index) => /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "li", _fgS: "cvrn61", _fgB: 1779104382744, className: "flex gap-3", "data-fg-cvrn61": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:240:19:8477:369:e:li:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "cvrn62", _fgB: 1779104382744, className: `flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r ${selectedProtocol.color} flex items-center justify-center text-white text-sm font-bold`, "data-fg-cvrn62": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:241:21:8537:222:e:span:x", children: index + 1 }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+              lineNumber: 261,
+              columnNumber: 21
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "cvrn64", _fgB: 1779104382744, className: "text-white", "data-fg-cvrn64": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:244:21:8780:42:e:span:x", children: step }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+              lineNumber: 264,
+              columnNumber: 21
+            }, this)
+          ] }, index, true, {
+            fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+            lineNumber: 260,
+            columnNumber: 15
+          }, this)
+        ) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+          lineNumber: 258,
+          columnNumber: 15
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+        lineNumber: 256,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cvrn67", _fgB: 1779104382744, className: "p-6", "data-fg-cvrn67": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:251:13:8958:1381:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "cvrn68", _fgB: 1779104382744, className: "text-lg font-bold text-white mb-4", "data-fg-cvrn68": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:252:15:8994:73:e:h3:t", children: "Emergency Contacts" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+          lineNumber: 272,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cvrn70", _fgB: 1779104382744, className: "space-y-2", "data-fg-cvrn70": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:253:15:9082:1238:e:div:x", children: selectedProtocol.contacts.map(
+          (contact, index) => /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "button",
+              _fgS: "cvrn72",
+              _fgB: 1779104382744,
+              onClick: () => handleCall(contact.phone),
+              className: "w-full p-4 bg-[#0B1F2A] border border-[#1a3440] rounded-xl hover:border-teal-500/50 transition-all flex items-center justify-between group",
+              "data-fg-cvrn72": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:255:19:9197:1082:e:button:ete",
+              children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cvrn73", _fgB: 1779104382744, className: "flex items-center gap-3", "data-fg-cvrn73": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:260:21:9510:580:e:div:ete", children: [
+                  /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cvrn74", _fgB: 1779104382744, className: "w-10 h-10 rounded-full bg-teal-500/20 flex items-center justify-center group-hover:bg-teal-500/30 transition-colors", "data-fg-cvrn74": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:261:23:9574:230:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Phone, _fgS: "cvrn75", _fgB: 1779104382744, className: "w-5 h-5 text-teal-400", "data-fg-cvrn75": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:262:25:9732:43:e:Phone::::::DmpI" }, void 0, false, {
+                    fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+                    lineNumber: 282,
+                    columnNumber: 25
+                  }, this) }, void 0, false, {
+                    fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+                    lineNumber: 281,
+                    columnNumber: 23
+                  }, this),
+                  /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cvrn76", _fgB: 1779104382744, className: "text-left", "data-fg-cvrn76": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:264:23:9827:236:e:div:ete", children: [
+                    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cvrn77", _fgB: 1779104382744, className: "text-white font-medium", "data-fg-cvrn77": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:265:25:9879:60:e:div:x", children: contact.name }, void 0, false, {
+                      fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+                      lineNumber: 285,
+                      columnNumber: 25
+                    }, this),
+                    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cvrn79", _fgB: 1779104382744, className: "text-sm text-gray-400 font-mono", "data-fg-cvrn79": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:266:25:9964:70:e:div:x", children: contact.phone }, void 0, false, {
+                      fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+                      lineNumber: 286,
+                      columnNumber: 25
+                    }, this)
+                  ] }, void 0, true, {
+                    fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+                    lineNumber: 284,
+                    columnNumber: 23
+                  }, this)
+                ] }, void 0, true, {
+                  fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+                  lineNumber: 280,
+                  columnNumber: 21
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cvrn81", _fgB: 1779104382744, className: "text-teal-400 opacity-0 group-hover:opacity-100 transition-opacity", "data-fg-cvrn81": "418.155:418.10395:/src/app/components/GlobalSOSButton.tsx:269:21:10111:140:e:div:t", children: "Call →" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+                  lineNumber: 289,
+                  columnNumber: 21
+                }, this)
+              ]
+            },
+            index,
+            true,
+            {
+              fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+              lineNumber: 275,
+              columnNumber: 15
+            },
+            this
+          )
+        ) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+          lineNumber: 273,
+          columnNumber: 15
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+        lineNumber: 271,
+        columnNumber: 13
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+      lineNumber: 218,
+      columnNumber: 11
+    }, this) }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+      lineNumber: 217,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "/workspaces/default/code/src/app/components/GlobalSOSButton.tsx",
+    lineNumber: 150,
+    columnNumber: 5
+  }, this);
+}
+_s(GlobalSOSButton, "lmdxQLYg9c0aCT3S8oRpcz02dxg=");
+_c = GlobalSOSButton;
+var _c;
+$RefreshReg$(_c, "GlobalSOSButton");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/workspaces/default/code/src/app/components/GlobalSOSButton.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/workspaces/default/code/src/app/components/GlobalSOSButton.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,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QVBGO0FBQUE7QUFBQTtBQUFBO0FBQUEsdUJBUUE7QUFBQSxnQkFDQSx1QkFBQywyREFBSSxXQUFVLHNFQUFtRSx3R0FBQyxzQkFBbkY7QUFBQTtBQUFBO0FBQUE7QUFBQSx1QkFFQTtBQUFBO0FBQUE7QUFBQSxZQWZLYztBQUFBQSxZQURQO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUEsVUFpQkE7QUFBQSxRQUNELEtBcEJIO0FBQUE7QUFBQTtBQUFBO0FBQUEsZUFxQkE7QUFBQSxXQXZCRjtBQUFBO0FBQUE7QUFBQTtBQUFBLGFBd0JBO0FBQUEsU0E3RUY7QUFBQTtBQUFBO0FBQUE7QUFBQSxXQThFQSxLQS9FRjtBQUFBO0FBQUE7QUFBQTtBQUFBLFdBZ0ZBO0FBQUEsT0FuSko7QUFBQTtBQUFBO0FBQUE7QUFBQSxTQXFKQTtBQUVKO0FBQUFaLEdBdEt3QkQsaUJBQWU7QUFBQWUsS0FBZmY7QUFBZSxJQUFBZTtBQUFBQyxhQUFBRCxJQUFBIiwibmFtZXMiOlsidXNlU3RhdGUiLCJBbGVydFRyaWFuZ2xlIiwiRmxhbWUiLCJIZWFydFB1bHNlIiwiU2hpZWxkIiwiV2F2ZXMiLCJQaG9uZSIsIlgiLCJwcm90b2NvbHMiLCJpZCIsInRpdGxlIiwiaWNvbiIsImNvbG9yIiwiZW1lcmdlbmN5Iiwic3RlcHMiLCJjb250YWN0cyIsIm5hbWUiLCJwaG9uZSIsIkdsb2JhbFNPU0J1dHRvbiIsIl9zIiwic2hvd01lbnUiLCJzZXRTaG93TWVudSIsInNlbGVjdGVkUHJvdG9jb2wiLCJzZXRTZWxlY3RlZFByb3RvY29sIiwiaGFuZGxlUHJvdG9jb2xTZWxlY3QiLCJwcm90b2NvbCIsImhhbmRsZUNhbGwiLCJhbGVydCIsIm1hcCIsIkljb24iLCJzdGVwIiwiaW5kZXgiLCJjb250YWN0IiwiX2MiLCIkUmVmcmVzaFJlZyQiXSwiaWdub3JlTGlzdCI6W10sInNvdXJjZXMiOlsiR2xvYmFsU09TQnV0dG9uLnRzeCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyB1c2VTdGF0ZSB9IGZyb20gJ3JlYWN0JztcbmltcG9ydCB7XG4gIEFsZXJ0VHJpYW5nbGUsXG4gIEZsYW1lLFxuICBIZWFydFB1bHNlLFxuICBTaGllbGQsXG4gIFdhdmVzLFxuICBQaG9uZSxcbiAgWCxcbn0gZnJvbSAnbHVjaWRlLXJlYWN0JztcblxuaW50ZXJmYWNlIFNPU1Byb3RvY29sIHtcbiAgaWQ6IHN0cmluZztcbiAgdGl0bGU6IHN0cmluZztcbiAgaWNvbjogYW55O1xuICBjb2xvcjogc3RyaW5nO1xuICBlbWVyZ2VuY3k6IHN0cmluZztcbiAgc3RlcHM6IHN0cmluZ1tdO1xuICBjb250YWN0czogeyBuYW1lOiBzdHJpbmc7IHBob25lOiBzdHJpbmcgfVtdO1xufVxuXG5jb25zdCBwcm90b2NvbHM6IFNPU1Byb3RvY29sW10gPSBbXG4gIHtcbiAgICBpZDogJ2ZpcmUnLFxuICAgIHRpdGxlOiAnRmlyZSBFbWVyZ2VuY3knLFxuICAgIGljb246IEZsYW1lLFxuICAgIGNvbG9yOiAnZnJvbS1yZWQtNjAwIHRvLXJlZC01MDAnLFxuICAgIGVtZXJnZW5jeTogJzkxMScsXG4gICAgc3RlcHM6IFtcbiAgICAgICdBY3RpdmF0ZSBmaXJlIGFsYXJtIGltbWVkaWF0ZWx5JyxcbiAgICAgICdFdmFjdWF0ZSBhbGwgcGVyc29ubmVsIHZpYSBuZWFyZXN0IHNhZmUgZXhpdCcsXG4gICAgICAnQ2xvc2UgZG9vcnMgYmVoaW5kIHlvdSAoZG8gbm90IGxvY2spJyxcbiAgICAgICdBc3NlbWJsZSBhdCBkZXNpZ25hdGVkIGFzc2VtYmx5IHBvaW50JyxcbiAgICAgICdDYWxsIDkxMSBhbmQgbm90aWZ5IFNhZmV0eSBPZmZpY2VyJyxcbiAgICBdLFxuICAgIGNvbnRhY3RzOiBbXG4gICAgICB7IG5hbWU6ICdGaXJlIERlcGFydG1lbnQnLCBwaG9uZTogJzkxMScgfSxcbiAgICAgIHsgbmFtZTogJ1NhZmV0eSBPZmZpY2VyJywgcGhvbmU6ICc1NTUtMDEyMycgfSxcbiAgICBdLFxuICB9LFxuICB7XG4gICAgaWQ6ICdtZWRpY2FsJyxcbiAgICB0aXRsZTogJ01lZGljYWwgRW1lcmdlbmN5JyxcbiAgICBpY29uOiBIZWFydFB1bHNlLFxuICAgIGNvbG9yOiAnZnJvbS1waW5rLTYwMCB0by1waW5rLTUwMCcsXG4gICAgZW1lcmdlbmN5OiAnOTExJyxcbiAgICBzdGVwczogW1xuICAgICAgJ0NhbGwgOTExIGltbWVkaWF0ZWx5JyxcbiAgICAgICdTdGF5IHdpdGggdGhlIHBlcnNvbiAtIGRvIG5vdCBtb3ZlIHRoZW0nLFxuICAgICAgJ0lmIHRyYWluZWQsIHByb3ZpZGUgZmlyc3QgYWlkJyxcbiAgICAgICdOb3RpZnkgb24tc2l0ZSBtZWRpY2FsIHN0YWZmJyxcbiAgICAgICdTZWN1cmUgdGhlIGFyZWEgYW5kIG1haW50YWluIGNhbG0nLFxuICAgIF0sXG4gICAgY29udGFjdHM6IFtcbiAgICAgIHsgbmFtZTogJ0VtZXJnZW5jeSBTZXJ2aWNlcycsIHBob25lOiAnOTExJyB9LFxuICAgICAgeyBuYW1lOiAnT24tU2l0ZSBNZWRpY2FsJywgcGhvbmU6ICc1NTUtMDEwMCcgfSxcbiAgICBdLFxuICB9LFxuICB7XG4gICAgaWQ6ICdzZWN1cml0eScsXG4gICAgdGl0bGU6ICdTZWN1cml0eSBUaHJlYXQnLFxuICAgIGljb246IFNoaWVsZCxcbiAgICBjb2xvcjogJ2Zyb20tb3JhbmdlLTYwMCB0by1vcmFuZ2UtNTAwJyxcbiAgICBlbWVyZ2VuY3k6ICc5MTEnLFxuICAgIHN0ZXBzOiBbXG4gICAgICAnQWxlcnQgc2VjdXJpdHkgYW5kIGNhbGwgOTExJyxcbiAgICAgICdTZWN1cmUgeW91cnNlbGYgaW4gc2FmZSBsb2NhdGlvbicsXG4gICAgICAnTG9jayBkb29ycyBhbmQgc3RheSBxdWlldCcsXG4gICAgICAnVHVybiBvZmYgbGlnaHRzIGFuZCBzaWxlbmNlIHBob25lcycsXG4gICAgICAnV2FpdCBmb3Igb2ZmaWNpYWwgYWxsLWNsZWFyJyxcbiAgICBdLFxuICAgIGNvbnRhY3RzOiBbXG4gICAgICB7IG5hbWU6ICdQb2xpY2UnLCBwaG9uZTogJzkxMScgfSxcbiAgICAgIHsgbmFtZTogJ1NlY3VyaXR5JywgcGhvbmU6ICc1NTUtMDE5OScgfSxcbiAgICBdLFxuICB9LFxuICB7XG4gICAgaWQ6ICdmbG9vZCcsXG4gICAgdGl0bGU6ICdGbG9vZC9XYXRlcicsXG4gICAgaWNvbjogV2F2ZXMsXG4gICAgY29sb3I6ICdmcm9tLWJsdWUtNjAwIHRvLWJsdWUtNTAwJyxcbiAgICBlbWVyZ2VuY3k6ICc5MTEnLFxuICAgIHN0ZXBzOiBbXG4gICAgICAnVHVybiBvZmYgZWxlY3RyaWNhbCBlcXVpcG1lbnQnLFxuICAgICAgJ01vdmUgdG8gaGlnaGVyIGdyb3VuZCBpbW1lZGlhdGVseScsXG4gICAgICAnRG8gbm90IHdhbGsgdGhyb3VnaCBtb3Zpbmcgd2F0ZXInLFxuICAgICAgJ0NhbGwgZW1lcmdlbmN5IHNlcnZpY2VzJyxcbiAgICAgICdFdmFjdWF0ZSBpZiBpbnN0cnVjdGVkJyxcbiAgICBdLFxuICAgIGNvbnRhY3RzOiBbXG4gICAgICB7IG5hbWU6ICdFbWVyZ2VuY3kgU2VydmljZXMnLCBwaG9uZTogJzkxMScgfSxcbiAgICAgIHsgbmFtZTogJ0ZhY2lsaXRpZXMnLCBwaG9uZTogJzU1NS0wMTQ1JyB9LFxuICAgIF0sXG4gIH0sXG4gIHtcbiAgICBpZDogJ2dlbmVyYWwnLFxuICAgIHRpdGxlOiAnR2VuZXJhbCBFbWVyZ2VuY3knLFxuICAgIGljb246IEFsZXJ0VHJpYW5nbGUsXG4gICAgY29sb3I6ICdmcm9tLXllbGxvdy02MDAgdG8teWVsbG93LTUwMCcsXG4gICAgZW1lcmdlbmN5OiAnOTExJyxcbiAgICBzdGVwczogW1xuICAgICAgJ0Fzc2VzcyB0aGUgc2l0dWF0aW9uIGNhbG1seScsXG4gICAgICAnQ2FsbCBhcHByb3ByaWF0ZSBlbWVyZ2VuY3kgc2VydmljZXMnLFxuICAgICAgJ0ZvbGxvdyBmYWNpbGl0eSBlbWVyZ2VuY3kgcHJvY2VkdXJlcycsXG4gICAgICAnTm90aWZ5IHN1cGVydmlzb3IgYW5kIHNhZmV0eSBvZmZpY2VyJyxcbiAgICAgICdEb2N1bWVudCB0aGUgaW5jaWRlbnQnLFxuICAgIF0sXG4gICAgY29udGFjdHM6IFtcbiAgICAgIHsgbmFtZTogJ0VtZXJnZW5jeSBTZXJ2aWNlcycsIHBob25lOiAnOTExJyB9LFxuICAgICAgeyBuYW1lOiAnU2FmZXR5IE1hbmFnZXInLCBwaG9uZTogJzU1NS0wMTIzJyB9LFxuICAgIF0sXG4gIH0sXG5dO1xuXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBHbG9iYWxTT1NCdXR0b24oKSB7XG4gIGNvbnN0IFtzaG93TWVudSwgc2V0U2hvd01lbnVdID0gdXNlU3RhdGUoZmFsc2UpO1xuICBjb25zdCBbc2VsZWN0ZWRQcm90b2NvbCwgc2V0U2VsZWN0ZWRQcm90b2NvbF0gPSB1c2VTdGF0ZTxTT1NQcm90b2NvbCB8IG51bGw+KG51bGwpO1xuXG4gIGNvbnN0IGhhbmRsZVByb3RvY29sU2VsZWN0ID0gKHByb3RvY29sOiBTT1NQcm90b2NvbCkgPT4ge1xuICAgIHNldFNlbGVjdGVkUHJvdG9jb2wocHJvdG9jb2wpO1xuICAgIHNldFNob3dNZW51KGZhbHNlKTtcbiAgfTtcblxuICBjb25zdCBoYW5kbGVDYWxsID0gKHBob25lOiBzdHJpbmcpID0+IHtcbiAgICBhbGVydChg8J+TniBDYWxsaW5nICR7cGhvbmV9Li4uYCk7XG4gICAgLy8gSW4gcHJvZHVjdGlvbjogd2luZG93LmxvY2F0aW9uLmhyZWYgPSBgdGVsOiR7cGhvbmV9YDtcbiAgfTtcblxuICByZXR1cm4gKFxuICAgIDw+XG4gICAgICB7LyogU09TIEJ1dHRvbiAtIEZpeGVkIEJvdHRvbSBSaWdodCAqL31cbiAgICAgIDxidXR0b25cbiAgICAgICAgb25DbGljaz17KCkgPT4gc2V0U2hvd01lbnUodHJ1ZSl9XG4gICAgICAgIGNsYXNzTmFtZT1cImZpeGVkIGJvdHRvbS02IHJpZ2h0LTYgei00MCB3LTE2IGgtMTYgYmctZ3JhZGllbnQtdG8tciBmcm9tLXJlZC02MDAgdG8tcmVkLTUwMCB0ZXh0LXdoaXRlIHJvdW5kZWQtZnVsbCBzaGFkb3ctMnhsIGhvdmVyOnNoYWRvdy1yZWQtNTAwLzUwIGhvdmVyOnNjYWxlLTExMCB0cmFuc2l0aW9uLWFsbCBmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlciBhbmltYXRlLXB1bHNlXCJcbiAgICAgICAgdGl0bGU9XCJFbWVyZ2VuY3kgU09TXCJcbiAgICAgID5cbiAgICAgICAgPEFsZXJ0VHJpYW5nbGUgY2xhc3NOYW1lPVwidy04IGgtOFwiIC8+XG4gICAgICA8L2J1dHRvbj5cblxuICAgICAgey8qIEVtZXJnZW5jeSBQcm90b2NvbCBNZW51ICovfVxuICAgICAge3Nob3dNZW51ICYmIChcbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmaXhlZCBpbnNldC0wIGJnLWJsYWNrLzgwIGJhY2tkcm9wLWJsdXItc20gei01MCBmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlciBwLTRcIj5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLVsjMGYyODMyXSBib3JkZXIgYm9yZGVyLVsjMWEzNDQwXSByb3VuZGVkLTJ4bCB3LWZ1bGwgbWF4LXctNHhsXCI+XG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInAtNiBib3JkZXItYiBib3JkZXItWyMxYTM0NDBdIGZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlblwiPlxuICAgICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICAgIDxoMiBjbGFzc05hbWU9XCJ0ZXh0LTJ4bCBmb250LWJvbGQgdGV4dC13aGl0ZSBmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMlwiPlxuICAgICAgICAgICAgICAgICAgPEFsZXJ0VHJpYW5nbGUgY2xhc3NOYW1lPVwidy02IGgtNiB0ZXh0LXJlZC00MDBcIiAvPlxuICAgICAgICAgICAgICAgICAgRW1lcmdlbmN5IFByb3RvY29sc1xuICAgICAgICAgICAgICAgIDwvaDI+XG4gICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC1zbSB0ZXh0LWdyYXktNDAwIG10LTFcIj5cbiAgICAgICAgICAgICAgICAgIFNlbGVjdCBlbWVyZ2VuY3kgdHlwZSBmb3IgaW1tZWRpYXRlIHByb3RvY29sXG4gICAgICAgICAgICAgICAgPC9wPlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgPGJ1dHRvblxuICAgICAgICAgICAgICAgIG9uQ2xpY2s9eygpID0+IHNldFNob3dNZW51KGZhbHNlKX1cbiAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJ3LTEwIGgtMTAgcm91bmRlZC1sZyBob3ZlcjpiZy13aGl0ZS81IGZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktY2VudGVyIHRyYW5zaXRpb24tY29sb3JzXCJcbiAgICAgICAgICAgICAgPlxuICAgICAgICAgICAgICAgIDxYIGNsYXNzTmFtZT1cInctNSBoLTUgdGV4dC1ncmF5LTQwMFwiIC8+XG4gICAgICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicC02IGdyaWQgZ3JpZC1jb2xzLTIgbWQ6Z3JpZC1jb2xzLTMgZ2FwLTRcIj5cbiAgICAgICAgICAgICAge3Byb3RvY29scy5tYXAoKHByb3RvY29sKSA9PiB7XG4gICAgICAgICAgICAgICAgY29uc3QgSWNvbiA9IHByb3RvY29sLmljb247XG4gICAgICAgICAgICAgICAgcmV0dXJuIChcbiAgICAgICAgICAgICAgICAgIDxidXR0b25cbiAgICAgICAgICAgICAgICAgICAga2V5PXtwcm90b2NvbC5pZH1cbiAgICAgICAgICAgICAgICAgICAgb25DbGljaz17KCkgPT4gaGFuZGxlUHJvdG9jb2xTZWxlY3QocHJvdG9jb2wpfVxuICAgICAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJwLTYgYmctWyMwQjFGMkFdIGJvcmRlciBib3JkZXItWyMxYTM0NDBdIHJvdW5kZWQteGwgaG92ZXI6Ym9yZGVyLXJlZC01MDAvNTAgdHJhbnNpdGlvbi1hbGwgZ3JvdXBcIlxuICAgICAgICAgICAgICAgICAgPlxuICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT17YHctMTYgaC0xNiBteC1hdXRvIG1iLTQgcm91bmRlZC1mdWxsIGJnLWdyYWRpZW50LXRvLXIgJHtwcm90b2NvbC5jb2xvcn0gZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1jZW50ZXIgZ3JvdXAtaG92ZXI6c2NhbGUtMTEwIHRyYW5zaXRpb24tdHJhbnNmb3JtYH0+XG4gICAgICAgICAgICAgICAgICAgICAgPEljb24gY2xhc3NOYW1lPVwidy04IGgtOCB0ZXh0LXdoaXRlXCIgLz5cbiAgICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICAgIDxoMyBjbGFzc05hbWU9XCJ0ZXh0LXdoaXRlIGZvbnQtc2VtaWJvbGQgdGV4dC1jZW50ZXIgbWItMlwiPlxuICAgICAgICAgICAgICAgICAgICAgIHtwcm90b2NvbC50aXRsZX1cbiAgICAgICAgICAgICAgICAgICAgPC9oMz5cbiAgICAgICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC1zbSB0ZXh0LWdyYXktNDAwIHRleHQtY2VudGVyXCI+XG4gICAgICAgICAgICAgICAgICAgICAgQ2FsbCB7cHJvdG9jb2wuZW1lcmdlbmN5fVxuICAgICAgICAgICAgICAgICAgICA8L3A+XG4gICAgICAgICAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgICAgICAgICApO1xuICAgICAgICAgICAgICB9KX1cbiAgICAgICAgICAgIDwvZGl2PlxuXG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInAtNiBib3JkZXItdCBib3JkZXItWyMxYTM0NDBdIGJnLVsjMEIxRjJBXVwiPlxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0zIHRleHQtc20gdGV4dC1ncmF5LTQwMFwiPlxuICAgICAgICAgICAgICAgIDxQaG9uZSBjbGFzc05hbWU9XCJ3LTQgaC00IHRleHQtcmVkLTQwMFwiIC8+XG4gICAgICAgICAgICAgICAgPHNwYW4+Rm9yIGltbWVkaWF0ZSBsaWZlLXRocmVhdGVuaW5nIGVtZXJnZW5jaWVzLCBhbHdheXMgY2FsbCA5MTEgZmlyc3Q8L3NwYW4+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvZGl2PlxuICAgICAgKX1cblxuICAgICAgey8qIFByb3RvY29sIERldGFpbCBNb2RhbCAqL31cbiAgICAgIHtzZWxlY3RlZFByb3RvY29sICYmIChcbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmaXhlZCBpbnNldC0wIGJnLWJsYWNrLzgwIGJhY2tkcm9wLWJsdXItc20gei01MCBmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlciBwLTRcIj5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLVsjMGYyODMyXSBib3JkZXIgYm9yZGVyLVsjMWEzNDQwXSByb3VuZGVkLTJ4bCB3LWZ1bGwgbWF4LXctMnhsIG1heC1oLVs5MHZoXSBvdmVyZmxvdy15LWF1dG9cIj5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPXtgcC02IGJvcmRlci1iIGJvcmRlci1bIzFhMzQ0MF0gYmctZ3JhZGllbnQtdG8tciAke3NlbGVjdGVkUHJvdG9jb2wuY29sb3J9YH0+XG4gICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuXCI+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtM1wiPlxuICAgICAgICAgICAgICAgICAgeygoKSA9PiB7XG4gICAgICAgICAgICAgICAgICAgIGNvbnN0IEljb24gPSBzZWxlY3RlZFByb3RvY29sLmljb247XG4gICAgICAgICAgICAgICAgICAgIHJldHVybiA8SWNvbiBjbGFzc05hbWU9XCJ3LTggaC04IHRleHQtd2hpdGVcIiAvPjtcbiAgICAgICAgICAgICAgICAgIH0pKCl9XG4gICAgICAgICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICAgICAgICA8aDIgY2xhc3NOYW1lPVwidGV4dC0yeGwgZm9udC1ib2xkIHRleHQtd2hpdGVcIj5cbiAgICAgICAgICAgICAgICAgICAgICB7c2VsZWN0ZWRQcm90b2NvbC50aXRsZX1cbiAgICAgICAgICAgICAgICAgICAgPC9oMj5cbiAgICAgICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC13aGl0ZS84MCB0ZXh0LXNtIG10LTFcIj5cbiAgICAgICAgICAgICAgICAgICAgICBFbWVyZ2VuY3kgUHJvdG9jb2xcbiAgICAgICAgICAgICAgICAgICAgPC9wPlxuICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgPGJ1dHRvblxuICAgICAgICAgICAgICAgICAgb25DbGljaz17KCkgPT4gc2V0U2VsZWN0ZWRQcm90b2NvbChudWxsKX1cbiAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cInctMTAgaC0xMCByb3VuZGVkLWxnIGhvdmVyOmJnLXdoaXRlLzIwIGZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktY2VudGVyIHRyYW5zaXRpb24tY29sb3JzXCJcbiAgICAgICAgICAgICAgICA+XG4gICAgICAgICAgICAgICAgICA8WCBjbGFzc05hbWU9XCJ3LTUgaC01IHRleHQtd2hpdGVcIiAvPlxuICAgICAgICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDwvZGl2PlxuXG4gICAgICAgICAgICB7LyogRW1lcmdlbmN5IENhbGwgKi99XG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInAtNiBiZy1yZWQtNTAwLzEwIGJvcmRlci1iIGJvcmRlci1yZWQtNTAwLzMwXCI+XG4gICAgICAgICAgICAgIDxidXR0b25cbiAgICAgICAgICAgICAgICBvbkNsaWNrPXsoKSA9PiBoYW5kbGVDYWxsKHNlbGVjdGVkUHJvdG9jb2wuZW1lcmdlbmN5KX1cbiAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJ3LWZ1bGwgcHgtNiBweS00IGJnLXJlZC02MDAgdGV4dC13aGl0ZSByb3VuZGVkLXhsIGhvdmVyOmJnLXJlZC03MDAgdHJhbnNpdGlvbi1hbGwgZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1jZW50ZXIgZ2FwLTMgdGV4dC1sZyBmb250LWJvbGRcIlxuICAgICAgICAgICAgICA+XG4gICAgICAgICAgICAgICAgPFBob25lIGNsYXNzTmFtZT1cInctNiBoLTZcIiAvPlxuICAgICAgICAgICAgICAgIENBTEwge3NlbGVjdGVkUHJvdG9jb2wuZW1lcmdlbmN5fSBOT1dcbiAgICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgICA8L2Rpdj5cblxuICAgICAgICAgICAgey8qIFN0ZXBzICovfVxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJwLTYgYm9yZGVyLWIgYm9yZGVyLVsjMWEzNDQwXVwiPlxuICAgICAgICAgICAgICA8aDMgY2xhc3NOYW1lPVwidGV4dC1sZyBmb250LWJvbGQgdGV4dC13aGl0ZSBtYi00XCI+RW1lcmdlbmN5IFN0ZXBzPC9oMz5cbiAgICAgICAgICAgICAgPG9sIGNsYXNzTmFtZT1cInNwYWNlLXktM1wiPlxuICAgICAgICAgICAgICAgIHtzZWxlY3RlZFByb3RvY29sLnN0ZXBzLm1hcCgoc3RlcCwgaW5kZXgpID0+IChcbiAgICAgICAgICAgICAgICAgIDxsaSBrZXk9e2luZGV4fSBjbGFzc05hbWU9XCJmbGV4IGdhcC0zXCI+XG4gICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT17YGZsZXgtc2hyaW5rLTAgdy02IGgtNiByb3VuZGVkLWZ1bGwgYmctZ3JhZGllbnQtdG8tciAke3NlbGVjdGVkUHJvdG9jb2wuY29sb3J9IGZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktY2VudGVyIHRleHQtd2hpdGUgdGV4dC1zbSBmb250LWJvbGRgfT5cbiAgICAgICAgICAgICAgICAgICAgICB7aW5kZXggKyAxfVxuICAgICAgICAgICAgICAgICAgICA8L3NwYW4+XG4gICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRleHQtd2hpdGVcIj57c3RlcH08L3NwYW4+XG4gICAgICAgICAgICAgICAgICA8L2xpPlxuICAgICAgICAgICAgICAgICkpfVxuICAgICAgICAgICAgICA8L29sPlxuICAgICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICAgIHsvKiBFbWVyZ2VuY3kgQ29udGFjdHMgKi99XG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInAtNlwiPlxuICAgICAgICAgICAgICA8aDMgY2xhc3NOYW1lPVwidGV4dC1sZyBmb250LWJvbGQgdGV4dC13aGl0ZSBtYi00XCI+RW1lcmdlbmN5IENvbnRhY3RzPC9oMz5cbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJzcGFjZS15LTJcIj5cbiAgICAgICAgICAgICAgICB7c2VsZWN0ZWRQcm90b2NvbC5jb250YWN0cy5tYXAoKGNvbnRhY3QsIGluZGV4KSA9PiAoXG4gICAgICAgICAgICAgICAgICA8YnV0dG9uXG4gICAgICAgICAgICAgICAgICAgIGtleT17aW5kZXh9XG4gICAgICAgICAgICAgICAgICAgIG9uQ2xpY2s9eygpID0+IGhhbmRsZUNhbGwoY29udGFjdC5waG9uZSl9XG4gICAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cInctZnVsbCBwLTQgYmctWyMwQjFGMkFdIGJvcmRlciBib3JkZXItWyMxYTM0NDBdIHJvdW5kZWQteGwgaG92ZXI6Ym9yZGVyLXRlYWwtNTAwLzUwIHRyYW5zaXRpb24tYWxsIGZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlbiBncm91cFwiXG4gICAgICAgICAgICAgICAgICA+XG4gICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTNcIj5cbiAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInctMTAgaC0xMCByb3VuZGVkLWZ1bGwgYmctdGVhbC01MDAvMjAgZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1jZW50ZXIgZ3JvdXAtaG92ZXI6YmctdGVhbC01MDAvMzAgdHJhbnNpdGlvbi1jb2xvcnNcIj5cbiAgICAgICAgICAgICAgICAgICAgICAgIDxQaG9uZSBjbGFzc05hbWU9XCJ3LTUgaC01IHRleHQtdGVhbC00MDBcIiAvPlxuICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC1sZWZ0XCI+XG4gICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQtd2hpdGUgZm9udC1tZWRpdW1cIj57Y29udGFjdC5uYW1lfTwvZGl2PlxuICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ0ZXh0LXNtIHRleHQtZ3JheS00MDAgZm9udC1tb25vXCI+e2NvbnRhY3QucGhvbmV9PC9kaXY+XG4gICAgICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQtdGVhbC00MDAgb3BhY2l0eS0wIGdyb3VwLWhvdmVyOm9wYWNpdHktMTAwIHRyYW5zaXRpb24tb3BhY2l0eVwiPlxuICAgICAgICAgICAgICAgICAgICAgIENhbGwg4oaSXG4gICAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgICAgICAgKSl9XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvZGl2PlxuICAgICAgKX1cbiAgICA8Lz5cbiAgKTtcbn1cbiJdLCJmaWxlIjoiL3dvcmtzcGFjZXMvZGVmYXVsdC9jb2RlL3NyYy9hcHAvY29tcG9uZW50cy9HbG9iYWxTT1NCdXR0b24udHN4In0=

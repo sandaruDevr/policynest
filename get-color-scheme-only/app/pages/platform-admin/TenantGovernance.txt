@@ -1,0 +1,1143 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/app/pages/platform-admin/TenantGovernance.tsx");import { jsxDEV } from "/@id/__x00__figma:react-jsx-dev-runtime";
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+var _s = $RefreshSig$();
+import { FGCmp } from "/@id/fginspector";
+import { useState } from "/@id/__x00__figma:react-base";
+import { Plus, Search, MoreVertical, Building, Users, FileText, DollarSign, X, Tag } from "/node_modules/.vite/deps/lucide-react.js?v=25293e4c";
+import TenantDetailModal from "/src/app/components/TenantDetailModal.tsx";
+const mockTenants = [
+  { id: "1", name: "Acme Healthcare", sector: "Healthcare", jurisdiction: "US", plan: "Enterprise", status: "active", policyCount: 145, userCount: 52, tags: ["Aged Care", "NDIS", "Priority"] },
+  { id: "2", name: "TechStart Inc", sector: "Technology", jurisdiction: "UK", plan: "Professional", status: "active", policyCount: 89, userCount: 28, tags: ["SaaS", "B2B"] },
+  { id: "3", name: "Global Retail Co", sector: "Retail", jurisdiction: "AU", plan: "Enterprise", status: "active", policyCount: 178, userCount: 94, tags: ["Retail", "Multi-site"] },
+  { id: "4", name: "EduLearn Academy", sector: "Education", jurisdiction: "CA", plan: "Basic", status: "trial", policyCount: 34, userCount: 12, tags: ["Education", "New"] },
+  { id: "5", name: "FinanceHub Ltd", sector: "Finance", jurisdiction: "SG", plan: "Enterprise", status: "active", policyCount: 203, userCount: 67, tags: ["Finance", "Compliance", "Priority"] }
+];
+export default function TenantGovernance() {
+  _s();
+  const [tenants, setTenants] = useState(mockTenants);
+  const [showCreateModal, setShowCreateModal] = useState(false);
+  const [selectedTenant, setSelectedTenant] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedTag, setSelectedTag] = useState("");
+  const [showTagModal, setShowTagModal] = useState(false);
+  const [newTenant, setNewTenant] = useState({
+    name: "",
+    adminName: "",
+    adminEmail: "",
+    contactNumber: "",
+    address: "",
+    sector: "",
+    jurisdiction: "",
+    language: "en",
+    plan: "Professional",
+    environment: ""
+  });
+  const allTags = Array.from(new Set(tenants.flatMap((t) => t.tags || [])));
+  const filteredTenants = tenants.filter((tenant) => {
+    const matchesSearch = tenant.name.toLowerCase().includes(searchQuery.toLowerCase()) || tenant.sector.toLowerCase().includes(searchQuery.toLowerCase()) || (tenant.tags || []).some((tag) => tag.toLowerCase().includes(searchQuery.toLowerCase()));
+    const matchesTag = !selectedTag || (tenant.tags || []).includes(selectedTag);
+    return matchesSearch && matchesTag;
+  });
+  const handleCreateTenant = () => {
+    const tenant = {
+      id: String(tenants.length + 1),
+      name: newTenant.name,
+      sector: newTenant.sector,
+      jurisdiction: newTenant.jurisdiction,
+      plan: newTenant.plan,
+      status: "trial",
+      policyCount: 0,
+      userCount: 1
+    };
+    setTenants([...tenants, tenant]);
+    setShowCreateModal(false);
+    setNewTenant({ name: "", adminName: "", adminEmail: "", contactNumber: "", address: "", sector: "", jurisdiction: "", language: "en", plan: "Professional", environment: "" });
+  };
+  return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dpmn0", _fgB: 1779104380366, _fgD: true, className: "space-y-6", "data-fg-dpmn0": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:75:5:3275:15445:e:div:xtetxtetxtetxtetxtxtxtx:1", children: [
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dpmn2", _fgB: 1779104380366, className: "flex items-center justify-between", "data-fg-dpmn2": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:77:7:3330:569:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dpmn3", _fgB: 1779104380366, "data-fg-dpmn3": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:78:9:3390:186:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h1", _fgS: "dpmn4", _fgB: 1779104380366, className: "text-3xl font-bold text-white mb-2", "data-fg-dpmn4": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:79:11:3406:73:e:h1:t", children: "Tenant Governance" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+          lineNumber: 99,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dpmn6", _fgB: 1779104380366, className: "text-gray-400", "data-fg-dpmn6": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:80:11:3490:71:e:p:t", children: "Manage organisations and subscriptions" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+          lineNumber: 100,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+        lineNumber: 98,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(
+        FGCmp,
+        {
+          _fgT: "button",
+          _fgS: "dpmn8",
+          _fgB: 1779104380366,
+          onClick: () => setShowCreateModal(true),
+          className: "px-4 py-2 bg-gradient-to-r from-teal-600 to-teal-500 text-white rounded-lg hover:shadow-lg transition-all flex items-center gap-2",
+          "data-fg-dpmn8": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:82:9:3585:301:e:button:et",
+          children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Plus, _fgS: "dpmn9", _fgB: 1779104380366, className: "w-4 h-4", "data-fg-dpmn9": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:86:11:3816:28:e:Plus::::::ISW" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+              lineNumber: 106,
+              columnNumber: 11
+            }, this),
+            "Create Tenant"
+          ]
+        },
+        void 0,
+        true,
+        {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+          lineNumber: 102,
+          columnNumber: 9
+        },
+        this
+      )
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+      lineNumber: 97,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dpmn12", _fgB: 1779104380366, className: "grid grid-cols-1 md:grid-cols-4 gap-6", "data-fg-dpmn12": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:92:7:3927:349:e:div:etetete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: StatCard, _fgS: "dpmn13", _fgB: 1779104380366, icon: Building, label: "Total Tenants", value: "247", "data-fg-dpmn13": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:93:9:3991:62:e:StatCard::::::cJt" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+        lineNumber: 113,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: StatCard, _fgS: "dpmn14", _fgB: 1779104380366, icon: Users, label: "Total Users", value: "8,432", "data-fg-dpmn14": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:94:9:4062:59:e:StatCard::::::cJt" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+        lineNumber: 114,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: StatCard, _fgS: "dpmn15", _fgB: 1779104380366, icon: FileText, label: "Total Policies", value: "12,854", "data-fg-dpmn15": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:95:9:4130:66:e:StatCard::::::cJt" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+        lineNumber: 115,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: StatCard, _fgS: "dpmn16", _fgB: 1779104380366, icon: DollarSign, label: "MRR", value: "$124.5K", "data-fg-dpmn16": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:96:9:4205:58:e:StatCard::::::cJt" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+        lineNumber: 116,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+      lineNumber: 112,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dpmn18", _fgB: 1779104380366, className: "bg-white/5 backdrop-blur-lg rounded-xl p-4 border border-white/10 space-y-4", "data-fg-dpmn18": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:100:7:4317:2477:e:div:etxtx", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dpmn19", _fgB: 1779104380366, className: "flex gap-4", "data-fg-dpmn19": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:101:9:4419:1749:e:div:etetete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dpmn20", _fgB: 1779104380366, className: "flex-1 relative", "data-fg-dpmn20": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:102:11:4458:554:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Search, _fgS: "dpmn21", _fgB: 1779104380366, className: "absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400", "data-fg-dpmn21": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:103:13:4504:85:e:Search::::::B9rK" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+            lineNumber: 123,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "input",
+              _fgS: "dpmn22",
+              _fgB: 1779104380366,
+              type: "text",
+              placeholder: "Search tenants by name, sector, or tags...",
+              value: searchQuery,
+              onChange: (e) => setSearchQuery(e.target.value),
+              className: "w-full pl-10 pr-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-white placeholder-gray-500 focus:outline-none focus:border-teal-500/50",
+              "data-fg-dpmn22": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:104:13:4602:393:e:input"
+            },
+            void 0,
+            false,
+            {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+              lineNumber: 124,
+              columnNumber: 13
+            },
+            this
+          )
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+          lineNumber: 122,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "select", _fgS: "dpmn23", _fgB: 1779104380366, className: "px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-white focus:outline-none focus:border-teal-500/50", "data-fg-dpmn23": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:112:11:5023:355:e:select:etetetete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "dpmn24", _fgB: 1779104380366, "data-fg-dpmn24": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:113:13:5174:28:e:option:t", children: "All Sectors" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+            lineNumber: 133,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "dpmn26", _fgB: 1779104380366, "data-fg-dpmn26": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:114:13:5215:27:e:option:t", children: "Healthcare" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+            lineNumber: 134,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "dpmn28", _fgB: 1779104380366, "data-fg-dpmn28": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:115:13:5255:26:e:option:t", children: "Education" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+            lineNumber: 135,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "dpmn30", _fgB: 1779104380366, "data-fg-dpmn30": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:116:13:5294:24:e:option:t", children: "Finance" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+            lineNumber: 136,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "dpmn32", _fgB: 1779104380366, "data-fg-dpmn32": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:117:13:5331:27:e:option:t", children: "Technology" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+            lineNumber: 137,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+          lineNumber: 132,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "select", _fgS: "dpmn34", _fgB: 1779104380366, className: "px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-white focus:outline-none focus:border-teal-500/50", "data-fg-dpmn34": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:119:11:5389:308:e:select:etetete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "dpmn35", _fgB: 1779104380366, "data-fg-dpmn35": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:120:13:5540:27:e:option:t", children: "All Status" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+            lineNumber: 140,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "dpmn37", _fgB: 1779104380366, "data-fg-dpmn37": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:121:13:5580:23:e:option:t", children: "Active" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+            lineNumber: 141,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "dpmn39", _fgB: 1779104380366, "data-fg-dpmn39": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:122:13:5616:22:e:option:t", children: "Trial" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+            lineNumber: 142,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "dpmn41", _fgB: 1779104380366, "data-fg-dpmn41": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:123:13:5651:26:e:option:t", children: "Suspended" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+            lineNumber: 143,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+          lineNumber: 139,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "select",
+            _fgS: "dpmn43",
+            _fgB: 1779104380366,
+            value: selectedTag,
+            onChange: (e) => setSelectedTag(e.target.value),
+            className: "px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-white focus:outline-none focus:border-teal-500/50 min-w-[150px]",
+            "data-fg-dpmn43": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:125:11:5708:445:e:select:etx",
+            children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "dpmn44", _fgB: 1779104380366, value: "", "data-fg-dpmn44": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:130:13:5990:34:e:option:t", children: "All Tags" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+                lineNumber: 150,
+                columnNumber: 13
+              }, this),
+              allTags.map(
+                (tag) => /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "dpmn47", _fgB: 1779104380366, value: tag, "data-fg-dpmn47": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:132:15:6073:44:e:option:x", children: tag }, tag, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+                  lineNumber: 152,
+                  columnNumber: 13
+                }, this)
+              )
+            ]
+          },
+          void 0,
+          true,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+            lineNumber: 145,
+            columnNumber: 11
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+        lineNumber: 121,
+        columnNumber: 9
+      }, this),
+      selectedTag && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dpmn51", _fgB: 1779104380366, className: "flex items-center gap-2", "data-fg-dpmn51": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:139:11:6239:531:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "dpmn52", _fgB: 1779104380366, className: "text-xs text-gray-400", "data-fg-dpmn52": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:140:13:6293:61:e:span:t", children: "Active Filter:" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+          lineNumber: 160,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "button",
+            _fgS: "dpmn54",
+            _fgB: 1779104380366,
+            onClick: () => setSelectedTag(""),
+            className: "px-3 py-1 bg-teal-500/20 border border-teal-500/30 text-teal-400 rounded-full text-xs font-medium flex items-center gap-2 hover:bg-teal-500/30 transition-all",
+            "data-fg-dpmn54": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:141:13:6367:386:e:button:etxte",
+            children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Tag, _fgS: "dpmn55", _fgB: 1779104380366, className: "w-3 h-3", "data-fg-dpmn55": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:145:15:6636:27:e:Tag::::::BKy" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+                lineNumber: 165,
+                columnNumber: 15
+              }, this),
+              selectedTag,
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: X, _fgS: "dpmn57", _fgB: 1779104380366, className: "w-3 h-3", "data-fg-dpmn57": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:147:15:6706:25:e:X::::::TvS" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+                lineNumber: 167,
+                columnNumber: 15
+              }, this)
+            ]
+          },
+          void 0,
+          true,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+            lineNumber: 161,
+            columnNumber: 13
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+        lineNumber: 159,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+      lineNumber: 120,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dpmn59", _fgB: 1779104380366, className: "bg-white/5 backdrop-blur-lg rounded-xl border border-white/10 overflow-hidden", "data-fg-dpmn59": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:154:7:6829:4252:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dpmn60", _fgB: 1779104380366, className: "overflow-x-auto", "data-fg-dpmn60": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:155:9:6933:4135:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "table", _fgS: "dpmn61", _fgB: 1779104380366, className: "w-full", "data-fg-dpmn61": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:156:11:6977:4076:e:table:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "thead", _fgS: "dpmn62", _fgB: 1779104380366, className: "bg-white/5 border-b border-white/10", "data-fg-dpmn62": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:157:13:7016:918:e:thead:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "tr", _fgS: "dpmn63", _fgB: 1779104380366, "data-fg-dpmn63": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:158:15:7086:827:e:tr:etetetetetetete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "th", _fgS: "dpmn64", _fgB: 1779104380366, className: "text-left px-6 py-4 text-sm font-semibold text-gray-300", "data-fg-dpmn64": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:159:17:7107:88:e:th:t", children: "Tenant Name" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+          lineNumber: 179,
+          columnNumber: 17
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "th", _fgS: "dpmn66", _fgB: 1779104380366, className: "text-left px-6 py-4 text-sm font-semibold text-gray-300", "data-fg-dpmn66": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:160:17:7212:83:e:th:t", children: "Sector" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+          lineNumber: 180,
+          columnNumber: 17
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "th", _fgS: "dpmn68", _fgB: 1779104380366, className: "text-left px-6 py-4 text-sm font-semibold text-gray-300", "data-fg-dpmn68": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:161:17:7312:81:e:th:t", children: "Plan" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+          lineNumber: 181,
+          columnNumber: 17
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "th", _fgS: "dpmn70", _fgB: 1779104380366, className: "text-left px-6 py-4 text-sm font-semibold text-gray-300", "data-fg-dpmn70": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:162:17:7410:83:e:th:t", children: "Status" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+          lineNumber: 182,
+          columnNumber: 17
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "th", _fgS: "dpmn72", _fgB: 1779104380366, className: "text-left px-6 py-4 text-sm font-semibold text-gray-300", "data-fg-dpmn72": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:163:17:7510:81:e:th:t", children: "Tags" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+          lineNumber: 183,
+          columnNumber: 17
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "th", _fgS: "dpmn74", _fgB: 1779104380366, className: "text-left px-6 py-4 text-sm font-semibold text-gray-300", "data-fg-dpmn74": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:164:17:7608:85:e:th:t", children: "Policies" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+          lineNumber: 184,
+          columnNumber: 17
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "th", _fgS: "dpmn76", _fgB: 1779104380366, className: "text-left px-6 py-4 text-sm font-semibold text-gray-300", "data-fg-dpmn76": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:165:17:7710:82:e:th:t", children: "Users" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+          lineNumber: 185,
+          columnNumber: 17
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "th", _fgS: "dpmn78", _fgB: 1779104380366, className: "text-left px-6 py-4 text-sm font-semibold text-gray-300", "data-fg-dpmn78": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:166:17:7809:84:e:th:t", children: "Actions" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+          lineNumber: 186,
+          columnNumber: 17
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+        lineNumber: 178,
+        columnNumber: 15
+      }, this) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+        lineNumber: 177,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "tbody", _fgS: "dpmn80", _fgB: 1779104380366, "data-fg-dpmn80": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:169:13:7947:3087:e:tbody:x", children: filteredTenants.map(
+        (tenant) => /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "tr",
+            _fgS: "dpmn82",
+            _fgB: 1779104380366,
+            className: "border-b border-white/5 hover:bg-white/5 transition-colors cursor-pointer",
+            onClick: () => setSelectedTenant(tenant),
+            "data-fg-dpmn82": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:171:17:8020:2975:e:tr:etetetetetetete",
+            children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "td", _fgS: "dpmn83", _fgB: 1779104380366, className: "px-6 py-4", "data-fg-dpmn83": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:176:19:8258:282:e:td:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dpmn84", _fgB: 1779104380366, "data-fg-dpmn84": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:177:21:8305:211:e:div:ete", children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dpmn85", _fgB: 1779104380366, className: "text-sm text-white font-medium", "data-fg-dpmn85": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:178:23:8333:67:e:div:x", children: tenant.name }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+                  lineNumber: 198,
+                  columnNumber: 23
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dpmn87", _fgB: 1779104380366, className: "text-xs text-gray-500", "data-fg-dpmn87": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:179:23:8423:66:e:div:x", children: tenant.jurisdiction }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+                  lineNumber: 199,
+                  columnNumber: 23
+                }, this)
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+                lineNumber: 197,
+                columnNumber: 21
+              }, this) }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+                lineNumber: 196,
+                columnNumber: 19
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "td", _fgS: "dpmn89", _fgB: 1779104380366, className: "px-6 py-4 text-sm text-gray-400", "data-fg-dpmn89": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:182:19:8559:68:e:td:x", children: tenant.sector }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+                lineNumber: 202,
+                columnNumber: 19
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "td", _fgS: "dpmn91", _fgB: 1779104380366, className: "px-6 py-4 text-sm text-gray-400", "data-fg-dpmn91": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:183:19:8646:66:e:td:x", children: tenant.plan }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+                lineNumber: 203,
+                columnNumber: 19
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "td", _fgS: "dpmn93", _fgB: 1779104380366, className: "px-6 py-4", "data-fg-dpmn93": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:184:19:8731:552:e:td:e", children: /* @__PURE__ */ jsxDEV(
+                FGCmp,
+                {
+                  _fgT: "span",
+                  _fgS: "dpmn94",
+                  _fgB: 1779104380366,
+                  className: `px-2 py-1 rounded-full text-xs font-medium ${tenant.status === "active" ? "bg-green-500/10 text-green-500" : tenant.status === "trial" ? "bg-blue-500/10 text-blue-500" : "bg-red-500/10 text-red-500"}`,
+                  "data-fg-dpmn94": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:185:21:8778:481:e:span:x",
+                  children: tenant.status
+                },
+                void 0,
+                false,
+                {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+                  lineNumber: 205,
+                  columnNumber: 21
+                },
+                this
+              ) }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+                lineNumber: 204,
+                columnNumber: 19
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "td", _fgS: "dpmn96", _fgB: 1779104380366, className: "px-6 py-4", "data-fg-dpmn96": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:197:19:9302:1024:e:td:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dpmn97", _fgB: 1779104380366, className: "flex flex-wrap gap-1", "data-fg-dpmn97": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:198:21:9349:953:e:div:xtx", children: [
+                (tenant.tags || []).slice(0, 2).map(
+                  (tag, index) => /* @__PURE__ */ jsxDEV(
+                    FGCmp,
+                    {
+                      _fgT: "span",
+                      _fgS: "dpmn99",
+                      _fgB: 1779104380366,
+                      onClick: (e) => {
+                        e.stopPropagation();
+                        setSelectedTag(tag);
+                      },
+                      className: "px-2 py-0.5 bg-teal-500/10 border border-teal-500/20 text-teal-400 rounded text-xs font-medium hover:bg-teal-500/20 transition-all cursor-pointer",
+                      "data-fg-dpmn99": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:200:25:9489:488:e:span:x",
+                      children: tag
+                    },
+                    index,
+                    false,
+                    {
+                      fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+                      lineNumber: 220,
+                      columnNumber: 21
+                    },
+                    this
+                  )
+                ),
+                (tenant.tags || []).length > 2 && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "dpmn102", _fgB: 1779104380366, className: "px-2 py-0.5 bg-white/5 text-gray-400 rounded text-xs", "data-fg-dpmn102": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:212:25:10087:163:e:span:tx", children: [
+                  "+",
+                  (tenant.tags || []).length - 2
+                ] }, void 0, true, {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+                  lineNumber: 232,
+                  columnNumber: 21
+                }, this)
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+                lineNumber: 218,
+                columnNumber: 21
+              }, this) }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+                lineNumber: 217,
+                columnNumber: 19
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "td", _fgS: "dpmn105", _fgB: 1779104380366, className: "px-6 py-4 text-sm text-gray-400", "data-fg-dpmn105": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:218:19:10345:73:e:td:x", children: tenant.policyCount }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+                lineNumber: 238,
+                columnNumber: 19
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "td", _fgS: "dpmn107", _fgB: 1779104380366, className: "px-6 py-4 text-sm text-gray-400", "data-fg-dpmn107": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:219:19:10437:71:e:td:x", children: tenant.userCount }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+                lineNumber: 239,
+                columnNumber: 19
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "td", _fgS: "dpmn109", _fgB: 1779104380366, className: "px-6 py-4", "data-fg-dpmn109": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:220:19:10527:446:e:td:e", children: /* @__PURE__ */ jsxDEV(
+                FGCmp,
+                {
+                  _fgT: "button",
+                  _fgS: "dpmn110",
+                  _fgB: 1779104380366,
+                  onClick: (e) => {
+                    e.stopPropagation();
+                    setSelectedTenant(tenant);
+                  },
+                  className: "p-1 hover:bg-white/10 rounded transition-colors",
+                  "data-fg-dpmn110": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:221:21:10574:375:e:button:e",
+                  children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: MoreVertical, _fgS: "dpmn111", _fgB: 1779104380366, className: "w-4 h-4 text-gray-400", "data-fg-dpmn111": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:228:23:10869:50:e:MoreVertical::::::CAdt" }, void 0, false, {
+                    fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+                    lineNumber: 248,
+                    columnNumber: 23
+                  }, this)
+                },
+                void 0,
+                false,
+                {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+                  lineNumber: 241,
+                  columnNumber: 21
+                },
+                this
+              ) }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+                lineNumber: 240,
+                columnNumber: 19
+              }, this)
+            ]
+          },
+          tenant.id,
+          true,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+            lineNumber: 191,
+            columnNumber: 15
+          },
+          this
+        )
+      ) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+        lineNumber: 189,
+        columnNumber: 13
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+      lineNumber: 176,
+      columnNumber: 11
+    }, this) }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+      lineNumber: 175,
+      columnNumber: 9
+    }, this) }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+      lineNumber: 174,
+      columnNumber: 7
+    }, this),
+    showCreateModal && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Modal, _fgS: "dpmn114", _fgB: 1779104380366, title: "Create New Tenant", onClose: () => setShowCreateModal(false), "data-fg-dpmn114": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:240:9:11153:7361:e:Modal:e:::::CEKa", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dpmn115", _fgB: 1779104380366, className: "space-y-4", "data-fg-dpmn115": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:241:11:11239:7258:e:div:etetetetetetetetetete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dpmn116", _fgB: 1779104380366, "data-fg-dpmn116": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:242:13:11279:521:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "dpmn117", _fgB: 1779104380366, className: "block text-sm font-medium text-gray-300 mb-2", "data-fg-dpmn117": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:243:15:11299:91:e:label:t", children: "Organisation Name *" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+          lineNumber: 263,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "input",
+            _fgS: "dpmn119",
+            _fgB: 1779104380366,
+            type: "text",
+            value: newTenant.name,
+            onChange: (e) => setNewTenant({ ...newTenant, name: e.target.value }),
+            className: "w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-teal-500/50",
+            placeholder: "Enter organisation name",
+            "data-fg-dpmn119": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:244:15:11405:376:e:input"
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+            lineNumber: 264,
+            columnNumber: 15
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+        lineNumber: 262,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dpmn120", _fgB: 1779104380366, "data-fg-dpmn120": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:253:13:11814:522:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "dpmn121", _fgB: 1779104380366, className: "block text-sm font-medium text-gray-300 mb-2", "data-fg-dpmn121": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:254:15:11834:84:e:label:t", children: "Admin Name *" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+          lineNumber: 274,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "input",
+            _fgS: "dpmn123",
+            _fgB: 1779104380366,
+            type: "text",
+            value: newTenant.adminName,
+            onChange: (e) => setNewTenant({ ...newTenant, adminName: e.target.value }),
+            className: "w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-teal-500/50",
+            placeholder: "Enter admin full name",
+            "data-fg-dpmn123": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:255:15:11933:384:e:input"
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+            lineNumber: 275,
+            columnNumber: 15
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+        lineNumber: 273,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dpmn124", _fgB: 1779104380366, "data-fg-dpmn124": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:264:13:12350:527:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "dpmn125", _fgB: 1779104380366, className: "block text-sm font-medium text-gray-300 mb-2", "data-fg-dpmn125": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:265:15:12370:85:e:label:t", children: "Admin Email *" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+          lineNumber: 285,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "input",
+            _fgS: "dpmn127",
+            _fgB: 1779104380366,
+            type: "email",
+            value: newTenant.adminEmail,
+            onChange: (e) => setNewTenant({ ...newTenant, adminEmail: e.target.value }),
+            className: "w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-teal-500/50",
+            placeholder: "admin@organisation.com",
+            "data-fg-dpmn127": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:266:15:12470:388:e:input"
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+            lineNumber: 286,
+            columnNumber: 15
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+        lineNumber: 284,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dpmn128", _fgB: 1779104380366, "data-fg-dpmn128": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:275:13:12891:529:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "dpmn129", _fgB: 1779104380366, className: "block text-sm font-medium text-gray-300 mb-2", "data-fg-dpmn129": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:276:15:12911:88:e:label:t", children: "Contact Number *" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+          lineNumber: 296,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "input",
+            _fgS: "dpmn131",
+            _fgB: 1779104380366,
+            type: "tel",
+            value: newTenant.contactNumber,
+            onChange: (e) => setNewTenant({ ...newTenant, contactNumber: e.target.value }),
+            className: "w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-teal-500/50",
+            placeholder: "+1 (555) 000-0000",
+            "data-fg-dpmn131": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:277:15:13014:387:e:input"
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+            lineNumber: 297,
+            columnNumber: 15
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+        lineNumber: 295,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dpmn132", _fgB: 1779104380366, "data-fg-dpmn132": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:286:13:13434:520:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "dpmn133", _fgB: 1779104380366, className: "block text-sm font-medium text-gray-300 mb-2", "data-fg-dpmn133": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:287:15:13454:81:e:label:t", children: "Address *" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+          lineNumber: 307,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "textarea",
+            _fgS: "dpmn135",
+            _fgB: 1779104380366,
+            value: newTenant.address,
+            onChange: (e) => setNewTenant({ ...newTenant, address: e.target.value }),
+            rows: 3,
+            className: "w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-teal-500/50",
+            placeholder: "Enter organisation address",
+            "data-fg-dpmn135": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:288:15:13550:385:e:textarea"
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+            lineNumber: 308,
+            columnNumber: 15
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+        lineNumber: 306,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dpmn136", _fgB: 1779104380366, "data-fg-dpmn136": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:297:13:13968:880:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "dpmn137", _fgB: 1779104380366, className: "block text-sm font-medium text-gray-300 mb-2", "data-fg-dpmn137": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:298:15:13988:80:e:label:t", children: "Sector *" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+          lineNumber: 318,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "select",
+            _fgS: "dpmn139",
+            _fgB: 1779104380366,
+            value: newTenant.sector,
+            onChange: (e) => setNewTenant({ ...newTenant, sector: e.target.value }),
+            className: "w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-teal-500/50",
+            "data-fg-dpmn139": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:299:15:14083:746:e:select:etetetetetete",
+            children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "dpmn140", _fgB: 1779104380366, value: "", "data-fg-dpmn140": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:304:17:14398:39:e:option:t", children: "Select sector" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+                lineNumber: 324,
+                columnNumber: 17
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "dpmn142", _fgB: 1779104380366, value: "Healthcare", "data-fg-dpmn142": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:305:17:14454:46:e:option:t", children: "Healthcare" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+                lineNumber: 325,
+                columnNumber: 17
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "dpmn144", _fgB: 1779104380366, value: "Education", "data-fg-dpmn144": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:306:17:14517:44:e:option:t", children: "Education" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+                lineNumber: 326,
+                columnNumber: 17
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "dpmn146", _fgB: 1779104380366, value: "Finance", "data-fg-dpmn146": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:307:17:14578:40:e:option:t", children: "Finance" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+                lineNumber: 327,
+                columnNumber: 17
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "dpmn148", _fgB: 1779104380366, value: "Technology", "data-fg-dpmn148": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:308:17:14635:46:e:option:t", children: "Technology" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+                lineNumber: 328,
+                columnNumber: 17
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "dpmn150", _fgB: 1779104380366, value: "Retail", "data-fg-dpmn150": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:309:17:14698:38:e:option:t", children: "Retail" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+                lineNumber: 329,
+                columnNumber: 17
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "dpmn152", _fgB: 1779104380366, value: "Manufacturing", "data-fg-dpmn152": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:310:17:14753:52:e:option:t", children: "Manufacturing" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+                lineNumber: 330,
+                columnNumber: 17
+              }, this)
+            ]
+          },
+          void 0,
+          true,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+            lineNumber: 319,
+            columnNumber: 15
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+        lineNumber: 317,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dpmn154", _fgB: 1779104380366, "data-fg-dpmn154": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:313:13:14861:871:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "dpmn155", _fgB: 1779104380366, className: "block text-sm font-medium text-gray-300 mb-2", "data-fg-dpmn155": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:314:15:14881:86:e:label:t", children: "Jurisdiction *" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+          lineNumber: 334,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "select",
+            _fgS: "dpmn157",
+            _fgB: 1779104380366,
+            value: newTenant.jurisdiction,
+            onChange: (e) => setNewTenant({ ...newTenant, jurisdiction: e.target.value }),
+            className: "w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-teal-500/50",
+            "data-fg-dpmn157": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:315:15:14982:731:e:select:etetetetetete",
+            children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "dpmn158", _fgB: 1779104380366, value: "", "data-fg-dpmn158": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:320:17:15309:45:e:option:t", children: "Select jurisdiction" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+                lineNumber: 340,
+                columnNumber: 17
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "dpmn160", _fgB: 1779104380366, value: "US", "data-fg-dpmn160": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:321:17:15371:41:e:option:t", children: "United States" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+                lineNumber: 341,
+                columnNumber: 17
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "dpmn162", _fgB: 1779104380366, value: "UK", "data-fg-dpmn162": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:322:17:15429:42:e:option:t", children: "United Kingdom" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+                lineNumber: 342,
+                columnNumber: 17
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "dpmn164", _fgB: 1779104380366, value: "AU", "data-fg-dpmn164": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:323:17:15488:37:e:option:t", children: "Australia" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+                lineNumber: 343,
+                columnNumber: 17
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "dpmn166", _fgB: 1779104380366, value: "CA", "data-fg-dpmn166": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:324:17:15542:34:e:option:t", children: "Canada" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+                lineNumber: 344,
+                columnNumber: 17
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "dpmn168", _fgB: 1779104380366, value: "SG", "data-fg-dpmn168": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:325:17:15593:37:e:option:t", children: "Singapore" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+                lineNumber: 345,
+                columnNumber: 17
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "dpmn170", _fgB: 1779104380366, value: "EU", "data-fg-dpmn170": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:326:17:15647:42:e:option:t", children: "European Union" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+                lineNumber: 346,
+                columnNumber: 17
+              }, this)
+            ]
+          },
+          void 0,
+          true,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+            lineNumber: 335,
+            columnNumber: 15
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+        lineNumber: 333,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dpmn172", _fgB: 1779104380366, "data-fg-dpmn172": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:330:13:15746:678:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "dpmn173", _fgB: 1779104380366, className: "block text-sm font-medium text-gray-300 mb-2", "data-fg-dpmn173": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:331:15:15766:91:e:label:t", children: "Subscription Plan *" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+          lineNumber: 351,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "select",
+            _fgS: "dpmn175",
+            _fgB: 1779104380366,
+            value: newTenant.plan,
+            onChange: (e) => setNewTenant({ ...newTenant, plan: e.target.value }),
+            className: "w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-teal-500/50",
+            "data-fg-dpmn175": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:332:15:15872:533:e:select:etete",
+            children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "dpmn176", _fgB: 1779104380366, value: "Basic", "data-fg-dpmn176": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:337:17:16183:46:e:option:t", children: "Basic - $299/mo" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+                lineNumber: 357,
+                columnNumber: 17
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "dpmn178", _fgB: 1779104380366, value: "Professional", "data-fg-dpmn178": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:338:17:16246:60:e:option:t", children: "Professional - $899/mo" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+                lineNumber: 358,
+                columnNumber: 17
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "dpmn180", _fgB: 1779104380366, value: "Enterprise", "data-fg-dpmn180": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:339:17:16323:58:e:option:t", children: "Enterprise - $2,499/mo" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+                lineNumber: 359,
+                columnNumber: 17
+              }, this)
+            ]
+          },
+          void 0,
+          true,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+            lineNumber: 352,
+            columnNumber: 15
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+        lineNumber: 350,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dpmn182", _fgB: 1779104380366, "data-fg-dpmn182": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:343:13:16438:722:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "dpmn183", _fgB: 1779104380366, className: "block text-sm font-medium text-gray-300 mb-2", "data-fg-dpmn183": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:344:15:16458:94:e:label:t", children: "Environment (Optional)" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+          lineNumber: 364,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "select",
+            _fgS: "dpmn185",
+            _fgB: 1779104380366,
+            value: newTenant.environment,
+            onChange: (e) => setNewTenant({ ...newTenant, environment: e.target.value }),
+            className: "w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-teal-500/50",
+            "data-fg-dpmn185": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:345:15:16567:574:e:select:etetete",
+            children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "dpmn186", _fgB: 1779104380366, value: "", "data-fg-dpmn186": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:350:17:16892:46:e:option:t", children: "Default (Production)" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+                lineNumber: 370,
+                columnNumber: 17
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "dpmn188", _fgB: 1779104380366, value: "staging", "data-fg-dpmn188": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:351:17:16955:40:e:option:t", children: "Staging" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+                lineNumber: 371,
+                columnNumber: 17
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "dpmn190", _fgB: 1779104380366, value: "development", "data-fg-dpmn190": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:352:17:17012:48:e:option:t", children: "Development" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+                lineNumber: 372,
+                columnNumber: 17
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "dpmn192", _fgB: 1779104380366, value: "testing", "data-fg-dpmn192": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:353:17:17077:40:e:option:t", children: "Testing" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+                lineNumber: 373,
+                columnNumber: 17
+              }, this)
+            ]
+          },
+          void 0,
+          true,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+            lineNumber: 365,
+            columnNumber: 15
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+        lineNumber: 363,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dpmn194", _fgB: 1779104380366, className: "pt-4 border-t border-white/10 flex gap-3", "data-fg-dpmn194": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:357:13:17174:1129:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "button",
+            _fgS: "dpmn195",
+            _fgB: 1779104380366,
+            onClick: handleCreateTenant,
+            disabled: !newTenant.name || !newTenant.adminName || !newTenant.adminEmail || !newTenant.contactNumber || !newTenant.address || !newTenant.sector || !newTenant.jurisdiction,
+            className: "flex-1 px-4 py-3 bg-gradient-to-r from-teal-600 to-teal-500 text-white rounded-lg hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed font-medium",
+            "data-fg-dpmn195": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:358:15:17247:513:e:button:t",
+            children: "Create Tenant"
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+            lineNumber: 378,
+            columnNumber: 15
+          },
+          this
+        ),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "button",
+            _fgS: "dpmn197",
+            _fgB: 1779104380366,
+            onClick: handleCreateTenant,
+            disabled: !newTenant.name || !newTenant.adminName || !newTenant.adminEmail || !newTenant.contactNumber || !newTenant.address || !newTenant.sector || !newTenant.jurisdiction,
+            className: "flex-1 px-4 py-3 bg-white/5 border border-white/10 text-white rounded-lg hover:bg-white/10 transition-all disabled:opacity-50 disabled:cursor-not-allowed font-medium",
+            "data-fg-dpmn197": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:365:15:17775:509:e:button:t",
+            children: "Create & Approve"
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+            lineNumber: 385,
+            columnNumber: 15
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+        lineNumber: 377,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dpmn199", _fgB: 1779104380366, className: "text-xs text-gray-400 text-center", "data-fg-dpmn199": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:373:13:18316:164:e:p:t", children: "This will create tenant ID, database schema, vector namespace, and default policies" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+        lineNumber: 393,
+        columnNumber: 13
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+      lineNumber: 261,
+      columnNumber: 11
+    }, this) }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+      lineNumber: 260,
+      columnNumber: 7
+    }, this),
+    selectedTenant && !showCreateModal && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: TenantDetailModal, _fgS: "dpmn203", _fgB: 1779104380366, tenant: selectedTenant, onClose: () => setSelectedTenant(null), "data-fg-dpmn203": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:382:9:18615:85:e:TenantDetailModal::::::0CV" }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+      lineNumber: 402,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+    lineNumber: 95,
+    columnNumber: 5
+  }, this);
+}
+_s(TenantGovernance, "nduJvQejH8LoKLNIyTD8kRxFxVY=");
+_c = TenantGovernance;
+function StatCard({ icon: Icon, label, value }) {
+  return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dpmn204", _fgB: 1779104380366, _fgD: true, className: "bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/10", "data-fg-dpmn204": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:390:5:18799:273:e:div:etete:1", children: [
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Icon, _fgS: "dpmn205", _fgB: 1779104380366, className: "w-8 h-8 text-teal-500 mb-4", "data-fg-dpmn205": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:391:7:18889:47:e:Icon" }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+      lineNumber: 411,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "dpmn206", _fgB: 1779104380366, className: "text-2xl font-bold text-white mb-1", "data-fg-dpmn206": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:392:7:18943:63:e:h3:x", children: value }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+      lineNumber: 412,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dpmn208", _fgB: 1779104380366, className: "text-sm text-gray-400", "data-fg-dpmn208": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:393:7:19013:48:e:p:x", children: label }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+      lineNumber: 413,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+    lineNumber: 410,
+    columnNumber: 5
+  }, this);
+}
+_c2 = StatCard;
+function Modal({ title, onClose, children }) {
+  return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dpmn210", _fgB: 1779104380366, _fgD: true, className: "fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-6", "data-fg-dpmn210": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:400:5:19148:668:e:div:e:1", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dpmn211", _fgB: 1779104380366, className: "bg-[#0B1F2A] border border-white/10 rounded-2xl p-6 max-w-2xl w-full max-h-[80vh] overflow-y-auto", "data-fg-dpmn211": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:401:7:19257:548:e:div:etc", children: [
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dpmn212", _fgB: 1779104380366, className: "flex items-center justify-between mb-6", "data-fg-dpmn212": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:402:9:19381:392:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h2", _fgS: "dpmn213", _fgB: 1779104380366, className: "text-2xl font-bold text-white", "data-fg-dpmn213": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:403:11:19448:58:e:h2:x", children: title }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+        lineNumber: 423,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV(
+        FGCmp,
+        {
+          _fgT: "button",
+          _fgS: "dpmn215",
+          _fgB: 1779104380366,
+          onClick: onClose,
+          className: "w-8 h-8 rounded-lg hover:bg-white/5 flex items-center justify-center transition-colors",
+          "data-fg-dpmn215": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:404:11:19517:241:e:button:e",
+          children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "dpmn216", _fgB: 1779104380366, className: "text-gray-400 text-xl", "data-fg-dpmn216": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:408:13:19690:48:e:span:t", children: "×" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+            lineNumber: 428,
+            columnNumber: 13
+          }, this)
+        },
+        void 0,
+        false,
+        {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+          lineNumber: 424,
+          columnNumber: 11
+        },
+        this
+      )
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+      lineNumber: 422,
+      columnNumber: 9
+    }, this),
+    children
+  ] }, void 0, true, {
+    fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+    lineNumber: 421,
+    columnNumber: 7
+  }, this) }, void 0, false, {
+    fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+    lineNumber: 420,
+    columnNumber: 5
+  }, this);
+}
+_c3 = Modal;
+function InfoRow({ label, value }) {
+  return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dpmn219", _fgB: 1779104380366, _fgD: true, className: "flex justify-between items-center p-3 bg-white/5 rounded-lg", "data-fg-dpmn219": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:419:5:19882:219:e:div:ete:1", children: [
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "dpmn220", _fgB: 1779104380366, className: "text-sm text-gray-400", "data-fg-dpmn220": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:420:7:19966:54:e:span:x", children: label }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+      lineNumber: 440,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "dpmn222", _fgB: 1779104380366, className: "text-sm text-white font-medium", "data-fg-dpmn222": "418.281:418.20108:/src/app/pages/platform-admin/TenantGovernance.tsx:421:7:20027:63:e:span:x", children: value }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+      lineNumber: 441,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx",
+    lineNumber: 439,
+    columnNumber: 5
+  }, this);
+}
+_c4 = InfoRow;
+var _c, _c2, _c3, _c4;
+$RefreshReg$(_c, "TenantGovernance");
+$RefreshReg$(_c2, "StatCard");
+$RefreshReg$(_c3, "Modal");
+$RefreshReg$(_c4, "InfoRow");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/workspaces/default/code/src/app/pages/platform-admin/TenantGovernance.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6IkFBOEVVOzs7Ozs7Ozs7Ozs7Ozs7Ozs7QUE5RVYsU0FBU0EsZ0JBQWdCO0FBQ3pCLFNBQVNDLE1BQU1DLFFBQVFDLGNBQWNDLFVBQVVDLE9BQU9DLFVBQVVDLFlBQVlDLEdBQXlGQyxXQUFXO0FBQ2hMLE9BQU9DLHVCQUF1QjtBQWM5QixNQUFNQyxjQUF3QjtBQUFBLEVBQzVCLEVBQUVDLElBQUksS0FBS0MsTUFBTSxtQkFBbUJDLFFBQVEsY0FBY0MsY0FBYyxNQUFNQyxNQUFNLGNBQWNDLFFBQVEsVUFBVUMsYUFBYSxLQUFLQyxXQUFXLElBQUlDLE1BQU0sQ0FBQyxhQUFhLFFBQVEsVUFBVSxFQUFFO0FBQUEsRUFDN0wsRUFBRVIsSUFBSSxLQUFLQyxNQUFNLGlCQUFpQkMsUUFBUSxjQUFjQyxjQUFjLE1BQU1DLE1BQU0sZ0JBQWdCQyxRQUFRLFVBQVVDLGFBQWEsSUFBSUMsV0FBVyxJQUFJQyxNQUFNLENBQUMsUUFBUSxLQUFLLEVBQUU7QUFBQSxFQUMxSyxFQUFFUixJQUFJLEtBQUtDLE1BQU0sb0JBQW9CQyxRQUFRLFVBQVVDLGNBQWMsTUFBTUMsTUFBTSxjQUFjQyxRQUFRLFVBQVVDLGFBQWEsS0FBS0MsV0FBVyxJQUFJQyxNQUFNLENBQUMsVUFBVSxZQUFZLEVBQUU7QUFBQSxFQUNqTCxFQUFFUixJQUFJLEtBQUtDLE1BQU0sb0JBQW9CQyxRQUFRLGFBQWFDLGNBQWMsTUFBTUMsTUFBTSxTQUFTQyxRQUFRLFNBQVNDLGFBQWEsSUFBSUMsV0FBVyxJQUFJQyxNQUFNLENBQUMsYUFBYSxLQUFLLEVBQUU7QUFBQSxFQUN6SyxFQUFFUixJQUFJLEtBQUtDLE1BQU0sa0JBQWtCQyxRQUFRLFdBQVdDLGNBQWMsTUFBTUMsTUFBTSxjQUFjQyxRQUFRLFVBQVVDLGFBQWEsS0FBS0MsV0FBVyxJQUFJQyxNQUFNLENBQUMsV0FBVyxjQUFjLFVBQVUsRUFBRTtBQUFDO0FBR2hNLHdCQUF3QkMsbUJBQW1CO0FBQUFDLEtBQUE7QUFDekMsUUFBTSxDQUFDQyxTQUFTQyxVQUFVLElBQUl4QixTQUFtQlcsV0FBVztBQUM1RCxRQUFNLENBQUNjLGlCQUFpQkMsa0JBQWtCLElBQUkxQixTQUFTLEtBQUs7QUFDNUQsUUFBTSxDQUFDMkIsZ0JBQWdCQyxpQkFBaUIsSUFBSTVCLFNBQXdCLElBQUk7QUFDeEUsUUFBTSxDQUFDNkIsYUFBYUMsY0FBYyxJQUFJOUIsU0FBUyxFQUFFO0FBQ2pELFFBQU0sQ0FBQytCLGFBQWFDLGNBQWMsSUFBSWhDLFNBQWlCLEVBQUU7QUFDekQsUUFBTSxDQUFDaUMsY0FBY0MsZUFBZSxJQUFJbEMsU0FBUyxLQUFLO0FBQ3RELFFBQU0sQ0FBQ21DLFdBQVdDLFlBQVksSUFBSXBDLFNBQVM7QUFBQSxJQUN6Q2EsTUFBTTtBQUFBLElBQ053QixXQUFXO0FBQUEsSUFDWEMsWUFBWTtBQUFBLElBQ1pDLGVBQWU7QUFBQSxJQUNmQyxTQUFTO0FBQUEsSUFDVDFCLFFBQVE7QUFBQSxJQUNSQyxjQUFjO0FBQUEsSUFDZDBCLFVBQVU7QUFBQSxJQUNWekIsTUFBTTtBQUFBLElBQ04wQixhQUFhO0FBQUEsRUFDZixDQUFDO0FBR0QsUUFBTUMsVUFBVUMsTUFBTUMsS0FBSyxJQUFJQyxJQUFJdkIsUUFBUXdCLFFBQVEsQ0FBQUMsTUFBS0EsRUFBRTVCLFFBQVEsRUFBRSxDQUFDLENBQUM7QUFFdEUsUUFBTTZCLGtCQUFrQjFCLFFBQVEyQixPQUFPLENBQUFDLFdBQVU7QUFDL0MsVUFBTUMsZ0JBQWdCRCxPQUFPdEMsS0FBS3dDLFlBQVksRUFBRUMsU0FBU3pCLFlBQVl3QixZQUFZLENBQUMsS0FDaEZGLE9BQU9yQyxPQUFPdUMsWUFBWSxFQUFFQyxTQUFTekIsWUFBWXdCLFlBQVksQ0FBQyxNQUM3REYsT0FBTy9CLFFBQVEsSUFBSW1DLEtBQUssQ0FBQUMsUUFBT0EsSUFBSUgsWUFBWSxFQUFFQyxTQUFTekIsWUFBWXdCLFlBQVksQ0FBQyxDQUFDO0FBRXZGLFVBQU1JLGFBQWEsQ0FBQzFCLGdCQUFnQm9CLE9BQU8vQixRQUFRLElBQUlrQyxTQUFTdkIsV0FBVztBQUUzRSxXQUFPcUIsaUJBQWlCSztBQUFBQSxFQUMxQixDQUFDO0FBRUQsUUFBTUMscUJBQXFCQSxNQUFNO0FBQy9CLFVBQU1QLFNBQWlCO0FBQUEsTUFDckJ2QyxJQUFJK0MsT0FBT3BDLFFBQVFxQyxTQUFTLENBQUM7QUFBQSxNQUM3Qi9DLE1BQU1zQixVQUFVdEI7QUFBQUEsTUFDaEJDLFFBQVFxQixVQUFVckI7QUFBQUEsTUFDbEJDLGNBQWNvQixVQUFVcEI7QUFBQUEsTUFDeEJDLE1BQU1tQixVQUFVbkI7QUFBQUEsTUFDaEJDLFFBQVE7QUFBQSxNQUNSQyxhQUFhO0FBQUEsTUFDYkMsV0FBVztBQUFBLElBQ2I7QUFDQUssZUFBVyxDQUFDLEdBQUdELFNBQVM0QixNQUFNLENBQUM7QUFDL0J6Qix1QkFBbUIsS0FBSztBQUN4QlUsaUJBQWEsRUFBRXZCLE1BQU0sSUFBSXdCLFdBQVcsSUFBSUMsWUFBWSxJQUFJQyxlQUFlLElBQUlDLFNBQVMsSUFBSTFCLFFBQVEsSUFBSUMsY0FBYyxJQUFJMEIsVUFBVSxNQUFNekIsTUFBTSxnQkFBZ0IwQixhQUFhLEdBQUcsQ0FBQztBQUFBLEVBQy9LO0FBRUEsU0FDRSx1QkFBQyxnRUFBRyxNQUFDLFdBQVUsYUFBVSx5SUFFdkI7QUFBQSwyQkFBQywwREFBSSxXQUFVLHFDQUFrQyxpSEFDL0M7QUFBQSw2QkFBQywyS0FDQztBQUFBLCtCQUFDLHlEQUFHLFdBQVUsc0NBQW1DLDhHQUFFLGlDQUFuRDtBQUFBO0FBQUE7QUFBQTtBQUFBLGVBQW9FO0FBQUEsUUFDcEUsdUJBQUMsd0RBQUUsV0FBVSxpQkFBYyw2R0FBRSxzREFBN0I7QUFBQTtBQUFBO0FBQUE7QUFBQSxlQUFtRTtBQUFBLFdBRnJFO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUFHQTtBQUFBLE1BQ0E7QUFBQSxRQUFDO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQSxVQUNDLFNBQVMsTUFBTWhCLG1CQUFtQixJQUFJO0FBQUEsVUFDdEMsV0FBVTtBQUFBLFVBQ2I7QUFBQSxVQUNHO0FBQUEsbUNBQUMsZUFBQXpCLE1BQUEsb0NBQUssV0FBVSxXQUFTLHlIQUF6QjtBQUFBO0FBQUE7QUFBQTtBQUFBLG1CQUF5QjtBQUFBO0FBQUE7QUFBQTtBQUFBLFFBSjNCO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQSxNQU1BO0FBQUEsU0FYRjtBQUFBO0FBQUE7QUFBQTtBQUFBLFdBWUE7QUFBQSxJQUdBLHVCQUFDLDJEQUFJLFdBQVUseUNBQXNDLHNIQUNuRDtBQUFBLDZCQUFDLGVBQUE0RCxVQUFBLHFDQUFTLE1BQU16RCxVQUFVLE9BQU0saUJBQWdCLE9BQU0sT0FBSyw2SEFBM0Q7QUFBQTtBQUFBO0FBQUE7QUFBQSxhQUEyRDtBQUFBLE1BQzNELHVCQUFDLGVBQUF5RCxVQUFBLHFDQUFTLE1BQU14RCxPQUFPLE9BQU0sZUFBYyxPQUFNLFNBQU8sNkhBQXhEO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUFBd0Q7QUFBQSxNQUN4RCx1QkFBQyxlQUFBd0QsVUFBQSxxQ0FBUyxNQUFNdkQsVUFBVSxPQUFNLGtCQUFpQixPQUFNLFVBQVEsNkhBQS9EO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUFBK0Q7QUFBQSxNQUMvRCx1QkFBQyxlQUFBdUQsVUFBQSxxQ0FBUyxNQUFNdEQsWUFBWSxPQUFNLE9BQU0sT0FBTSxXQUFTLDZIQUF2RDtBQUFBO0FBQUE7QUFBQTtBQUFBLGFBQXVEO0FBQUEsU0FKekQ7QUFBQTtBQUFBO0FBQUE7QUFBQSxXQUtBO0FBQUEsSUFHQSx1QkFBQywyREFBSSxXQUFVLCtFQUE0RSxzSEFDekY7QUFBQSw2QkFBQywyREFBSSxXQUFVLGNBQVcsd0hBQ3hCO0FBQUEsK0JBQUMsMkRBQUksV0FBVSxtQkFBZ0Isb0hBQzdCO0FBQUEsaUNBQUMsZUFBQUwsUUFBQSxxQ0FBTyxXQUFVLGtFQUFnRSw4SEFBbEY7QUFBQTtBQUFBO0FBQUE7QUFBQSxpQkFBa0Y7QUFBQSxVQUNsRjtBQUFBLFlBQUM7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLGNBQ0MsTUFBSztBQUFBLGNBQ0wsYUFBWTtBQUFBLGNBQ1osT0FBTzJCO0FBQUFBLGNBQ1AsVUFBVSxDQUFDaUMsTUFBTWhDLGVBQWVnQyxFQUFFQyxPQUFPQyxLQUFLO0FBQUEsY0FDOUMsV0FBVTtBQUFBLGNBQ2I7QUFBQTtBQUFBLFlBTkM7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLFVBTUQ7QUFBQSxhQVJEO0FBQUE7QUFBQTtBQUFBO0FBQUEsZUFTQTtBQUFBLFFBQ0EsdUJBQUMsOERBQU8sV0FBVSx5SEFBc0gsNkhBQ3RJO0FBQUEsaUNBQUMsa0xBQU8sMkJBQVI7QUFBQTtBQUFBO0FBQUE7QUFBQSxpQkFBbUI7QUFBQSxVQUNuQix1QkFBQyxrTEFBTywwQkFBUjtBQUFBO0FBQUE7QUFBQTtBQUFBLGlCQUFrQjtBQUFBLFVBQ2xCLHVCQUFDLGtMQUFPLHlCQUFSO0FBQUE7QUFBQTtBQUFBO0FBQUEsaUJBQWlCO0FBQUEsVUFDakIsdUJBQUMsa0xBQU8sdUJBQVI7QUFBQTtBQUFBO0FBQUE7QUFBQSxpQkFBZTtBQUFBLFVBQ2YsdUJBQUMsa0xBQU8sMEJBQVI7QUFBQTtBQUFBO0FBQUE7QUFBQSxpQkFBa0I7QUFBQSxhQUxwQjtBQUFBO0FBQUE7QUFBQTtBQUFBLGVBTUE7QUFBQSxRQUNBLHVCQUFDLDhEQUFPLFdBQVUseUhBQXNILDJIQUN0STtBQUFBLGlDQUFDLGtMQUFPLDBCQUFSO0FBQUE7QUFBQTtBQUFBO0FBQUEsaUJBQWtCO0FBQUEsVUFDbEIsdUJBQUMsa0xBQU8sc0JBQVI7QUFBQTtBQUFBO0FBQUE7QUFBQSxpQkFBYztBQUFBLFVBQ2QsdUJBQUMsa0xBQU8scUJBQVI7QUFBQTtBQUFBO0FBQUE7QUFBQSxpQkFBYTtBQUFBLFVBQ2IsdUJBQUMsa0xBQU8seUJBQVI7QUFBQTtBQUFBO0FBQUE7QUFBQSxpQkFBaUI7QUFBQSxhQUpuQjtBQUFBO0FBQUE7QUFBQTtBQUFBLGVBS0E7QUFBQSxRQUNBO0FBQUEsVUFBQztBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUEsWUFDQyxPQUFPakM7QUFBQUEsWUFDUCxVQUFVLENBQUMrQixNQUFNOUIsZUFBZThCLEVBQUVDLE9BQU9DLEtBQUs7QUFBQSxZQUM5QyxXQUFVO0FBQUEsWUFDYjtBQUFBLFlBQ0c7QUFBQSxxQ0FBQyw4REFBTyxPQUFNLElBQUMsb0hBQUUsd0JBQWpCO0FBQUE7QUFBQTtBQUFBO0FBQUEscUJBQXlCO0FBQUEsY0FDeEJyQixRQUFRc0I7QUFBQUEsZ0JBQUksQ0FBQVQsUUFDWCx1QkFBQyw4REFBaUIsT0FBT0EsS0FBRyxvSEFBR0EsaUJBQWxCQSxLQUFiO0FBQUE7QUFBQTtBQUFBO0FBQUEsdUJBQW1DO0FBQUEsY0FDcEM7QUFBQTtBQUFBO0FBQUEsVUFSSDtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUEsUUFTQTtBQUFBLFdBakNGO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUFrQ0E7QUFBQSxNQUdDekIsZUFDQyx1QkFBQywyREFBSSxXQUFVLDJCQUF3QixvSEFDckM7QUFBQSwrQkFBQyw0REFBSyxXQUFVLHlCQUFzQixrSEFBRSw4QkFBeEM7QUFBQTtBQUFBO0FBQUE7QUFBQSxlQUFzRDtBQUFBLFFBQ3REO0FBQUEsVUFBQztBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUEsWUFDQyxTQUFTLE1BQU1DLGVBQWUsRUFBRTtBQUFBLFlBQ2hDLFdBQVU7QUFBQSxZQUNiO0FBQUEsWUFDRztBQUFBLHFDQUFDLGVBQUF2QixLQUFBLHFDQUFJLFdBQVUsV0FBUywwSEFBeEI7QUFBQTtBQUFBO0FBQUE7QUFBQSxxQkFBd0I7QUFBQSxjQUN2QnNCO0FBQUFBLGNBQ0QsdUJBQUMsZUFBQXZCLEdBQUEscUNBQUUsV0FBVSxXQUFTLHdIQUF0QjtBQUFBO0FBQUE7QUFBQTtBQUFBLHFCQUFzQjtBQUFBO0FBQUE7QUFBQSxVQU54QjtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUEsUUFPQTtBQUFBLFdBVEY7QUFBQTtBQUFBO0FBQUE7QUFBQSxhQVVBO0FBQUEsU0FqREo7QUFBQTtBQUFBO0FBQUE7QUFBQSxXQW1EQTtBQUFBLElBR0EsdUJBQUMsMkRBQUksV0FBVSxpRkFBOEUsa0hBQzNGLGlDQUFDLDJEQUFJLFdBQVUsbUJBQWdCLGtIQUM3QixpQ0FBQyw2REFBTSxXQUFVLFVBQU8sdUhBQ3RCO0FBQUEsNkJBQUMsNkRBQU0sV0FBVSx1Q0FBb0Msb0hBQ25ELGlDQUFDLHlMQUNDO0FBQUEsK0JBQUMsMERBQUcsV0FBVSwyREFBd0QsZ0hBQUUsMkJBQXhFO0FBQUE7QUFBQTtBQUFBO0FBQUEsZUFBbUY7QUFBQSxRQUNuRix1QkFBQywwREFBRyxXQUFVLDJEQUF3RCxnSEFBRSxzQkFBeEU7QUFBQTtBQUFBO0FBQUE7QUFBQSxlQUE4RTtBQUFBLFFBQzlFLHVCQUFDLDBEQUFHLFdBQVUsMkRBQXdELGdIQUFFLG9CQUF4RTtBQUFBO0FBQUE7QUFBQTtBQUFBLGVBQTRFO0FBQUEsUUFDNUUsdUJBQUMsMERBQUcsV0FBVSwyREFBd0QsZ0hBQUUsc0JBQXhFO0FBQUE7QUFBQTtBQUFBO0FBQUEsZUFBOEU7QUFBQSxRQUM5RSx1QkFBQywwREFBRyxXQUFVLDJEQUF3RCxnSEFBRSxvQkFBeEU7QUFBQTtBQUFBO0FBQUE7QUFBQSxlQUE0RTtBQUFBLFFBQzVFLHVCQUFDLDBEQUFHLFdBQVUsMkRBQXdELGdIQUFFLHdCQUF4RTtBQUFBO0FBQUE7QUFBQTtBQUFBLGVBQWdGO0FBQUEsUUFDaEYsdUJBQUMsMERBQUcsV0FBVSwyREFBd0QsZ0hBQUUscUJBQXhFO0FBQUE7QUFBQTtBQUFBO0FBQUEsZUFBNkU7QUFBQSxRQUM3RSx1QkFBQywwREFBRyxXQUFVLDJEQUF3RCxnSEFBRSx1QkFBeEU7QUFBQTtBQUFBO0FBQUE7QUFBQSxlQUErRTtBQUFBLFdBUmpGO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUFTQSxLQVZGO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUFXQTtBQUFBLE1BQ0EsdUJBQUMsa0xBQ0V5QywwQkFBZ0JnQjtBQUFBQSxRQUFJLENBQUNkLFdBQ3BCO0FBQUEsVUFBQztBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUEsWUFFQyxXQUFVO0FBQUEsWUFDVixTQUFTLE1BQU12QixrQkFBa0J1QixNQUFNO0FBQUEsWUFDMUM7QUFBQSxZQUNHO0FBQUEscUNBQUMsMERBQUcsV0FBVSxhQUFVLGlIQUN0QixpQ0FBQywrS0FDQztBQUFBLHVDQUFDLDJEQUFJLFdBQVUsa0NBQStCLGlIQUFHQSxpQkFBT3RDLFFBQXhEO0FBQUE7QUFBQTtBQUFBO0FBQUEsdUJBQTZEO0FBQUEsZ0JBQzdELHVCQUFDLDJEQUFJLFdBQVUseUJBQXNCLGlIQUFHc0MsaUJBQU9wQyxnQkFBL0M7QUFBQTtBQUFBO0FBQUE7QUFBQSx1QkFBNEQ7QUFBQSxtQkFGOUQ7QUFBQTtBQUFBO0FBQUE7QUFBQSxxQkFHQSxLQUpGO0FBQUE7QUFBQTtBQUFBO0FBQUEscUJBS0E7QUFBQSxjQUNBLHVCQUFDLDBEQUFHLFdBQVUsbUNBQWdDLGdIQUFHb0MsaUJBQU9yQyxVQUF4RDtBQUFBO0FBQUE7QUFBQTtBQUFBLHFCQUErRDtBQUFBLGNBQy9ELHVCQUFDLDBEQUFHLFdBQVUsbUNBQWdDLGdIQUFHcUMsaUJBQU9uQyxRQUF4RDtBQUFBO0FBQUE7QUFBQTtBQUFBLHFCQUE2RDtBQUFBLGNBQzdELHVCQUFDLDBEQUFHLFdBQVUsYUFBVSxpSEFDdEI7QUFBQSxnQkFBQztBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUEsa0JBQ0MsV0FBVyw4Q0FDVG1DLE9BQU9sQyxXQUFXLFdBQ2QsbUNBQ0FrQyxPQUFPbEMsV0FBVyxVQUNsQixpQ0FDQSw0QkFBMkI7QUFBQSxrQkFFcEM7QUFBQSxrQkFDSWtDLGlCQUFPbEM7QUFBQUE7QUFBQUEsZ0JBVFY7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLGNBVUEsS0FYRjtBQUFBO0FBQUE7QUFBQTtBQUFBLHFCQVlBO0FBQUEsY0FDQSx1QkFBQywwREFBRyxXQUFVLGFBQVUsa0hBQ3RCLGlDQUFDLDJEQUFJLFdBQVUsd0JBQXFCLG9IQUNoQ2tDO0FBQUFBLHdCQUFPL0IsUUFBUSxJQUFJOEMsTUFBTSxHQUFHLENBQUMsRUFBRUQ7QUFBQUEsa0JBQUksQ0FBQ1QsS0FBS1csVUFDekM7QUFBQSxvQkFBQztBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUEsc0JBRUMsU0FBUyxDQUFDTCxNQUFNO0FBQ2RBLDBCQUFFTSxnQkFBZ0I7QUFDbEJwQyx1Q0FBZXdCLEdBQUc7QUFBQSxzQkFDcEI7QUFBQSxzQkFDQSxXQUFVO0FBQUEsc0JBQ2I7QUFBQSxzQkFDSUE7QUFBQUE7QUFBQUEsb0JBUElXO0FBQUFBLG9CQURQO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUEsa0JBU0E7QUFBQSxnQkFDRDtBQUFBLGlCQUNDaEIsT0FBTy9CLFFBQVEsSUFBSXdDLFNBQVMsS0FDNUIsdUJBQUMsNkRBQUssV0FBVSx3REFBcUQsc0hBQUM7QUFBQTtBQUFBLG1CQUNqRVQsT0FBTy9CLFFBQVEsSUFBSXdDLFNBQVM7QUFBQSxxQkFEakM7QUFBQTtBQUFBO0FBQUE7QUFBQSx1QkFFQTtBQUFBLG1CQWhCSjtBQUFBO0FBQUE7QUFBQTtBQUFBLHFCQWtCQSxLQW5CRjtBQUFBO0FBQUE7QUFBQTtBQUFBLHFCQW9CQTtBQUFBLGNBQ0EsdUJBQUMsMkRBQUcsV0FBVSxtQ0FBZ0Msa0hBQUdULGlCQUFPakMsZUFBeEQ7QUFBQTtBQUFBO0FBQUE7QUFBQSxxQkFBb0U7QUFBQSxjQUNwRSx1QkFBQywyREFBRyxXQUFVLG1DQUFnQyxrSEFBR2lDLGlCQUFPaEMsYUFBeEQ7QUFBQTtBQUFBO0FBQUE7QUFBQSxxQkFBa0U7QUFBQSxjQUNsRSx1QkFBQywyREFBRyxXQUFVLGFBQVUsbUhBQ3RCO0FBQUEsZ0JBQUM7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLGtCQUNDLFNBQVMsQ0FBQzJDLE1BQU07QUFDZEEsc0JBQUVNLGdCQUFnQjtBQUNsQnhDLHNDQUFrQnVCLE1BQU07QUFBQSxrQkFDMUI7QUFBQSxrQkFDQSxXQUFVO0FBQUEsa0JBQ2I7QUFBQSxrQkFDRyxpQ0FBQyxlQUFBaEQsY0FBQSxzQ0FBYSxXQUFVLHlCQUF1QixzSUFBL0M7QUFBQTtBQUFBO0FBQUE7QUFBQSx5QkFBK0M7QUFBQTtBQUFBLGdCQVBqRDtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUEsY0FRQSxLQVRGO0FBQUE7QUFBQTtBQUFBO0FBQUEscUJBVUE7QUFBQTtBQUFBO0FBQUEsVUExREtnRCxPQUFPdkM7QUFBQUEsVUFEZDtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLFFBNERBO0FBQUEsTUFDRCxLQS9ESDtBQUFBO0FBQUE7QUFBQTtBQUFBLGFBZ0VBO0FBQUEsU0E3RUY7QUFBQTtBQUFBO0FBQUE7QUFBQSxXQThFQSxLQS9FRjtBQUFBO0FBQUE7QUFBQTtBQUFBLFdBZ0ZBLEtBakZGO0FBQUE7QUFBQTtBQUFBO0FBQUEsV0FrRkE7QUFBQSxJQUdDYSxtQkFDQyx1QkFBQyxlQUFBNEMsT0FBQSxzQ0FBTSxPQUFNLHFCQUFvQixTQUFTLE1BQU0zQyxtQkFBbUIsS0FBSyxHQUFDLCtIQUN2RSxpQ0FBQyw0REFBSSxXQUFVLGFBQVUseUlBQ3ZCO0FBQUEsNkJBQUMsa0xBQ0M7QUFBQSwrQkFBQyw4REFBTSxXQUFVLGdEQUE2QyxxSEFBRSxtQ0FBaEU7QUFBQTtBQUFBO0FBQUE7QUFBQSxlQUFtRjtBQUFBLFFBQ25GO0FBQUEsVUFBQztBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUEsWUFDQyxNQUFLO0FBQUEsWUFDTCxPQUFPUyxVQUFVdEI7QUFBQUEsWUFDakIsVUFBVSxDQUFDaUQsTUFBTTFCLGFBQWEsRUFBRSxHQUFHRCxXQUFXdEIsTUFBTWlELEVBQUVDLE9BQU9DLE1BQU0sQ0FBQztBQUFBLFlBQ3BFLFdBQVU7QUFBQSxZQUNWLGFBQVk7QUFBQSxZQUNmO0FBQUE7QUFBQSxVQU5DO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQSxRQU1EO0FBQUEsV0FSRDtBQUFBO0FBQUE7QUFBQTtBQUFBLGFBU0E7QUFBQSxNQUVBLHVCQUFDLGtMQUNDO0FBQUEsK0JBQUMsOERBQU0sV0FBVSxnREFBNkMscUhBQUUsNEJBQWhFO0FBQUE7QUFBQTtBQUFBO0FBQUEsZUFBNEU7QUFBQSxRQUM1RTtBQUFBLFVBQUM7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLFlBQ0MsTUFBSztBQUFBLFlBQ0wsT0FBTzdCLFVBQVVFO0FBQUFBLFlBQ2pCLFVBQVUsQ0FBQ3lCLE1BQU0xQixhQUFhLEVBQUUsR0FBR0QsV0FBV0UsV0FBV3lCLEVBQUVDLE9BQU9DLE1BQU0sQ0FBQztBQUFBLFlBQ3pFLFdBQVU7QUFBQSxZQUNWLGFBQVk7QUFBQSxZQUNmO0FBQUE7QUFBQSxVQU5DO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQSxRQU1EO0FBQUEsV0FSRDtBQUFBO0FBQUE7QUFBQTtBQUFBLGFBU0E7QUFBQSxNQUVBLHVCQUFDLGtMQUNDO0FBQUEsK0JBQUMsOERBQU0sV0FBVSxnREFBNkMscUhBQUUsNkJBQWhFO0FBQUE7QUFBQTtBQUFBO0FBQUEsZUFBNkU7QUFBQSxRQUM3RTtBQUFBLFVBQUM7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLFlBQ0MsTUFBSztBQUFBLFlBQ0wsT0FBTzdCLFVBQVVHO0FBQUFBLFlBQ2pCLFVBQVUsQ0FBQ3dCLE1BQU0xQixhQUFhLEVBQUUsR0FBR0QsV0FBV0csWUFBWXdCLEVBQUVDLE9BQU9DLE1BQU0sQ0FBQztBQUFBLFlBQzFFLFdBQVU7QUFBQSxZQUNWLGFBQVk7QUFBQSxZQUNmO0FBQUE7QUFBQSxVQU5DO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQSxRQU1EO0FBQUEsV0FSRDtBQUFBO0FBQUE7QUFBQTtBQUFBLGFBU0E7QUFBQSxNQUVBLHVCQUFDLGtMQUNDO0FBQUEsK0JBQUMsOERBQU0sV0FBVSxnREFBNkMscUhBQUUsZ0NBQWhFO0FBQUE7QUFBQTtBQUFBO0FBQUEsZUFBZ0Y7QUFBQSxRQUNoRjtBQUFBLFVBQUM7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLFlBQ0MsTUFBSztBQUFBLFlBQ0wsT0FBTzdCLFVBQVVJO0FBQUFBLFlBQ2pCLFVBQVUsQ0FBQ3VCLE1BQU0xQixhQUFhLEVBQUUsR0FBR0QsV0FBV0ksZUFBZXVCLEVBQUVDLE9BQU9DLE1BQU0sQ0FBQztBQUFBLFlBQzdFLFdBQVU7QUFBQSxZQUNWLGFBQVk7QUFBQSxZQUNmO0FBQUE7QUFBQSxVQU5DO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQSxRQU1EO0FBQUEsV0FSRDtBQUFBO0FBQUE7QUFBQTtBQUFBLGFBU0E7QUFBQSxNQUVBLHVCQUFDLGtMQUNDO0FBQUEsK0JBQUMsOERBQU0sV0FBVSxnREFBNkMscUhBQUUseUJBQWhFO0FBQUE7QUFBQTtBQUFBO0FBQUEsZUFBeUU7QUFBQSxRQUN6RTtBQUFBLFVBQUM7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLFlBQ0MsT0FBTzdCLFVBQVVLO0FBQUFBLFlBQ2pCLFVBQVUsQ0FBQ3NCLE1BQU0xQixhQUFhLEVBQUUsR0FBR0QsV0FBV0ssU0FBU3NCLEVBQUVDLE9BQU9DLE1BQU0sQ0FBQztBQUFBLFlBQ3ZFLE1BQU07QUFBQSxZQUNOLFdBQVU7QUFBQSxZQUNWLGFBQVk7QUFBQSxZQUNmO0FBQUE7QUFBQSxVQU5DO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQSxRQU1EO0FBQUEsV0FSRDtBQUFBO0FBQUE7QUFBQTtBQUFBLGFBU0E7QUFBQSxNQUVBLHVCQUFDLGtMQUNDO0FBQUEsK0JBQUMsOERBQU0sV0FBVSxnREFBNkMscUhBQUUsd0JBQWhFO0FBQUE7QUFBQTtBQUFBO0FBQUEsZUFBd0U7QUFBQSxRQUN4RTtBQUFBLFVBQUM7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLFlBQ0MsT0FBTzdCLFVBQVVyQjtBQUFBQSxZQUNqQixVQUFVLENBQUNnRCxNQUFNMUIsYUFBYSxFQUFFLEdBQUdELFdBQVdyQixRQUFRZ0QsRUFBRUMsT0FBT0MsTUFBTSxDQUFDO0FBQUEsWUFDdEUsV0FBVTtBQUFBLFlBQ2I7QUFBQSxZQUNHO0FBQUEscUNBQUMsK0RBQU8sT0FBTSxJQUFDLHNIQUFFLDZCQUFqQjtBQUFBO0FBQUE7QUFBQTtBQUFBLHFCQUE4QjtBQUFBLGNBQzlCLHVCQUFDLCtEQUFPLE9BQU0sY0FBVyxzSEFBRSwwQkFBM0I7QUFBQTtBQUFBO0FBQUE7QUFBQSxxQkFBcUM7QUFBQSxjQUNyQyx1QkFBQywrREFBTyxPQUFNLGFBQVUsc0hBQUUseUJBQTFCO0FBQUE7QUFBQTtBQUFBO0FBQUEscUJBQW1DO0FBQUEsY0FDbkMsdUJBQUMsK0RBQU8sT0FBTSxXQUFRLHNIQUFFLHVCQUF4QjtBQUFBO0FBQUE7QUFBQTtBQUFBLHFCQUErQjtBQUFBLGNBQy9CLHVCQUFDLCtEQUFPLE9BQU0sY0FBVyxzSEFBRSwwQkFBM0I7QUFBQTtBQUFBO0FBQUE7QUFBQSxxQkFBcUM7QUFBQSxjQUNyQyx1QkFBQywrREFBTyxPQUFNLFVBQU8sc0hBQUUsc0JBQXZCO0FBQUE7QUFBQTtBQUFBO0FBQUEscUJBQTZCO0FBQUEsY0FDN0IsdUJBQUMsK0RBQU8sT0FBTSxpQkFBYyxzSEFBRSw2QkFBOUI7QUFBQTtBQUFBO0FBQUE7QUFBQSxxQkFBMkM7QUFBQTtBQUFBO0FBQUEsVUFYN0M7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLFFBWUE7QUFBQSxXQWRGO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUFlQTtBQUFBLE1BQ0EsdUJBQUMsa0xBQ0M7QUFBQSwrQkFBQyw4REFBTSxXQUFVLGdEQUE2QyxxSEFBRSw4QkFBaEU7QUFBQTtBQUFBO0FBQUE7QUFBQSxlQUE4RTtBQUFBLFFBQzlFO0FBQUEsVUFBQztBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUEsWUFDQyxPQUFPN0IsVUFBVXBCO0FBQUFBLFlBQ2pCLFVBQVUsQ0FBQytDLE1BQU0xQixhQUFhLEVBQUUsR0FBR0QsV0FBV3BCLGNBQWMrQyxFQUFFQyxPQUFPQyxNQUFNLENBQUM7QUFBQSxZQUM1RSxXQUFVO0FBQUEsWUFDYjtBQUFBLFlBQ0c7QUFBQSxxQ0FBQywrREFBTyxPQUFNLElBQUMsc0hBQUUsbUNBQWpCO0FBQUE7QUFBQTtBQUFBO0FBQUEscUJBQW9DO0FBQUEsY0FDcEMsdUJBQUMsK0RBQU8sT0FBTSxNQUFHLHNIQUFFLDZCQUFuQjtBQUFBO0FBQUE7QUFBQTtBQUFBLHFCQUFnQztBQUFBLGNBQ2hDLHVCQUFDLCtEQUFPLE9BQU0sTUFBRyxzSEFBRSw4QkFBbkI7QUFBQTtBQUFBO0FBQUE7QUFBQSxxQkFBaUM7QUFBQSxjQUNqQyx1QkFBQywrREFBTyxPQUFNLE1BQUcsc0hBQUUseUJBQW5CO0FBQUE7QUFBQTtBQUFBO0FBQUEscUJBQTRCO0FBQUEsY0FDNUIsdUJBQUMsK0RBQU8sT0FBTSxNQUFHLHNIQUFFLHNCQUFuQjtBQUFBO0FBQUE7QUFBQTtBQUFBLHFCQUF5QjtBQUFBLGNBQ3pCLHVCQUFDLCtEQUFPLE9BQU0sTUFBRyxzSEFBRSx5QkFBbkI7QUFBQTtBQUFBO0FBQUE7QUFBQSxxQkFBNEI7QUFBQSxjQUM1Qix1QkFBQywrREFBTyxPQUFNLE1BQUcsc0hBQUUsOEJBQW5CO0FBQUE7QUFBQTtBQUFBO0FBQUEscUJBQWlDO0FBQUE7QUFBQTtBQUFBLFVBWG5DO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQSxRQVlBO0FBQUEsV0FkRjtBQUFBO0FBQUE7QUFBQTtBQUFBLGFBZUE7QUFBQSxNQUVBLHVCQUFDLGtMQUNDO0FBQUEsK0JBQUMsOERBQU0sV0FBVSxnREFBNkMscUhBQUUsbUNBQWhFO0FBQUE7QUFBQTtBQUFBO0FBQUEsZUFBbUY7QUFBQSxRQUNuRjtBQUFBLFVBQUM7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLFlBQ0MsT0FBTzdCLFVBQVVuQjtBQUFBQSxZQUNqQixVQUFVLENBQUM4QyxNQUFNMUIsYUFBYSxFQUFFLEdBQUdELFdBQVduQixNQUFNOEMsRUFBRUMsT0FBT0MsTUFBTSxDQUFDO0FBQUEsWUFDcEUsV0FBVTtBQUFBLFlBQ2I7QUFBQSxZQUNHO0FBQUEscUNBQUMsK0RBQU8sT0FBTSxTQUFNLHNIQUFFLCtCQUF0QjtBQUFBO0FBQUE7QUFBQTtBQUFBLHFCQUFxQztBQUFBLGNBQ3JDLHVCQUFDLCtEQUFPLE9BQU0sZ0JBQWEsc0hBQUUsc0NBQTdCO0FBQUE7QUFBQTtBQUFBO0FBQUEscUJBQW1EO0FBQUEsY0FDbkQsdUJBQUMsK0RBQU8sT0FBTSxjQUFXLHNIQUFFLHNDQUEzQjtBQUFBO0FBQUE7QUFBQTtBQUFBLHFCQUFpRDtBQUFBO0FBQUE7QUFBQSxVQVBuRDtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUEsUUFRQTtBQUFBLFdBVkY7QUFBQTtBQUFBO0FBQUE7QUFBQSxhQVdBO0FBQUEsTUFFQSx1QkFBQyxrTEFDQztBQUFBLCtCQUFDLDhEQUFNLFdBQVUsZ0RBQTZDLHFIQUFFLHNDQUFoRTtBQUFBO0FBQUE7QUFBQTtBQUFBLGVBQXNGO0FBQUEsUUFDdEY7QUFBQSxVQUFDO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQSxZQUNDLE9BQU83QixVQUFVTztBQUFBQSxZQUNqQixVQUFVLENBQUNvQixNQUFNMUIsYUFBYSxFQUFFLEdBQUdELFdBQVdPLGFBQWFvQixFQUFFQyxPQUFPQyxNQUFNLENBQUM7QUFBQSxZQUMzRSxXQUFVO0FBQUEsWUFDYjtBQUFBLFlBQ0c7QUFBQSxxQ0FBQywrREFBTyxPQUFNLElBQUMsc0hBQUUsb0NBQWpCO0FBQUE7QUFBQTtBQUFBO0FBQUEscUJBQXFDO0FBQUEsY0FDckMsdUJBQUMsK0RBQU8sT0FBTSxXQUFRLHNIQUFFLHVCQUF4QjtBQUFBO0FBQUE7QUFBQTtBQUFBLHFCQUErQjtBQUFBLGNBQy9CLHVCQUFDLCtEQUFPLE9BQU0sZUFBWSxzSEFBRSwyQkFBNUI7QUFBQTtBQUFBO0FBQUE7QUFBQSxxQkFBdUM7QUFBQSxjQUN2Qyx1QkFBQywrREFBTyxPQUFNLFdBQVEsc0hBQUUsdUJBQXhCO0FBQUE7QUFBQTtBQUFBO0FBQUEscUJBQStCO0FBQUE7QUFBQTtBQUFBLFVBUmpDO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQSxRQVNBO0FBQUEsV0FYRjtBQUFBO0FBQUE7QUFBQTtBQUFBLGFBWUE7QUFBQSxNQUVBLHVCQUFDLDREQUFJLFdBQVUsNENBQXlDLHVIQUN0RDtBQUFBO0FBQUEsVUFBQztBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUEsWUFDQyxTQUFTTjtBQUFBQSxZQUNULFVBQVUsQ0FBQ3ZCLFVBQVV0QixRQUFRLENBQUNzQixVQUFVRSxhQUFhLENBQUNGLFVBQVVHLGNBQWMsQ0FBQ0gsVUFBVUksaUJBQWlCLENBQUNKLFVBQVVLLFdBQVcsQ0FBQ0wsVUFBVXJCLFVBQVUsQ0FBQ3FCLFVBQVVwQjtBQUFBQSxZQUNoSyxXQUFVO0FBQUEsWUFDYjtBQUFBLFlBQUM7QUFBQTtBQUFBLFVBSkE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLFFBTUE7QUFBQSxRQUNBO0FBQUEsVUFBQztBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUEsWUFDQyxTQUFTMkM7QUFBQUEsWUFDVCxVQUFVLENBQUN2QixVQUFVdEIsUUFBUSxDQUFDc0IsVUFBVUUsYUFBYSxDQUFDRixVQUFVRyxjQUFjLENBQUNILFVBQVVJLGlCQUFpQixDQUFDSixVQUFVSyxXQUFXLENBQUNMLFVBQVVyQixVQUFVLENBQUNxQixVQUFVcEI7QUFBQUEsWUFDaEssV0FBVTtBQUFBLFlBQ2I7QUFBQSxZQUFDO0FBQUE7QUFBQSxVQUpBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQSxRQU1BO0FBQUEsV0FkRjtBQUFBO0FBQUE7QUFBQTtBQUFBLGFBZUE7QUFBQSxNQUNBLHVCQUFDLDBEQUFFLFdBQVUscUNBQWtDLGtIQUFDLG1HQUFoRDtBQUFBO0FBQUE7QUFBQTtBQUFBLGFBRUE7QUFBQSxTQXRJRjtBQUFBO0FBQUE7QUFBQTtBQUFBLFdBdUlBLEtBeElGO0FBQUE7QUFBQTtBQUFBO0FBQUEsV0F5SUE7QUFBQSxJQUlEWSxrQkFBa0IsQ0FBQ0YsbUJBQ2xCLHVCQUFDLGVBQUFmLG1CQUFBLHNDQUFrQixRQUFRaUIsZ0JBQWdCLFNBQVMsTUFBTUMsa0JBQWtCLElBQUksR0FBRSx5SUFBbEY7QUFBQTtBQUFBO0FBQUE7QUFBQSxXQUFrRjtBQUFBLE9BblR0RjtBQUFBO0FBQUE7QUFBQTtBQUFBLFNBcVRBO0FBRUo7QUFBQU4sR0F6V3dCRCxrQkFBZ0I7QUFBQWlELEtBQWhCakQ7QUEyV3hCLFNBQVN3QyxTQUFTLEVBQUVVLE1BQU1DLE1BQU1DLE9BQU9ULE1BQVcsR0FBRztBQUNuRCxTQUNFLHVCQUFDLGtFQUFHLE1BQUMsV0FBVSxxRUFBa0UseUhBQy9FO0FBQUEsMkJBQUMsZUFBQVEsTUFBQSxzQ0FBSyxXQUFVLDhCQUE0QixtSEFBNUM7QUFBQTtBQUFBO0FBQUE7QUFBQSxXQUE0QztBQUFBLElBQzVDLHVCQUFDLDJEQUFHLFdBQVUsc0NBQW1DLGlIQUFHUixtQkFBcEQ7QUFBQTtBQUFBO0FBQUE7QUFBQSxXQUEwRDtBQUFBLElBQzFELHVCQUFDLDBEQUFFLFdBQVUseUJBQXNCLGdIQUFHUyxtQkFBdEM7QUFBQTtBQUFBO0FBQUE7QUFBQSxXQUE0QztBQUFBLE9BSDlDO0FBQUE7QUFBQTtBQUFBO0FBQUEsU0FJQTtBQUVKO0FBQUFDLE1BUlNiO0FBVVQsU0FBU1EsTUFBTSxFQUFFTSxPQUFPQyxTQUFTQyxTQUFjLEdBQUc7QUFDaEQsU0FDRSx1QkFBQyxrRUFBRyxNQUFDLFdBQVUsd0ZBQXFGLHFIQUNsRyxpQ0FBQyw0REFBSSxXQUFVLHFHQUFrRyxxSEFDL0c7QUFBQSwyQkFBQyw0REFBSSxXQUFVLDBDQUF1QyxxSEFDcEQ7QUFBQSw2QkFBQywyREFBRyxXQUFVLGlDQUE4QixrSEFBR0YsbUJBQS9DO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUFBcUQ7QUFBQSxNQUNyRDtBQUFBLFFBQUM7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLFVBQ0MsU0FBU0M7QUFBQUEsVUFDVCxXQUFVO0FBQUEsVUFDYjtBQUFBLFVBQ0csaUNBQUMsNkRBQUssV0FBVSx5QkFBc0Isb0hBQUUsaUJBQXhDO0FBQUE7QUFBQTtBQUFBO0FBQUEsaUJBQXlDO0FBQUE7QUFBQSxRQUozQztBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUEsTUFLQTtBQUFBLFNBUEY7QUFBQTtBQUFBO0FBQUE7QUFBQSxXQVFBO0FBQUEsSUFDQ0M7QUFBQUEsT0FWSDtBQUFBO0FBQUE7QUFBQTtBQUFBLFNBV0EsS0FaRjtBQUFBO0FBQUE7QUFBQTtBQUFBLFNBYUE7QUFFSjtBQUFBQyxNQWpCU1Q7QUFtQlQsU0FBU1UsUUFBUSxFQUFFTixPQUFPVCxNQUFXLEdBQUc7QUFDdEMsU0FDRSx1QkFBQyxrRUFBRyxNQUFDLFdBQVUsK0RBQTRELHVIQUN6RTtBQUFBLDJCQUFDLDZEQUFLLFdBQVUseUJBQXNCLG1IQUFHUyxtQkFBekM7QUFBQTtBQUFBO0FBQUE7QUFBQSxXQUErQztBQUFBLElBQy9DLHVCQUFDLDZEQUFLLFdBQVUsa0NBQStCLG1IQUFHVCxtQkFBbEQ7QUFBQTtBQUFBO0FBQUE7QUFBQSxXQUF3RDtBQUFBLE9BRjFEO0FBQUE7QUFBQTtBQUFBO0FBQUEsU0FHQTtBQUVKO0FBQUFnQixNQVBTRDtBQUFPLElBQUFULElBQUFJLEtBQUFJLEtBQUFFO0FBQUFDLGFBQUFYLElBQUE7QUFBQVcsYUFBQVAsS0FBQTtBQUFBTyxhQUFBSCxLQUFBO0FBQUFHLGFBQUFELEtBQUEiLCJuYW1lcyI6WyJ1c2VTdGF0ZSIsIlBsdXMiLCJTZWFyY2giLCJNb3JlVmVydGljYWwiLCJCdWlsZGluZyIsIlVzZXJzIiwiRmlsZVRleHQiLCJEb2xsYXJTaWduIiwiWCIsIlRhZyIsIlRlbmFudERldGFpbE1vZGFsIiwibW9ja1RlbmFudHMiLCJpZCIsIm5hbWUiLCJzZWN0b3IiLCJqdXJpc2RpY3Rpb24iLCJwbGFuIiwic3RhdHVzIiwicG9saWN5Q291bnQiLCJ1c2VyQ291bnQiLCJ0YWdzIiwiVGVuYW50R292ZXJuYW5jZSIsIl9zIiwidGVuYW50cyIsInNldFRlbmFudHMiLCJzaG93Q3JlYXRlTW9kYWwiLCJzZXRTaG93Q3JlYXRlTW9kYWwiLCJzZWxlY3RlZFRlbmFudCIsInNldFNlbGVjdGVkVGVuYW50Iiwic2VhcmNoUXVlcnkiLCJzZXRTZWFyY2hRdWVyeSIsInNlbGVjdGVkVGFnIiwic2V0U2VsZWN0ZWRUYWciLCJzaG93VGFnTW9kYWwiLCJzZXRTaG93VGFnTW9kYWwiLCJuZXdUZW5hbnQiLCJzZXROZXdUZW5hbnQiLCJhZG1pbk5hbWUiLCJhZG1pbkVtYWlsIiwiY29udGFjdE51bWJlciIsImFkZHJlc3MiLCJsYW5ndWFnZSIsImVudmlyb25tZW50IiwiYWxsVGFncyIsIkFycmF5IiwiZnJvbSIsIlNldCIsImZsYXRNYXAiLCJ0IiwiZmlsdGVyZWRUZW5hbnRzIiwiZmlsdGVyIiwidGVuYW50IiwibWF0Y2hlc1NlYXJjaCIsInRvTG93ZXJDYXNlIiwiaW5jbHVkZXMiLCJzb21lIiwidGFnIiwibWF0Y2hlc1RhZyIsImhhbmRsZUNyZWF0ZVRlbmFudCIsIlN0cmluZyIsImxlbmd0aCIsIlN0YXRDYXJkIiwiZSIsInRhcmdldCIsInZhbHVlIiwibWFwIiwic2xpY2UiLCJpbmRleCIsInN0b3BQcm9wYWdhdGlvbiIsIk1vZGFsIiwiX2MiLCJpY29uIiwiSWNvbiIsImxhYmVsIiwiX2MyIiwidGl0bGUiLCJvbkNsb3NlIiwiY2hpbGRyZW4iLCJfYzMiLCJJbmZvUm93IiwiX2M0IiwiJFJlZnJlc2hSZWckIl0sImlnbm9yZUxpc3QiOltdLCJzb3VyY2VzIjpbIlRlbmFudEdvdmVybmFuY2UudHN4Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IHVzZVN0YXRlIH0gZnJvbSAncmVhY3QnO1xuaW1wb3J0IHsgUGx1cywgU2VhcmNoLCBNb3JlVmVydGljYWwsIEJ1aWxkaW5nLCBVc2VycywgRmlsZVRleHQsIERvbGxhclNpZ24sIFgsIENhbGVuZGFyLCBUcmVuZGluZ1VwLCBTaGllbGQsIEFjdGl2aXR5LCBNYWlsLCBQaG9uZSwgTWFwUGluLCBDcmVkaXRDYXJkLCBDaGVja0NpcmNsZSwgVGFnIH0gZnJvbSAnbHVjaWRlLXJlYWN0JztcbmltcG9ydCBUZW5hbnREZXRhaWxNb2RhbCBmcm9tICcuLi8uLi9jb21wb25lbnRzL1RlbmFudERldGFpbE1vZGFsJztcblxuaW50ZXJmYWNlIFRlbmFudCB7XG4gIGlkOiBzdHJpbmc7XG4gIG5hbWU6IHN0cmluZztcbiAgc2VjdG9yOiBzdHJpbmc7XG4gIGp1cmlzZGljdGlvbjogc3RyaW5nO1xuICBwbGFuOiBzdHJpbmc7XG4gIHN0YXR1czogJ2FjdGl2ZScgfCAnc3VzcGVuZGVkJyB8ICd0cmlhbCc7XG4gIHBvbGljeUNvdW50OiBudW1iZXI7XG4gIHVzZXJDb3VudDogbnVtYmVyO1xuICB0YWdzPzogc3RyaW5nW107XG59XG5cbmNvbnN0IG1vY2tUZW5hbnRzOiBUZW5hbnRbXSA9IFtcbiAgeyBpZDogJzEnLCBuYW1lOiAnQWNtZSBIZWFsdGhjYXJlJywgc2VjdG9yOiAnSGVhbHRoY2FyZScsIGp1cmlzZGljdGlvbjogJ1VTJywgcGxhbjogJ0VudGVycHJpc2UnLCBzdGF0dXM6ICdhY3RpdmUnLCBwb2xpY3lDb3VudDogMTQ1LCB1c2VyQ291bnQ6IDUyLCB0YWdzOiBbJ0FnZWQgQ2FyZScsICdORElTJywgJ1ByaW9yaXR5J10gfSxcbiAgeyBpZDogJzInLCBuYW1lOiAnVGVjaFN0YXJ0IEluYycsIHNlY3RvcjogJ1RlY2hub2xvZ3knLCBqdXJpc2RpY3Rpb246ICdVSycsIHBsYW46ICdQcm9mZXNzaW9uYWwnLCBzdGF0dXM6ICdhY3RpdmUnLCBwb2xpY3lDb3VudDogODksIHVzZXJDb3VudDogMjgsIHRhZ3M6IFsnU2FhUycsICdCMkInXSB9LFxuICB7IGlkOiAnMycsIG5hbWU6ICdHbG9iYWwgUmV0YWlsIENvJywgc2VjdG9yOiAnUmV0YWlsJywganVyaXNkaWN0aW9uOiAnQVUnLCBwbGFuOiAnRW50ZXJwcmlzZScsIHN0YXR1czogJ2FjdGl2ZScsIHBvbGljeUNvdW50OiAxNzgsIHVzZXJDb3VudDogOTQsIHRhZ3M6IFsnUmV0YWlsJywgJ011bHRpLXNpdGUnXSB9LFxuICB7IGlkOiAnNCcsIG5hbWU6ICdFZHVMZWFybiBBY2FkZW15Jywgc2VjdG9yOiAnRWR1Y2F0aW9uJywganVyaXNkaWN0aW9uOiAnQ0EnLCBwbGFuOiAnQmFzaWMnLCBzdGF0dXM6ICd0cmlhbCcsIHBvbGljeUNvdW50OiAzNCwgdXNlckNvdW50OiAxMiwgdGFnczogWydFZHVjYXRpb24nLCAnTmV3J10gfSxcbiAgeyBpZDogJzUnLCBuYW1lOiAnRmluYW5jZUh1YiBMdGQnLCBzZWN0b3I6ICdGaW5hbmNlJywganVyaXNkaWN0aW9uOiAnU0cnLCBwbGFuOiAnRW50ZXJwcmlzZScsIHN0YXR1czogJ2FjdGl2ZScsIHBvbGljeUNvdW50OiAyMDMsIHVzZXJDb3VudDogNjcsIHRhZ3M6IFsnRmluYW5jZScsICdDb21wbGlhbmNlJywgJ1ByaW9yaXR5J10gfSxcbl07XG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIFRlbmFudEdvdmVybmFuY2UoKSB7XG4gIGNvbnN0IFt0ZW5hbnRzLCBzZXRUZW5hbnRzXSA9IHVzZVN0YXRlPFRlbmFudFtdPihtb2NrVGVuYW50cyk7XG4gIGNvbnN0IFtzaG93Q3JlYXRlTW9kYWwsIHNldFNob3dDcmVhdGVNb2RhbF0gPSB1c2VTdGF0ZShmYWxzZSk7XG4gIGNvbnN0IFtzZWxlY3RlZFRlbmFudCwgc2V0U2VsZWN0ZWRUZW5hbnRdID0gdXNlU3RhdGU8VGVuYW50IHwgbnVsbD4obnVsbCk7XG4gIGNvbnN0IFtzZWFyY2hRdWVyeSwgc2V0U2VhcmNoUXVlcnldID0gdXNlU3RhdGUoJycpO1xuICBjb25zdCBbc2VsZWN0ZWRUYWcsIHNldFNlbGVjdGVkVGFnXSA9IHVzZVN0YXRlPHN0cmluZz4oJycpO1xuICBjb25zdCBbc2hvd1RhZ01vZGFsLCBzZXRTaG93VGFnTW9kYWxdID0gdXNlU3RhdGUoZmFsc2UpO1xuICBjb25zdCBbbmV3VGVuYW50LCBzZXROZXdUZW5hbnRdID0gdXNlU3RhdGUoe1xuICAgIG5hbWU6ICcnLFxuICAgIGFkbWluTmFtZTogJycsXG4gICAgYWRtaW5FbWFpbDogJycsXG4gICAgY29udGFjdE51bWJlcjogJycsXG4gICAgYWRkcmVzczogJycsXG4gICAgc2VjdG9yOiAnJyxcbiAgICBqdXJpc2RpY3Rpb246ICcnLFxuICAgIGxhbmd1YWdlOiAnZW4nLFxuICAgIHBsYW46ICdQcm9mZXNzaW9uYWwnLFxuICAgIGVudmlyb25tZW50OiAnJyxcbiAgfSk7XG5cbiAgLy8gR2V0IGFsbCB1bmlxdWUgdGFnc1xuICBjb25zdCBhbGxUYWdzID0gQXJyYXkuZnJvbShuZXcgU2V0KHRlbmFudHMuZmxhdE1hcCh0ID0+IHQudGFncyB8fCBbXSkpKTtcblxuICBjb25zdCBmaWx0ZXJlZFRlbmFudHMgPSB0ZW5hbnRzLmZpbHRlcih0ZW5hbnQgPT4ge1xuICAgIGNvbnN0IG1hdGNoZXNTZWFyY2ggPSB0ZW5hbnQubmFtZS50b0xvd2VyQ2FzZSgpLmluY2x1ZGVzKHNlYXJjaFF1ZXJ5LnRvTG93ZXJDYXNlKCkpIHx8XG4gICAgICB0ZW5hbnQuc2VjdG9yLnRvTG93ZXJDYXNlKCkuaW5jbHVkZXMoc2VhcmNoUXVlcnkudG9Mb3dlckNhc2UoKSkgfHxcbiAgICAgICh0ZW5hbnQudGFncyB8fCBbXSkuc29tZSh0YWcgPT4gdGFnLnRvTG93ZXJDYXNlKCkuaW5jbHVkZXMoc2VhcmNoUXVlcnkudG9Mb3dlckNhc2UoKSkpO1xuICAgIFxuICAgIGNvbnN0IG1hdGNoZXNUYWcgPSAhc2VsZWN0ZWRUYWcgfHwgKHRlbmFudC50YWdzIHx8IFtdKS5pbmNsdWRlcyhzZWxlY3RlZFRhZyk7XG4gICAgXG4gICAgcmV0dXJuIG1hdGNoZXNTZWFyY2ggJiYgbWF0Y2hlc1RhZztcbiAgfSk7XG5cbiAgY29uc3QgaGFuZGxlQ3JlYXRlVGVuYW50ID0gKCkgPT4ge1xuICAgIGNvbnN0IHRlbmFudDogVGVuYW50ID0ge1xuICAgICAgaWQ6IFN0cmluZyh0ZW5hbnRzLmxlbmd0aCArIDEpLFxuICAgICAgbmFtZTogbmV3VGVuYW50Lm5hbWUsXG4gICAgICBzZWN0b3I6IG5ld1RlbmFudC5zZWN0b3IsXG4gICAgICBqdXJpc2RpY3Rpb246IG5ld1RlbmFudC5qdXJpc2RpY3Rpb24sXG4gICAgICBwbGFuOiBuZXdUZW5hbnQucGxhbixcbiAgICAgIHN0YXR1czogJ3RyaWFsJyxcbiAgICAgIHBvbGljeUNvdW50OiAwLFxuICAgICAgdXNlckNvdW50OiAxLFxuICAgIH07XG4gICAgc2V0VGVuYW50cyhbLi4udGVuYW50cywgdGVuYW50XSk7XG4gICAgc2V0U2hvd0NyZWF0ZU1vZGFsKGZhbHNlKTtcbiAgICBzZXROZXdUZW5hbnQoeyBuYW1lOiAnJywgYWRtaW5OYW1lOiAnJywgYWRtaW5FbWFpbDogJycsIGNvbnRhY3ROdW1iZXI6ICcnLCBhZGRyZXNzOiAnJywgc2VjdG9yOiAnJywganVyaXNkaWN0aW9uOiAnJywgbGFuZ3VhZ2U6ICdlbicsIHBsYW46ICdQcm9mZXNzaW9uYWwnLCBlbnZpcm9ubWVudDogJycgfSk7XG4gIH07XG5cbiAgcmV0dXJuIChcbiAgICA8ZGl2IGNsYXNzTmFtZT1cInNwYWNlLXktNlwiPlxuICAgICAgey8qIEhlYWRlciAqL31cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuXCI+XG4gICAgICAgIDxkaXY+XG4gICAgICAgICAgPGgxIGNsYXNzTmFtZT1cInRleHQtM3hsIGZvbnQtYm9sZCB0ZXh0LXdoaXRlIG1iLTJcIj5UZW5hbnQgR292ZXJuYW5jZTwvaDE+XG4gICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC1ncmF5LTQwMFwiPk1hbmFnZSBvcmdhbmlzYXRpb25zIGFuZCBzdWJzY3JpcHRpb25zPC9wPlxuICAgICAgICA8L2Rpdj5cbiAgICAgICAgPGJ1dHRvblxuICAgICAgICAgIG9uQ2xpY2s9eygpID0+IHNldFNob3dDcmVhdGVNb2RhbCh0cnVlKX1cbiAgICAgICAgICBjbGFzc05hbWU9XCJweC00IHB5LTIgYmctZ3JhZGllbnQtdG8tciBmcm9tLXRlYWwtNjAwIHRvLXRlYWwtNTAwIHRleHQtd2hpdGUgcm91bmRlZC1sZyBob3ZlcjpzaGFkb3ctbGcgdHJhbnNpdGlvbi1hbGwgZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTJcIlxuICAgICAgICA+XG4gICAgICAgICAgPFBsdXMgY2xhc3NOYW1lPVwidy00IGgtNFwiIC8+XG4gICAgICAgICAgQ3JlYXRlIFRlbmFudFxuICAgICAgICA8L2J1dHRvbj5cbiAgICAgIDwvZGl2PlxuXG4gICAgICB7LyogU3RhdHMgKi99XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cImdyaWQgZ3JpZC1jb2xzLTEgbWQ6Z3JpZC1jb2xzLTQgZ2FwLTZcIj5cbiAgICAgICAgPFN0YXRDYXJkIGljb249e0J1aWxkaW5nfSBsYWJlbD1cIlRvdGFsIFRlbmFudHNcIiB2YWx1ZT1cIjI0N1wiIC8+XG4gICAgICAgIDxTdGF0Q2FyZCBpY29uPXtVc2Vyc30gbGFiZWw9XCJUb3RhbCBVc2Vyc1wiIHZhbHVlPVwiOCw0MzJcIiAvPlxuICAgICAgICA8U3RhdENhcmQgaWNvbj17RmlsZVRleHR9IGxhYmVsPVwiVG90YWwgUG9saWNpZXNcIiB2YWx1ZT1cIjEyLDg1NFwiIC8+XG4gICAgICAgIDxTdGF0Q2FyZCBpY29uPXtEb2xsYXJTaWdufSBsYWJlbD1cIk1SUlwiIHZhbHVlPVwiJDEyNC41S1wiIC8+XG4gICAgICA8L2Rpdj5cblxuICAgICAgey8qIFNlYXJjaCBhbmQgRmlsdGVycyAqL31cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYmctd2hpdGUvNSBiYWNrZHJvcC1ibHVyLWxnIHJvdW5kZWQteGwgcC00IGJvcmRlciBib3JkZXItd2hpdGUvMTAgc3BhY2UteS00XCI+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBnYXAtNFwiPlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleC0xIHJlbGF0aXZlXCI+XG4gICAgICAgICAgICA8U2VhcmNoIGNsYXNzTmFtZT1cImFic29sdXRlIGxlZnQtMyB0b3AtMS8yIC10cmFuc2xhdGUteS0xLzIgdy00IGgtNCB0ZXh0LWdyYXktNDAwXCIgLz5cbiAgICAgICAgICAgIDxpbnB1dFxuICAgICAgICAgICAgICB0eXBlPVwidGV4dFwiXG4gICAgICAgICAgICAgIHBsYWNlaG9sZGVyPVwiU2VhcmNoIHRlbmFudHMgYnkgbmFtZSwgc2VjdG9yLCBvciB0YWdzLi4uXCJcbiAgICAgICAgICAgICAgdmFsdWU9e3NlYXJjaFF1ZXJ5fVxuICAgICAgICAgICAgICBvbkNoYW5nZT17KGUpID0+IHNldFNlYXJjaFF1ZXJ5KGUudGFyZ2V0LnZhbHVlKX1cbiAgICAgICAgICAgICAgY2xhc3NOYW1lPVwidy1mdWxsIHBsLTEwIHByLTQgcHktMiBiZy13aGl0ZS81IGJvcmRlciBib3JkZXItd2hpdGUvMTAgcm91bmRlZC1sZyB0ZXh0LXNtIHRleHQtd2hpdGUgcGxhY2Vob2xkZXItZ3JheS01MDAgZm9jdXM6b3V0bGluZS1ub25lIGZvY3VzOmJvcmRlci10ZWFsLTUwMC81MFwiXG4gICAgICAgICAgICAvPlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDxzZWxlY3QgY2xhc3NOYW1lPVwicHgtNCBweS0yIGJnLXdoaXRlLzUgYm9yZGVyIGJvcmRlci13aGl0ZS8xMCByb3VuZGVkLWxnIHRleHQtc20gdGV4dC13aGl0ZSBmb2N1czpvdXRsaW5lLW5vbmUgZm9jdXM6Ym9yZGVyLXRlYWwtNTAwLzUwXCI+XG4gICAgICAgICAgICA8b3B0aW9uPkFsbCBTZWN0b3JzPC9vcHRpb24+XG4gICAgICAgICAgICA8b3B0aW9uPkhlYWx0aGNhcmU8L29wdGlvbj5cbiAgICAgICAgICAgIDxvcHRpb24+RWR1Y2F0aW9uPC9vcHRpb24+XG4gICAgICAgICAgICA8b3B0aW9uPkZpbmFuY2U8L29wdGlvbj5cbiAgICAgICAgICAgIDxvcHRpb24+VGVjaG5vbG9neTwvb3B0aW9uPlxuICAgICAgICAgIDwvc2VsZWN0PlxuICAgICAgICAgIDxzZWxlY3QgY2xhc3NOYW1lPVwicHgtNCBweS0yIGJnLXdoaXRlLzUgYm9yZGVyIGJvcmRlci13aGl0ZS8xMCByb3VuZGVkLWxnIHRleHQtc20gdGV4dC13aGl0ZSBmb2N1czpvdXRsaW5lLW5vbmUgZm9jdXM6Ym9yZGVyLXRlYWwtNTAwLzUwXCI+XG4gICAgICAgICAgICA8b3B0aW9uPkFsbCBTdGF0dXM8L29wdGlvbj5cbiAgICAgICAgICAgIDxvcHRpb24+QWN0aXZlPC9vcHRpb24+XG4gICAgICAgICAgICA8b3B0aW9uPlRyaWFsPC9vcHRpb24+XG4gICAgICAgICAgICA8b3B0aW9uPlN1c3BlbmRlZDwvb3B0aW9uPlxuICAgICAgICAgIDwvc2VsZWN0PlxuICAgICAgICAgIDxzZWxlY3QgXG4gICAgICAgICAgICB2YWx1ZT17c2VsZWN0ZWRUYWd9XG4gICAgICAgICAgICBvbkNoYW5nZT17KGUpID0+IHNldFNlbGVjdGVkVGFnKGUudGFyZ2V0LnZhbHVlKX1cbiAgICAgICAgICAgIGNsYXNzTmFtZT1cInB4LTQgcHktMiBiZy13aGl0ZS81IGJvcmRlciBib3JkZXItd2hpdGUvMTAgcm91bmRlZC1sZyB0ZXh0LXNtIHRleHQtd2hpdGUgZm9jdXM6b3V0bGluZS1ub25lIGZvY3VzOmJvcmRlci10ZWFsLTUwMC81MCBtaW4tdy1bMTUwcHhdXCJcbiAgICAgICAgICA+XG4gICAgICAgICAgICA8b3B0aW9uIHZhbHVlPVwiXCI+QWxsIFRhZ3M8L29wdGlvbj5cbiAgICAgICAgICAgIHthbGxUYWdzLm1hcCh0YWcgPT4gKFxuICAgICAgICAgICAgICA8b3B0aW9uIGtleT17dGFnfSB2YWx1ZT17dGFnfT57dGFnfTwvb3B0aW9uPlxuICAgICAgICAgICAgKSl9XG4gICAgICAgICAgPC9zZWxlY3Q+XG4gICAgICAgIDwvZGl2PlxuXG4gICAgICAgIHsvKiBUYWcgRmlsdGVyIENoaXBzICovfVxuICAgICAgICB7c2VsZWN0ZWRUYWcgJiYgKFxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTJcIj5cbiAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC1ncmF5LTQwMFwiPkFjdGl2ZSBGaWx0ZXI6PC9zcGFuPlxuICAgICAgICAgICAgPGJ1dHRvblxuICAgICAgICAgICAgICBvbkNsaWNrPXsoKSA9PiBzZXRTZWxlY3RlZFRhZygnJyl9XG4gICAgICAgICAgICAgIGNsYXNzTmFtZT1cInB4LTMgcHktMSBiZy10ZWFsLTUwMC8yMCBib3JkZXIgYm9yZGVyLXRlYWwtNTAwLzMwIHRleHQtdGVhbC00MDAgcm91bmRlZC1mdWxsIHRleHQteHMgZm9udC1tZWRpdW0gZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTIgaG92ZXI6YmctdGVhbC01MDAvMzAgdHJhbnNpdGlvbi1hbGxcIlxuICAgICAgICAgICAgPlxuICAgICAgICAgICAgICA8VGFnIGNsYXNzTmFtZT1cInctMyBoLTNcIiAvPlxuICAgICAgICAgICAgICB7c2VsZWN0ZWRUYWd9XG4gICAgICAgICAgICAgIDxYIGNsYXNzTmFtZT1cInctMyBoLTNcIiAvPlxuICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgICl9XG4gICAgICA8L2Rpdj5cblxuICAgICAgey8qIFRlbmFudCBUYWJsZSAqL31cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYmctd2hpdGUvNSBiYWNrZHJvcC1ibHVyLWxnIHJvdW5kZWQteGwgYm9yZGVyIGJvcmRlci13aGl0ZS8xMCBvdmVyZmxvdy1oaWRkZW5cIj5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJvdmVyZmxvdy14LWF1dG9cIj5cbiAgICAgICAgICA8dGFibGUgY2xhc3NOYW1lPVwidy1mdWxsXCI+XG4gICAgICAgICAgICA8dGhlYWQgY2xhc3NOYW1lPVwiYmctd2hpdGUvNSBib3JkZXItYiBib3JkZXItd2hpdGUvMTBcIj5cbiAgICAgICAgICAgICAgPHRyPlxuICAgICAgICAgICAgICAgIDx0aCBjbGFzc05hbWU9XCJ0ZXh0LWxlZnQgcHgtNiBweS00IHRleHQtc20gZm9udC1zZW1pYm9sZCB0ZXh0LWdyYXktMzAwXCI+VGVuYW50IE5hbWU8L3RoPlxuICAgICAgICAgICAgICAgIDx0aCBjbGFzc05hbWU9XCJ0ZXh0LWxlZnQgcHgtNiBweS00IHRleHQtc20gZm9udC1zZW1pYm9sZCB0ZXh0LWdyYXktMzAwXCI+U2VjdG9yPC90aD5cbiAgICAgICAgICAgICAgICA8dGggY2xhc3NOYW1lPVwidGV4dC1sZWZ0IHB4LTYgcHktNCB0ZXh0LXNtIGZvbnQtc2VtaWJvbGQgdGV4dC1ncmF5LTMwMFwiPlBsYW48L3RoPlxuICAgICAgICAgICAgICAgIDx0aCBjbGFzc05hbWU9XCJ0ZXh0LWxlZnQgcHgtNiBweS00IHRleHQtc20gZm9udC1zZW1pYm9sZCB0ZXh0LWdyYXktMzAwXCI+U3RhdHVzPC90aD5cbiAgICAgICAgICAgICAgICA8dGggY2xhc3NOYW1lPVwidGV4dC1sZWZ0IHB4LTYgcHktNCB0ZXh0LXNtIGZvbnQtc2VtaWJvbGQgdGV4dC1ncmF5LTMwMFwiPlRhZ3M8L3RoPlxuICAgICAgICAgICAgICAgIDx0aCBjbGFzc05hbWU9XCJ0ZXh0LWxlZnQgcHgtNiBweS00IHRleHQtc20gZm9udC1zZW1pYm9sZCB0ZXh0LWdyYXktMzAwXCI+UG9saWNpZXM8L3RoPlxuICAgICAgICAgICAgICAgIDx0aCBjbGFzc05hbWU9XCJ0ZXh0LWxlZnQgcHgtNiBweS00IHRleHQtc20gZm9udC1zZW1pYm9sZCB0ZXh0LWdyYXktMzAwXCI+VXNlcnM8L3RoPlxuICAgICAgICAgICAgICAgIDx0aCBjbGFzc05hbWU9XCJ0ZXh0LWxlZnQgcHgtNiBweS00IHRleHQtc20gZm9udC1zZW1pYm9sZCB0ZXh0LWdyYXktMzAwXCI+QWN0aW9uczwvdGg+XG4gICAgICAgICAgICAgIDwvdHI+XG4gICAgICAgICAgICA8L3RoZWFkPlxuICAgICAgICAgICAgPHRib2R5PlxuICAgICAgICAgICAgICB7ZmlsdGVyZWRUZW5hbnRzLm1hcCgodGVuYW50KSA9PiAoXG4gICAgICAgICAgICAgICAgPHRyXG4gICAgICAgICAgICAgICAgICBrZXk9e3RlbmFudC5pZH1cbiAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cImJvcmRlci1iIGJvcmRlci13aGl0ZS81IGhvdmVyOmJnLXdoaXRlLzUgdHJhbnNpdGlvbi1jb2xvcnMgY3Vyc29yLXBvaW50ZXJcIlxuICAgICAgICAgICAgICAgICAgb25DbGljaz17KCkgPT4gc2V0U2VsZWN0ZWRUZW5hbnQodGVuYW50KX1cbiAgICAgICAgICAgICAgICA+XG4gICAgICAgICAgICAgICAgICA8dGQgY2xhc3NOYW1lPVwicHgtNiBweS00XCI+XG4gICAgICAgICAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ0ZXh0LXNtIHRleHQtd2hpdGUgZm9udC1tZWRpdW1cIj57dGVuYW50Lm5hbWV9PC9kaXY+XG4gICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ0ZXh0LXhzIHRleHQtZ3JheS01MDBcIj57dGVuYW50Lmp1cmlzZGljdGlvbn08L2Rpdj5cbiAgICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICA8L3RkPlxuICAgICAgICAgICAgICAgICAgPHRkIGNsYXNzTmFtZT1cInB4LTYgcHktNCB0ZXh0LXNtIHRleHQtZ3JheS00MDBcIj57dGVuYW50LnNlY3Rvcn08L3RkPlxuICAgICAgICAgICAgICAgICAgPHRkIGNsYXNzTmFtZT1cInB4LTYgcHktNCB0ZXh0LXNtIHRleHQtZ3JheS00MDBcIj57dGVuYW50LnBsYW59PC90ZD5cbiAgICAgICAgICAgICAgICAgIDx0ZCBjbGFzc05hbWU9XCJweC02IHB5LTRcIj5cbiAgICAgICAgICAgICAgICAgICAgPHNwYW5cbiAgICAgICAgICAgICAgICAgICAgICBjbGFzc05hbWU9e2BweC0yIHB5LTEgcm91bmRlZC1mdWxsIHRleHQteHMgZm9udC1tZWRpdW0gJHtcbiAgICAgICAgICAgICAgICAgICAgICAgIHRlbmFudC5zdGF0dXMgPT09ICdhY3RpdmUnXG4gICAgICAgICAgICAgICAgICAgICAgICAgID8gJ2JnLWdyZWVuLTUwMC8xMCB0ZXh0LWdyZWVuLTUwMCdcbiAgICAgICAgICAgICAgICAgICAgICAgICAgOiB0ZW5hbnQuc3RhdHVzID09PSAndHJpYWwnXG4gICAgICAgICAgICAgICAgICAgICAgICAgID8gJ2JnLWJsdWUtNTAwLzEwIHRleHQtYmx1ZS01MDAnXG4gICAgICAgICAgICAgICAgICAgICAgICAgIDogJ2JnLXJlZC01MDAvMTAgdGV4dC1yZWQtNTAwJ1xuICAgICAgICAgICAgICAgICAgICAgIH1gfVxuICAgICAgICAgICAgICAgICAgICA+XG4gICAgICAgICAgICAgICAgICAgICAge3RlbmFudC5zdGF0dXN9XG4gICAgICAgICAgICAgICAgICAgIDwvc3Bhbj5cbiAgICAgICAgICAgICAgICAgIDwvdGQ+XG4gICAgICAgICAgICAgICAgICA8dGQgY2xhc3NOYW1lPVwicHgtNiBweS00XCI+XG4gICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBmbGV4LXdyYXAgZ2FwLTFcIj5cbiAgICAgICAgICAgICAgICAgICAgICB7KHRlbmFudC50YWdzIHx8IFtdKS5zbGljZSgwLCAyKS5tYXAoKHRhZywgaW5kZXgpID0+IChcbiAgICAgICAgICAgICAgICAgICAgICAgIDxzcGFuXG4gICAgICAgICAgICAgICAgICAgICAgICAgIGtleT17aW5kZXh9XG4gICAgICAgICAgICAgICAgICAgICAgICAgIG9uQ2xpY2s9eyhlKSA9PiB7XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgZS5zdG9wUHJvcGFnYXRpb24oKTtcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBzZXRTZWxlY3RlZFRhZyh0YWcpO1xuICAgICAgICAgICAgICAgICAgICAgICAgICB9fVxuICAgICAgICAgICAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJweC0yIHB5LTAuNSBiZy10ZWFsLTUwMC8xMCBib3JkZXIgYm9yZGVyLXRlYWwtNTAwLzIwIHRleHQtdGVhbC00MDAgcm91bmRlZCB0ZXh0LXhzIGZvbnQtbWVkaXVtIGhvdmVyOmJnLXRlYWwtNTAwLzIwIHRyYW5zaXRpb24tYWxsIGN1cnNvci1wb2ludGVyXCJcbiAgICAgICAgICAgICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICAgICAgICAgICAge3RhZ31cbiAgICAgICAgICAgICAgICAgICAgICAgIDwvc3Bhbj5cbiAgICAgICAgICAgICAgICAgICAgICApKX1cbiAgICAgICAgICAgICAgICAgICAgICB7KHRlbmFudC50YWdzIHx8IFtdKS5sZW5ndGggPiAyICYmIChcbiAgICAgICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInB4LTIgcHktMC41IGJnLXdoaXRlLzUgdGV4dC1ncmF5LTQwMCByb3VuZGVkIHRleHQteHNcIj5cbiAgICAgICAgICAgICAgICAgICAgICAgICAgK3sodGVuYW50LnRhZ3MgfHwgW10pLmxlbmd0aCAtIDJ9XG4gICAgICAgICAgICAgICAgICAgICAgICA8L3NwYW4+XG4gICAgICAgICAgICAgICAgICAgICAgKX1cbiAgICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICA8L3RkPlxuICAgICAgICAgICAgICAgICAgPHRkIGNsYXNzTmFtZT1cInB4LTYgcHktNCB0ZXh0LXNtIHRleHQtZ3JheS00MDBcIj57dGVuYW50LnBvbGljeUNvdW50fTwvdGQ+XG4gICAgICAgICAgICAgICAgICA8dGQgY2xhc3NOYW1lPVwicHgtNiBweS00IHRleHQtc20gdGV4dC1ncmF5LTQwMFwiPnt0ZW5hbnQudXNlckNvdW50fTwvdGQ+XG4gICAgICAgICAgICAgICAgICA8dGQgY2xhc3NOYW1lPVwicHgtNiBweS00XCI+XG4gICAgICAgICAgICAgICAgICAgIDxidXR0b25cbiAgICAgICAgICAgICAgICAgICAgICBvbkNsaWNrPXsoZSkgPT4ge1xuICAgICAgICAgICAgICAgICAgICAgICAgZS5zdG9wUHJvcGFnYXRpb24oKTtcbiAgICAgICAgICAgICAgICAgICAgICAgIHNldFNlbGVjdGVkVGVuYW50KHRlbmFudCk7XG4gICAgICAgICAgICAgICAgICAgICAgfX1cbiAgICAgICAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJwLTEgaG92ZXI6Ymctd2hpdGUvMTAgcm91bmRlZCB0cmFuc2l0aW9uLWNvbG9yc1wiXG4gICAgICAgICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICAgICAgICA8TW9yZVZlcnRpY2FsIGNsYXNzTmFtZT1cInctNCBoLTQgdGV4dC1ncmF5LTQwMFwiIC8+XG4gICAgICAgICAgICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICAgICAgICAgICAgPC90ZD5cbiAgICAgICAgICAgICAgICA8L3RyPlxuICAgICAgICAgICAgICApKX1cbiAgICAgICAgICAgIDwvdGJvZHk+XG4gICAgICAgICAgPC90YWJsZT5cbiAgICAgICAgPC9kaXY+XG4gICAgICA8L2Rpdj5cblxuICAgICAgey8qIENyZWF0ZSBUZW5hbnQgTW9kYWwgKi99XG4gICAgICB7c2hvd0NyZWF0ZU1vZGFsICYmIChcbiAgICAgICAgPE1vZGFsIHRpdGxlPVwiQ3JlYXRlIE5ldyBUZW5hbnRcIiBvbkNsb3NlPXsoKSA9PiBzZXRTaG93Q3JlYXRlTW9kYWwoZmFsc2UpfT5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInNwYWNlLXktNFwiPlxuICAgICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgICAgPGxhYmVsIGNsYXNzTmFtZT1cImJsb2NrIHRleHQtc20gZm9udC1tZWRpdW0gdGV4dC1ncmF5LTMwMCBtYi0yXCI+T3JnYW5pc2F0aW9uIE5hbWUgKjwvbGFiZWw+XG4gICAgICAgICAgICAgIDxpbnB1dFxuICAgICAgICAgICAgICAgIHR5cGU9XCJ0ZXh0XCJcbiAgICAgICAgICAgICAgICB2YWx1ZT17bmV3VGVuYW50Lm5hbWV9XG4gICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXROZXdUZW5hbnQoeyAuLi5uZXdUZW5hbnQsIG5hbWU6IGUudGFyZ2V0LnZhbHVlIH0pfVxuICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cInctZnVsbCBweC00IHB5LTIgYmctd2hpdGUvNSBib3JkZXIgYm9yZGVyLXdoaXRlLzEwIHJvdW5kZWQtbGcgdGV4dC13aGl0ZSBmb2N1czpvdXRsaW5lLW5vbmUgZm9jdXM6Ym9yZGVyLXRlYWwtNTAwLzUwXCJcbiAgICAgICAgICAgICAgICBwbGFjZWhvbGRlcj1cIkVudGVyIG9yZ2FuaXNhdGlvbiBuYW1lXCJcbiAgICAgICAgICAgICAgLz5cbiAgICAgICAgICAgIDwvZGl2PlxuXG4gICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICA8bGFiZWwgY2xhc3NOYW1lPVwiYmxvY2sgdGV4dC1zbSBmb250LW1lZGl1bSB0ZXh0LWdyYXktMzAwIG1iLTJcIj5BZG1pbiBOYW1lICo8L2xhYmVsPlxuICAgICAgICAgICAgICA8aW5wdXRcbiAgICAgICAgICAgICAgICB0eXBlPVwidGV4dFwiXG4gICAgICAgICAgICAgICAgdmFsdWU9e25ld1RlbmFudC5hZG1pbk5hbWV9XG4gICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXROZXdUZW5hbnQoeyAuLi5uZXdUZW5hbnQsIGFkbWluTmFtZTogZS50YXJnZXQudmFsdWUgfSl9XG4gICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwidy1mdWxsIHB4LTQgcHktMiBiZy13aGl0ZS81IGJvcmRlciBib3JkZXItd2hpdGUvMTAgcm91bmRlZC1sZyB0ZXh0LXdoaXRlIGZvY3VzOm91dGxpbmUtbm9uZSBmb2N1czpib3JkZXItdGVhbC01MDAvNTBcIlxuICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPVwiRW50ZXIgYWRtaW4gZnVsbCBuYW1lXCJcbiAgICAgICAgICAgICAgLz5cbiAgICAgICAgICAgIDwvZGl2PlxuXG4gICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICA8bGFiZWwgY2xhc3NOYW1lPVwiYmxvY2sgdGV4dC1zbSBmb250LW1lZGl1bSB0ZXh0LWdyYXktMzAwIG1iLTJcIj5BZG1pbiBFbWFpbCAqPC9sYWJlbD5cbiAgICAgICAgICAgICAgPGlucHV0XG4gICAgICAgICAgICAgICAgdHlwZT1cImVtYWlsXCJcbiAgICAgICAgICAgICAgICB2YWx1ZT17bmV3VGVuYW50LmFkbWluRW1haWx9XG4gICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXROZXdUZW5hbnQoeyAuLi5uZXdUZW5hbnQsIGFkbWluRW1haWw6IGUudGFyZ2V0LnZhbHVlIH0pfVxuICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cInctZnVsbCBweC00IHB5LTIgYmctd2hpdGUvNSBib3JkZXIgYm9yZGVyLXdoaXRlLzEwIHJvdW5kZWQtbGcgdGV4dC13aGl0ZSBmb2N1czpvdXRsaW5lLW5vbmUgZm9jdXM6Ym9yZGVyLXRlYWwtNTAwLzUwXCJcbiAgICAgICAgICAgICAgICBwbGFjZWhvbGRlcj1cImFkbWluQG9yZ2FuaXNhdGlvbi5jb21cIlxuICAgICAgICAgICAgICAvPlxuICAgICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgIDxsYWJlbCBjbGFzc05hbWU9XCJibG9jayB0ZXh0LXNtIGZvbnQtbWVkaXVtIHRleHQtZ3JheS0zMDAgbWItMlwiPkNvbnRhY3QgTnVtYmVyICo8L2xhYmVsPlxuICAgICAgICAgICAgICA8aW5wdXRcbiAgICAgICAgICAgICAgICB0eXBlPVwidGVsXCJcbiAgICAgICAgICAgICAgICB2YWx1ZT17bmV3VGVuYW50LmNvbnRhY3ROdW1iZXJ9XG4gICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXROZXdUZW5hbnQoeyAuLi5uZXdUZW5hbnQsIGNvbnRhY3ROdW1iZXI6IGUudGFyZ2V0LnZhbHVlIH0pfVxuICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cInctZnVsbCBweC00IHB5LTIgYmctd2hpdGUvNSBib3JkZXIgYm9yZGVyLXdoaXRlLzEwIHJvdW5kZWQtbGcgdGV4dC13aGl0ZSBmb2N1czpvdXRsaW5lLW5vbmUgZm9jdXM6Ym9yZGVyLXRlYWwtNTAwLzUwXCJcbiAgICAgICAgICAgICAgICBwbGFjZWhvbGRlcj1cIisxICg1NTUpIDAwMC0wMDAwXCJcbiAgICAgICAgICAgICAgLz5cbiAgICAgICAgICAgIDwvZGl2PlxuXG4gICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICA8bGFiZWwgY2xhc3NOYW1lPVwiYmxvY2sgdGV4dC1zbSBmb250LW1lZGl1bSB0ZXh0LWdyYXktMzAwIG1iLTJcIj5BZGRyZXNzICo8L2xhYmVsPlxuICAgICAgICAgICAgICA8dGV4dGFyZWFcbiAgICAgICAgICAgICAgICB2YWx1ZT17bmV3VGVuYW50LmFkZHJlc3N9XG4gICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXROZXdUZW5hbnQoeyAuLi5uZXdUZW5hbnQsIGFkZHJlc3M6IGUudGFyZ2V0LnZhbHVlIH0pfVxuICAgICAgICAgICAgICAgIHJvd3M9ezN9XG4gICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwidy1mdWxsIHB4LTQgcHktMiBiZy13aGl0ZS81IGJvcmRlciBib3JkZXItd2hpdGUvMTAgcm91bmRlZC1sZyB0ZXh0LXdoaXRlIGZvY3VzOm91dGxpbmUtbm9uZSBmb2N1czpib3JkZXItdGVhbC01MDAvNTBcIlxuICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPVwiRW50ZXIgb3JnYW5pc2F0aW9uIGFkZHJlc3NcIlxuICAgICAgICAgICAgICAvPlxuICAgICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgIDxsYWJlbCBjbGFzc05hbWU9XCJibG9jayB0ZXh0LXNtIGZvbnQtbWVkaXVtIHRleHQtZ3JheS0zMDAgbWItMlwiPlNlY3RvciAqPC9sYWJlbD5cbiAgICAgICAgICAgICAgPHNlbGVjdFxuICAgICAgICAgICAgICAgIHZhbHVlPXtuZXdUZW5hbnQuc2VjdG9yfVxuICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXsoZSkgPT4gc2V0TmV3VGVuYW50KHsgLi4ubmV3VGVuYW50LCBzZWN0b3I6IGUudGFyZ2V0LnZhbHVlIH0pfVxuICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cInctZnVsbCBweC00IHB5LTIgYmctd2hpdGUvNSBib3JkZXIgYm9yZGVyLXdoaXRlLzEwIHJvdW5kZWQtbGcgdGV4dC13aGl0ZSBmb2N1czpvdXRsaW5lLW5vbmUgZm9jdXM6Ym9yZGVyLXRlYWwtNTAwLzUwXCJcbiAgICAgICAgICAgICAgPlxuICAgICAgICAgICAgICAgIDxvcHRpb24gdmFsdWU9XCJcIj5TZWxlY3Qgc2VjdG9yPC9vcHRpb24+XG4gICAgICAgICAgICAgICAgPG9wdGlvbiB2YWx1ZT1cIkhlYWx0aGNhcmVcIj5IZWFsdGhjYXJlPC9vcHRpb24+XG4gICAgICAgICAgICAgICAgPG9wdGlvbiB2YWx1ZT1cIkVkdWNhdGlvblwiPkVkdWNhdGlvbjwvb3B0aW9uPlxuICAgICAgICAgICAgICAgIDxvcHRpb24gdmFsdWU9XCJGaW5hbmNlXCI+RmluYW5jZTwvb3B0aW9uPlxuICAgICAgICAgICAgICAgIDxvcHRpb24gdmFsdWU9XCJUZWNobm9sb2d5XCI+VGVjaG5vbG9neTwvb3B0aW9uPlxuICAgICAgICAgICAgICAgIDxvcHRpb24gdmFsdWU9XCJSZXRhaWxcIj5SZXRhaWw8L29wdGlvbj5cbiAgICAgICAgICAgICAgICA8b3B0aW9uIHZhbHVlPVwiTWFudWZhY3R1cmluZ1wiPk1hbnVmYWN0dXJpbmc8L29wdGlvbj5cbiAgICAgICAgICAgICAgPC9zZWxlY3Q+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgIDxsYWJlbCBjbGFzc05hbWU9XCJibG9jayB0ZXh0LXNtIGZvbnQtbWVkaXVtIHRleHQtZ3JheS0zMDAgbWItMlwiPkp1cmlzZGljdGlvbiAqPC9sYWJlbD5cbiAgICAgICAgICAgICAgPHNlbGVjdFxuICAgICAgICAgICAgICAgIHZhbHVlPXtuZXdUZW5hbnQuanVyaXNkaWN0aW9ufVxuICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXsoZSkgPT4gc2V0TmV3VGVuYW50KHsgLi4ubmV3VGVuYW50LCBqdXJpc2RpY3Rpb246IGUudGFyZ2V0LnZhbHVlIH0pfVxuICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cInctZnVsbCBweC00IHB5LTIgYmctd2hpdGUvNSBib3JkZXIgYm9yZGVyLXdoaXRlLzEwIHJvdW5kZWQtbGcgdGV4dC13aGl0ZSBmb2N1czpvdXRsaW5lLW5vbmUgZm9jdXM6Ym9yZGVyLXRlYWwtNTAwLzUwXCJcbiAgICAgICAgICAgICAgPlxuICAgICAgICAgICAgICAgIDxvcHRpb24gdmFsdWU9XCJcIj5TZWxlY3QganVyaXNkaWN0aW9uPC9vcHRpb24+XG4gICAgICAgICAgICAgICAgPG9wdGlvbiB2YWx1ZT1cIlVTXCI+VW5pdGVkIFN0YXRlczwvb3B0aW9uPlxuICAgICAgICAgICAgICAgIDxvcHRpb24gdmFsdWU9XCJVS1wiPlVuaXRlZCBLaW5nZG9tPC9vcHRpb24+XG4gICAgICAgICAgICAgICAgPG9wdGlvbiB2YWx1ZT1cIkFVXCI+QXVzdHJhbGlhPC9vcHRpb24+XG4gICAgICAgICAgICAgICAgPG9wdGlvbiB2YWx1ZT1cIkNBXCI+Q2FuYWRhPC9vcHRpb24+XG4gICAgICAgICAgICAgICAgPG9wdGlvbiB2YWx1ZT1cIlNHXCI+U2luZ2Fwb3JlPC9vcHRpb24+XG4gICAgICAgICAgICAgICAgPG9wdGlvbiB2YWx1ZT1cIkVVXCI+RXVyb3BlYW4gVW5pb248L29wdGlvbj5cbiAgICAgICAgICAgICAgPC9zZWxlY3Q+XG4gICAgICAgICAgICA8L2Rpdj5cblxuICAgICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgICAgPGxhYmVsIGNsYXNzTmFtZT1cImJsb2NrIHRleHQtc20gZm9udC1tZWRpdW0gdGV4dC1ncmF5LTMwMCBtYi0yXCI+U3Vic2NyaXB0aW9uIFBsYW4gKjwvbGFiZWw+XG4gICAgICAgICAgICAgIDxzZWxlY3RcbiAgICAgICAgICAgICAgICB2YWx1ZT17bmV3VGVuYW50LnBsYW59XG4gICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXROZXdUZW5hbnQoeyAuLi5uZXdUZW5hbnQsIHBsYW46IGUudGFyZ2V0LnZhbHVlIH0pfVxuICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cInctZnVsbCBweC00IHB5LTIgYmctd2hpdGUvNSBib3JkZXIgYm9yZGVyLXdoaXRlLzEwIHJvdW5kZWQtbGcgdGV4dC13aGl0ZSBmb2N1czpvdXRsaW5lLW5vbmUgZm9jdXM6Ym9yZGVyLXRlYWwtNTAwLzUwXCJcbiAgICAgICAgICAgICAgPlxuICAgICAgICAgICAgICAgIDxvcHRpb24gdmFsdWU9XCJCYXNpY1wiPkJhc2ljIC0gJDI5OS9tbzwvb3B0aW9uPlxuICAgICAgICAgICAgICAgIDxvcHRpb24gdmFsdWU9XCJQcm9mZXNzaW9uYWxcIj5Qcm9mZXNzaW9uYWwgLSAkODk5L21vPC9vcHRpb24+XG4gICAgICAgICAgICAgICAgPG9wdGlvbiB2YWx1ZT1cIkVudGVycHJpc2VcIj5FbnRlcnByaXNlIC0gJDIsNDk5L21vPC9vcHRpb24+XG4gICAgICAgICAgICAgIDwvc2VsZWN0PlxuICAgICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgIDxsYWJlbCBjbGFzc05hbWU9XCJibG9jayB0ZXh0LXNtIGZvbnQtbWVkaXVtIHRleHQtZ3JheS0zMDAgbWItMlwiPkVudmlyb25tZW50IChPcHRpb25hbCk8L2xhYmVsPlxuICAgICAgICAgICAgICA8c2VsZWN0XG4gICAgICAgICAgICAgICAgdmFsdWU9e25ld1RlbmFudC5lbnZpcm9ubWVudH1cbiAgICAgICAgICAgICAgICBvbkNoYW5nZT17KGUpID0+IHNldE5ld1RlbmFudCh7IC4uLm5ld1RlbmFudCwgZW52aXJvbm1lbnQ6IGUudGFyZ2V0LnZhbHVlIH0pfVxuICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cInctZnVsbCBweC00IHB5LTIgYmctd2hpdGUvNSBib3JkZXIgYm9yZGVyLXdoaXRlLzEwIHJvdW5kZWQtbGcgdGV4dC13aGl0ZSBmb2N1czpvdXRsaW5lLW5vbmUgZm9jdXM6Ym9yZGVyLXRlYWwtNTAwLzUwXCJcbiAgICAgICAgICAgICAgPlxuICAgICAgICAgICAgICAgIDxvcHRpb24gdmFsdWU9XCJcIj5EZWZhdWx0IChQcm9kdWN0aW9uKTwvb3B0aW9uPlxuICAgICAgICAgICAgICAgIDxvcHRpb24gdmFsdWU9XCJzdGFnaW5nXCI+U3RhZ2luZzwvb3B0aW9uPlxuICAgICAgICAgICAgICAgIDxvcHRpb24gdmFsdWU9XCJkZXZlbG9wbWVudFwiPkRldmVsb3BtZW50PC9vcHRpb24+XG4gICAgICAgICAgICAgICAgPG9wdGlvbiB2YWx1ZT1cInRlc3RpbmdcIj5UZXN0aW5nPC9vcHRpb24+XG4gICAgICAgICAgICAgIDwvc2VsZWN0PlxuICAgICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicHQtNCBib3JkZXItdCBib3JkZXItd2hpdGUvMTAgZmxleCBnYXAtM1wiPlxuICAgICAgICAgICAgICA8YnV0dG9uXG4gICAgICAgICAgICAgICAgb25DbGljaz17aGFuZGxlQ3JlYXRlVGVuYW50fVxuICAgICAgICAgICAgICAgIGRpc2FibGVkPXshbmV3VGVuYW50Lm5hbWUgfHwgIW5ld1RlbmFudC5hZG1pbk5hbWUgfHwgIW5ld1RlbmFudC5hZG1pbkVtYWlsIHx8ICFuZXdUZW5hbnQuY29udGFjdE51bWJlciB8fCAhbmV3VGVuYW50LmFkZHJlc3MgfHwgIW5ld1RlbmFudC5zZWN0b3IgfHwgIW5ld1RlbmFudC5qdXJpc2RpY3Rpb259XG4gICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwiZmxleC0xIHB4LTQgcHktMyBiZy1ncmFkaWVudC10by1yIGZyb20tdGVhbC02MDAgdG8tdGVhbC01MDAgdGV4dC13aGl0ZSByb3VuZGVkLWxnIGhvdmVyOnNoYWRvdy1sZyB0cmFuc2l0aW9uLWFsbCBkaXNhYmxlZDpvcGFjaXR5LTUwIGRpc2FibGVkOmN1cnNvci1ub3QtYWxsb3dlZCBmb250LW1lZGl1bVwiXG4gICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICBDcmVhdGUgVGVuYW50XG4gICAgICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICAgICAgICA8YnV0dG9uXG4gICAgICAgICAgICAgICAgb25DbGljaz17aGFuZGxlQ3JlYXRlVGVuYW50fVxuICAgICAgICAgICAgICAgIGRpc2FibGVkPXshbmV3VGVuYW50Lm5hbWUgfHwgIW5ld1RlbmFudC5hZG1pbk5hbWUgfHwgIW5ld1RlbmFudC5hZG1pbkVtYWlsIHx8ICFuZXdUZW5hbnQuY29udGFjdE51bWJlciB8fCAhbmV3VGVuYW50LmFkZHJlc3MgfHwgIW5ld1RlbmFudC5zZWN0b3IgfHwgIW5ld1RlbmFudC5qdXJpc2RpY3Rpb259XG4gICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwiZmxleC0xIHB4LTQgcHktMyBiZy13aGl0ZS81IGJvcmRlciBib3JkZXItd2hpdGUvMTAgdGV4dC13aGl0ZSByb3VuZGVkLWxnIGhvdmVyOmJnLXdoaXRlLzEwIHRyYW5zaXRpb24tYWxsIGRpc2FibGVkOm9wYWNpdHktNTAgZGlzYWJsZWQ6Y3Vyc29yLW5vdC1hbGxvd2VkIGZvbnQtbWVkaXVtXCJcbiAgICAgICAgICAgICAgPlxuICAgICAgICAgICAgICAgIENyZWF0ZSAmIEFwcHJvdmVcbiAgICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC1ncmF5LTQwMCB0ZXh0LWNlbnRlclwiPlxuICAgICAgICAgICAgICBUaGlzIHdpbGwgY3JlYXRlIHRlbmFudCBJRCwgZGF0YWJhc2Ugc2NoZW1hLCB2ZWN0b3IgbmFtZXNwYWNlLCBhbmQgZGVmYXVsdCBwb2xpY2llc1xuICAgICAgICAgICAgPC9wPlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICA8L01vZGFsPlxuICAgICAgKX1cblxuICAgICAgey8qIFRlbmFudCBQcm9maWxlIE1vZGFsICovfVxuICAgICAge3NlbGVjdGVkVGVuYW50ICYmICFzaG93Q3JlYXRlTW9kYWwgJiYgKFxuICAgICAgICA8VGVuYW50RGV0YWlsTW9kYWwgdGVuYW50PXtzZWxlY3RlZFRlbmFudH0gb25DbG9zZT17KCkgPT4gc2V0U2VsZWN0ZWRUZW5hbnQobnVsbCl9IC8+XG4gICAgICApfVxuICAgIDwvZGl2PlxuICApO1xufVxuXG5mdW5jdGlvbiBTdGF0Q2FyZCh7IGljb246IEljb24sIGxhYmVsLCB2YWx1ZSB9OiBhbnkpIHtcbiAgcmV0dXJuIChcbiAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLXdoaXRlLzUgYmFja2Ryb3AtYmx1ci1sZyByb3VuZGVkLXhsIHAtNiBib3JkZXIgYm9yZGVyLXdoaXRlLzEwXCI+XG4gICAgICA8SWNvbiBjbGFzc05hbWU9XCJ3LTggaC04IHRleHQtdGVhbC01MDAgbWItNFwiIC8+XG4gICAgICA8aDMgY2xhc3NOYW1lPVwidGV4dC0yeGwgZm9udC1ib2xkIHRleHQtd2hpdGUgbWItMVwiPnt2YWx1ZX08L2gzPlxuICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC1zbSB0ZXh0LWdyYXktNDAwXCI+e2xhYmVsfTwvcD5cbiAgICA8L2Rpdj5cbiAgKTtcbn1cblxuZnVuY3Rpb24gTW9kYWwoeyB0aXRsZSwgb25DbG9zZSwgY2hpbGRyZW4gfTogYW55KSB7XG4gIHJldHVybiAoXG4gICAgPGRpdiBjbGFzc05hbWU9XCJmaXhlZCBpbnNldC0wIGJnLWJsYWNrLzUwIGJhY2tkcm9wLWJsdXItc20gei01MCBmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlciBwLTZcIj5cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYmctWyMwQjFGMkFdIGJvcmRlciBib3JkZXItd2hpdGUvMTAgcm91bmRlZC0yeGwgcC02IG1heC13LTJ4bCB3LWZ1bGwgbWF4LWgtWzgwdmhdIG92ZXJmbG93LXktYXV0b1wiPlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlbiBtYi02XCI+XG4gICAgICAgICAgPGgyIGNsYXNzTmFtZT1cInRleHQtMnhsIGZvbnQtYm9sZCB0ZXh0LXdoaXRlXCI+e3RpdGxlfTwvaDI+XG4gICAgICAgICAgPGJ1dHRvblxuICAgICAgICAgICAgb25DbGljaz17b25DbG9zZX1cbiAgICAgICAgICAgIGNsYXNzTmFtZT1cInctOCBoLTggcm91bmRlZC1sZyBob3ZlcjpiZy13aGl0ZS81IGZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktY2VudGVyIHRyYW5zaXRpb24tY29sb3JzXCJcbiAgICAgICAgICA+XG4gICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LWdyYXktNDAwIHRleHQteGxcIj7Dlzwvc3Bhbj5cbiAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgPC9kaXY+XG4gICAgICAgIHtjaGlsZHJlbn1cbiAgICAgIDwvZGl2PlxuICAgIDwvZGl2PlxuICApO1xufVxuXG5mdW5jdGlvbiBJbmZvUm93KHsgbGFiZWwsIHZhbHVlIH06IGFueSkge1xuICByZXR1cm4gKFxuICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBqdXN0aWZ5LWJldHdlZW4gaXRlbXMtY2VudGVyIHAtMyBiZy13aGl0ZS81IHJvdW5kZWQtbGdcIj5cbiAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRleHQtc20gdGV4dC1ncmF5LTQwMFwiPntsYWJlbH08L3NwYW4+XG4gICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LXNtIHRleHQtd2hpdGUgZm9udC1tZWRpdW1cIj57dmFsdWV9PC9zcGFuPlxuICAgIDwvZGl2PlxuICApO1xufSJdLCJmaWxlIjoiL3dvcmtzcGFjZXMvZGVmYXVsdC9jb2RlL3NyYy9hcHAvcGFnZXMvcGxhdGZvcm0tYWRtaW4vVGVuYW50R292ZXJuYW5jZS50c3gifQ==

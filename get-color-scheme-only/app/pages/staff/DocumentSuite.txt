@@ -1,0 +1,44 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/app/pages/staff/DocumentSuite.tsx");import { jsxDEV } from "/@id/__x00__figma:react-jsx-dev-runtime";
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/workspaces/default/code/src/app/pages/staff/DocumentSuite.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+import { FGCmp } from "/@id/fginspector";
+import DocumentSuite from "/src/app/pages/org-admin/DocumentSuite.tsx";
+export default function StaffDocumentSuite() {
+  return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: DocumentSuite, _fgS: "gif0", _fgB: 1779104382230, _fgD: true, role: "staff", "data-fg-gif0": "418.293:418.146:/src/app/pages/staff/DocumentSuite.tsx:4:10:113:30:e:DocumentSuite::1::::vfj" }, void 0, false, {
+    fileName: "/workspaces/default/code/src/app/pages/staff/DocumentSuite.tsx",
+    lineNumber: 24,
+    columnNumber: 10
+  }, this);
+}
+_c = StaffDocumentSuite;
+var _c;
+$RefreshReg$(_c, "StaffDocumentSuite");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/workspaces/default/code/src/app/pages/staff/DocumentSuite.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/workspaces/default/code/src/app/pages/staff/DocumentSuite.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6IkFBR1M7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBSFQsT0FBT0EsbUJBQW1CO0FBRTFCLHdCQUF3QkMscUJBQXFCO0FBQzNDLFNBQU8sdUJBQUMsZUFBQUQsZUFBQSx5Q0FBYSxNQUFDLE1BQUssU0FBTyxrSEFBM0I7QUFBQTtBQUFBO0FBQUE7QUFBQSxTQUEyQjtBQUNwQztBQUFBRSxLQUZ3QkQ7QUFBa0IsSUFBQUM7QUFBQUMsYUFBQUQsSUFBQSIsIm5hbWVzIjpbIkRvY3VtZW50U3VpdGUiLCJTdGFmZkRvY3VtZW50U3VpdGUiLCJfYyIsIiRSZWZyZXNoUmVnJCJdLCJpZ25vcmVMaXN0IjpbXSwic291cmNlcyI6WyJEb2N1bWVudFN1aXRlLnRzeCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgRG9jdW1lbnRTdWl0ZSBmcm9tICcuLi9vcmctYWRtaW4vRG9jdW1lbnRTdWl0ZSc7XG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIFN0YWZmRG9jdW1lbnRTdWl0ZSgpIHtcbiAgcmV0dXJuIDxEb2N1bWVudFN1aXRlIHJvbGU9XCJzdGFmZlwiIC8+O1xufSJdLCJmaWxlIjoiL3dvcmtzcGFjZXMvZGVmYXVsdC9jb2RlL3NyYy9hcHAvcGFnZXMvc3RhZmYvRG9jdW1lbnRTdWl0ZS50c3gifQ==

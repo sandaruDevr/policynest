@@ -1,0 +1,44 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/app/pages/compliance-manager/EmergencySafety.tsx");import { jsxDEV } from "/@id/__x00__figma:react-jsx-dev-runtime";
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/workspaces/default/code/src/app/pages/compliance-manager/EmergencySafety.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+import { FGCmp } from "/@id/fginspector";
+import EmergencySafetyManagement from "/src/app/pages/org-admin/EmergencySafetyManagement.tsx";
+export default function ComplianceManagerEmergencySafety() {
+  return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: EmergencySafetyManagement, _fgS: "j700", _fgB: 1779104382154, _fgD: true, "data-fg-j700": "418.237:418.267:/src/app/pages/compliance-manager/EmergencySafety.tsx:5:10:234:29:e:EmergencySafetyManagement::1::::D27g" }, void 0, false, {
+    fileName: "/workspaces/default/code/src/app/pages/compliance-manager/EmergencySafety.tsx",
+    lineNumber: 25,
+    columnNumber: 10
+  }, this);
+}
+_c = ComplianceManagerEmergencySafety;
+var _c;
+$RefreshReg$(_c, "ComplianceManagerEmergencySafety");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/workspaces/default/code/src/app/pages/compliance-manager/EmergencySafety.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/workspaces/default/code/src/app/pages/compliance-manager/EmergencySafety.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6IkFBSVM7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBSFQsT0FBT0EsK0JBQStCO0FBRXRDLHdCQUF3QkMsbUNBQW1DO0FBQ3pELFNBQU8sdUJBQUMsZUFBQUQsMkJBQUEseUNBQXlCLG9KQUExQjtBQUFBO0FBQUE7QUFBQTtBQUFBLFNBQTBCO0FBQ25DO0FBQUFFLEtBRndCRDtBQUFnQyxJQUFBQztBQUFBQyxhQUFBRCxJQUFBIiwibmFtZXMiOlsiRW1lcmdlbmN5U2FmZXR5TWFuYWdlbWVudCIsIkNvbXBsaWFuY2VNYW5hZ2VyRW1lcmdlbmN5U2FmZXR5IiwiX2MiLCIkUmVmcmVzaFJlZyQiXSwiaWdub3JlTGlzdCI6W10sInNvdXJjZXMiOlsiRW1lcmdlbmN5U2FmZXR5LnRzeCJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBXcmFwcGVyIGZvciBDb21wbGlhbmNlIE1hbmFnZXIgLSByZXVzZXMgT3JnIEFkbWluIEVtZXJnZW5jeSAmIFNhZmV0eSBNYW5hZ2VtZW50XG5pbXBvcnQgRW1lcmdlbmN5U2FmZXR5TWFuYWdlbWVudCBmcm9tICcuLi9vcmctYWRtaW4vRW1lcmdlbmN5U2FmZXR5TWFuYWdlbWVudCc7XG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIENvbXBsaWFuY2VNYW5hZ2VyRW1lcmdlbmN5U2FmZXR5KCkge1xuICByZXR1cm4gPEVtZXJnZW5jeVNhZmV0eU1hbmFnZW1lbnQgLz47XG59XG4iXSwiZmlsZSI6Ii93b3Jrc3BhY2VzL2RlZmF1bHQvY29kZS9zcmMvYXBwL3BhZ2VzL2NvbXBsaWFuY2UtbWFuYWdlci9FbWVyZ2VuY3lTYWZldHkudHN4In0=

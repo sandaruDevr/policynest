@@ -1,0 +1,790 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/app/components/OrgRequestDetailModal.tsx");import { Fragment, jsxDEV } from "/@id/__x00__figma:react-jsx-dev-runtime";
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+var _s = $RefreshSig$();
+import { FGCmp } from "/@id/fginspector";
+import { useState } from "/@id/__x00__figma:react-base";
+import {
+  X,
+  Building2,
+  User,
+  Mail,
+  Phone,
+  MapPin,
+  CreditCard,
+  CheckCircle,
+  XCircle,
+  Clock,
+  FileText,
+  Users
+} from "/node_modules/.vite/deps/lucide-react.js?v=25293e4c";
+export function OrgRequestDetailModal({
+  isOpen,
+  onClose,
+  request,
+  onApprove,
+  onReject
+}) {
+  _s();
+  const [rejectionReason, setRejectionReason] = useState("");
+  const [showRejectForm, setShowRejectForm] = useState(false);
+  const [processing, setProcessing] = useState(false);
+  if (!isOpen || !request) return null;
+  const handleApprove = () => {
+    setProcessing(true);
+    setTimeout(() => {
+      if (onApprove) onApprove(request.id);
+      setProcessing(false);
+      alert("✅ Organization request approved successfully!");
+      onClose();
+    }, 1500);
+  };
+  const handleReject = () => {
+    if (!rejectionReason) {
+      alert("Please provide a reason for rejection");
+      return;
+    }
+    setProcessing(true);
+    setTimeout(() => {
+      if (onReject) onReject(request.id, rejectionReason);
+      setProcessing(false);
+      alert("Organization request rejected");
+      onClose();
+    }, 1500);
+  };
+  const planDetails = {
+    Starter: {
+      price: "$299/month",
+      features: ["Up to 50 staff", "Basic AI features", "Email support"]
+    },
+    Professional: {
+      price: "$599/month",
+      features: ["Up to 200 staff", "Advanced AI", "Priority support", "Custom workflows"]
+    },
+    Enterprise: {
+      price: "Custom pricing",
+      features: ["Unlimited staff", "Full AI suite", "24/7 support", "Dedicated success manager"]
+    }
+  };
+  return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dns00", _fgB: 1779104382820, _fgD: true, className: "fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4", "data-fg-dns00": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:93:5:2182:11214:e:div:e:1", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dns01", _fgB: 1779104382820, className: "bg-[#0f2832] border border-[#1a3440] rounded-2xl w-full max-w-4xl max-h-[90vh] flex flex-col", "data-fg-dns01": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:94:7:2291:11094:e:div:xtetxtetxtx", children: [
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dns03", _fgB: 1779104382820, className: "p-6 border-b border-[#1a3440] flex items-center justify-between", "data-fg-dns03": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:96:9:2433:1720:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dns04", _fgB: 1779104382820, className: "flex items-center gap-3", "data-fg-dns04": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:97:11:2525:1356:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dns05", _fgB: 1779104382820, className: "w-12 h-12 rounded-xl bg-gradient-to-br from-teal-600 to-teal-500 flex items-center justify-center", "data-fg-dns05": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:98:13:2579:193:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Building2, _fgS: "dns06", _fgB: 1779104382820, className: "w-6 h-6 text-white", "data-fg-dns06": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:99:15:2709:44:e:Building2::::::DOEu" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+          lineNumber: 119,
+          columnNumber: 15
+        }, this) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+          lineNumber: 118,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dns07", _fgB: 1779104382820, "data-fg-dns07": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:101:13:2785:1079:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h2", _fgS: "dns08", _fgB: 1779104382820, className: "text-xl font-bold text-white", "data-fg-dns08": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:102:15:2805:67:e:h2:x", children: request.orgName }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+            lineNumber: 122,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dns010", _fgB: 1779104382820, className: "flex items-center gap-2 mt-1", "data-fg-dns010": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:103:15:2887:958:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(
+              FGCmp,
+              {
+                _fgT: "span",
+                _fgS: "dns011",
+                _fgB: 1779104382820,
+                className: `text-xs px-2 py-1 rounded ${request.status === "pending" ? "bg-yellow-500/20 text-yellow-400" : request.status === "approved" ? "bg-green-500/20 text-green-400" : "bg-red-500/20 text-red-400"}`,
+                "data-fg-dns011": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:104:17:2950:777:e:span:xtxtxtx",
+                children: [
+                  request.status === "pending" && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Clock, _fgS: "dns013", _fgB: 1779104382820, className: "w-3 h-3 inline mr-1", "data-fg-dns013": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:113:52:3378:41:e:Clock::::::EGEm" }, void 0, false, {
+                    fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+                    lineNumber: 133,
+                    columnNumber: 52
+                  }, this),
+                  request.status === "approved" && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: CheckCircle, _fgS: "dns015", _fgB: 1779104382820, className: "w-3 h-3 inline mr-1", "data-fg-dns015": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:114:53:3473:47:e:CheckCircle::::::C4Wc" }, void 0, false, {
+                    fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+                    lineNumber: 134,
+                    columnNumber: 53
+                  }, this),
+                  request.status === "rejected" && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: XCircle, _fgS: "dns017", _fgB: 1779104382820, className: "w-3 h-3 inline mr-1", "data-fg-dns017": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:115:53:3574:43:e:XCircle::::::BEhq" }, void 0, false, {
+                    fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+                    lineNumber: 135,
+                    columnNumber: 53
+                  }, this),
+                  request.status.charAt(0).toUpperCase() + request.status.slice(1)
+                ]
+              },
+              void 0,
+              true,
+              {
+                fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+                lineNumber: 124,
+                columnNumber: 17
+              },
+              this
+            ),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "dns019", _fgB: 1779104382820, className: "text-xs text-gray-400", "data-fg-dns019": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:118:17:3744:80:e:span:tx", children: [
+              "• Submitted ",
+              request.requestDate
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+              lineNumber: 138,
+              columnNumber: 17
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+            lineNumber: 123,
+            columnNumber: 15
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+          lineNumber: 121,
+          columnNumber: 13
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+        lineNumber: 117,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV(
+        FGCmp,
+        {
+          _fgT: "button",
+          _fgS: "dns022",
+          _fgB: 1779104382820,
+          onClick: onClose,
+          className: "w-10 h-10 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors",
+          "data-fg-dns022": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:122:11:3892:246:e:button:e",
+          children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: X, _fgS: "dns023", _fgB: 1779104382820, className: "w-5 h-5 text-gray-400", "data-fg-dns023": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:126:13:4079:39:e:X::::::TvS" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+            lineNumber: 146,
+            columnNumber: 13
+          }, this)
+        },
+        void 0,
+        false,
+        {
+          fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+          lineNumber: 142,
+          columnNumber: 11
+        },
+        this
+      )
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+      lineNumber: 116,
+      columnNumber: 9
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dns025", _fgB: 1779104382820, className: "flex-1 overflow-y-auto p-6", "data-fg-dns025": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:131:9:4187:6229:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dns026", _fgB: 1779104382820, className: "grid grid-cols-1 md:grid-cols-2 gap-6", "data-fg-dns026": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:132:11:4242:6159:e:div:xtetxtetxtetxtxtxtx", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dns028", _fgB: 1779104382820, className: "bg-[#0B1F2A] border border-[#1a3440] rounded-xl p-5", "data-fg-dns028": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:134:13:4351:1779:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "dns029", _fgB: 1779104382820, className: "text-white font-semibold mb-4 flex items-center gap-2", "data-fg-dns029": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:135:15:4435:191:e:h3:et", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Building2, _fgS: "dns030", _fgB: 1779104382820, className: "w-5 h-5 text-teal-400", "data-fg-dns030": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:136:17:4522:47:e:Building2::::::DOEu" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+            lineNumber: 156,
+            columnNumber: 17
+          }, this),
+          "Organization Details"
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+          lineNumber: 155,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dns032", _fgB: 1779104382820, className: "space-y-3", "data-fg-dns032": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:139:15:4641:1470:e:div:etete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dns033", _fgB: 1779104382820, className: "flex items-start gap-3", "data-fg-dns033": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:140:17:4685:339:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: FileText, _fgS: "dns034", _fgB: 1779104382820, className: "w-4 h-4 text-gray-400 mt-0.5", "data-fg-dns034": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:141:19:4744:53:e:FileText::::::B1i5" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+              lineNumber: 161,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dns035", _fgB: 1779104382820, "data-fg-dns035": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:142:19:4816:185:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dns036", _fgB: 1779104382820, className: "text-xs text-gray-500", "data-fg-dns036": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:143:21:4842:58:e:p:t", children: "Organization Type" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+                lineNumber: 163,
+                columnNumber: 21
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dns038", _fgB: 1779104382820, className: "text-sm text-white", "data-fg-dns038": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:144:21:4921:55:e:p:x", children: request.orgType }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+                lineNumber: 164,
+                columnNumber: 21
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+              lineNumber: 162,
+              columnNumber: 19
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+            lineNumber: 160,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dns040", _fgB: 1779104382820, className: "flex items-start gap-3", "data-fg-dns040": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:147:17:5041:681:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: FileText, _fgS: "dns041", _fgB: 1779104382820, className: "w-4 h-4 text-gray-400 mt-0.5", "data-fg-dns041": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:148:19:5100:53:e:FileText::::::B1i5" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+              lineNumber: 168,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dns042", _fgB: 1779104382820, "data-fg-dns042": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:149:19:5172:527:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dns043", _fgB: 1779104382820, className: "text-xs text-gray-500", "data-fg-dns043": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:150:21:5198:50:e:p:t", children: "Care Type" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+                lineNumber: 170,
+                columnNumber: 21
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dns045", _fgB: 1779104382820, className: "flex flex-wrap gap-1 mt-1", "data-fg-dns045": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:151:21:5269:405:e:div:x", children: request.careType.map(
+                (type) => /* @__PURE__ */ jsxDEV(
+                  FGCmp,
+                  {
+                    _fgT: "span",
+                    _fgS: "dns047",
+                    _fgB: 1779104382820,
+                    className: "text-xs px-2 py-0.5 bg-teal-500/20 text-teal-400 rounded",
+                    "data-fg-dns047": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:153:25:5393:228:e:span:x",
+                    children: type
+                  },
+                  type,
+                  false,
+                  {
+                    fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+                    lineNumber: 173,
+                    columnNumber: 23
+                  },
+                  this
+                )
+              ) }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+                lineNumber: 171,
+                columnNumber: 21
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+              lineNumber: 169,
+              columnNumber: 19
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+            lineNumber: 167,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dns049", _fgB: 1779104382820, className: "flex items-start gap-3", "data-fg-dns049": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:163:17:5739:351:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Users, _fgS: "dns050", _fgB: 1779104382820, className: "w-4 h-4 text-gray-400 mt-0.5", "data-fg-dns050": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:164:19:5798:50:e:Users::::::DV8M" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+              lineNumber: 184,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dns051", _fgB: 1779104382820, "data-fg-dns051": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:165:19:5867:200:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dns052", _fgB: 1779104382820, className: "text-xs text-gray-500", "data-fg-dns052": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:166:21:5893:56:e:p:t", children: "Estimated Staff" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+                lineNumber: 186,
+                columnNumber: 21
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dns054", _fgB: 1779104382820, className: "text-sm text-white", "data-fg-dns054": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:167:21:5970:72:e:p:xt", children: [
+                request.estimatedStaff,
+                " employees"
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+                lineNumber: 187,
+                columnNumber: 21
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+              lineNumber: 185,
+              columnNumber: 19
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+            lineNumber: 183,
+            columnNumber: 17
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+          lineNumber: 159,
+          columnNumber: 15
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+        lineNumber: 154,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dns058", _fgB: 1779104382820, className: "bg-[#0B1F2A] border border-[#1a3440] rounded-xl p-5", "data-fg-dns058": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:174:13:6184:1723:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "dns059", _fgB: 1779104382820, className: "text-white font-semibold mb-4 flex items-center gap-2", "data-fg-dns059": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:175:15:6268:185:e:h3:et", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: User, _fgS: "dns060", _fgB: 1779104382820, className: "w-5 h-5 text-teal-400", "data-fg-dns060": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:176:17:6355:42:e:User::::::wpV" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+            lineNumber: 196,
+            columnNumber: 17
+          }, this),
+          "Contact Information"
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+          lineNumber: 195,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dns062", _fgB: 1779104382820, className: "space-y-3", "data-fg-dns062": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:179:15:6468:1420:e:div:etetete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dns063", _fgB: 1779104382820, className: "flex items-start gap-3", "data-fg-dns063": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:180:17:6512:334:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: User, _fgS: "dns064", _fgB: 1779104382820, className: "w-4 h-4 text-gray-400 mt-0.5", "data-fg-dns064": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:181:19:6571:49:e:User::::::wpV" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+              lineNumber: 201,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dns065", _fgB: 1779104382820, "data-fg-dns065": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:182:19:6639:184:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dns066", _fgB: 1779104382820, className: "text-xs text-gray-500", "data-fg-dns066": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:183:21:6665:53:e:p:t", children: "Contact Name" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+                lineNumber: 203,
+                columnNumber: 21
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dns068", _fgB: 1779104382820, className: "text-sm text-white", "data-fg-dns068": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:184:21:6739:59:e:p:x", children: request.contactName }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+                lineNumber: 204,
+                columnNumber: 21
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+              lineNumber: 202,
+              columnNumber: 19
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+            lineNumber: 200,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dns070", _fgB: 1779104382820, className: "flex items-start gap-3", "data-fg-dns070": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:187:17:6863:321:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Mail, _fgS: "dns071", _fgB: 1779104382820, className: "w-4 h-4 text-gray-400 mt-0.5", "data-fg-dns071": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:188:19:6922:49:e:Mail::::::D4VR" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+              lineNumber: 208,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dns072", _fgB: 1779104382820, "data-fg-dns072": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:189:19:6990:171:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dns073", _fgB: 1779104382820, className: "text-xs text-gray-500", "data-fg-dns073": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:190:21:7016:46:e:p:t", children: "Email" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+                lineNumber: 210,
+                columnNumber: 21
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dns075", _fgB: 1779104382820, className: "text-sm text-white", "data-fg-dns075": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:191:21:7083:53:e:p:x", children: request.email }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+                lineNumber: 211,
+                columnNumber: 21
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+              lineNumber: 209,
+              columnNumber: 19
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+            lineNumber: 207,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dns077", _fgB: 1779104382820, className: "flex items-start gap-3", "data-fg-dns077": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:194:17:7201:322:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Phone, _fgS: "dns078", _fgB: 1779104382820, className: "w-4 h-4 text-gray-400 mt-0.5", "data-fg-dns078": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:195:19:7260:50:e:Phone::::::DmpI" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+              lineNumber: 215,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dns079", _fgB: 1779104382820, "data-fg-dns079": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:196:19:7329:171:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dns080", _fgB: 1779104382820, className: "text-xs text-gray-500", "data-fg-dns080": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:197:21:7355:46:e:p:t", children: "Phone" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+                lineNumber: 217,
+                columnNumber: 21
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dns082", _fgB: 1779104382820, className: "text-sm text-white", "data-fg-dns082": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:198:21:7422:53:e:p:x", children: request.phone }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+                lineNumber: 218,
+                columnNumber: 21
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+              lineNumber: 216,
+              columnNumber: 19
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+            lineNumber: 214,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dns084", _fgB: 1779104382820, className: "flex items-start gap-3", "data-fg-dns084": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:201:17:7540:327:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: MapPin, _fgS: "dns085", _fgB: 1779104382820, className: "w-4 h-4 text-gray-400 mt-0.5", "data-fg-dns085": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:202:19:7599:51:e:MapPin::::::BveZ" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+              lineNumber: 222,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dns086", _fgB: 1779104382820, "data-fg-dns086": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:203:19:7669:175:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dns087", _fgB: 1779104382820, className: "text-xs text-gray-500", "data-fg-dns087": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:204:21:7695:48:e:p:t", children: "Address" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+                lineNumber: 224,
+                columnNumber: 21
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dns089", _fgB: 1779104382820, className: "text-sm text-white", "data-fg-dns089": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:205:21:7764:55:e:p:x", children: request.address }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+                lineNumber: 225,
+                columnNumber: 21
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+              lineNumber: 223,
+              columnNumber: 19
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+            lineNumber: 221,
+            columnNumber: 17
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+          lineNumber: 199,
+          columnNumber: 15
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+        lineNumber: 194,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dns092", _fgB: 1779104382820, className: "bg-[#0B1F2A] border border-[#1a3440] rounded-xl p-5 md:col-span-2", "data-fg-dns092": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:212:13:7955:1222:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "dns093", _fgB: 1779104382820, className: "text-white font-semibold mb-4 flex items-center gap-2", "data-fg-dns093": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:213:15:8053:201:e:h3:etx", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: CreditCard, _fgS: "dns094", _fgB: 1779104382820, className: "w-5 h-5 text-teal-400", "data-fg-dns094": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:214:17:8140:48:e:CreditCard::::::BwVT" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+            lineNumber: 234,
+            columnNumber: 17
+          }, this),
+          "Selected Plan: ",
+          request.plan
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+          lineNumber: 233,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dns097", _fgB: 1779104382820, className: "grid grid-cols-1 md:grid-cols-2 gap-4", "data-fg-dns097": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:217:15:8269:889:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dns098", _fgB: 1779104382820, "data-fg-dns098": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:218:17:8341:265:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dns099", _fgB: 1779104382820, className: "text-2xl font-bold text-white mb-2", "data-fg-dns099": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:219:19:8365:128:e:p:x", children: planDetails[request.plan]?.price }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+              lineNumber: 239,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dns0101", _fgB: 1779104382820, className: "text-xs text-gray-400", "data-fg-dns0101": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:222:19:8512:71:e:p:t", children: "Billing starts upon activation" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+              lineNumber: 242,
+              columnNumber: 19
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+            lineNumber: 238,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dns0103", _fgB: 1779104382820, "data-fg-dns0103": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:224:17:8623:514:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dns0104", _fgB: 1779104382820, className: "text-xs text-gray-500 mb-2", "data-fg-dns0104": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:225:19:8647:64:e:p:t", children: "Included Features:" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+              lineNumber: 245,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "ul", _fgS: "dns0106", _fgB: 1779104382820, className: "space-y-1", "data-fg-dns0106": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:226:19:8730:384:e:ul:x", children: planDetails[request.plan]?.features.map(
+              (feature, idx) => /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "li", _fgS: "dns0108", _fgB: 1779104382820, className: "text-xs text-white flex items-center gap-2", "data-fg-dns0108": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:228:23:8860:206:e:li:etx", children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: CheckCircle, _fgS: "dns0109", _fgB: 1779104382820, className: "w-3 h-3 text-green-400", "data-fg-dns0109": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:229:25:8954:50:e:CheckCircle::::::C4Wc" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+                  lineNumber: 249,
+                  columnNumber: 25
+                }, this),
+                feature
+              ] }, idx, true, {
+                fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+                lineNumber: 248,
+                columnNumber: 21
+              }, this)
+            ) }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+              lineNumber: 246,
+              columnNumber: 19
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+            lineNumber: 244,
+            columnNumber: 17
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+          lineNumber: 237,
+          columnNumber: 15
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+        lineNumber: 232,
+        columnNumber: 13
+      }, this),
+      request.notes && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dns0113", _fgB: 1779104382820, className: "bg-[#0B1F2A] border border-[#1a3440] rounded-xl p-5 md:col-span-2", "data-fg-dns0113": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:240:15:9251:261:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "dns0114", _fgB: 1779104382820, className: "text-white font-semibold mb-3", "data-fg-dns0114": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:241:17:9351:67:e:h3:t", children: "Additional Notes" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+          lineNumber: 261,
+          columnNumber: 17
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dns0116", _fgB: 1779104382820, className: "text-sm text-gray-300", "data-fg-dns0116": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:242:17:9435:56:e:p:x", children: request.notes }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+          lineNumber: 262,
+          columnNumber: 17
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+        lineNumber: 260,
+        columnNumber: 13
+      }, this),
+      showRejectForm && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dns0120", _fgB: 1779104382820, className: "bg-[#0B1F2A] border border-red-500/30 rounded-xl p-5 md:col-span-2", "data-fg-dns0120": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:248:15:9611:758:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "dns0121", _fgB: 1779104382820, className: "text-white font-semibold mb-3 flex items-center gap-2", "data-fg-dns0121": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:249:17:9712:190:e:h3:et", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: XCircle, _fgS: "dns0122", _fgB: 1779104382820, className: "w-5 h-5 text-red-400", "data-fg-dns0122": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:250:19:9801:44:e:XCircle::::::BEhq" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+            lineNumber: 270,
+            columnNumber: 19
+          }, this),
+          "Rejection Reason"
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+          lineNumber: 269,
+          columnNumber: 17
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "textarea",
+            _fgS: "dns0124",
+            _fgB: 1779104382820,
+            value: rejectionReason,
+            onChange: (e) => setRejectionReason(e.target.value),
+            placeholder: "Provide a reason for rejecting this request...",
+            rows: 4,
+            className: "w-full px-4 py-3 bg-[#0f2832] border border-[#1a3440] rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-red-500/50 resize-none",
+            "data-fg-dns0124": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:253:17:9919:429:e:textarea"
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+            lineNumber: 273,
+            columnNumber: 17
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+        lineNumber: 268,
+        columnNumber: 13
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+      lineNumber: 152,
+      columnNumber: 11
+    }, this) }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+      lineNumber: 151,
+      columnNumber: 9
+    }, this),
+    request.status === "pending" && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dns0127", _fgB: 1779104382820, className: "p-6 border-t border-[#1a3440] flex justify-end gap-3", "data-fg-dns0127": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:267:11:10494:2867:e:div:etx", children: [
+      /* @__PURE__ */ jsxDEV(
+        FGCmp,
+        {
+          _fgT: "button",
+          _fgS: "dns0128",
+          _fgB: 1779104382820,
+          onClick: onClose,
+          disabled: processing,
+          className: "px-6 py-2 bg-white/5 border border-white/10 text-white rounded-lg hover:bg-white/10 transition-all disabled:opacity-50",
+          "data-fg-dns0128": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:268:13:10577:277:e:button:t",
+          children: "Cancel"
+        },
+        void 0,
+        false,
+        {
+          fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+          lineNumber: 288,
+          columnNumber: 13
+        },
+        this
+      ),
+      !showRejectForm ? /* @__PURE__ */ jsxDEV(Fragment, { children: [
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "button",
+            _fgS: "dns0132",
+            _fgB: 1779104382820,
+            onClick: () => setShowRejectForm(true),
+            disabled: processing,
+            className: "px-6 py-2 bg-red-500/20 border border-red-500/30 text-red-400 rounded-lg hover:bg-red-500/30 transition-all flex items-center gap-2 disabled:opacity-50",
+            "data-fg-dns0132": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:277:17:10921:406:e:button:et",
+            children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: XCircle, _fgS: "dns0133", _fgB: 1779104382820, className: "w-4 h-4", "data-fg-dns0133": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:282:19:11245:31:e:XCircle::::::BEhq" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+                lineNumber: 302,
+                columnNumber: 19
+              }, this),
+              "Reject"
+            ]
+          },
+          void 0,
+          true,
+          {
+            fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+            lineNumber: 297,
+            columnNumber: 17
+          },
+          this
+        ),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "button",
+            _fgS: "dns0135",
+            _fgB: 1779104382820,
+            onClick: handleApprove,
+            disabled: processing,
+            className: "px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-500 transition-all flex items-center gap-2 disabled:opacity-50 font-medium",
+            "data-fg-dns0135": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:285:17:11344:723:e:button:x",
+            children: processing ? /* @__PURE__ */ jsxDEV(Fragment, { children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dns0138", _fgB: 1779104382820, className: "w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin", "data-fg-dns0138": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:292:23:11696:97:e:div:_" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+                lineNumber: 312,
+                columnNumber: 23
+              }, this),
+              "Processing..."
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+              lineNumber: 311,
+              columnNumber: 15
+            }, this) : /* @__PURE__ */ jsxDEV(Fragment, { children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: CheckCircle, _fgS: "dns0141", _fgB: 1779104382820, className: "w-4 h-4", "data-fg-dns0141": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:297:23:11923:35:e:CheckCircle::::::C4Wc" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+                lineNumber: 317,
+                columnNumber: 23
+              }, this),
+              "Approve Request"
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+              lineNumber: 316,
+              columnNumber: 15
+            }, this)
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+            lineNumber: 305,
+            columnNumber: 17
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+        lineNumber: 296,
+        columnNumber: 11
+      }, this) : /* @__PURE__ */ jsxDEV(Fragment, { children: [
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "button",
+            _fgS: "dns0144",
+            _fgB: 1779104382820,
+            onClick: () => {
+              setShowRejectForm(false);
+              setRejectionReason("");
+            },
+            disabled: processing,
+            className: "px-6 py-2 bg-white/5 border border-white/10 text-white rounded-lg hover:bg-white/10 transition-all disabled:opacity-50",
+            "data-fg-dns0144": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:305:17:12137:421:e:button:t",
+            children: "Cancel Rejection"
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+            lineNumber: 325,
+            columnNumber: 17
+          },
+          this
+        ),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "button",
+            _fgS: "dns0146",
+            _fgB: 1779104382820,
+            onClick: handleReject,
+            disabled: !rejectionReason || processing,
+            className: "px-6 py-2 bg-red-600 text-white rounded-lg hover:bg-red-500 transition-all flex items-center gap-2 disabled:opacity-50 font-medium",
+            "data-fg-dns0146": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:315:17:12575:736:e:button:x",
+            children: processing ? /* @__PURE__ */ jsxDEV(Fragment, { children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dns0149", _fgB: 1779104382820, className: "w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin", "data-fg-dns0149": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:322:23:12942:97:e:div:_" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+                lineNumber: 342,
+                columnNumber: 23
+              }, this),
+              "Processing..."
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+              lineNumber: 341,
+              columnNumber: 15
+            }, this) : /* @__PURE__ */ jsxDEV(Fragment, { children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: XCircle, _fgS: "dns0152", _fgB: 1779104382820, className: "w-4 h-4", "data-fg-dns0152": "418.158:418.13404:/src/app/components/OrgRequestDetailModal.tsx:327:23:13169:31:e:XCircle::::::BEhq" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+                lineNumber: 347,
+                columnNumber: 23
+              }, this),
+              "Confirm Rejection"
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+              lineNumber: 346,
+              columnNumber: 15
+            }, this)
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+            lineNumber: 335,
+            columnNumber: 17
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+        lineNumber: 324,
+        columnNumber: 11
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+      lineNumber: 287,
+      columnNumber: 9
+    }, this)
+  ] }, void 0, true, {
+    fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+    lineNumber: 114,
+    columnNumber: 7
+  }, this) }, void 0, false, {
+    fileName: "/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx",
+    lineNumber: 113,
+    columnNumber: 5
+  }, this);
+}
+_s(OrgRequestDetailModal, "AX5237hgn7Pbua0Eo1ovUfuhWgA=");
+_c = OrgRequestDetailModal;
+var _c;
+$RefreshReg$(_c, "OrgRequestDetailModal");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/workspaces/default/code/src/app/components/OrgRequestDetailModal.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,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QSxZQUNWLFdBQVU7QUFBQSxZQUNiO0FBQUEsWUFBQztBQUFBO0FBQUEsVUFQQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUEsUUFTQTtBQUFBLFFBQ0E7QUFBQSxVQUFDO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQSxZQUNDLFNBQVNNO0FBQUFBLFlBQ1QsVUFBVSxDQUFDVixtQkFBbUJJO0FBQUFBLFlBQzlCLFdBQVU7QUFBQSxZQUNiO0FBQUEsWUFDSUEsdUJBQ0MsbUNBQ0U7QUFBQSxxQ0FBQyw0REFBSSxXQUFVLDZFQUEwRSxnSEFBekY7QUFBQTtBQUFBO0FBQUE7QUFBQSxxQkFBMkY7QUFBQSxjQUFLO0FBQUEsaUJBRGxHO0FBQUE7QUFBQTtBQUFBO0FBQUEsbUJBR0EsSUFFQSxtQ0FDRTtBQUFBLHFDQUFDLGVBQUFmLFNBQUEsc0NBQVEsV0FBVSxXQUFTLDRIQUE1QjtBQUFBO0FBQUE7QUFBQTtBQUFBLHFCQUE0QjtBQUFBO0FBQUEsaUJBRDlCO0FBQUE7QUFBQTtBQUFBO0FBQUEsbUJBR0E7QUFBQTtBQUFBLFVBZEo7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLFFBZ0JBO0FBQUEsV0EzQkY7QUFBQTtBQUFBO0FBQUE7QUFBQSxhQTRCQTtBQUFBLFNBakVKO0FBQUE7QUFBQTtBQUFBO0FBQUEsV0FtRUE7QUFBQSxPQWhQSjtBQUFBO0FBQUE7QUFBQTtBQUFBLFNBa1BBLEtBblBGO0FBQUE7QUFBQTtBQUFBO0FBQUEsU0FvUEE7QUFFSjtBQUFBVSxHQTNTZ0JOLHVCQUFxQjtBQUFBOEMsS0FBckI5QztBQUFxQixJQUFBOEM7QUFBQUMsYUFBQUQsSUFBQSIsIm5hbWVzIjpbInVzZVN0YXRlIiwiWCIsIkJ1aWxkaW5nMiIsIlVzZXIiLCJNYWlsIiwiUGhvbmUiLCJNYXBQaW4iLCJDcmVkaXRDYXJkIiwiQ2hlY2tDaXJjbGUiLCJYQ2lyY2xlIiwiQ2xvY2siLCJGaWxlVGV4dCIsIlVzZXJzIiwiT3JnUmVxdWVzdERldGFpbE1vZGFsIiwiaXNPcGVuIiwib25DbG9zZSIsInJlcXVlc3QiLCJvbkFwcHJvdmUiLCJvblJlamVjdCIsIl9zIiwicmVqZWN0aW9uUmVhc29uIiwic2V0UmVqZWN0aW9uUmVhc29uIiwic2hvd1JlamVjdEZvcm0iLCJzZXRTaG93UmVqZWN0Rm9ybSIsInByb2Nlc3NpbmciLCJzZXRQcm9jZXNzaW5nIiwiaGFuZGxlQXBwcm92ZSIsInNldFRpbWVvdXQiLCJpZCIsImFsZXJ0IiwiaGFuZGxlUmVqZWN0IiwicGxhbkRldGFpbHMiLCJTdGFydGVyIiwicHJpY2UiLCJmZWF0dXJlcyIsIlByb2Zlc3Npb25hbCIsIkVudGVycHJpc2UiLCJvcmdOYW1lIiwic3RhdHVzIiwiY2hhckF0IiwidG9VcHBlckNhc2UiLCJzbGljZSIsInJlcXVlc3REYXRlIiwib3JnVHlwZSIsImNhcmVUeXBlIiwibWFwIiwidHlwZSIsImVzdGltYXRlZFN0YWZmIiwiY29udGFjdE5hbWUiLCJlbWFpbCIsInBob25lIiwiYWRkcmVzcyIsInBsYW4iLCJmZWF0dXJlIiwiaWR4Iiwibm90ZXMiLCJlIiwidGFyZ2V0IiwidmFsdWUiLCJfYyIsIiRSZWZyZXNoUmVnJCJdLCJpZ25vcmVMaXN0IjpbXSwic291cmNlcyI6WyJPcmdSZXF1ZXN0RGV0YWlsTW9kYWwudHN4Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IHVzZVN0YXRlIH0gZnJvbSAncmVhY3QnO1xuaW1wb3J0IHtcbiAgWCxcbiAgQnVpbGRpbmcyLFxuICBVc2VyLFxuICBNYWlsLFxuICBQaG9uZSxcbiAgTWFwUGluLFxuICBDcmVkaXRDYXJkLFxuICBDYWxlbmRhcixcbiAgQ2hlY2tDaXJjbGUsXG4gIFhDaXJjbGUsXG4gIENsb2NrLFxuICBGaWxlVGV4dCxcbiAgVXNlcnMsXG59IGZyb20gJ2x1Y2lkZS1yZWFjdCc7XG5cbmludGVyZmFjZSBPcmdSZXF1ZXN0RGV0YWlsTW9kYWxQcm9wcyB7XG4gIGlzT3BlbjogYm9vbGVhbjtcbiAgb25DbG9zZTogKCkgPT4gdm9pZDtcbiAgcmVxdWVzdDoge1xuICAgIGlkOiBzdHJpbmc7XG4gICAgb3JnTmFtZTogc3RyaW5nO1xuICAgIGNvbnRhY3ROYW1lOiBzdHJpbmc7XG4gICAgZW1haWw6IHN0cmluZztcbiAgICBwaG9uZTogc3RyaW5nO1xuICAgIGFkZHJlc3M6IHN0cmluZztcbiAgICBvcmdUeXBlOiBzdHJpbmc7XG4gICAgY2FyZVR5cGU6IHN0cmluZ1tdO1xuICAgIHBsYW46IHN0cmluZztcbiAgICBlc3RpbWF0ZWRTdGFmZjogc3RyaW5nO1xuICAgIHJlcXVlc3REYXRlOiBzdHJpbmc7XG4gICAgc3RhdHVzOiAncGVuZGluZycgfCAnYXBwcm92ZWQnIHwgJ3JlamVjdGVkJztcbiAgICBub3Rlcz86IHN0cmluZztcbiAgfSB8IG51bGw7XG4gIG9uQXBwcm92ZT86IChpZDogc3RyaW5nKSA9PiB2b2lkO1xuICBvblJlamVjdD86IChpZDogc3RyaW5nLCByZWFzb246IHN0cmluZykgPT4gdm9pZDtcbn1cblxuZXhwb3J0IGZ1bmN0aW9uIE9yZ1JlcXVlc3REZXRhaWxNb2RhbCh7XG4gIGlzT3BlbixcbiAgb25DbG9zZSxcbiAgcmVxdWVzdCxcbiAgb25BcHByb3ZlLFxuICBvblJlamVjdCxcbn06IE9yZ1JlcXVlc3REZXRhaWxNb2RhbFByb3BzKSB7XG4gIGNvbnN0IFtyZWplY3Rpb25SZWFzb24sIHNldFJlamVjdGlvblJlYXNvbl0gPSB1c2VTdGF0ZSgnJyk7XG4gIGNvbnN0IFtzaG93UmVqZWN0Rm9ybSwgc2V0U2hvd1JlamVjdEZvcm1dID0gdXNlU3RhdGUoZmFsc2UpO1xuICBjb25zdCBbcHJvY2Vzc2luZywgc2V0UHJvY2Vzc2luZ10gPSB1c2VTdGF0ZShmYWxzZSk7XG5cbiAgaWYgKCFpc09wZW4gfHwgIXJlcXVlc3QpIHJldHVybiBudWxsO1xuXG4gIGNvbnN0IGhhbmRsZUFwcHJvdmUgPSAoKSA9PiB7XG4gICAgc2V0UHJvY2Vzc2luZyh0cnVlKTtcbiAgICBzZXRUaW1lb3V0KCgpID0+IHtcbiAgICAgIGlmIChvbkFwcHJvdmUpIG9uQXBwcm92ZShyZXF1ZXN0LmlkKTtcbiAgICAgIHNldFByb2Nlc3NpbmcoZmFsc2UpO1xuICAgICAgYWxlcnQoJ+KchSBPcmdhbml6YXRpb24gcmVxdWVzdCBhcHByb3ZlZCBzdWNjZXNzZnVsbHkhJyk7XG4gICAgICBvbkNsb3NlKCk7XG4gICAgfSwgMTUwMCk7XG4gIH07XG5cbiAgY29uc3QgaGFuZGxlUmVqZWN0ID0gKCkgPT4ge1xuICAgIGlmICghcmVqZWN0aW9uUmVhc29uKSB7XG4gICAgICBhbGVydCgnUGxlYXNlIHByb3ZpZGUgYSByZWFzb24gZm9yIHJlamVjdGlvbicpO1xuICAgICAgcmV0dXJuO1xuICAgIH1cbiAgICBzZXRQcm9jZXNzaW5nKHRydWUpO1xuICAgIHNldFRpbWVvdXQoKCkgPT4ge1xuICAgICAgaWYgKG9uUmVqZWN0KSBvblJlamVjdChyZXF1ZXN0LmlkLCByZWplY3Rpb25SZWFzb24pO1xuICAgICAgc2V0UHJvY2Vzc2luZyhmYWxzZSk7XG4gICAgICBhbGVydCgnT3JnYW5pemF0aW9uIHJlcXVlc3QgcmVqZWN0ZWQnKTtcbiAgICAgIG9uQ2xvc2UoKTtcbiAgICB9LCAxNTAwKTtcbiAgfTtcblxuICBjb25zdCBwbGFuRGV0YWlsczogUmVjb3JkPHN0cmluZywgeyBwcmljZTogc3RyaW5nOyBmZWF0dXJlczogc3RyaW5nW10gfT4gPSB7XG4gICAgU3RhcnRlcjoge1xuICAgICAgcHJpY2U6ICckMjk5L21vbnRoJyxcbiAgICAgIGZlYXR1cmVzOiBbJ1VwIHRvIDUwIHN0YWZmJywgJ0Jhc2ljIEFJIGZlYXR1cmVzJywgJ0VtYWlsIHN1cHBvcnQnXSxcbiAgICB9LFxuICAgIFByb2Zlc3Npb25hbDoge1xuICAgICAgcHJpY2U6ICckNTk5L21vbnRoJyxcbiAgICAgIGZlYXR1cmVzOiBbJ1VwIHRvIDIwMCBzdGFmZicsICdBZHZhbmNlZCBBSScsICdQcmlvcml0eSBzdXBwb3J0JywgJ0N1c3RvbSB3b3JrZmxvd3MnXSxcbiAgICB9LFxuICAgIEVudGVycHJpc2U6IHtcbiAgICAgIHByaWNlOiAnQ3VzdG9tIHByaWNpbmcnLFxuICAgICAgZmVhdHVyZXM6IFsnVW5saW1pdGVkIHN0YWZmJywgJ0Z1bGwgQUkgc3VpdGUnLCAnMjQvNyBzdXBwb3J0JywgJ0RlZGljYXRlZCBzdWNjZXNzIG1hbmFnZXInXSxcbiAgICB9LFxuICB9O1xuXG4gIHJldHVybiAoXG4gICAgPGRpdiBjbGFzc05hbWU9XCJmaXhlZCBpbnNldC0wIGJnLWJsYWNrLzgwIGJhY2tkcm9wLWJsdXItc20gei01MCBmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlciBwLTRcIj5cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYmctWyMwZjI4MzJdIGJvcmRlciBib3JkZXItWyMxYTM0NDBdIHJvdW5kZWQtMnhsIHctZnVsbCBtYXgtdy00eGwgbWF4LWgtWzkwdmhdIGZsZXggZmxleC1jb2xcIj5cbiAgICAgICAgey8qIEhlYWRlciAqL31cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJwLTYgYm9yZGVyLWIgYm9yZGVyLVsjMWEzNDQwXSBmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW5cIj5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0zXCI+XG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInctMTIgaC0xMiByb3VuZGVkLXhsIGJnLWdyYWRpZW50LXRvLWJyIGZyb20tdGVhbC02MDAgdG8tdGVhbC01MDAgZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1jZW50ZXJcIj5cbiAgICAgICAgICAgICAgPEJ1aWxkaW5nMiBjbGFzc05hbWU9XCJ3LTYgaC02IHRleHQtd2hpdGVcIiAvPlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICA8aDIgY2xhc3NOYW1lPVwidGV4dC14bCBmb250LWJvbGQgdGV4dC13aGl0ZVwiPntyZXF1ZXN0Lm9yZ05hbWV9PC9oMj5cbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMiBtdC0xXCI+XG4gICAgICAgICAgICAgICAgPHNwYW5cbiAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT17YHRleHQteHMgcHgtMiBweS0xIHJvdW5kZWQgJHtcbiAgICAgICAgICAgICAgICAgICAgcmVxdWVzdC5zdGF0dXMgPT09ICdwZW5kaW5nJ1xuICAgICAgICAgICAgICAgICAgICAgID8gJ2JnLXllbGxvdy01MDAvMjAgdGV4dC15ZWxsb3ctNDAwJ1xuICAgICAgICAgICAgICAgICAgICAgIDogcmVxdWVzdC5zdGF0dXMgPT09ICdhcHByb3ZlZCdcbiAgICAgICAgICAgICAgICAgICAgICA/ICdiZy1ncmVlbi01MDAvMjAgdGV4dC1ncmVlbi00MDAnXG4gICAgICAgICAgICAgICAgICAgICAgOiAnYmctcmVkLTUwMC8yMCB0ZXh0LXJlZC00MDAnXG4gICAgICAgICAgICAgICAgICB9YH1cbiAgICAgICAgICAgICAgICA+XG4gICAgICAgICAgICAgICAgICB7cmVxdWVzdC5zdGF0dXMgPT09ICdwZW5kaW5nJyAmJiA8Q2xvY2sgY2xhc3NOYW1lPVwidy0zIGgtMyBpbmxpbmUgbXItMVwiIC8+fVxuICAgICAgICAgICAgICAgICAge3JlcXVlc3Quc3RhdHVzID09PSAnYXBwcm92ZWQnICYmIDxDaGVja0NpcmNsZSBjbGFzc05hbWU9XCJ3LTMgaC0zIGlubGluZSBtci0xXCIgLz59XG4gICAgICAgICAgICAgICAgICB7cmVxdWVzdC5zdGF0dXMgPT09ICdyZWplY3RlZCcgJiYgPFhDaXJjbGUgY2xhc3NOYW1lPVwidy0zIGgtMyBpbmxpbmUgbXItMVwiIC8+fVxuICAgICAgICAgICAgICAgICAge3JlcXVlc3Quc3RhdHVzLmNoYXJBdCgwKS50b1VwcGVyQ2FzZSgpICsgcmVxdWVzdC5zdGF0dXMuc2xpY2UoMSl9XG4gICAgICAgICAgICAgICAgPC9zcGFuPlxuICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC1ncmF5LTQwMFwiPuKAoiBTdWJtaXR0ZWQge3JlcXVlc3QucmVxdWVzdERhdGV9PC9zcGFuPlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDxidXR0b25cbiAgICAgICAgICAgIG9uQ2xpY2s9e29uQ2xvc2V9XG4gICAgICAgICAgICBjbGFzc05hbWU9XCJ3LTEwIGgtMTAgcm91bmRlZC1sZyBiZy13aGl0ZS81IGhvdmVyOmJnLXdoaXRlLzEwIGZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktY2VudGVyIHRyYW5zaXRpb24tY29sb3JzXCJcbiAgICAgICAgICA+XG4gICAgICAgICAgICA8WCBjbGFzc05hbWU9XCJ3LTUgaC01IHRleHQtZ3JheS00MDBcIiAvPlxuICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICA8L2Rpdj5cblxuICAgICAgICB7LyogQ29udGVudCAqL31cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4LTEgb3ZlcmZsb3cteS1hdXRvIHAtNlwiPlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZ3JpZCBncmlkLWNvbHMtMSBtZDpncmlkLWNvbHMtMiBnYXAtNlwiPlxuICAgICAgICAgICAgey8qIE9yZ2FuaXphdGlvbiBEZXRhaWxzICovfVxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJiZy1bIzBCMUYyQV0gYm9yZGVyIGJvcmRlci1bIzFhMzQ0MF0gcm91bmRlZC14bCBwLTVcIj5cbiAgICAgICAgICAgICAgPGgzIGNsYXNzTmFtZT1cInRleHQtd2hpdGUgZm9udC1zZW1pYm9sZCBtYi00IGZsZXggaXRlbXMtY2VudGVyIGdhcC0yXCI+XG4gICAgICAgICAgICAgICAgPEJ1aWxkaW5nMiBjbGFzc05hbWU9XCJ3LTUgaC01IHRleHQtdGVhbC00MDBcIiAvPlxuICAgICAgICAgICAgICAgIE9yZ2FuaXphdGlvbiBEZXRhaWxzXG4gICAgICAgICAgICAgIDwvaDM+XG4gICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwic3BhY2UteS0zXCI+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLXN0YXJ0IGdhcC0zXCI+XG4gICAgICAgICAgICAgICAgICA8RmlsZVRleHQgY2xhc3NOYW1lPVwidy00IGgtNCB0ZXh0LWdyYXktNDAwIG10LTAuNVwiIC8+XG4gICAgICAgICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LXhzIHRleHQtZ3JheS01MDBcIj5Pcmdhbml6YXRpb24gVHlwZTwvcD5cbiAgICAgICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC1zbSB0ZXh0LXdoaXRlXCI+e3JlcXVlc3Qub3JnVHlwZX08L3A+XG4gICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtc3RhcnQgZ2FwLTNcIj5cbiAgICAgICAgICAgICAgICAgIDxGaWxlVGV4dCBjbGFzc05hbWU9XCJ3LTQgaC00IHRleHQtZ3JheS00MDAgbXQtMC41XCIgLz5cbiAgICAgICAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC1ncmF5LTUwMFwiPkNhcmUgVHlwZTwvcD5cbiAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGZsZXgtd3JhcCBnYXAtMSBtdC0xXCI+XG4gICAgICAgICAgICAgICAgICAgICAge3JlcXVlc3QuY2FyZVR5cGUubWFwKCh0eXBlKSA9PiAoXG4gICAgICAgICAgICAgICAgICAgICAgICA8c3BhblxuICAgICAgICAgICAgICAgICAgICAgICAgICBrZXk9e3R5cGV9XG4gICAgICAgICAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cInRleHQteHMgcHgtMiBweS0wLjUgYmctdGVhbC01MDAvMjAgdGV4dC10ZWFsLTQwMCByb3VuZGVkXCJcbiAgICAgICAgICAgICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICAgICAgICAgICAge3R5cGV9XG4gICAgICAgICAgICAgICAgICAgICAgICA8L3NwYW4+XG4gICAgICAgICAgICAgICAgICAgICAgKSl9XG4gICAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLXN0YXJ0IGdhcC0zXCI+XG4gICAgICAgICAgICAgICAgICA8VXNlcnMgY2xhc3NOYW1lPVwidy00IGgtNCB0ZXh0LWdyYXktNDAwIG10LTAuNVwiIC8+XG4gICAgICAgICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LXhzIHRleHQtZ3JheS01MDBcIj5Fc3RpbWF0ZWQgU3RhZmY8L3A+XG4gICAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtc20gdGV4dC13aGl0ZVwiPntyZXF1ZXN0LmVzdGltYXRlZFN0YWZmfSBlbXBsb3llZXM8L3A+XG4gICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICA8L2Rpdj5cblxuICAgICAgICAgICAgey8qIENvbnRhY3QgSW5mb3JtYXRpb24gKi99XG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLVsjMEIxRjJBXSBib3JkZXIgYm9yZGVyLVsjMWEzNDQwXSByb3VuZGVkLXhsIHAtNVwiPlxuICAgICAgICAgICAgICA8aDMgY2xhc3NOYW1lPVwidGV4dC13aGl0ZSBmb250LXNlbWlib2xkIG1iLTQgZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTJcIj5cbiAgICAgICAgICAgICAgICA8VXNlciBjbGFzc05hbWU9XCJ3LTUgaC01IHRleHQtdGVhbC00MDBcIiAvPlxuICAgICAgICAgICAgICAgIENvbnRhY3QgSW5mb3JtYXRpb25cbiAgICAgICAgICAgICAgPC9oMz5cbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJzcGFjZS15LTNcIj5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtc3RhcnQgZ2FwLTNcIj5cbiAgICAgICAgICAgICAgICAgIDxVc2VyIGNsYXNzTmFtZT1cInctNCBoLTQgdGV4dC1ncmF5LTQwMCBtdC0wLjVcIiAvPlxuICAgICAgICAgICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC14cyB0ZXh0LWdyYXktNTAwXCI+Q29udGFjdCBOYW1lPC9wPlxuICAgICAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LXNtIHRleHQtd2hpdGVcIj57cmVxdWVzdC5jb250YWN0TmFtZX08L3A+XG4gICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtc3RhcnQgZ2FwLTNcIj5cbiAgICAgICAgICAgICAgICAgIDxNYWlsIGNsYXNzTmFtZT1cInctNCBoLTQgdGV4dC1ncmF5LTQwMCBtdC0wLjVcIiAvPlxuICAgICAgICAgICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC14cyB0ZXh0LWdyYXktNTAwXCI+RW1haWw8L3A+XG4gICAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtc20gdGV4dC13aGl0ZVwiPntyZXF1ZXN0LmVtYWlsfTwvcD5cbiAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1zdGFydCBnYXAtM1wiPlxuICAgICAgICAgICAgICAgICAgPFBob25lIGNsYXNzTmFtZT1cInctNCBoLTQgdGV4dC1ncmF5LTQwMCBtdC0wLjVcIiAvPlxuICAgICAgICAgICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC14cyB0ZXh0LWdyYXktNTAwXCI+UGhvbmU8L3A+XG4gICAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtc20gdGV4dC13aGl0ZVwiPntyZXF1ZXN0LnBob25lfTwvcD5cbiAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1zdGFydCBnYXAtM1wiPlxuICAgICAgICAgICAgICAgICAgPE1hcFBpbiBjbGFzc05hbWU9XCJ3LTQgaC00IHRleHQtZ3JheS00MDAgbXQtMC41XCIgLz5cbiAgICAgICAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC1ncmF5LTUwMFwiPkFkZHJlc3M8L3A+XG4gICAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtc20gdGV4dC13aGl0ZVwiPntyZXF1ZXN0LmFkZHJlc3N9PC9wPlxuICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICAgIHsvKiBTZWxlY3RlZCBQbGFuICovfVxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJiZy1bIzBCMUYyQV0gYm9yZGVyIGJvcmRlci1bIzFhMzQ0MF0gcm91bmRlZC14bCBwLTUgbWQ6Y29sLXNwYW4tMlwiPlxuICAgICAgICAgICAgICA8aDMgY2xhc3NOYW1lPVwidGV4dC13aGl0ZSBmb250LXNlbWlib2xkIG1iLTQgZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTJcIj5cbiAgICAgICAgICAgICAgICA8Q3JlZGl0Q2FyZCBjbGFzc05hbWU9XCJ3LTUgaC01IHRleHQtdGVhbC00MDBcIiAvPlxuICAgICAgICAgICAgICAgIFNlbGVjdGVkIFBsYW46IHtyZXF1ZXN0LnBsYW59XG4gICAgICAgICAgICAgIDwvaDM+XG4gICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZ3JpZCBncmlkLWNvbHMtMSBtZDpncmlkLWNvbHMtMiBnYXAtNFwiPlxuICAgICAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LTJ4bCBmb250LWJvbGQgdGV4dC13aGl0ZSBtYi0yXCI+XG4gICAgICAgICAgICAgICAgICAgIHtwbGFuRGV0YWlsc1tyZXF1ZXN0LnBsYW5dPy5wcmljZX1cbiAgICAgICAgICAgICAgICAgIDwvcD5cbiAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC1ncmF5LTQwMFwiPkJpbGxpbmcgc3RhcnRzIHVwb24gYWN0aXZhdGlvbjwvcD5cbiAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC14cyB0ZXh0LWdyYXktNTAwIG1iLTJcIj5JbmNsdWRlZCBGZWF0dXJlczo8L3A+XG4gICAgICAgICAgICAgICAgICA8dWwgY2xhc3NOYW1lPVwic3BhY2UteS0xXCI+XG4gICAgICAgICAgICAgICAgICAgIHtwbGFuRGV0YWlsc1tyZXF1ZXN0LnBsYW5dPy5mZWF0dXJlcy5tYXAoKGZlYXR1cmUsIGlkeCkgPT4gKFxuICAgICAgICAgICAgICAgICAgICAgIDxsaSBrZXk9e2lkeH0gY2xhc3NOYW1lPVwidGV4dC14cyB0ZXh0LXdoaXRlIGZsZXggaXRlbXMtY2VudGVyIGdhcC0yXCI+XG4gICAgICAgICAgICAgICAgICAgICAgICA8Q2hlY2tDaXJjbGUgY2xhc3NOYW1lPVwidy0zIGgtMyB0ZXh0LWdyZWVuLTQwMFwiIC8+XG4gICAgICAgICAgICAgICAgICAgICAgICB7ZmVhdHVyZX1cbiAgICAgICAgICAgICAgICAgICAgICA8L2xpPlxuICAgICAgICAgICAgICAgICAgICApKX1cbiAgICAgICAgICAgICAgICAgIDwvdWw+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICAgIHsvKiBOb3RlcyAqL31cbiAgICAgICAgICAgIHtyZXF1ZXN0Lm5vdGVzICYmIChcbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJiZy1bIzBCMUYyQV0gYm9yZGVyIGJvcmRlci1bIzFhMzQ0MF0gcm91bmRlZC14bCBwLTUgbWQ6Y29sLXNwYW4tMlwiPlxuICAgICAgICAgICAgICAgIDxoMyBjbGFzc05hbWU9XCJ0ZXh0LXdoaXRlIGZvbnQtc2VtaWJvbGQgbWItM1wiPkFkZGl0aW9uYWwgTm90ZXM8L2gzPlxuICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtc20gdGV4dC1ncmF5LTMwMFwiPntyZXF1ZXN0Lm5vdGVzfTwvcD5cbiAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICApfVxuXG4gICAgICAgICAgICB7LyogUmVqZWN0aW9uIEZvcm0gKi99XG4gICAgICAgICAgICB7c2hvd1JlamVjdEZvcm0gJiYgKFxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLVsjMEIxRjJBXSBib3JkZXIgYm9yZGVyLXJlZC01MDAvMzAgcm91bmRlZC14bCBwLTUgbWQ6Y29sLXNwYW4tMlwiPlxuICAgICAgICAgICAgICAgIDxoMyBjbGFzc05hbWU9XCJ0ZXh0LXdoaXRlIGZvbnQtc2VtaWJvbGQgbWItMyBmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMlwiPlxuICAgICAgICAgICAgICAgICAgPFhDaXJjbGUgY2xhc3NOYW1lPVwidy01IGgtNSB0ZXh0LXJlZC00MDBcIiAvPlxuICAgICAgICAgICAgICAgICAgUmVqZWN0aW9uIFJlYXNvblxuICAgICAgICAgICAgICAgIDwvaDM+XG4gICAgICAgICAgICAgICAgPHRleHRhcmVhXG4gICAgICAgICAgICAgICAgICB2YWx1ZT17cmVqZWN0aW9uUmVhc29ufVxuICAgICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXRSZWplY3Rpb25SZWFzb24oZS50YXJnZXQudmFsdWUpfVxuICAgICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9XCJQcm92aWRlIGEgcmVhc29uIGZvciByZWplY3RpbmcgdGhpcyByZXF1ZXN0Li4uXCJcbiAgICAgICAgICAgICAgICAgIHJvd3M9ezR9XG4gICAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJ3LWZ1bGwgcHgtNCBweS0zIGJnLVsjMGYyODMyXSBib3JkZXIgYm9yZGVyLVsjMWEzNDQwXSByb3VuZGVkLWxnIHRleHQtd2hpdGUgcGxhY2Vob2xkZXItZ3JheS01MDAgZm9jdXM6b3V0bGluZS1ub25lIGZvY3VzOmJvcmRlci1yZWQtNTAwLzUwIHJlc2l6ZS1ub25lXCJcbiAgICAgICAgICAgICAgICAvPlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICl9XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvZGl2PlxuXG4gICAgICAgIHsvKiBGb290ZXIgKi99XG4gICAgICAgIHtyZXF1ZXN0LnN0YXR1cyA9PT0gJ3BlbmRpbmcnICYmIChcbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInAtNiBib3JkZXItdCBib3JkZXItWyMxYTM0NDBdIGZsZXgganVzdGlmeS1lbmQgZ2FwLTNcIj5cbiAgICAgICAgICAgIDxidXR0b25cbiAgICAgICAgICAgICAgb25DbGljaz17b25DbG9zZX1cbiAgICAgICAgICAgICAgZGlzYWJsZWQ9e3Byb2Nlc3Npbmd9XG4gICAgICAgICAgICAgIGNsYXNzTmFtZT1cInB4LTYgcHktMiBiZy13aGl0ZS81IGJvcmRlciBib3JkZXItd2hpdGUvMTAgdGV4dC13aGl0ZSByb3VuZGVkLWxnIGhvdmVyOmJnLXdoaXRlLzEwIHRyYW5zaXRpb24tYWxsIGRpc2FibGVkOm9wYWNpdHktNTBcIlxuICAgICAgICAgICAgPlxuICAgICAgICAgICAgICBDYW5jZWxcbiAgICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICAgICAgeyFzaG93UmVqZWN0Rm9ybSA/IChcbiAgICAgICAgICAgICAgPD5cbiAgICAgICAgICAgICAgICA8YnV0dG9uXG4gICAgICAgICAgICAgICAgICBvbkNsaWNrPXsoKSA9PiBzZXRTaG93UmVqZWN0Rm9ybSh0cnVlKX1cbiAgICAgICAgICAgICAgICAgIGRpc2FibGVkPXtwcm9jZXNzaW5nfVxuICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwicHgtNiBweS0yIGJnLXJlZC01MDAvMjAgYm9yZGVyIGJvcmRlci1yZWQtNTAwLzMwIHRleHQtcmVkLTQwMCByb3VuZGVkLWxnIGhvdmVyOmJnLXJlZC01MDAvMzAgdHJhbnNpdGlvbi1hbGwgZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTIgZGlzYWJsZWQ6b3BhY2l0eS01MFwiXG4gICAgICAgICAgICAgICAgPlxuICAgICAgICAgICAgICAgICAgPFhDaXJjbGUgY2xhc3NOYW1lPVwidy00IGgtNFwiIC8+XG4gICAgICAgICAgICAgICAgICBSZWplY3RcbiAgICAgICAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgICAgICAgICA8YnV0dG9uXG4gICAgICAgICAgICAgICAgICBvbkNsaWNrPXtoYW5kbGVBcHByb3ZlfVxuICAgICAgICAgICAgICAgICAgZGlzYWJsZWQ9e3Byb2Nlc3Npbmd9XG4gICAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJweC02IHB5LTIgYmctZ3JlZW4tNjAwIHRleHQtd2hpdGUgcm91bmRlZC1sZyBob3ZlcjpiZy1ncmVlbi01MDAgdHJhbnNpdGlvbi1hbGwgZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTIgZGlzYWJsZWQ6b3BhY2l0eS01MCBmb250LW1lZGl1bVwiXG4gICAgICAgICAgICAgICAgPlxuICAgICAgICAgICAgICAgICAge3Byb2Nlc3NpbmcgPyAoXG4gICAgICAgICAgICAgICAgICAgIDw+XG4gICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ3LTQgaC00IGJvcmRlci0yIGJvcmRlci13aGl0ZS8zMCBib3JkZXItdC13aGl0ZSByb3VuZGVkLWZ1bGwgYW5pbWF0ZS1zcGluXCI+PC9kaXY+XG4gICAgICAgICAgICAgICAgICAgICAgUHJvY2Vzc2luZy4uLlxuICAgICAgICAgICAgICAgICAgICA8Lz5cbiAgICAgICAgICAgICAgICAgICkgOiAoXG4gICAgICAgICAgICAgICAgICAgIDw+XG4gICAgICAgICAgICAgICAgICAgICAgPENoZWNrQ2lyY2xlIGNsYXNzTmFtZT1cInctNCBoLTRcIiAvPlxuICAgICAgICAgICAgICAgICAgICAgIEFwcHJvdmUgUmVxdWVzdFxuICAgICAgICAgICAgICAgICAgICA8Lz5cbiAgICAgICAgICAgICAgICAgICl9XG4gICAgICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgICAgIDwvPlxuICAgICAgICAgICAgKSA6IChcbiAgICAgICAgICAgICAgPD5cbiAgICAgICAgICAgICAgICA8YnV0dG9uXG4gICAgICAgICAgICAgICAgICBvbkNsaWNrPXsoKSA9PiB7XG4gICAgICAgICAgICAgICAgICAgIHNldFNob3dSZWplY3RGb3JtKGZhbHNlKTtcbiAgICAgICAgICAgICAgICAgICAgc2V0UmVqZWN0aW9uUmVhc29uKCcnKTtcbiAgICAgICAgICAgICAgICAgIH19XG4gICAgICAgICAgICAgICAgICBkaXNhYmxlZD17cHJvY2Vzc2luZ31cbiAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cInB4LTYgcHktMiBiZy13aGl0ZS81IGJvcmRlciBib3JkZXItd2hpdGUvMTAgdGV4dC13aGl0ZSByb3VuZGVkLWxnIGhvdmVyOmJnLXdoaXRlLzEwIHRyYW5zaXRpb24tYWxsIGRpc2FibGVkOm9wYWNpdHktNTBcIlxuICAgICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICAgIENhbmNlbCBSZWplY3Rpb25cbiAgICAgICAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgICAgICAgICA8YnV0dG9uXG4gICAgICAgICAgICAgICAgICBvbkNsaWNrPXtoYW5kbGVSZWplY3R9XG4gICAgICAgICAgICAgICAgICBkaXNhYmxlZD17IXJlamVjdGlvblJlYXNvbiB8fCBwcm9jZXNzaW5nfVxuICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwicHgtNiBweS0yIGJnLXJlZC02MDAgdGV4dC13aGl0ZSByb3VuZGVkLWxnIGhvdmVyOmJnLXJlZC01MDAgdHJhbnNpdGlvbi1hbGwgZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTIgZGlzYWJsZWQ6b3BhY2l0eS01MCBmb250LW1lZGl1bVwiXG4gICAgICAgICAgICAgICAgPlxuICAgICAgICAgICAgICAgICAge3Byb2Nlc3NpbmcgPyAoXG4gICAgICAgICAgICAgICAgICAgIDw+XG4gICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ3LTQgaC00IGJvcmRlci0yIGJvcmRlci13aGl0ZS8zMCBib3JkZXItdC13aGl0ZSByb3VuZGVkLWZ1bGwgYW5pbWF0ZS1zcGluXCI+PC9kaXY+XG4gICAgICAgICAgICAgICAgICAgICAgUHJvY2Vzc2luZy4uLlxuICAgICAgICAgICAgICAgICAgICA8Lz5cbiAgICAgICAgICAgICAgICAgICkgOiAoXG4gICAgICAgICAgICAgICAgICAgIDw+XG4gICAgICAgICAgICAgICAgICAgICAgPFhDaXJjbGUgY2xhc3NOYW1lPVwidy00IGgtNFwiIC8+XG4gICAgICAgICAgICAgICAgICAgICAgQ29uZmlybSBSZWplY3Rpb25cbiAgICAgICAgICAgICAgICAgICAgPC8+XG4gICAgICAgICAgICAgICAgICApfVxuICAgICAgICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICAgICAgICA8Lz5cbiAgICAgICAgICAgICl9XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgICl9XG4gICAgICA8L2Rpdj5cbiAgICA8L2Rpdj5cbiAgKTtcbn1cbiJdLCJmaWxlIjoiL3dvcmtzcGFjZXMvZGVmYXVsdC9jb2RlL3NyYy9hcHAvY29tcG9uZW50cy9PcmdSZXF1ZXN0RGV0YWlsTW9kYWwudHN4In0=

@@ -1,0 +1,773 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/app/pages/platform-admin/StandardsMapping.tsx");import { jsxDEV } from "/@id/__x00__figma:react-jsx-dev-runtime";
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+var _s = $RefreshSig$();
+import { FGCmp } from "/@id/fginspector";
+import { useState } from "/@id/__x00__figma:react-base";
+import { Link2, TrendingUp, X, Sparkles, CheckCircle2, AlertTriangle, Download, FileBarChart } from "/node_modules/.vite/deps/lucide-react.js?v=25293e4c";
+export default function StandardsMapping() {
+  _s();
+  const [selectedLegislation, setSelectedLegislation] = useState(null);
+  const [selectedPolicy, setSelectedPolicy] = useState(null);
+  const [mappings, setMappings] = useState([]);
+  const [showAISuggestModal, setShowAISuggestModal] = useState(false);
+  const [showCoverageModal, setShowCoverageModal] = useState(false);
+  const legislationClauses = [
+    { id: "L1", title: "OSHA 1910.38 - Emergency Action Plans", confidence: 95 },
+    { id: "L2", title: "OSHA 1910.157 - Fire Extinguishers", confidence: 88 },
+    { id: "L3", title: "OSHA 1910.165 - Fire Alarm Systems", confidence: 92 }
+  ];
+  const policyClauses = [
+    { id: "P1", title: "Emergency Evacuation Procedures - Section 2.1" },
+    { id: "P2", title: "Fire Safety Equipment - Section 3.4" },
+    { id: "P3", title: "Alarm Response Protocol - Section 4.2" }
+  ];
+  const handleLinkClause = () => {
+    if (selectedLegislation && selectedPolicy) {
+      setMappings([...mappings, { legislation: selectedLegislation, policy: selectedPolicy }]);
+      setSelectedLegislation(null);
+      setSelectedPolicy(null);
+    }
+  };
+  return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd0", _fgB: 1779104380788, _fgD: true, className: "space-y-6", "data-fg-dazd0": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:32:5:1384:13995:e:div:xtetxtetxtetxtetxtxtxtxtxte:1", children: [
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd2", _fgB: 1779104380788, className: "flex items-center justify-between", "data-fg-dazd2": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:34:7:1439:872:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd3", _fgB: 1779104380788, "data-fg-dazd3": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:35:9:1499:182:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h1", _fgS: "dazd4", _fgB: 1779104380788, className: "text-3xl font-bold text-white mb-2", "data-fg-dazd4": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:36:11:1515:73:e:h1:t", children: "Standards Mapping" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+          lineNumber: 56,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dazd6", _fgB: 1779104380788, className: "text-gray-400", "data-fg-dazd6": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:37:11:1599:67:e:p:t", children: "Link legislation to policy clauses" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+          lineNumber: 57,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+        lineNumber: 55,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd8", _fgB: 1779104380788, className: "flex gap-3", "data-fg-dazd8": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:39:9:1690:608:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "button",
+            _fgS: "dazd9",
+            _fgB: 1779104380788,
+            className: "px-4 py-2 bg-purple-600 text-white rounded-lg hover:shadow-lg transition-all flex items-center gap-2",
+            onClick: () => setShowAISuggestModal(true),
+            "data-fg-dazd9": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:40:11:1729:298:e:button:et",
+            children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: TrendingUp, _fgS: "dazd10", _fgB: 1779104380788, className: "w-4 h-4", "data-fg-dazd10": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:44:13:1942:34:e:TrendingUp::::::tM8" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+                lineNumber: 64,
+                columnNumber: 13
+              }, this),
+              "AI Suggest Mapping"
+            ]
+          },
+          void 0,
+          true,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+            lineNumber: 60,
+            columnNumber: 11
+          },
+          this
+        ),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "button",
+            _fgS: "dazd12",
+            _fgB: 1779104380788,
+            className: "px-4 py-2 bg-white/5 border border-white/10 text-white rounded-lg hover:bg-white/10 transition-all",
+            onClick: () => setShowCoverageModal(true),
+            "data-fg-dazd12": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:47:11:2038:245:e:button:t",
+            children: "Coverage Report"
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+            lineNumber: 67,
+            columnNumber: 11
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+        lineNumber: 59,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+      lineNumber: 54,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd15", _fgB: 1779104380788, className: "grid grid-cols-1 md:grid-cols-3 gap-6", "data-fg-dazd15": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:57:7:2339:795:e:div:etete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd16", _fgB: 1779104380788, className: "bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/10", "data-fg-dazd16": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:58:9:2403:236:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "dazd17", _fgB: 1779104380788, className: "text-2xl font-bold text-white mb-1", "data-fg-dazd17": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:59:11:2497:59:e:h3:t", children: "87%" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+          lineNumber: 79,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dazd19", _fgB: 1779104380788, className: "text-sm text-gray-400", "data-fg-dazd19": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:60:11:2567:57:e:p:t", children: "Mapping Coverage" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+          lineNumber: 80,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+        lineNumber: 78,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd21", _fgB: 1779104380788, className: "bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/10", "data-fg-dazd21": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:62:9:2648:235:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "dazd22", _fgB: 1779104380788, className: "text-2xl font-bold text-white mb-1", "data-fg-dazd22": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:63:11:2742:59:e:h3:t", children: "342" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+          lineNumber: 83,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dazd24", _fgB: 1779104380788, className: "text-sm text-gray-400", "data-fg-dazd24": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:64:11:2812:56:e:p:t", children: "Active Mappings" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+          lineNumber: 84,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+        lineNumber: 82,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd26", _fgB: 1779104380788, className: "bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/10", "data-fg-dazd26": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:66:9:2892:229:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "dazd27", _fgB: 1779104380788, className: "text-2xl font-bold text-white mb-1", "data-fg-dazd27": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:67:11:2986:58:e:h3:t", children: "12" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+          lineNumber: 87,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dazd29", _fgB: 1779104380788, className: "text-sm text-gray-400", "data-fg-dazd29": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:68:11:3055:51:e:p:t", children: "Risk Flags" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+          lineNumber: 88,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+        lineNumber: 86,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+      lineNumber: 77,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd32", _fgB: 1779104380788, className: "grid grid-cols-2 gap-6", "data-fg-dazd32": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:73:7:3174:2191:e:div:xtetxte", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd34", _fgB: 1779104380788, className: "bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/10", "data-fg-dazd34": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:75:9:3256:1171:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "dazd35", _fgB: 1779104380788, className: "text-lg font-semibold text-white mb-4", "data-fg-dazd35": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:76:11:3350:78:e:h3:t", children: "Legislation Clauses" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+          lineNumber: 96,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd37", _fgB: 1779104380788, className: "space-y-3", "data-fg-dazd37": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:77:11:3439:973:e:div:x", children: legislationClauses.map(
+          (clause) => /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "div",
+              _fgS: "dazd39",
+              _fgB: 1779104380788,
+              onClick: () => setSelectedLegislation(clause.id),
+              className: `p-4 rounded-lg border cursor-pointer transition-all ${selectedLegislation === clause.id ? "bg-teal-500/20 border-teal-500/50" : "bg-white/5 border-white/10 hover:border-white/20"}`,
+              "data-fg-dazd39": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:79:15:3531:848:e:div:e",
+              children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd40", _fgB: 1779104380788, className: "flex items-start justify-between", "data-fg-dazd40": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:88:17:3952:406:e:div:ete", children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd41", _fgB: 1779104380788, className: "flex-1", "data-fg-dazd41": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:89:19:4021:216:e:div:ete", children: [
+                  /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dazd42", _fgB: 1779104380788, className: "text-sm font-medium text-white mb-1", "data-fg-dazd42": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:90:21:4066:69:e:p:x", children: clause.title }, void 0, false, {
+                    fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+                    lineNumber: 110,
+                    columnNumber: 21
+                  }, this),
+                  /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dazd44", _fgB: 1779104380788, className: "text-xs text-gray-400", "data-fg-dazd44": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:91:21:4156:56:e:p:tx", children: [
+                    "ID: ",
+                    clause.id
+                  ] }, void 0, true, {
+                    fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+                    lineNumber: 111,
+                    columnNumber: 21
+                  }, this)
+                ] }, void 0, true, {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+                  lineNumber: 109,
+                  columnNumber: 19
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "dazd47", _fgB: 1779104380788, className: "text-xs text-teal-500 font-medium", "data-fg-dazd47": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:93:19:4256:79:e:span:xt", children: [
+                  clause.confidence,
+                  "%"
+                ] }, void 0, true, {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+                  lineNumber: 113,
+                  columnNumber: 19
+                }, this)
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+                lineNumber: 108,
+                columnNumber: 17
+              }, this)
+            },
+            clause.id,
+            false,
+            {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+              lineNumber: 99,
+              columnNumber: 13
+            },
+            this
+          )
+        ) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+          lineNumber: 97,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+        lineNumber: 95,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd51", _fgB: 1779104380788, className: "bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/10", "data-fg-dazd51": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:101:9:4465:887:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "dazd52", _fgB: 1779104380788, className: "text-lg font-semibold text-white mb-4", "data-fg-dazd52": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:102:11:4559:73:e:h3:t", children: "Policy Clauses" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+          lineNumber: 122,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd54", _fgB: 1779104380788, className: "space-y-3", "data-fg-dazd54": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:103:11:4643:694:e:div:x", children: policyClauses.map(
+          (clause) => /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "div",
+              _fgS: "dazd56",
+              _fgB: 1779104380788,
+              onClick: () => setSelectedPolicy(clause.id),
+              className: `p-4 rounded-lg border cursor-pointer transition-all ${selectedPolicy === clause.id ? "bg-teal-500/20 border-teal-500/50" : "bg-white/5 border-white/10 hover:border-white/20"}`,
+              "data-fg-dazd56": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:105:15:4730:574:e:div:ete",
+              children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dazd57", _fgB: 1779104380788, className: "text-sm font-medium text-white mb-1", "data-fg-dazd57": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:114:17:5141:69:e:p:x", children: clause.title }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+                  lineNumber: 134,
+                  columnNumber: 17
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dazd59", _fgB: 1779104380788, className: "text-xs text-gray-400", "data-fg-dazd59": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:115:17:5227:56:e:p:tx", children: [
+                  "ID: ",
+                  clause.id
+                ] }, void 0, true, {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+                  lineNumber: 135,
+                  columnNumber: 17
+                }, this)
+              ]
+            },
+            clause.id,
+            true,
+            {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+              lineNumber: 125,
+              columnNumber: 13
+            },
+            this
+          )
+        ) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+          lineNumber: 123,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+        lineNumber: 121,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+      lineNumber: 93,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd63", _fgB: 1779104380788, className: "flex justify-center", "data-fg-dazd63": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:123:7:5399:464:e:div:e", children: /* @__PURE__ */ jsxDEV(
+      FGCmp,
+      {
+        _fgT: "button",
+        _fgS: "dazd64",
+        _fgB: 1779104380788,
+        onClick: handleLinkClause,
+        disabled: !selectedLegislation || !selectedPolicy,
+        className: "px-6 py-3 bg-gradient-to-r from-teal-600 to-teal-500 text-white rounded-lg hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2",
+        "data-fg-dazd64": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:124:9:5445:405:e:button:et",
+        children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Link2, _fgS: "dazd65", _fgB: 1779104380788, className: "w-5 h-5", "data-fg-dazd65": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:129:11:5771:29:e:Link2::::::zi4" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+            lineNumber: 149,
+            columnNumber: 11
+          }, this),
+          "Link Selected Clauses"
+        ]
+      },
+      void 0,
+      true,
+      {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+        lineNumber: 144,
+        columnNumber: 9
+      },
+      this
+    ) }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+      lineNumber: 143,
+      columnNumber: 7
+    }, this),
+    showAISuggestModal && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd69", _fgB: 1779104380788, className: "fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4", onClick: () => setShowAISuggestModal(false), "data-fg-dazd69": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:136:9:5943:4173:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd70", _fgB: 1779104380788, className: "bg-[#0B1F2A] border border-teal-500/30 rounded-2xl max-w-3xl w-full max-h-[85vh] overflow-hidden flex flex-col", onClick: (e) => e.stopPropagation(), "data-fg-dazd70": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:137:11:6101:4000:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd71", _fgB: 1779104380788, className: "flex items-center justify-between p-6 border-b border-white/10", "data-fg-dazd71": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:138:13:6279:833:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd72", _fgB: 1779104380788, className: "flex items-center gap-3", "data-fg-dazd72": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:139:15:6374:542:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd73", _fgB: 1779104380788, className: "w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500 to-teal-500 flex items-center justify-center", "data-fg-dazd73": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:140:17:6432:202:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Sparkles, _fgS: "dazd74", _fgB: 1779104380788, className: "w-5 h-5 text-white", "data-fg-dazd74": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:141:19:6568:43:e:Sparkles::::::DD2N" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+            lineNumber: 161,
+            columnNumber: 19
+          }, this) }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+            lineNumber: 160,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd75", _fgB: 1779104380788, "data-fg-dazd75": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:143:17:6651:244:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h2", _fgS: "dazd76", _fgB: 1779104380788, className: "text-xl font-semibold text-white", "data-fg-dazd76": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:144:19:6675:72:e:h2:t", children: "AI Suggest Mapping" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+              lineNumber: 164,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dazd78", _fgB: 1779104380788, className: "text-xs text-gray-400", "data-fg-dazd78": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:145:19:6766:106:e:p:t", children: "AI-detected links between legislation clauses and policy sections" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+              lineNumber: 165,
+              columnNumber: 19
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+            lineNumber: 163,
+            columnNumber: 17
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+          lineNumber: 159,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "button", _fgS: "dazd80", _fgB: 1779104380788, onClick: () => setShowAISuggestModal(false), className: "text-gray-400 hover:text-white", "data-fg-dazd80": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:148:15:6931:162:e:button:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: X, _fgS: "dazd81", _fgB: 1779104380788, className: "w-5 h-5", "data-fg-dazd81": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:149:17:7044:25:e:X::::::TvS" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+          lineNumber: 169,
+          columnNumber: 17
+        }, this) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+          lineNumber: 168,
+          columnNumber: 15
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+        lineNumber: 158,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd82", _fgB: 1779104380788, className: "p-6 overflow-y-auto space-y-3", "data-fg-dazd82": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:152:13:7125:2959:e:div:etx", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd83", _fgB: 1779104380788, className: "bg-purple-500/10 border border-purple-500/30 rounded-lg p-4 mb-4", "data-fg-dazd83": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:153:15:7187:313:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dazd84", _fgB: 1779104380788, className: "text-sm text-purple-200", "data-fg-dazd84": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:154:17:7286:193:e:p:t", children: "AI Cortex analyzed 11 legislation clauses against 342 active policy clauses. 8 new high-confidence mappings found." }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+          lineNumber: 174,
+          columnNumber: 17
+        }, this) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+          lineNumber: 173,
+          columnNumber: 15
+        }, this),
+        [
+          { leg: "OSHA 1910.38 - Emergency Action Plans", pol: "Emergency Evacuation Procedures §2.1", conf: 96, reason: "Semantic match on evacuation triggers and muster points" },
+          { leg: "OSHA 1910.157 - Fire Extinguishers", pol: "Fire Safety Equipment §3.4", conf: 93, reason: "Direct reference to extinguisher inspection cadence" },
+          { leg: "OSHA 1910.165 - Fire Alarm Systems", pol: "Alarm Response Protocol §4.2", conf: 91, reason: "Alarm test frequency and audibility requirements align" },
+          { leg: "Aged Care Quality Standard 8", pol: "Governance Framework §1.2", conf: 87, reason: "Board oversight responsibilities mapped" },
+          { leg: "NDIS Practice Standards - Risk Mgmt", pol: "Incident Reporting §5.1", conf: 82, reason: "Reportable incident definitions overlap" }
+        ].map(
+          (s, i) => /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd87", _fgB: 1779104380788, className: "bg-white/5 border border-white/10 rounded-lg p-4 hover:border-teal-500/30 transition-all", "data-fg-dazd87": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:165:17:8410:1637:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd88", _fgB: 1779104380788, className: "flex items-start justify-between mb-2", "data-fg-dazd88": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:166:19:8543:781:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd89", _fgB: 1779104380788, className: "flex-1 space-y-1", "data-fg-dazd89": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:167:21:8619:455:e:div:etete", children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dazd90", _fgB: 1779104380788, className: "text-sm text-white font-medium", "data-fg-dazd90": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:168:23:8676:57:e:p:x", children: s.leg }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+                  lineNumber: 188,
+                  columnNumber: 23
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd92", _fgB: 1779104380788, className: "flex items-center gap-2 text-xs text-gray-400", "data-fg-dazd92": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:169:23:8756:205:e:div:ete", children: [
+                  /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Link2, _fgS: "dazd93", _fgB: 1779104380788, className: "w-3 h-3 text-teal-500", "data-fg-dazd93": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:170:25:8844:43:e:Link2::::::zi4" }, void 0, false, {
+                    fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+                    lineNumber: 190,
+                    columnNumber: 25
+                  }, this),
+                  /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "dazd94", _fgB: 1779104380788, "data-fg-dazd94": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:171:25:8912:20:e:span:x", children: s.pol }, void 0, false, {
+                    fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+                    lineNumber: 191,
+                    columnNumber: 25
+                  }, this)
+                ] }, void 0, true, {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+                  lineNumber: 189,
+                  columnNumber: 23
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dazd96", _fgB: 1779104380788, className: "text-xs text-gray-500 italic mt-1", "data-fg-dazd96": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:173:23:8984:63:e:p:x", children: s.reason }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+                  lineNumber: 193,
+                  columnNumber: 23
+                }, this)
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+                lineNumber: 187,
+                columnNumber: 21
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "dazd98", _fgB: 1779104380788, className: `text-xs font-medium px-2 py-1 rounded ${s.conf >= 90 ? "bg-teal-500/20 text-teal-400" : "bg-yellow-500/20 text-yellow-400"}`, "data-fg-dazd98": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:175:21:9095:204:e:span:xt", children: [
+                s.conf,
+                "%"
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+                lineNumber: 195,
+                columnNumber: 21
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+              lineNumber: 186,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd101", _fgB: 1779104380788, className: "flex gap-2 mt-3", "data-fg-dazd101": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:179:19:9343:681:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(
+                FGCmp,
+                {
+                  _fgT: "button",
+                  _fgS: "dazd102",
+                  _fgB: 1779104380788,
+                  onClick: () => {
+                    setMappings((m) => [...m, { legislation: s.leg, policy: s.pol }]);
+                  },
+                  className: "px-3 py-1.5 bg-teal-600 hover:bg-teal-500 text-white text-xs rounded flex items-center gap-1",
+                  "data-fg-dazd102": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:180:21:9397:407:e:button:et",
+                  children: [
+                    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: CheckCircle2, _fgS: "dazd103", _fgB: 1779104380788, className: "w-3 h-3", "data-fg-dazd103": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:186:23:9731:36:e:CheckCircle2::::::CELI" }, void 0, false, {
+                      fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+                      lineNumber: 206,
+                      columnNumber: 23
+                    }, this),
+                    " Accept"
+                  ]
+                },
+                void 0,
+                true,
+                {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+                  lineNumber: 200,
+                  columnNumber: 21
+                },
+                this
+              ),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "button", _fgS: "dazd105", _fgB: 1779104380788, className: "px-3 py-1.5 bg-white/5 border border-white/10 text-gray-300 text-xs rounded hover:bg-white/10", "data-fg-dazd105": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:188:21:9825:174:e:button:t", children: "Dismiss" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+                lineNumber: 208,
+                columnNumber: 21
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+              lineNumber: 199,
+              columnNumber: 19
+            }, this)
+          ] }, i, true, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+            lineNumber: 185,
+            columnNumber: 13
+          }, this)
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+        lineNumber: 172,
+        columnNumber: 13
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+      lineNumber: 157,
+      columnNumber: 11
+    }, this) }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+      lineNumber: 156,
+      columnNumber: 7
+    }, this),
+    showCoverageModal && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd109", _fgB: 1779104380788, className: "fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4", onClick: () => setShowCoverageModal(false), "data-fg-dazd109": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:201:9:10201:4315:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd110", _fgB: 1779104380788, className: "bg-[#0B1F2A] border border-teal-500/30 rounded-2xl max-w-4xl w-full max-h-[85vh] overflow-hidden flex flex-col", onClick: (e) => e.stopPropagation(), "data-fg-dazd110": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:202:11:10358:4143:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd111", _fgB: 1779104380788, className: "flex items-center justify-between p-6 border-b border-white/10", "data-fg-dazd111": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:203:13:10536:1128:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd112", _fgB: 1779104380788, className: "flex items-center gap-3", "data-fg-dazd112": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:204:15:10631:537:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd113", _fgB: 1779104380788, className: "w-10 h-10 rounded-lg bg-gradient-to-br from-teal-500 to-teal-700 flex items-center justify-center", "data-fg-dazd113": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:205:17:10689:204:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: FileBarChart, _fgS: "dazd114", _fgB: 1779104380788, className: "w-5 h-5 text-white", "data-fg-dazd114": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:206:19:10823:47:e:FileBarChart::::::387" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+            lineNumber: 226,
+            columnNumber: 19
+          }, this) }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+            lineNumber: 225,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd115", _fgB: 1779104380788, "data-fg-dazd115": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:208:17:10910:237:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h2", _fgS: "dazd116", _fgB: 1779104380788, className: "text-xl font-semibold text-white", "data-fg-dazd116": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:209:19:10934:69:e:h2:t", children: "Coverage Report" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+              lineNumber: 229,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dazd118", _fgB: 1779104380788, className: "text-xs text-gray-400", "data-fg-dazd118": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:210:19:11022:102:e:p:t", children: "Legislation-to-policy mapping coverage by sector and standard" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+              lineNumber: 230,
+              columnNumber: 19
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+            lineNumber: 228,
+            columnNumber: 17
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+          lineNumber: 224,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd120", _fgB: 1779104380788, className: "flex items-center gap-2", "data-fg-dazd120": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:213:15:11183:462:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "button", _fgS: "dazd121", _fgB: 1779104380788, className: "px-3 py-1.5 bg-teal-600 hover:bg-teal-500 text-white text-xs rounded flex items-center gap-1", "data-fg-dazd121": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:214:17:11241:201:e:button:et", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Download, _fgS: "dazd122", _fgB: 1779104380788, className: "w-3 h-3", "data-fg-dazd122": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:215:19:11373:32:e:Download::::::yh6" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+              lineNumber: 235,
+              columnNumber: 19
+            }, this),
+            " Export PDF"
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+            lineNumber: 234,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "button", _fgS: "dazd124", _fgB: 1779104380788, onClick: () => setShowCoverageModal(false), className: "text-gray-400 hover:text-white", "data-fg-dazd124": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:217:17:11459:165:e:button:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: X, _fgS: "dazd125", _fgB: 1779104380788, className: "w-5 h-5", "data-fg-dazd125": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:218:19:11573:25:e:X::::::TvS" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+            lineNumber: 238,
+            columnNumber: 19
+          }, this) }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+            lineNumber: 237,
+            columnNumber: 17
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+          lineNumber: 233,
+          columnNumber: 15
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+        lineNumber: 223,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd126", _fgB: 1779104380788, className: "p-6 overflow-y-auto space-y-6", "data-fg-dazd126": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:222:13:11677:2807:e:div:etete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd127", _fgB: 1779104380788, className: "grid grid-cols-4 gap-4", "data-fg-dazd127": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:223:15:11739:737:e:div:x", children: [
+          { label: "Overall Coverage", value: "87%", tone: "text-teal-400" },
+          { label: "Fully Mapped", value: "298", tone: "text-white" },
+          { label: "Partial", value: "44", tone: "text-yellow-400" },
+          { label: "Unmapped (Risk)", value: "12", tone: "text-red-400" }
+        ].map(
+          (k) => /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd129", _fgB: 1779104380788, className: "bg-white/5 border border-white/10 rounded-lg p-4", "data-fg-dazd129": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:230:19:12174:261:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dazd130", _fgB: 1779104380788, className: `text-2xl font-bold ${k.tone}`, "data-fg-dazd130": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:231:21:12275:59:e:p:x", children: k.value }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+              lineNumber: 251,
+              columnNumber: 21
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dazd132", _fgB: 1779104380788, className: "text-xs text-gray-400 mt-1", "data-fg-dazd132": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:232:21:12355:55:e:p:x", children: k.label }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+              lineNumber: 252,
+              columnNumber: 21
+            }, this)
+          ] }, k.label, true, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+            lineNumber: 250,
+            columnNumber: 15
+          }, this)
+        ) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+          lineNumber: 243,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd134", _fgB: 1779104380788, "data-fg-dazd134": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:237:15:12492:1064:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "dazd135", _fgB: 1779104380788, className: "text-sm font-semibold text-white mb-3", "data-fg-dazd135": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:238:17:12514:77:e:h3:t", children: "Coverage by Sector" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+            lineNumber: 258,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd137", _fgB: 1779104380788, className: "space-y-2", "data-fg-dazd137": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:239:17:12608:927:e:div:x", children: [
+            { sector: "Aged Care", pct: 94 },
+            { sector: "NDIS", pct: 89 },
+            { sector: "Home Care", pct: 86 },
+            { sector: "Retirement Living", pct: 78 },
+            { sector: "Universal", pct: 92 }
+          ].map(
+            (s) => /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd139", _fgB: 1779104380788, className: "flex items-center gap-3", "data-fg-dazd139": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:247:21:12983:507:e:div:etete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "dazd140", _fgB: 1779104380788, className: "text-sm text-gray-300 w-40", "data-fg-dazd140": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:248:23:13062:62:e:span:x", children: s.sector }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+                lineNumber: 268,
+                columnNumber: 23
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd142", _fgB: 1779104380788, className: "flex-1 h-2 bg-white/5 rounded-full overflow-hidden", "data-fg-dazd142": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:249:23:13147:222:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd143", _fgB: 1779104380788, className: "h-full bg-gradient-to-r from-teal-600 to-teal-400", style: { width: `${s.pct}%` }, "data-fg-dazd143": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:250:25:13240:100:e:div" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+                lineNumber: 270,
+                columnNumber: 25
+              }, this) }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+                lineNumber: 269,
+                columnNumber: 23
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "dazd144", _fgB: 1779104380788, className: "text-xs text-gray-400 w-10 text-right", "data-fg-dazd144": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:252:23:13392:71:e:span:xt", children: [
+                s.pct,
+                "%"
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+                lineNumber: 272,
+                columnNumber: 23
+              }, this)
+            ] }, s.sector, true, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+              lineNumber: 267,
+              columnNumber: 17
+            }, this)
+          ) }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+            lineNumber: 259,
+            columnNumber: 17
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+          lineNumber: 257,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd147", _fgB: 1779104380788, "data-fg-dazd147": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:258:15:13572:893:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "dazd148", _fgB: 1779104380788, className: "text-sm font-semibold text-white mb-3 flex items-center gap-2", "data-fg-dazd148": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:259:17:13594:199:e:h3:et", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: AlertTriangle, _fgS: "dazd149", _fgB: 1779104380788, className: "w-4 h-4 text-red-400", "data-fg-dazd149": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:260:19:13691:50:e:AlertTriangle::::::Ruk" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+              lineNumber: 280,
+              columnNumber: 19
+            }, this),
+            " Unmapped Clauses (Risk Flags)"
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+            lineNumber: 279,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd151", _fgB: 1779104380788, className: "space-y-2", "data-fg-dazd151": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:262:17:13810:634:e:div:x", children: [
+            "Aged Care Quality Standard 7 - Human Resources",
+            "NDIS Practice Standards - Worker Screening",
+            "OSHA 1910.147 - Lockout/Tagout"
+          ].map(
+            (c) => /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd153", _fgB: 1779104380788, className: "flex items-center justify-between bg-red-500/5 border border-red-500/20 rounded-lg p-3", "data-fg-dazd153": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:268:21:14102:297:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "dazd154", _fgB: 1779104380788, className: "text-sm text-gray-300", "data-fg-dazd154": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:269:23:14237:50:e:span:x", children: c }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+                lineNumber: 289,
+                columnNumber: 23
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "dazd156", _fgB: 1779104380788, className: "text-xs text-red-400", "data-fg-dazd156": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:270:23:14310:62:e:span:t", children: "No policy linked" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+                lineNumber: 290,
+                columnNumber: 23
+              }, this)
+            ] }, c, true, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+              lineNumber: 288,
+              columnNumber: 17
+            }, this)
+          ) }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+            lineNumber: 282,
+            columnNumber: 17
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+          lineNumber: 278,
+          columnNumber: 15
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+        lineNumber: 242,
+        columnNumber: 13
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+      lineNumber: 222,
+      columnNumber: 11
+    }, this) }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+      lineNumber: 221,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd159", _fgB: 1779104380788, className: "bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/10", "data-fg-dazd159": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:281:7:14561:807:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "dazd160", _fgB: 1779104380788, className: "text-lg font-semibold text-white mb-4", "data-fg-dazd160": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:282:9:14653:74:e:h3:t", children: "Recent Mappings" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+        lineNumber: 302,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd162", _fgB: 1779104380788, className: "space-y-3", "data-fg-dazd162": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:283:9:14736:619:e:div:x", children: mappings.length > 0 ? mappings.map(
+        (mapping, index) => /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dazd164", _fgB: 1779104380788, className: "flex items-center gap-4 p-3 bg-white/5 rounded-lg", "data-fg-dazd164": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:286:15:14860:325:e:div:etete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "dazd165", _fgB: 1779104380788, className: "text-sm text-gray-400", "data-fg-dazd165": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:287:17:14956:68:e:span:x", children: mapping.legislation }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+            lineNumber: 307,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Link2, _fgS: "dazd167", _fgB: 1779104380788, className: "w-4 h-4 text-teal-500", "data-fg-dazd167": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:288:17:15041:43:e:Link2::::::zi4" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+            lineNumber: 308,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "dazd168", _fgB: 1779104380788, className: "text-sm text-gray-400", "data-fg-dazd168": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:289:17:15101:63:e:span:x", children: mapping.policy }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+            lineNumber: 309,
+            columnNumber: 17
+          }, this)
+        ] }, index, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+          lineNumber: 306,
+          columnNumber: 11
+        }, this)
+      ) : /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dazd170", _fgB: 1779104380788, className: "text-center text-gray-400 py-8", "data-fg-dazd170": "418.279:669.8728:/src/app/pages/platform-admin/StandardsMapping.tsx:293:13:15229:98:e:p:t", children: "No mappings created yet. Select clauses to link." }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+        lineNumber: 313,
+        columnNumber: 11
+      }, this) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+        lineNumber: 303,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+      lineNumber: 301,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx",
+    lineNumber: 52,
+    columnNumber: 5
+  }, this);
+}
+_s(StandardsMapping, "CNShtcao9FMNUBQNQ9Ti88atxZw=");
+_c = StandardsMapping;
+var _c;
+$RefreshReg$(_c, "StandardsMapping");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/workspaces/default/code/src/app/pages/platform-admin/StandardsMapping.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,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QWpEO0FBQUE7QUFBQTtBQUFBO0FBQUEsaUJBQXdEO0FBQUEsYUFIaERzQixPQUFWO0FBQUE7QUFBQTtBQUFBO0FBQUEsZUFJQTtBQUFBLE1BQ0QsSUFFRCx1QkFBQywwREFBRSxXQUFVLGtDQUErQixnSEFBRSxnRUFBOUM7QUFBQTtBQUFBO0FBQUE7QUFBQSxhQUE4RixLQVZsRztBQUFBO0FBQUE7QUFBQTtBQUFBLGFBWUE7QUFBQSxTQWRGO0FBQUE7QUFBQTtBQUFBO0FBQUEsV0FlQTtBQUFBLE9BeFFGO0FBQUE7QUFBQTtBQUFBO0FBQUEsU0F5UUE7QUFFSjtBQUFBeEMsR0F2U3dCRCxrQkFBZ0I7QUFBQTBDLEtBQWhCMUM7QUFBZ0IsSUFBQTBDO0FBQUFDLGFBQUFELElBQUEiLCJuYW1lcyI6WyJ1c2VTdGF0ZSIsIkxpbmsyIiwiVHJlbmRpbmdVcCIsIlgiLCJTcGFya2xlcyIsIkNoZWNrQ2lyY2xlMiIsIkFsZXJ0VHJpYW5nbGUiLCJEb3dubG9hZCIsIkZpbGVCYXJDaGFydCIsIlN0YW5kYXJkc01hcHBpbmciLCJfcyIsInNlbGVjdGVkTGVnaXNsYXRpb24iLCJzZXRTZWxlY3RlZExlZ2lzbGF0aW9uIiwic2VsZWN0ZWRQb2xpY3kiLCJzZXRTZWxlY3RlZFBvbGljeSIsIm1hcHBpbmdzIiwic2V0TWFwcGluZ3MiLCJzaG93QUlTdWdnZXN0TW9kYWwiLCJzZXRTaG93QUlTdWdnZXN0TW9kYWwiLCJzaG93Q292ZXJhZ2VNb2RhbCIsInNldFNob3dDb3ZlcmFnZU1vZGFsIiwibGVnaXNsYXRpb25DbGF1c2VzIiwiaWQiLCJ0aXRsZSIsImNvbmZpZGVuY2UiLCJwb2xpY3lDbGF1c2VzIiwiaGFuZGxlTGlua0NsYXVzZSIsImxlZ2lzbGF0aW9uIiwicG9saWN5IiwibWFwIiwiY2xhdXNlIiwiZSIsInN0b3BQcm9wYWdhdGlvbiIsImxlZyIsInBvbCIsImNvbmYiLCJyZWFzb24iLCJzIiwiaSIsIm0iLCJsYWJlbCIsInZhbHVlIiwidG9uZSIsImsiLCJzZWN0b3IiLCJwY3QiLCJ3aWR0aCIsImMiLCJsZW5ndGgiLCJtYXBwaW5nIiwiaW5kZXgiLCJfYyIsIiRSZWZyZXNoUmVnJCJdLCJpZ25vcmVMaXN0IjpbXSwic291cmNlcyI6WyJTdGFuZGFyZHNNYXBwaW5nLnRzeCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyB1c2VTdGF0ZSB9IGZyb20gJ3JlYWN0JztcbmltcG9ydCB7IExpbmsyLCBUcmVuZGluZ1VwLCBYLCBTcGFya2xlcywgQ2hlY2tDaXJjbGUyLCBBbGVydFRyaWFuZ2xlLCBEb3dubG9hZCwgRmlsZUJhckNoYXJ0IH0gZnJvbSAnbHVjaWRlLXJlYWN0JztcblxuZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24gU3RhbmRhcmRzTWFwcGluZygpIHtcbiAgY29uc3QgW3NlbGVjdGVkTGVnaXNsYXRpb24sIHNldFNlbGVjdGVkTGVnaXNsYXRpb25dID0gdXNlU3RhdGU8c3RyaW5nIHwgbnVsbD4obnVsbCk7XG4gIGNvbnN0IFtzZWxlY3RlZFBvbGljeSwgc2V0U2VsZWN0ZWRQb2xpY3ldID0gdXNlU3RhdGU8c3RyaW5nIHwgbnVsbD4obnVsbCk7XG4gIGNvbnN0IFttYXBwaW5ncywgc2V0TWFwcGluZ3NdID0gdXNlU3RhdGU8QXJyYXk8eyBsZWdpc2xhdGlvbjogc3RyaW5nOyBwb2xpY3k6IHN0cmluZyB9Pj4oW10pO1xuICBjb25zdCBbc2hvd0FJU3VnZ2VzdE1vZGFsLCBzZXRTaG93QUlTdWdnZXN0TW9kYWxdID0gdXNlU3RhdGUoZmFsc2UpO1xuICBjb25zdCBbc2hvd0NvdmVyYWdlTW9kYWwsIHNldFNob3dDb3ZlcmFnZU1vZGFsXSA9IHVzZVN0YXRlKGZhbHNlKTtcblxuICBjb25zdCBsZWdpc2xhdGlvbkNsYXVzZXMgPSBbXG4gICAgeyBpZDogJ0wxJywgdGl0bGU6ICdPU0hBIDE5MTAuMzggLSBFbWVyZ2VuY3kgQWN0aW9uIFBsYW5zJywgY29uZmlkZW5jZTogOTUgfSxcbiAgICB7IGlkOiAnTDInLCB0aXRsZTogJ09TSEEgMTkxMC4xNTcgLSBGaXJlIEV4dGluZ3Vpc2hlcnMnLCBjb25maWRlbmNlOiA4OCB9LFxuICAgIHsgaWQ6ICdMMycsIHRpdGxlOiAnT1NIQSAxOTEwLjE2NSAtIEZpcmUgQWxhcm0gU3lzdGVtcycsIGNvbmZpZGVuY2U6IDkyIH0sXG4gIF07XG5cbiAgY29uc3QgcG9saWN5Q2xhdXNlcyA9IFtcbiAgICB7IGlkOiAnUDEnLCB0aXRsZTogJ0VtZXJnZW5jeSBFdmFjdWF0aW9uIFByb2NlZHVyZXMgLSBTZWN0aW9uIDIuMScgfSxcbiAgICB7IGlkOiAnUDInLCB0aXRsZTogJ0ZpcmUgU2FmZXR5IEVxdWlwbWVudCAtIFNlY3Rpb24gMy40JyB9LFxuICAgIHsgaWQ6ICdQMycsIHRpdGxlOiAnQWxhcm0gUmVzcG9uc2UgUHJvdG9jb2wgLSBTZWN0aW9uIDQuMicgfSxcbiAgXTtcblxuICBjb25zdCBoYW5kbGVMaW5rQ2xhdXNlID0gKCkgPT4ge1xuICAgIGlmIChzZWxlY3RlZExlZ2lzbGF0aW9uICYmIHNlbGVjdGVkUG9saWN5KSB7XG4gICAgICBzZXRNYXBwaW5ncyhbLi4ubWFwcGluZ3MsIHsgbGVnaXNsYXRpb246IHNlbGVjdGVkTGVnaXNsYXRpb24sIHBvbGljeTogc2VsZWN0ZWRQb2xpY3kgfV0pO1xuICAgICAgc2V0U2VsZWN0ZWRMZWdpc2xhdGlvbihudWxsKTtcbiAgICAgIHNldFNlbGVjdGVkUG9saWN5KG51bGwpO1xuICAgIH1cbiAgfTtcblxuICByZXR1cm4gKFxuICAgIDxkaXYgY2xhc3NOYW1lPVwic3BhY2UteS02XCI+XG4gICAgICB7LyogSGVhZGVyICovfVxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW5cIj5cbiAgICAgICAgPGRpdj5cbiAgICAgICAgICA8aDEgY2xhc3NOYW1lPVwidGV4dC0zeGwgZm9udC1ib2xkIHRleHQtd2hpdGUgbWItMlwiPlN0YW5kYXJkcyBNYXBwaW5nPC9oMT5cbiAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LWdyYXktNDAwXCI+TGluayBsZWdpc2xhdGlvbiB0byBwb2xpY3kgY2xhdXNlczwvcD5cbiAgICAgICAgPC9kaXY+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBnYXAtM1wiPlxuICAgICAgICAgIDxidXR0b25cbiAgICAgICAgICAgIGNsYXNzTmFtZT1cInB4LTQgcHktMiBiZy1wdXJwbGUtNjAwIHRleHQtd2hpdGUgcm91bmRlZC1sZyBob3ZlcjpzaGFkb3ctbGcgdHJhbnNpdGlvbi1hbGwgZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTJcIlxuICAgICAgICAgICAgb25DbGljaz17KCkgPT4gc2V0U2hvd0FJU3VnZ2VzdE1vZGFsKHRydWUpfVxuICAgICAgICAgID5cbiAgICAgICAgICAgIDxUcmVuZGluZ1VwIGNsYXNzTmFtZT1cInctNCBoLTRcIiAvPlxuICAgICAgICAgICAgQUkgU3VnZ2VzdCBNYXBwaW5nXG4gICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgPGJ1dHRvblxuICAgICAgICAgICAgY2xhc3NOYW1lPVwicHgtNCBweS0yIGJnLXdoaXRlLzUgYm9yZGVyIGJvcmRlci13aGl0ZS8xMCB0ZXh0LXdoaXRlIHJvdW5kZWQtbGcgaG92ZXI6Ymctd2hpdGUvMTAgdHJhbnNpdGlvbi1hbGxcIlxuICAgICAgICAgICAgb25DbGljaz17KCkgPT4gc2V0U2hvd0NvdmVyYWdlTW9kYWwodHJ1ZSl9XG4gICAgICAgICAgPlxuICAgICAgICAgICAgQ292ZXJhZ2UgUmVwb3J0XG4gICAgICAgICAgPC9idXR0b24+XG4gICAgICAgIDwvZGl2PlxuICAgICAgPC9kaXY+XG5cbiAgICAgIHsvKiBTdGF0cyAqL31cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZ3JpZCBncmlkLWNvbHMtMSBtZDpncmlkLWNvbHMtMyBnYXAtNlwiPlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLXdoaXRlLzUgYmFja2Ryb3AtYmx1ci1sZyByb3VuZGVkLXhsIHAtNiBib3JkZXIgYm9yZGVyLXdoaXRlLzEwXCI+XG4gICAgICAgICAgPGgzIGNsYXNzTmFtZT1cInRleHQtMnhsIGZvbnQtYm9sZCB0ZXh0LXdoaXRlIG1iLTFcIj44NyU8L2gzPlxuICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtc20gdGV4dC1ncmF5LTQwMFwiPk1hcHBpbmcgQ292ZXJhZ2U8L3A+XG4gICAgICAgIDwvZGl2PlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLXdoaXRlLzUgYmFja2Ryb3AtYmx1ci1sZyByb3VuZGVkLXhsIHAtNiBib3JkZXIgYm9yZGVyLXdoaXRlLzEwXCI+XG4gICAgICAgICAgPGgzIGNsYXNzTmFtZT1cInRleHQtMnhsIGZvbnQtYm9sZCB0ZXh0LXdoaXRlIG1iLTFcIj4zNDI8L2gzPlxuICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtc20gdGV4dC1ncmF5LTQwMFwiPkFjdGl2ZSBNYXBwaW5nczwvcD5cbiAgICAgICAgPC9kaXY+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYmctd2hpdGUvNSBiYWNrZHJvcC1ibHVyLWxnIHJvdW5kZWQteGwgcC02IGJvcmRlciBib3JkZXItd2hpdGUvMTBcIj5cbiAgICAgICAgICA8aDMgY2xhc3NOYW1lPVwidGV4dC0yeGwgZm9udC1ib2xkIHRleHQtd2hpdGUgbWItMVwiPjEyPC9oMz5cbiAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LXNtIHRleHQtZ3JheS00MDBcIj5SaXNrIEZsYWdzPC9wPlxuICAgICAgICA8L2Rpdj5cbiAgICAgIDwvZGl2PlxuXG4gICAgICB7LyogTWFwcGluZyBJbnRlcmZhY2UgKi99XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cImdyaWQgZ3JpZC1jb2xzLTIgZ2FwLTZcIj5cbiAgICAgICAgey8qIExlZ2lzbGF0aW9uIFNpZGUgKi99XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYmctd2hpdGUvNSBiYWNrZHJvcC1ibHVyLWxnIHJvdW5kZWQteGwgcC02IGJvcmRlciBib3JkZXItd2hpdGUvMTBcIj5cbiAgICAgICAgICA8aDMgY2xhc3NOYW1lPVwidGV4dC1sZyBmb250LXNlbWlib2xkIHRleHQtd2hpdGUgbWItNFwiPkxlZ2lzbGF0aW9uIENsYXVzZXM8L2gzPlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwic3BhY2UteS0zXCI+XG4gICAgICAgICAgICB7bGVnaXNsYXRpb25DbGF1c2VzLm1hcCgoY2xhdXNlKSA9PiAoXG4gICAgICAgICAgICAgIDxkaXZcbiAgICAgICAgICAgICAgICBrZXk9e2NsYXVzZS5pZH1cbiAgICAgICAgICAgICAgICBvbkNsaWNrPXsoKSA9PiBzZXRTZWxlY3RlZExlZ2lzbGF0aW9uKGNsYXVzZS5pZCl9XG4gICAgICAgICAgICAgICAgY2xhc3NOYW1lPXtgcC00IHJvdW5kZWQtbGcgYm9yZGVyIGN1cnNvci1wb2ludGVyIHRyYW5zaXRpb24tYWxsICR7XG4gICAgICAgICAgICAgICAgICBzZWxlY3RlZExlZ2lzbGF0aW9uID09PSBjbGF1c2UuaWRcbiAgICAgICAgICAgICAgICAgICAgPyAnYmctdGVhbC01MDAvMjAgYm9yZGVyLXRlYWwtNTAwLzUwJ1xuICAgICAgICAgICAgICAgICAgICA6ICdiZy13aGl0ZS81IGJvcmRlci13aGl0ZS8xMCBob3Zlcjpib3JkZXItd2hpdGUvMjAnXG4gICAgICAgICAgICAgICAgfWB9XG4gICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtc3RhcnQganVzdGlmeS1iZXR3ZWVuXCI+XG4gICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXgtMVwiPlxuICAgICAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LXNtIGZvbnQtbWVkaXVtIHRleHQtd2hpdGUgbWItMVwiPntjbGF1c2UudGl0bGV9PC9wPlxuICAgICAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LXhzIHRleHQtZ3JheS00MDBcIj5JRDoge2NsYXVzZS5pZH08L3A+XG4gICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC10ZWFsLTUwMCBmb250LW1lZGl1bVwiPntjbGF1c2UuY29uZmlkZW5jZX0lPC9zcGFuPlxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICkpfVxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICA8L2Rpdj5cblxuICAgICAgICB7LyogUG9saWN5IFNpZGUgKi99XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYmctd2hpdGUvNSBiYWNrZHJvcC1ibHVyLWxnIHJvdW5kZWQteGwgcC02IGJvcmRlciBib3JkZXItd2hpdGUvMTBcIj5cbiAgICAgICAgICA8aDMgY2xhc3NOYW1lPVwidGV4dC1sZyBmb250LXNlbWlib2xkIHRleHQtd2hpdGUgbWItNFwiPlBvbGljeSBDbGF1c2VzPC9oMz5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInNwYWNlLXktM1wiPlxuICAgICAgICAgICAge3BvbGljeUNsYXVzZXMubWFwKChjbGF1c2UpID0+IChcbiAgICAgICAgICAgICAgPGRpdlxuICAgICAgICAgICAgICAgIGtleT17Y2xhdXNlLmlkfVxuICAgICAgICAgICAgICAgIG9uQ2xpY2s9eygpID0+IHNldFNlbGVjdGVkUG9saWN5KGNsYXVzZS5pZCl9XG4gICAgICAgICAgICAgICAgY2xhc3NOYW1lPXtgcC00IHJvdW5kZWQtbGcgYm9yZGVyIGN1cnNvci1wb2ludGVyIHRyYW5zaXRpb24tYWxsICR7XG4gICAgICAgICAgICAgICAgICBzZWxlY3RlZFBvbGljeSA9PT0gY2xhdXNlLmlkXG4gICAgICAgICAgICAgICAgICAgID8gJ2JnLXRlYWwtNTAwLzIwIGJvcmRlci10ZWFsLTUwMC81MCdcbiAgICAgICAgICAgICAgICAgICAgOiAnYmctd2hpdGUvNSBib3JkZXItd2hpdGUvMTAgaG92ZXI6Ym9yZGVyLXdoaXRlLzIwJ1xuICAgICAgICAgICAgICAgIH1gfVxuICAgICAgICAgICAgICA+XG4gICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC1zbSBmb250LW1lZGl1bSB0ZXh0LXdoaXRlIG1iLTFcIj57Y2xhdXNlLnRpdGxlfTwvcD5cbiAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LXhzIHRleHQtZ3JheS00MDBcIj5JRDoge2NsYXVzZS5pZH08L3A+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgKSl9XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvZGl2PlxuICAgICAgPC9kaXY+XG5cbiAgICAgIHsvKiBMaW5rIEJ1dHRvbiAqL31cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBqdXN0aWZ5LWNlbnRlclwiPlxuICAgICAgICA8YnV0dG9uXG4gICAgICAgICAgb25DbGljaz17aGFuZGxlTGlua0NsYXVzZX1cbiAgICAgICAgICBkaXNhYmxlZD17IXNlbGVjdGVkTGVnaXNsYXRpb24gfHwgIXNlbGVjdGVkUG9saWN5fVxuICAgICAgICAgIGNsYXNzTmFtZT1cInB4LTYgcHktMyBiZy1ncmFkaWVudC10by1yIGZyb20tdGVhbC02MDAgdG8tdGVhbC01MDAgdGV4dC13aGl0ZSByb3VuZGVkLWxnIGhvdmVyOnNoYWRvdy1sZyB0cmFuc2l0aW9uLWFsbCBkaXNhYmxlZDpvcGFjaXR5LTUwIGRpc2FibGVkOmN1cnNvci1ub3QtYWxsb3dlZCBmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMlwiXG4gICAgICAgID5cbiAgICAgICAgICA8TGluazIgY2xhc3NOYW1lPVwidy01IGgtNVwiIC8+XG4gICAgICAgICAgTGluayBTZWxlY3RlZCBDbGF1c2VzXG4gICAgICAgIDwvYnV0dG9uPlxuICAgICAgPC9kaXY+XG5cbiAgICAgIHsvKiBBSSBTdWdnZXN0IE1hcHBpbmcgTW9kYWwgKi99XG4gICAgICB7c2hvd0FJU3VnZ2VzdE1vZGFsICYmIChcbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmaXhlZCBpbnNldC0wIGJnLWJsYWNrLzcwIGJhY2tkcm9wLWJsdXItc20gei01MCBmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlciBwLTRcIiBvbkNsaWNrPXsoKSA9PiBzZXRTaG93QUlTdWdnZXN0TW9kYWwoZmFsc2UpfT5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLVsjMEIxRjJBXSBib3JkZXIgYm9yZGVyLXRlYWwtNTAwLzMwIHJvdW5kZWQtMnhsIG1heC13LTN4bCB3LWZ1bGwgbWF4LWgtWzg1dmhdIG92ZXJmbG93LWhpZGRlbiBmbGV4IGZsZXgtY29sXCIgb25DbGljaz17KGUpID0+IGUuc3RvcFByb3BhZ2F0aW9uKCl9PlxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW4gcC02IGJvcmRlci1iIGJvcmRlci13aGl0ZS8xMFwiPlxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0zXCI+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ3LTEwIGgtMTAgcm91bmRlZC1sZyBiZy1ncmFkaWVudC10by1iciBmcm9tLXB1cnBsZS01MDAgdG8tdGVhbC01MDAgZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1jZW50ZXJcIj5cbiAgICAgICAgICAgICAgICAgIDxTcGFya2xlcyBjbGFzc05hbWU9XCJ3LTUgaC01IHRleHQtd2hpdGVcIiAvPlxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgICAgICA8aDIgY2xhc3NOYW1lPVwidGV4dC14bCBmb250LXNlbWlib2xkIHRleHQtd2hpdGVcIj5BSSBTdWdnZXN0IE1hcHBpbmc8L2gyPlxuICAgICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC14cyB0ZXh0LWdyYXktNDAwXCI+QUktZGV0ZWN0ZWQgbGlua3MgYmV0d2VlbiBsZWdpc2xhdGlvbiBjbGF1c2VzIGFuZCBwb2xpY3kgc2VjdGlvbnM8L3A+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICA8YnV0dG9uIG9uQ2xpY2s9eygpID0+IHNldFNob3dBSVN1Z2dlc3RNb2RhbChmYWxzZSl9IGNsYXNzTmFtZT1cInRleHQtZ3JheS00MDAgaG92ZXI6dGV4dC13aGl0ZVwiPlxuICAgICAgICAgICAgICAgIDxYIGNsYXNzTmFtZT1cInctNSBoLTVcIiAvPlxuICAgICAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJwLTYgb3ZlcmZsb3cteS1hdXRvIHNwYWNlLXktM1wiPlxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLXB1cnBsZS01MDAvMTAgYm9yZGVyIGJvcmRlci1wdXJwbGUtNTAwLzMwIHJvdW5kZWQtbGcgcC00IG1iLTRcIj5cbiAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LXNtIHRleHQtcHVycGxlLTIwMFwiPlxuICAgICAgICAgICAgICAgICAgQUkgQ29ydGV4IGFuYWx5emVkIDExIGxlZ2lzbGF0aW9uIGNsYXVzZXMgYWdhaW5zdCAzNDIgYWN0aXZlIHBvbGljeSBjbGF1c2VzLiA4IG5ldyBoaWdoLWNvbmZpZGVuY2UgbWFwcGluZ3MgZm91bmQuXG4gICAgICAgICAgICAgICAgPC9wPlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAge1tcbiAgICAgICAgICAgICAgICB7IGxlZzogJ09TSEEgMTkxMC4zOCAtIEVtZXJnZW5jeSBBY3Rpb24gUGxhbnMnLCBwb2w6ICdFbWVyZ2VuY3kgRXZhY3VhdGlvbiBQcm9jZWR1cmVzIMKnMi4xJywgY29uZjogOTYsIHJlYXNvbjogJ1NlbWFudGljIG1hdGNoIG9uIGV2YWN1YXRpb24gdHJpZ2dlcnMgYW5kIG11c3RlciBwb2ludHMnIH0sXG4gICAgICAgICAgICAgICAgeyBsZWc6ICdPU0hBIDE5MTAuMTU3IC0gRmlyZSBFeHRpbmd1aXNoZXJzJywgcG9sOiAnRmlyZSBTYWZldHkgRXF1aXBtZW50IMKnMy40JywgY29uZjogOTMsIHJlYXNvbjogJ0RpcmVjdCByZWZlcmVuY2UgdG8gZXh0aW5ndWlzaGVyIGluc3BlY3Rpb24gY2FkZW5jZScgfSxcbiAgICAgICAgICAgICAgICB7IGxlZzogJ09TSEEgMTkxMC4xNjUgLSBGaXJlIEFsYXJtIFN5c3RlbXMnLCBwb2w6ICdBbGFybSBSZXNwb25zZSBQcm90b2NvbCDCpzQuMicsIGNvbmY6IDkxLCByZWFzb246ICdBbGFybSB0ZXN0IGZyZXF1ZW5jeSBhbmQgYXVkaWJpbGl0eSByZXF1aXJlbWVudHMgYWxpZ24nIH0sXG4gICAgICAgICAgICAgICAgeyBsZWc6ICdBZ2VkIENhcmUgUXVhbGl0eSBTdGFuZGFyZCA4JywgcG9sOiAnR292ZXJuYW5jZSBGcmFtZXdvcmsgwqcxLjInLCBjb25mOiA4NywgcmVhc29uOiAnQm9hcmQgb3ZlcnNpZ2h0IHJlc3BvbnNpYmlsaXRpZXMgbWFwcGVkJyB9LFxuICAgICAgICAgICAgICAgIHsgbGVnOiAnTkRJUyBQcmFjdGljZSBTdGFuZGFyZHMgLSBSaXNrIE1nbXQnLCBwb2w6ICdJbmNpZGVudCBSZXBvcnRpbmcgwqc1LjEnLCBjb25mOiA4MiwgcmVhc29uOiAnUmVwb3J0YWJsZSBpbmNpZGVudCBkZWZpbml0aW9ucyBvdmVybGFwJyB9LFxuICAgICAgICAgICAgICBdLm1hcCgocywgaSkgPT4gKFxuICAgICAgICAgICAgICAgIDxkaXYga2V5PXtpfSBjbGFzc05hbWU9XCJiZy13aGl0ZS81IGJvcmRlciBib3JkZXItd2hpdGUvMTAgcm91bmRlZC1sZyBwLTQgaG92ZXI6Ym9yZGVyLXRlYWwtNTAwLzMwIHRyYW5zaXRpb24tYWxsXCI+XG4gICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtc3RhcnQganVzdGlmeS1iZXR3ZWVuIG1iLTJcIj5cbiAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4LTEgc3BhY2UteS0xXCI+XG4gICAgICAgICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC1zbSB0ZXh0LXdoaXRlIGZvbnQtbWVkaXVtXCI+e3MubGVnfTwvcD5cbiAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0yIHRleHQteHMgdGV4dC1ncmF5LTQwMFwiPlxuICAgICAgICAgICAgICAgICAgICAgICAgPExpbmsyIGNsYXNzTmFtZT1cInctMyBoLTMgdGV4dC10ZWFsLTUwMFwiIC8+XG4gICAgICAgICAgICAgICAgICAgICAgICA8c3Bhbj57cy5wb2x9PC9zcGFuPlxuICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC1ncmF5LTUwMCBpdGFsaWMgbXQtMVwiPntzLnJlYXNvbn08L3A+XG4gICAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9e2B0ZXh0LXhzIGZvbnQtbWVkaXVtIHB4LTIgcHktMSByb3VuZGVkICR7cy5jb25mID49IDkwID8gJ2JnLXRlYWwtNTAwLzIwIHRleHQtdGVhbC00MDAnIDogJ2JnLXllbGxvdy01MDAvMjAgdGV4dC15ZWxsb3ctNDAwJ31gfT5cbiAgICAgICAgICAgICAgICAgICAgICB7cy5jb25mfSVcbiAgICAgICAgICAgICAgICAgICAgPC9zcGFuPlxuICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggZ2FwLTIgbXQtM1wiPlxuICAgICAgICAgICAgICAgICAgICA8YnV0dG9uXG4gICAgICAgICAgICAgICAgICAgICAgb25DbGljaz17KCkgPT4ge1xuICAgICAgICAgICAgICAgICAgICAgICAgc2V0TWFwcGluZ3MoKG0pID0+IFsuLi5tLCB7IGxlZ2lzbGF0aW9uOiBzLmxlZywgcG9saWN5OiBzLnBvbCB9XSk7XG4gICAgICAgICAgICAgICAgICAgICAgfX1cbiAgICAgICAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJweC0zIHB5LTEuNSBiZy10ZWFsLTYwMCBob3ZlcjpiZy10ZWFsLTUwMCB0ZXh0LXdoaXRlIHRleHQteHMgcm91bmRlZCBmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMVwiXG4gICAgICAgICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICAgICAgICA8Q2hlY2tDaXJjbGUyIGNsYXNzTmFtZT1cInctMyBoLTNcIiAvPiBBY2NlcHRcbiAgICAgICAgICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgICAgICAgICAgIDxidXR0b24gY2xhc3NOYW1lPVwicHgtMyBweS0xLjUgYmctd2hpdGUvNSBib3JkZXIgYm9yZGVyLXdoaXRlLzEwIHRleHQtZ3JheS0zMDAgdGV4dC14cyByb3VuZGVkIGhvdmVyOmJnLXdoaXRlLzEwXCI+XG4gICAgICAgICAgICAgICAgICAgICAgRGlzbWlzc1xuICAgICAgICAgICAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICApKX1cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICA8L2Rpdj5cbiAgICAgICl9XG5cbiAgICAgIHsvKiBDb3ZlcmFnZSBSZXBvcnQgTW9kYWwgKi99XG4gICAgICB7c2hvd0NvdmVyYWdlTW9kYWwgJiYgKFxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZpeGVkIGluc2V0LTAgYmctYmxhY2svNzAgYmFja2Ryb3AtYmx1ci1zbSB6LTUwIGZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktY2VudGVyIHAtNFwiIG9uQ2xpY2s9eygpID0+IHNldFNob3dDb3ZlcmFnZU1vZGFsKGZhbHNlKX0+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJiZy1bIzBCMUYyQV0gYm9yZGVyIGJvcmRlci10ZWFsLTUwMC8zMCByb3VuZGVkLTJ4bCBtYXgtdy00eGwgdy1mdWxsIG1heC1oLVs4NXZoXSBvdmVyZmxvdy1oaWRkZW4gZmxleCBmbGV4LWNvbFwiIG9uQ2xpY2s9eyhlKSA9PiBlLnN0b3BQcm9wYWdhdGlvbigpfT5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuIHAtNiBib3JkZXItYiBib3JkZXItd2hpdGUvMTBcIj5cbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtM1wiPlxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidy0xMCBoLTEwIHJvdW5kZWQtbGcgYmctZ3JhZGllbnQtdG8tYnIgZnJvbS10ZWFsLTUwMCB0by10ZWFsLTcwMCBmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlclwiPlxuICAgICAgICAgICAgICAgICAgPEZpbGVCYXJDaGFydCBjbGFzc05hbWU9XCJ3LTUgaC01IHRleHQtd2hpdGVcIiAvPlxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgICAgICA8aDIgY2xhc3NOYW1lPVwidGV4dC14bCBmb250LXNlbWlib2xkIHRleHQtd2hpdGVcIj5Db3ZlcmFnZSBSZXBvcnQ8L2gyPlxuICAgICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC14cyB0ZXh0LWdyYXktNDAwXCI+TGVnaXNsYXRpb24tdG8tcG9saWN5IG1hcHBpbmcgY292ZXJhZ2UgYnkgc2VjdG9yIGFuZCBzdGFuZGFyZDwvcD5cbiAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTJcIj5cbiAgICAgICAgICAgICAgICA8YnV0dG9uIGNsYXNzTmFtZT1cInB4LTMgcHktMS41IGJnLXRlYWwtNjAwIGhvdmVyOmJnLXRlYWwtNTAwIHRleHQtd2hpdGUgdGV4dC14cyByb3VuZGVkIGZsZXggaXRlbXMtY2VudGVyIGdhcC0xXCI+XG4gICAgICAgICAgICAgICAgICA8RG93bmxvYWQgY2xhc3NOYW1lPVwidy0zIGgtM1wiIC8+IEV4cG9ydCBQREZcbiAgICAgICAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgICAgICAgICA8YnV0dG9uIG9uQ2xpY2s9eygpID0+IHNldFNob3dDb3ZlcmFnZU1vZGFsKGZhbHNlKX0gY2xhc3NOYW1lPVwidGV4dC1ncmF5LTQwMCBob3Zlcjp0ZXh0LXdoaXRlXCI+XG4gICAgICAgICAgICAgICAgICA8WCBjbGFzc05hbWU9XCJ3LTUgaC01XCIgLz5cbiAgICAgICAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicC02IG92ZXJmbG93LXktYXV0byBzcGFjZS15LTZcIj5cbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJncmlkIGdyaWQtY29scy00IGdhcC00XCI+XG4gICAgICAgICAgICAgICAge1tcbiAgICAgICAgICAgICAgICAgIHsgbGFiZWw6ICdPdmVyYWxsIENvdmVyYWdlJywgdmFsdWU6ICc4NyUnLCB0b25lOiAndGV4dC10ZWFsLTQwMCcgfSxcbiAgICAgICAgICAgICAgICAgIHsgbGFiZWw6ICdGdWxseSBNYXBwZWQnLCB2YWx1ZTogJzI5OCcsIHRvbmU6ICd0ZXh0LXdoaXRlJyB9LFxuICAgICAgICAgICAgICAgICAgeyBsYWJlbDogJ1BhcnRpYWwnLCB2YWx1ZTogJzQ0JywgdG9uZTogJ3RleHQteWVsbG93LTQwMCcgfSxcbiAgICAgICAgICAgICAgICAgIHsgbGFiZWw6ICdVbm1hcHBlZCAoUmlzayknLCB2YWx1ZTogJzEyJywgdG9uZTogJ3RleHQtcmVkLTQwMCcgfSxcbiAgICAgICAgICAgICAgICBdLm1hcCgoaykgPT4gKFxuICAgICAgICAgICAgICAgICAgPGRpdiBrZXk9e2subGFiZWx9IGNsYXNzTmFtZT1cImJnLXdoaXRlLzUgYm9yZGVyIGJvcmRlci13aGl0ZS8xMCByb3VuZGVkLWxnIHAtNFwiPlxuICAgICAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9e2B0ZXh0LTJ4bCBmb250LWJvbGQgJHtrLnRvbmV9YH0+e2sudmFsdWV9PC9wPlxuICAgICAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LXhzIHRleHQtZ3JheS00MDAgbXQtMVwiPntrLmxhYmVsfTwvcD5cbiAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICkpfVxuICAgICAgICAgICAgICA8L2Rpdj5cblxuICAgICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICAgIDxoMyBjbGFzc05hbWU9XCJ0ZXh0LXNtIGZvbnQtc2VtaWJvbGQgdGV4dC13aGl0ZSBtYi0zXCI+Q292ZXJhZ2UgYnkgU2VjdG9yPC9oMz5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInNwYWNlLXktMlwiPlxuICAgICAgICAgICAgICAgICAge1tcbiAgICAgICAgICAgICAgICAgICAgeyBzZWN0b3I6ICdBZ2VkIENhcmUnLCBwY3Q6IDk0IH0sXG4gICAgICAgICAgICAgICAgICAgIHsgc2VjdG9yOiAnTkRJUycsIHBjdDogODkgfSxcbiAgICAgICAgICAgICAgICAgICAgeyBzZWN0b3I6ICdIb21lIENhcmUnLCBwY3Q6IDg2IH0sXG4gICAgICAgICAgICAgICAgICAgIHsgc2VjdG9yOiAnUmV0aXJlbWVudCBMaXZpbmcnLCBwY3Q6IDc4IH0sXG4gICAgICAgICAgICAgICAgICAgIHsgc2VjdG9yOiAnVW5pdmVyc2FsJywgcGN0OiA5MiB9LFxuICAgICAgICAgICAgICAgICAgXS5tYXAoKHMpID0+IChcbiAgICAgICAgICAgICAgICAgICAgPGRpdiBrZXk9e3Muc2VjdG9yfSBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtM1wiPlxuICAgICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRleHQtc20gdGV4dC1ncmF5LTMwMCB3LTQwXCI+e3Muc2VjdG9yfTwvc3Bhbj5cbiAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXgtMSBoLTIgYmctd2hpdGUvNSByb3VuZGVkLWZ1bGwgb3ZlcmZsb3ctaGlkZGVuXCI+XG4gICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImgtZnVsbCBiZy1ncmFkaWVudC10by1yIGZyb20tdGVhbC02MDAgdG8tdGVhbC00MDBcIiBzdHlsZT17eyB3aWR0aDogYCR7cy5wY3R9JWAgfX0gLz5cbiAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LXhzIHRleHQtZ3JheS00MDAgdy0xMCB0ZXh0LXJpZ2h0XCI+e3MucGN0fSU8L3NwYW4+XG4gICAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgKSl9XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgIDwvZGl2PlxuXG4gICAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgICAgPGgzIGNsYXNzTmFtZT1cInRleHQtc20gZm9udC1zZW1pYm9sZCB0ZXh0LXdoaXRlIG1iLTMgZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTJcIj5cbiAgICAgICAgICAgICAgICAgIDxBbGVydFRyaWFuZ2xlIGNsYXNzTmFtZT1cInctNCBoLTQgdGV4dC1yZWQtNDAwXCIgLz4gVW5tYXBwZWQgQ2xhdXNlcyAoUmlzayBGbGFncylcbiAgICAgICAgICAgICAgICA8L2gzPlxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwic3BhY2UteS0yXCI+XG4gICAgICAgICAgICAgICAgICB7W1xuICAgICAgICAgICAgICAgICAgICAnQWdlZCBDYXJlIFF1YWxpdHkgU3RhbmRhcmQgNyAtIEh1bWFuIFJlc291cmNlcycsXG4gICAgICAgICAgICAgICAgICAgICdORElTIFByYWN0aWNlIFN0YW5kYXJkcyAtIFdvcmtlciBTY3JlZW5pbmcnLFxuICAgICAgICAgICAgICAgICAgICAnT1NIQSAxOTEwLjE0NyAtIExvY2tvdXQvVGFnb3V0JyxcbiAgICAgICAgICAgICAgICAgIF0ubWFwKChjKSA9PiAoXG4gICAgICAgICAgICAgICAgICAgIDxkaXYga2V5PXtjfSBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW4gYmctcmVkLTUwMC81IGJvcmRlciBib3JkZXItcmVkLTUwMC8yMCByb3VuZGVkLWxnIHAtM1wiPlxuICAgICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRleHQtc20gdGV4dC1ncmF5LTMwMFwiPntjfTwvc3Bhbj5cbiAgICAgICAgICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LXhzIHRleHQtcmVkLTQwMFwiPk5vIHBvbGljeSBsaW5rZWQ8L3NwYW4+XG4gICAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgKSl9XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvZGl2PlxuICAgICAgKX1cblxuICAgICAgey8qIE1hcHBpbmdzIExpc3QgKi99XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLXdoaXRlLzUgYmFja2Ryb3AtYmx1ci1sZyByb3VuZGVkLXhsIHAtNiBib3JkZXIgYm9yZGVyLXdoaXRlLzEwXCI+XG4gICAgICAgIDxoMyBjbGFzc05hbWU9XCJ0ZXh0LWxnIGZvbnQtc2VtaWJvbGQgdGV4dC13aGl0ZSBtYi00XCI+UmVjZW50IE1hcHBpbmdzPC9oMz5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJzcGFjZS15LTNcIj5cbiAgICAgICAgICB7bWFwcGluZ3MubGVuZ3RoID4gMCA/IChcbiAgICAgICAgICAgIG1hcHBpbmdzLm1hcCgobWFwcGluZywgaW5kZXgpID0+IChcbiAgICAgICAgICAgICAgPGRpdiBrZXk9e2luZGV4fSBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtNCBwLTMgYmctd2hpdGUvNSByb3VuZGVkLWxnXCI+XG4gICAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwidGV4dC1zbSB0ZXh0LWdyYXktNDAwXCI+e21hcHBpbmcubGVnaXNsYXRpb259PC9zcGFuPlxuICAgICAgICAgICAgICAgIDxMaW5rMiBjbGFzc05hbWU9XCJ3LTQgaC00IHRleHQtdGVhbC01MDBcIiAvPlxuICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRleHQtc20gdGV4dC1ncmF5LTQwMFwiPnttYXBwaW5nLnBvbGljeX08L3NwYW4+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgKSlcbiAgICAgICAgICApIDogKFxuICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC1jZW50ZXIgdGV4dC1ncmF5LTQwMCBweS04XCI+Tm8gbWFwcGluZ3MgY3JlYXRlZCB5ZXQuIFNlbGVjdCBjbGF1c2VzIHRvIGxpbmsuPC9wPlxuICAgICAgICAgICl9XG4gICAgICAgIDwvZGl2PlxuICAgICAgPC9kaXY+XG4gICAgPC9kaXY+XG4gICk7XG59Il0sImZpbGUiOiIvd29ya3NwYWNlcy9kZWZhdWx0L2NvZGUvc3JjL2FwcC9wYWdlcy9wbGF0Zm9ybS1hZG1pbi9TdGFuZGFyZHNNYXBwaW5nLnRzeCJ9

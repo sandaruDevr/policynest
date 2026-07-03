@@ -1,0 +1,1262 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/app/pages/org-admin/SurveyManagement.tsx");import { jsxDEV } from "/@id/__x00__figma:react-jsx-dev-runtime";
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+var _s = $RefreshSig$();
+import { FGCmp } from "/@id/fginspector";
+import { useState } from "/@id/__x00__figma:react-base";
+import {
+  ClipboardList,
+  Plus,
+  Edit,
+  Trash2,
+  Users,
+  BarChart3,
+  CheckCircle,
+  Clock,
+  Send
+} from "/node_modules/.vite/deps/lucide-react.js?v=25293e4c";
+const mockSurveys = [
+  {
+    id: "1",
+    title: "Workplace Safety Feedback",
+    description: "Help us improve our safety standards",
+    status: "active",
+    responses: 45,
+    totalQuestions: 3,
+    createdDate: "2026-03-10",
+    isAnonymous: true
+  },
+  {
+    id: "2",
+    title: "Employee Satisfaction Survey",
+    description: "Share your thoughts about your work environment",
+    status: "active",
+    responses: 32,
+    totalQuestions: 3,
+    createdDate: "2026-03-05",
+    isAnonymous: true
+  },
+  {
+    id: "3",
+    title: "Training Needs Assessment",
+    description: "Identify training opportunities",
+    status: "closed",
+    responses: 67,
+    totalQuestions: 1,
+    createdDate: "2026-02-15",
+    isAnonymous: false
+  },
+  {
+    id: "4",
+    title: "IT System Feedback",
+    description: "Help us improve our technology",
+    status: "draft",
+    responses: 0,
+    totalQuestions: 4,
+    createdDate: "2026-04-01",
+    isAnonymous: true
+  }
+];
+export default function SurveyManagement() {
+  _s();
+  const [surveys, setSurveys] = useState(mockSurveys);
+  const [showCreateModal, setShowCreateModal] = useState(false);
+  const [selectedSurvey, setSelectedSurvey] = useState(null);
+  const [newSurvey, setNewSurvey] = useState({
+    title: "",
+    description: "",
+    isAnonymous: false,
+    totalQuestions: 3
+  });
+  const activeSurveys = surveys.filter((s) => s.status === "active");
+  const draftSurveys = surveys.filter((s) => s.status === "draft");
+  const closedSurveys = surveys.filter((s) => s.status === "closed");
+  const totalResponses = surveys.reduce((acc, s) => acc + s.responses, 0);
+  const getStatusBadge = (status) => {
+    const styles = {
+      draft: "bg-gray-500/20 text-gray-400 border-gray-500/30",
+      active: "bg-green-500/20 text-green-400 border-green-500/30",
+      closed: "bg-red-500/20 text-red-400 border-red-500/30"
+    };
+    return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "dmzt0", _fgB: 1779104381634, className: `px-3 py-1 rounded-lg text-xs font-medium border ${styles[status]}`, "data-fg-dmzt0": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:94:7:2318:159:e:span:x", children: status.charAt(0).toUpperCase() + status.slice(1) }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+      lineNumber: 114,
+      columnNumber: 7
+    }, this);
+  };
+  const handleAction = (action, survey) => {
+    switch (action) {
+      case "view":
+        alert(`👁️ Viewing survey: ${survey.title}`);
+        break;
+      case "edit":
+        alert(`✏️ Editing survey: ${survey.title}`);
+        break;
+      case "delete":
+        if (confirm(`Delete survey "${survey.title}"?`)) {
+          setSurveys(surveys.filter((s) => s.id !== survey.id));
+          alert("🗑️ Survey deleted");
+        }
+        break;
+      case "results":
+        setSelectedSurvey(survey);
+        break;
+      case "publish":
+        alert(`📢 Publishing survey: ${survey.title}`);
+        setSurveys(surveys.map((s) => s.id === survey.id ? { ...s, status: "active" } : s));
+        break;
+      case "close":
+        alert(`🔒 Closing survey: ${survey.title}`);
+        setSurveys(surveys.map((s) => s.id === survey.id ? { ...s, status: "closed" } : s));
+        break;
+    }
+  };
+  return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt2", _fgB: 1779104381634, _fgD: true, className: "space-y-6", "data-fg-dmzt2": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:129:5:3436:18696:e:div:xtetxtetxtetxtxtxtxtxtxtxtxtxtx:1", children: [
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt4", _fgB: 1779104381634, className: "flex items-center justify-between", "data-fg-dmzt4": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:131:7:3491:901:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt5", _fgB: 1779104381634, "data-fg-dmzt5": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:132:9:3551:506:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt6", _fgB: 1779104381634, className: "flex items-center gap-3 mb-2", "data-fg-dmzt6": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:133:11:3567:475:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt7", _fgB: 1779104381634, className: "w-12 h-12 rounded-xl bg-gradient-to-br from-teal-600 to-teal-500 flex items-center justify-center", "data-fg-dmzt7": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:134:13:3626:197:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: ClipboardList, _fgS: "dmzt8", _fgB: 1779104381634, className: "w-6 h-6 text-white", "data-fg-dmzt8": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:135:15:3756:48:e:ClipboardList::::::CPfu" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+          lineNumber: 155,
+          columnNumber: 15
+        }, this) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+          lineNumber: 154,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt9", _fgB: 1779104381634, "data-fg-dmzt9": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:137:13:3836:189:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h1", _fgS: "dmzt10", _fgB: 1779104381634, className: "text-3xl font-bold text-white", "data-fg-dmzt10": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:138:15:3856:68:e:h1:t", children: "Survey Management" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+            lineNumber: 158,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dmzt12", _fgB: 1779104381634, className: "text-gray-400", "data-fg-dmzt12": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:139:15:3939:67:e:p:t", children: "Create and manage employee surveys" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+            lineNumber: 159,
+            columnNumber: 15
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+          lineNumber: 157,
+          columnNumber: 13
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+        lineNumber: 153,
+        columnNumber: 11
+      }, this) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+        lineNumber: 152,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(
+        FGCmp,
+        {
+          _fgT: "button",
+          _fgS: "dmzt14",
+          _fgB: 1779104381634,
+          onClick: () => setShowCreateModal(true),
+          className: "px-6 py-3 bg-gradient-to-r from-teal-600 to-teal-500 text-white rounded-lg hover:shadow-lg transition-all flex items-center gap-2 font-medium",
+          "data-fg-dmzt14": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:143:9:4066:313:e:button:et",
+          children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Plus, _fgS: "dmzt15", _fgB: 1779104381634, className: "w-5 h-5", "data-fg-dmzt15": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:147:11:4309:28:e:Plus::::::ISW" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+              lineNumber: 167,
+              columnNumber: 11
+            }, this),
+            "Create Survey"
+          ]
+        },
+        void 0,
+        true,
+        {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+          lineNumber: 163,
+          columnNumber: 9
+        },
+        this
+      )
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+      lineNumber: 151,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt18", _fgB: 1779104381634, className: "bg-teal-500/10 border border-teal-500/30 rounded-xl p-4 flex items-start gap-3", "data-fg-dmzt18": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:153:7:4432:535:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: ClipboardList, _fgS: "dmzt19", _fgB: 1779104381634, className: "w-5 h-5 text-teal-400 flex-shrink-0 mt-0.5", "data-fg-dmzt19": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:154:9:4537:72:e:ClipboardList::::::CPfu" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+        lineNumber: 174,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt20", _fgB: 1779104381634, className: "flex-1", "data-fg-dmzt20": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:155:9:4618:336:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dmzt21", _fgB: 1779104381634, className: "text-teal-300 text-sm font-medium", "data-fg-dmzt21": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:156:11:4653:82:e:p:t", children: "Full Survey Management Access" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+          lineNumber: 176,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dmzt23", _fgB: 1779104381634, className: "text-gray-400 text-xs mt-1", "data-fg-dmzt23": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:157:11:4746:193:e:p:t", children: "You can create, edit, publish, and manage all surveys. Staff members can only participate and respond to published surveys." }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+          lineNumber: 177,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+        lineNumber: 175,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+      lineNumber: 173,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt26", _fgB: 1779104381634, className: "grid grid-cols-1 md:grid-cols-4 gap-4", "data-fg-dmzt26": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:164:7:4995:1611:e:div:etetete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt27", _fgB: 1779104381634, className: "bg-[#0f2832] border border-[#1a3440] rounded-xl p-6", "data-fg-dmzt27": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:165:9:5059:375:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt28", _fgB: 1779104381634, className: "flex items-center justify-between mb-2", "data-fg-dmzt28": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:166:11:5139:204:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dmzt29", _fgB: 1779104381634, className: "text-gray-400 text-sm", "data-fg-dmzt29": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:167:13:5208:54:e:p:t", children: "Total Surveys" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+            lineNumber: 187,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: ClipboardList, _fgS: "dmzt31", _fgB: 1779104381634, className: "w-5 h-5 text-gray-500", "data-fg-dmzt31": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:168:13:5275:51:e:ClipboardList::::::CPfu" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+            lineNumber: 188,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+          lineNumber: 186,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dmzt32", _fgB: 1779104381634, className: "text-3xl font-bold text-white", "data-fg-dmzt32": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:170:11:5354:65:e:p:x", children: surveys.length }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+          lineNumber: 190,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+        lineNumber: 185,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt34", _fgB: 1779104381634, className: "bg-[#0f2832] border border-[#1a3440] rounded-xl p-6", "data-fg-dmzt34": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:172:9:5443:385:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt35", _fgB: 1779104381634, className: "flex items-center justify-between mb-2", "data-fg-dmzt35": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:173:11:5523:204:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dmzt36", _fgB: 1779104381634, className: "text-gray-400 text-sm", "data-fg-dmzt36": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:174:13:5592:55:e:p:t", children: "Active Surveys" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+            lineNumber: 194,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: CheckCircle, _fgS: "dmzt38", _fgB: 1779104381634, className: "w-5 h-5 text-green-500", "data-fg-dmzt38": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:175:13:5660:50:e:CheckCircle::::::C4Wc" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+            lineNumber: 195,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+          lineNumber: 193,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dmzt39", _fgB: 1779104381634, className: "text-3xl font-bold text-green-400", "data-fg-dmzt39": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:177:11:5738:75:e:p:x", children: activeSurveys.length }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+          lineNumber: 197,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+        lineNumber: 192,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt41", _fgB: 1779104381634, className: "bg-[#0f2832] border border-[#1a3440] rounded-xl p-6", "data-fg-dmzt41": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:179:9:5837:372:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt42", _fgB: 1779104381634, className: "flex items-center justify-between mb-2", "data-fg-dmzt42": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:180:11:5917:198:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dmzt43", _fgB: 1779104381634, className: "text-gray-400 text-sm", "data-fg-dmzt43": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:181:13:5986:56:e:p:t", children: "Total Responses" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+            lineNumber: 201,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Users, _fgS: "dmzt45", _fgB: 1779104381634, className: "w-5 h-5 text-blue-500", "data-fg-dmzt45": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:182:13:6055:43:e:Users::::::DV8M" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+            lineNumber: 202,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+          lineNumber: 200,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dmzt46", _fgB: 1779104381634, className: "text-3xl font-bold text-blue-400", "data-fg-dmzt46": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:184:11:6126:68:e:p:x", children: totalResponses }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+          lineNumber: 204,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+        lineNumber: 199,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt48", _fgB: 1779104381634, className: "bg-[#0f2832] border border-[#1a3440] rounded-xl p-6", "data-fg-dmzt48": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:186:9:6218:375:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt49", _fgB: 1779104381634, className: "flex items-center justify-between mb-2", "data-fg-dmzt49": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:187:11:6298:196:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dmzt50", _fgB: 1779104381634, className: "text-gray-400 text-sm", "data-fg-dmzt50": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:188:13:6367:54:e:p:t", children: "Draft Surveys" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+            lineNumber: 208,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Clock, _fgS: "dmzt52", _fgB: 1779104381634, className: "w-5 h-5 text-gray-500", "data-fg-dmzt52": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:189:13:6434:43:e:Clock::::::EGEm" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+            lineNumber: 209,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+          lineNumber: 207,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dmzt53", _fgB: 1779104381634, className: "text-3xl font-bold text-gray-400", "data-fg-dmzt53": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:191:11:6505:73:e:p:x", children: draftSurveys.length }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+          lineNumber: 211,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+        lineNumber: 206,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+      lineNumber: 184,
+      columnNumber: 7
+    }, this),
+    activeSurveys.length > 0 && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt57", _fgB: 1779104381634, className: "bg-[#0f2832] border border-[#1a3440] rounded-xl p-6", "data-fg-dmzt57": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:197:9:6682:3031:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h2", _fgS: "dmzt58", _fgB: 1779104381634, className: "text-xl font-bold text-white mb-4 flex items-center gap-2", "data-fg-dmzt58": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:198:11:6762:180:e:h2:et", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: CheckCircle, _fgS: "dmzt59", _fgB: 1779104381634, className: "w-5 h-5 text-green-400", "data-fg-dmzt59": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:199:13:6849:50:e:CheckCircle::::::C4Wc" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+          lineNumber: 219,
+          columnNumber: 13
+        }, this),
+        "Active Surveys"
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+        lineNumber: 218,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt61", _fgB: 1779104381634, className: "space-y-3", "data-fg-dmzt61": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:202:11:6953:2745:e:div:x", children: activeSurveys.map(
+        (survey) => /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "div",
+            _fgS: "dmzt63",
+            _fgB: 1779104381634,
+            className: "p-4 bg-[#0B1F2A] rounded-lg border border-[#1a3440] hover:border-teal-500/30 transition-all",
+            "data-fg-dmzt63": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:204:15:7040:2625:e:div:e",
+            children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt64", _fgB: 1779104381634, className: "flex items-start justify-between", "data-fg-dmzt64": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:208:17:7229:2415:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt65", _fgB: 1779104381634, className: "flex-1", "data-fg-dmzt65": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:209:19:7298:1210:e:div:etete", children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt66", _fgB: 1779104381634, className: "flex items-center gap-3 mb-2", "data-fg-dmzt66": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:210:21:7343:460:e:div:etxtx", children: [
+                  /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "dmzt67", _fgB: 1779104381634, className: "text-white font-semibold", "data-fg-dmzt67": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:211:23:7412:60:e:h3:x", children: survey.title }, void 0, false, {
+                    fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                    lineNumber: 231,
+                    columnNumber: 23
+                  }, this),
+                  getStatusBadge(survey.status),
+                  survey.isAnonymous && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "dmzt71", _fgB: 1779104381634, className: "px-2 py-1 rounded text-xs font-medium bg-blue-500/20 text-blue-400", "data-fg-dmzt71": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:214:25:7598:153:e:span:t", children: "ANONYMOUS" }, void 0, false, {
+                    fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                    lineNumber: 234,
+                    columnNumber: 19
+                  }, this)
+                ] }, void 0, true, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                  lineNumber: 230,
+                  columnNumber: 21
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dmzt73", _fgB: 1779104381634, className: "text-sm text-gray-400 mb-3", "data-fg-dmzt73": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:219:21:7824:66:e:p:x", children: survey.description }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                  lineNumber: 239,
+                  columnNumber: 21
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt75", _fgB: 1779104381634, className: "flex items-center gap-4 text-sm text-gray-500", "data-fg-dmzt75": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:220:21:7911:572:e:div:etete", children: [
+                  /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "dmzt76", _fgB: 1779104381634, className: "flex items-center gap-1", "data-fg-dmzt76": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:221:23:7997:179:e:span:etxt", children: [
+                    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Users, _fgS: "dmzt77", _fgB: 1779104381634, className: "w-4 h-4", "data-fg-dmzt77": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:222:25:8064:29:e:Users::::::DV8M" }, void 0, false, {
+                      fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                      lineNumber: 242,
+                      columnNumber: 25
+                    }, this),
+                    survey.responses,
+                    " responses"
+                  ] }, void 0, true, {
+                    fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                    lineNumber: 241,
+                    columnNumber: 23
+                  }, this),
+                  /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "dmzt80", _fgB: 1779104381634, className: "flex items-center gap-1", "data-fg-dmzt80": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:225:23:8199:192:e:span:etxt", children: [
+                    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: ClipboardList, _fgS: "dmzt81", _fgB: 1779104381634, className: "w-4 h-4", "data-fg-dmzt81": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:226:25:8266:37:e:ClipboardList::::::CPfu" }, void 0, false, {
+                      fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                      lineNumber: 246,
+                      columnNumber: 25
+                    }, this),
+                    survey.totalQuestions,
+                    " questions"
+                  ] }, void 0, true, {
+                    fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                    lineNumber: 245,
+                    columnNumber: 23
+                  }, this),
+                  /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "dmzt84", _fgB: 1779104381634, "data-fg-dmzt84": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:229:23:8414:42:e:span:tx", children: [
+                    "Created: ",
+                    survey.createdDate
+                  ] }, void 0, true, {
+                    fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                    lineNumber: 249,
+                    columnNumber: 23
+                  }, this)
+                ] }, void 0, true, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                  lineNumber: 240,
+                  columnNumber: 21
+                }, this)
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                lineNumber: 229,
+                columnNumber: 19
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt87", _fgB: 1779104381634, className: "flex items-center gap-2", "data-fg-dmzt87": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:232:19:8527:1094:e:div:etete", children: [
+                /* @__PURE__ */ jsxDEV(
+                  FGCmp,
+                  {
+                    _fgT: "button",
+                    _fgS: "dmzt88",
+                    _fgB: 1779104381634,
+                    onClick: () => handleAction("results", survey),
+                    className: "px-4 py-2 bg-teal-500/20 border border-teal-500/30 text-teal-400 rounded-lg hover:bg-teal-500/30 transition-all flex items-center gap-2",
+                    "data-fg-dmzt88": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:233:21:8589:385:e:button:et",
+                    children: [
+                      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: BarChart3, _fgS: "dmzt89", _fgB: 1779104381634, className: "w-4 h-4", "data-fg-dmzt89": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:237:23:8881:33:e:BarChart3::::::C2Ja" }, void 0, false, {
+                        fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                        lineNumber: 257,
+                        columnNumber: 23
+                      }, this),
+                      "Results"
+                    ]
+                  },
+                  void 0,
+                  true,
+                  {
+                    fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                    lineNumber: 253,
+                    columnNumber: 21
+                  },
+                  this
+                ),
+                /* @__PURE__ */ jsxDEV(
+                  FGCmp,
+                  {
+                    _fgT: "button",
+                    _fgS: "dmzt91",
+                    _fgB: 1779104381634,
+                    onClick: () => handleAction("edit", survey),
+                    className: "p-2 bg-white/5 rounded-lg hover:bg-white/10 transition-colors",
+                    "data-fg-dmzt91": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:240:21:8995:287:e:button:e",
+                    children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Edit, _fgS: "dmzt92", _fgB: 1779104381634, className: "w-4 h-4 text-gray-400", "data-fg-dmzt92": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:244:23:9210:42:e:Edit::::::C5F4" }, void 0, false, {
+                      fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                      lineNumber: 264,
+                      columnNumber: 23
+                    }, this)
+                  },
+                  void 0,
+                  false,
+                  {
+                    fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                    lineNumber: 260,
+                    columnNumber: 21
+                  },
+                  this
+                ),
+                /* @__PURE__ */ jsxDEV(
+                  FGCmp,
+                  {
+                    _fgT: "button",
+                    _fgS: "dmzt93",
+                    _fgB: 1779104381634,
+                    onClick: () => handleAction("close", survey),
+                    className: "p-2 bg-red-500/20 rounded-lg hover:bg-red-500/30 transition-colors",
+                    "data-fg-dmzt93": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:246:21:9303:293:e:button:e",
+                    children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Clock, _fgS: "dmzt94", _fgB: 1779104381634, className: "w-4 h-4 text-red-400", "data-fg-dmzt94": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:250:23:9524:42:e:Clock::::::EGEm" }, void 0, false, {
+                      fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                      lineNumber: 270,
+                      columnNumber: 23
+                    }, this)
+                  },
+                  void 0,
+                  false,
+                  {
+                    fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                    lineNumber: 266,
+                    columnNumber: 21
+                  },
+                  this
+                )
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                lineNumber: 252,
+                columnNumber: 19
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+              lineNumber: 228,
+              columnNumber: 17
+            }, this)
+          },
+          survey.id,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+            lineNumber: 224,
+            columnNumber: 11
+          },
+          this
+        )
+      ) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+        lineNumber: 222,
+        columnNumber: 11
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+      lineNumber: 217,
+      columnNumber: 7
+    }, this),
+    draftSurveys.length > 0 && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt97", _fgB: 1779104381634, className: "bg-[#0f2832] border border-[#1a3440] rounded-xl p-6", "data-fg-dmzt97": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:262:9:9796:2271:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h2", _fgS: "dmzt98", _fgB: 1779104381634, className: "text-xl font-bold text-white mb-4 flex items-center gap-2", "data-fg-dmzt98": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:263:11:9876:172:e:h2:et", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Clock, _fgS: "dmzt99", _fgB: 1779104381634, className: "w-5 h-5 text-gray-400", "data-fg-dmzt99": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:264:13:9963:43:e:Clock::::::EGEm" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+          lineNumber: 284,
+          columnNumber: 13
+        }, this),
+        "Draft Surveys"
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+        lineNumber: 283,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt101", _fgB: 1779104381634, className: "space-y-3", "data-fg-dmzt101": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:267:11:10059:1993:e:div:x", children: draftSurveys.map(
+        (survey) => /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "div",
+            _fgS: "dmzt103",
+            _fgB: 1779104381634,
+            className: "p-4 bg-[#0B1F2A] rounded-lg border border-[#1a3440] hover:border-teal-500/30 transition-all",
+            "data-fg-dmzt103": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:269:15:10145:1874:e:div:e",
+            children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt104", _fgB: 1779104381634, className: "flex items-start justify-between", "data-fg-dmzt104": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:273:17:10334:1664:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt105", _fgB: 1779104381634, className: "flex-1", "data-fg-dmzt105": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:274:19:10403:458:e:div:etete", children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt106", _fgB: 1779104381634, className: "flex items-center gap-3 mb-2", "data-fg-dmzt106": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:275:21:10448:210:e:div:etx", children: [
+                  /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "dmzt107", _fgB: 1779104381634, className: "text-white font-semibold", "data-fg-dmzt107": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:276:23:10517:60:e:h3:x", children: survey.title }, void 0, false, {
+                    fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                    lineNumber: 296,
+                    columnNumber: 23
+                  }, this),
+                  getStatusBadge(survey.status)
+                ] }, void 0, true, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                  lineNumber: 295,
+                  columnNumber: 21
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dmzt110", _fgB: 1779104381634, className: "text-sm text-gray-400 mb-2", "data-fg-dmzt110": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:279:21:10679:66:e:p:x", children: survey.description }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                  lineNumber: 299,
+                  columnNumber: 21
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dmzt112", _fgB: 1779104381634, className: "text-xs text-gray-500", "data-fg-dmzt112": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:280:21:10766:70:e:p:tx", children: [
+                  "Created: ",
+                  survey.createdDate
+                ] }, void 0, true, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                  lineNumber: 300,
+                  columnNumber: 21
+                }, this)
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                lineNumber: 294,
+                columnNumber: 19
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt115", _fgB: 1779104381634, className: "flex items-center gap-2", "data-fg-dmzt115": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:282:19:10880:1095:e:div:etete", children: [
+                /* @__PURE__ */ jsxDEV(
+                  FGCmp,
+                  {
+                    _fgT: "button",
+                    _fgS: "dmzt116",
+                    _fgB: 1779104381634,
+                    onClick: () => handleAction("publish", survey),
+                    className: "px-4 py-2 bg-green-500/20 border border-green-500/30 text-green-400 rounded-lg hover:bg-green-500/30 transition-all flex items-center gap-2",
+                    "data-fg-dmzt116": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:283:21:10942:384:e:button:et",
+                    children: [
+                      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Send, _fgS: "dmzt117", _fgB: 1779104381634, className: "w-4 h-4", "data-fg-dmzt117": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:287:23:11238:28:e:Send::::::dtm" }, void 0, false, {
+                        fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                        lineNumber: 307,
+                        columnNumber: 23
+                      }, this),
+                      "Publish"
+                    ]
+                  },
+                  void 0,
+                  true,
+                  {
+                    fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                    lineNumber: 303,
+                    columnNumber: 21
+                  },
+                  this
+                ),
+                /* @__PURE__ */ jsxDEV(
+                  FGCmp,
+                  {
+                    _fgT: "button",
+                    _fgS: "dmzt119",
+                    _fgB: 1779104381634,
+                    onClick: () => handleAction("edit", survey),
+                    className: "p-2 bg-white/5 rounded-lg hover:bg-white/10 transition-colors",
+                    "data-fg-dmzt119": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:290:21:11347:287:e:button:e",
+                    children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Edit, _fgS: "dmzt120", _fgB: 1779104381634, className: "w-4 h-4 text-gray-400", "data-fg-dmzt120": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:294:23:11562:42:e:Edit::::::C5F4" }, void 0, false, {
+                      fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                      lineNumber: 314,
+                      columnNumber: 23
+                    }, this)
+                  },
+                  void 0,
+                  false,
+                  {
+                    fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                    lineNumber: 310,
+                    columnNumber: 21
+                  },
+                  this
+                ),
+                /* @__PURE__ */ jsxDEV(
+                  FGCmp,
+                  {
+                    _fgT: "button",
+                    _fgS: "dmzt121",
+                    _fgB: 1779104381634,
+                    onClick: () => handleAction("delete", survey),
+                    className: "p-2 bg-red-500/20 rounded-lg hover:bg-red-500/30 transition-colors",
+                    "data-fg-dmzt121": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:296:21:11655:295:e:button:e",
+                    children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Trash2, _fgS: "dmzt122", _fgB: 1779104381634, className: "w-4 h-4 text-red-400", "data-fg-dmzt122": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:300:23:11877:43:e:Trash2::::::c98" }, void 0, false, {
+                      fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                      lineNumber: 320,
+                      columnNumber: 23
+                    }, this)
+                  },
+                  void 0,
+                  false,
+                  {
+                    fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                    lineNumber: 316,
+                    columnNumber: 21
+                  },
+                  this
+                )
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                lineNumber: 302,
+                columnNumber: 19
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+              lineNumber: 293,
+              columnNumber: 17
+            }, this)
+          },
+          survey.id,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+            lineNumber: 289,
+            columnNumber: 11
+          },
+          this
+        )
+      ) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+        lineNumber: 287,
+        columnNumber: 11
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+      lineNumber: 282,
+      columnNumber: 7
+    }, this),
+    closedSurveys.length > 0 && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt125", _fgB: 1779104381634, className: "bg-[#0f2832] border border-[#1a3440] rounded-xl p-6", "data-fg-dmzt125": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:312:9:12152:1421:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h2", _fgS: "dmzt126", _fgB: 1779104381634, className: "text-xl font-bold text-white mb-4", "data-fg-dmzt126": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:313:11:12232:69:e:h2:t", children: "Closed Surveys" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+        lineNumber: 333,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt128", _fgB: 1779104381634, className: "space-y-3", "data-fg-dmzt128": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:314:11:12312:1246:e:div:x", children: closedSurveys.map(
+        (survey) => /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "div",
+            _fgS: "dmzt130",
+            _fgB: 1779104381634,
+            className: "p-4 bg-[#0B1F2A] rounded-lg border border-[#1a3440]",
+            "data-fg-dmzt130": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:316:15:12399:1126:e:div:e",
+            children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt131", _fgB: 1779104381634, className: "flex items-start justify-between", "data-fg-dmzt131": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:320:17:12548:956:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt132", _fgB: 1779104381634, className: "flex-1", "data-fg-dmzt132": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:321:19:12617:467:e:div:etete", children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt133", _fgB: 1779104381634, className: "flex items-center gap-3 mb-2", "data-fg-dmzt133": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:322:21:12662:210:e:div:etx", children: [
+                  /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "dmzt134", _fgB: 1779104381634, className: "text-white font-semibold", "data-fg-dmzt134": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:323:23:12731:60:e:h3:x", children: survey.title }, void 0, false, {
+                    fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                    lineNumber: 343,
+                    columnNumber: 23
+                  }, this),
+                  getStatusBadge(survey.status)
+                ] }, void 0, true, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                  lineNumber: 342,
+                  columnNumber: 21
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dmzt137", _fgB: 1779104381634, className: "text-sm text-gray-400 mb-2", "data-fg-dmzt137": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:326:21:12893:66:e:p:x", children: survey.description }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                  lineNumber: 346,
+                  columnNumber: 21
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dmzt139", _fgB: 1779104381634, className: "text-xs text-gray-500", "data-fg-dmzt139": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:327:21:12980:79:e:p:xt", children: [
+                  survey.responses,
+                  " responses collected"
+                ] }, void 0, true, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                  lineNumber: 347,
+                  columnNumber: 21
+                }, this)
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                lineNumber: 341,
+                columnNumber: 19
+              }, this),
+              /* @__PURE__ */ jsxDEV(
+                FGCmp,
+                {
+                  _fgT: "button",
+                  _fgS: "dmzt142",
+                  _fgB: 1779104381634,
+                  onClick: () => handleAction("results", survey),
+                  className: "px-4 py-2 bg-teal-500/20 border border-teal-500/30 text-teal-400 rounded-lg hover:bg-teal-500/30 transition-all flex items-center gap-2",
+                  "data-fg-dmzt142": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:329:19:13103:378:e:button:et",
+                  children: [
+                    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: BarChart3, _fgS: "dmzt143", _fgB: 1779104381634, className: "w-4 h-4", "data-fg-dmzt143": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:333:21:13387:33:e:BarChart3::::::C2Ja" }, void 0, false, {
+                      fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                      lineNumber: 353,
+                      columnNumber: 21
+                    }, this),
+                    "View Results"
+                  ]
+                },
+                void 0,
+                true,
+                {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                  lineNumber: 349,
+                  columnNumber: 19
+                },
+                this
+              )
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+              lineNumber: 340,
+              columnNumber: 17
+            }, this)
+          },
+          survey.id,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+            lineNumber: 336,
+            columnNumber: 11
+          },
+          this
+        )
+      ) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+        lineNumber: 334,
+        columnNumber: 11
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+      lineNumber: 332,
+      columnNumber: 7
+    }, this),
+    selectedSurvey && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt147", _fgB: 1779104381634, className: "fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4", "data-fg-dmzt147": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:345:9:13647:3674:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt148", _fgB: 1779104381634, className: "bg-[#0f2832] border border-[#1a3440] rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col", "data-fg-dmzt148": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:346:11:13760:3546:e:div:etete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt149", _fgB: 1779104381634, className: "p-6 border-b border-[#1a3440]", "data-fg-dmzt149": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:347:13:13899:265:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h2", _fgS: "dmzt150", _fgB: 1779104381634, className: "text-2xl font-bold text-white mb-2", "data-fg-dmzt150": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:348:15:13961:94:e:h2:tx", children: [
+          "Survey Results: ",
+          selectedSurvey.title
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+          lineNumber: 368,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dmzt153", _fgB: 1779104381634, className: "text-gray-400", "data-fg-dmzt153": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:349:15:14070:75:e:p:xt", children: [
+          selectedSurvey.responses,
+          " total responses"
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+          lineNumber: 369,
+          columnNumber: 15
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+        lineNumber: 367,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt156", _fgB: 1779104381634, className: "flex-1 overflow-y-auto p-6", "data-fg-dmzt156": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:352:13:14178:2757:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt157", _fgB: 1779104381634, className: "space-y-6", "data-fg-dmzt157": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:353:15:14237:2679:e:div:xtetxte", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt159", _fgB: 1779104381634, className: "bg-[#0B1F2A] rounded-xl p-6 border border-[#1a3440]", "data-fg-dmzt159": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:355:17:14319:935:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "dmzt160", _fgB: 1779104381634, className: "text-lg font-bold text-white mb-4", "data-fg-dmzt160": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:356:19:14407:71:e:h3:t", children: "Response Summary" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+            lineNumber: 376,
+            columnNumber: 19
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt162", _fgB: 1779104381634, className: "grid grid-cols-3 gap-4", "data-fg-dmzt162": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:357:19:14497:734:e:div:etete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt163", _fgB: 1779104381634, "data-fg-dmzt163": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:358:21:14558:214:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dmzt164", _fgB: 1779104381634, className: "text-sm text-gray-400 mb-1", "data-fg-dmzt164": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:359:23:14586:61:e:p:t", children: "Total Responses" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                lineNumber: 379,
+                columnNumber: 23
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dmzt166", _fgB: 1779104381634, className: "text-2xl font-bold text-white", "data-fg-dmzt166": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:360:23:14670:75:e:p:x", children: selectedSurvey.responses }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                lineNumber: 380,
+                columnNumber: 23
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+              lineNumber: 378,
+              columnNumber: 21
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt168", _fgB: 1779104381634, "data-fg-dmzt168": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:362:21:14793:192:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dmzt169", _fgB: 1779104381634, className: "text-sm text-gray-400 mb-1", "data-fg-dmzt169": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:363:23:14821:59:e:p:t", children: "Response Rate" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                lineNumber: 383,
+                columnNumber: 23
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dmzt171", _fgB: 1779104381634, className: "text-2xl font-bold text-teal-400", "data-fg-dmzt171": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:364:23:14903:55:e:p:t", children: "73%" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                lineNumber: 384,
+                columnNumber: 23
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+              lineNumber: 382,
+              columnNumber: 21
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt173", _fgB: 1779104381634, "data-fg-dmzt173": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:366:21:15006:200:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dmzt174", _fgB: 1779104381634, className: "text-sm text-gray-400 mb-1", "data-fg-dmzt174": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:367:23:15034:66:e:p:t", children: "Avg. Completion Time" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                lineNumber: 387,
+                columnNumber: 23
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dmzt176", _fgB: 1779104381634, className: "text-2xl font-bold text-white", "data-fg-dmzt176": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:368:23:15123:56:e:p:t", children: "2.5 min" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                lineNumber: 388,
+                columnNumber: 23
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+              lineNumber: 386,
+              columnNumber: 21
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+            lineNumber: 377,
+            columnNumber: 19
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+          lineNumber: 375,
+          columnNumber: 17
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt179", _fgB: 1779104381634, className: "bg-[#0B1F2A] rounded-xl p-6 border border-[#1a3440]", "data-fg-dmzt179": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:374:17:15309:1586:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h4", _fgS: "dmzt180", _fgB: 1779104381634, className: "text-white font-medium mb-4", "data-fg-dmzt180": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:375:19:15397:65:e:h4:t", children: "Question Results" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+            lineNumber: 395,
+            columnNumber: 19
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt182", _fgB: 1779104381634, className: "space-y-4", "data-fg-dmzt182": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:376:19:15481:1391:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt183", _fgB: 1779104381634, "data-fg-dmzt183": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:377:21:15529:1318:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dmzt184", _fgB: 1779104381634, className: "text-white mb-2", "data-fg-dmzt184": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:378:23:15557:73:e:p:t", children: "1. Do you feel safe in your workplace?" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+              lineNumber: 398,
+              columnNumber: 23
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt186", _fgB: 1779104381634, className: "space-y-2", "data-fg-dmzt186": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:379:23:15653:1167:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt187", _fgB: 1779104381634, className: "flex items-center gap-3", "data-fg-dmzt187": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:380:25:15705:532:e:div:ete", children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt188", _fgB: 1779104381634, className: "flex-1 bg-[#0f2832] rounded-full h-8", "data-fg-dmzt188": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:381:27:15773:351:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt189", _fgB: 1779104381634, className: "bg-green-500 h-full rounded-full flex items-center justify-end pr-3", style: { width: "85%" }, "data-fg-dmzt189": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:382:29:15856:235:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "dmzt190", _fgB: 1779104381634, className: "text-white text-sm font-medium", "data-fg-dmzt190": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:383:31:15997:59:e:span:t", children: "85%" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                  lineNumber: 403,
+                  columnNumber: 31
+                }, this) }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                  lineNumber: 402,
+                  columnNumber: 29
+                }, this) }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                  lineNumber: 401,
+                  columnNumber: 27
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "dmzt192", _fgB: 1779104381634, className: "text-gray-400 text-sm w-12", "data-fg-dmzt192": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:386:27:16151:55:e:span:t", children: "Yes" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                  lineNumber: 406,
+                  columnNumber: 27
+                }, this)
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                lineNumber: 400,
+                columnNumber: 25
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt194", _fgB: 1779104381634, className: "flex items-center gap-3", "data-fg-dmzt194": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:388:25:16262:529:e:div:ete", children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt195", _fgB: 1779104381634, className: "flex-1 bg-[#0f2832] rounded-full h-8", "data-fg-dmzt195": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:389:27:16330:349:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt196", _fgB: 1779104381634, className: "bg-red-500 h-full rounded-full flex items-center justify-end pr-3", style: { width: "15%" }, "data-fg-dmzt196": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:390:29:16413:233:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "dmzt197", _fgB: 1779104381634, className: "text-white text-sm font-medium", "data-fg-dmzt197": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:391:31:16552:59:e:span:t", children: "15%" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                  lineNumber: 411,
+                  columnNumber: 31
+                }, this) }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                  lineNumber: 410,
+                  columnNumber: 29
+                }, this) }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                  lineNumber: 409,
+                  columnNumber: 27
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "dmzt199", _fgB: 1779104381634, className: "text-gray-400 text-sm w-12", "data-fg-dmzt199": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:394:27:16706:54:e:span:t", children: "No" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                  lineNumber: 414,
+                  columnNumber: 27
+                }, this)
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+                lineNumber: 408,
+                columnNumber: 25
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+              lineNumber: 399,
+              columnNumber: 23
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+            lineNumber: 397,
+            columnNumber: 21
+          }, this) }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+            lineNumber: 396,
+            columnNumber: 19
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+          lineNumber: 394,
+          columnNumber: 17
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+        lineNumber: 373,
+        columnNumber: 15
+      }, this) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+        lineNumber: 372,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt201", _fgB: 1779104381634, className: "p-6 border-t border-[#1a3440]", "data-fg-dmzt201": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:403:13:16949:340:e:div:e", children: /* @__PURE__ */ jsxDEV(
+        FGCmp,
+        {
+          _fgT: "button",
+          _fgS: "dmzt202",
+          _fgB: 1779104381634,
+          onClick: () => setSelectedSurvey(null),
+          className: "w-full px-6 py-3 bg-white/5 border border-white/10 text-white rounded-lg hover:bg-white/10 transition-all",
+          "data-fg-dmzt202": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:404:15:17011:259:e:button:t",
+          children: "Close"
+        },
+        void 0,
+        false,
+        {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+          lineNumber: 424,
+          columnNumber: 15
+        },
+        this
+      ) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+        lineNumber: 423,
+        columnNumber: 13
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+      lineNumber: 366,
+      columnNumber: 11
+    }, this) }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+      lineNumber: 365,
+      columnNumber: 7
+    }, this),
+    showCreateModal && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt206", _fgB: 1779104381634, className: "fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4", "data-fg-dmzt206": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:417:9:17402:4710:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt207", _fgB: 1779104381634, className: "bg-[#0f2832] border border-[#1a3440] rounded-2xl w-full max-w-2xl", "data-fg-dmzt207": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:418:11:17515:4582:e:div:etete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt208", _fgB: 1779104381634, className: "p-6 border-b border-[#1a3440]", "data-fg-dmzt208": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:419:13:17611:256:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h2", _fgS: "dmzt209", _fgB: 1779104381634, className: "text-2xl font-bold text-white", "data-fg-dmzt209": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:420:15:17673:68:e:h2:t", children: "Create New Survey" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+          lineNumber: 440,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dmzt211", _fgB: 1779104381634, className: "text-gray-400 text-sm mt-1", "data-fg-dmzt211": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:421:15:17756:92:e:p:t", children: "Design a survey to collect feedback from staff" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+          lineNumber: 441,
+          columnNumber: 15
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+        lineNumber: 439,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt213", _fgB: 1779104381634, className: "p-6 space-y-4", "data-fg-dmzt213": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:423:13:17880:2464:e:div:etetete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt214", _fgB: 1779104381634, "data-fg-dmzt214": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:424:15:17926:567:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "dmzt215", _fgB: 1779104381634, className: "block text-sm font-medium text-gray-400 mb-2", "data-fg-dmzt215": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:425:17:17948:86:e:label:t", children: "Survey Title *" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+            lineNumber: 445,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "input",
+              _fgS: "dmzt217",
+              _fgB: 1779104381634,
+              type: "text",
+              value: newSurvey.title,
+              onChange: (e) => setNewSurvey({ ...newSurvey, title: e.target.value }),
+              placeholder: "e.g., Employee Wellness Survey",
+              className: "w-full px-4 py-3 bg-[#0B1F2A] border border-[#1a3440] rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-teal-500/50",
+              "data-fg-dmzt217": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:426:17:18051:421:e:input"
+            },
+            void 0,
+            false,
+            {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+              lineNumber: 446,
+              columnNumber: 17
+            },
+            this
+          )
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+          lineNumber: 444,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt218", _fgB: 1779104381634, "data-fg-dmzt218": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:434:15:18508:599:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "dmzt219", _fgB: 1779104381634, className: "block text-sm font-medium text-gray-400 mb-2", "data-fg-dmzt219": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:435:17:18530:85:e:label:t", children: "Description *" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+            lineNumber: 455,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "textarea",
+              _fgS: "dmzt221",
+              _fgB: 1779104381634,
+              value: newSurvey.description,
+              onChange: (e) => setNewSurvey({ ...newSurvey, description: e.target.value }),
+              placeholder: "Brief description of the survey purpose",
+              rows: 3,
+              className: "w-full px-4 py-3 bg-[#0B1F2A] border border-[#1a3440] rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-teal-500/50 resize-none",
+              "data-fg-dmzt221": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:436:17:18632:454:e:textarea"
+            },
+            void 0,
+            false,
+            {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+              lineNumber: 456,
+              columnNumber: 17
+            },
+            this
+          )
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+          lineNumber: 454,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt222", _fgB: 1779104381634, "data-fg-dmzt222": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:444:15:19122:576:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "dmzt223", _fgB: 1779104381634, className: "block text-sm font-medium text-gray-400 mb-2", "data-fg-dmzt223": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:445:17:19144:91:e:label:t", children: "Number of Questions" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+            lineNumber: 465,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "input",
+              _fgS: "dmzt225",
+              _fgB: 1779104381634,
+              type: "number",
+              min: "1",
+              max: "20",
+              value: newSurvey.totalQuestions,
+              onChange: (e) => setNewSurvey({ ...newSurvey, totalQuestions: parseInt(e.target.value) || 1 }),
+              className: "w-full px-4 py-3 bg-[#0B1F2A] border border-[#1a3440] rounded-lg text-white focus:outline-none focus:border-teal-500/50",
+              "data-fg-dmzt225": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:446:17:19252:425:e:input"
+            },
+            void 0,
+            false,
+            {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+              lineNumber: 466,
+              columnNumber: 17
+            },
+            this
+          )
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+          lineNumber: 464,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt226", _fgB: 1779104381634, className: "flex items-center gap-3 p-4 bg-[#0B1F2A] rounded-lg border border-[#1a3440]", "data-fg-dmzt226": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:455:15:19713:612:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "input",
+              _fgS: "dmzt227",
+              _fgB: 1779104381634,
+              type: "checkbox",
+              id: "anonymous",
+              checked: newSurvey.isAnonymous,
+              onChange: (e) => setNewSurvey({ ...newSurvey, isAnonymous: e.target.checked }),
+              className: "w-4 h-4 rounded border-gray-600 text-teal-600 focus:ring-teal-500",
+              "data-fg-dmzt227": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:456:17:19823:336:e:input"
+            },
+            void 0,
+            false,
+            {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+              lineNumber: 476,
+              columnNumber: 17
+            },
+            this
+          ),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "dmzt228", _fgB: 1779104381634, htmlFor: "anonymous", className: "text-white text-sm", "data-fg-dmzt228": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:463:17:20176:128:e:label:t", children: "Make this survey anonymous" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+            lineNumber: 483,
+            columnNumber: 17
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+          lineNumber: 475,
+          columnNumber: 15
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+        lineNumber: 443,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dmzt230", _fgB: 1779104381634, className: "p-6 border-t border-[#1a3440] flex gap-3", "data-fg-dmzt230": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:468:13:20357:1723:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "button",
+            _fgS: "dmzt231",
+            _fgB: 1779104381634,
+            onClick: () => {
+              setShowCreateModal(false);
+              setNewSurvey({ title: "", description: "", isAnonymous: false, totalQuestions: 3 });
+            },
+            className: "flex-1 px-6 py-3 bg-white/5 border border-white/10 text-white rounded-lg hover:bg-white/10 transition-all",
+            "data-fg-dmzt231": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:469:15:20430:404:e:button:t",
+            children: "Cancel"
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+            lineNumber: 489,
+            columnNumber: 15
+          },
+          this
+        ),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "button",
+            _fgS: "dmzt233",
+            _fgB: 1779104381634,
+            onClick: () => {
+              if (!newSurvey.title.trim() || !newSurvey.description.trim()) {
+                alert("⚠️ Please fill in all required fields");
+                return;
+              }
+              const survey = {
+                id: Date.now().toString(),
+                title: newSurvey.title,
+                description: newSurvey.description,
+                status: "draft",
+                responses: 0,
+                totalQuestions: newSurvey.totalQuestions,
+                createdDate: (/* @__PURE__ */ new Date()).toISOString().split("T")[0],
+                isAnonymous: newSurvey.isAnonymous
+              };
+              setSurveys([survey, ...surveys]);
+              setShowCreateModal(false);
+              setNewSurvey({ title: "", description: "", isAnonymous: false, totalQuestions: 3 });
+              alert("✅ Survey created successfully!");
+            },
+            className: "flex-1 px-6 py-3 bg-gradient-to-r from-teal-600 to-teal-500 text-white rounded-lg hover:shadow-lg transition-all font-medium",
+            "data-fg-dmzt233": "418.266:425.22135:/src/app/pages/org-admin/SurveyManagement.tsx:478:15:20849:1212:e:button:t",
+            children: "Create Survey"
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+            lineNumber: 498,
+            columnNumber: 15
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+        lineNumber: 488,
+        columnNumber: 13
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+      lineNumber: 438,
+      columnNumber: 11
+    }, this) }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+      lineNumber: 437,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx",
+    lineNumber: 149,
+    columnNumber: 5
+  }, this);
+}
+_s(SurveyManagement, "4jGs4VKS41N9wtdAT+B+VlS9jmw=");
+_c = SurveyManagement;
+var _c;
+$RefreshReg$(_c, "SurveyManagement");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/workspaces/default/code/src/app/pages/org-admin/SurveyManagement.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,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QUlLLGFBQWEsT0FBT0YsZ0JBQWdCLEVBQUUsQ0FBQztBQUNsRmdDLG9CQUFNLGdDQUFnQztBQUFBLFlBQ3hDO0FBQUEsWUFDQSxXQUFVO0FBQUEsWUFDYjtBQUFBLFlBQUM7QUFBQTtBQUFBLFVBdEJBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQSxRQXdCQTtBQUFBLFdBbENGO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUFtQ0E7QUFBQSxTQXJGRjtBQUFBO0FBQUE7QUFBQTtBQUFBLFdBc0ZBLEtBdkZGO0FBQUE7QUFBQTtBQUFBO0FBQUEsV0F3RkE7QUFBQSxPQXhYSjtBQUFBO0FBQUE7QUFBQTtBQUFBLFNBMFhBO0FBRUo7QUFBQTVCLEdBeGJ3QkQsa0JBQWdCO0FBQUE2QyxLQUFoQjdDO0FBQWdCLElBQUE2QztBQUFBQyxhQUFBRCxJQUFBIiwibmFtZXMiOlsidXNlU3RhdGUiLCJDbGlwYm9hcmRMaXN0IiwiUGx1cyIsIkVkaXQiLCJUcmFzaDIiLCJVc2VycyIsIkJhckNoYXJ0MyIsIkNoZWNrQ2lyY2xlIiwiQ2xvY2siLCJTZW5kIiwibW9ja1N1cnZleXMiLCJpZCIsInRpdGxlIiwiZGVzY3JpcHRpb24iLCJzdGF0dXMiLCJyZXNwb25zZXMiLCJ0b3RhbFF1ZXN0aW9ucyIsImNyZWF0ZWREYXRlIiwiaXNBbm9ueW1vdXMiLCJTdXJ2ZXlNYW5hZ2VtZW50IiwiX3MiLCJzdXJ2ZXlzIiwic2V0U3VydmV5cyIsInNob3dDcmVhdGVNb2RhbCIsInNldFNob3dDcmVhdGVNb2RhbCIsInNlbGVjdGVkU3VydmV5Iiwic2V0U2VsZWN0ZWRTdXJ2ZXkiLCJuZXdTdXJ2ZXkiLCJzZXROZXdTdXJ2ZXkiLCJhY3RpdmVTdXJ2ZXlzIiwiZmlsdGVyIiwicyIsImRyYWZ0U3VydmV5cyIsImNsb3NlZFN1cnZleXMiLCJ0b3RhbFJlc3BvbnNlcyIsInJlZHVjZSIsImFjYyIsImdldFN0YXR1c0JhZGdlIiwic3R5bGVzIiwiZHJhZnQiLCJhY3RpdmUiLCJjbG9zZWQiLCJjaGFyQXQiLCJ0b1VwcGVyQ2FzZSIsInNsaWNlIiwiaGFuZGxlQWN0aW9uIiwiYWN0aW9uIiwic3VydmV5IiwiYWxlcnQiLCJjb25maXJtIiwibWFwIiwibGVuZ3RoIiwid2lkdGgiLCJlIiwidGFyZ2V0IiwidmFsdWUiLCJwYXJzZUludCIsImNoZWNrZWQiLCJ0cmltIiwiRGF0ZSIsIm5vdyIsInRvU3RyaW5nIiwidG9JU09TdHJpbmciLCJzcGxpdCIsIl9jIiwiJFJlZnJlc2hSZWckIl0sImlnbm9yZUxpc3QiOltdLCJzb3VyY2VzIjpbIlN1cnZleU1hbmFnZW1lbnQudHN4Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IHVzZVN0YXRlIH0gZnJvbSAncmVhY3QnO1xuaW1wb3J0IHtcbiAgQ2xpcGJvYXJkTGlzdCxcbiAgUGx1cyxcbiAgRXllLFxuICBFZGl0LFxuICBUcmFzaDIsXG4gIFVzZXJzLFxuICBCYXJDaGFydDMsXG4gIENoZWNrQ2lyY2xlLFxuICBDbG9jayxcbiAgU2VuZCxcbn0gZnJvbSAnbHVjaWRlLXJlYWN0JztcblxuaW50ZXJmYWNlIFN1cnZleSB7XG4gIGlkOiBzdHJpbmc7XG4gIHRpdGxlOiBzdHJpbmc7XG4gIGRlc2NyaXB0aW9uOiBzdHJpbmc7XG4gIHN0YXR1czogJ2RyYWZ0JyB8ICdhY3RpdmUnIHwgJ2Nsb3NlZCc7XG4gIHJlc3BvbnNlczogbnVtYmVyO1xuICB0b3RhbFF1ZXN0aW9uczogbnVtYmVyO1xuICBjcmVhdGVkRGF0ZTogc3RyaW5nO1xuICBpc0Fub255bW91czogYm9vbGVhbjtcbn1cblxuY29uc3QgbW9ja1N1cnZleXM6IFN1cnZleVtdID0gW1xuICB7XG4gICAgaWQ6ICcxJyxcbiAgICB0aXRsZTogJ1dvcmtwbGFjZSBTYWZldHkgRmVlZGJhY2snLFxuICAgIGRlc2NyaXB0aW9uOiAnSGVscCB1cyBpbXByb3ZlIG91ciBzYWZldHkgc3RhbmRhcmRzJyxcbiAgICBzdGF0dXM6ICdhY3RpdmUnLFxuICAgIHJlc3BvbnNlczogNDUsXG4gICAgdG90YWxRdWVzdGlvbnM6IDMsXG4gICAgY3JlYXRlZERhdGU6ICcyMDI2LTAzLTEwJyxcbiAgICBpc0Fub255bW91czogdHJ1ZSxcbiAgfSxcbiAge1xuICAgIGlkOiAnMicsXG4gICAgdGl0bGU6ICdFbXBsb3llZSBTYXRpc2ZhY3Rpb24gU3VydmV5JyxcbiAgICBkZXNjcmlwdGlvbjogJ1NoYXJlIHlvdXIgdGhvdWdodHMgYWJvdXQgeW91ciB3b3JrIGVudmlyb25tZW50JyxcbiAgICBzdGF0dXM6ICdhY3RpdmUnLFxuICAgIHJlc3BvbnNlczogMzIsXG4gICAgdG90YWxRdWVzdGlvbnM6IDMsXG4gICAgY3JlYXRlZERhdGU6ICcyMDI2LTAzLTA1JyxcbiAgICBpc0Fub255bW91czogdHJ1ZSxcbiAgfSxcbiAge1xuICAgIGlkOiAnMycsXG4gICAgdGl0bGU6ICdUcmFpbmluZyBOZWVkcyBBc3Nlc3NtZW50JyxcbiAgICBkZXNjcmlwdGlvbjogJ0lkZW50aWZ5IHRyYWluaW5nIG9wcG9ydHVuaXRpZXMnLFxuICAgIHN0YXR1czogJ2Nsb3NlZCcsXG4gICAgcmVzcG9uc2VzOiA2NyxcbiAgICB0b3RhbFF1ZXN0aW9uczogMSxcbiAgICBjcmVhdGVkRGF0ZTogJzIwMjYtMDItMTUnLFxuICAgIGlzQW5vbnltb3VzOiBmYWxzZSxcbiAgfSxcbiAge1xuICAgIGlkOiAnNCcsXG4gICAgdGl0bGU6ICdJVCBTeXN0ZW0gRmVlZGJhY2snLFxuICAgIGRlc2NyaXB0aW9uOiAnSGVscCB1cyBpbXByb3ZlIG91ciB0ZWNobm9sb2d5JyxcbiAgICBzdGF0dXM6ICdkcmFmdCcsXG4gICAgcmVzcG9uc2VzOiAwLFxuICAgIHRvdGFsUXVlc3Rpb25zOiA0LFxuICAgIGNyZWF0ZWREYXRlOiAnMjAyNi0wNC0wMScsXG4gICAgaXNBbm9ueW1vdXM6IHRydWUsXG4gIH0sXG5dO1xuXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBTdXJ2ZXlNYW5hZ2VtZW50KCkge1xuICBjb25zdCBbc3VydmV5cywgc2V0U3VydmV5c10gPSB1c2VTdGF0ZShtb2NrU3VydmV5cyk7XG4gIGNvbnN0IFtzaG93Q3JlYXRlTW9kYWwsIHNldFNob3dDcmVhdGVNb2RhbF0gPSB1c2VTdGF0ZShmYWxzZSk7XG4gIGNvbnN0IFtzZWxlY3RlZFN1cnZleSwgc2V0U2VsZWN0ZWRTdXJ2ZXldID0gdXNlU3RhdGU8U3VydmV5IHwgbnVsbD4obnVsbCk7XG4gIGNvbnN0IFtuZXdTdXJ2ZXksIHNldE5ld1N1cnZleV0gPSB1c2VTdGF0ZSh7XG4gICAgdGl0bGU6ICcnLFxuICAgIGRlc2NyaXB0aW9uOiAnJyxcbiAgICBpc0Fub255bW91czogZmFsc2UsXG4gICAgdG90YWxRdWVzdGlvbnM6IDMsXG4gIH0pO1xuXG4gIGNvbnN0IGFjdGl2ZVN1cnZleXMgPSBzdXJ2ZXlzLmZpbHRlcihzID0+IHMuc3RhdHVzID09PSAnYWN0aXZlJyk7XG4gIGNvbnN0IGRyYWZ0U3VydmV5cyA9IHN1cnZleXMuZmlsdGVyKHMgPT4gcy5zdGF0dXMgPT09ICdkcmFmdCcpO1xuICBjb25zdCBjbG9zZWRTdXJ2ZXlzID0gc3VydmV5cy5maWx0ZXIocyA9PiBzLnN0YXR1cyA9PT0gJ2Nsb3NlZCcpO1xuXG4gIGNvbnN0IHRvdGFsUmVzcG9uc2VzID0gc3VydmV5cy5yZWR1Y2UoKGFjYywgcykgPT4gYWNjICsgcy5yZXNwb25zZXMsIDApO1xuXG4gIGNvbnN0IGdldFN0YXR1c0JhZGdlID0gKHN0YXR1czogU3VydmV5WydzdGF0dXMnXSkgPT4ge1xuICAgIGNvbnN0IHN0eWxlcyA9IHtcbiAgICAgIGRyYWZ0OiAnYmctZ3JheS01MDAvMjAgdGV4dC1ncmF5LTQwMCBib3JkZXItZ3JheS01MDAvMzAnLFxuICAgICAgYWN0aXZlOiAnYmctZ3JlZW4tNTAwLzIwIHRleHQtZ3JlZW4tNDAwIGJvcmRlci1ncmVlbi01MDAvMzAnLFxuICAgICAgY2xvc2VkOiAnYmctcmVkLTUwMC8yMCB0ZXh0LXJlZC00MDAgYm9yZGVyLXJlZC01MDAvMzAnLFxuICAgIH07XG5cbiAgICByZXR1cm4gKFxuICAgICAgPHNwYW4gY2xhc3NOYW1lPXtgcHgtMyBweS0xIHJvdW5kZWQtbGcgdGV4dC14cyBmb250LW1lZGl1bSBib3JkZXIgJHtzdHlsZXNbc3RhdHVzXX1gfT5cbiAgICAgICAge3N0YXR1cy5jaGFyQXQoMCkudG9VcHBlckNhc2UoKSArIHN0YXR1cy5zbGljZSgxKX1cbiAgICAgIDwvc3Bhbj5cbiAgICApO1xuICB9O1xuXG4gIGNvbnN0IGhhbmRsZUFjdGlvbiA9IChhY3Rpb246IHN0cmluZywgc3VydmV5OiBTdXJ2ZXkpID0+IHtcbiAgICBzd2l0Y2ggKGFjdGlvbikge1xuICAgICAgY2FzZSAndmlldyc6XG4gICAgICAgIGFsZXJ0KGDwn5GB77iPIFZpZXdpbmcgc3VydmV5OiAke3N1cnZleS50aXRsZX1gKTtcbiAgICAgICAgYnJlYWs7XG4gICAgICBjYXNlICdlZGl0JzpcbiAgICAgICAgYWxlcnQoYOKcj++4jyBFZGl0aW5nIHN1cnZleTogJHtzdXJ2ZXkudGl0bGV9YCk7XG4gICAgICAgIGJyZWFrO1xuICAgICAgY2FzZSAnZGVsZXRlJzpcbiAgICAgICAgaWYgKGNvbmZpcm0oYERlbGV0ZSBzdXJ2ZXkgXCIke3N1cnZleS50aXRsZX1cIj9gKSkge1xuICAgICAgICAgIHNldFN1cnZleXMoc3VydmV5cy5maWx0ZXIocyA9PiBzLmlkICE9PSBzdXJ2ZXkuaWQpKTtcbiAgICAgICAgICBhbGVydCgn8J+Xke+4jyBTdXJ2ZXkgZGVsZXRlZCcpO1xuICAgICAgICB9XG4gICAgICAgIGJyZWFrO1xuICAgICAgY2FzZSAncmVzdWx0cyc6XG4gICAgICAgIHNldFNlbGVjdGVkU3VydmV5KHN1cnZleSk7XG4gICAgICAgIGJyZWFrO1xuICAgICAgY2FzZSAncHVibGlzaCc6XG4gICAgICAgIGFsZXJ0KGDwn5OiIFB1Ymxpc2hpbmcgc3VydmV5OiAke3N1cnZleS50aXRsZX1gKTtcbiAgICAgICAgc2V0U3VydmV5cyhzdXJ2ZXlzLm1hcChzID0+IHMuaWQgPT09IHN1cnZleS5pZCA/IHsgLi4ucywgc3RhdHVzOiAnYWN0aXZlJyBhcyBjb25zdCB9IDogcykpO1xuICAgICAgICBicmVhaztcbiAgICAgIGNhc2UgJ2Nsb3NlJzpcbiAgICAgICAgYWxlcnQoYPCflJIgQ2xvc2luZyBzdXJ2ZXk6ICR7c3VydmV5LnRpdGxlfWApO1xuICAgICAgICBzZXRTdXJ2ZXlzKHN1cnZleXMubWFwKHMgPT4gcy5pZCA9PT0gc3VydmV5LmlkID8geyAuLi5zLCBzdGF0dXM6ICdjbG9zZWQnIGFzIGNvbnN0IH0gOiBzKSk7XG4gICAgICAgIGJyZWFrO1xuICAgIH1cbiAgfTtcblxuICByZXR1cm4gKFxuICAgIDxkaXYgY2xhc3NOYW1lPVwic3BhY2UteS02XCI+XG4gICAgICB7LyogSGVhZGVyICovfVxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW5cIj5cbiAgICAgICAgPGRpdj5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0zIG1iLTJcIj5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidy0xMiBoLTEyIHJvdW5kZWQteGwgYmctZ3JhZGllbnQtdG8tYnIgZnJvbS10ZWFsLTYwMCB0by10ZWFsLTUwMCBmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlclwiPlxuICAgICAgICAgICAgICA8Q2xpcGJvYXJkTGlzdCBjbGFzc05hbWU9XCJ3LTYgaC02IHRleHQtd2hpdGVcIiAvPlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICA8aDEgY2xhc3NOYW1lPVwidGV4dC0zeGwgZm9udC1ib2xkIHRleHQtd2hpdGVcIj5TdXJ2ZXkgTWFuYWdlbWVudDwvaDE+XG4gICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtZ3JheS00MDBcIj5DcmVhdGUgYW5kIG1hbmFnZSBlbXBsb3llZSBzdXJ2ZXlzPC9wPlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvZGl2PlxuICAgICAgICA8YnV0dG9uXG4gICAgICAgICAgb25DbGljaz17KCkgPT4gc2V0U2hvd0NyZWF0ZU1vZGFsKHRydWUpfVxuICAgICAgICAgIGNsYXNzTmFtZT1cInB4LTYgcHktMyBiZy1ncmFkaWVudC10by1yIGZyb20tdGVhbC02MDAgdG8tdGVhbC01MDAgdGV4dC13aGl0ZSByb3VuZGVkLWxnIGhvdmVyOnNoYWRvdy1sZyB0cmFuc2l0aW9uLWFsbCBmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMiBmb250LW1lZGl1bVwiXG4gICAgICAgID5cbiAgICAgICAgICA8UGx1cyBjbGFzc05hbWU9XCJ3LTUgaC01XCIgLz5cbiAgICAgICAgICBDcmVhdGUgU3VydmV5XG4gICAgICAgIDwvYnV0dG9uPlxuICAgICAgPC9kaXY+XG5cbiAgICAgIHsvKiBBZG1pbiBJbmZvIEJhbm5lciAqL31cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYmctdGVhbC01MDAvMTAgYm9yZGVyIGJvcmRlci10ZWFsLTUwMC8zMCByb3VuZGVkLXhsIHAtNCBmbGV4IGl0ZW1zLXN0YXJ0IGdhcC0zXCI+XG4gICAgICAgIDxDbGlwYm9hcmRMaXN0IGNsYXNzTmFtZT1cInctNSBoLTUgdGV4dC10ZWFsLTQwMCBmbGV4LXNocmluay0wIG10LTAuNVwiIC8+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleC0xXCI+XG4gICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC10ZWFsLTMwMCB0ZXh0LXNtIGZvbnQtbWVkaXVtXCI+RnVsbCBTdXJ2ZXkgTWFuYWdlbWVudCBBY2Nlc3M8L3A+XG4gICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC1ncmF5LTQwMCB0ZXh0LXhzIG10LTFcIj5cbiAgICAgICAgICAgIFlvdSBjYW4gY3JlYXRlLCBlZGl0LCBwdWJsaXNoLCBhbmQgbWFuYWdlIGFsbCBzdXJ2ZXlzLiBTdGFmZiBtZW1iZXJzIGNhbiBvbmx5IHBhcnRpY2lwYXRlIGFuZCByZXNwb25kIHRvIHB1Ymxpc2hlZCBzdXJ2ZXlzLlxuICAgICAgICAgIDwvcD5cbiAgICAgICAgPC9kaXY+XG4gICAgICA8L2Rpdj5cblxuICAgICAgey8qIFN0YXRzICovfVxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJncmlkIGdyaWQtY29scy0xIG1kOmdyaWQtY29scy00IGdhcC00XCI+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYmctWyMwZjI4MzJdIGJvcmRlciBib3JkZXItWyMxYTM0NDBdIHJvdW5kZWQteGwgcC02XCI+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW4gbWItMlwiPlxuICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC1ncmF5LTQwMCB0ZXh0LXNtXCI+VG90YWwgU3VydmV5czwvcD5cbiAgICAgICAgICAgIDxDbGlwYm9hcmRMaXN0IGNsYXNzTmFtZT1cInctNSBoLTUgdGV4dC1ncmF5LTUwMFwiIC8+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC0zeGwgZm9udC1ib2xkIHRleHQtd2hpdGVcIj57c3VydmV5cy5sZW5ndGh9PC9wPlxuICAgICAgICA8L2Rpdj5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJiZy1bIzBmMjgzMl0gYm9yZGVyIGJvcmRlci1bIzFhMzQ0MF0gcm91bmRlZC14bCBwLTZcIj5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlbiBtYi0yXCI+XG4gICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LWdyYXktNDAwIHRleHQtc21cIj5BY3RpdmUgU3VydmV5czwvcD5cbiAgICAgICAgICAgIDxDaGVja0NpcmNsZSBjbGFzc05hbWU9XCJ3LTUgaC01IHRleHQtZ3JlZW4tNTAwXCIgLz5cbiAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LTN4bCBmb250LWJvbGQgdGV4dC1ncmVlbi00MDBcIj57YWN0aXZlU3VydmV5cy5sZW5ndGh9PC9wPlxuICAgICAgICA8L2Rpdj5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJiZy1bIzBmMjgzMl0gYm9yZGVyIGJvcmRlci1bIzFhMzQ0MF0gcm91bmRlZC14bCBwLTZcIj5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlbiBtYi0yXCI+XG4gICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LWdyYXktNDAwIHRleHQtc21cIj5Ub3RhbCBSZXNwb25zZXM8L3A+XG4gICAgICAgICAgICA8VXNlcnMgY2xhc3NOYW1lPVwidy01IGgtNSB0ZXh0LWJsdWUtNTAwXCIgLz5cbiAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LTN4bCBmb250LWJvbGQgdGV4dC1ibHVlLTQwMFwiPnt0b3RhbFJlc3BvbnNlc308L3A+XG4gICAgICAgIDwvZGl2PlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLVsjMGYyODMyXSBib3JkZXIgYm9yZGVyLVsjMWEzNDQwXSByb3VuZGVkLXhsIHAtNlwiPlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuIG1iLTJcIj5cbiAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtZ3JheS00MDAgdGV4dC1zbVwiPkRyYWZ0IFN1cnZleXM8L3A+XG4gICAgICAgICAgICA8Q2xvY2sgY2xhc3NOYW1lPVwidy01IGgtNSB0ZXh0LWdyYXktNTAwXCIgLz5cbiAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LTN4bCBmb250LWJvbGQgdGV4dC1ncmF5LTQwMFwiPntkcmFmdFN1cnZleXMubGVuZ3RofTwvcD5cbiAgICAgICAgPC9kaXY+XG4gICAgICA8L2Rpdj5cblxuICAgICAgey8qIEFjdGl2ZSBTdXJ2ZXlzICovfVxuICAgICAge2FjdGl2ZVN1cnZleXMubGVuZ3RoID4gMCAmJiAoXG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYmctWyMwZjI4MzJdIGJvcmRlciBib3JkZXItWyMxYTM0NDBdIHJvdW5kZWQteGwgcC02XCI+XG4gICAgICAgICAgPGgyIGNsYXNzTmFtZT1cInRleHQteGwgZm9udC1ib2xkIHRleHQtd2hpdGUgbWItNCBmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMlwiPlxuICAgICAgICAgICAgPENoZWNrQ2lyY2xlIGNsYXNzTmFtZT1cInctNSBoLTUgdGV4dC1ncmVlbi00MDBcIiAvPlxuICAgICAgICAgICAgQWN0aXZlIFN1cnZleXNcbiAgICAgICAgICA8L2gyPlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwic3BhY2UteS0zXCI+XG4gICAgICAgICAgICB7YWN0aXZlU3VydmV5cy5tYXAoKHN1cnZleSkgPT4gKFxuICAgICAgICAgICAgICA8ZGl2XG4gICAgICAgICAgICAgICAga2V5PXtzdXJ2ZXkuaWR9XG4gICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwicC00IGJnLVsjMEIxRjJBXSByb3VuZGVkLWxnIGJvcmRlciBib3JkZXItWyMxYTM0NDBdIGhvdmVyOmJvcmRlci10ZWFsLTUwMC8zMCB0cmFuc2l0aW9uLWFsbFwiXG4gICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtc3RhcnQganVzdGlmeS1iZXR3ZWVuXCI+XG4gICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXgtMVwiPlxuICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0zIG1iLTJcIj5cbiAgICAgICAgICAgICAgICAgICAgICA8aDMgY2xhc3NOYW1lPVwidGV4dC13aGl0ZSBmb250LXNlbWlib2xkXCI+e3N1cnZleS50aXRsZX08L2gzPlxuICAgICAgICAgICAgICAgICAgICAgIHtnZXRTdGF0dXNCYWRnZShzdXJ2ZXkuc3RhdHVzKX1cbiAgICAgICAgICAgICAgICAgICAgICB7c3VydmV5LmlzQW5vbnltb3VzICYmIChcbiAgICAgICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInB4LTIgcHktMSByb3VuZGVkIHRleHQteHMgZm9udC1tZWRpdW0gYmctYmx1ZS01MDAvMjAgdGV4dC1ibHVlLTQwMFwiPlxuICAgICAgICAgICAgICAgICAgICAgICAgICBBTk9OWU1PVVNcbiAgICAgICAgICAgICAgICAgICAgICAgIDwvc3Bhbj5cbiAgICAgICAgICAgICAgICAgICAgICApfVxuICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC1zbSB0ZXh0LWdyYXktNDAwIG1iLTNcIj57c3VydmV5LmRlc2NyaXB0aW9ufTwvcD5cbiAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtNCB0ZXh0LXNtIHRleHQtZ3JheS01MDBcIj5cbiAgICAgICAgICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMVwiPlxuICAgICAgICAgICAgICAgICAgICAgICAgPFVzZXJzIGNsYXNzTmFtZT1cInctNCBoLTRcIiAvPlxuICAgICAgICAgICAgICAgICAgICAgICAge3N1cnZleS5yZXNwb25zZXN9IHJlc3BvbnNlc1xuICAgICAgICAgICAgICAgICAgICAgIDwvc3Bhbj5cbiAgICAgICAgICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMVwiPlxuICAgICAgICAgICAgICAgICAgICAgICAgPENsaXBib2FyZExpc3QgY2xhc3NOYW1lPVwidy00IGgtNFwiIC8+XG4gICAgICAgICAgICAgICAgICAgICAgICB7c3VydmV5LnRvdGFsUXVlc3Rpb25zfSBxdWVzdGlvbnNcbiAgICAgICAgICAgICAgICAgICAgICA8L3NwYW4+XG4gICAgICAgICAgICAgICAgICAgICAgPHNwYW4+Q3JlYXRlZDoge3N1cnZleS5jcmVhdGVkRGF0ZX08L3NwYW4+XG4gICAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0yXCI+XG4gICAgICAgICAgICAgICAgICAgIDxidXR0b25cbiAgICAgICAgICAgICAgICAgICAgICBvbkNsaWNrPXsoKSA9PiBoYW5kbGVBY3Rpb24oJ3Jlc3VsdHMnLCBzdXJ2ZXkpfVxuICAgICAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cInB4LTQgcHktMiBiZy10ZWFsLTUwMC8yMCBib3JkZXIgYm9yZGVyLXRlYWwtNTAwLzMwIHRleHQtdGVhbC00MDAgcm91bmRlZC1sZyBob3ZlcjpiZy10ZWFsLTUwMC8zMCB0cmFuc2l0aW9uLWFsbCBmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMlwiXG4gICAgICAgICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICAgICAgICA8QmFyQ2hhcnQzIGNsYXNzTmFtZT1cInctNCBoLTRcIiAvPlxuICAgICAgICAgICAgICAgICAgICAgIFJlc3VsdHNcbiAgICAgICAgICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgICAgICAgICAgIDxidXR0b25cbiAgICAgICAgICAgICAgICAgICAgICBvbkNsaWNrPXsoKSA9PiBoYW5kbGVBY3Rpb24oJ2VkaXQnLCBzdXJ2ZXkpfVxuICAgICAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cInAtMiBiZy13aGl0ZS81IHJvdW5kZWQtbGcgaG92ZXI6Ymctd2hpdGUvMTAgdHJhbnNpdGlvbi1jb2xvcnNcIlxuICAgICAgICAgICAgICAgICAgICA+XG4gICAgICAgICAgICAgICAgICAgICAgPEVkaXQgY2xhc3NOYW1lPVwidy00IGgtNCB0ZXh0LWdyYXktNDAwXCIgLz5cbiAgICAgICAgICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgICAgICAgICAgIDxidXR0b25cbiAgICAgICAgICAgICAgICAgICAgICBvbkNsaWNrPXsoKSA9PiBoYW5kbGVBY3Rpb24oJ2Nsb3NlJywgc3VydmV5KX1cbiAgICAgICAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJwLTIgYmctcmVkLTUwMC8yMCByb3VuZGVkLWxnIGhvdmVyOmJnLXJlZC01MDAvMzAgdHJhbnNpdGlvbi1jb2xvcnNcIlxuICAgICAgICAgICAgICAgICAgICA+XG4gICAgICAgICAgICAgICAgICAgICAgPENsb2NrIGNsYXNzTmFtZT1cInctNCBoLTQgdGV4dC1yZWQtNDAwXCIgLz5cbiAgICAgICAgICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICApKX1cbiAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgPC9kaXY+XG4gICAgICApfVxuXG4gICAgICB7LyogRHJhZnQgU3VydmV5cyAqL31cbiAgICAgIHtkcmFmdFN1cnZleXMubGVuZ3RoID4gMCAmJiAoXG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYmctWyMwZjI4MzJdIGJvcmRlciBib3JkZXItWyMxYTM0NDBdIHJvdW5kZWQteGwgcC02XCI+XG4gICAgICAgICAgPGgyIGNsYXNzTmFtZT1cInRleHQteGwgZm9udC1ib2xkIHRleHQtd2hpdGUgbWItNCBmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMlwiPlxuICAgICAgICAgICAgPENsb2NrIGNsYXNzTmFtZT1cInctNSBoLTUgdGV4dC1ncmF5LTQwMFwiIC8+XG4gICAgICAgICAgICBEcmFmdCBTdXJ2ZXlzXG4gICAgICAgICAgPC9oMj5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInNwYWNlLXktM1wiPlxuICAgICAgICAgICAge2RyYWZ0U3VydmV5cy5tYXAoKHN1cnZleSkgPT4gKFxuICAgICAgICAgICAgICA8ZGl2XG4gICAgICAgICAgICAgICAga2V5PXtzdXJ2ZXkuaWR9XG4gICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwicC00IGJnLVsjMEIxRjJBXSByb3VuZGVkLWxnIGJvcmRlciBib3JkZXItWyMxYTM0NDBdIGhvdmVyOmJvcmRlci10ZWFsLTUwMC8zMCB0cmFuc2l0aW9uLWFsbFwiXG4gICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtc3RhcnQganVzdGlmeS1iZXR3ZWVuXCI+XG4gICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXgtMVwiPlxuICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0zIG1iLTJcIj5cbiAgICAgICAgICAgICAgICAgICAgICA8aDMgY2xhc3NOYW1lPVwidGV4dC13aGl0ZSBmb250LXNlbWlib2xkXCI+e3N1cnZleS50aXRsZX08L2gzPlxuICAgICAgICAgICAgICAgICAgICAgIHtnZXRTdGF0dXNCYWRnZShzdXJ2ZXkuc3RhdHVzKX1cbiAgICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtc20gdGV4dC1ncmF5LTQwMCBtYi0yXCI+e3N1cnZleS5kZXNjcmlwdGlvbn08L3A+XG4gICAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC1ncmF5LTUwMFwiPkNyZWF0ZWQ6IHtzdXJ2ZXkuY3JlYXRlZERhdGV9PC9wPlxuICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0yXCI+XG4gICAgICAgICAgICAgICAgICAgIDxidXR0b25cbiAgICAgICAgICAgICAgICAgICAgICBvbkNsaWNrPXsoKSA9PiBoYW5kbGVBY3Rpb24oJ3B1Ymxpc2gnLCBzdXJ2ZXkpfVxuICAgICAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cInB4LTQgcHktMiBiZy1ncmVlbi01MDAvMjAgYm9yZGVyIGJvcmRlci1ncmVlbi01MDAvMzAgdGV4dC1ncmVlbi00MDAgcm91bmRlZC1sZyBob3ZlcjpiZy1ncmVlbi01MDAvMzAgdHJhbnNpdGlvbi1hbGwgZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTJcIlxuICAgICAgICAgICAgICAgICAgICA+XG4gICAgICAgICAgICAgICAgICAgICAgPFNlbmQgY2xhc3NOYW1lPVwidy00IGgtNFwiIC8+XG4gICAgICAgICAgICAgICAgICAgICAgUHVibGlzaFxuICAgICAgICAgICAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgICAgICAgICAgICAgPGJ1dHRvblxuICAgICAgICAgICAgICAgICAgICAgIG9uQ2xpY2s9eygpID0+IGhhbmRsZUFjdGlvbignZWRpdCcsIHN1cnZleSl9XG4gICAgICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwicC0yIGJnLXdoaXRlLzUgcm91bmRlZC1sZyBob3ZlcjpiZy13aGl0ZS8xMCB0cmFuc2l0aW9uLWNvbG9yc1wiXG4gICAgICAgICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICAgICAgICA8RWRpdCBjbGFzc05hbWU9XCJ3LTQgaC00IHRleHQtZ3JheS00MDBcIiAvPlxuICAgICAgICAgICAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgICAgICAgICAgICAgPGJ1dHRvblxuICAgICAgICAgICAgICAgICAgICAgIG9uQ2xpY2s9eygpID0+IGhhbmRsZUFjdGlvbignZGVsZXRlJywgc3VydmV5KX1cbiAgICAgICAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJwLTIgYmctcmVkLTUwMC8yMCByb3VuZGVkLWxnIGhvdmVyOmJnLXJlZC01MDAvMzAgdHJhbnNpdGlvbi1jb2xvcnNcIlxuICAgICAgICAgICAgICAgICAgICA+XG4gICAgICAgICAgICAgICAgICAgICAgPFRyYXNoMiBjbGFzc05hbWU9XCJ3LTQgaC00IHRleHQtcmVkLTQwMFwiIC8+XG4gICAgICAgICAgICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgKSl9XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvZGl2PlxuICAgICAgKX1cblxuICAgICAgey8qIENsb3NlZCBTdXJ2ZXlzICovfVxuICAgICAge2Nsb3NlZFN1cnZleXMubGVuZ3RoID4gMCAmJiAoXG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYmctWyMwZjI4MzJdIGJvcmRlciBib3JkZXItWyMxYTM0NDBdIHJvdW5kZWQteGwgcC02XCI+XG4gICAgICAgICAgPGgyIGNsYXNzTmFtZT1cInRleHQteGwgZm9udC1ib2xkIHRleHQtd2hpdGUgbWItNFwiPkNsb3NlZCBTdXJ2ZXlzPC9oMj5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInNwYWNlLXktM1wiPlxuICAgICAgICAgICAge2Nsb3NlZFN1cnZleXMubWFwKChzdXJ2ZXkpID0+IChcbiAgICAgICAgICAgICAgPGRpdlxuICAgICAgICAgICAgICAgIGtleT17c3VydmV5LmlkfVxuICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cInAtNCBiZy1bIzBCMUYyQV0gcm91bmRlZC1sZyBib3JkZXIgYm9yZGVyLVsjMWEzNDQwXVwiXG4gICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtc3RhcnQganVzdGlmeS1iZXR3ZWVuXCI+XG4gICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXgtMVwiPlxuICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0zIG1iLTJcIj5cbiAgICAgICAgICAgICAgICAgICAgICA8aDMgY2xhc3NOYW1lPVwidGV4dC13aGl0ZSBmb250LXNlbWlib2xkXCI+e3N1cnZleS50aXRsZX08L2gzPlxuICAgICAgICAgICAgICAgICAgICAgIHtnZXRTdGF0dXNCYWRnZShzdXJ2ZXkuc3RhdHVzKX1cbiAgICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtc20gdGV4dC1ncmF5LTQwMCBtYi0yXCI+e3N1cnZleS5kZXNjcmlwdGlvbn08L3A+XG4gICAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC1ncmF5LTUwMFwiPntzdXJ2ZXkucmVzcG9uc2VzfSByZXNwb25zZXMgY29sbGVjdGVkPC9wPlxuICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICA8YnV0dG9uXG4gICAgICAgICAgICAgICAgICAgIG9uQ2xpY2s9eygpID0+IGhhbmRsZUFjdGlvbigncmVzdWx0cycsIHN1cnZleSl9XG4gICAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cInB4LTQgcHktMiBiZy10ZWFsLTUwMC8yMCBib3JkZXIgYm9yZGVyLXRlYWwtNTAwLzMwIHRleHQtdGVhbC00MDAgcm91bmRlZC1sZyBob3ZlcjpiZy10ZWFsLTUwMC8zMCB0cmFuc2l0aW9uLWFsbCBmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMlwiXG4gICAgICAgICAgICAgICAgICA+XG4gICAgICAgICAgICAgICAgICAgIDxCYXJDaGFydDMgY2xhc3NOYW1lPVwidy00IGgtNFwiIC8+XG4gICAgICAgICAgICAgICAgICAgIFZpZXcgUmVzdWx0c1xuICAgICAgICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgKSl9XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvZGl2PlxuICAgICAgKX1cblxuICAgICAgey8qIFJlc3VsdHMgTW9kYWwgKi99XG4gICAgICB7c2VsZWN0ZWRTdXJ2ZXkgJiYgKFxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZpeGVkIGluc2V0LTAgYmctYmxhY2svODAgYmFja2Ryb3AtYmx1ci1zbSB6LTUwIGZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktY2VudGVyIHAtNFwiPlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYmctWyMwZjI4MzJdIGJvcmRlciBib3JkZXItWyMxYTM0NDBdIHJvdW5kZWQtMnhsIHctZnVsbCBtYXgtdy00eGwgbWF4LWgtWzkwdmhdIG92ZXJmbG93LWhpZGRlbiBmbGV4IGZsZXgtY29sXCI+XG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInAtNiBib3JkZXItYiBib3JkZXItWyMxYTM0NDBdXCI+XG4gICAgICAgICAgICAgIDxoMiBjbGFzc05hbWU9XCJ0ZXh0LTJ4bCBmb250LWJvbGQgdGV4dC13aGl0ZSBtYi0yXCI+U3VydmV5IFJlc3VsdHM6IHtzZWxlY3RlZFN1cnZleS50aXRsZX08L2gyPlxuICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LWdyYXktNDAwXCI+e3NlbGVjdGVkU3VydmV5LnJlc3BvbnNlc30gdG90YWwgcmVzcG9uc2VzPC9wPlxuICAgICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleC0xIG92ZXJmbG93LXktYXV0byBwLTZcIj5cbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJzcGFjZS15LTZcIj5cbiAgICAgICAgICAgICAgICB7LyogUmVzcG9uc2UgUmF0ZSAqL31cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLVsjMEIxRjJBXSByb3VuZGVkLXhsIHAtNiBib3JkZXIgYm9yZGVyLVsjMWEzNDQwXVwiPlxuICAgICAgICAgICAgICAgICAgPGgzIGNsYXNzTmFtZT1cInRleHQtbGcgZm9udC1ib2xkIHRleHQtd2hpdGUgbWItNFwiPlJlc3BvbnNlIFN1bW1hcnk8L2gzPlxuICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJncmlkIGdyaWQtY29scy0zIGdhcC00XCI+XG4gICAgICAgICAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC1zbSB0ZXh0LWdyYXktNDAwIG1iLTFcIj5Ub3RhbCBSZXNwb25zZXM8L3A+XG4gICAgICAgICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC0yeGwgZm9udC1ib2xkIHRleHQtd2hpdGVcIj57c2VsZWN0ZWRTdXJ2ZXkucmVzcG9uc2VzfTwvcD5cbiAgICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC1zbSB0ZXh0LWdyYXktNDAwIG1iLTFcIj5SZXNwb25zZSBSYXRlPC9wPlxuICAgICAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtMnhsIGZvbnQtYm9sZCB0ZXh0LXRlYWwtNDAwXCI+NzMlPC9wPlxuICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LXNtIHRleHQtZ3JheS00MDAgbWItMVwiPkF2Zy4gQ29tcGxldGlvbiBUaW1lPC9wPlxuICAgICAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtMnhsIGZvbnQtYm9sZCB0ZXh0LXdoaXRlXCI+Mi41IG1pbjwvcD5cbiAgICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICA8L2Rpdj5cblxuICAgICAgICAgICAgICAgIHsvKiBNb2NrIFJlc3VsdHMgKi99XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJiZy1bIzBCMUYyQV0gcm91bmRlZC14bCBwLTYgYm9yZGVyIGJvcmRlci1bIzFhMzQ0MF1cIj5cbiAgICAgICAgICAgICAgICAgIDxoNCBjbGFzc05hbWU9XCJ0ZXh0LXdoaXRlIGZvbnQtbWVkaXVtIG1iLTRcIj5RdWVzdGlvbiBSZXN1bHRzPC9oND5cbiAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwic3BhY2UteS00XCI+XG4gICAgICAgICAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC13aGl0ZSBtYi0yXCI+MS4gRG8geW91IGZlZWwgc2FmZSBpbiB5b3VyIHdvcmtwbGFjZT88L3A+XG4gICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJzcGFjZS15LTJcIj5cbiAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTNcIj5cbiAgICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4LTEgYmctWyMwZjI4MzJdIHJvdW5kZWQtZnVsbCBoLThcIj5cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLWdyZWVuLTUwMCBoLWZ1bGwgcm91bmRlZC1mdWxsIGZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktZW5kIHByLTNcIiBzdHlsZT17eyB3aWR0aDogJzg1JScgfX0+XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LXdoaXRlIHRleHQtc20gZm9udC1tZWRpdW1cIj44NSU8L3NwYW4+XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LWdyYXktNDAwIHRleHQtc20gdy0xMlwiPlllczwvc3Bhbj5cbiAgICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtM1wiPlxuICAgICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXgtMSBiZy1bIzBmMjgzMl0gcm91bmRlZC1mdWxsIGgtOFwiPlxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYmctcmVkLTUwMCBoLWZ1bGwgcm91bmRlZC1mdWxsIGZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktZW5kIHByLTNcIiBzdHlsZT17eyB3aWR0aDogJzE1JScgfX0+XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LXdoaXRlIHRleHQtc20gZm9udC1tZWRpdW1cIj4xNSU8L3NwYW4+XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LWdyYXktNDAwIHRleHQtc20gdy0xMlwiPk5vPC9zcGFuPlxuICAgICAgICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicC02IGJvcmRlci10IGJvcmRlci1bIzFhMzQ0MF1cIj5cbiAgICAgICAgICAgICAgPGJ1dHRvblxuICAgICAgICAgICAgICAgIG9uQ2xpY2s9eygpID0+IHNldFNlbGVjdGVkU3VydmV5KG51bGwpfVxuICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cInctZnVsbCBweC02IHB5LTMgYmctd2hpdGUvNSBib3JkZXIgYm9yZGVyLXdoaXRlLzEwIHRleHQtd2hpdGUgcm91bmRlZC1sZyBob3ZlcjpiZy13aGl0ZS8xMCB0cmFuc2l0aW9uLWFsbFwiXG4gICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICBDbG9zZVxuICAgICAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICA8L2Rpdj5cbiAgICAgICl9XG5cbiAgICAgIHsvKiBDcmVhdGUgU3VydmV5IE1vZGFsICovfVxuICAgICAge3Nob3dDcmVhdGVNb2RhbCAmJiAoXG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZml4ZWQgaW5zZXQtMCBiZy1ibGFjay84MCBiYWNrZHJvcC1ibHVyLXNtIHotNTAgZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1jZW50ZXIgcC00XCI+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJiZy1bIzBmMjgzMl0gYm9yZGVyIGJvcmRlci1bIzFhMzQ0MF0gcm91bmRlZC0yeGwgdy1mdWxsIG1heC13LTJ4bFwiPlxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJwLTYgYm9yZGVyLWIgYm9yZGVyLVsjMWEzNDQwXVwiPlxuICAgICAgICAgICAgICA8aDIgY2xhc3NOYW1lPVwidGV4dC0yeGwgZm9udC1ib2xkIHRleHQtd2hpdGVcIj5DcmVhdGUgTmV3IFN1cnZleTwvaDI+XG4gICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtZ3JheS00MDAgdGV4dC1zbSBtdC0xXCI+RGVzaWduIGEgc3VydmV5IHRvIGNvbGxlY3QgZmVlZGJhY2sgZnJvbSBzdGFmZjwvcD5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJwLTYgc3BhY2UteS00XCI+XG4gICAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgICAgPGxhYmVsIGNsYXNzTmFtZT1cImJsb2NrIHRleHQtc20gZm9udC1tZWRpdW0gdGV4dC1ncmF5LTQwMCBtYi0yXCI+U3VydmV5IFRpdGxlICo8L2xhYmVsPlxuICAgICAgICAgICAgICAgIDxpbnB1dFxuICAgICAgICAgICAgICAgICAgdHlwZT1cInRleHRcIlxuICAgICAgICAgICAgICAgICAgdmFsdWU9e25ld1N1cnZleS50aXRsZX1cbiAgICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXsoZSkgPT4gc2V0TmV3U3VydmV5KHsgLi4ubmV3U3VydmV5LCB0aXRsZTogZS50YXJnZXQudmFsdWUgfSl9XG4gICAgICAgICAgICAgICAgICBwbGFjZWhvbGRlcj1cImUuZy4sIEVtcGxveWVlIFdlbGxuZXNzIFN1cnZleVwiXG4gICAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJ3LWZ1bGwgcHgtNCBweS0zIGJnLVsjMEIxRjJBXSBib3JkZXIgYm9yZGVyLVsjMWEzNDQwXSByb3VuZGVkLWxnIHRleHQtd2hpdGUgcGxhY2Vob2xkZXItZ3JheS01MDAgZm9jdXM6b3V0bGluZS1ub25lIGZvY3VzOmJvcmRlci10ZWFsLTUwMC81MFwiXG4gICAgICAgICAgICAgICAgLz5cbiAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgICAgPGxhYmVsIGNsYXNzTmFtZT1cImJsb2NrIHRleHQtc20gZm9udC1tZWRpdW0gdGV4dC1ncmF5LTQwMCBtYi0yXCI+RGVzY3JpcHRpb24gKjwvbGFiZWw+XG4gICAgICAgICAgICAgICAgPHRleHRhcmVhXG4gICAgICAgICAgICAgICAgICB2YWx1ZT17bmV3U3VydmV5LmRlc2NyaXB0aW9ufVxuICAgICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXROZXdTdXJ2ZXkoeyAuLi5uZXdTdXJ2ZXksIGRlc2NyaXB0aW9uOiBlLnRhcmdldC52YWx1ZSB9KX1cbiAgICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPVwiQnJpZWYgZGVzY3JpcHRpb24gb2YgdGhlIHN1cnZleSBwdXJwb3NlXCJcbiAgICAgICAgICAgICAgICAgIHJvd3M9ezN9XG4gICAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJ3LWZ1bGwgcHgtNCBweS0zIGJnLVsjMEIxRjJBXSBib3JkZXIgYm9yZGVyLVsjMWEzNDQwXSByb3VuZGVkLWxnIHRleHQtd2hpdGUgcGxhY2Vob2xkZXItZ3JheS01MDAgZm9jdXM6b3V0bGluZS1ub25lIGZvY3VzOmJvcmRlci10ZWFsLTUwMC81MCByZXNpemUtbm9uZVwiXG4gICAgICAgICAgICAgICAgLz5cbiAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgICAgPGxhYmVsIGNsYXNzTmFtZT1cImJsb2NrIHRleHQtc20gZm9udC1tZWRpdW0gdGV4dC1ncmF5LTQwMCBtYi0yXCI+TnVtYmVyIG9mIFF1ZXN0aW9uczwvbGFiZWw+XG4gICAgICAgICAgICAgICAgPGlucHV0XG4gICAgICAgICAgICAgICAgICB0eXBlPVwibnVtYmVyXCJcbiAgICAgICAgICAgICAgICAgIG1pbj1cIjFcIlxuICAgICAgICAgICAgICAgICAgbWF4PVwiMjBcIlxuICAgICAgICAgICAgICAgICAgdmFsdWU9e25ld1N1cnZleS50b3RhbFF1ZXN0aW9uc31cbiAgICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXsoZSkgPT4gc2V0TmV3U3VydmV5KHsgLi4ubmV3U3VydmV5LCB0b3RhbFF1ZXN0aW9uczogcGFyc2VJbnQoZS50YXJnZXQudmFsdWUpIHx8IDEgfSl9XG4gICAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJ3LWZ1bGwgcHgtNCBweS0zIGJnLVsjMEIxRjJBXSBib3JkZXIgYm9yZGVyLVsjMWEzNDQwXSByb3VuZGVkLWxnIHRleHQtd2hpdGUgZm9jdXM6b3V0bGluZS1ub25lIGZvY3VzOmJvcmRlci10ZWFsLTUwMC81MFwiXG4gICAgICAgICAgICAgICAgLz5cbiAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTMgcC00IGJnLVsjMEIxRjJBXSByb3VuZGVkLWxnIGJvcmRlciBib3JkZXItWyMxYTM0NDBdXCI+XG4gICAgICAgICAgICAgICAgPGlucHV0XG4gICAgICAgICAgICAgICAgICB0eXBlPVwiY2hlY2tib3hcIlxuICAgICAgICAgICAgICAgICAgaWQ9XCJhbm9ueW1vdXNcIlxuICAgICAgICAgICAgICAgICAgY2hlY2tlZD17bmV3U3VydmV5LmlzQW5vbnltb3VzfVxuICAgICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXROZXdTdXJ2ZXkoeyAuLi5uZXdTdXJ2ZXksIGlzQW5vbnltb3VzOiBlLnRhcmdldC5jaGVja2VkIH0pfVxuICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwidy00IGgtNCByb3VuZGVkIGJvcmRlci1ncmF5LTYwMCB0ZXh0LXRlYWwtNjAwIGZvY3VzOnJpbmctdGVhbC01MDBcIlxuICAgICAgICAgICAgICAgIC8+XG4gICAgICAgICAgICAgICAgPGxhYmVsIGh0bWxGb3I9XCJhbm9ueW1vdXNcIiBjbGFzc05hbWU9XCJ0ZXh0LXdoaXRlIHRleHQtc21cIj5cbiAgICAgICAgICAgICAgICAgIE1ha2UgdGhpcyBzdXJ2ZXkgYW5vbnltb3VzXG4gICAgICAgICAgICAgICAgPC9sYWJlbD5cbiAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicC02IGJvcmRlci10IGJvcmRlci1bIzFhMzQ0MF0gZmxleCBnYXAtM1wiPlxuICAgICAgICAgICAgICA8YnV0dG9uXG4gICAgICAgICAgICAgICAgb25DbGljaz17KCkgPT4ge1xuICAgICAgICAgICAgICAgICAgc2V0U2hvd0NyZWF0ZU1vZGFsKGZhbHNlKTtcbiAgICAgICAgICAgICAgICAgIHNldE5ld1N1cnZleSh7IHRpdGxlOiAnJywgZGVzY3JpcHRpb246ICcnLCBpc0Fub255bW91czogZmFsc2UsIHRvdGFsUXVlc3Rpb25zOiAzIH0pO1xuICAgICAgICAgICAgICAgIH19XG4gICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwiZmxleC0xIHB4LTYgcHktMyBiZy13aGl0ZS81IGJvcmRlciBib3JkZXItd2hpdGUvMTAgdGV4dC13aGl0ZSByb3VuZGVkLWxnIGhvdmVyOmJnLXdoaXRlLzEwIHRyYW5zaXRpb24tYWxsXCJcbiAgICAgICAgICAgICAgPlxuICAgICAgICAgICAgICAgIENhbmNlbFxuICAgICAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgICAgICAgPGJ1dHRvblxuICAgICAgICAgICAgICAgIG9uQ2xpY2s9eygpID0+IHtcbiAgICAgICAgICAgICAgICAgIGlmICghbmV3U3VydmV5LnRpdGxlLnRyaW0oKSB8fCAhbmV3U3VydmV5LmRlc2NyaXB0aW9uLnRyaW0oKSkge1xuICAgICAgICAgICAgICAgICAgICBhbGVydCgn4pqg77iPIFBsZWFzZSBmaWxsIGluIGFsbCByZXF1aXJlZCBmaWVsZHMnKTtcbiAgICAgICAgICAgICAgICAgICAgcmV0dXJuO1xuICAgICAgICAgICAgICAgICAgfVxuICAgICAgICAgICAgICAgICAgY29uc3Qgc3VydmV5OiBTdXJ2ZXkgPSB7XG4gICAgICAgICAgICAgICAgICAgIGlkOiBEYXRlLm5vdygpLnRvU3RyaW5nKCksXG4gICAgICAgICAgICAgICAgICAgIHRpdGxlOiBuZXdTdXJ2ZXkudGl0bGUsXG4gICAgICAgICAgICAgICAgICAgIGRlc2NyaXB0aW9uOiBuZXdTdXJ2ZXkuZGVzY3JpcHRpb24sXG4gICAgICAgICAgICAgICAgICAgIHN0YXR1czogJ2RyYWZ0JyxcbiAgICAgICAgICAgICAgICAgICAgcmVzcG9uc2VzOiAwLFxuICAgICAgICAgICAgICAgICAgICB0b3RhbFF1ZXN0aW9uczogbmV3U3VydmV5LnRvdGFsUXVlc3Rpb25zLFxuICAgICAgICAgICAgICAgICAgICBjcmVhdGVkRGF0ZTogbmV3IERhdGUoKS50b0lTT1N0cmluZygpLnNwbGl0KCdUJylbMF0sXG4gICAgICAgICAgICAgICAgICAgIGlzQW5vbnltb3VzOiBuZXdTdXJ2ZXkuaXNBbm9ueW1vdXMsXG4gICAgICAgICAgICAgICAgICB9O1xuICAgICAgICAgICAgICAgICAgc2V0U3VydmV5cyhbc3VydmV5LCAuLi5zdXJ2ZXlzXSk7XG4gICAgICAgICAgICAgICAgICBzZXRTaG93Q3JlYXRlTW9kYWwoZmFsc2UpO1xuICAgICAgICAgICAgICAgICAgc2V0TmV3U3VydmV5KHsgdGl0bGU6ICcnLCBkZXNjcmlwdGlvbjogJycsIGlzQW5vbnltb3VzOiBmYWxzZSwgdG90YWxRdWVzdGlvbnM6IDMgfSk7XG4gICAgICAgICAgICAgICAgICBhbGVydCgn4pyFIFN1cnZleSBjcmVhdGVkIHN1Y2Nlc3NmdWxseSEnKTtcbiAgICAgICAgICAgICAgICB9fVxuICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cImZsZXgtMSBweC02IHB5LTMgYmctZ3JhZGllbnQtdG8tciBmcm9tLXRlYWwtNjAwIHRvLXRlYWwtNTAwIHRleHQtd2hpdGUgcm91bmRlZC1sZyBob3ZlcjpzaGFkb3ctbGcgdHJhbnNpdGlvbi1hbGwgZm9udC1tZWRpdW1cIlxuICAgICAgICAgICAgICA+XG4gICAgICAgICAgICAgICAgQ3JlYXRlIFN1cnZleVxuICAgICAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICA8L2Rpdj5cbiAgICAgICl9XG4gICAgPC9kaXY+XG4gICk7XG59Il0sImZpbGUiOiIvd29ya3NwYWNlcy9kZWZhdWx0L2NvZGUvc3JjL2FwcC9wYWdlcy9vcmctYWRtaW4vU3VydmV5TWFuYWdlbWVudC50c3gifQ==

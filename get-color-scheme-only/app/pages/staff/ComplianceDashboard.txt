@@ -1,0 +1,44 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/app/pages/staff/ComplianceDashboard.tsx");import { jsxDEV } from "/@id/__x00__figma:react-jsx-dev-runtime";
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/workspaces/default/code/src/app/pages/staff/ComplianceDashboard.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+import { FGCmp } from "/@id/fginspector";
+import ComplianceTracker from "/src/app/pages/org-admin/ComplianceTracker.tsx";
+export default function StaffComplianceDashboard() {
+  return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: ComplianceTracker, _fgS: "bhil0", _fgB: 1779104382267, _fgD: true, chartIdPrefix: "staff-", "data-fg-bhil0": "418.291:418.255:/src/app/pages/staff/ComplianceDashboard.tsx:5:10:208:44:e:ComplianceTracker::1::::F01" }, void 0, false, {
+    fileName: "/workspaces/default/code/src/app/pages/staff/ComplianceDashboard.tsx",
+    lineNumber: 25,
+    columnNumber: 10
+  }, this);
+}
+_c = StaffComplianceDashboard;
+var _c;
+$RefreshReg$(_c, "StaffComplianceDashboard");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/workspaces/default/code/src/app/pages/staff/ComplianceDashboard.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/workspaces/default/code/src/app/pages/staff/ComplianceDashboard.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6IkFBSVM7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBSFQsT0FBT0EsdUJBQXVCO0FBRTlCLHdCQUF3QkMsMkJBQTJCO0FBQ2pELFNBQU8sdUJBQUMsZUFBQUQsbUJBQUEsMENBQWlCLE1BQUMsZUFBYyxVQUFRLDZIQUF6QztBQUFBO0FBQUE7QUFBQTtBQUFBLFNBQXlDO0FBQ2xEO0FBQUFFLEtBRndCRDtBQUF3QixJQUFBQztBQUFBQyxhQUFBRCxJQUFBIiwibmFtZXMiOlsiQ29tcGxpYW5jZVRyYWNrZXIiLCJTdGFmZkNvbXBsaWFuY2VEYXNoYm9hcmQiLCJfYyIsIiRSZWZyZXNoUmVnJCJdLCJpZ25vcmVMaXN0IjpbXSwic291cmNlcyI6WyJDb21wbGlhbmNlRGFzaGJvYXJkLnRzeCJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBXcmFwcGVyIGZvciBTdGFmZiAtIHJldXNlcyBPcmcgQWRtaW4gQ29tcGxpYW5jZSBUcmFja2VyIChyZWFkLW9ubHkgZm9yIHN0YWZmKVxuaW1wb3J0IENvbXBsaWFuY2VUcmFja2VyIGZyb20gJy4uL29yZy1hZG1pbi9Db21wbGlhbmNlVHJhY2tlcic7XG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIFN0YWZmQ29tcGxpYW5jZURhc2hib2FyZCgpIHtcbiAgcmV0dXJuIDxDb21wbGlhbmNlVHJhY2tlciBjaGFydElkUHJlZml4PVwic3RhZmYtXCIgLz47XG59Il0sImZpbGUiOiIvd29ya3NwYWNlcy9kZWZhdWx0L2NvZGUvc3JjL2FwcC9wYWdlcy9zdGFmZi9Db21wbGlhbmNlRGFzaGJvYXJkLnRzeCJ9

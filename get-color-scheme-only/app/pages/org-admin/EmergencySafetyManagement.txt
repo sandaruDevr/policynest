@@ -1,0 +1,1069 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/app/pages/org-admin/EmergencySafetyManagement.tsx");import { jsxDEV } from "/@id/__x00__figma:react-jsx-dev-runtime";
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+var _s = $RefreshSig$();
+import { FGCmp } from "/@id/fginspector";
+import { useState } from "/@id/__x00__figma:react-base";
+import {
+  Phone,
+  Plus,
+  Edit,
+  Trash2,
+  Save,
+  MapPin,
+  FileText,
+  Link as LinkIcon
+} from "/node_modules/.vite/deps/lucide-react.js?v=25293e4c";
+const initialContacts = [
+  { id: "1", name: "Emergency Services", role: "Police", phone: "911", type: "police" },
+  { id: "2", name: "City General Hospital", role: "Emergency Room", phone: "555-0100", type: "hospital" },
+  { id: "3", name: "John Anderson", role: "Safety Manager", phone: "555-0123", type: "manager" },
+  { id: "4", name: "Fire Department", role: "Emergency Response", phone: "911", type: "fire" }
+];
+const initialProcedures = [
+  { id: "1", title: "Fire Emergency Procedure", type: "fire", linkedDocumentId: "doc-1" },
+  { id: "2", title: "Medical Emergency Response", type: "medical", linkedDocumentId: "doc-2" },
+  { id: "3", title: "Security Threat Protocol", type: "security", linkedDocumentId: "doc-3" },
+  { id: "4", title: "Natural Disaster Response", type: "natural", linkedDocumentId: "doc-4" }
+];
+export default function EmergencySafetyManagement() {
+  _s();
+  const [contacts, setContacts] = useState(initialContacts);
+  const [procedures, setProcedures] = useState(initialProcedures);
+  const [editingContact, setEditingContact] = useState(null);
+  const [editingProcedure, setEditingProcedure] = useState(null);
+  const [showAddAssemblyPoint, setShowAddAssemblyPoint] = useState(false);
+  const handleSaveContact = () => {
+    if (editingContact) {
+      if (editingContact.id) {
+        setContacts(contacts.map((c) => c.id === editingContact.id ? editingContact : c));
+      } else {
+        setContacts([...contacts, { ...editingContact, id: Date.now().toString() }]);
+      }
+      setEditingContact(null);
+      alert("✅ Contact saved successfully");
+    }
+  };
+  const handleDeleteContact = (id) => {
+    if (confirm("Delete this contact?")) {
+      setContacts(contacts.filter((c) => c.id !== id));
+      alert("🗑️ Contact deleted");
+    }
+  };
+  const handleSaveProcedure = () => {
+    if (editingProcedure) {
+      if (editingProcedure.id) {
+        setProcedures(procedures.map((p) => p.id === editingProcedure.id ? editingProcedure : p));
+      } else {
+        setProcedures([...procedures, { ...editingProcedure, id: Date.now().toString() }]);
+      }
+      setEditingProcedure(null);
+      alert("✅ Procedure saved successfully");
+    }
+  };
+  const handleDeleteProcedure = (id) => {
+    if (confirm("Delete this procedure?")) {
+      setProcedures(procedures.filter((p) => p.id !== id));
+      alert("🗑️ Procedure deleted");
+    }
+  };
+  return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c0", _fgB: 1779104381683, _fgD: true, className: "space-y-6", "data-fg-bi4c0": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:90:5:3034:14551:e:div:xtetxtetxtetxtetxtxtxtxtxtx:1", children: [
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c2", _fgB: 1779104381683, className: "flex items-center justify-between", "data-fg-bi4c2": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:92:7:3089:636:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c3", _fgB: 1779104381683, "data-fg-bi4c3": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:93:9:3149:203:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h1", _fgS: "bi4c4", _fgB: 1779104381683, className: "text-3xl font-bold text-white mb-2", "data-fg-bi4c4": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:94:11:3165:85:e:h1:t", children: "Emergency & Safety Management" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+          lineNumber: 114,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "bi4c6", _fgB: 1779104381683, className: "text-gray-400", "data-fg-bi4c6": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:95:11:3261:76:e:p:t", children: "Configure emergency contacts and procedures" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+          lineNumber: 115,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+        lineNumber: 113,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(
+        FGCmp,
+        {
+          _fgT: "button",
+          _fgS: "bi4c8",
+          _fgB: 1779104381683,
+          onClick: () => setEditingContact({ id: "", name: "", role: "", phone: "", type: "custom" }),
+          className: "px-4 py-2 bg-gradient-to-r from-teal-600 to-teal-500 text-white rounded-lg hover:shadow-lg transition-all flex items-center gap-2",
+          "data-fg-bi4c8": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:97:9:3361:351:e:button:et",
+          children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Plus, _fgS: "bi4c9", _fgB: 1779104381683, className: "w-4 h-4", "data-fg-bi4c9": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:101:11:3644:28:e:Plus::::::ISW" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+              lineNumber: 121,
+              columnNumber: 11
+            }, this),
+            "Add Contact"
+          ]
+        },
+        void 0,
+        true,
+        {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+          lineNumber: 117,
+          columnNumber: 9
+        },
+        this
+      )
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+      lineNumber: 112,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c12", _fgB: 1779104381683, className: "bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-white/10", "data-fg-bi4c12": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:107:7:3774:1725:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h2", _fgS: "bi4c13", _fgB: 1779104381683, className: "text-xl font-bold text-white mb-4", "data-fg-bi4c13": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:108:9:3867:73:e:h2:t", children: "Emergency Contacts" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+        lineNumber: 128,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c15", _fgB: 1779104381683, className: "grid grid-cols-1 md:grid-cols-2 gap-4", "data-fg-bi4c15": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:110:9:3950:1536:e:div:x", children: contacts.map(
+        (contact) => /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "div",
+            _fgS: "bi4c17",
+            _fgB: 1779104381683,
+            className: "p-4 bg-white/5 rounded-lg border border-white/10 hover:border-teal-500/30 hover:bg-white/10 transition-all",
+            "data-fg-bi4c17": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:112:13:4057:1400:e:div:e",
+            children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c18", _fgB: 1779104381683, className: "flex items-start justify-between", "data-fg-bi4c18": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:116:15:4254:1184:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c19", _fgB: 1779104381683, className: "flex-1", "data-fg-bi4c19": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:117:17:4321:429:e:div:etete", children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "bi4c20", _fgB: 1779104381683, className: "text-white font-semibold mb-1", "data-fg-bi4c20": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:118:19:4364:65:e:h3:x", children: contact.name }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+                  lineNumber: 138,
+                  columnNumber: 19
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "bi4c22", _fgB: 1779104381683, className: "text-sm text-gray-400 mb-2", "data-fg-bi4c22": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:119:19:4448:60:e:p:x", children: contact.role }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+                  lineNumber: 139,
+                  columnNumber: 19
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c24", _fgB: 1779104381683, className: "flex items-center gap-2 text-red-400", "data-fg-bi4c24": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:120:19:4527:200:e:div:ete", children: [
+                  /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Phone, _fgS: "bi4c25", _fgB: 1779104381683, className: "w-4 h-4", "data-fg-bi4c25": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:121:21:4602:29:e:Phone::::::DmpI" }, void 0, false, {
+                    fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+                    lineNumber: 141,
+                    columnNumber: 21
+                  }, this),
+                  /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "bi4c26", _fgB: 1779104381683, className: "font-mono", "data-fg-bi4c26": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:122:21:4652:50:e:span:x", children: contact.phone }, void 0, false, {
+                    fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+                    lineNumber: 142,
+                    columnNumber: 21
+                  }, this)
+                ] }, void 0, true, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+                  lineNumber: 140,
+                  columnNumber: 19
+                }, this)
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+                lineNumber: 137,
+                columnNumber: 17
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c28", _fgB: 1779104381683, className: "flex gap-2", "data-fg-bi4c28": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:125:17:4767:650:e:div:ete", children: [
+                /* @__PURE__ */ jsxDEV(
+                  FGCmp,
+                  {
+                    _fgT: "button",
+                    _fgS: "bi4c29",
+                    _fgB: 1779104381683,
+                    onClick: () => setEditingContact(contact),
+                    className: "p-2 bg-white/5 rounded-lg hover:bg-white/10 transition-colors",
+                    "data-fg-bi4c29": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:126:19:4814:275:e:button:e",
+                    children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Edit, _fgS: "bi4c30", _fgB: 1779104381683, className: "w-4 h-4 text-gray-400", "data-fg-bi4c30": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:130:21:5019:42:e:Edit::::::C5F4" }, void 0, false, {
+                      fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+                      lineNumber: 150,
+                      columnNumber: 21
+                    }, this)
+                  },
+                  void 0,
+                  false,
+                  {
+                    fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+                    lineNumber: 146,
+                    columnNumber: 19
+                  },
+                  this
+                ),
+                /* @__PURE__ */ jsxDEV(
+                  FGCmp,
+                  {
+                    _fgT: "button",
+                    _fgS: "bi4c31",
+                    _fgB: 1779104381683,
+                    onClick: () => handleDeleteContact(contact.id),
+                    className: "p-2 bg-red-500/20 rounded-lg hover:bg-red-500/30 transition-colors",
+                    "data-fg-bi4c31": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:132:19:5108:286:e:button:e",
+                    children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Trash2, _fgS: "bi4c32", _fgB: 1779104381683, className: "w-4 h-4 text-red-400", "data-fg-bi4c32": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:136:21:5323:43:e:Trash2::::::c98" }, void 0, false, {
+                      fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+                      lineNumber: 156,
+                      columnNumber: 21
+                    }, this)
+                  },
+                  void 0,
+                  false,
+                  {
+                    fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+                    lineNumber: 152,
+                    columnNumber: 19
+                  },
+                  this
+                )
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+                lineNumber: 145,
+                columnNumber: 17
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+              lineNumber: 136,
+              columnNumber: 15
+            }, this)
+          },
+          contact.id,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+            lineNumber: 132,
+            columnNumber: 11
+          },
+          this
+        )
+      ) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+        lineNumber: 130,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+      lineNumber: 127,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c34", _fgB: 1779104381683, className: "bg-white/5 backdrop-blur-lg border border-white/10 rounded-xl p-6", "data-fg-bi4c34": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:146:7:5550:2216:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c35", _fgB: 1779104381683, className: "flex items-center justify-between mb-4", "data-fg-bi4c35": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:147:9:5642:594:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h2", _fgS: "bi4c36", _fgB: 1779104381683, className: "text-xl font-bold text-white flex items-center gap-2", "data-fg-bi4c36": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:148:11:5709:179:e:h2:et", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: FileText, _fgS: "bi4c37", _fgB: 1779104381683, className: "w-5 h-5 text-orange-400", "data-fg-bi4c37": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:149:13:5791:48:e:FileText::::::B1i5" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+            lineNumber: 169,
+            columnNumber: 13
+          }, this),
+          "Emergency Procedures"
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+          lineNumber: 168,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "button",
+            _fgS: "bi4c39",
+            _fgB: 1779104381683,
+            onClick: () => setEditingProcedure({ id: "", title: "", type: "custom" }),
+            className: "px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-all flex items-center gap-2",
+            "data-fg-bi4c39": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:152:11:5899:322:e:button:et",
+            children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Plus, _fgS: "bi4c40", _fgB: 1779104381683, className: "w-4 h-4", "data-fg-bi4c40": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:156:13:6147:28:e:Plus::::::ISW" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+                lineNumber: 176,
+                columnNumber: 13
+              }, this),
+              "Add Procedure"
+            ]
+          },
+          void 0,
+          true,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+            lineNumber: 172,
+            columnNumber: 11
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+        lineNumber: 167,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c42", _fgB: 1779104381683, className: "grid grid-cols-1 md:grid-cols-2 gap-4", "data-fg-bi4c42": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:161:9:6246:1507:e:div:x", children: procedures.map(
+        (procedure) => /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "div",
+            _fgS: "bi4c44",
+            _fgB: 1779104381683,
+            className: "p-4 bg-white/5 rounded-lg border border-white/10 hover:border-orange-500/30 transition-all",
+            "data-fg-bi4c44": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:163:13:6357:1367:e:div:e",
+            children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c45", _fgB: 1779104381683, className: "flex items-start justify-between", "data-fg-bi4c45": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:167:15:6540:1165:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c46", _fgB: 1779104381683, className: "flex-1", "data-fg-bi4c46": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:168:17:6607:402:e:div:ete", children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "bi4c47", _fgB: 1779104381683, className: "text-white font-semibold mb-2", "data-fg-bi4c47": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:169:19:6650:68:e:h3:x", children: procedure.title }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+                  lineNumber: 189,
+                  columnNumber: 19
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c49", _fgB: 1779104381683, className: "flex items-center gap-2 text-sm text-gray-400", "data-fg-bi4c49": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:170:19:6737:249:e:div:ete", children: [
+                  /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: LinkIcon, _fgS: "bi4c50", _fgB: 1779104381683, className: "w-4 h-4", "data-fg-bi4c50": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:171:21:6821:32:e:LinkIcon::::::Cfpx" }, void 0, false, {
+                    fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+                    lineNumber: 191,
+                    columnNumber: 21
+                  }, this),
+                  /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "bi4c51", _fgB: 1779104381683, "data-fg-bi4c51": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:172:21:6874:87:e:span:x", children: procedure.linkedDocumentId ? "Linked to document" : "No linked document" }, void 0, false, {
+                    fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+                    lineNumber: 192,
+                    columnNumber: 21
+                  }, this)
+                ] }, void 0, true, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+                  lineNumber: 190,
+                  columnNumber: 19
+                }, this)
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+                lineNumber: 188,
+                columnNumber: 17
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c53", _fgB: 1779104381683, className: "flex gap-2", "data-fg-bi4c53": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:175:17:7026:658:e:div:ete", children: [
+                /* @__PURE__ */ jsxDEV(
+                  FGCmp,
+                  {
+                    _fgT: "button",
+                    _fgS: "bi4c54",
+                    _fgB: 1779104381683,
+                    onClick: () => setEditingProcedure(procedure),
+                    className: "p-2 bg-white/5 rounded-lg hover:bg-white/10 transition-colors",
+                    "data-fg-bi4c54": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:176:19:7073:279:e:button:e",
+                    children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Edit, _fgS: "bi4c55", _fgB: 1779104381683, className: "w-4 h-4 text-gray-400", "data-fg-bi4c55": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:180:21:7282:42:e:Edit::::::C5F4" }, void 0, false, {
+                      fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+                      lineNumber: 200,
+                      columnNumber: 21
+                    }, this)
+                  },
+                  void 0,
+                  false,
+                  {
+                    fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+                    lineNumber: 196,
+                    columnNumber: 19
+                  },
+                  this
+                ),
+                /* @__PURE__ */ jsxDEV(
+                  FGCmp,
+                  {
+                    _fgT: "button",
+                    _fgS: "bi4c56",
+                    _fgB: 1779104381683,
+                    onClick: () => handleDeleteProcedure(procedure.id),
+                    className: "p-2 bg-red-500/20 rounded-lg hover:bg-red-500/30 transition-colors",
+                    "data-fg-bi4c56": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:182:19:7371:290:e:button:e",
+                    children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Trash2, _fgS: "bi4c57", _fgB: 1779104381683, className: "w-4 h-4 text-red-400", "data-fg-bi4c57": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:186:21:7590:43:e:Trash2::::::c98" }, void 0, false, {
+                      fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+                      lineNumber: 206,
+                      columnNumber: 21
+                    }, this)
+                  },
+                  void 0,
+                  false,
+                  {
+                    fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+                    lineNumber: 202,
+                    columnNumber: 19
+                  },
+                  this
+                )
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+                lineNumber: 195,
+                columnNumber: 17
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+              lineNumber: 187,
+              columnNumber: 15
+            }, this)
+          },
+          procedure.id,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+            lineNumber: 183,
+            columnNumber: 11
+          },
+          this
+        )
+      ) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+        lineNumber: 181,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+      lineNumber: 166,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c59", _fgB: 1779104381683, className: "bg-white/5 backdrop-blur-lg border border-white/10 rounded-xl p-6", "data-fg-bi4c59": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:196:7:7804:2030:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c60", _fgB: 1779104381683, className: "flex items-center justify-between mb-4", "data-fg-bi4c60": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:197:9:7896:549:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h2", _fgS: "bi4c61", _fgB: 1779104381683, className: "text-xl font-bold text-white flex items-center gap-2", "data-fg-bi4c61": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:198:11:7963:170:e:h2:et", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: MapPin, _fgS: "bi4c62", _fgB: 1779104381683, className: "w-5 h-5 text-blue-400", "data-fg-bi4c62": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:199:13:8045:44:e:MapPin::::::BveZ" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+            lineNumber: 219,
+            columnNumber: 13
+          }, this),
+          "Assembly Points"
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+          lineNumber: 218,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "button",
+            _fgS: "bi4c64",
+            _fgB: 1779104381683,
+            onClick: () => setShowAddAssemblyPoint(true),
+            className: "px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all flex items-center gap-2",
+            "data-fg-bi4c64": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:202:11:8144:286:e:button:et",
+            children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Plus, _fgS: "bi4c65", _fgB: 1779104381683, className: "w-4 h-4", "data-fg-bi4c65": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:206:13:8360:28:e:Plus::::::ISW" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+                lineNumber: 226,
+                columnNumber: 13
+              }, this),
+              "Add Point"
+            ]
+          },
+          void 0,
+          true,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+            lineNumber: 222,
+            columnNumber: 11
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+        lineNumber: 217,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c67", _fgB: 1779104381683, className: "grid grid-cols-1 md:grid-cols-3 gap-4", "data-fg-bi4c67": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:211:9:8455:1366:e:div:etete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c68", _fgB: 1779104381683, className: "p-4 bg-white/5 rounded-lg border border-white/10", "data-fg-bi4c68": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:212:11:8521:424:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c69", _fgB: 1779104381683, className: "flex items-start justify-between mb-2", "data-fg-bi4c69": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:213:13:8600:237:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "bi4c70", _fgB: 1779104381683, className: "text-white font-semibold", "data-fg-bi4c70": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:214:15:8670:59:e:h3:t", children: "Primary Point" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+              lineNumber: 234,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Edit, _fgS: "bi4c72", _fgB: 1779104381683, className: "w-4 h-4 text-gray-400 cursor-pointer hover:text-white", "data-fg-bi4c72": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:215:15:8744:74:e:Edit::::::C5F4" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+              lineNumber: 235,
+              columnNumber: 15
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+            lineNumber: 233,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "bi4c73", _fgB: 1779104381683, className: "text-sm text-gray-400", "data-fg-bi4c73": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:217:13:8850:78:e:p:t", children: "Front parking lot, near main entrance" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+            lineNumber: 237,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+          lineNumber: 232,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c75", _fgB: 1779104381683, className: "p-4 bg-white/5 rounded-lg border border-white/10", "data-fg-bi4c75": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:219:11:8956:418:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c76", _fgB: 1779104381683, className: "flex items-start justify-between mb-2", "data-fg-bi4c76": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:220:13:9035:239:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "bi4c77", _fgB: 1779104381683, className: "text-white font-semibold", "data-fg-bi4c77": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:221:15:9105:61:e:h3:t", children: "Secondary Point" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+              lineNumber: 241,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Edit, _fgS: "bi4c79", _fgB: 1779104381683, className: "w-4 h-4 text-gray-400 cursor-pointer hover:text-white", "data-fg-bi4c79": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:222:15:9181:74:e:Edit::::::C5F4" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+              lineNumber: 242,
+              columnNumber: 15
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+            lineNumber: 240,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "bi4c80", _fgB: 1779104381683, className: "text-sm text-gray-400", "data-fg-bi4c80": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:224:13:9287:70:e:p:t", children: "Rear parking area, south side" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+            lineNumber: 244,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+          lineNumber: 239,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c82", _fgB: 1779104381683, className: "p-4 bg-white/5 rounded-lg border border-white/10", "data-fg-bi4c82": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:226:11:9385:421:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c83", _fgB: 1779104381683, className: "flex items-start justify-between mb-2", "data-fg-bi4c83": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:227:13:9464:238:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "bi4c84", _fgB: 1779104381683, className: "text-white font-semibold", "data-fg-bi4c84": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:228:15:9534:60:e:h3:t", children: "Indoor Shelter" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+              lineNumber: 248,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Edit, _fgS: "bi4c86", _fgB: 1779104381683, className: "w-4 h-4 text-gray-400 cursor-pointer hover:text-white", "data-fg-bi4c86": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:229:15:9609:74:e:Edit::::::C5F4" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+              lineNumber: 249,
+              columnNumber: 15
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+            lineNumber: 247,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "bi4c87", _fgB: 1779104381683, className: "text-sm text-gray-400", "data-fg-bi4c87": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:231:13:9715:74:e:p:t", children: "Basement level, conference room B" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+            lineNumber: 251,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+          lineNumber: 246,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+        lineNumber: 231,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+      lineNumber: 216,
+      columnNumber: 7
+    }, this),
+    editingContact && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c91", _fgB: 1779104381683, className: "fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4", "data-fg-bi4c91": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:238:9:9904:2735:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c92", _fgB: 1779104381683, className: "bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl w-full max-w-md", "data-fg-bi4c92": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:239:11:10017:2607:e:div:etete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c93", _fgB: 1779104381683, className: "p-6 border-b border-[#1a3440]", "data-fg-bi4c93": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:240:13:10126:216:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h2", _fgS: "bi4c94", _fgB: 1779104381683, className: "text-2xl font-bold text-white", "data-fg-bi4c94": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:241:15:10188:135:e:h2:x", children: editingContact.id ? "Edit Contact" : "Add Contact" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+        lineNumber: 261,
+        columnNumber: 15
+      }, this) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+        lineNumber: 260,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c96", _fgB: 1779104381683, className: "p-6 space-y-4", "data-fg-bi4c96": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:246:13:10356:1552:e:div:etete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c97", _fgB: 1779104381683, "data-fg-bi4c97": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:247:15:10402:485:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "bi4c98", _fgB: 1779104381683, className: "block text-sm font-medium text-gray-400 mb-2", "data-fg-bi4c98": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:248:17:10424:76:e:label:t", children: "Name" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+            lineNumber: 268,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "input",
+              _fgS: "bi4c100",
+              _fgB: 1779104381683,
+              type: "text",
+              value: editingContact.name,
+              onChange: (e) => setEditingContact({ ...editingContact, name: e.target.value }),
+              className: "w-full px-4 py-3 bg-[#0B1F2A] border border-[#1a3440] rounded-lg text-white focus:outline-none focus:border-red-500/50",
+              "data-fg-bi4c100": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:249:17:10517:349:e:input"
+            },
+            void 0,
+            false,
+            {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+              lineNumber: 269,
+              columnNumber: 17
+            },
+            this
+          )
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+          lineNumber: 267,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c101", _fgB: 1779104381683, "data-fg-bi4c101": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:256:15:10902:485:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "bi4c102", _fgB: 1779104381683, className: "block text-sm font-medium text-gray-400 mb-2", "data-fg-bi4c102": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:257:17:10924:76:e:label:t", children: "Role" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+            lineNumber: 277,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "input",
+              _fgS: "bi4c104",
+              _fgB: 1779104381683,
+              type: "text",
+              value: editingContact.role,
+              onChange: (e) => setEditingContact({ ...editingContact, role: e.target.value }),
+              className: "w-full px-4 py-3 bg-[#0B1F2A] border border-[#1a3440] rounded-lg text-white focus:outline-none focus:border-red-500/50",
+              "data-fg-bi4c104": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:258:17:11017:349:e:input"
+            },
+            void 0,
+            false,
+            {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+              lineNumber: 278,
+              columnNumber: 17
+            },
+            this
+          )
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+          lineNumber: 276,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c105", _fgB: 1779104381683, "data-fg-bi4c105": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:265:15:11402:487:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "bi4c106", _fgB: 1779104381683, className: "block text-sm font-medium text-gray-400 mb-2", "data-fg-bi4c106": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:266:17:11424:77:e:label:t", children: "Phone" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+            lineNumber: 286,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "input",
+              _fgS: "bi4c108",
+              _fgB: 1779104381683,
+              type: "tel",
+              value: editingContact.phone,
+              onChange: (e) => setEditingContact({ ...editingContact, phone: e.target.value }),
+              className: "w-full px-4 py-3 bg-[#0B1F2A] border border-[#1a3440] rounded-lg text-white focus:outline-none focus:border-red-500/50",
+              "data-fg-bi4c108": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:267:17:11518:350:e:input"
+            },
+            void 0,
+            false,
+            {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+              lineNumber: 287,
+              columnNumber: 17
+            },
+            this
+          )
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+          lineNumber: 285,
+          columnNumber: 15
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+        lineNumber: 266,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c109", _fgB: 1779104381683, className: "p-6 border-t border-[#1a3440] flex gap-3", "data-fg-bi4c109": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:276:13:11922:685:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "button",
+            _fgS: "bi4c110",
+            _fgB: 1779104381683,
+            onClick: () => setEditingContact(null),
+            className: "flex-1 px-6 py-3 bg-white/5 border border-white/10 text-white rounded-lg hover:bg-white/10 transition-all",
+            "data-fg-bi4c110": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:277:15:11995:260:e:button:t",
+            children: "Cancel"
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+            lineNumber: 297,
+            columnNumber: 15
+          },
+          this
+        ),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "button",
+            _fgS: "bi4c112",
+            _fgB: 1779104381683,
+            onClick: handleSaveContact,
+            className: "flex-1 px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-all flex items-center justify-center gap-2 font-medium",
+            "data-fg-bi4c112": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:283:15:12270:318:e:button:et",
+            children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Save, _fgS: "bi4c113", _fgB: 1779104381683, className: "w-4 h-4", "data-fg-bi4c113": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:287:17:12515:28:e:Save::::::cxn" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+                lineNumber: 307,
+                columnNumber: 17
+              }, this),
+              "Save"
+            ]
+          },
+          void 0,
+          true,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+            lineNumber: 303,
+            columnNumber: 15
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+        lineNumber: 296,
+        columnNumber: 13
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+      lineNumber: 259,
+      columnNumber: 11
+    }, this) }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+      lineNumber: 258,
+      columnNumber: 7
+    }, this),
+    editingProcedure && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c117", _fgB: 1779104381683, className: "fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4", "data-fg-bi4c117": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:297:9:12722:2659:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c118", _fgB: 1779104381683, className: "bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl w-full max-w-md", "data-fg-bi4c118": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:298:11:12835:2531:e:div:etete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c119", _fgB: 1779104381683, className: "p-6 border-b border-[#1a3440]", "data-fg-bi4c119": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:299:13:12944:222:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h2", _fgS: "bi4c120", _fgB: 1779104381683, className: "text-2xl font-bold text-white", "data-fg-bi4c120": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:300:15:13006:141:e:h2:x", children: editingProcedure.id ? "Edit Procedure" : "Add Procedure" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+        lineNumber: 320,
+        columnNumber: 15
+      }, this) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+        lineNumber: 319,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c122", _fgB: 1779104381683, className: "p-6 space-y-4", "data-fg-bi4c122": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:305:13:13180:1460:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c123", _fgB: 1779104381683, "data-fg-bi4c123": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:306:15:13226:497:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "bi4c124", _fgB: 1779104381683, className: "block text-sm font-medium text-gray-400 mb-2", "data-fg-bi4c124": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:307:17:13248:77:e:label:t", children: "Title" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+            lineNumber: 327,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "input",
+              _fgS: "bi4c126",
+              _fgB: 1779104381683,
+              type: "text",
+              value: editingProcedure.title,
+              onChange: (e) => setEditingProcedure({ ...editingProcedure, title: e.target.value }),
+              className: "w-full px-4 py-3 bg-[#0B1F2A] border border-[#1a3440] rounded-lg text-white focus:outline-none focus:border-orange-500/50",
+              "data-fg-bi4c126": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:308:17:13342:360:e:input"
+            },
+            void 0,
+            false,
+            {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+              lineNumber: 328,
+              columnNumber: 17
+            },
+            this
+          )
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+          lineNumber: 326,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c127", _fgB: 1779104381683, "data-fg-bi4c127": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:315:15:13738:883:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "bi4c128", _fgB: 1779104381683, className: "block text-sm font-medium text-gray-400 mb-2", "data-fg-bi4c128": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:316:17:13760:88:e:label:t", children: "Link to Document" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+            lineNumber: 336,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "select",
+              _fgS: "bi4c130",
+              _fgB: 1779104381683,
+              value: editingProcedure.linkedDocumentId || "",
+              onChange: (e) => setEditingProcedure({ ...editingProcedure, linkedDocumentId: e.target.value }),
+              className: "w-full px-4 py-3 bg-[#0B1F2A] border border-[#1a3440] rounded-lg text-white focus:outline-none focus:border-orange-500/50",
+              "data-fg-bi4c130": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:317:17:13865:735:e:select:etetetete",
+              children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "bi4c131", _fgB: 1779104381683, value: "", "data-fg-bi4c131": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:322:19:14242:46:e:option:t", children: "Select a document..." }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+                  lineNumber: 342,
+                  columnNumber: 19
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "bi4c133", _fgB: 1779104381683, value: "doc-1", "data-fg-bi4c133": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:323:19:14307:51:e:option:t", children: "Fire Safety Protocol" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+                  lineNumber: 343,
+                  columnNumber: 19
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "bi4c135", _fgB: 1779104381683, value: "doc-2", "data-fg-bi4c135": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:324:19:14377:57:e:option:t", children: "Medical Emergency Response" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+                  lineNumber: 344,
+                  columnNumber: 19
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "bi4c137", _fgB: 1779104381683, value: "doc-3", "data-fg-bi4c137": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:325:19:14453:50:e:option:t", children: "Security Guidelines" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+                  lineNumber: 345,
+                  columnNumber: 19
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "bi4c139", _fgB: 1779104381683, value: "doc-4", "data-fg-bi4c139": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:326:19:14522:52:e:option:t", children: "Natural Disaster Plan" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+                  lineNumber: 346,
+                  columnNumber: 19
+                }, this)
+              ]
+            },
+            void 0,
+            true,
+            {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+              lineNumber: 337,
+              columnNumber: 17
+            },
+            this
+          )
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+          lineNumber: 335,
+          columnNumber: 15
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+        lineNumber: 325,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c141", _fgB: 1779104381683, className: "p-6 border-t border-[#1a3440] flex gap-3", "data-fg-bi4c141": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:331:13:14654:695:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "button",
+            _fgS: "bi4c142",
+            _fgB: 1779104381683,
+            onClick: () => setEditingProcedure(null),
+            className: "flex-1 px-6 py-3 bg-white/5 border border-white/10 text-white rounded-lg hover:bg-white/10 transition-all",
+            "data-fg-bi4c142": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:332:15:14727:262:e:button:t",
+            children: "Cancel"
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+            lineNumber: 352,
+            columnNumber: 15
+          },
+          this
+        ),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "button",
+            _fgS: "bi4c144",
+            _fgB: 1779104381683,
+            onClick: handleSaveProcedure,
+            className: "flex-1 px-6 py-3 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-all flex items-center justify-center gap-2 font-medium",
+            "data-fg-bi4c144": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:338:15:15004:326:e:button:et",
+            children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Save, _fgS: "bi4c145", _fgB: 1779104381683, className: "w-4 h-4", "data-fg-bi4c145": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:342:17:15257:28:e:Save::::::cxn" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+                lineNumber: 362,
+                columnNumber: 17
+              }, this),
+              "Save"
+            ]
+          },
+          void 0,
+          true,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+            lineNumber: 358,
+            columnNumber: 15
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+        lineNumber: 351,
+        columnNumber: 13
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+      lineNumber: 318,
+      columnNumber: 11
+    }, this) }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+      lineNumber: 317,
+      columnNumber: 7
+    }, this),
+    showAddAssemblyPoint && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c149", _fgB: 1779104381683, className: "fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4", "data-fg-bi4c149": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:352:9:15472:2093:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c150", _fgB: 1779104381683, className: "bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl w-full max-w-md", "data-fg-bi4c150": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:353:11:15585:1965:e:div:etete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c151", _fgB: 1779104381683, className: "p-6 border-b border-[#1a3440]", "data-fg-bi4c151": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:354:13:15694:150:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h2", _fgS: "bi4c152", _fgB: 1779104381683, className: "text-2xl font-bold text-white", "data-fg-bi4c152": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:355:15:15756:69:e:h2:t", children: "Add Assembly Point" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+        lineNumber: 375,
+        columnNumber: 15
+      }, this) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+        lineNumber: 374,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c154", _fgB: 1779104381683, className: "p-6 space-y-4", "data-fg-bi4c154": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:358:13:15858:948:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c155", _fgB: 1779104381683, "data-fg-bi4c155": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:359:15:15904:432:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "bi4c156", _fgB: 1779104381683, className: "block text-sm font-medium text-gray-400 mb-2", "data-fg-bi4c156": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:360:17:15926:76:e:label:t", children: "Name" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+            lineNumber: 380,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "input",
+              _fgS: "bi4c158",
+              _fgB: 1779104381683,
+              type: "text",
+              value: "",
+              onChange: (e) => console.log(e.target.value),
+              className: "w-full px-4 py-3 bg-[#0B1F2A] border border-[#1a3440] rounded-lg text-white focus:outline-none focus:border-blue-500/50",
+              "data-fg-bi4c158": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:361:17:16019:296:e:input"
+            },
+            void 0,
+            false,
+            {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+              lineNumber: 381,
+              columnNumber: 17
+            },
+            this
+          )
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+          lineNumber: 379,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c159", _fgB: 1779104381683, "data-fg-bi4c159": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:368:15:16351:436:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "bi4c160", _fgB: 1779104381683, className: "block text-sm font-medium text-gray-400 mb-2", "data-fg-bi4c160": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:369:17:16373:80:e:label:t", children: "Location" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+            lineNumber: 389,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "input",
+              _fgS: "bi4c162",
+              _fgB: 1779104381683,
+              type: "text",
+              value: "",
+              onChange: (e) => console.log(e.target.value),
+              className: "w-full px-4 py-3 bg-[#0B1F2A] border border-[#1a3440] rounded-lg text-white focus:outline-none focus:border-blue-500/50",
+              "data-fg-bi4c162": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:370:17:16470:296:e:input"
+            },
+            void 0,
+            false,
+            {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+              lineNumber: 390,
+              columnNumber: 17
+            },
+            this
+          )
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+          lineNumber: 388,
+          columnNumber: 15
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+        lineNumber: 378,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bi4c163", _fgB: 1779104381683, className: "p-6 border-t border-[#1a3440] flex gap-3", "data-fg-bi4c163": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:379:13:16820:713:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "button",
+            _fgS: "bi4c164",
+            _fgB: 1779104381683,
+            onClick: () => setShowAddAssemblyPoint(false),
+            className: "flex-1 px-6 py-3 bg-white/5 border border-white/10 text-white rounded-lg hover:bg-white/10 transition-all",
+            "data-fg-bi4c164": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:380:15:16893:267:e:button:t",
+            children: "Cancel"
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+            lineNumber: 400,
+            columnNumber: 15
+          },
+          this
+        ),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "button",
+            _fgS: "bi4c166",
+            _fgB: 1779104381683,
+            onClick: () => setShowAddAssemblyPoint(false),
+            className: "flex-1 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all flex items-center justify-center gap-2 font-medium",
+            "data-fg-bi4c166": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:386:15:17175:339:e:button:et",
+            children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Save, _fgS: "bi4c167", _fgB: 1779104381683, className: "w-4 h-4", "data-fg-bi4c167": "418.255:765.1297:/src/app/pages/org-admin/EmergencySafetyManagement.tsx:390:17:17441:28:e:Save::::::cxn" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+                lineNumber: 410,
+                columnNumber: 17
+              }, this),
+              "Save"
+            ]
+          },
+          void 0,
+          true,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+            lineNumber: 406,
+            columnNumber: 15
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+        lineNumber: 399,
+        columnNumber: 13
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+      lineNumber: 373,
+      columnNumber: 11
+    }, this) }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+      lineNumber: 372,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx",
+    lineNumber: 110,
+    columnNumber: 5
+  }, this);
+}
+_s(EmergencySafetyManagement, "MAxGCaL2R7aMsZtCPgvPioExMpY=");
+_c = EmergencySafetyManagement;
+var _c;
+$RefreshReg$(_c, "EmergencySafetyManagement");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/workspaces/default/code/src/app/pages/org-admin/EmergencySafetyManagement.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,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QUE7QUFBQSxZQUxDO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQSxVQUtEO0FBQUEsYUFQRDtBQUFBO0FBQUE7QUFBQTtBQUFBLGVBUUE7QUFBQSxXQWxCRjtBQUFBO0FBQUE7QUFBQTtBQUFBLGFBbUJBO0FBQUEsTUFFQSx1QkFBQyw0REFBSSxXQUFVLDRDQUF5Qyx5SEFDdEQ7QUFBQTtBQUFBLFVBQUM7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLFlBQ0MsU0FBUyxNQUFNbEIsd0JBQXdCLEtBQUs7QUFBQSxZQUM1QyxXQUFVO0FBQUEsWUFDYjtBQUFBLFlBQUM7QUFBQTtBQUFBLFVBSEE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLFFBS0E7QUFBQSxRQUNBO0FBQUEsVUFBQztBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUEsWUFDQyxTQUFTLE1BQU1BLHdCQUF3QixLQUFLO0FBQUEsWUFDNUMsV0FBVTtBQUFBLFlBQ2I7QUFBQSxZQUNHO0FBQUEscUNBQUMsZUFBQXpCLE1BQUEsc0NBQUssV0FBVSxXQUFTLGdJQUF6QjtBQUFBO0FBQUE7QUFBQTtBQUFBLHFCQUF5QjtBQUFBO0FBQUE7QUFBQTtBQUFBLFVBSjNCO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQSxRQU1BO0FBQUEsV0FiRjtBQUFBO0FBQUE7QUFBQTtBQUFBLGFBY0E7QUFBQSxTQXhDRjtBQUFBO0FBQUE7QUFBQTtBQUFBLFdBeUNBLEtBMUNGO0FBQUE7QUFBQTtBQUFBO0FBQUEsV0EyQ0E7QUFBQSxPQWpUSjtBQUFBO0FBQUE7QUFBQTtBQUFBLFNBbVRBO0FBRUo7QUFBQWUsR0FuV3dCRCwyQkFBeUI7QUFBQWdDLEtBQXpCaEM7QUFBeUIsSUFBQWdDO0FBQUFDLGFBQUFELElBQUEiLCJuYW1lcyI6WyJ1c2VTdGF0ZSIsIlBob25lIiwiUGx1cyIsIkVkaXQiLCJUcmFzaDIiLCJTYXZlIiwiTWFwUGluIiwiRmlsZVRleHQiLCJMaW5rIiwiTGlua0ljb24iLCJpbml0aWFsQ29udGFjdHMiLCJpZCIsIm5hbWUiLCJyb2xlIiwicGhvbmUiLCJ0eXBlIiwiaW5pdGlhbFByb2NlZHVyZXMiLCJ0aXRsZSIsImxpbmtlZERvY3VtZW50SWQiLCJFbWVyZ2VuY3lTYWZldHlNYW5hZ2VtZW50IiwiX3MiLCJjb250YWN0cyIsInNldENvbnRhY3RzIiwicHJvY2VkdXJlcyIsInNldFByb2NlZHVyZXMiLCJlZGl0aW5nQ29udGFjdCIsInNldEVkaXRpbmdDb250YWN0IiwiZWRpdGluZ1Byb2NlZHVyZSIsInNldEVkaXRpbmdQcm9jZWR1cmUiLCJzaG93QWRkQXNzZW1ibHlQb2ludCIsInNldFNob3dBZGRBc3NlbWJseVBvaW50IiwiaGFuZGxlU2F2ZUNvbnRhY3QiLCJtYXAiLCJjIiwiRGF0ZSIsIm5vdyIsInRvU3RyaW5nIiwiYWxlcnQiLCJoYW5kbGVEZWxldGVDb250YWN0IiwiY29uZmlybSIsImZpbHRlciIsImhhbmRsZVNhdmVQcm9jZWR1cmUiLCJwIiwiaGFuZGxlRGVsZXRlUHJvY2VkdXJlIiwiY29udGFjdCIsInByb2NlZHVyZSIsImUiLCJ0YXJnZXQiLCJ2YWx1ZSIsImNvbnNvbGUiLCJsb2ciLCJfYyIsIiRSZWZyZXNoUmVnJCJdLCJpZ25vcmVMaXN0IjpbXSwic291cmNlcyI6WyJFbWVyZ2VuY3lTYWZldHlNYW5hZ2VtZW50LnRzeCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyB1c2VTdGF0ZSB9IGZyb20gJ3JlYWN0JztcbmltcG9ydCB7XG4gIEFsZXJ0VHJpYW5nbGUsXG4gIFBob25lLFxuICBQbHVzLFxuICBFZGl0LFxuICBUcmFzaDIsXG4gIFNhdmUsXG4gIE1hcFBpbixcbiAgRmlsZVRleHQsXG4gIExpbmsgYXMgTGlua0ljb24sXG4gIFgsXG59IGZyb20gJ2x1Y2lkZS1yZWFjdCc7XG5cbmludGVyZmFjZSBFbWVyZ2VuY3lDb250YWN0IHtcbiAgaWQ6IHN0cmluZztcbiAgbmFtZTogc3RyaW5nO1xuICByb2xlOiBzdHJpbmc7XG4gIHBob25lOiBzdHJpbmc7XG4gIHR5cGU6ICdwb2xpY2UnIHwgJ2hvc3BpdGFsJyB8ICdtYW5hZ2VyJyB8ICdmaXJlJyB8ICdjdXN0b20nO1xufVxuXG5pbnRlcmZhY2UgRW1lcmdlbmN5UHJvY2VkdXJlIHtcbiAgaWQ6IHN0cmluZztcbiAgdGl0bGU6IHN0cmluZztcbiAgdHlwZTogJ2ZpcmUnIHwgJ21lZGljYWwnIHwgJ3NlY3VyaXR5JyB8ICduYXR1cmFsJyB8ICdjdXN0b20nO1xuICBsaW5rZWREb2N1bWVudElkPzogc3RyaW5nO1xufVxuXG5jb25zdCBpbml0aWFsQ29udGFjdHM6IEVtZXJnZW5jeUNvbnRhY3RbXSA9IFtcbiAgeyBpZDogJzEnLCBuYW1lOiAnRW1lcmdlbmN5IFNlcnZpY2VzJywgcm9sZTogJ1BvbGljZScsIHBob25lOiAnOTExJywgdHlwZTogJ3BvbGljZScgfSxcbiAgeyBpZDogJzInLCBuYW1lOiAnQ2l0eSBHZW5lcmFsIEhvc3BpdGFsJywgcm9sZTogJ0VtZXJnZW5jeSBSb29tJywgcGhvbmU6ICc1NTUtMDEwMCcsIHR5cGU6ICdob3NwaXRhbCcgfSxcbiAgeyBpZDogJzMnLCBuYW1lOiAnSm9obiBBbmRlcnNvbicsIHJvbGU6ICdTYWZldHkgTWFuYWdlcicsIHBob25lOiAnNTU1LTAxMjMnLCB0eXBlOiAnbWFuYWdlcicgfSxcbiAgeyBpZDogJzQnLCBuYW1lOiAnRmlyZSBEZXBhcnRtZW50Jywgcm9sZTogJ0VtZXJnZW5jeSBSZXNwb25zZScsIHBob25lOiAnOTExJywgdHlwZTogJ2ZpcmUnIH0sXG5dO1xuXG5jb25zdCBpbml0aWFsUHJvY2VkdXJlczogRW1lcmdlbmN5UHJvY2VkdXJlW10gPSBbXG4gIHsgaWQ6ICcxJywgdGl0bGU6ICdGaXJlIEVtZXJnZW5jeSBQcm9jZWR1cmUnLCB0eXBlOiAnZmlyZScsIGxpbmtlZERvY3VtZW50SWQ6ICdkb2MtMScgfSxcbiAgeyBpZDogJzInLCB0aXRsZTogJ01lZGljYWwgRW1lcmdlbmN5IFJlc3BvbnNlJywgdHlwZTogJ21lZGljYWwnLCBsaW5rZWREb2N1bWVudElkOiAnZG9jLTInIH0sXG4gIHsgaWQ6ICczJywgdGl0bGU6ICdTZWN1cml0eSBUaHJlYXQgUHJvdG9jb2wnLCB0eXBlOiAnc2VjdXJpdHknLCBsaW5rZWREb2N1bWVudElkOiAnZG9jLTMnIH0sXG4gIHsgaWQ6ICc0JywgdGl0bGU6ICdOYXR1cmFsIERpc2FzdGVyIFJlc3BvbnNlJywgdHlwZTogJ25hdHVyYWwnLCBsaW5rZWREb2N1bWVudElkOiAnZG9jLTQnIH0sXG5dO1xuXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBFbWVyZ2VuY3lTYWZldHlNYW5hZ2VtZW50KCkge1xuICBjb25zdCBbY29udGFjdHMsIHNldENvbnRhY3RzXSA9IHVzZVN0YXRlPEVtZXJnZW5jeUNvbnRhY3RbXT4oaW5pdGlhbENvbnRhY3RzKTtcbiAgY29uc3QgW3Byb2NlZHVyZXMsIHNldFByb2NlZHVyZXNdID0gdXNlU3RhdGU8RW1lcmdlbmN5UHJvY2VkdXJlW10+KGluaXRpYWxQcm9jZWR1cmVzKTtcbiAgY29uc3QgW2VkaXRpbmdDb250YWN0LCBzZXRFZGl0aW5nQ29udGFjdF0gPSB1c2VTdGF0ZTxFbWVyZ2VuY3lDb250YWN0IHwgbnVsbD4obnVsbCk7XG4gIGNvbnN0IFtlZGl0aW5nUHJvY2VkdXJlLCBzZXRFZGl0aW5nUHJvY2VkdXJlXSA9IHVzZVN0YXRlPEVtZXJnZW5jeVByb2NlZHVyZSB8IG51bGw+KG51bGwpO1xuICBjb25zdCBbc2hvd0FkZEFzc2VtYmx5UG9pbnQsIHNldFNob3dBZGRBc3NlbWJseVBvaW50XSA9IHVzZVN0YXRlKGZhbHNlKTtcblxuICBjb25zdCBoYW5kbGVTYXZlQ29udGFjdCA9ICgpID0+IHtcbiAgICBpZiAoZWRpdGluZ0NvbnRhY3QpIHtcbiAgICAgIGlmIChlZGl0aW5nQ29udGFjdC5pZCkge1xuICAgICAgICBzZXRDb250YWN0cyhjb250YWN0cy5tYXAoYyA9PiBjLmlkID09PSBlZGl0aW5nQ29udGFjdC5pZCA/IGVkaXRpbmdDb250YWN0IDogYykpO1xuICAgICAgfSBlbHNlIHtcbiAgICAgICAgc2V0Q29udGFjdHMoWy4uLmNvbnRhY3RzLCB7IC4uLmVkaXRpbmdDb250YWN0LCBpZDogRGF0ZS5ub3coKS50b1N0cmluZygpIH1dKTtcbiAgICAgIH1cbiAgICAgIHNldEVkaXRpbmdDb250YWN0KG51bGwpO1xuICAgICAgYWxlcnQoJ+KchSBDb250YWN0IHNhdmVkIHN1Y2Nlc3NmdWxseScpO1xuICAgIH1cbiAgfTtcblxuICBjb25zdCBoYW5kbGVEZWxldGVDb250YWN0ID0gKGlkOiBzdHJpbmcpID0+IHtcbiAgICBpZiAoY29uZmlybSgnRGVsZXRlIHRoaXMgY29udGFjdD8nKSkge1xuICAgICAgc2V0Q29udGFjdHMoY29udGFjdHMuZmlsdGVyKGMgPT4gYy5pZCAhPT0gaWQpKTtcbiAgICAgIGFsZXJ0KCfwn5eR77iPIENvbnRhY3QgZGVsZXRlZCcpO1xuICAgIH1cbiAgfTtcblxuICBjb25zdCBoYW5kbGVTYXZlUHJvY2VkdXJlID0gKCkgPT4ge1xuICAgIGlmIChlZGl0aW5nUHJvY2VkdXJlKSB7XG4gICAgICBpZiAoZWRpdGluZ1Byb2NlZHVyZS5pZCkge1xuICAgICAgICBzZXRQcm9jZWR1cmVzKHByb2NlZHVyZXMubWFwKHAgPT4gcC5pZCA9PT0gZWRpdGluZ1Byb2NlZHVyZS5pZCA/IGVkaXRpbmdQcm9jZWR1cmUgOiBwKSk7XG4gICAgICB9IGVsc2Uge1xuICAgICAgICBzZXRQcm9jZWR1cmVzKFsuLi5wcm9jZWR1cmVzLCB7IC4uLmVkaXRpbmdQcm9jZWR1cmUsIGlkOiBEYXRlLm5vdygpLnRvU3RyaW5nKCkgfV0pO1xuICAgICAgfVxuICAgICAgc2V0RWRpdGluZ1Byb2NlZHVyZShudWxsKTtcbiAgICAgIGFsZXJ0KCfinIUgUHJvY2VkdXJlIHNhdmVkIHN1Y2Nlc3NmdWxseScpO1xuICAgIH1cbiAgfTtcblxuICBjb25zdCBoYW5kbGVEZWxldGVQcm9jZWR1cmUgPSAoaWQ6IHN0cmluZykgPT4ge1xuICAgIGlmIChjb25maXJtKCdEZWxldGUgdGhpcyBwcm9jZWR1cmU/JykpIHtcbiAgICAgIHNldFByb2NlZHVyZXMocHJvY2VkdXJlcy5maWx0ZXIocCA9PiBwLmlkICE9PSBpZCkpO1xuICAgICAgYWxlcnQoJ/Cfl5HvuI8gUHJvY2VkdXJlIGRlbGV0ZWQnKTtcbiAgICB9XG4gIH07XG5cbiAgcmV0dXJuIChcbiAgICA8ZGl2IGNsYXNzTmFtZT1cInNwYWNlLXktNlwiPlxuICAgICAgey8qIEhlYWRlciAqL31cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuXCI+XG4gICAgICAgIDxkaXY+XG4gICAgICAgICAgPGgxIGNsYXNzTmFtZT1cInRleHQtM3hsIGZvbnQtYm9sZCB0ZXh0LXdoaXRlIG1iLTJcIj5FbWVyZ2VuY3kgJiBTYWZldHkgTWFuYWdlbWVudDwvaDE+XG4gICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC1ncmF5LTQwMFwiPkNvbmZpZ3VyZSBlbWVyZ2VuY3kgY29udGFjdHMgYW5kIHByb2NlZHVyZXM8L3A+XG4gICAgICAgIDwvZGl2PlxuICAgICAgICA8YnV0dG9uXG4gICAgICAgICAgb25DbGljaz17KCkgPT4gc2V0RWRpdGluZ0NvbnRhY3QoeyBpZDogJycsIG5hbWU6ICcnLCByb2xlOiAnJywgcGhvbmU6ICcnLCB0eXBlOiAnY3VzdG9tJyB9KX1cbiAgICAgICAgICBjbGFzc05hbWU9XCJweC00IHB5LTIgYmctZ3JhZGllbnQtdG8tciBmcm9tLXRlYWwtNjAwIHRvLXRlYWwtNTAwIHRleHQtd2hpdGUgcm91bmRlZC1sZyBob3ZlcjpzaGFkb3ctbGcgdHJhbnNpdGlvbi1hbGwgZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTJcIlxuICAgICAgICA+XG4gICAgICAgICAgPFBsdXMgY2xhc3NOYW1lPVwidy00IGgtNFwiIC8+XG4gICAgICAgICAgQWRkIENvbnRhY3RcbiAgICAgICAgPC9idXR0b24+XG4gICAgICA8L2Rpdj5cblxuICAgICAgey8qIEVtZXJnZW5jeSBDb250YWN0cyBTZWN0aW9uICovfVxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJiZy13aGl0ZS81IGJhY2tkcm9wLWJsdXItbGcgcm91bmRlZC0yeGwgcC02IGJvcmRlciBib3JkZXItd2hpdGUvMTBcIj5cbiAgICAgICAgPGgyIGNsYXNzTmFtZT1cInRleHQteGwgZm9udC1ib2xkIHRleHQtd2hpdGUgbWItNFwiPkVtZXJnZW5jeSBDb250YWN0czwvaDI+XG5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJncmlkIGdyaWQtY29scy0xIG1kOmdyaWQtY29scy0yIGdhcC00XCI+XG4gICAgICAgICAge2NvbnRhY3RzLm1hcCgoY29udGFjdCkgPT4gKFxuICAgICAgICAgICAgPGRpdlxuICAgICAgICAgICAgICBrZXk9e2NvbnRhY3QuaWR9XG4gICAgICAgICAgICAgIGNsYXNzTmFtZT1cInAtNCBiZy13aGl0ZS81IHJvdW5kZWQtbGcgYm9yZGVyIGJvcmRlci13aGl0ZS8xMCBob3Zlcjpib3JkZXItdGVhbC01MDAvMzAgaG92ZXI6Ymctd2hpdGUvMTAgdHJhbnNpdGlvbi1hbGxcIlxuICAgICAgICAgICAgPlxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtc3RhcnQganVzdGlmeS1iZXR3ZWVuXCI+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4LTFcIj5cbiAgICAgICAgICAgICAgICAgIDxoMyBjbGFzc05hbWU9XCJ0ZXh0LXdoaXRlIGZvbnQtc2VtaWJvbGQgbWItMVwiPntjb250YWN0Lm5hbWV9PC9oMz5cbiAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtc20gdGV4dC1ncmF5LTQwMCBtYi0yXCI+e2NvbnRhY3Qucm9sZX08L3A+XG4gICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0yIHRleHQtcmVkLTQwMFwiPlxuICAgICAgICAgICAgICAgICAgICA8UGhvbmUgY2xhc3NOYW1lPVwidy00IGgtNFwiIC8+XG4gICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cImZvbnQtbW9ub1wiPntjb250YWN0LnBob25lfTwvc3Bhbj5cbiAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBnYXAtMlwiPlxuICAgICAgICAgICAgICAgICAgPGJ1dHRvblxuICAgICAgICAgICAgICAgICAgICBvbkNsaWNrPXsoKSA9PiBzZXRFZGl0aW5nQ29udGFjdChjb250YWN0KX1cbiAgICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwicC0yIGJnLXdoaXRlLzUgcm91bmRlZC1sZyBob3ZlcjpiZy13aGl0ZS8xMCB0cmFuc2l0aW9uLWNvbG9yc1wiXG4gICAgICAgICAgICAgICAgICA+XG4gICAgICAgICAgICAgICAgICAgIDxFZGl0IGNsYXNzTmFtZT1cInctNCBoLTQgdGV4dC1ncmF5LTQwMFwiIC8+XG4gICAgICAgICAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgICAgICAgICAgIDxidXR0b25cbiAgICAgICAgICAgICAgICAgICAgb25DbGljaz17KCkgPT4gaGFuZGxlRGVsZXRlQ29udGFjdChjb250YWN0LmlkKX1cbiAgICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwicC0yIGJnLXJlZC01MDAvMjAgcm91bmRlZC1sZyBob3ZlcjpiZy1yZWQtNTAwLzMwIHRyYW5zaXRpb24tY29sb3JzXCJcbiAgICAgICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICAgICAgPFRyYXNoMiBjbGFzc05hbWU9XCJ3LTQgaC00IHRleHQtcmVkLTQwMFwiIC8+XG4gICAgICAgICAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICApKX1cbiAgICAgICAgPC9kaXY+XG4gICAgICA8L2Rpdj5cblxuICAgICAgey8qIEVtZXJnZW5jeSBQcm9jZWR1cmVzIFNlY3Rpb24gKi99XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLXdoaXRlLzUgYmFja2Ryb3AtYmx1ci1sZyBib3JkZXIgYm9yZGVyLXdoaXRlLzEwIHJvdW5kZWQteGwgcC02XCI+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuIG1iLTRcIj5cbiAgICAgICAgICA8aDIgY2xhc3NOYW1lPVwidGV4dC14bCBmb250LWJvbGQgdGV4dC13aGl0ZSBmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMlwiPlxuICAgICAgICAgICAgPEZpbGVUZXh0IGNsYXNzTmFtZT1cInctNSBoLTUgdGV4dC1vcmFuZ2UtNDAwXCIgLz5cbiAgICAgICAgICAgIEVtZXJnZW5jeSBQcm9jZWR1cmVzXG4gICAgICAgICAgPC9oMj5cbiAgICAgICAgICA8YnV0dG9uXG4gICAgICAgICAgICBvbkNsaWNrPXsoKSA9PiBzZXRFZGl0aW5nUHJvY2VkdXJlKHsgaWQ6ICcnLCB0aXRsZTogJycsIHR5cGU6ICdjdXN0b20nIH0pfVxuICAgICAgICAgICAgY2xhc3NOYW1lPVwicHgtNCBweS0yIGJnLW9yYW5nZS02MDAgdGV4dC13aGl0ZSByb3VuZGVkLWxnIGhvdmVyOmJnLW9yYW5nZS03MDAgdHJhbnNpdGlvbi1hbGwgZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTJcIlxuICAgICAgICAgID5cbiAgICAgICAgICAgIDxQbHVzIGNsYXNzTmFtZT1cInctNCBoLTRcIiAvPlxuICAgICAgICAgICAgQWRkIFByb2NlZHVyZVxuICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICA8L2Rpdj5cblxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImdyaWQgZ3JpZC1jb2xzLTEgbWQ6Z3JpZC1jb2xzLTIgZ2FwLTRcIj5cbiAgICAgICAgICB7cHJvY2VkdXJlcy5tYXAoKHByb2NlZHVyZSkgPT4gKFxuICAgICAgICAgICAgPGRpdlxuICAgICAgICAgICAgICBrZXk9e3Byb2NlZHVyZS5pZH1cbiAgICAgICAgICAgICAgY2xhc3NOYW1lPVwicC00IGJnLXdoaXRlLzUgcm91bmRlZC1sZyBib3JkZXIgYm9yZGVyLXdoaXRlLzEwIGhvdmVyOmJvcmRlci1vcmFuZ2UtNTAwLzMwIHRyYW5zaXRpb24tYWxsXCJcbiAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLXN0YXJ0IGp1c3RpZnktYmV0d2VlblwiPlxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleC0xXCI+XG4gICAgICAgICAgICAgICAgICA8aDMgY2xhc3NOYW1lPVwidGV4dC13aGl0ZSBmb250LXNlbWlib2xkIG1iLTJcIj57cHJvY2VkdXJlLnRpdGxlfTwvaDM+XG4gICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0yIHRleHQtc20gdGV4dC1ncmF5LTQwMFwiPlxuICAgICAgICAgICAgICAgICAgICA8TGlua0ljb24gY2xhc3NOYW1lPVwidy00IGgtNFwiIC8+XG4gICAgICAgICAgICAgICAgICAgIDxzcGFuPntwcm9jZWR1cmUubGlua2VkRG9jdW1lbnRJZCA/ICdMaW5rZWQgdG8gZG9jdW1lbnQnIDogJ05vIGxpbmtlZCBkb2N1bWVudCd9PC9zcGFuPlxuICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGdhcC0yXCI+XG4gICAgICAgICAgICAgICAgICA8YnV0dG9uXG4gICAgICAgICAgICAgICAgICAgIG9uQ2xpY2s9eygpID0+IHNldEVkaXRpbmdQcm9jZWR1cmUocHJvY2VkdXJlKX1cbiAgICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwicC0yIGJnLXdoaXRlLzUgcm91bmRlZC1sZyBob3ZlcjpiZy13aGl0ZS8xMCB0cmFuc2l0aW9uLWNvbG9yc1wiXG4gICAgICAgICAgICAgICAgICA+XG4gICAgICAgICAgICAgICAgICAgIDxFZGl0IGNsYXNzTmFtZT1cInctNCBoLTQgdGV4dC1ncmF5LTQwMFwiIC8+XG4gICAgICAgICAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgICAgICAgICAgIDxidXR0b25cbiAgICAgICAgICAgICAgICAgICAgb25DbGljaz17KCkgPT4gaGFuZGxlRGVsZXRlUHJvY2VkdXJlKHByb2NlZHVyZS5pZCl9XG4gICAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cInAtMiBiZy1yZWQtNTAwLzIwIHJvdW5kZWQtbGcgaG92ZXI6YmctcmVkLTUwMC8zMCB0cmFuc2l0aW9uLWNvbG9yc1wiXG4gICAgICAgICAgICAgICAgICA+XG4gICAgICAgICAgICAgICAgICAgIDxUcmFzaDIgY2xhc3NOYW1lPVwidy00IGgtNCB0ZXh0LXJlZC00MDBcIiAvPlxuICAgICAgICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgKSl9XG4gICAgICAgIDwvZGl2PlxuICAgICAgPC9kaXY+XG5cbiAgICAgIHsvKiBBc3NlbWJseSBQb2ludHMgKi99XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLXdoaXRlLzUgYmFja2Ryb3AtYmx1ci1sZyBib3JkZXIgYm9yZGVyLXdoaXRlLzEwIHJvdW5kZWQteGwgcC02XCI+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuIG1iLTRcIj5cbiAgICAgICAgICA8aDIgY2xhc3NOYW1lPVwidGV4dC14bCBmb250LWJvbGQgdGV4dC13aGl0ZSBmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMlwiPlxuICAgICAgICAgICAgPE1hcFBpbiBjbGFzc05hbWU9XCJ3LTUgaC01IHRleHQtYmx1ZS00MDBcIiAvPlxuICAgICAgICAgICAgQXNzZW1ibHkgUG9pbnRzXG4gICAgICAgICAgPC9oMj5cbiAgICAgICAgICA8YnV0dG9uIFxuICAgICAgICAgICAgb25DbGljaz17KCkgPT4gc2V0U2hvd0FkZEFzc2VtYmx5UG9pbnQodHJ1ZSl9XG4gICAgICAgICAgICBjbGFzc05hbWU9XCJweC00IHB5LTIgYmctYmx1ZS02MDAgdGV4dC13aGl0ZSByb3VuZGVkLWxnIGhvdmVyOmJnLWJsdWUtNzAwIHRyYW5zaXRpb24tYWxsIGZsZXggaXRlbXMtY2VudGVyIGdhcC0yXCJcbiAgICAgICAgICA+XG4gICAgICAgICAgICA8UGx1cyBjbGFzc05hbWU9XCJ3LTQgaC00XCIgLz5cbiAgICAgICAgICAgIEFkZCBQb2ludFxuICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICA8L2Rpdj5cblxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImdyaWQgZ3JpZC1jb2xzLTEgbWQ6Z3JpZC1jb2xzLTMgZ2FwLTRcIj5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInAtNCBiZy13aGl0ZS81IHJvdW5kZWQtbGcgYm9yZGVyIGJvcmRlci13aGl0ZS8xMFwiPlxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLXN0YXJ0IGp1c3RpZnktYmV0d2VlbiBtYi0yXCI+XG4gICAgICAgICAgICAgIDxoMyBjbGFzc05hbWU9XCJ0ZXh0LXdoaXRlIGZvbnQtc2VtaWJvbGRcIj5QcmltYXJ5IFBvaW50PC9oMz5cbiAgICAgICAgICAgICAgPEVkaXQgY2xhc3NOYW1lPVwidy00IGgtNCB0ZXh0LWdyYXktNDAwIGN1cnNvci1wb2ludGVyIGhvdmVyOnRleHQtd2hpdGVcIiAvPlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LXNtIHRleHQtZ3JheS00MDBcIj5Gcm9udCBwYXJraW5nIGxvdCwgbmVhciBtYWluIGVudHJhbmNlPC9wPlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicC00IGJnLXdoaXRlLzUgcm91bmRlZC1sZyBib3JkZXIgYm9yZGVyLXdoaXRlLzEwXCI+XG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtc3RhcnQganVzdGlmeS1iZXR3ZWVuIG1iLTJcIj5cbiAgICAgICAgICAgICAgPGgzIGNsYXNzTmFtZT1cInRleHQtd2hpdGUgZm9udC1zZW1pYm9sZFwiPlNlY29uZGFyeSBQb2ludDwvaDM+XG4gICAgICAgICAgICAgIDxFZGl0IGNsYXNzTmFtZT1cInctNCBoLTQgdGV4dC1ncmF5LTQwMCBjdXJzb3ItcG9pbnRlciBob3Zlcjp0ZXh0LXdoaXRlXCIgLz5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC1zbSB0ZXh0LWdyYXktNDAwXCI+UmVhciBwYXJraW5nIGFyZWEsIHNvdXRoIHNpZGU8L3A+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJwLTQgYmctd2hpdGUvNSByb3VuZGVkLWxnIGJvcmRlciBib3JkZXItd2hpdGUvMTBcIj5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1zdGFydCBqdXN0aWZ5LWJldHdlZW4gbWItMlwiPlxuICAgICAgICAgICAgICA8aDMgY2xhc3NOYW1lPVwidGV4dC13aGl0ZSBmb250LXNlbWlib2xkXCI+SW5kb29yIFNoZWx0ZXI8L2gzPlxuICAgICAgICAgICAgICA8RWRpdCBjbGFzc05hbWU9XCJ3LTQgaC00IHRleHQtZ3JheS00MDAgY3Vyc29yLXBvaW50ZXIgaG92ZXI6dGV4dC13aGl0ZVwiIC8+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtc20gdGV4dC1ncmF5LTQwMFwiPkJhc2VtZW50IGxldmVsLCBjb25mZXJlbmNlIHJvb20gQjwvcD5cbiAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgPC9kaXY+XG4gICAgICA8L2Rpdj5cblxuICAgICAgey8qIEVkaXQgQ29udGFjdCBNb2RhbCAqL31cbiAgICAgIHtlZGl0aW5nQ29udGFjdCAmJiAoXG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZml4ZWQgaW5zZXQtMCBiZy1ibGFjay84MCBiYWNrZHJvcC1ibHVyLXNtIHotNTAgZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1jZW50ZXIgcC00XCI+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJiZy13aGl0ZS81IGJhY2tkcm9wLWJsdXItbGcgYm9yZGVyIGJvcmRlci13aGl0ZS8xMCByb3VuZGVkLTJ4bCB3LWZ1bGwgbWF4LXctbWRcIj5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicC02IGJvcmRlci1iIGJvcmRlci1bIzFhMzQ0MF1cIj5cbiAgICAgICAgICAgICAgPGgyIGNsYXNzTmFtZT1cInRleHQtMnhsIGZvbnQtYm9sZCB0ZXh0LXdoaXRlXCI+XG4gICAgICAgICAgICAgICAge2VkaXRpbmdDb250YWN0LmlkID8gJ0VkaXQgQ29udGFjdCcgOiAnQWRkIENvbnRhY3QnfVxuICAgICAgICAgICAgICA8L2gyPlxuICAgICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicC02IHNwYWNlLXktNFwiPlxuICAgICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICAgIDxsYWJlbCBjbGFzc05hbWU9XCJibG9jayB0ZXh0LXNtIGZvbnQtbWVkaXVtIHRleHQtZ3JheS00MDAgbWItMlwiPk5hbWU8L2xhYmVsPlxuICAgICAgICAgICAgICAgIDxpbnB1dFxuICAgICAgICAgICAgICAgICAgdHlwZT1cInRleHRcIlxuICAgICAgICAgICAgICAgICAgdmFsdWU9e2VkaXRpbmdDb250YWN0Lm5hbWV9XG4gICAgICAgICAgICAgICAgICBvbkNoYW5nZT17KGUpID0+IHNldEVkaXRpbmdDb250YWN0KHsgLi4uZWRpdGluZ0NvbnRhY3QsIG5hbWU6IGUudGFyZ2V0LnZhbHVlIH0pfVxuICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwidy1mdWxsIHB4LTQgcHktMyBiZy1bIzBCMUYyQV0gYm9yZGVyIGJvcmRlci1bIzFhMzQ0MF0gcm91bmRlZC1sZyB0ZXh0LXdoaXRlIGZvY3VzOm91dGxpbmUtbm9uZSBmb2N1czpib3JkZXItcmVkLTUwMC81MFwiXG4gICAgICAgICAgICAgICAgLz5cbiAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgICAgPGxhYmVsIGNsYXNzTmFtZT1cImJsb2NrIHRleHQtc20gZm9udC1tZWRpdW0gdGV4dC1ncmF5LTQwMCBtYi0yXCI+Um9sZTwvbGFiZWw+XG4gICAgICAgICAgICAgICAgPGlucHV0XG4gICAgICAgICAgICAgICAgICB0eXBlPVwidGV4dFwiXG4gICAgICAgICAgICAgICAgICB2YWx1ZT17ZWRpdGluZ0NvbnRhY3Qucm9sZX1cbiAgICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXsoZSkgPT4gc2V0RWRpdGluZ0NvbnRhY3QoeyAuLi5lZGl0aW5nQ29udGFjdCwgcm9sZTogZS50YXJnZXQudmFsdWUgfSl9XG4gICAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJ3LWZ1bGwgcHgtNCBweS0zIGJnLVsjMEIxRjJBXSBib3JkZXIgYm9yZGVyLVsjMWEzNDQwXSByb3VuZGVkLWxnIHRleHQtd2hpdGUgZm9jdXM6b3V0bGluZS1ub25lIGZvY3VzOmJvcmRlci1yZWQtNTAwLzUwXCJcbiAgICAgICAgICAgICAgICAvPlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgICAgICA8bGFiZWwgY2xhc3NOYW1lPVwiYmxvY2sgdGV4dC1zbSBmb250LW1lZGl1bSB0ZXh0LWdyYXktNDAwIG1iLTJcIj5QaG9uZTwvbGFiZWw+XG4gICAgICAgICAgICAgICAgPGlucHV0XG4gICAgICAgICAgICAgICAgICB0eXBlPVwidGVsXCJcbiAgICAgICAgICAgICAgICAgIHZhbHVlPXtlZGl0aW5nQ29udGFjdC5waG9uZX1cbiAgICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXsoZSkgPT4gc2V0RWRpdGluZ0NvbnRhY3QoeyAuLi5lZGl0aW5nQ29udGFjdCwgcGhvbmU6IGUudGFyZ2V0LnZhbHVlIH0pfVxuICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwidy1mdWxsIHB4LTQgcHktMyBiZy1bIzBCMUYyQV0gYm9yZGVyIGJvcmRlci1bIzFhMzQ0MF0gcm91bmRlZC1sZyB0ZXh0LXdoaXRlIGZvY3VzOm91dGxpbmUtbm9uZSBmb2N1czpib3JkZXItcmVkLTUwMC81MFwiXG4gICAgICAgICAgICAgICAgLz5cbiAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICA8L2Rpdj5cblxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJwLTYgYm9yZGVyLXQgYm9yZGVyLVsjMWEzNDQwXSBmbGV4IGdhcC0zXCI+XG4gICAgICAgICAgICAgIDxidXR0b25cbiAgICAgICAgICAgICAgICBvbkNsaWNrPXsoKSA9PiBzZXRFZGl0aW5nQ29udGFjdChudWxsKX1cbiAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJmbGV4LTEgcHgtNiBweS0zIGJnLXdoaXRlLzUgYm9yZGVyIGJvcmRlci13aGl0ZS8xMCB0ZXh0LXdoaXRlIHJvdW5kZWQtbGcgaG92ZXI6Ymctd2hpdGUvMTAgdHJhbnNpdGlvbi1hbGxcIlxuICAgICAgICAgICAgICA+XG4gICAgICAgICAgICAgICAgQ2FuY2VsXG4gICAgICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICAgICAgICA8YnV0dG9uXG4gICAgICAgICAgICAgICAgb25DbGljaz17aGFuZGxlU2F2ZUNvbnRhY3R9XG4gICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwiZmxleC0xIHB4LTYgcHktMyBiZy1yZWQtNjAwIHRleHQtd2hpdGUgcm91bmRlZC1sZyBob3ZlcjpiZy1yZWQtNzAwIHRyYW5zaXRpb24tYWxsIGZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktY2VudGVyIGdhcC0yIGZvbnQtbWVkaXVtXCJcbiAgICAgICAgICAgICAgPlxuICAgICAgICAgICAgICAgIDxTYXZlIGNsYXNzTmFtZT1cInctNCBoLTRcIiAvPlxuICAgICAgICAgICAgICAgIFNhdmVcbiAgICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgPC9kaXY+XG4gICAgICApfVxuXG4gICAgICB7LyogRWRpdCBQcm9jZWR1cmUgTW9kYWwgKi99XG4gICAgICB7ZWRpdGluZ1Byb2NlZHVyZSAmJiAoXG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZml4ZWQgaW5zZXQtMCBiZy1ibGFjay84MCBiYWNrZHJvcC1ibHVyLXNtIHotNTAgZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1jZW50ZXIgcC00XCI+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJiZy13aGl0ZS81IGJhY2tkcm9wLWJsdXItbGcgYm9yZGVyIGJvcmRlci13aGl0ZS8xMCByb3VuZGVkLTJ4bCB3LWZ1bGwgbWF4LXctbWRcIj5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicC02IGJvcmRlci1iIGJvcmRlci1bIzFhMzQ0MF1cIj5cbiAgICAgICAgICAgICAgPGgyIGNsYXNzTmFtZT1cInRleHQtMnhsIGZvbnQtYm9sZCB0ZXh0LXdoaXRlXCI+XG4gICAgICAgICAgICAgICAge2VkaXRpbmdQcm9jZWR1cmUuaWQgPyAnRWRpdCBQcm9jZWR1cmUnIDogJ0FkZCBQcm9jZWR1cmUnfVxuICAgICAgICAgICAgICA8L2gyPlxuICAgICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicC02IHNwYWNlLXktNFwiPlxuICAgICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICAgIDxsYWJlbCBjbGFzc05hbWU9XCJibG9jayB0ZXh0LXNtIGZvbnQtbWVkaXVtIHRleHQtZ3JheS00MDAgbWItMlwiPlRpdGxlPC9sYWJlbD5cbiAgICAgICAgICAgICAgICA8aW5wdXRcbiAgICAgICAgICAgICAgICAgIHR5cGU9XCJ0ZXh0XCJcbiAgICAgICAgICAgICAgICAgIHZhbHVlPXtlZGl0aW5nUHJvY2VkdXJlLnRpdGxlfVxuICAgICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXRFZGl0aW5nUHJvY2VkdXJlKHsgLi4uZWRpdGluZ1Byb2NlZHVyZSwgdGl0bGU6IGUudGFyZ2V0LnZhbHVlIH0pfVxuICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwidy1mdWxsIHB4LTQgcHktMyBiZy1bIzBCMUYyQV0gYm9yZGVyIGJvcmRlci1bIzFhMzQ0MF0gcm91bmRlZC1sZyB0ZXh0LXdoaXRlIGZvY3VzOm91dGxpbmUtbm9uZSBmb2N1czpib3JkZXItb3JhbmdlLTUwMC81MFwiXG4gICAgICAgICAgICAgICAgLz5cbiAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgICAgPGxhYmVsIGNsYXNzTmFtZT1cImJsb2NrIHRleHQtc20gZm9udC1tZWRpdW0gdGV4dC1ncmF5LTQwMCBtYi0yXCI+TGluayB0byBEb2N1bWVudDwvbGFiZWw+XG4gICAgICAgICAgICAgICAgPHNlbGVjdFxuICAgICAgICAgICAgICAgICAgdmFsdWU9e2VkaXRpbmdQcm9jZWR1cmUubGlua2VkRG9jdW1lbnRJZCB8fCAnJ31cbiAgICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXsoZSkgPT4gc2V0RWRpdGluZ1Byb2NlZHVyZSh7IC4uLmVkaXRpbmdQcm9jZWR1cmUsIGxpbmtlZERvY3VtZW50SWQ6IGUudGFyZ2V0LnZhbHVlIH0pfVxuICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwidy1mdWxsIHB4LTQgcHktMyBiZy1bIzBCMUYyQV0gYm9yZGVyIGJvcmRlci1bIzFhMzQ0MF0gcm91bmRlZC1sZyB0ZXh0LXdoaXRlIGZvY3VzOm91dGxpbmUtbm9uZSBmb2N1czpib3JkZXItb3JhbmdlLTUwMC81MFwiXG4gICAgICAgICAgICAgICAgPlxuICAgICAgICAgICAgICAgICAgPG9wdGlvbiB2YWx1ZT1cIlwiPlNlbGVjdCBhIGRvY3VtZW50Li4uPC9vcHRpb24+XG4gICAgICAgICAgICAgICAgICA8b3B0aW9uIHZhbHVlPVwiZG9jLTFcIj5GaXJlIFNhZmV0eSBQcm90b2NvbDwvb3B0aW9uPlxuICAgICAgICAgICAgICAgICAgPG9wdGlvbiB2YWx1ZT1cImRvYy0yXCI+TWVkaWNhbCBFbWVyZ2VuY3kgUmVzcG9uc2U8L29wdGlvbj5cbiAgICAgICAgICAgICAgICAgIDxvcHRpb24gdmFsdWU9XCJkb2MtM1wiPlNlY3VyaXR5IEd1aWRlbGluZXM8L29wdGlvbj5cbiAgICAgICAgICAgICAgICAgIDxvcHRpb24gdmFsdWU9XCJkb2MtNFwiPk5hdHVyYWwgRGlzYXN0ZXIgUGxhbjwvb3B0aW9uPlxuICAgICAgICAgICAgICAgIDwvc2VsZWN0PlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDwvZGl2PlxuXG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInAtNiBib3JkZXItdCBib3JkZXItWyMxYTM0NDBdIGZsZXggZ2FwLTNcIj5cbiAgICAgICAgICAgICAgPGJ1dHRvblxuICAgICAgICAgICAgICAgIG9uQ2xpY2s9eygpID0+IHNldEVkaXRpbmdQcm9jZWR1cmUobnVsbCl9XG4gICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwiZmxleC0xIHB4LTYgcHktMyBiZy13aGl0ZS81IGJvcmRlciBib3JkZXItd2hpdGUvMTAgdGV4dC13aGl0ZSByb3VuZGVkLWxnIGhvdmVyOmJnLXdoaXRlLzEwIHRyYW5zaXRpb24tYWxsXCJcbiAgICAgICAgICAgICAgPlxuICAgICAgICAgICAgICAgIENhbmNlbFxuICAgICAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgICAgICAgPGJ1dHRvblxuICAgICAgICAgICAgICAgIG9uQ2xpY2s9e2hhbmRsZVNhdmVQcm9jZWR1cmV9XG4gICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwiZmxleC0xIHB4LTYgcHktMyBiZy1vcmFuZ2UtNjAwIHRleHQtd2hpdGUgcm91bmRlZC1sZyBob3ZlcjpiZy1vcmFuZ2UtNzAwIHRyYW5zaXRpb24tYWxsIGZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktY2VudGVyIGdhcC0yIGZvbnQtbWVkaXVtXCJcbiAgICAgICAgICAgICAgPlxuICAgICAgICAgICAgICAgIDxTYXZlIGNsYXNzTmFtZT1cInctNCBoLTRcIiAvPlxuICAgICAgICAgICAgICAgIFNhdmVcbiAgICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgPC9kaXY+XG4gICAgICApfVxuXG4gICAgICB7LyogQWRkIEFzc2VtYmx5IFBvaW50IE1vZGFsICovfVxuICAgICAge3Nob3dBZGRBc3NlbWJseVBvaW50ICYmIChcbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmaXhlZCBpbnNldC0wIGJnLWJsYWNrLzgwIGJhY2tkcm9wLWJsdXItc20gei01MCBmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlciBwLTRcIj5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLXdoaXRlLzUgYmFja2Ryb3AtYmx1ci1sZyBib3JkZXIgYm9yZGVyLXdoaXRlLzEwIHJvdW5kZWQtMnhsIHctZnVsbCBtYXgtdy1tZFwiPlxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJwLTYgYm9yZGVyLWIgYm9yZGVyLVsjMWEzNDQwXVwiPlxuICAgICAgICAgICAgICA8aDIgY2xhc3NOYW1lPVwidGV4dC0yeGwgZm9udC1ib2xkIHRleHQtd2hpdGVcIj5BZGQgQXNzZW1ibHkgUG9pbnQ8L2gyPlxuICAgICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicC02IHNwYWNlLXktNFwiPlxuICAgICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICAgIDxsYWJlbCBjbGFzc05hbWU9XCJibG9jayB0ZXh0LXNtIGZvbnQtbWVkaXVtIHRleHQtZ3JheS00MDAgbWItMlwiPk5hbWU8L2xhYmVsPlxuICAgICAgICAgICAgICAgIDxpbnB1dFxuICAgICAgICAgICAgICAgICAgdHlwZT1cInRleHRcIlxuICAgICAgICAgICAgICAgICAgdmFsdWU9XCJcIlxuICAgICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBjb25zb2xlLmxvZyhlLnRhcmdldC52YWx1ZSl9XG4gICAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJ3LWZ1bGwgcHgtNCBweS0zIGJnLVsjMEIxRjJBXSBib3JkZXIgYm9yZGVyLVsjMWEzNDQwXSByb3VuZGVkLWxnIHRleHQtd2hpdGUgZm9jdXM6b3V0bGluZS1ub25lIGZvY3VzOmJvcmRlci1ibHVlLTUwMC81MFwiXG4gICAgICAgICAgICAgICAgLz5cbiAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgICAgPGxhYmVsIGNsYXNzTmFtZT1cImJsb2NrIHRleHQtc20gZm9udC1tZWRpdW0gdGV4dC1ncmF5LTQwMCBtYi0yXCI+TG9jYXRpb248L2xhYmVsPlxuICAgICAgICAgICAgICAgIDxpbnB1dFxuICAgICAgICAgICAgICAgICAgdHlwZT1cInRleHRcIlxuICAgICAgICAgICAgICAgICAgdmFsdWU9XCJcIlxuICAgICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBjb25zb2xlLmxvZyhlLnRhcmdldC52YWx1ZSl9XG4gICAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJ3LWZ1bGwgcHgtNCBweS0zIGJnLVsjMEIxRjJBXSBib3JkZXIgYm9yZGVyLVsjMWEzNDQwXSByb3VuZGVkLWxnIHRleHQtd2hpdGUgZm9jdXM6b3V0bGluZS1ub25lIGZvY3VzOmJvcmRlci1ibHVlLTUwMC81MFwiXG4gICAgICAgICAgICAgICAgLz5cbiAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICA8L2Rpdj5cblxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJwLTYgYm9yZGVyLXQgYm9yZGVyLVsjMWEzNDQwXSBmbGV4IGdhcC0zXCI+XG4gICAgICAgICAgICAgIDxidXR0b25cbiAgICAgICAgICAgICAgICBvbkNsaWNrPXsoKSA9PiBzZXRTaG93QWRkQXNzZW1ibHlQb2ludChmYWxzZSl9XG4gICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwiZmxleC0xIHB4LTYgcHktMyBiZy13aGl0ZS81IGJvcmRlciBib3JkZXItd2hpdGUvMTAgdGV4dC13aGl0ZSByb3VuZGVkLWxnIGhvdmVyOmJnLXdoaXRlLzEwIHRyYW5zaXRpb24tYWxsXCJcbiAgICAgICAgICAgICAgPlxuICAgICAgICAgICAgICAgIENhbmNlbFxuICAgICAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgICAgICAgPGJ1dHRvblxuICAgICAgICAgICAgICAgIG9uQ2xpY2s9eygpID0+IHNldFNob3dBZGRBc3NlbWJseVBvaW50KGZhbHNlKX1cbiAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJmbGV4LTEgcHgtNiBweS0zIGJnLWJsdWUtNjAwIHRleHQtd2hpdGUgcm91bmRlZC1sZyBob3ZlcjpiZy1ibHVlLTcwMCB0cmFuc2l0aW9uLWFsbCBmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlciBnYXAtMiBmb250LW1lZGl1bVwiXG4gICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICA8U2F2ZSBjbGFzc05hbWU9XCJ3LTQgaC00XCIgLz5cbiAgICAgICAgICAgICAgICBTYXZlXG4gICAgICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvZGl2PlxuICAgICAgKX1cbiAgICA8L2Rpdj5cbiAgKTtcbn0iXSwiZmlsZSI6Ii93b3Jrc3BhY2VzL2RlZmF1bHQvY29kZS9zcmMvYXBwL3BhZ2VzL29yZy1hZG1pbi9FbWVyZ2VuY3lTYWZldHlNYW5hZ2VtZW50LnRzeCJ9

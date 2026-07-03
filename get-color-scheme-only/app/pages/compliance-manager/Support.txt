@@ -1,0 +1,44 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/app/pages/compliance-manager/Support.tsx");import { jsxDEV } from "/@id/__x00__figma:react-jsx-dev-runtime";
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/workspaces/default/code/src/app/pages/compliance-manager/Support.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+import { FGCmp } from "/@id/fginspector";
+import Support from "/src/app/pages/org-admin/Support.tsx";
+export default function ComplianceManagerSupport() {
+  return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Support, _fgS: "bvhk0", _fgB: 1779104382159, _fgD: true, "data-fg-bvhk0": "418.246:418.183:/src/app/pages/compliance-manager/Support.tsx:5:10:168:11:e:Support::1::::B8uH" }, void 0, false, {
+    fileName: "/workspaces/default/code/src/app/pages/compliance-manager/Support.tsx",
+    lineNumber: 25,
+    columnNumber: 10
+  }, this);
+}
+_c = ComplianceManagerSupport;
+var _c;
+$RefreshReg$(_c, "ComplianceManagerSupport");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/workspaces/default/code/src/app/pages/compliance-manager/Support.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/workspaces/default/code/src/app/pages/compliance-manager/Support.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6IkFBSVM7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBSFQsT0FBT0EsYUFBYTtBQUVwQix3QkFBd0JDLDJCQUEyQjtBQUNqRCxTQUFPLHVCQUFDLGVBQUFELFNBQUEsMENBQU8sMkhBQVI7QUFBQTtBQUFBO0FBQUE7QUFBQSxTQUFRO0FBQ2pCO0FBQUFFLEtBRndCRDtBQUF3QixJQUFBQztBQUFBQyxhQUFBRCxJQUFBIiwibmFtZXMiOlsiU3VwcG9ydCIsIkNvbXBsaWFuY2VNYW5hZ2VyU3VwcG9ydCIsIl9jIiwiJFJlZnJlc2hSZWckIl0sImlnbm9yZUxpc3QiOltdLCJzb3VyY2VzIjpbIlN1cHBvcnQudHN4Il0sInNvdXJjZXNDb250ZW50IjpbIi8vIFdyYXBwZXIgZm9yIENvbXBsaWFuY2UgTWFuYWdlciAtIHJldXNlcyBPcmcgQWRtaW4gU3VwcG9ydFxuaW1wb3J0IFN1cHBvcnQgZnJvbSAnLi4vb3JnLWFkbWluL1N1cHBvcnQnO1xuXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBDb21wbGlhbmNlTWFuYWdlclN1cHBvcnQoKSB7XG4gIHJldHVybiA8U3VwcG9ydCAvPjtcbn1cbiJdLCJmaWxlIjoiL3dvcmtzcGFjZXMvZGVmYXVsdC9jb2RlL3NyYy9hcHAvcGFnZXMvY29tcGxpYW5jZS1tYW5hZ2VyL1N1cHBvcnQudHN4In0=

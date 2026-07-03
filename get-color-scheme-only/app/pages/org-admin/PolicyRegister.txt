@@ -1,0 +1,1011 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/app/pages/org-admin/PolicyRegister.tsx");import { jsxDEV } from "/@id/__x00__figma:react-jsx-dev-runtime";
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+var _s = $RefreshSig$();
+import { FGCmp } from "/@id/fginspector";
+import { useState } from "/@id/__x00__figma:react-base";
+import {
+  FileText,
+  Download,
+  Eye,
+  Search,
+  CheckCircle,
+  XCircle,
+  Clock,
+  AlertTriangle,
+  Calendar,
+  User,
+  GitBranch,
+  Shield
+} from "/node_modules/.vite/deps/lucide-react.js?v=25293e4c";
+import { DOCUMENT_CATEGORIES, DOCUMENT_TYPES } from "/src/app/data/taxonomy.ts";
+export default function PolicyRegister() {
+  _s();
+  const [searchQuery, setSearchQuery] = useState("");
+  const [typeFilter, setTypeFilter] = useState("all");
+  const [categoryFilter, setCategoryFilter] = useState("all");
+  const [statusFilter, setStatusFilter] = useState("all");
+  const [selectedDocument, setSelectedDocument] = useState(null);
+  const [activeTab, setActiveTab] = useState("register");
+  const policyRegister = [
+    {
+      documentId: "POL-GOV-001",
+      title: "Governance Framework Policy",
+      type: "policy",
+      category: "gov",
+      sector: "aged-care",
+      currentVersion: "3.2",
+      status: "published",
+      ownerRole: "Quality Manager",
+      reviewDueDate: "2026-08-15",
+      lastReviewDate: "2025-08-15",
+      approvalStatus: "approved",
+      daysUntilReview: 117
+    },
+    {
+      documentId: "POL-CLN-002",
+      title: "Infection Control Policy",
+      type: "policy",
+      category: "cln",
+      sector: "aged-care",
+      currentVersion: "2.1",
+      status: "published",
+      ownerRole: "Clinical Manager",
+      reviewDueDate: "2026-06-01",
+      lastReviewDate: "2025-06-01",
+      approvalStatus: "approved",
+      daysUntilReview: 42
+    },
+    {
+      documentId: "PROC-CLN-003",
+      title: "Medication Administration Procedure",
+      type: "procedure",
+      category: "cln",
+      sector: "aged-care",
+      currentVersion: "4.0",
+      status: "under-review",
+      ownerRole: "Registered Nurse",
+      reviewDueDate: "2026-05-01",
+      lastReviewDate: "2024-05-01",
+      approvalStatus: "pending",
+      daysUntilReview: 11
+    },
+    {
+      documentId: "POL-WKF-004",
+      title: "Staff Code of Conduct Policy",
+      type: "policy",
+      category: "wkf",
+      sector: "universal",
+      currentVersion: "2.5",
+      status: "published",
+      ownerRole: "HR Manager",
+      reviewDueDate: "2027-01-20",
+      lastReviewDate: "2026-01-20",
+      approvalStatus: "approved",
+      daysUntilReview: 275
+    },
+    {
+      documentId: "POL-OPS-005",
+      title: "Emergency Response Policy",
+      type: "policy",
+      category: "ops",
+      sector: "aged-care",
+      currentVersion: "1.8",
+      status: "published",
+      ownerRole: "Operations Manager",
+      reviewDueDate: "2026-04-30",
+      lastReviewDate: "2025-04-30",
+      approvalStatus: "approved",
+      daysUntilReview: 10
+    }
+  ];
+  const versionHistory = [
+    {
+      version: "3.2",
+      date: "2025-08-15",
+      author: "Jane Smith",
+      changes: "Updated governance structure to align with new regulatory requirements",
+      approvalDate: "2025-08-20",
+      approver: "CEO - Sarah Johnson"
+    },
+    {
+      version: "3.1",
+      date: "2024-11-10",
+      author: "Michael Chen",
+      changes: "Added Section 4.5 - Board Reporting Requirements",
+      approvalDate: "2024-11-15",
+      approver: "CEO - Sarah Johnson"
+    },
+    {
+      version: "3.0",
+      date: "2024-03-22",
+      author: "Jane Smith",
+      changes: "Major revision - Complete restructure to meet Aged Care Quality Standards",
+      approvalDate: "2024-03-30",
+      approver: "Board of Directors"
+    }
+  ];
+  const approvalRecords = [
+    {
+      documentId: "POL-GOV-001",
+      versionSubmitted: "3.2",
+      submittedBy: "Jane Smith (Quality Manager)",
+      submittedDate: "2025-08-15",
+      reviewedBy: "Sarah Johnson (CEO)",
+      reviewDate: "2025-08-20",
+      decision: "approved",
+      comments: "Approved with no changes required. Well aligned with current standards."
+    },
+    {
+      documentId: "POL-CLN-002",
+      versionSubmitted: "2.1",
+      submittedBy: "Dr. Emma Williams (Clinical Manager)",
+      submittedDate: "2025-06-01",
+      reviewedBy: "Dr. Michael Brown (Medical Director)",
+      reviewDate: "2025-06-05",
+      decision: "approved",
+      comments: "Approved. Infection control protocols meet current guidelines."
+    },
+    {
+      documentId: "PROC-CLN-003",
+      versionSubmitted: "4.0",
+      submittedBy: "Lisa Anderson (Registered Nurse)",
+      submittedDate: "2026-04-15",
+      reviewedBy: "Dr. Emma Williams (Clinical Manager)",
+      reviewDate: "Pending",
+      decision: "changes-requested",
+      comments: "Request clarification on Section 3.2 medication storage temperatures."
+    }
+  ];
+  const filteredPolicies = policyRegister.filter((policy) => {
+    if (searchQuery && !policy.title.toLowerCase().includes(searchQuery.toLowerCase()) && !policy.documentId.toLowerCase().includes(searchQuery.toLowerCase())) {
+      return false;
+    }
+    if (typeFilter !== "all" && policy.type !== typeFilter) return false;
+    if (categoryFilter !== "all" && policy.category !== categoryFilter) return false;
+    if (statusFilter !== "all" && policy.status !== statusFilter) return false;
+    return true;
+  });
+  const getStatusBadge = (status) => {
+    const config = {
+      published: { bg: "bg-green-500/20", text: "text-green-400", label: "Published" },
+      "under-review": { bg: "bg-blue-500/20", text: "text-blue-400", label: "Under Review" },
+      draft: { bg: "bg-gray-500/20", text: "text-gray-400", label: "Draft" },
+      archived: { bg: "bg-gray-500/20", text: "text-gray-500", label: "Archived" }
+    };
+    const c = config[status] || config.draft;
+    return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b3pv0", _fgB: 1779104381944, className: `px-2 py-1 rounded text-xs font-medium ${c.bg} ${c.text}`, "data-fg-b3pv0": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:219:12:6631:92:e:span:x", children: c.label }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+      lineNumber: 239,
+      columnNumber: 12
+    }, this);
+  };
+  const getApprovalBadge = (approval) => {
+    const config = {
+      approved: { icon: CheckCircle, bg: "bg-green-500/20", text: "text-green-400", label: "Approved" },
+      pending: { icon: Clock, bg: "bg-yellow-500/20", text: "text-yellow-400", label: "Pending" },
+      rejected: { icon: XCircle, bg: "bg-red-500/20", text: "text-red-400", label: "Rejected" }
+    };
+    const c = config[approval] || config.pending;
+    const Icon = c.icon;
+    return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b3pv2", _fgB: 1779104381944, className: `inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-medium ${c.bg} ${c.text}`, "data-fg-b3pv2": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:231:7:7228:176:e:span:etx", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Icon, _fgS: "b3pv3", _fgB: 1779104381944, className: "w-3 h-3", "data-fg-b3pv3": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:232:9:7344:28:e:Icon" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+        lineNumber: 252,
+        columnNumber: 9
+      }, this),
+      c.label
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+      lineNumber: 251,
+      columnNumber: 7
+    }, this);
+  };
+  const getReviewUrgency = (days) => {
+    if (days < 0) {
+      return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b3pv5", _fgB: 1779104381944, className: "text-red-400 font-semibold flex items-center gap-1", "data-fg-b3pv5": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:240:14:7498:167:e:span:etxt", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: AlertTriangle, _fgS: "b3pv6", _fgB: 1779104381944, className: "w-3 h-3", "data-fg-b3pv6": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:241:9:7576:37:e:AlertTriangle::::::Ruk" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+          lineNumber: 261,
+          columnNumber: 9
+        }, this),
+        Math.abs(days),
+        " days overdue"
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+        lineNumber: 260,
+        columnNumber: 14
+      }, this);
+    } else if (days <= 30) {
+      return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b3pv9", _fgB: 1779104381944, className: "text-yellow-400 font-semibold", "data-fg-b3pv9": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:245:14:7709:76:e:span:xt", children: [
+        days,
+        " days remaining"
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+        lineNumber: 265,
+        columnNumber: 14
+      }, this);
+    } else {
+      return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b3pv12", _fgB: 1779104381944, className: "text-gray-400", "data-fg-b3pv12": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:247:14:7813:50:e:span:xt", children: [
+        days,
+        " days"
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+        lineNumber: 267,
+        columnNumber: 14
+      }, this);
+    }
+  };
+  return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv15", _fgB: 1779104381944, _fgD: true, className: "space-y-6", "data-fg-b3pv15": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:252:5:7892:13388:e:div:xtetxtetxtxtxtxtxtxtxtx:1", children: [
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv17", _fgB: 1779104381944, className: "flex items-center justify-between", "data-fg-b3pv17": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:254:7:7947:954:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv18", _fgB: 1779104381944, "data-fg-b3pv18": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:255:9:8007:210:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h1", _fgS: "b3pv19", _fgB: 1779104381944, className: "text-3xl font-bold text-white mb-2", "data-fg-b3pv19": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:256:11:8023:71:e:h1:t", children: "Policy Register" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+          lineNumber: 276,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "b3pv21", _fgB: 1779104381944, className: "text-gray-400", "data-fg-b3pv21": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:257:11:8105:97:e:p:t", children: "Master document index with version control and approval tracking" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+          lineNumber: 277,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+        lineNumber: 275,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv23", _fgB: 1779104381944, className: "flex items-center gap-3", "data-fg-b3pv23": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:259:9:8226:662:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "button", _fgS: "b3pv24", _fgB: 1779104381944, className: "flex items-center gap-2 px-4 py-2 bg-blue-500/20 border border-blue-500/30 text-blue-400 rounded-lg hover:bg-blue-500/30 transition-all", "data-fg-b3pv24": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:260:11:8278:289:e:button:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Download, _fgS: "b3pv25", _fgB: 1779104381944, className: "w-4 h-4", "data-fg-b3pv25": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:261:13:8447:32:e:Download::::::yh6" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+            lineNumber: 281,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b3pv26", _fgB: 1779104381944, className: "text-sm font-medium", "data-fg-b3pv26": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:262:13:8492:55:e:span:t", children: "Export PDF" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+            lineNumber: 282,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+          lineNumber: 280,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "button", _fgS: "b3pv28", _fgB: 1779104381944, className: "flex items-center gap-2 px-4 py-2 bg-green-500/20 border border-green-500/30 text-green-400 rounded-lg hover:bg-green-500/30 transition-all", "data-fg-b3pv28": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:264:11:8578:295:e:button:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Download, _fgS: "b3pv29", _fgB: 1779104381944, className: "w-4 h-4", "data-fg-b3pv29": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:265:13:8751:32:e:Download::::::yh6" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+            lineNumber: 285,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b3pv30", _fgB: 1779104381944, className: "text-sm font-medium", "data-fg-b3pv30": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:266:13:8796:57:e:span:t", children: "Export Excel" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+            lineNumber: 286,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+          lineNumber: 284,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+        lineNumber: 279,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+      lineNumber: 274,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv33", _fgB: 1779104381944, className: "flex items-center gap-2 border-b border-white/10", "data-fg-b3pv33": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:272:7:8928:1000:e:div:x", children: [
+      { id: "register", label: "Master Register", icon: FileText },
+      { id: "versions", label: "Version History", icon: GitBranch },
+      { id: "approvals", label: "Approval Records", icon: Shield },
+      { id: "reviews", label: "Review Cycle", icon: Calendar }
+    ].map((tab) => {
+      const Icon = tab.icon;
+      return /* @__PURE__ */ jsxDEV(
+        FGCmp,
+        {
+          _fgT: "button",
+          _fgS: "b3pv35",
+          _fgB: 1779104381944,
+          onClick: () => setActiveTab(tab.id),
+          className: `flex items-center gap-2 px-4 py-3 border-b-2 transition-all ${activeTab === tab.id ? "border-teal-500 text-teal-400" : "border-transparent text-gray-400 hover:text-white"}`,
+          "data-fg-b3pv35": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:281:13:9380:510:e:button:ete",
+          children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Icon, _fgS: "b3pv36", _fgB: 1779104381944, className: "w-4 h-4", "data-fg-b3pv36": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:290:15:9769:28:e:Icon" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+              lineNumber: 310,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b3pv37", _fgB: 1779104381944, className: "text-sm font-medium", "data-fg-b3pv37": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:291:15:9812:56:e:span:x", children: tab.label }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+              lineNumber: 311,
+              columnNumber: 15
+            }, this)
+          ]
+        },
+        tab.id,
+        true,
+        {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+          lineNumber: 301,
+          columnNumber: 13
+        },
+        this
+      );
+    }) }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+      lineNumber: 292,
+      columnNumber: 7
+    }, this),
+    activeTab === "register" && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv41", _fgB: 1779104381944, className: "space-y-4", "data-fg-b3pv41": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:299:9:10009:5162:e:div:xtetxte", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv43", _fgB: 1779104381944, className: "flex items-center gap-3", "data-fg-b3pv43": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:301:11:10073:2212:e:div:etetete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv44", _fgB: 1779104381944, className: "relative flex-1", "data-fg-b3pv44": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:302:13:10127:555:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Search, _fgS: "b3pv45", _fgB: 1779104381944, className: "absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400", "data-fg-b3pv45": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:303:15:10175:85:e:Search::::::B9rK" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+            lineNumber: 323,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "input",
+              _fgS: "b3pv46",
+              _fgB: 1779104381944,
+              type: "text",
+              value: searchQuery,
+              onChange: (e) => setSearchQuery(e.target.value),
+              placeholder: "Search by title or document ID...",
+              className: "w-full pl-10 pr-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-teal-500/50",
+              "data-fg-b3pv46": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:304:15:10275:388:e:input"
+            },
+            void 0,
+            false,
+            {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+              lineNumber: 324,
+              columnNumber: 15
+            },
+            this
+          )
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+          lineNumber: 322,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "select",
+            _fgS: "b3pv47",
+            _fgB: 1779104381944,
+            value: typeFilter,
+            onChange: (e) => setTypeFilter(e.target.value),
+            className: "px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white text-sm focus:outline-none focus:border-teal-500/50",
+            "data-fg-b3pv47": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:312:13:10695:481:e:select:etx",
+            children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "b3pv48", _fgB: 1779104381944, value: "all", "data-fg-b3pv48": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:317:15:10970:38:e:option:t", children: "All Types" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+                lineNumber: 337,
+                columnNumber: 15
+              }, this),
+              DOCUMENT_TYPES.map(
+                (type) => /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "b3pv51", _fgB: 1779104381944, value: type.value, "data-fg-b3pv51": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:319:17:11071:65:e:option:x", children: type.label }, type.value, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+                  lineNumber: 339,
+                  columnNumber: 13
+                }, this)
+              )
+            ]
+          },
+          void 0,
+          true,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+            lineNumber: 332,
+            columnNumber: 13
+          },
+          this
+        ),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "select",
+            _fgS: "b3pv53",
+            _fgB: 1779104381944,
+            value: categoryFilter,
+            onChange: (e) => setCategoryFilter(e.target.value),
+            className: "px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white text-sm focus:outline-none focus:border-teal-500/50",
+            "data-fg-b3pv53": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:322:13:11189:494:e:select:etx",
+            children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "b3pv54", _fgB: 1779104381944, value: "all", "data-fg-b3pv54": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:327:15:11472:43:e:option:t", children: "All Categories" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+                lineNumber: 347,
+                columnNumber: 15
+              }, this),
+              DOCUMENT_CATEGORIES.map(
+                (cat) => /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "b3pv57", _fgB: 1779104381944, value: cat.value, "data-fg-b3pv57": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:329:17:11582:61:e:option:x", children: cat.code }, cat.value, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+                  lineNumber: 349,
+                  columnNumber: 13
+                }, this)
+              )
+            ]
+          },
+          void 0,
+          true,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+            lineNumber: 342,
+            columnNumber: 13
+          },
+          this
+        ),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "select",
+            _fgS: "b3pv59",
+            _fgB: 1779104381944,
+            value: statusFilter,
+            onChange: (e) => setStatusFilter(e.target.value),
+            className: "px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white text-sm focus:outline-none focus:border-teal-500/50",
+            "data-fg-b3pv59": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:332:13:11696:572:e:select:etetetete",
+            children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "b3pv60", _fgB: 1779104381944, value: "all", "data-fg-b3pv60": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:337:15:11975:39:e:option:t", children: "All Status" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+                lineNumber: 357,
+                columnNumber: 15
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "b3pv62", _fgB: 1779104381944, value: "published", "data-fg-b3pv62": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:338:15:12029:44:e:option:t", children: "Published" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+                lineNumber: 358,
+                columnNumber: 15
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "b3pv64", _fgB: 1779104381944, value: "under-review", "data-fg-b3pv64": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:339:15:12088:50:e:option:t", children: "Under Review" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+                lineNumber: 359,
+                columnNumber: 15
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "b3pv66", _fgB: 1779104381944, value: "draft", "data-fg-b3pv66": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:340:15:12153:36:e:option:t", children: "Draft" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+                lineNumber: 360,
+                columnNumber: 15
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "b3pv68", _fgB: 1779104381944, value: "archived", "data-fg-b3pv68": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:341:15:12204:42:e:option:t", children: "Archived" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+                lineNumber: 361,
+                columnNumber: 15
+              }, this)
+            ]
+          },
+          void 0,
+          true,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+            lineNumber: 352,
+            columnNumber: 13
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+        lineNumber: 321,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv71", _fgB: 1779104381944, className: "bg-[#0f2832] border border-[#1a3440] rounded-xl overflow-hidden", "data-fg-b3pv71": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:346:11:12321:2835:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv72", _fgB: 1779104381944, className: "overflow-x-auto", "data-fg-b3pv72": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:347:13:12415:2724:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "table", _fgS: "b3pv73", _fgB: 1779104381944, className: "w-full", "data-fg-b3pv73": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:348:15:12463:2657:e:table:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "thead", _fgS: "b3pv74", _fgB: 1779104381944, "data-fg-b3pv74": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:349:17:12506:1140:e:thead:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "tr", _fgS: "b3pv75", _fgB: 1779104381944, className: "border-b border-[#1a3440] bg-white/5", "data-fg-b3pv75": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:350:19:12532:1089:e:tr:etetetetetetetete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "th", _fgS: "b3pv76", _fgB: 1779104381944, className: "px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase", "data-fg-b3pv76": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:351:21:12606:91:e:th:t", children: "Doc ID" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+            lineNumber: 371,
+            columnNumber: 21
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "th", _fgS: "b3pv78", _fgB: 1779104381944, className: "px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase", "data-fg-b3pv78": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:352:21:12718:90:e:th:t", children: "Title" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+            lineNumber: 372,
+            columnNumber: 21
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "th", _fgS: "b3pv80", _fgB: 1779104381944, className: "px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase", "data-fg-b3pv80": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:353:21:12829:89:e:th:t", children: "Type" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+            lineNumber: 373,
+            columnNumber: 21
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "th", _fgS: "b3pv82", _fgB: 1779104381944, className: "px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase", "data-fg-b3pv82": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:354:21:12939:93:e:th:t", children: "Category" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+            lineNumber: 374,
+            columnNumber: 21
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "th", _fgS: "b3pv84", _fgB: 1779104381944, className: "px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase", "data-fg-b3pv84": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:355:21:13053:92:e:th:t", children: "Version" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+            lineNumber: 375,
+            columnNumber: 21
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "th", _fgS: "b3pv86", _fgB: 1779104381944, className: "px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase", "data-fg-b3pv86": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:356:21:13166:91:e:th:t", children: "Status" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+            lineNumber: 376,
+            columnNumber: 21
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "th", _fgS: "b3pv88", _fgB: 1779104381944, className: "px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase", "data-fg-b3pv88": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:357:21:13278:90:e:th:t", children: "Owner" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+            lineNumber: 377,
+            columnNumber: 21
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "th", _fgS: "b3pv90", _fgB: 1779104381944, className: "px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase", "data-fg-b3pv90": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:358:21:13389:95:e:th:t", children: "Review Due" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+            lineNumber: 378,
+            columnNumber: 21
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "th", _fgS: "b3pv92", _fgB: 1779104381944, className: "px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase", "data-fg-b3pv92": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:359:21:13505:92:e:th:t", children: "Actions" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+            lineNumber: 379,
+            columnNumber: 21
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+          lineNumber: 370,
+          columnNumber: 19
+        }, this) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+          lineNumber: 369,
+          columnNumber: 17
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "tbody", _fgS: "b3pv94", _fgB: 1779104381944, className: "divide-y divide-[#1a3440]", "data-fg-b3pv94": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:362:17:13663:1434:e:tbody:x", children: filteredPolicies.map(
+          (policy) => /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "tr", _fgS: "b3pv96", _fgB: 1779104381944, className: "hover:bg-white/5 transition-colors", "data-fg-b3pv96": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:364:21:13783:1267:e:tr:etetetetetetetete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "td", _fgS: "b3pv97", _fgB: 1779104381944, className: "px-4 py-3 text-sm font-mono text-teal-400", "data-fg-b3pv97": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:365:23:13881:82:e:td:x", children: policy.documentId }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+              lineNumber: 385,
+              columnNumber: 23
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "td", _fgS: "b3pv99", _fgB: 1779104381944, className: "px-4 py-3 text-sm text-white", "data-fg-b3pv99": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:366:23:13986:64:e:td:x", children: policy.title }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+              lineNumber: 386,
+              columnNumber: 23
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "td", _fgS: "b3pv101", _fgB: 1779104381944, className: "px-4 py-3 text-sm text-gray-400 capitalize", "data-fg-b3pv101": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:367:23:14073:77:e:td:x", children: policy.type }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+              lineNumber: 387,
+              columnNumber: 23
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "td", _fgS: "b3pv103", _fgB: 1779104381944, className: "px-4 py-3 text-sm text-gray-400", "data-fg-b3pv103": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:368:23:14173:186:e:td:x", children: DOCUMENT_CATEGORIES.find((c) => c.value === policy.category)?.code || policy.category }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+              lineNumber: 388,
+              columnNumber: 23
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "td", _fgS: "b3pv105", _fgB: 1779104381944, className: "px-4 py-3 text-sm font-semibold text-white", "data-fg-b3pv105": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:371:23:14382:88:e:td:tx", children: [
+              "v",
+              policy.currentVersion
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+              lineNumber: 391,
+              columnNumber: 23
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "td", _fgS: "b3pv108", _fgB: 1779104381944, className: "px-4 py-3", "data-fg-b3pv108": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:372:23:14493:62:e:td:x", children: getStatusBadge(policy.status) }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+              lineNumber: 392,
+              columnNumber: 23
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "td", _fgS: "b3pv110", _fgB: 1779104381944, className: "px-4 py-3 text-sm text-gray-400", "data-fg-b3pv110": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:373:23:14578:71:e:td:x", children: policy.ownerRole }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+              lineNumber: 393,
+              columnNumber: 23
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "td", _fgS: "b3pv112", _fgB: 1779104381944, className: "px-4 py-3 text-sm", "data-fg-b3pv112": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:374:23:14672:81:e:td:x", children: getReviewUrgency(policy.daysUntilReview) }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+              lineNumber: 394,
+              columnNumber: 23
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "td", _fgS: "b3pv114", _fgB: 1779104381944, className: "px-4 py-3", "data-fg-b3pv114": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:375:23:14776:248:e:td:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "button", _fgS: "b3pv115", _fgB: 1779104381944, className: "p-1.5 hover:bg-white/10 rounded transition-all", "data-fg-b3pv115": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:376:25:14827:169:e:button:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Eye, _fgS: "b3pv116", _fgB: 1779104381944, className: "w-4 h-4 text-gray-400", "data-fg-b3pv116": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:377:27:14921:41:e:Eye::::::EJvT" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+              lineNumber: 397,
+              columnNumber: 27
+            }, this) }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+              lineNumber: 396,
+              columnNumber: 25
+            }, this) }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+              lineNumber: 395,
+              columnNumber: 23
+            }, this)
+          ] }, policy.documentId, true, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+            lineNumber: 384,
+            columnNumber: 17
+          }, this)
+        ) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+          lineNumber: 382,
+          columnNumber: 17
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+        lineNumber: 368,
+        columnNumber: 15
+      }, this) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+        lineNumber: 367,
+        columnNumber: 13
+      }, this) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+        lineNumber: 366,
+        columnNumber: 11
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+      lineNumber: 319,
+      columnNumber: 7
+    }, this),
+    activeTab === "versions" && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv119", _fgB: 1779104381944, className: "bg-[#0f2832] border border-[#1a3440] rounded-xl p-6", "data-fg-b3pv119": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:391:9:15261:1804:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "b3pv120", _fgB: 1779104381944, className: "text-lg font-semibold text-white mb-4 flex items-center gap-2", "data-fg-b3pv120": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:392:11:15341:212:e:h3:et", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: GitBranch, _fgS: "b3pv121", _fgB: 1779104381944, className: "w-5 h-5 text-teal-400", "data-fg-b3pv121": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:393:13:15432:47:e:GitBranch::::::BofC" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+          lineNumber: 413,
+          columnNumber: 13
+        }, this),
+        "Version History - Governance Framework Policy"
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+        lineNumber: 412,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv123", _fgB: 1779104381944, className: "space-y-4", "data-fg-b3pv123": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:396:11:15564:1486:e:div:x", children: versionHistory.map(
+        (version, index) => /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv125", _fgB: 1779104381944, className: "border border-white/10 rounded-lg p-4 bg-white/5", "data-fg-b3pv125": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:398:15:15660:1357:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv126", _fgB: 1779104381944, className: "flex items-start justify-between mb-3", "data-fg-b3pv126": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:399:17:15755:745:e:div:etx", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv127", _fgB: 1779104381944, className: "flex items-center gap-3", "data-fg-b3pv127": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:400:19:15829:599:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv128", _fgB: 1779104381944, className: "w-12 h-12 rounded-full bg-teal-500/20 flex items-center justify-center", "data-fg-b3pv128": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:401:21:15891:205:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b3pv129", _fgB: 1779104381944, className: "text-teal-400 font-bold", "data-fg-b3pv129": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:402:23:16002:67:e:span:tx", children: [
+                "v",
+                version.version
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+                lineNumber: 422,
+                columnNumber: 23
+              }, this) }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+                lineNumber: 421,
+                columnNumber: 21
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv132", _fgB: 1779104381944, "data-fg-b3pv132": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:404:21:16117:286:e:div:ete", children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv133", _fgB: 1779104381944, className: "text-white font-semibold mb-1", "data-fg-b3pv133": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:405:23:16145:70:e:div:x", children: version.changes }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+                  lineNumber: 425,
+                  columnNumber: 23
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv135", _fgB: 1779104381944, className: "text-xs text-gray-400", "data-fg-b3pv135": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:406:23:16238:138:e:div:txtx", children: [
+                  "Updated on ",
+                  version.date,
+                  " by ",
+                  version.author
+                ] }, void 0, true, {
+                  fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+                  lineNumber: 426,
+                  columnNumber: 23
+                }, this)
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+                lineNumber: 424,
+                columnNumber: 21
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+              lineNumber: 420,
+              columnNumber: 19
+            }, this),
+            getApprovalBadge("approved")
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+            lineNumber: 419,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv141", _fgB: 1779104381944, className: "grid grid-cols-2 gap-4 text-sm", "data-fg-b3pv141": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:413:17:16517:479:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv142", _fgB: 1779104381944, "data-fg-b3pv142": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:414:19:16584:188:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b3pv143", _fgB: 1779104381944, className: "text-gray-400", "data-fg-b3pv143": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:415:21:16610:53:e:span:t", children: "Approval Date:" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+                lineNumber: 435,
+                columnNumber: 21
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b3pv145", _fgB: 1779104381944, className: "text-white ml-2", "data-fg-b3pv145": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:416:21:16684:63:e:span:x", children: version.approvalDate }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+                lineNumber: 436,
+                columnNumber: 21
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+              lineNumber: 434,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv147", _fgB: 1779104381944, "data-fg-b3pv147": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:418:19:16791:182:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b3pv148", _fgB: 1779104381944, className: "text-gray-400", "data-fg-b3pv148": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:419:21:16817:51:e:span:t", children: "Approved By:" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+                lineNumber: 439,
+                columnNumber: 21
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b3pv150", _fgB: 1779104381944, className: "text-white ml-2", "data-fg-b3pv150": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:420:21:16889:59:e:span:x", children: version.approver }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+                lineNumber: 440,
+                columnNumber: 21
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+              lineNumber: 438,
+              columnNumber: 19
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+            lineNumber: 433,
+            columnNumber: 17
+          }, this)
+        ] }, index, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+          lineNumber: 418,
+          columnNumber: 11
+        }, this)
+      ) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+        lineNumber: 416,
+        columnNumber: 11
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+      lineNumber: 411,
+      columnNumber: 7
+    }, this),
+    activeTab === "approvals" && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv154", _fgB: 1779104381944, className: "bg-[#0f2832] border border-[#1a3440] rounded-xl p-6", "data-fg-b3pv154": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:431:9:17157:1813:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "b3pv155", _fgB: 1779104381944, className: "text-lg font-semibold text-white mb-4 flex items-center gap-2", "data-fg-b3pv155": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:432:11:17237:180:e:h3:et", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Shield, _fgS: "b3pv156", _fgB: 1779104381944, className: "w-5 h-5 text-blue-400", "data-fg-b3pv156": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:433:13:17328:44:e:Shield::::::B8zf" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+          lineNumber: 453,
+          columnNumber: 13
+        }, this),
+        "Approval Records"
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+        lineNumber: 452,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv158", _fgB: 1779104381944, className: "space-y-4", "data-fg-b3pv158": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:436:11:17428:1527:e:div:x", children: approvalRecords.map(
+        (record, index) => /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv160", _fgB: 1779104381944, className: "border border-white/10 rounded-lg p-4 bg-white/5", "data-fg-b3pv160": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:438:15:17524:1398:e:div:etetx", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv161", _fgB: 1779104381944, className: "flex items-start justify-between mb-3", "data-fg-b3pv161": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:439:17:17619:479:e:div:etx", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv162", _fgB: 1779104381944, "data-fg-b3pv162": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:440:19:17693:328:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv163", _fgB: 1779104381944, className: "text-white font-semibold mb-1", "data-fg-b3pv163": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:441:21:17719:108:e:div:xtx", children: [
+                record.documentId,
+                " - Version ",
+                record.versionSubmitted
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+                lineNumber: 461,
+                columnNumber: 21
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv167", _fgB: 1779104381944, className: "text-xs text-gray-400", "data-fg-b3pv167": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:442:21:17848:148:e:div:txtx", children: [
+                "Submitted by ",
+                record.submittedBy,
+                " on ",
+                record.submittedDate
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+                lineNumber: 462,
+                columnNumber: 21
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+              lineNumber: 460,
+              columnNumber: 19
+            }, this),
+            getApprovalBadge(record.decision)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+            lineNumber: 459,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv173", _fgB: 1779104381944, className: "grid grid-cols-2 gap-4 text-sm mb-3", "data-fg-b3pv173": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:448:17:18115:480:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv174", _fgB: 1779104381944, "data-fg-b3pv174": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:449:19:18187:183:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b3pv175", _fgB: 1779104381944, className: "text-gray-400", "data-fg-b3pv175": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:450:21:18213:51:e:span:t", children: "Reviewed By:" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+                lineNumber: 470,
+                columnNumber: 21
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b3pv177", _fgB: 1779104381944, className: "text-white ml-2", "data-fg-b3pv177": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:451:21:18285:60:e:span:x", children: record.reviewedBy }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+                lineNumber: 471,
+                columnNumber: 21
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+              lineNumber: 469,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv179", _fgB: 1779104381944, "data-fg-b3pv179": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:453:19:18389:183:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b3pv180", _fgB: 1779104381944, className: "text-gray-400", "data-fg-b3pv180": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:454:21:18415:51:e:span:t", children: "Review Date:" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+                lineNumber: 474,
+                columnNumber: 21
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b3pv182", _fgB: 1779104381944, className: "text-white ml-2", "data-fg-b3pv182": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:455:21:18487:60:e:span:x", children: record.reviewDate }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+                lineNumber: 475,
+                columnNumber: 21
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+              lineNumber: 473,
+              columnNumber: 19
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+            lineNumber: 468,
+            columnNumber: 17
+          }, this),
+          record.comments && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv185", _fgB: 1779104381944, className: "bg-white/5 border border-white/10 rounded p-3 text-sm text-gray-300", "data-fg-b3pv185": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:459:19:18652:230:e:div:etx", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b3pv186", _fgB: 1779104381944, className: "text-gray-400 font-medium", "data-fg-b3pv186": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:460:21:18758:61:e:span:t", children: "Comments: " }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+              lineNumber: 480,
+              columnNumber: 21
+            }, this),
+            record.comments
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+            lineNumber: 479,
+            columnNumber: 13
+          }, this)
+        ] }, index, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+          lineNumber: 458,
+          columnNumber: 11
+        }, this)
+      ) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+        lineNumber: 456,
+        columnNumber: 11
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+      lineNumber: 451,
+      columnNumber: 7
+    }, this),
+    activeTab === "reviews" && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv191", _fgB: 1779104381944, className: "bg-[#0f2832] border border-[#1a3440] rounded-xl p-6", "data-fg-b3pv191": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:472:9:19056:2204:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "b3pv192", _fgB: 1779104381944, className: "text-lg font-semibold text-white mb-4 flex items-center gap-2", "data-fg-b3pv192": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:473:11:19136:191:e:h3:et", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Calendar, _fgS: "b3pv193", _fgB: 1779104381944, className: "w-5 h-5 text-purple-400", "data-fg-b3pv193": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:474:13:19227:48:e:Calendar::::::Bbz4" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+          lineNumber: 494,
+          columnNumber: 13
+        }, this),
+        "Review Cycle Management"
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+        lineNumber: 493,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv195", _fgB: 1779104381944, className: "space-y-3", "data-fg-b3pv195": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:477:11:19338:1907:e:div:x", children: policyRegister.sort((a, b) => a.daysUntilReview - b.daysUntilReview).map(
+        (policy) => /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv197", _fgB: 1779104381944, className: `border rounded-lg p-4 ${policy.daysUntilReview < 0 ? "border-red-500/30 bg-red-500/10" : policy.daysUntilReview <= 30 ? "border-yellow-500/30 bg-yellow-500/10" : "border-white/10 bg-white/5"}`, "data-fg-b3pv197": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:481:17:19512:1698:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv198", _fgB: 1779104381944, className: "flex items-center justify-between", "data-fg-b3pv198": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:488:19:19882:719:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv199", _fgB: 1779104381944, className: "flex-1", "data-fg-b3pv199": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:489:21:19954:253:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv200", _fgB: 1779104381944, className: "text-white font-medium mb-1", "data-fg-b3pv200": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:490:23:20001:65:e:div:x", children: policy.title }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+                lineNumber: 510,
+                columnNumber: 23
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv202", _fgB: 1779104381944, className: "text-xs text-gray-400", "data-fg-b3pv202": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:491:23:20089:91:e:div:xtx", children: [
+                policy.documentId,
+                " • v",
+                policy.currentVersion
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+                lineNumber: 511,
+                columnNumber: 23
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+              lineNumber: 509,
+              columnNumber: 21
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv206", _fgB: 1779104381944, className: "text-right", "data-fg-b3pv206": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:493:21:20228:348:e:div:etete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv207", _fgB: 1779104381944, className: "text-sm mb-1", "data-fg-b3pv207": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:494:23:20279:78:e:div:x", children: getReviewUrgency(policy.daysUntilReview) }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+                lineNumber: 514,
+                columnNumber: 23
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv209", _fgB: 1779104381944, className: "text-xs text-gray-400", "data-fg-b3pv209": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:495:23:20380:72:e:div:tx", children: [
+                "Due: ",
+                policy.reviewDueDate
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+                lineNumber: 515,
+                columnNumber: 23
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv212", _fgB: 1779104381944, className: "text-xs text-gray-500", "data-fg-b3pv212": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:496:23:20475:74:e:div:tx", children: [
+                "Last: ",
+                policy.lastReviewDate
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+                lineNumber: 516,
+                columnNumber: 23
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+              lineNumber: 513,
+              columnNumber: 21
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+            lineNumber: 508,
+            columnNumber: 19
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv215", _fgB: 1779104381944, className: "mt-3 flex items-center justify-between", "data-fg-b3pv215": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:499:19:20620:567:e:div:etx", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b3pv216", _fgB: 1779104381944, className: "text-xs text-gray-400", "data-fg-b3pv216": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:500:21:20697:183:e:div:etx", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: User, _fgS: "b3pv217", _fgB: 1779104381944, className: "w-3 h-3 inline mr-1", "data-fg-b3pv217": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:501:23:20759:40:e:User::::::wpV" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+                lineNumber: 521,
+                columnNumber: 23
+              }, this),
+              "Responsible: ",
+              policy.ownerRole
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+              lineNumber: 520,
+              columnNumber: 21
+            }, this),
+            policy.daysUntilReview <= 30 && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "button", _fgS: "b3pv221", _fgB: 1779104381944, className: "px-3 py-1 bg-teal-500/20 text-teal-400 text-xs rounded hover:bg-teal-500/30 transition-all", "data-fg-b3pv221": "618.70:618.21288:/src/app/pages/org-admin/PolicyRegister.tsx:505:23:20958:181:e:button:t", children: "Send Reminder" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+              lineNumber: 525,
+              columnNumber: 15
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+            lineNumber: 519,
+            columnNumber: 19
+          }, this)
+        ] }, policy.documentId, true, {
+          fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+          lineNumber: 501,
+          columnNumber: 11
+        }, this)
+      ) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+        lineNumber: 497,
+        columnNumber: 11
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+      lineNumber: 492,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx",
+    lineNumber: 272,
+    columnNumber: 5
+  }, this);
+}
+_s(PolicyRegister, "sC3ygxuYAlIaCIPqCD2s8asPm9U=");
+_c = PolicyRegister;
+var _c;
+$RefreshReg$(_c, "PolicyRegister");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/workspaces/default/code/src/app/pages/org-admin/PolicyRegister.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,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QUFBQTtBQUFBLGlCQVVBO0FBQUEsVUFDQSx1QkFBQyw0REFBSSxXQUFVLDBDQUF1Qyw4R0FDcEQ7QUFBQSxtQ0FBQyw0REFBSSxXQUFVLHlCQUFzQiw4R0FDbkM7QUFBQSxxQ0FBQyxlQUFBN0IsTUFBQSxzQ0FBSyxXQUFVLHVCQUFxQixxSEFBckM7QUFBQTtBQUFBO0FBQUE7QUFBQSxxQkFBcUM7QUFBQTtBQUFBLGNBQ3ZCaUQsT0FBT3RCO0FBQUFBLGlCQUZ2QjtBQUFBO0FBQUE7QUFBQTtBQUFBLG1CQUdBO0FBQUEsWUFDQ3NCLE9BQU9sQixtQkFBbUIsTUFDekIsdUJBQUMsK0RBQU8sV0FBVSw4RkFBMkYsK0dBQUMsNkJBQTlHO0FBQUE7QUFBQTtBQUFBO0FBQUEsbUJBRUE7QUFBQSxlQVJKO0FBQUE7QUFBQTtBQUFBO0FBQUEsaUJBVUE7QUFBQSxhQTVCUWtCLE9BQU83QixZQUFqQjtBQUFBO0FBQUE7QUFBQTtBQUFBLGVBNkJBO0FBQUEsTUFDRCxLQWxDTDtBQUFBO0FBQUE7QUFBQTtBQUFBLGFBbUNBO0FBQUEsU0F4Q0Y7QUFBQTtBQUFBO0FBQUE7QUFBQSxXQXlDQTtBQUFBLE9BclFKO0FBQUE7QUFBQTtBQUFBO0FBQUEsU0F1UUE7QUFFSjtBQUFBZCxHQTdjd0JELGdCQUFjO0FBQUFpRixLQUFkakY7QUFBYyxJQUFBaUY7QUFBQUMsYUFBQUQsSUFBQSIsIm5hbWVzIjpbInVzZVN0YXRlIiwiRmlsZVRleHQiLCJEb3dubG9hZCIsIkV5ZSIsIlNlYXJjaCIsIkNoZWNrQ2lyY2xlIiwiWENpcmNsZSIsIkNsb2NrIiwiQWxlcnRUcmlhbmdsZSIsIkNhbGVuZGFyIiwiVXNlciIsIkdpdEJyYW5jaCIsIlNoaWVsZCIsIkRPQ1VNRU5UX0NBVEVHT1JJRVMiLCJET0NVTUVOVF9UWVBFUyIsIlBvbGljeVJlZ2lzdGVyIiwiX3MiLCJzZWFyY2hRdWVyeSIsInNldFNlYXJjaFF1ZXJ5IiwidHlwZUZpbHRlciIsInNldFR5cGVGaWx0ZXIiLCJjYXRlZ29yeUZpbHRlciIsInNldENhdGVnb3J5RmlsdGVyIiwic3RhdHVzRmlsdGVyIiwic2V0U3RhdHVzRmlsdGVyIiwic2VsZWN0ZWREb2N1bWVudCIsInNldFNlbGVjdGVkRG9jdW1lbnQiLCJhY3RpdmVUYWIiLCJzZXRBY3RpdmVUYWIiLCJwb2xpY3lSZWdpc3RlciIsImRvY3VtZW50SWQiLCJ0aXRsZSIsInR5cGUiLCJjYXRlZ29yeSIsInNlY3RvciIsImN1cnJlbnRWZXJzaW9uIiwic3RhdHVzIiwib3duZXJSb2xlIiwicmV2aWV3RHVlRGF0ZSIsImxhc3RSZXZpZXdEYXRlIiwiYXBwcm92YWxTdGF0dXMiLCJkYXlzVW50aWxSZXZpZXciLCJ2ZXJzaW9uSGlzdG9yeSIsInZlcnNpb24iLCJkYXRlIiwiYXV0aG9yIiwiY2hhbmdlcyIsImFwcHJvdmFsRGF0ZSIsImFwcHJvdmVyIiwiYXBwcm92YWxSZWNvcmRzIiwidmVyc2lvblN1Ym1pdHRlZCIsInN1Ym1pdHRlZEJ5Iiwic3VibWl0dGVkRGF0ZSIsInJldmlld2VkQnkiLCJyZXZpZXdEYXRlIiwiZGVjaXNpb24iLCJjb21tZW50cyIsImZpbHRlcmVkUG9saWNpZXMiLCJmaWx0ZXIiLCJwb2xpY3kiLCJ0b0xvd2VyQ2FzZSIsImluY2x1ZGVzIiwiZ2V0U3RhdHVzQmFkZ2UiLCJjb25maWciLCJwdWJsaXNoZWQiLCJiZyIsInRleHQiLCJsYWJlbCIsImRyYWZ0IiwiYXJjaGl2ZWQiLCJjIiwiZ2V0QXBwcm92YWxCYWRnZSIsImFwcHJvdmFsIiwiYXBwcm92ZWQiLCJpY29uIiwicGVuZGluZyIsInJlamVjdGVkIiwiSWNvbiIsImdldFJldmlld1VyZ2VuY3kiLCJkYXlzIiwiTWF0aCIsImFicyIsImlkIiwibWFwIiwidGFiIiwiZSIsInRhcmdldCIsInZhbHVlIiwiY2F0IiwiY29kZSIsImZpbmQiLCJpbmRleCIsInJlY29yZCIsInNvcnQiLCJhIiwiYiIsIl9jIiwiJFJlZnJlc2hSZWckIl0sImlnbm9yZUxpc3QiOltdLCJzb3VyY2VzIjpbIlBvbGljeVJlZ2lzdGVyLnRzeCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyB1c2VTdGF0ZSB9IGZyb20gJ3JlYWN0JztcbmltcG9ydCB7XG4gIEZpbGVUZXh0LFxuICBEb3dubG9hZCxcbiAgRXllLFxuICBGaWx0ZXIsXG4gIFNlYXJjaCxcbiAgQ2hldnJvbkRvd24sXG4gIENoZWNrQ2lyY2xlLFxuICBYQ2lyY2xlLFxuICBDbG9jayxcbiAgQWxlcnRUcmlhbmdsZSxcbiAgQ2FsZW5kYXIsXG4gIFVzZXIsXG4gIEdpdEJyYW5jaCxcbiAgU2hpZWxkLFxuICBGaWxlQ2hlY2ssXG59IGZyb20gJ2x1Y2lkZS1yZWFjdCc7XG5pbXBvcnQgeyBET0NVTUVOVF9DQVRFR09SSUVTLCBET0NVTUVOVF9UWVBFUywgU0VDVE9SUyB9IGZyb20gJy4uLy4uL2RhdGEvdGF4b25vbXknO1xuXG5pbnRlcmZhY2UgUG9saWN5UmVnaXN0ZXJFbnRyeSB7XG4gIGRvY3VtZW50SWQ6IHN0cmluZztcbiAgdGl0bGU6IHN0cmluZztcbiAgdHlwZTogc3RyaW5nO1xuICBjYXRlZ29yeTogc3RyaW5nO1xuICBzZWN0b3I6IHN0cmluZztcbiAgY3VycmVudFZlcnNpb246IHN0cmluZztcbiAgc3RhdHVzOiAncHVibGlzaGVkJyB8ICd1bmRlci1yZXZpZXcnIHwgJ2RyYWZ0JyB8ICdhcmNoaXZlZCc7XG4gIG93bmVyUm9sZTogc3RyaW5nO1xuICByZXZpZXdEdWVEYXRlOiBzdHJpbmc7XG4gIGxhc3RSZXZpZXdEYXRlOiBzdHJpbmc7XG4gIGFwcHJvdmFsU3RhdHVzOiAnYXBwcm92ZWQnIHwgJ3BlbmRpbmcnIHwgJ3JlamVjdGVkJztcbiAgZGF5c1VudGlsUmV2aWV3OiBudW1iZXI7XG59XG5cbmludGVyZmFjZSBWZXJzaW9uSGlzdG9yeSB7XG4gIHZlcnNpb246IHN0cmluZztcbiAgZGF0ZTogc3RyaW5nO1xuICBhdXRob3I6IHN0cmluZztcbiAgY2hhbmdlczogc3RyaW5nO1xuICBhcHByb3ZhbERhdGU6IHN0cmluZztcbiAgYXBwcm92ZXI6IHN0cmluZztcbn1cblxuaW50ZXJmYWNlIEFwcHJvdmFsUmVjb3JkIHtcbiAgZG9jdW1lbnRJZDogc3RyaW5nO1xuICB2ZXJzaW9uU3VibWl0dGVkOiBzdHJpbmc7XG4gIHN1Ym1pdHRlZEJ5OiBzdHJpbmc7XG4gIHN1Ym1pdHRlZERhdGU6IHN0cmluZztcbiAgcmV2aWV3ZWRCeTogc3RyaW5nO1xuICByZXZpZXdEYXRlOiBzdHJpbmc7XG4gIGRlY2lzaW9uOiAnYXBwcm92ZWQnIHwgJ3JlamVjdGVkJyB8ICdjaGFuZ2VzLXJlcXVlc3RlZCc7XG4gIGNvbW1lbnRzOiBzdHJpbmc7XG59XG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIFBvbGljeVJlZ2lzdGVyKCkge1xuICBjb25zdCBbc2VhcmNoUXVlcnksIHNldFNlYXJjaFF1ZXJ5XSA9IHVzZVN0YXRlKCcnKTtcbiAgY29uc3QgW3R5cGVGaWx0ZXIsIHNldFR5cGVGaWx0ZXJdID0gdXNlU3RhdGUoJ2FsbCcpO1xuICBjb25zdCBbY2F0ZWdvcnlGaWx0ZXIsIHNldENhdGVnb3J5RmlsdGVyXSA9IHVzZVN0YXRlKCdhbGwnKTtcbiAgY29uc3QgW3N0YXR1c0ZpbHRlciwgc2V0U3RhdHVzRmlsdGVyXSA9IHVzZVN0YXRlKCdhbGwnKTtcbiAgY29uc3QgW3NlbGVjdGVkRG9jdW1lbnQsIHNldFNlbGVjdGVkRG9jdW1lbnRdID0gdXNlU3RhdGU8c3RyaW5nIHwgbnVsbD4obnVsbCk7XG4gIGNvbnN0IFthY3RpdmVUYWIsIHNldEFjdGl2ZVRhYl0gPSB1c2VTdGF0ZTwncmVnaXN0ZXInIHwgJ3ZlcnNpb25zJyB8ICdhcHByb3ZhbHMnIHwgJ3Jldmlld3MnPigncmVnaXN0ZXInKTtcblxuICAvLyBNb2NrIGRhdGEgLSBQb2xpY3kgUmVnaXN0ZXIgRW50cmllc1xuICBjb25zdCBwb2xpY3lSZWdpc3RlcjogUG9saWN5UmVnaXN0ZXJFbnRyeVtdID0gW1xuICAgIHtcbiAgICAgIGRvY3VtZW50SWQ6ICdQT0wtR09WLTAwMScsXG4gICAgICB0aXRsZTogJ0dvdmVybmFuY2UgRnJhbWV3b3JrIFBvbGljeScsXG4gICAgICB0eXBlOiAncG9saWN5JyxcbiAgICAgIGNhdGVnb3J5OiAnZ292JyxcbiAgICAgIHNlY3RvcjogJ2FnZWQtY2FyZScsXG4gICAgICBjdXJyZW50VmVyc2lvbjogJzMuMicsXG4gICAgICBzdGF0dXM6ICdwdWJsaXNoZWQnLFxuICAgICAgb3duZXJSb2xlOiAnUXVhbGl0eSBNYW5hZ2VyJyxcbiAgICAgIHJldmlld0R1ZURhdGU6ICcyMDI2LTA4LTE1JyxcbiAgICAgIGxhc3RSZXZpZXdEYXRlOiAnMjAyNS0wOC0xNScsXG4gICAgICBhcHByb3ZhbFN0YXR1czogJ2FwcHJvdmVkJyxcbiAgICAgIGRheXNVbnRpbFJldmlldzogMTE3LFxuICAgIH0sXG4gICAge1xuICAgICAgZG9jdW1lbnRJZDogJ1BPTC1DTE4tMDAyJyxcbiAgICAgIHRpdGxlOiAnSW5mZWN0aW9uIENvbnRyb2wgUG9saWN5JyxcbiAgICAgIHR5cGU6ICdwb2xpY3knLFxuICAgICAgY2F0ZWdvcnk6ICdjbG4nLFxuICAgICAgc2VjdG9yOiAnYWdlZC1jYXJlJyxcbiAgICAgIGN1cnJlbnRWZXJzaW9uOiAnMi4xJyxcbiAgICAgIHN0YXR1czogJ3B1Ymxpc2hlZCcsXG4gICAgICBvd25lclJvbGU6ICdDbGluaWNhbCBNYW5hZ2VyJyxcbiAgICAgIHJldmlld0R1ZURhdGU6ICcyMDI2LTA2LTAxJyxcbiAgICAgIGxhc3RSZXZpZXdEYXRlOiAnMjAyNS0wNi0wMScsXG4gICAgICBhcHByb3ZhbFN0YXR1czogJ2FwcHJvdmVkJyxcbiAgICAgIGRheXNVbnRpbFJldmlldzogNDIsXG4gICAgfSxcbiAgICB7XG4gICAgICBkb2N1bWVudElkOiAnUFJPQy1DTE4tMDAzJyxcbiAgICAgIHRpdGxlOiAnTWVkaWNhdGlvbiBBZG1pbmlzdHJhdGlvbiBQcm9jZWR1cmUnLFxuICAgICAgdHlwZTogJ3Byb2NlZHVyZScsXG4gICAgICBjYXRlZ29yeTogJ2NsbicsXG4gICAgICBzZWN0b3I6ICdhZ2VkLWNhcmUnLFxuICAgICAgY3VycmVudFZlcnNpb246ICc0LjAnLFxuICAgICAgc3RhdHVzOiAndW5kZXItcmV2aWV3JyxcbiAgICAgIG93bmVyUm9sZTogJ1JlZ2lzdGVyZWQgTnVyc2UnLFxuICAgICAgcmV2aWV3RHVlRGF0ZTogJzIwMjYtMDUtMDEnLFxuICAgICAgbGFzdFJldmlld0RhdGU6ICcyMDI0LTA1LTAxJyxcbiAgICAgIGFwcHJvdmFsU3RhdHVzOiAncGVuZGluZycsXG4gICAgICBkYXlzVW50aWxSZXZpZXc6IDExLFxuICAgIH0sXG4gICAge1xuICAgICAgZG9jdW1lbnRJZDogJ1BPTC1XS0YtMDA0JyxcbiAgICAgIHRpdGxlOiAnU3RhZmYgQ29kZSBvZiBDb25kdWN0IFBvbGljeScsXG4gICAgICB0eXBlOiAncG9saWN5JyxcbiAgICAgIGNhdGVnb3J5OiAnd2tmJyxcbiAgICAgIHNlY3RvcjogJ3VuaXZlcnNhbCcsXG4gICAgICBjdXJyZW50VmVyc2lvbjogJzIuNScsXG4gICAgICBzdGF0dXM6ICdwdWJsaXNoZWQnLFxuICAgICAgb3duZXJSb2xlOiAnSFIgTWFuYWdlcicsXG4gICAgICByZXZpZXdEdWVEYXRlOiAnMjAyNy0wMS0yMCcsXG4gICAgICBsYXN0UmV2aWV3RGF0ZTogJzIwMjYtMDEtMjAnLFxuICAgICAgYXBwcm92YWxTdGF0dXM6ICdhcHByb3ZlZCcsXG4gICAgICBkYXlzVW50aWxSZXZpZXc6IDI3NSxcbiAgICB9LFxuICAgIHtcbiAgICAgIGRvY3VtZW50SWQ6ICdQT0wtT1BTLTAwNScsXG4gICAgICB0aXRsZTogJ0VtZXJnZW5jeSBSZXNwb25zZSBQb2xpY3knLFxuICAgICAgdHlwZTogJ3BvbGljeScsXG4gICAgICBjYXRlZ29yeTogJ29wcycsXG4gICAgICBzZWN0b3I6ICdhZ2VkLWNhcmUnLFxuICAgICAgY3VycmVudFZlcnNpb246ICcxLjgnLFxuICAgICAgc3RhdHVzOiAncHVibGlzaGVkJyxcbiAgICAgIG93bmVyUm9sZTogJ09wZXJhdGlvbnMgTWFuYWdlcicsXG4gICAgICByZXZpZXdEdWVEYXRlOiAnMjAyNi0wNC0zMCcsXG4gICAgICBsYXN0UmV2aWV3RGF0ZTogJzIwMjUtMDQtMzAnLFxuICAgICAgYXBwcm92YWxTdGF0dXM6ICdhcHByb3ZlZCcsXG4gICAgICBkYXlzVW50aWxSZXZpZXc6IDEwLFxuICAgIH0sXG4gIF07XG5cbiAgLy8gTW9jayBkYXRhIC0gVmVyc2lvbiBIaXN0b3J5XG4gIGNvbnN0IHZlcnNpb25IaXN0b3J5OiBWZXJzaW9uSGlzdG9yeVtdID0gW1xuICAgIHtcbiAgICAgIHZlcnNpb246ICczLjInLFxuICAgICAgZGF0ZTogJzIwMjUtMDgtMTUnLFxuICAgICAgYXV0aG9yOiAnSmFuZSBTbWl0aCcsXG4gICAgICBjaGFuZ2VzOiAnVXBkYXRlZCBnb3Zlcm5hbmNlIHN0cnVjdHVyZSB0byBhbGlnbiB3aXRoIG5ldyByZWd1bGF0b3J5IHJlcXVpcmVtZW50cycsXG4gICAgICBhcHByb3ZhbERhdGU6ICcyMDI1LTA4LTIwJyxcbiAgICAgIGFwcHJvdmVyOiAnQ0VPIC0gU2FyYWggSm9obnNvbicsXG4gICAgfSxcbiAgICB7XG4gICAgICB2ZXJzaW9uOiAnMy4xJyxcbiAgICAgIGRhdGU6ICcyMDI0LTExLTEwJyxcbiAgICAgIGF1dGhvcjogJ01pY2hhZWwgQ2hlbicsXG4gICAgICBjaGFuZ2VzOiAnQWRkZWQgU2VjdGlvbiA0LjUgLSBCb2FyZCBSZXBvcnRpbmcgUmVxdWlyZW1lbnRzJyxcbiAgICAgIGFwcHJvdmFsRGF0ZTogJzIwMjQtMTEtMTUnLFxuICAgICAgYXBwcm92ZXI6ICdDRU8gLSBTYXJhaCBKb2huc29uJyxcbiAgICB9LFxuICAgIHtcbiAgICAgIHZlcnNpb246ICczLjAnLFxuICAgICAgZGF0ZTogJzIwMjQtMDMtMjInLFxuICAgICAgYXV0aG9yOiAnSmFuZSBTbWl0aCcsXG4gICAgICBjaGFuZ2VzOiAnTWFqb3IgcmV2aXNpb24gLSBDb21wbGV0ZSByZXN0cnVjdHVyZSB0byBtZWV0IEFnZWQgQ2FyZSBRdWFsaXR5IFN0YW5kYXJkcycsXG4gICAgICBhcHByb3ZhbERhdGU6ICcyMDI0LTAzLTMwJyxcbiAgICAgIGFwcHJvdmVyOiAnQm9hcmQgb2YgRGlyZWN0b3JzJyxcbiAgICB9LFxuICBdO1xuXG4gIC8vIE1vY2sgZGF0YSAtIEFwcHJvdmFsIFJlY29yZHNcbiAgY29uc3QgYXBwcm92YWxSZWNvcmRzOiBBcHByb3ZhbFJlY29yZFtdID0gW1xuICAgIHtcbiAgICAgIGRvY3VtZW50SWQ6ICdQT0wtR09WLTAwMScsXG4gICAgICB2ZXJzaW9uU3VibWl0dGVkOiAnMy4yJyxcbiAgICAgIHN1Ym1pdHRlZEJ5OiAnSmFuZSBTbWl0aCAoUXVhbGl0eSBNYW5hZ2VyKScsXG4gICAgICBzdWJtaXR0ZWREYXRlOiAnMjAyNS0wOC0xNScsXG4gICAgICByZXZpZXdlZEJ5OiAnU2FyYWggSm9obnNvbiAoQ0VPKScsXG4gICAgICByZXZpZXdEYXRlOiAnMjAyNS0wOC0yMCcsXG4gICAgICBkZWNpc2lvbjogJ2FwcHJvdmVkJyxcbiAgICAgIGNvbW1lbnRzOiAnQXBwcm92ZWQgd2l0aCBubyBjaGFuZ2VzIHJlcXVpcmVkLiBXZWxsIGFsaWduZWQgd2l0aCBjdXJyZW50IHN0YW5kYXJkcy4nLFxuICAgIH0sXG4gICAge1xuICAgICAgZG9jdW1lbnRJZDogJ1BPTC1DTE4tMDAyJyxcbiAgICAgIHZlcnNpb25TdWJtaXR0ZWQ6ICcyLjEnLFxuICAgICAgc3VibWl0dGVkQnk6ICdEci4gRW1tYSBXaWxsaWFtcyAoQ2xpbmljYWwgTWFuYWdlciknLFxuICAgICAgc3VibWl0dGVkRGF0ZTogJzIwMjUtMDYtMDEnLFxuICAgICAgcmV2aWV3ZWRCeTogJ0RyLiBNaWNoYWVsIEJyb3duIChNZWRpY2FsIERpcmVjdG9yKScsXG4gICAgICByZXZpZXdEYXRlOiAnMjAyNS0wNi0wNScsXG4gICAgICBkZWNpc2lvbjogJ2FwcHJvdmVkJyxcbiAgICAgIGNvbW1lbnRzOiAnQXBwcm92ZWQuIEluZmVjdGlvbiBjb250cm9sIHByb3RvY29scyBtZWV0IGN1cnJlbnQgZ3VpZGVsaW5lcy4nLFxuICAgIH0sXG4gICAge1xuICAgICAgZG9jdW1lbnRJZDogJ1BST0MtQ0xOLTAwMycsXG4gICAgICB2ZXJzaW9uU3VibWl0dGVkOiAnNC4wJyxcbiAgICAgIHN1Ym1pdHRlZEJ5OiAnTGlzYSBBbmRlcnNvbiAoUmVnaXN0ZXJlZCBOdXJzZSknLFxuICAgICAgc3VibWl0dGVkRGF0ZTogJzIwMjYtMDQtMTUnLFxuICAgICAgcmV2aWV3ZWRCeTogJ0RyLiBFbW1hIFdpbGxpYW1zIChDbGluaWNhbCBNYW5hZ2VyKScsXG4gICAgICByZXZpZXdEYXRlOiAnUGVuZGluZycsXG4gICAgICBkZWNpc2lvbjogJ2NoYW5nZXMtcmVxdWVzdGVkJyxcbiAgICAgIGNvbW1lbnRzOiAnUmVxdWVzdCBjbGFyaWZpY2F0aW9uIG9uIFNlY3Rpb24gMy4yIG1lZGljYXRpb24gc3RvcmFnZSB0ZW1wZXJhdHVyZXMuJyxcbiAgICB9LFxuICBdO1xuXG4gIGNvbnN0IGZpbHRlcmVkUG9saWNpZXMgPSBwb2xpY3lSZWdpc3Rlci5maWx0ZXIoKHBvbGljeSkgPT4ge1xuICAgIGlmIChzZWFyY2hRdWVyeSAmJiAhcG9saWN5LnRpdGxlLnRvTG93ZXJDYXNlKCkuaW5jbHVkZXMoc2VhcmNoUXVlcnkudG9Mb3dlckNhc2UoKSkgJiZcbiAgICAgICAgIXBvbGljeS5kb2N1bWVudElkLnRvTG93ZXJDYXNlKCkuaW5jbHVkZXMoc2VhcmNoUXVlcnkudG9Mb3dlckNhc2UoKSkpIHtcbiAgICAgIHJldHVybiBmYWxzZTtcbiAgICB9XG4gICAgaWYgKHR5cGVGaWx0ZXIgIT09ICdhbGwnICYmIHBvbGljeS50eXBlICE9PSB0eXBlRmlsdGVyKSByZXR1cm4gZmFsc2U7XG4gICAgaWYgKGNhdGVnb3J5RmlsdGVyICE9PSAnYWxsJyAmJiBwb2xpY3kuY2F0ZWdvcnkgIT09IGNhdGVnb3J5RmlsdGVyKSByZXR1cm4gZmFsc2U7XG4gICAgaWYgKHN0YXR1c0ZpbHRlciAhPT0gJ2FsbCcgJiYgcG9saWN5LnN0YXR1cyAhPT0gc3RhdHVzRmlsdGVyKSByZXR1cm4gZmFsc2U7XG4gICAgcmV0dXJuIHRydWU7XG4gIH0pO1xuXG4gIGNvbnN0IGdldFN0YXR1c0JhZGdlID0gKHN0YXR1czogc3RyaW5nKSA9PiB7XG4gICAgY29uc3QgY29uZmlnID0ge1xuICAgICAgcHVibGlzaGVkOiB7IGJnOiAnYmctZ3JlZW4tNTAwLzIwJywgdGV4dDogJ3RleHQtZ3JlZW4tNDAwJywgbGFiZWw6ICdQdWJsaXNoZWQnIH0sXG4gICAgICAndW5kZXItcmV2aWV3JzogeyBiZzogJ2JnLWJsdWUtNTAwLzIwJywgdGV4dDogJ3RleHQtYmx1ZS00MDAnLCBsYWJlbDogJ1VuZGVyIFJldmlldycgfSxcbiAgICAgIGRyYWZ0OiB7IGJnOiAnYmctZ3JheS01MDAvMjAnLCB0ZXh0OiAndGV4dC1ncmF5LTQwMCcsIGxhYmVsOiAnRHJhZnQnIH0sXG4gICAgICBhcmNoaXZlZDogeyBiZzogJ2JnLWdyYXktNTAwLzIwJywgdGV4dDogJ3RleHQtZ3JheS01MDAnLCBsYWJlbDogJ0FyY2hpdmVkJyB9LFxuICAgIH07XG4gICAgY29uc3QgYyA9IGNvbmZpZ1tzdGF0dXMgYXMga2V5b2YgdHlwZW9mIGNvbmZpZ10gfHwgY29uZmlnLmRyYWZ0O1xuICAgIHJldHVybiA8c3BhbiBjbGFzc05hbWU9e2BweC0yIHB5LTEgcm91bmRlZCB0ZXh0LXhzIGZvbnQtbWVkaXVtICR7Yy5iZ30gJHtjLnRleHR9YH0+e2MubGFiZWx9PC9zcGFuPjtcbiAgfTtcblxuICBjb25zdCBnZXRBcHByb3ZhbEJhZGdlID0gKGFwcHJvdmFsOiBzdHJpbmcpID0+IHtcbiAgICBjb25zdCBjb25maWcgPSB7XG4gICAgICBhcHByb3ZlZDogeyBpY29uOiBDaGVja0NpcmNsZSwgYmc6ICdiZy1ncmVlbi01MDAvMjAnLCB0ZXh0OiAndGV4dC1ncmVlbi00MDAnLCBsYWJlbDogJ0FwcHJvdmVkJyB9LFxuICAgICAgcGVuZGluZzogeyBpY29uOiBDbG9jaywgYmc6ICdiZy15ZWxsb3ctNTAwLzIwJywgdGV4dDogJ3RleHQteWVsbG93LTQwMCcsIGxhYmVsOiAnUGVuZGluZycgfSxcbiAgICAgIHJlamVjdGVkOiB7IGljb246IFhDaXJjbGUsIGJnOiAnYmctcmVkLTUwMC8yMCcsIHRleHQ6ICd0ZXh0LXJlZC00MDAnLCBsYWJlbDogJ1JlamVjdGVkJyB9LFxuICAgIH07XG4gICAgY29uc3QgYyA9IGNvbmZpZ1thcHByb3ZhbCBhcyBrZXlvZiB0eXBlb2YgY29uZmlnXSB8fCBjb25maWcucGVuZGluZztcbiAgICBjb25zdCBJY29uID0gYy5pY29uO1xuICAgIHJldHVybiAoXG4gICAgICA8c3BhbiBjbGFzc05hbWU9e2BpbmxpbmUtZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTEgcHgtMiBweS0xIHJvdW5kZWQgdGV4dC14cyBmb250LW1lZGl1bSAke2MuYmd9ICR7Yy50ZXh0fWB9PlxuICAgICAgICA8SWNvbiBjbGFzc05hbWU9XCJ3LTMgaC0zXCIgLz5cbiAgICAgICAge2MubGFiZWx9XG4gICAgICA8L3NwYW4+XG4gICAgKTtcbiAgfTtcblxuICBjb25zdCBnZXRSZXZpZXdVcmdlbmN5ID0gKGRheXM6IG51bWJlcikgPT4ge1xuICAgIGlmIChkYXlzIDwgMCkge1xuICAgICAgcmV0dXJuIDxzcGFuIGNsYXNzTmFtZT1cInRleHQtcmVkLTQwMCBmb250LXNlbWlib2xkIGZsZXggaXRlbXMtY2VudGVyIGdhcC0xXCI+XG4gICAgICAgIDxBbGVydFRyaWFuZ2xlIGNsYXNzTmFtZT1cInctMyBoLTNcIiAvPlxuICAgICAgICB7TWF0aC5hYnMoZGF5cyl9IGRheXMgb3ZlcmR1ZVxuICAgICAgPC9zcGFuPjtcbiAgICB9IGVsc2UgaWYgKGRheXMgPD0gMzApIHtcbiAgICAgIHJldHVybiA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LXllbGxvdy00MDAgZm9udC1zZW1pYm9sZFwiPntkYXlzfSBkYXlzIHJlbWFpbmluZzwvc3Bhbj47XG4gICAgfSBlbHNlIHtcbiAgICAgIHJldHVybiA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LWdyYXktNDAwXCI+e2RheXN9IGRheXM8L3NwYW4+O1xuICAgIH1cbiAgfTtcblxuICByZXR1cm4gKFxuICAgIDxkaXYgY2xhc3NOYW1lPVwic3BhY2UteS02XCI+XG4gICAgICB7LyogSGVhZGVyICovfVxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW5cIj5cbiAgICAgICAgPGRpdj5cbiAgICAgICAgICA8aDEgY2xhc3NOYW1lPVwidGV4dC0zeGwgZm9udC1ib2xkIHRleHQtd2hpdGUgbWItMlwiPlBvbGljeSBSZWdpc3RlcjwvaDE+XG4gICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC1ncmF5LTQwMFwiPk1hc3RlciBkb2N1bWVudCBpbmRleCB3aXRoIHZlcnNpb24gY29udHJvbCBhbmQgYXBwcm92YWwgdHJhY2tpbmc8L3A+XG4gICAgICAgIDwvZGl2PlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0zXCI+XG4gICAgICAgICAgPGJ1dHRvbiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMiBweC00IHB5LTIgYmctYmx1ZS01MDAvMjAgYm9yZGVyIGJvcmRlci1ibHVlLTUwMC8zMCB0ZXh0LWJsdWUtNDAwIHJvdW5kZWQtbGcgaG92ZXI6YmctYmx1ZS01MDAvMzAgdHJhbnNpdGlvbi1hbGxcIj5cbiAgICAgICAgICAgIDxEb3dubG9hZCBjbGFzc05hbWU9XCJ3LTQgaC00XCIgLz5cbiAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRleHQtc20gZm9udC1tZWRpdW1cIj5FeHBvcnQgUERGPC9zcGFuPlxuICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICAgIDxidXR0b24gY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTIgcHgtNCBweS0yIGJnLWdyZWVuLTUwMC8yMCBib3JkZXIgYm9yZGVyLWdyZWVuLTUwMC8zMCB0ZXh0LWdyZWVuLTQwMCByb3VuZGVkLWxnIGhvdmVyOmJnLWdyZWVuLTUwMC8zMCB0cmFuc2l0aW9uLWFsbFwiPlxuICAgICAgICAgICAgPERvd25sb2FkIGNsYXNzTmFtZT1cInctNCBoLTRcIiAvPlxuICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwidGV4dC1zbSBmb250LW1lZGl1bVwiPkV4cG9ydCBFeGNlbDwvc3Bhbj5cbiAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgPC9kaXY+XG4gICAgICA8L2Rpdj5cblxuICAgICAgey8qIFRhYnMgKi99XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0yIGJvcmRlci1iIGJvcmRlci13aGl0ZS8xMFwiPlxuICAgICAgICB7W1xuICAgICAgICAgIHsgaWQ6ICdyZWdpc3RlcicsIGxhYmVsOiAnTWFzdGVyIFJlZ2lzdGVyJywgaWNvbjogRmlsZVRleHQgfSxcbiAgICAgICAgICB7IGlkOiAndmVyc2lvbnMnLCBsYWJlbDogJ1ZlcnNpb24gSGlzdG9yeScsIGljb246IEdpdEJyYW5jaCB9LFxuICAgICAgICAgIHsgaWQ6ICdhcHByb3ZhbHMnLCBsYWJlbDogJ0FwcHJvdmFsIFJlY29yZHMnLCBpY29uOiBTaGllbGQgfSxcbiAgICAgICAgICB7IGlkOiAncmV2aWV3cycsIGxhYmVsOiAnUmV2aWV3IEN5Y2xlJywgaWNvbjogQ2FsZW5kYXIgfSxcbiAgICAgICAgXS5tYXAoKHRhYikgPT4ge1xuICAgICAgICAgIGNvbnN0IEljb24gPSB0YWIuaWNvbjtcbiAgICAgICAgICByZXR1cm4gKFxuICAgICAgICAgICAgPGJ1dHRvblxuICAgICAgICAgICAgICBrZXk9e3RhYi5pZH1cbiAgICAgICAgICAgICAgb25DbGljaz17KCkgPT4gc2V0QWN0aXZlVGFiKHRhYi5pZCBhcyBhbnkpfVxuICAgICAgICAgICAgICBjbGFzc05hbWU9e2BmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMiBweC00IHB5LTMgYm9yZGVyLWItMiB0cmFuc2l0aW9uLWFsbCAke1xuICAgICAgICAgICAgICAgIGFjdGl2ZVRhYiA9PT0gdGFiLmlkXG4gICAgICAgICAgICAgICAgICA/ICdib3JkZXItdGVhbC01MDAgdGV4dC10ZWFsLTQwMCdcbiAgICAgICAgICAgICAgICAgIDogJ2JvcmRlci10cmFuc3BhcmVudCB0ZXh0LWdyYXktNDAwIGhvdmVyOnRleHQtd2hpdGUnXG4gICAgICAgICAgICAgIH1gfVxuICAgICAgICAgICAgPlxuICAgICAgICAgICAgICA8SWNvbiBjbGFzc05hbWU9XCJ3LTQgaC00XCIgLz5cbiAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwidGV4dC1zbSBmb250LW1lZGl1bVwiPnt0YWIubGFiZWx9PC9zcGFuPlxuICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgKTtcbiAgICAgICAgfSl9XG4gICAgICA8L2Rpdj5cblxuICAgICAgey8qIE1hc3RlciBSZWdpc3RlciBUYWIgKi99XG4gICAgICB7YWN0aXZlVGFiID09PSAncmVnaXN0ZXInICYmIChcbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJzcGFjZS15LTRcIj5cbiAgICAgICAgICB7LyogRmlsdGVycyAqL31cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0zXCI+XG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInJlbGF0aXZlIGZsZXgtMVwiPlxuICAgICAgICAgICAgICA8U2VhcmNoIGNsYXNzTmFtZT1cImFic29sdXRlIGxlZnQtMyB0b3AtMS8yIC10cmFuc2xhdGUteS0xLzIgdy00IGgtNCB0ZXh0LWdyYXktNDAwXCIgLz5cbiAgICAgICAgICAgICAgPGlucHV0XG4gICAgICAgICAgICAgICAgdHlwZT1cInRleHRcIlxuICAgICAgICAgICAgICAgIHZhbHVlPXtzZWFyY2hRdWVyeX1cbiAgICAgICAgICAgICAgICBvbkNoYW5nZT17KGUpID0+IHNldFNlYXJjaFF1ZXJ5KGUudGFyZ2V0LnZhbHVlKX1cbiAgICAgICAgICAgICAgICBwbGFjZWhvbGRlcj1cIlNlYXJjaCBieSB0aXRsZSBvciBkb2N1bWVudCBJRC4uLlwiXG4gICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwidy1mdWxsIHBsLTEwIHByLTQgcHktMiBiZy13aGl0ZS81IGJvcmRlciBib3JkZXItd2hpdGUvMTAgcm91bmRlZC1sZyB0ZXh0LXdoaXRlIHBsYWNlaG9sZGVyLWdyYXktNTAwIGZvY3VzOm91dGxpbmUtbm9uZSBmb2N1czpib3JkZXItdGVhbC01MDAvNTBcIlxuICAgICAgICAgICAgICAvPlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICA8c2VsZWN0XG4gICAgICAgICAgICAgIHZhbHVlPXt0eXBlRmlsdGVyfVxuICAgICAgICAgICAgICBvbkNoYW5nZT17KGUpID0+IHNldFR5cGVGaWx0ZXIoZS50YXJnZXQudmFsdWUpfVxuICAgICAgICAgICAgICBjbGFzc05hbWU9XCJweC00IHB5LTIgYmctd2hpdGUvNSBib3JkZXIgYm9yZGVyLXdoaXRlLzEwIHJvdW5kZWQtbGcgdGV4dC13aGl0ZSB0ZXh0LXNtIGZvY3VzOm91dGxpbmUtbm9uZSBmb2N1czpib3JkZXItdGVhbC01MDAvNTBcIlxuICAgICAgICAgICAgPlxuICAgICAgICAgICAgICA8b3B0aW9uIHZhbHVlPVwiYWxsXCI+QWxsIFR5cGVzPC9vcHRpb24+XG4gICAgICAgICAgICAgIHtET0NVTUVOVF9UWVBFUy5tYXAoKHR5cGUpID0+IChcbiAgICAgICAgICAgICAgICA8b3B0aW9uIGtleT17dHlwZS52YWx1ZX0gdmFsdWU9e3R5cGUudmFsdWV9Pnt0eXBlLmxhYmVsfTwvb3B0aW9uPlxuICAgICAgICAgICAgICApKX1cbiAgICAgICAgICAgIDwvc2VsZWN0PlxuICAgICAgICAgICAgPHNlbGVjdFxuICAgICAgICAgICAgICB2YWx1ZT17Y2F0ZWdvcnlGaWx0ZXJ9XG4gICAgICAgICAgICAgIG9uQ2hhbmdlPXsoZSkgPT4gc2V0Q2F0ZWdvcnlGaWx0ZXIoZS50YXJnZXQudmFsdWUpfVxuICAgICAgICAgICAgICBjbGFzc05hbWU9XCJweC00IHB5LTIgYmctd2hpdGUvNSBib3JkZXIgYm9yZGVyLXdoaXRlLzEwIHJvdW5kZWQtbGcgdGV4dC13aGl0ZSB0ZXh0LXNtIGZvY3VzOm91dGxpbmUtbm9uZSBmb2N1czpib3JkZXItdGVhbC01MDAvNTBcIlxuICAgICAgICAgICAgPlxuICAgICAgICAgICAgICA8b3B0aW9uIHZhbHVlPVwiYWxsXCI+QWxsIENhdGVnb3JpZXM8L29wdGlvbj5cbiAgICAgICAgICAgICAge0RPQ1VNRU5UX0NBVEVHT1JJRVMubWFwKChjYXQpID0+IChcbiAgICAgICAgICAgICAgICA8b3B0aW9uIGtleT17Y2F0LnZhbHVlfSB2YWx1ZT17Y2F0LnZhbHVlfT57Y2F0LmNvZGV9PC9vcHRpb24+XG4gICAgICAgICAgICAgICkpfVxuICAgICAgICAgICAgPC9zZWxlY3Q+XG4gICAgICAgICAgICA8c2VsZWN0XG4gICAgICAgICAgICAgIHZhbHVlPXtzdGF0dXNGaWx0ZXJ9XG4gICAgICAgICAgICAgIG9uQ2hhbmdlPXsoZSkgPT4gc2V0U3RhdHVzRmlsdGVyKGUudGFyZ2V0LnZhbHVlKX1cbiAgICAgICAgICAgICAgY2xhc3NOYW1lPVwicHgtNCBweS0yIGJnLXdoaXRlLzUgYm9yZGVyIGJvcmRlci13aGl0ZS8xMCByb3VuZGVkLWxnIHRleHQtd2hpdGUgdGV4dC1zbSBmb2N1czpvdXRsaW5lLW5vbmUgZm9jdXM6Ym9yZGVyLXRlYWwtNTAwLzUwXCJcbiAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgPG9wdGlvbiB2YWx1ZT1cImFsbFwiPkFsbCBTdGF0dXM8L29wdGlvbj5cbiAgICAgICAgICAgICAgPG9wdGlvbiB2YWx1ZT1cInB1Ymxpc2hlZFwiPlB1Ymxpc2hlZDwvb3B0aW9uPlxuICAgICAgICAgICAgICA8b3B0aW9uIHZhbHVlPVwidW5kZXItcmV2aWV3XCI+VW5kZXIgUmV2aWV3PC9vcHRpb24+XG4gICAgICAgICAgICAgIDxvcHRpb24gdmFsdWU9XCJkcmFmdFwiPkRyYWZ0PC9vcHRpb24+XG4gICAgICAgICAgICAgIDxvcHRpb24gdmFsdWU9XCJhcmNoaXZlZFwiPkFyY2hpdmVkPC9vcHRpb24+XG4gICAgICAgICAgICA8L3NlbGVjdD5cbiAgICAgICAgICA8L2Rpdj5cblxuICAgICAgICAgIHsvKiBUYWJsZSAqL31cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLVsjMGYyODMyXSBib3JkZXIgYm9yZGVyLVsjMWEzNDQwXSByb3VuZGVkLXhsIG92ZXJmbG93LWhpZGRlblwiPlxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJvdmVyZmxvdy14LWF1dG9cIj5cbiAgICAgICAgICAgICAgPHRhYmxlIGNsYXNzTmFtZT1cInctZnVsbFwiPlxuICAgICAgICAgICAgICAgIDx0aGVhZD5cbiAgICAgICAgICAgICAgICAgIDx0ciBjbGFzc05hbWU9XCJib3JkZXItYiBib3JkZXItWyMxYTM0NDBdIGJnLXdoaXRlLzVcIj5cbiAgICAgICAgICAgICAgICAgICAgPHRoIGNsYXNzTmFtZT1cInB4LTQgcHktMyB0ZXh0LWxlZnQgdGV4dC14cyBmb250LW1lZGl1bSB0ZXh0LWdyYXktNDAwIHVwcGVyY2FzZVwiPkRvYyBJRDwvdGg+XG4gICAgICAgICAgICAgICAgICAgIDx0aCBjbGFzc05hbWU9XCJweC00IHB5LTMgdGV4dC1sZWZ0IHRleHQteHMgZm9udC1tZWRpdW0gdGV4dC1ncmF5LTQwMCB1cHBlcmNhc2VcIj5UaXRsZTwvdGg+XG4gICAgICAgICAgICAgICAgICAgIDx0aCBjbGFzc05hbWU9XCJweC00IHB5LTMgdGV4dC1sZWZ0IHRleHQteHMgZm9udC1tZWRpdW0gdGV4dC1ncmF5LTQwMCB1cHBlcmNhc2VcIj5UeXBlPC90aD5cbiAgICAgICAgICAgICAgICAgICAgPHRoIGNsYXNzTmFtZT1cInB4LTQgcHktMyB0ZXh0LWxlZnQgdGV4dC14cyBmb250LW1lZGl1bSB0ZXh0LWdyYXktNDAwIHVwcGVyY2FzZVwiPkNhdGVnb3J5PC90aD5cbiAgICAgICAgICAgICAgICAgICAgPHRoIGNsYXNzTmFtZT1cInB4LTQgcHktMyB0ZXh0LWxlZnQgdGV4dC14cyBmb250LW1lZGl1bSB0ZXh0LWdyYXktNDAwIHVwcGVyY2FzZVwiPlZlcnNpb248L3RoPlxuICAgICAgICAgICAgICAgICAgICA8dGggY2xhc3NOYW1lPVwicHgtNCBweS0zIHRleHQtbGVmdCB0ZXh0LXhzIGZvbnQtbWVkaXVtIHRleHQtZ3JheS00MDAgdXBwZXJjYXNlXCI+U3RhdHVzPC90aD5cbiAgICAgICAgICAgICAgICAgICAgPHRoIGNsYXNzTmFtZT1cInB4LTQgcHktMyB0ZXh0LWxlZnQgdGV4dC14cyBmb250LW1lZGl1bSB0ZXh0LWdyYXktNDAwIHVwcGVyY2FzZVwiPk93bmVyPC90aD5cbiAgICAgICAgICAgICAgICAgICAgPHRoIGNsYXNzTmFtZT1cInB4LTQgcHktMyB0ZXh0LWxlZnQgdGV4dC14cyBmb250LW1lZGl1bSB0ZXh0LWdyYXktNDAwIHVwcGVyY2FzZVwiPlJldmlldyBEdWU8L3RoPlxuICAgICAgICAgICAgICAgICAgICA8dGggY2xhc3NOYW1lPVwicHgtNCBweS0zIHRleHQtbGVmdCB0ZXh0LXhzIGZvbnQtbWVkaXVtIHRleHQtZ3JheS00MDAgdXBwZXJjYXNlXCI+QWN0aW9uczwvdGg+XG4gICAgICAgICAgICAgICAgICA8L3RyPlxuICAgICAgICAgICAgICAgIDwvdGhlYWQ+XG4gICAgICAgICAgICAgICAgPHRib2R5IGNsYXNzTmFtZT1cImRpdmlkZS15IGRpdmlkZS1bIzFhMzQ0MF1cIj5cbiAgICAgICAgICAgICAgICAgIHtmaWx0ZXJlZFBvbGljaWVzLm1hcCgocG9saWN5KSA9PiAoXG4gICAgICAgICAgICAgICAgICAgIDx0ciBrZXk9e3BvbGljeS5kb2N1bWVudElkfSBjbGFzc05hbWU9XCJob3ZlcjpiZy13aGl0ZS81IHRyYW5zaXRpb24tY29sb3JzXCI+XG4gICAgICAgICAgICAgICAgICAgICAgPHRkIGNsYXNzTmFtZT1cInB4LTQgcHktMyB0ZXh0LXNtIGZvbnQtbW9ubyB0ZXh0LXRlYWwtNDAwXCI+e3BvbGljeS5kb2N1bWVudElkfTwvdGQ+XG4gICAgICAgICAgICAgICAgICAgICAgPHRkIGNsYXNzTmFtZT1cInB4LTQgcHktMyB0ZXh0LXNtIHRleHQtd2hpdGVcIj57cG9saWN5LnRpdGxlfTwvdGQ+XG4gICAgICAgICAgICAgICAgICAgICAgPHRkIGNsYXNzTmFtZT1cInB4LTQgcHktMyB0ZXh0LXNtIHRleHQtZ3JheS00MDAgY2FwaXRhbGl6ZVwiPntwb2xpY3kudHlwZX08L3RkPlxuICAgICAgICAgICAgICAgICAgICAgIDx0ZCBjbGFzc05hbWU9XCJweC00IHB5LTMgdGV4dC1zbSB0ZXh0LWdyYXktNDAwXCI+XG4gICAgICAgICAgICAgICAgICAgICAgICB7RE9DVU1FTlRfQ0FURUdPUklFUy5maW5kKGMgPT4gYy52YWx1ZSA9PT0gcG9saWN5LmNhdGVnb3J5KT8uY29kZSB8fCBwb2xpY3kuY2F0ZWdvcnl9XG4gICAgICAgICAgICAgICAgICAgICAgPC90ZD5cbiAgICAgICAgICAgICAgICAgICAgICA8dGQgY2xhc3NOYW1lPVwicHgtNCBweS0zIHRleHQtc20gZm9udC1zZW1pYm9sZCB0ZXh0LXdoaXRlXCI+dntwb2xpY3kuY3VycmVudFZlcnNpb259PC90ZD5cbiAgICAgICAgICAgICAgICAgICAgICA8dGQgY2xhc3NOYW1lPVwicHgtNCBweS0zXCI+e2dldFN0YXR1c0JhZGdlKHBvbGljeS5zdGF0dXMpfTwvdGQ+XG4gICAgICAgICAgICAgICAgICAgICAgPHRkIGNsYXNzTmFtZT1cInB4LTQgcHktMyB0ZXh0LXNtIHRleHQtZ3JheS00MDBcIj57cG9saWN5Lm93bmVyUm9sZX08L3RkPlxuICAgICAgICAgICAgICAgICAgICAgIDx0ZCBjbGFzc05hbWU9XCJweC00IHB5LTMgdGV4dC1zbVwiPntnZXRSZXZpZXdVcmdlbmN5KHBvbGljeS5kYXlzVW50aWxSZXZpZXcpfTwvdGQ+XG4gICAgICAgICAgICAgICAgICAgICAgPHRkIGNsYXNzTmFtZT1cInB4LTQgcHktM1wiPlxuICAgICAgICAgICAgICAgICAgICAgICAgPGJ1dHRvbiBjbGFzc05hbWU9XCJwLTEuNSBob3ZlcjpiZy13aGl0ZS8xMCByb3VuZGVkIHRyYW5zaXRpb24tYWxsXCI+XG4gICAgICAgICAgICAgICAgICAgICAgICAgIDxFeWUgY2xhc3NOYW1lPVwidy00IGgtNCB0ZXh0LWdyYXktNDAwXCIgLz5cbiAgICAgICAgICAgICAgICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICAgICAgICAgICAgICAgIDwvdGQ+XG4gICAgICAgICAgICAgICAgICAgIDwvdHI+XG4gICAgICAgICAgICAgICAgICApKX1cbiAgICAgICAgICAgICAgICA8L3Rib2R5PlxuICAgICAgICAgICAgICA8L3RhYmxlPlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvZGl2PlxuICAgICAgKX1cblxuICAgICAgey8qIFZlcnNpb24gSGlzdG9yeSBUYWIgKi99XG4gICAgICB7YWN0aXZlVGFiID09PSAndmVyc2lvbnMnICYmIChcbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJiZy1bIzBmMjgzMl0gYm9yZGVyIGJvcmRlci1bIzFhMzQ0MF0gcm91bmRlZC14bCBwLTZcIj5cbiAgICAgICAgICA8aDMgY2xhc3NOYW1lPVwidGV4dC1sZyBmb250LXNlbWlib2xkIHRleHQtd2hpdGUgbWItNCBmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMlwiPlxuICAgICAgICAgICAgPEdpdEJyYW5jaCBjbGFzc05hbWU9XCJ3LTUgaC01IHRleHQtdGVhbC00MDBcIiAvPlxuICAgICAgICAgICAgVmVyc2lvbiBIaXN0b3J5IC0gR292ZXJuYW5jZSBGcmFtZXdvcmsgUG9saWN5XG4gICAgICAgICAgPC9oMz5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInNwYWNlLXktNFwiPlxuICAgICAgICAgICAge3ZlcnNpb25IaXN0b3J5Lm1hcCgodmVyc2lvbiwgaW5kZXgpID0+IChcbiAgICAgICAgICAgICAgPGRpdiBrZXk9e2luZGV4fSBjbGFzc05hbWU9XCJib3JkZXIgYm9yZGVyLXdoaXRlLzEwIHJvdW5kZWQtbGcgcC00IGJnLXdoaXRlLzVcIj5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtc3RhcnQganVzdGlmeS1iZXR3ZWVuIG1iLTNcIj5cbiAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTNcIj5cbiAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ3LTEyIGgtMTIgcm91bmRlZC1mdWxsIGJnLXRlYWwtNTAwLzIwIGZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktY2VudGVyXCI+XG4gICAgICAgICAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwidGV4dC10ZWFsLTQwMCBmb250LWJvbGRcIj52e3ZlcnNpb24udmVyc2lvbn08L3NwYW4+XG4gICAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC13aGl0ZSBmb250LXNlbWlib2xkIG1iLTFcIj57dmVyc2lvbi5jaGFuZ2VzfTwvZGl2PlxuICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC14cyB0ZXh0LWdyYXktNDAwXCI+XG4gICAgICAgICAgICAgICAgICAgICAgICBVcGRhdGVkIG9uIHt2ZXJzaW9uLmRhdGV9IGJ5IHt2ZXJzaW9uLmF1dGhvcn1cbiAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICAgIHtnZXRBcHByb3ZhbEJhZGdlKCdhcHByb3ZlZCcpfVxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZ3JpZCBncmlkLWNvbHMtMiBnYXAtNCB0ZXh0LXNtXCI+XG4gICAgICAgICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LWdyYXktNDAwXCI+QXBwcm92YWwgRGF0ZTo8L3NwYW4+XG4gICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRleHQtd2hpdGUgbWwtMlwiPnt2ZXJzaW9uLmFwcHJvdmFsRGF0ZX08L3NwYW4+XG4gICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRleHQtZ3JheS00MDBcIj5BcHByb3ZlZCBCeTo8L3NwYW4+XG4gICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRleHQtd2hpdGUgbWwtMlwiPnt2ZXJzaW9uLmFwcHJvdmVyfTwvc3Bhbj5cbiAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICkpfVxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICA8L2Rpdj5cbiAgICAgICl9XG5cbiAgICAgIHsvKiBBcHByb3ZhbCBSZWNvcmRzIFRhYiAqL31cbiAgICAgIHthY3RpdmVUYWIgPT09ICdhcHByb3ZhbHMnICYmIChcbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJiZy1bIzBmMjgzMl0gYm9yZGVyIGJvcmRlci1bIzFhMzQ0MF0gcm91bmRlZC14bCBwLTZcIj5cbiAgICAgICAgICA8aDMgY2xhc3NOYW1lPVwidGV4dC1sZyBmb250LXNlbWlib2xkIHRleHQtd2hpdGUgbWItNCBmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMlwiPlxuICAgICAgICAgICAgPFNoaWVsZCBjbGFzc05hbWU9XCJ3LTUgaC01IHRleHQtYmx1ZS00MDBcIiAvPlxuICAgICAgICAgICAgQXBwcm92YWwgUmVjb3Jkc1xuICAgICAgICAgIDwvaDM+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJzcGFjZS15LTRcIj5cbiAgICAgICAgICAgIHthcHByb3ZhbFJlY29yZHMubWFwKChyZWNvcmQsIGluZGV4KSA9PiAoXG4gICAgICAgICAgICAgIDxkaXYga2V5PXtpbmRleH0gY2xhc3NOYW1lPVwiYm9yZGVyIGJvcmRlci13aGl0ZS8xMCByb3VuZGVkLWxnIHAtNCBiZy13aGl0ZS81XCI+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLXN0YXJ0IGp1c3RpZnktYmV0d2VlbiBtYi0zXCI+XG4gICAgICAgICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQtd2hpdGUgZm9udC1zZW1pYm9sZCBtYi0xXCI+e3JlY29yZC5kb2N1bWVudElkfSAtIFZlcnNpb24ge3JlY29yZC52ZXJzaW9uU3VibWl0dGVkfTwvZGl2PlxuICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC1ncmF5LTQwMFwiPlxuICAgICAgICAgICAgICAgICAgICAgIFN1Ym1pdHRlZCBieSB7cmVjb3JkLnN1Ym1pdHRlZEJ5fSBvbiB7cmVjb3JkLnN1Ym1pdHRlZERhdGV9XG4gICAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICB7Z2V0QXBwcm92YWxCYWRnZShyZWNvcmQuZGVjaXNpb24pfVxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZ3JpZCBncmlkLWNvbHMtMiBnYXAtNCB0ZXh0LXNtIG1iLTNcIj5cbiAgICAgICAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRleHQtZ3JheS00MDBcIj5SZXZpZXdlZCBCeTo8L3NwYW4+XG4gICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRleHQtd2hpdGUgbWwtMlwiPntyZWNvcmQucmV2aWV3ZWRCeX08L3NwYW4+XG4gICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRleHQtZ3JheS00MDBcIj5SZXZpZXcgRGF0ZTo8L3NwYW4+XG4gICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRleHQtd2hpdGUgbWwtMlwiPntyZWNvcmQucmV2aWV3RGF0ZX08L3NwYW4+XG4gICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICB7cmVjb3JkLmNvbW1lbnRzICYmIChcbiAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYmctd2hpdGUvNSBib3JkZXIgYm9yZGVyLXdoaXRlLzEwIHJvdW5kZWQgcC0zIHRleHQtc20gdGV4dC1ncmF5LTMwMFwiPlxuICAgICAgICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LWdyYXktNDAwIGZvbnQtbWVkaXVtXCI+Q29tbWVudHM6IDwvc3Bhbj5cbiAgICAgICAgICAgICAgICAgICAge3JlY29yZC5jb21tZW50c31cbiAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICl9XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgKSl9XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvZGl2PlxuICAgICAgKX1cblxuICAgICAgey8qIFJldmlldyBDeWNsZSBUYWIgKi99XG4gICAgICB7YWN0aXZlVGFiID09PSAncmV2aWV3cycgJiYgKFxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLVsjMGYyODMyXSBib3JkZXIgYm9yZGVyLVsjMWEzNDQwXSByb3VuZGVkLXhsIHAtNlwiPlxuICAgICAgICAgIDxoMyBjbGFzc05hbWU9XCJ0ZXh0LWxnIGZvbnQtc2VtaWJvbGQgdGV4dC13aGl0ZSBtYi00IGZsZXggaXRlbXMtY2VudGVyIGdhcC0yXCI+XG4gICAgICAgICAgICA8Q2FsZW5kYXIgY2xhc3NOYW1lPVwidy01IGgtNSB0ZXh0LXB1cnBsZS00MDBcIiAvPlxuICAgICAgICAgICAgUmV2aWV3IEN5Y2xlIE1hbmFnZW1lbnRcbiAgICAgICAgICA8L2gzPlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwic3BhY2UteS0zXCI+XG4gICAgICAgICAgICB7cG9saWN5UmVnaXN0ZXJcbiAgICAgICAgICAgICAgLnNvcnQoKGEsIGIpID0+IGEuZGF5c1VudGlsUmV2aWV3IC0gYi5kYXlzVW50aWxSZXZpZXcpXG4gICAgICAgICAgICAgIC5tYXAoKHBvbGljeSkgPT4gKFxuICAgICAgICAgICAgICAgIDxkaXYga2V5PXtwb2xpY3kuZG9jdW1lbnRJZH0gY2xhc3NOYW1lPXtgYm9yZGVyIHJvdW5kZWQtbGcgcC00ICR7XG4gICAgICAgICAgICAgICAgICBwb2xpY3kuZGF5c1VudGlsUmV2aWV3IDwgMFxuICAgICAgICAgICAgICAgICAgICA/ICdib3JkZXItcmVkLTUwMC8zMCBiZy1yZWQtNTAwLzEwJ1xuICAgICAgICAgICAgICAgICAgICA6IHBvbGljeS5kYXlzVW50aWxSZXZpZXcgPD0gMzBcbiAgICAgICAgICAgICAgICAgICAgPyAnYm9yZGVyLXllbGxvdy01MDAvMzAgYmcteWVsbG93LTUwMC8xMCdcbiAgICAgICAgICAgICAgICAgICAgOiAnYm9yZGVyLXdoaXRlLzEwIGJnLXdoaXRlLzUnXG4gICAgICAgICAgICAgICAgfWB9PlxuICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW5cIj5cbiAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4LTFcIj5cbiAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQtd2hpdGUgZm9udC1tZWRpdW0gbWItMVwiPntwb2xpY3kudGl0bGV9PC9kaXY+XG4gICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ0ZXh0LXhzIHRleHQtZ3JheS00MDBcIj57cG9saWN5LmRvY3VtZW50SWR9IOKAoiB2e3BvbGljeS5jdXJyZW50VmVyc2lvbn08L2Rpdj5cbiAgICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC1yaWdodFwiPlxuICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC1zbSBtYi0xXCI+e2dldFJldmlld1VyZ2VuY3kocG9saWN5LmRheXNVbnRpbFJldmlldyl9PC9kaXY+XG4gICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ0ZXh0LXhzIHRleHQtZ3JheS00MDBcIj5EdWU6IHtwb2xpY3kucmV2aWV3RHVlRGF0ZX08L2Rpdj5cbiAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC1ncmF5LTUwMFwiPkxhc3Q6IHtwb2xpY3kubGFzdFJldmlld0RhdGV9PC9kaXY+XG4gICAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cIm10LTMgZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuXCI+XG4gICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC14cyB0ZXh0LWdyYXktNDAwXCI+XG4gICAgICAgICAgICAgICAgICAgICAgPFVzZXIgY2xhc3NOYW1lPVwidy0zIGgtMyBpbmxpbmUgbXItMVwiIC8+XG4gICAgICAgICAgICAgICAgICAgICAgUmVzcG9uc2libGU6IHtwb2xpY3kub3duZXJSb2xlfVxuICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICAgICAge3BvbGljeS5kYXlzVW50aWxSZXZpZXcgPD0gMzAgJiYgKFxuICAgICAgICAgICAgICAgICAgICAgIDxidXR0b24gY2xhc3NOYW1lPVwicHgtMyBweS0xIGJnLXRlYWwtNTAwLzIwIHRleHQtdGVhbC00MDAgdGV4dC14cyByb3VuZGVkIGhvdmVyOmJnLXRlYWwtNTAwLzMwIHRyYW5zaXRpb24tYWxsXCI+XG4gICAgICAgICAgICAgICAgICAgICAgICBTZW5kIFJlbWluZGVyXG4gICAgICAgICAgICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgICAgICAgICAgICl9XG4gICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgKSl9XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvZGl2PlxuICAgICAgKX1cbiAgICA8L2Rpdj5cbiAgKTtcbn1cbiJdLCJmaWxlIjoiL3dvcmtzcGFjZXMvZGVmYXVsdC9jb2RlL3NyYy9hcHAvcGFnZXMvb3JnLWFkbWluL1BvbGljeVJlZ2lzdGVyLnRzeCJ9

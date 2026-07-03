@@ -1,0 +1,891 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/app/pages/platform-admin/RevenueGovernance.tsx");import { jsxDEV } from "/@id/__x00__figma:react-jsx-dev-runtime";
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+var _s = $RefreshSig$();
+import { FGCmp } from "/@id/fginspector";
+import { useState } from "/@id/__x00__figma:react-base";
+import { Plus, TrendingUp, DollarSign } from "/node_modules/.vite/deps/lucide-react.js?v=25293e4c";
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "/node_modules/.vite/deps/recharts.js?v=f0b2acc9";
+const revenueData = [
+  { month: "Oct", revenue: 98, id: "r1" },
+  { month: "Nov", revenue: 105, id: "r2" },
+  { month: "Dec", revenue: 112, id: "r3" },
+  { month: "Jan", revenue: 118, id: "r4" },
+  { month: "Feb", revenue: 121, id: "r5" },
+  { month: "Mar", revenue: 124.5, id: "r6" }
+];
+export default function RevenueGovernance() {
+  _s();
+  const [plans, setPlans] = useState(
+    [
+      { id: "1", name: "Basic", tokenLimit: 1e5, userLimit: 10, policyLimit: 50, price: 299 },
+      { id: "2", name: "Professional", tokenLimit: 5e5, userLimit: 50, policyLimit: 200, price: 899 },
+      { id: "3", name: "Enterprise", tokenLimit: 2e6, userLimit: "Unlimited", policyLimit: "Unlimited", price: 2499 }
+    ]
+  );
+  const [showCreateModal, setShowCreateModal] = useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState(null);
+  return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt0", _fgB: 1779104381004, _fgD: true, className: "space-y-6", "data-fg-7xt0": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:25:5:1107:11135:e:div:etxtetxtetxtetxtetxtxtxtx:1", children: [
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt1", _fgB: 1779104381004, className: "flex items-center justify-between", "data-fg-7xt1": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:26:7:1141:565:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt2", _fgB: 1779104381004, "data-fg-7xt2": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:27:9:1201:184:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h1", _fgS: "7xt3", _fgB: 1779104381004, className: "text-3xl font-bold text-white mb-2", "data-fg-7xt3": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:28:11:1217:74:e:h1:t", children: "Revenue Governance" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+          lineNumber: 48,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "7xt5", _fgB: 1779104381004, className: "text-gray-400", "data-fg-7xt5": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:29:11:1302:68:e:p:t", children: "Pricing plans and revenue analytics" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+          lineNumber: 49,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+        lineNumber: 47,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(
+        FGCmp,
+        {
+          _fgT: "button",
+          _fgS: "7xt7",
+          _fgB: 1779104381004,
+          onClick: () => setShowCreateModal(true),
+          className: "px-4 py-2 bg-gradient-to-r from-teal-600 to-teal-500 text-white rounded-lg hover:shadow-lg transition-all flex items-center gap-2",
+          "data-fg-7xt7": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:31:9:1394:299:e:button:et",
+          children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Plus, _fgS: "7xt8", _fgB: 1779104381004, className: "w-4 h-4", "data-fg-7xt8": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:35:11:1625:28:e:Plus::::::ISW" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+              lineNumber: 55,
+              columnNumber: 11
+            }, this),
+            "Create Plan"
+          ]
+        },
+        void 0,
+        true,
+        {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+          lineNumber: 51,
+          columnNumber: 9
+        },
+        this
+      )
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+      lineNumber: 46,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt11", _fgB: 1779104381004, className: "grid grid-cols-1 md:grid-cols-4 gap-6", "data-fg-7xt11": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:41:7:1734:1196:e:div:etetete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt12", _fgB: 1779104381004, className: "bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/10", "data-fg-7xt12": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:42:9:1798:313:e:div:etete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: DollarSign, _fgS: "7xt13", _fgB: 1779104381004, className: "w-8 h-8 text-teal-500 mb-4", "data-fg-7xt13": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:43:11:1892:53:e:DollarSign::::::BrOJ" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+          lineNumber: 63,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "7xt14", _fgB: 1779104381004, className: "text-2xl font-bold text-white mb-1", "data-fg-7xt14": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:44:11:1956:63:e:h3:t", children: "$124.5K" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+          lineNumber: 64,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "7xt16", _fgB: 1779104381004, className: "text-sm text-gray-400", "data-fg-7xt16": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:45:11:2030:66:e:p:t", children: "Monthly Recurring Revenue" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+          lineNumber: 65,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+        lineNumber: 62,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt18", _fgB: 1779104381004, className: "bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/10", "data-fg-7xt18": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:47:9:2120:298:e:div:etete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: TrendingUp, _fgS: "7xt19", _fgB: 1779104381004, className: "w-8 h-8 text-green-500 mb-4", "data-fg-7xt19": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:48:11:2214:54:e:TrendingUp::::::tM8" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+          lineNumber: 68,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "7xt20", _fgB: 1779104381004, className: "text-2xl font-bold text-white mb-1", "data-fg-7xt20": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:49:11:2279:61:e:h3:t", children: "+8.2%" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+          lineNumber: 69,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "7xt22", _fgB: 1779104381004, className: "text-sm text-gray-400", "data-fg-7xt22": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:50:11:2351:52:e:p:t", children: "Growth Rate" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+          lineNumber: 70,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+        lineNumber: 67,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt24", _fgB: 1779104381004, className: "bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/10", "data-fg-7xt24": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:52:9:2427:236:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "7xt25", _fgB: 1779104381004, className: "text-2xl font-bold text-white mb-1", "data-fg-7xt25": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:53:11:2521:59:e:h3:t", children: "247" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+          lineNumber: 73,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "7xt27", _fgB: 1779104381004, className: "text-sm text-gray-400", "data-fg-7xt27": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:54:11:2591:57:e:p:t", children: "Paying Customers" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+          lineNumber: 74,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+        lineNumber: 72,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt29", _fgB: 1779104381004, className: "bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/10", "data-fg-7xt29": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:56:9:2672:245:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "7xt30", _fgB: 1779104381004, className: "text-2xl font-bold text-white mb-1", "data-fg-7xt30": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:57:11:2766:60:e:h3:t", children: "$504" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+          lineNumber: 77,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "7xt32", _fgB: 1779104381004, className: "text-sm text-gray-400", "data-fg-7xt32": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:58:11:2837:65:e:p:t", children: "Average Revenue Per User" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+          lineNumber: 78,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+        lineNumber: 76,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+      lineNumber: 61,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt35", _fgB: 1779104381004, className: "bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/10", "data-fg-7xt35": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:63:7:2966:925:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "7xt36", _fgB: 1779104381004, className: "text-lg font-semibold text-white mb-4", "data-fg-7xt36": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:64:9:3058:72:e:h3:t", children: "Revenue Trend" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+        lineNumber: 84,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: ResponsiveContainer, _fgS: "7xt38", _fgB: 1779104381004, width: "100%", height: 250, "data-fg-7xt38": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:65:9:3139:739:e:ResponsiveContainer:e:::::BlHd", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: AreaChart, _fgS: "7xt39", _fgB: 1779104381004, data: revenueData, "data-fg-7xt39": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:66:11:3197:650:e:AreaChart:etetetete:::::yxZ", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: CartesianGrid, _fgS: "7xt40", _fgB: 1779104381004, strokeDasharray: "3 3", stroke: "rgba(255,255,255,0.1)", "data-fg-7xt40": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:67:13:3240:70:e:CartesianGrid::::::CTO8" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+          lineNumber: 87,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: XAxis, _fgS: "7xt41", _fgB: 1779104381004, dataKey: "month", stroke: "#9CA3AF", fontSize: 12, "data-fg-7xt41": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:68:13:3323:56:e:XAxis::::::BN8z" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+          lineNumber: 88,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: YAxis, _fgS: "7xt42", _fgB: 1779104381004, stroke: "#9CA3AF", fontSize: 12, "data-fg-7xt42": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:69:13:3392:40:e:YAxis::::::4FS" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+          lineNumber: 89,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: Tooltip,
+            _fgS: "7xt43",
+            _fgB: 1779104381004,
+            contentStyle: {
+              backgroundColor: "rgba(11, 31, 42, 0.9)",
+              border: "1px solid rgba(255,255,255,0.1)",
+              borderRadius: "8px",
+              color: "#E6F1F4"
+            },
+            "data-fg-7xt43": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:70:13:3445:258:e:Tooltip::::::BnDj"
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+            lineNumber: 90,
+            columnNumber: 13
+          },
+          this
+        ),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Area, _fgS: "7xt44", _fgB: 1779104381004, type: "monotone", dataKey: "revenue", stroke: "#14B8A6", fill: "#14B8A6", fillOpacity: 0.2, strokeWidth: 2, "data-fg-7xt44": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:78:13:3716:108:e:Area::::::Bqzl" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+          lineNumber: 98,
+          columnNumber: 13
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+        lineNumber: 86,
+        columnNumber: 11
+      }, this) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+        lineNumber: 85,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+      lineNumber: 83,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt46", _fgB: 1779104381004, className: "bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/10", "data-fg-7xt46": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:84:7:3927:1803:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "7xt47", _fgB: 1779104381004, className: "text-lg font-semibold text-white mb-4", "data-fg-7xt47": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:85:9:4019:72:e:h3:t", children: "Pricing Plans" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+        lineNumber: 105,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt49", _fgB: 1779104381004, className: "space-y-3", "data-fg-7xt49": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:86:9:4100:1617:e:div:x", children: plans.map(
+        (plan) => /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt51", _fgB: 1779104381004, className: "p-4 bg-white/5 rounded-lg", "data-fg-7xt51": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:88:13:4173:1515:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt52", _fgB: 1779104381004, className: "flex items-center justify-between mb-3", "data-fg-7xt52": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:89:15:4245:709:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt53", _fgB: 1779104381004, "data-fg-7xt53": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:90:17:4318:246:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h4", _fgS: "7xt54", _fgB: 1779104381004, className: "text-lg font-semibold text-white", "data-fg-7xt54": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:91:19:4342:65:e:h4:x", children: plan.name }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+                lineNumber: 111,
+                columnNumber: 19
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "7xt56", _fgB: 1779104381004, className: "text-2xl font-bold text-teal-500", "data-fg-7xt56": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:92:19:4426:115:e:p:txe", children: [
+                "$",
+                plan.price,
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "7xt59", _fgB: 1779104381004, className: "text-sm text-gray-400", "data-fg-7xt59": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:92:80:4487:50:e:span:t", children: "/mo" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+                  lineNumber: 112,
+                  columnNumber: 236
+                }, this)
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+                lineNumber: 112,
+                columnNumber: 19
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+              lineNumber: 110,
+              columnNumber: 17
+            }, this),
+            /* @__PURE__ */ jsxDEV(
+              FGCmp,
+              {
+                _fgT: "button",
+                _fgS: "7xt61",
+                _fgB: 1779104381004,
+                onClick: () => {
+                  setSelectedPlan(plan);
+                  setShowEditModal(true);
+                },
+                className: "px-3 py-1 bg-white/5 border border-white/10 text-white rounded text-sm hover:bg-white/10 transition-all",
+                "data-fg-7xt61": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:94:17:4581:352:e:button:t",
+                children: "Edit"
+              },
+              void 0,
+              false,
+              {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+                lineNumber: 114,
+                columnNumber: 17
+              },
+              this
+            )
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+            lineNumber: 109,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt63", _fgB: 1779104381004, className: "grid grid-cols-3 gap-4 text-sm", "data-fg-7xt63": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:104:15:4969:700:e:div:etete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt64", _fgB: 1779104381004, "data-fg-7xt64": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:105:17:5034:242:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "7xt65", _fgB: 1779104381004, className: "text-gray-400", "data-fg-7xt65": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:106:19:5058:44:e:p:t", children: "Token Limit" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+                lineNumber: 126,
+                columnNumber: 19
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "7xt67", _fgB: 1779104381004, className: "text-white font-medium", "data-fg-7xt67": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:107:19:5121:132:e:p:x", children: typeof plan.tokenLimit === "number" ? plan.tokenLimit.toLocaleString() : plan.tokenLimit }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+                lineNumber: 127,
+                columnNumber: 19
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+              lineNumber: 125,
+              columnNumber: 17
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt69", _fgB: 1779104381004, "data-fg-7xt69": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:109:17:5293:167:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "7xt70", _fgB: 1779104381004, className: "text-gray-400", "data-fg-7xt70": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:110:19:5317:43:e:p:t", children: "User Limit" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+                lineNumber: 130,
+                columnNumber: 19
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "7xt72", _fgB: 1779104381004, className: "text-white font-medium", "data-fg-7xt72": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:111:19:5379:58:e:p:x", children: plan.userLimit }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+                lineNumber: 131,
+                columnNumber: 19
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+              lineNumber: 129,
+              columnNumber: 17
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt74", _fgB: 1779104381004, "data-fg-7xt74": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:113:17:5477:171:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "7xt75", _fgB: 1779104381004, className: "text-gray-400", "data-fg-7xt75": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:114:19:5501:45:e:p:t", children: "Policy Limit" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+                lineNumber: 134,
+                columnNumber: 19
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "7xt77", _fgB: 1779104381004, className: "text-white font-medium", "data-fg-7xt77": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:115:19:5565:60:e:p:x", children: plan.policyLimit }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+                lineNumber: 135,
+                columnNumber: 19
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+              lineNumber: 133,
+              columnNumber: 17
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+            lineNumber: 124,
+            columnNumber: 15
+          }, this)
+        ] }, plan.id, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+          lineNumber: 108,
+          columnNumber: 11
+        }, this)
+      ) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+        lineNumber: 106,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+      lineNumber: 104,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt80", _fgB: 1779104381004, className: "bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/10", "data-fg-7xt80": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:124:7:5770:1648:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "7xt81", _fgB: 1779104381004, className: "text-lg font-semibold text-white mb-4", "data-fg-7xt81": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:125:9:5862:76:e:h3:t", children: "Plan Distribution" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+        lineNumber: 145,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt83", _fgB: 1779104381004, className: "space-y-3", "data-fg-7xt83": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:126:9:5947:1458:e:div:etete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt84", _fgB: 1779104381004, className: "flex items-center justify-between", "data-fg-7xt84": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:127:11:5985:456:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "7xt85", _fgB: 1779104381004, className: "text-gray-400", "data-fg-7xt85": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:128:13:6049:44:e:span:t", children: "Basic" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+            lineNumber: 148,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt87", _fgB: 1779104381004, className: "flex items-center gap-4", "data-fg-7xt87": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:129:13:6106:318:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt88", _fgB: 1779104381004, className: "w-48 h-2 bg-white/10 rounded-full overflow-hidden", "data-fg-7xt88": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:130:15:6162:168:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt89", _fgB: 1779104381004, className: "h-full bg-blue-500", style: { width: "25%" }, "data-fg-7xt89": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:131:17:6246:63:e:div" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+              lineNumber: 151,
+              columnNumber: 17
+            }, this) }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+              lineNumber: 150,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "7xt90", _fgB: 1779104381004, className: "text-white w-16 text-right", "data-fg-7xt90": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:133:15:6345:60:e:span:t", children: "62 (25%)" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+              lineNumber: 153,
+              columnNumber: 15
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+            lineNumber: 149,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+          lineNumber: 147,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt92", _fgB: 1779104381004, className: "flex items-center justify-between", "data-fg-7xt92": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:136:11:6452:464:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "7xt93", _fgB: 1779104381004, className: "text-gray-400", "data-fg-7xt93": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:137:13:6516:51:e:span:t", children: "Professional" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+            lineNumber: 157,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt95", _fgB: 1779104381004, className: "flex items-center gap-4", "data-fg-7xt95": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:138:13:6580:319:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt96", _fgB: 1779104381004, className: "w-48 h-2 bg-white/10 rounded-full overflow-hidden", "data-fg-7xt96": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:139:15:6636:168:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt97", _fgB: 1779104381004, className: "h-full bg-teal-500", style: { width: "48%" }, "data-fg-7xt97": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:140:17:6720:63:e:div" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+              lineNumber: 160,
+              columnNumber: 17
+            }, this) }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+              lineNumber: 159,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "7xt98", _fgB: 1779104381004, className: "text-white w-16 text-right", "data-fg-7xt98": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:142:15:6819:61:e:span:t", children: "119 (48%)" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+              lineNumber: 162,
+              columnNumber: 15
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+            lineNumber: 158,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+          lineNumber: 156,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt100", _fgB: 1779104381004, className: "flex items-center justify-between", "data-fg-7xt100": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:145:11:6927:463:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "7xt101", _fgB: 1779104381004, className: "text-gray-400", "data-fg-7xt101": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:146:13:6991:49:e:span:t", children: "Enterprise" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+            lineNumber: 166,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt103", _fgB: 1779104381004, className: "flex items-center gap-4", "data-fg-7xt103": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:147:13:7053:320:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt104", _fgB: 1779104381004, className: "w-48 h-2 bg-white/10 rounded-full overflow-hidden", "data-fg-7xt104": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:148:15:7109:170:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt105", _fgB: 1779104381004, className: "h-full bg-purple-500", style: { width: "27%" }, "data-fg-7xt105": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:149:17:7193:65:e:div" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+              lineNumber: 169,
+              columnNumber: 17
+            }, this) }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+              lineNumber: 168,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "7xt106", _fgB: 1779104381004, className: "text-white w-16 text-right", "data-fg-7xt106": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:151:15:7294:60:e:span:t", children: "66 (27%)" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+              lineNumber: 171,
+              columnNumber: 15
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+            lineNumber: 167,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+          lineNumber: 165,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+        lineNumber: 146,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+      lineNumber: 144,
+      columnNumber: 7
+    }, this),
+    showCreateModal && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Modal, _fgS: "7xt110", _fgB: 1779104381004, title: "Create Pricing Plan", onClose: () => setShowCreateModal(false), "data-fg-7xt110": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:159:9:7488:2290:e:Modal:e:::::C4JM", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt111", _fgB: 1779104381004, className: "space-y-4", "data-fg-7xt111": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:160:11:7576:2185:e:div:etetetetete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt112", _fgB: 1779104381004, "data-fg-7xt112": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:161:13:7616:376:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "7xt113", _fgB: 1779104381004, className: "block text-sm font-medium text-gray-300 mb-2", "data-fg-7xt113": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:162:15:7636:81:e:label:t", children: "Plan Name" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+          lineNumber: 182,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "input",
+            _fgS: "7xt115",
+            _fgB: 1779104381004,
+            type: "text",
+            className: "w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-teal-500/50",
+            placeholder: "e.g., Pro Plus",
+            "data-fg-7xt115": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:163:15:7732:241:e:input"
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+            lineNumber: 183,
+            columnNumber: 15
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+        lineNumber: 181,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt116", _fgB: 1779104381004, "data-fg-7xt116": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:169:13:8005:373:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "7xt117", _fgB: 1779104381004, className: "block text-sm font-medium text-gray-300 mb-2", "data-fg-7xt117": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:170:15:8025:87:e:label:t", children: "Price ($/month)" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+          lineNumber: 190,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "input",
+            _fgS: "7xt119",
+            _fgB: 1779104381004,
+            type: "number",
+            className: "w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-teal-500/50",
+            placeholder: "999",
+            "data-fg-7xt119": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:171:15:8127:232:e:input"
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+            lineNumber: 191,
+            columnNumber: 15
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+        lineNumber: 189,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt120", _fgB: 1779104381004, "data-fg-7xt120": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:177:13:8391:373:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "7xt121", _fgB: 1779104381004, className: "block text-sm font-medium text-gray-300 mb-2", "data-fg-7xt121": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:178:15:8411:83:e:label:t", children: "Token Limit" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+          lineNumber: 198,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "input",
+            _fgS: "7xt123",
+            _fgB: 1779104381004,
+            type: "number",
+            className: "w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-teal-500/50",
+            placeholder: "1000000",
+            "data-fg-7xt123": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:179:15:8509:236:e:input"
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+            lineNumber: 199,
+            columnNumber: 15
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+        lineNumber: 197,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt124", _fgB: 1779104381004, "data-fg-7xt124": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:185:13:8777:379:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "7xt125", _fgB: 1779104381004, className: "block text-sm font-medium text-gray-300 mb-2", "data-fg-7xt125": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:186:15:8797:82:e:label:t", children: "User Limit" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+          lineNumber: 206,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "input",
+            _fgS: "7xt127",
+            _fgB: 1779104381004,
+            type: "text",
+            className: "w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-teal-500/50",
+            placeholder: "100 or Unlimited",
+            "data-fg-7xt127": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:187:15:8894:243:e:input"
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+            lineNumber: 207,
+            columnNumber: 15
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+        lineNumber: 205,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt128", _fgB: 1779104381004, "data-fg-7xt128": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:193:13:9169:381:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "7xt129", _fgB: 1779104381004, className: "block text-sm font-medium text-gray-300 mb-2", "data-fg-7xt129": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:194:15:9189:84:e:label:t", children: "Policy Limit" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+          lineNumber: 214,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "input",
+            _fgS: "7xt131",
+            _fgB: 1779104381004,
+            type: "text",
+            className: "w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-teal-500/50",
+            placeholder: "500 or Unlimited",
+            "data-fg-7xt131": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:195:15:9288:243:e:input"
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+            lineNumber: 215,
+            columnNumber: 15
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+        lineNumber: 213,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "button", _fgS: "7xt132", _fgB: 1779104381004, className: "w-full px-4 py-3 bg-gradient-to-r from-teal-600 to-teal-500 text-white rounded-lg hover:shadow-lg transition-all", "data-fg-7xt132": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:201:13:9563:181:e:button:t", children: "Create Plan" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+        lineNumber: 221,
+        columnNumber: 13
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+      lineNumber: 180,
+      columnNumber: 11
+    }, this) }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+      lineNumber: 179,
+      columnNumber: 7
+    }, this),
+    showEditModal && selectedPlan && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Modal, _fgS: "7xt136", _fgB: 1779104381004, title: `Edit ${selectedPlan.name} Plan`, onClose: () => setShowEditModal(false), "data-fg-7xt136": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:210:9:9869:2353:e:Modal:e:::::C4JM", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt137", _fgB: 1779104381004, className: "space-y-4", "data-fg-7xt137": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:211:11:9968:2237:e:div:etetetetete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt138", _fgB: 1779104381004, "data-fg-7xt138": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:212:13:10008:380:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "7xt139", _fgB: 1779104381004, className: "block text-sm font-medium text-gray-300 mb-2", "data-fg-7xt139": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:213:15:10028:81:e:label:t", children: "Plan Name" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+          lineNumber: 233,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "input",
+            _fgS: "7xt141",
+            _fgB: 1779104381004,
+            type: "text",
+            defaultValue: selectedPlan.name,
+            className: "w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-teal-500/50",
+            "data-fg-7xt141": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:214:15:10124:245:e:input"
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+            lineNumber: 234,
+            columnNumber: 15
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+        lineNumber: 232,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt142", _fgB: 1779104381004, "data-fg-7xt142": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:220:13:10401:389:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "7xt143", _fgB: 1779104381004, className: "block text-sm font-medium text-gray-300 mb-2", "data-fg-7xt143": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:221:15:10421:87:e:label:t", children: "Price ($/month)" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+          lineNumber: 241,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "input",
+            _fgS: "7xt145",
+            _fgB: 1779104381004,
+            type: "number",
+            defaultValue: selectedPlan.price,
+            className: "w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-teal-500/50",
+            "data-fg-7xt145": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:222:15:10523:248:e:input"
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+            lineNumber: 242,
+            columnNumber: 15
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+        lineNumber: 240,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt146", _fgB: 1779104381004, "data-fg-7xt146": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:228:13:10803:388:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "7xt147", _fgB: 1779104381004, className: "block text-sm font-medium text-gray-300 mb-2", "data-fg-7xt147": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:229:15:10823:83:e:label:t", children: "Token Limit" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+          lineNumber: 249,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "input",
+            _fgS: "7xt149",
+            _fgB: 1779104381004,
+            type: "text",
+            defaultValue: selectedPlan.tokenLimit,
+            className: "w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-teal-500/50",
+            "data-fg-7xt149": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:230:15:10921:251:e:input"
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+            lineNumber: 250,
+            columnNumber: 15
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+        lineNumber: 248,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt150", _fgB: 1779104381004, "data-fg-7xt150": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:236:13:11204:386:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "7xt151", _fgB: 1779104381004, className: "block text-sm font-medium text-gray-300 mb-2", "data-fg-7xt151": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:237:15:11224:82:e:label:t", children: "User Limit" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+          lineNumber: 257,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "input",
+            _fgS: "7xt153",
+            _fgB: 1779104381004,
+            type: "text",
+            defaultValue: selectedPlan.userLimit,
+            className: "w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-teal-500/50",
+            "data-fg-7xt153": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:238:15:11321:250:e:input"
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+            lineNumber: 258,
+            columnNumber: 15
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+        lineNumber: 256,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt154", _fgB: 1779104381004, "data-fg-7xt154": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:244:13:11603:390:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "7xt155", _fgB: 1779104381004, className: "block text-sm font-medium text-gray-300 mb-2", "data-fg-7xt155": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:245:15:11623:84:e:label:t", children: "Policy Limit" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+          lineNumber: 265,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "input",
+            _fgS: "7xt157",
+            _fgB: 1779104381004,
+            type: "text",
+            defaultValue: selectedPlan.policyLimit,
+            className: "w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-teal-500/50",
+            "data-fg-7xt157": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:246:15:11722:252:e:input"
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+            lineNumber: 266,
+            columnNumber: 15
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+        lineNumber: 264,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "button", _fgS: "7xt158", _fgB: 1779104381004, className: "w-full px-4 py-3 bg-gradient-to-r from-teal-600 to-teal-500 text-white rounded-lg hover:shadow-lg transition-all", "data-fg-7xt158": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:252:13:12006:182:e:button:t", children: "Save Changes" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+        lineNumber: 272,
+        columnNumber: 13
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+      lineNumber: 231,
+      columnNumber: 11
+    }, this) }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+      lineNumber: 230,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+    lineNumber: 45,
+    columnNumber: 5
+  }, this);
+}
+_s(RevenueGovernance, "4zFHMvLp9h8X65a6eFFUQSYksG4=");
+_c = RevenueGovernance;
+function Modal({ title, onClose, children }) {
+  return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt160", _fgB: 1779104381004, _fgD: true, className: "fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-6", "data-fg-7xt160": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:264:5:12318:668:e:div:e:1", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt161", _fgB: 1779104381004, className: "bg-[#0B1F2A] border border-white/10 rounded-2xl p-6 max-w-2xl w-full max-h-[80vh] overflow-y-auto", "data-fg-7xt161": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:265:7:12427:548:e:div:etc", children: [
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "7xt162", _fgB: 1779104381004, className: "flex items-center justify-between mb-6", "data-fg-7xt162": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:266:9:12551:392:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h2", _fgS: "7xt163", _fgB: 1779104381004, className: "text-2xl font-bold text-white", "data-fg-7xt163": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:267:11:12618:58:e:h2:x", children: title }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+        lineNumber: 287,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV(
+        FGCmp,
+        {
+          _fgT: "button",
+          _fgS: "7xt165",
+          _fgB: 1779104381004,
+          onClick: onClose,
+          className: "w-8 h-8 rounded-lg hover:bg-white/5 flex items-center justify-center transition-colors",
+          "data-fg-7xt165": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:268:11:12687:241:e:button:e",
+          children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "7xt166", _fgB: 1779104381004, className: "text-gray-400 text-xl", "data-fg-7xt166": "418.276:418.12993:/src/app/pages/platform-admin/RevenueGovernance.tsx:272:13:12860:48:e:span:t", children: "×" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+            lineNumber: 292,
+            columnNumber: 13
+          }, this)
+        },
+        void 0,
+        false,
+        {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+          lineNumber: 288,
+          columnNumber: 11
+        },
+        this
+      )
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+      lineNumber: 286,
+      columnNumber: 9
+    }, this),
+    children
+  ] }, void 0, true, {
+    fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+    lineNumber: 285,
+    columnNumber: 7
+  }, this) }, void 0, false, {
+    fileName: "/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx",
+    lineNumber: 284,
+    columnNumber: 5
+  }, this);
+}
+_c2 = Modal;
+var _c, _c2;
+$RefreshReg$(_c, "RevenueGovernance");
+$RefreshReg$(_c2, "Modal");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/workspaces/default/code/src/app/pages/platform-admin/RevenueGovernance.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,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QUFBO0FBQUE7QUFBQTtBQUFBLFNBYUE7QUFFSjtBQUFBQyxNQWpCU0w7QUFBSyxJQUFBQyxJQUFBSTtBQUFBQyxhQUFBTCxJQUFBO0FBQUFLLGFBQUFELEtBQUEiLCJuYW1lcyI6WyJ1c2VTdGF0ZSIsIlBsdXMiLCJUcmVuZGluZ1VwIiwiRG9sbGFyU2lnbiIsIkFyZWFDaGFydCIsIkFyZWEiLCJYQXhpcyIsIllBeGlzIiwiQ2FydGVzaWFuR3JpZCIsIlRvb2x0aXAiLCJSZXNwb25zaXZlQ29udGFpbmVyIiwicmV2ZW51ZURhdGEiLCJtb250aCIsInJldmVudWUiLCJpZCIsIlJldmVudWVHb3Zlcm5hbmNlIiwiX3MiLCJwbGFucyIsInNldFBsYW5zIiwibmFtZSIsInRva2VuTGltaXQiLCJ1c2VyTGltaXQiLCJwb2xpY3lMaW1pdCIsInByaWNlIiwic2hvd0NyZWF0ZU1vZGFsIiwic2V0U2hvd0NyZWF0ZU1vZGFsIiwic2hvd0VkaXRNb2RhbCIsInNldFNob3dFZGl0TW9kYWwiLCJzZWxlY3RlZFBsYW4iLCJzZXRTZWxlY3RlZFBsYW4iLCJiYWNrZ3JvdW5kQ29sb3IiLCJib3JkZXIiLCJib3JkZXJSYWRpdXMiLCJjb2xvciIsIm1hcCIsInBsYW4iLCJ0b0xvY2FsZVN0cmluZyIsIndpZHRoIiwiTW9kYWwiLCJfYyIsInRpdGxlIiwib25DbG9zZSIsImNoaWxkcmVuIiwiX2MyIiwiJFJlZnJlc2hSZWckIl0sImlnbm9yZUxpc3QiOltdLCJzb3VyY2VzIjpbIlJldmVudWVHb3Zlcm5hbmNlLnRzeCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyB1c2VTdGF0ZSB9IGZyb20gJ3JlYWN0JztcbmltcG9ydCB7IFBsdXMsIFRyZW5kaW5nVXAsIERvbGxhclNpZ24gfSBmcm9tICdsdWNpZGUtcmVhY3QnO1xuaW1wb3J0IHsgQXJlYUNoYXJ0LCBBcmVhLCBYQXhpcywgWUF4aXMsIENhcnRlc2lhbkdyaWQsIFRvb2x0aXAsIFJlc3BvbnNpdmVDb250YWluZXIgfSBmcm9tICdyZWNoYXJ0cyc7XG5cbmNvbnN0IHJldmVudWVEYXRhID0gW1xuICB7IG1vbnRoOiAnT2N0JywgcmV2ZW51ZTogOTgsIGlkOiAncjEnIH0sXG4gIHsgbW9udGg6ICdOb3YnLCByZXZlbnVlOiAxMDUsIGlkOiAncjInIH0sXG4gIHsgbW9udGg6ICdEZWMnLCByZXZlbnVlOiAxMTIsIGlkOiAncjMnIH0sXG4gIHsgbW9udGg6ICdKYW4nLCByZXZlbnVlOiAxMTgsIGlkOiAncjQnIH0sXG4gIHsgbW9udGg6ICdGZWInLCByZXZlbnVlOiAxMjEsIGlkOiAncjUnIH0sXG4gIHsgbW9udGg6ICdNYXInLCByZXZlbnVlOiAxMjQuNSwgaWQ6ICdyNicgfSxcbl07XG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIFJldmVudWVHb3Zlcm5hbmNlKCkge1xuICBjb25zdCBbcGxhbnMsIHNldFBsYW5zXSA9IHVzZVN0YXRlKFtcbiAgICB7IGlkOiAnMScsIG5hbWU6ICdCYXNpYycsIHRva2VuTGltaXQ6IDEwMDAwMCwgdXNlckxpbWl0OiAxMCwgcG9saWN5TGltaXQ6IDUwLCBwcmljZTogMjk5IH0sXG4gICAgeyBpZDogJzInLCBuYW1lOiAnUHJvZmVzc2lvbmFsJywgdG9rZW5MaW1pdDogNTAwMDAwLCB1c2VyTGltaXQ6IDUwLCBwb2xpY3lMaW1pdDogMjAwLCBwcmljZTogODk5IH0sXG4gICAgeyBpZDogJzMnLCBuYW1lOiAnRW50ZXJwcmlzZScsIHRva2VuTGltaXQ6IDIwMDAwMDAsIHVzZXJMaW1pdDogJ1VubGltaXRlZCcsIHBvbGljeUxpbWl0OiAnVW5saW1pdGVkJywgcHJpY2U6IDI0OTkgfSxcbiAgXSk7XG4gIGNvbnN0IFtzaG93Q3JlYXRlTW9kYWwsIHNldFNob3dDcmVhdGVNb2RhbF0gPSB1c2VTdGF0ZShmYWxzZSk7XG4gIGNvbnN0IFtzaG93RWRpdE1vZGFsLCBzZXRTaG93RWRpdE1vZGFsXSA9IHVzZVN0YXRlKGZhbHNlKTtcbiAgY29uc3QgW3NlbGVjdGVkUGxhbiwgc2V0U2VsZWN0ZWRQbGFuXSA9IHVzZVN0YXRlPGFueT4obnVsbCk7XG5cbiAgcmV0dXJuIChcbiAgICA8ZGl2IGNsYXNzTmFtZT1cInNwYWNlLXktNlwiPlxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW5cIj5cbiAgICAgICAgPGRpdj5cbiAgICAgICAgICA8aDEgY2xhc3NOYW1lPVwidGV4dC0zeGwgZm9udC1ib2xkIHRleHQtd2hpdGUgbWItMlwiPlJldmVudWUgR292ZXJuYW5jZTwvaDE+XG4gICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC1ncmF5LTQwMFwiPlByaWNpbmcgcGxhbnMgYW5kIHJldmVudWUgYW5hbHl0aWNzPC9wPlxuICAgICAgICA8L2Rpdj5cbiAgICAgICAgPGJ1dHRvblxuICAgICAgICAgIG9uQ2xpY2s9eygpID0+IHNldFNob3dDcmVhdGVNb2RhbCh0cnVlKX1cbiAgICAgICAgICBjbGFzc05hbWU9XCJweC00IHB5LTIgYmctZ3JhZGllbnQtdG8tciBmcm9tLXRlYWwtNjAwIHRvLXRlYWwtNTAwIHRleHQtd2hpdGUgcm91bmRlZC1sZyBob3ZlcjpzaGFkb3ctbGcgdHJhbnNpdGlvbi1hbGwgZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTJcIlxuICAgICAgICA+XG4gICAgICAgICAgPFBsdXMgY2xhc3NOYW1lPVwidy00IGgtNFwiIC8+XG4gICAgICAgICAgQ3JlYXRlIFBsYW5cbiAgICAgICAgPC9idXR0b24+XG4gICAgICA8L2Rpdj5cblxuICAgICAgey8qIFN0YXRzICovfVxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJncmlkIGdyaWQtY29scy0xIG1kOmdyaWQtY29scy00IGdhcC02XCI+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYmctd2hpdGUvNSBiYWNrZHJvcC1ibHVyLWxnIHJvdW5kZWQteGwgcC02IGJvcmRlciBib3JkZXItd2hpdGUvMTBcIj5cbiAgICAgICAgICA8RG9sbGFyU2lnbiBjbGFzc05hbWU9XCJ3LTggaC04IHRleHQtdGVhbC01MDAgbWItNFwiIC8+XG4gICAgICAgICAgPGgzIGNsYXNzTmFtZT1cInRleHQtMnhsIGZvbnQtYm9sZCB0ZXh0LXdoaXRlIG1iLTFcIj4kMTI0LjVLPC9oMz5cbiAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LXNtIHRleHQtZ3JheS00MDBcIj5Nb250aGx5IFJlY3VycmluZyBSZXZlbnVlPC9wPlxuICAgICAgICA8L2Rpdj5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJiZy13aGl0ZS81IGJhY2tkcm9wLWJsdXItbGcgcm91bmRlZC14bCBwLTYgYm9yZGVyIGJvcmRlci13aGl0ZS8xMFwiPlxuICAgICAgICAgIDxUcmVuZGluZ1VwIGNsYXNzTmFtZT1cInctOCBoLTggdGV4dC1ncmVlbi01MDAgbWItNFwiIC8+XG4gICAgICAgICAgPGgzIGNsYXNzTmFtZT1cInRleHQtMnhsIGZvbnQtYm9sZCB0ZXh0LXdoaXRlIG1iLTFcIj4rOC4yJTwvaDM+XG4gICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC1zbSB0ZXh0LWdyYXktNDAwXCI+R3Jvd3RoIFJhdGU8L3A+XG4gICAgICAgIDwvZGl2PlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLXdoaXRlLzUgYmFja2Ryb3AtYmx1ci1sZyByb3VuZGVkLXhsIHAtNiBib3JkZXIgYm9yZGVyLXdoaXRlLzEwXCI+XG4gICAgICAgICAgPGgzIGNsYXNzTmFtZT1cInRleHQtMnhsIGZvbnQtYm9sZCB0ZXh0LXdoaXRlIG1iLTFcIj4yNDc8L2gzPlxuICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtc20gdGV4dC1ncmF5LTQwMFwiPlBheWluZyBDdXN0b21lcnM8L3A+XG4gICAgICAgIDwvZGl2PlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLXdoaXRlLzUgYmFja2Ryb3AtYmx1ci1sZyByb3VuZGVkLXhsIHAtNiBib3JkZXIgYm9yZGVyLXdoaXRlLzEwXCI+XG4gICAgICAgICAgPGgzIGNsYXNzTmFtZT1cInRleHQtMnhsIGZvbnQtYm9sZCB0ZXh0LXdoaXRlIG1iLTFcIj4kNTA0PC9oMz5cbiAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LXNtIHRleHQtZ3JheS00MDBcIj5BdmVyYWdlIFJldmVudWUgUGVyIFVzZXI8L3A+XG4gICAgICAgIDwvZGl2PlxuICAgICAgPC9kaXY+XG5cbiAgICAgIHsvKiBSZXZlbnVlIENoYXJ0ICovfVxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJiZy13aGl0ZS81IGJhY2tkcm9wLWJsdXItbGcgcm91bmRlZC14bCBwLTYgYm9yZGVyIGJvcmRlci13aGl0ZS8xMFwiPlxuICAgICAgICA8aDMgY2xhc3NOYW1lPVwidGV4dC1sZyBmb250LXNlbWlib2xkIHRleHQtd2hpdGUgbWItNFwiPlJldmVudWUgVHJlbmQ8L2gzPlxuICAgICAgICA8UmVzcG9uc2l2ZUNvbnRhaW5lciB3aWR0aD1cIjEwMCVcIiBoZWlnaHQ9ezI1MH0+XG4gICAgICAgICAgPEFyZWFDaGFydCBkYXRhPXtyZXZlbnVlRGF0YX0+XG4gICAgICAgICAgICA8Q2FydGVzaWFuR3JpZCBzdHJva2VEYXNoYXJyYXk9XCIzIDNcIiBzdHJva2U9XCJyZ2JhKDI1NSwyNTUsMjU1LDAuMSlcIiAvPlxuICAgICAgICAgICAgPFhBeGlzIGRhdGFLZXk9XCJtb250aFwiIHN0cm9rZT1cIiM5Q0EzQUZcIiBmb250U2l6ZT17MTJ9IC8+XG4gICAgICAgICAgICA8WUF4aXMgc3Ryb2tlPVwiIzlDQTNBRlwiIGZvbnRTaXplPXsxMn0gLz5cbiAgICAgICAgICAgIDxUb29sdGlwXG4gICAgICAgICAgICAgIGNvbnRlbnRTdHlsZT17e1xuICAgICAgICAgICAgICAgIGJhY2tncm91bmRDb2xvcjogJ3JnYmEoMTEsIDMxLCA0MiwgMC45KScsXG4gICAgICAgICAgICAgICAgYm9yZGVyOiAnMXB4IHNvbGlkIHJnYmEoMjU1LDI1NSwyNTUsMC4xKScsXG4gICAgICAgICAgICAgICAgYm9yZGVyUmFkaXVzOiAnOHB4JyxcbiAgICAgICAgICAgICAgICBjb2xvcjogJyNFNkYxRjQnLFxuICAgICAgICAgICAgICB9fVxuICAgICAgICAgICAgLz5cbiAgICAgICAgICAgIDxBcmVhIHR5cGU9XCJtb25vdG9uZVwiIGRhdGFLZXk9XCJyZXZlbnVlXCIgc3Ryb2tlPVwiIzE0QjhBNlwiIGZpbGw9XCIjMTRCOEE2XCIgZmlsbE9wYWNpdHk9ezAuMn0gc3Ryb2tlV2lkdGg9ezJ9IC8+XG4gICAgICAgICAgPC9BcmVhQ2hhcnQ+XG4gICAgICAgIDwvUmVzcG9uc2l2ZUNvbnRhaW5lcj5cbiAgICAgIDwvZGl2PlxuXG4gICAgICB7LyogUHJpY2luZyBQbGFucyAqL31cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYmctd2hpdGUvNSBiYWNrZHJvcC1ibHVyLWxnIHJvdW5kZWQteGwgcC02IGJvcmRlciBib3JkZXItd2hpdGUvMTBcIj5cbiAgICAgICAgPGgzIGNsYXNzTmFtZT1cInRleHQtbGcgZm9udC1zZW1pYm9sZCB0ZXh0LXdoaXRlIG1iLTRcIj5QcmljaW5nIFBsYW5zPC9oMz5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJzcGFjZS15LTNcIj5cbiAgICAgICAgICB7cGxhbnMubWFwKChwbGFuKSA9PiAoXG4gICAgICAgICAgICA8ZGl2IGtleT17cGxhbi5pZH0gY2xhc3NOYW1lPVwicC00IGJnLXdoaXRlLzUgcm91bmRlZC1sZ1wiPlxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlbiBtYi0zXCI+XG4gICAgICAgICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgICAgICAgIDxoNCBjbGFzc05hbWU9XCJ0ZXh0LWxnIGZvbnQtc2VtaWJvbGQgdGV4dC13aGl0ZVwiPntwbGFuLm5hbWV9PC9oND5cbiAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtMnhsIGZvbnQtYm9sZCB0ZXh0LXRlYWwtNTAwXCI+JHtwbGFuLnByaWNlfTxzcGFuIGNsYXNzTmFtZT1cInRleHQtc20gdGV4dC1ncmF5LTQwMFwiPi9tbzwvc3Bhbj48L3A+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgPGJ1dHRvbiBcbiAgICAgICAgICAgICAgICAgIG9uQ2xpY2s9eygpID0+IHtcbiAgICAgICAgICAgICAgICAgICAgc2V0U2VsZWN0ZWRQbGFuKHBsYW4pO1xuICAgICAgICAgICAgICAgICAgICBzZXRTaG93RWRpdE1vZGFsKHRydWUpO1xuICAgICAgICAgICAgICAgICAgfX1cbiAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cInB4LTMgcHktMSBiZy13aGl0ZS81IGJvcmRlciBib3JkZXItd2hpdGUvMTAgdGV4dC13aGl0ZSByb3VuZGVkIHRleHQtc20gaG92ZXI6Ymctd2hpdGUvMTAgdHJhbnNpdGlvbi1hbGxcIlxuICAgICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICAgIEVkaXRcbiAgICAgICAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZ3JpZCBncmlkLWNvbHMtMyBnYXAtNCB0ZXh0LXNtXCI+XG4gICAgICAgICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtZ3JheS00MDBcIj5Ub2tlbiBMaW1pdDwvcD5cbiAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtd2hpdGUgZm9udC1tZWRpdW1cIj57dHlwZW9mIHBsYW4udG9rZW5MaW1pdCA9PT0gJ251bWJlcicgPyBwbGFuLnRva2VuTGltaXQudG9Mb2NhbGVTdHJpbmcoKSA6IHBsYW4udG9rZW5MaW1pdH08L3A+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtZ3JheS00MDBcIj5Vc2VyIExpbWl0PC9wPlxuICAgICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC13aGl0ZSBmb250LW1lZGl1bVwiPntwbGFuLnVzZXJMaW1pdH08L3A+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtZ3JheS00MDBcIj5Qb2xpY3kgTGltaXQ8L3A+XG4gICAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LXdoaXRlIGZvbnQtbWVkaXVtXCI+e3BsYW4ucG9saWN5TGltaXR9PC9wPlxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICkpfVxuICAgICAgICA8L2Rpdj5cbiAgICAgIDwvZGl2PlxuXG4gICAgICB7LyogUGxhbiBEaXN0cmlidXRpb24gKi99XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLXdoaXRlLzUgYmFja2Ryb3AtYmx1ci1sZyByb3VuZGVkLXhsIHAtNiBib3JkZXIgYm9yZGVyLXdoaXRlLzEwXCI+XG4gICAgICAgIDxoMyBjbGFzc05hbWU9XCJ0ZXh0LWxnIGZvbnQtc2VtaWJvbGQgdGV4dC13aGl0ZSBtYi00XCI+UGxhbiBEaXN0cmlidXRpb248L2gzPlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInNwYWNlLXktM1wiPlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuXCI+XG4gICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LWdyYXktNDAwXCI+QmFzaWM8L3NwYW4+XG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC00XCI+XG4gICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidy00OCBoLTIgYmctd2hpdGUvMTAgcm91bmRlZC1mdWxsIG92ZXJmbG93LWhpZGRlblwiPlxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiaC1mdWxsIGJnLWJsdWUtNTAwXCIgc3R5bGU9e3sgd2lkdGg6ICcyNSUnIH19IC8+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LXdoaXRlIHctMTYgdGV4dC1yaWdodFwiPjYyICgyNSUpPC9zcGFuPlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW5cIj5cbiAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRleHQtZ3JheS00MDBcIj5Qcm9mZXNzaW9uYWw8L3NwYW4+XG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC00XCI+XG4gICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidy00OCBoLTIgYmctd2hpdGUvMTAgcm91bmRlZC1mdWxsIG92ZXJmbG93LWhpZGRlblwiPlxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiaC1mdWxsIGJnLXRlYWwtNTAwXCIgc3R5bGU9e3sgd2lkdGg6ICc0OCUnIH19IC8+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LXdoaXRlIHctMTYgdGV4dC1yaWdodFwiPjExOSAoNDglKTwvc3Bhbj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuXCI+XG4gICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LWdyYXktNDAwXCI+RW50ZXJwcmlzZTwvc3Bhbj5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTRcIj5cbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ3LTQ4IGgtMiBiZy13aGl0ZS8xMCByb3VuZGVkLWZ1bGwgb3ZlcmZsb3ctaGlkZGVuXCI+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJoLWZ1bGwgYmctcHVycGxlLTUwMFwiIHN0eWxlPXt7IHdpZHRoOiAnMjclJyB9fSAvPlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwidGV4dC13aGl0ZSB3LTE2IHRleHQtcmlnaHRcIj42NiAoMjclKTwvc3Bhbj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICA8L2Rpdj5cbiAgICAgIDwvZGl2PlxuXG4gICAgICB7LyogQ3JlYXRlIFBsYW4gTW9kYWwgKi99XG4gICAgICB7c2hvd0NyZWF0ZU1vZGFsICYmIChcbiAgICAgICAgPE1vZGFsIHRpdGxlPVwiQ3JlYXRlIFByaWNpbmcgUGxhblwiIG9uQ2xvc2U9eygpID0+IHNldFNob3dDcmVhdGVNb2RhbChmYWxzZSl9PlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwic3BhY2UteS00XCI+XG4gICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICA8bGFiZWwgY2xhc3NOYW1lPVwiYmxvY2sgdGV4dC1zbSBmb250LW1lZGl1bSB0ZXh0LWdyYXktMzAwIG1iLTJcIj5QbGFuIE5hbWU8L2xhYmVsPlxuICAgICAgICAgICAgICA8aW5wdXRcbiAgICAgICAgICAgICAgICB0eXBlPVwidGV4dFwiXG4gICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwidy1mdWxsIHB4LTQgcHktMiBiZy13aGl0ZS81IGJvcmRlciBib3JkZXItd2hpdGUvMTAgcm91bmRlZC1sZyB0ZXh0LXdoaXRlIGZvY3VzOm91dGxpbmUtbm9uZSBmb2N1czpib3JkZXItdGVhbC01MDAvNTBcIlxuICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPVwiZS5nLiwgUHJvIFBsdXNcIlxuICAgICAgICAgICAgICAvPlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICA8bGFiZWwgY2xhc3NOYW1lPVwiYmxvY2sgdGV4dC1zbSBmb250LW1lZGl1bSB0ZXh0LWdyYXktMzAwIG1iLTJcIj5QcmljZSAoJC9tb250aCk8L2xhYmVsPlxuICAgICAgICAgICAgICA8aW5wdXRcbiAgICAgICAgICAgICAgICB0eXBlPVwibnVtYmVyXCJcbiAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJ3LWZ1bGwgcHgtNCBweS0yIGJnLXdoaXRlLzUgYm9yZGVyIGJvcmRlci13aGl0ZS8xMCByb3VuZGVkLWxnIHRleHQtd2hpdGUgZm9jdXM6b3V0bGluZS1ub25lIGZvY3VzOmJvcmRlci10ZWFsLTUwMC81MFwiXG4gICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9XCI5OTlcIlxuICAgICAgICAgICAgICAvPlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICA8bGFiZWwgY2xhc3NOYW1lPVwiYmxvY2sgdGV4dC1zbSBmb250LW1lZGl1bSB0ZXh0LWdyYXktMzAwIG1iLTJcIj5Ub2tlbiBMaW1pdDwvbGFiZWw+XG4gICAgICAgICAgICAgIDxpbnB1dFxuICAgICAgICAgICAgICAgIHR5cGU9XCJudW1iZXJcIlxuICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cInctZnVsbCBweC00IHB5LTIgYmctd2hpdGUvNSBib3JkZXIgYm9yZGVyLXdoaXRlLzEwIHJvdW5kZWQtbGcgdGV4dC13aGl0ZSBmb2N1czpvdXRsaW5lLW5vbmUgZm9jdXM6Ym9yZGVyLXRlYWwtNTAwLzUwXCJcbiAgICAgICAgICAgICAgICBwbGFjZWhvbGRlcj1cIjEwMDAwMDBcIlxuICAgICAgICAgICAgICAvPlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICA8bGFiZWwgY2xhc3NOYW1lPVwiYmxvY2sgdGV4dC1zbSBmb250LW1lZGl1bSB0ZXh0LWdyYXktMzAwIG1iLTJcIj5Vc2VyIExpbWl0PC9sYWJlbD5cbiAgICAgICAgICAgICAgPGlucHV0XG4gICAgICAgICAgICAgICAgdHlwZT1cInRleHRcIlxuICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cInctZnVsbCBweC00IHB5LTIgYmctd2hpdGUvNSBib3JkZXIgYm9yZGVyLXdoaXRlLzEwIHJvdW5kZWQtbGcgdGV4dC13aGl0ZSBmb2N1czpvdXRsaW5lLW5vbmUgZm9jdXM6Ym9yZGVyLXRlYWwtNTAwLzUwXCJcbiAgICAgICAgICAgICAgICBwbGFjZWhvbGRlcj1cIjEwMCBvciBVbmxpbWl0ZWRcIlxuICAgICAgICAgICAgICAvPlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICA8bGFiZWwgY2xhc3NOYW1lPVwiYmxvY2sgdGV4dC1zbSBmb250LW1lZGl1bSB0ZXh0LWdyYXktMzAwIG1iLTJcIj5Qb2xpY3kgTGltaXQ8L2xhYmVsPlxuICAgICAgICAgICAgICA8aW5wdXRcbiAgICAgICAgICAgICAgICB0eXBlPVwidGV4dFwiXG4gICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwidy1mdWxsIHB4LTQgcHktMiBiZy13aGl0ZS81IGJvcmRlciBib3JkZXItd2hpdGUvMTAgcm91bmRlZC1sZyB0ZXh0LXdoaXRlIGZvY3VzOm91dGxpbmUtbm9uZSBmb2N1czpib3JkZXItdGVhbC01MDAvNTBcIlxuICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPVwiNTAwIG9yIFVubGltaXRlZFwiXG4gICAgICAgICAgICAgIC8+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDxidXR0b24gY2xhc3NOYW1lPVwidy1mdWxsIHB4LTQgcHktMyBiZy1ncmFkaWVudC10by1yIGZyb20tdGVhbC02MDAgdG8tdGVhbC01MDAgdGV4dC13aGl0ZSByb3VuZGVkLWxnIGhvdmVyOnNoYWRvdy1sZyB0cmFuc2l0aW9uLWFsbFwiPlxuICAgICAgICAgICAgICBDcmVhdGUgUGxhblxuICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvTW9kYWw+XG4gICAgICApfVxuXG4gICAgICB7LyogRWRpdCBQbGFuIE1vZGFsICovfVxuICAgICAge3Nob3dFZGl0TW9kYWwgJiYgc2VsZWN0ZWRQbGFuICYmIChcbiAgICAgICAgPE1vZGFsIHRpdGxlPXtgRWRpdCAke3NlbGVjdGVkUGxhbi5uYW1lfSBQbGFuYH0gb25DbG9zZT17KCkgPT4gc2V0U2hvd0VkaXRNb2RhbChmYWxzZSl9PlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwic3BhY2UteS00XCI+XG4gICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICA8bGFiZWwgY2xhc3NOYW1lPVwiYmxvY2sgdGV4dC1zbSBmb250LW1lZGl1bSB0ZXh0LWdyYXktMzAwIG1iLTJcIj5QbGFuIE5hbWU8L2xhYmVsPlxuICAgICAgICAgICAgICA8aW5wdXRcbiAgICAgICAgICAgICAgICB0eXBlPVwidGV4dFwiXG4gICAgICAgICAgICAgICAgZGVmYXVsdFZhbHVlPXtzZWxlY3RlZFBsYW4ubmFtZX1cbiAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJ3LWZ1bGwgcHgtNCBweS0yIGJnLXdoaXRlLzUgYm9yZGVyIGJvcmRlci13aGl0ZS8xMCByb3VuZGVkLWxnIHRleHQtd2hpdGUgZm9jdXM6b3V0bGluZS1ub25lIGZvY3VzOmJvcmRlci10ZWFsLTUwMC81MFwiXG4gICAgICAgICAgICAgIC8+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgIDxsYWJlbCBjbGFzc05hbWU9XCJibG9jayB0ZXh0LXNtIGZvbnQtbWVkaXVtIHRleHQtZ3JheS0zMDAgbWItMlwiPlByaWNlICgkL21vbnRoKTwvbGFiZWw+XG4gICAgICAgICAgICAgIDxpbnB1dFxuICAgICAgICAgICAgICAgIHR5cGU9XCJudW1iZXJcIlxuICAgICAgICAgICAgICAgIGRlZmF1bHRWYWx1ZT17c2VsZWN0ZWRQbGFuLnByaWNlfVxuICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cInctZnVsbCBweC00IHB5LTIgYmctd2hpdGUvNSBib3JkZXIgYm9yZGVyLXdoaXRlLzEwIHJvdW5kZWQtbGcgdGV4dC13aGl0ZSBmb2N1czpvdXRsaW5lLW5vbmUgZm9jdXM6Ym9yZGVyLXRlYWwtNTAwLzUwXCJcbiAgICAgICAgICAgICAgLz5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgICAgPGxhYmVsIGNsYXNzTmFtZT1cImJsb2NrIHRleHQtc20gZm9udC1tZWRpdW0gdGV4dC1ncmF5LTMwMCBtYi0yXCI+VG9rZW4gTGltaXQ8L2xhYmVsPlxuICAgICAgICAgICAgICA8aW5wdXRcbiAgICAgICAgICAgICAgICB0eXBlPVwidGV4dFwiXG4gICAgICAgICAgICAgICAgZGVmYXVsdFZhbHVlPXtzZWxlY3RlZFBsYW4udG9rZW5MaW1pdH1cbiAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJ3LWZ1bGwgcHgtNCBweS0yIGJnLXdoaXRlLzUgYm9yZGVyIGJvcmRlci13aGl0ZS8xMCByb3VuZGVkLWxnIHRleHQtd2hpdGUgZm9jdXM6b3V0bGluZS1ub25lIGZvY3VzOmJvcmRlci10ZWFsLTUwMC81MFwiXG4gICAgICAgICAgICAgIC8+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgIDxsYWJlbCBjbGFzc05hbWU9XCJibG9jayB0ZXh0LXNtIGZvbnQtbWVkaXVtIHRleHQtZ3JheS0zMDAgbWItMlwiPlVzZXIgTGltaXQ8L2xhYmVsPlxuICAgICAgICAgICAgICA8aW5wdXRcbiAgICAgICAgICAgICAgICB0eXBlPVwidGV4dFwiXG4gICAgICAgICAgICAgICAgZGVmYXVsdFZhbHVlPXtzZWxlY3RlZFBsYW4udXNlckxpbWl0fVxuICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cInctZnVsbCBweC00IHB5LTIgYmctd2hpdGUvNSBib3JkZXIgYm9yZGVyLXdoaXRlLzEwIHJvdW5kZWQtbGcgdGV4dC13aGl0ZSBmb2N1czpvdXRsaW5lLW5vbmUgZm9jdXM6Ym9yZGVyLXRlYWwtNTAwLzUwXCJcbiAgICAgICAgICAgICAgLz5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgICAgPGxhYmVsIGNsYXNzTmFtZT1cImJsb2NrIHRleHQtc20gZm9udC1tZWRpdW0gdGV4dC1ncmF5LTMwMCBtYi0yXCI+UG9saWN5IExpbWl0PC9sYWJlbD5cbiAgICAgICAgICAgICAgPGlucHV0XG4gICAgICAgICAgICAgICAgdHlwZT1cInRleHRcIlxuICAgICAgICAgICAgICAgIGRlZmF1bHRWYWx1ZT17c2VsZWN0ZWRQbGFuLnBvbGljeUxpbWl0fVxuICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cInctZnVsbCBweC00IHB5LTIgYmctd2hpdGUvNSBib3JkZXIgYm9yZGVyLXdoaXRlLzEwIHJvdW5kZWQtbGcgdGV4dC13aGl0ZSBmb2N1czpvdXRsaW5lLW5vbmUgZm9jdXM6Ym9yZGVyLXRlYWwtNTAwLzUwXCJcbiAgICAgICAgICAgICAgLz5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPGJ1dHRvbiBjbGFzc05hbWU9XCJ3LWZ1bGwgcHgtNCBweS0zIGJnLWdyYWRpZW50LXRvLXIgZnJvbS10ZWFsLTYwMCB0by10ZWFsLTUwMCB0ZXh0LXdoaXRlIHJvdW5kZWQtbGcgaG92ZXI6c2hhZG93LWxnIHRyYW5zaXRpb24tYWxsXCI+XG4gICAgICAgICAgICAgIFNhdmUgQ2hhbmdlc1xuICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvTW9kYWw+XG4gICAgICApfVxuICAgIDwvZGl2PlxuICApO1xufVxuXG5mdW5jdGlvbiBNb2RhbCh7IHRpdGxlLCBvbkNsb3NlLCBjaGlsZHJlbiB9OiBhbnkpIHtcbiAgcmV0dXJuIChcbiAgICA8ZGl2IGNsYXNzTmFtZT1cImZpeGVkIGluc2V0LTAgYmctYmxhY2svNTAgYmFja2Ryb3AtYmx1ci1zbSB6LTUwIGZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktY2VudGVyIHAtNlwiPlxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJiZy1bIzBCMUYyQV0gYm9yZGVyIGJvcmRlci13aGl0ZS8xMCByb3VuZGVkLTJ4bCBwLTYgbWF4LXctMnhsIHctZnVsbCBtYXgtaC1bODB2aF0gb3ZlcmZsb3cteS1hdXRvXCI+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuIG1iLTZcIj5cbiAgICAgICAgICA8aDIgY2xhc3NOYW1lPVwidGV4dC0yeGwgZm9udC1ib2xkIHRleHQtd2hpdGVcIj57dGl0bGV9PC9oMj5cbiAgICAgICAgICA8YnV0dG9uXG4gICAgICAgICAgICBvbkNsaWNrPXtvbkNsb3NlfVxuICAgICAgICAgICAgY2xhc3NOYW1lPVwidy04IGgtOCByb3VuZGVkLWxnIGhvdmVyOmJnLXdoaXRlLzUgZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1jZW50ZXIgdHJhbnNpdGlvbi1jb2xvcnNcIlxuICAgICAgICAgID5cbiAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRleHQtZ3JheS00MDAgdGV4dC14bFwiPsOXPC9zcGFuPlxuICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICA8L2Rpdj5cbiAgICAgICAge2NoaWxkcmVufVxuICAgICAgPC9kaXY+XG4gICAgPC9kaXY+XG4gICk7XG59Il0sImZpbGUiOiIvd29ya3NwYWNlcy9kZWZhdWx0L2NvZGUvc3JjL2FwcC9wYWdlcy9wbGF0Zm9ybS1hZG1pbi9SZXZlbnVlR292ZXJuYW5jZS50c3gifQ==

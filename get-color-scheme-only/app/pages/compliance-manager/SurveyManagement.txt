@@ -1,0 +1,44 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/app/pages/compliance-manager/SurveyManagement.tsx");import { jsxDEV } from "/@id/__x00__figma:react-jsx-dev-runtime";
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/workspaces/default/code/src/app/pages/compliance-manager/SurveyManagement.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+import { FGCmp } from "/@id/fginspector";
+import SurveyManagement from "/src/app/pages/org-admin/SurveyManagement.tsx";
+export default function ComplianceManagerSurveyManagement() {
+  return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: SurveyManagement, _fgS: "bv8q0", _fgB: 1779104382153, _fgD: true, "data-fg-bv8q0": "418.247:418.229:/src/app/pages/compliance-manager/SurveyManagement.tsx:5:10:205:20:e:SurveyManagement::1::::D6Fz" }, void 0, false, {
+    fileName: "/workspaces/default/code/src/app/pages/compliance-manager/SurveyManagement.tsx",
+    lineNumber: 25,
+    columnNumber: 10
+  }, this);
+}
+_c = ComplianceManagerSurveyManagement;
+var _c;
+$RefreshReg$(_c, "ComplianceManagerSurveyManagement");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/workspaces/default/code/src/app/pages/compliance-manager/SurveyManagement.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/workspaces/default/code/src/app/pages/compliance-manager/SurveyManagement.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6IkFBSVM7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBSFQsT0FBT0Esc0JBQXNCO0FBRTdCLHdCQUF3QkMsb0NBQW9DO0FBQzFELFNBQU8sdUJBQUMsZUFBQUQsa0JBQUEsMENBQWdCLDZJQUFqQjtBQUFBO0FBQUE7QUFBQTtBQUFBLFNBQWlCO0FBQzFCO0FBQUFFLEtBRndCRDtBQUFpQyxJQUFBQztBQUFBQyxhQUFBRCxJQUFBIiwibmFtZXMiOlsiU3VydmV5TWFuYWdlbWVudCIsIkNvbXBsaWFuY2VNYW5hZ2VyU3VydmV5TWFuYWdlbWVudCIsIl9jIiwiJFJlZnJlc2hSZWckIl0sImlnbm9yZUxpc3QiOltdLCJzb3VyY2VzIjpbIlN1cnZleU1hbmFnZW1lbnQudHN4Il0sInNvdXJjZXNDb250ZW50IjpbIi8vIFdyYXBwZXIgZm9yIENvbXBsaWFuY2UgTWFuYWdlciAtIHJldXNlcyBPcmcgQWRtaW4gU3VydmV5IE1hbmFnZW1lbnRcbmltcG9ydCBTdXJ2ZXlNYW5hZ2VtZW50IGZyb20gJy4uL29yZy1hZG1pbi9TdXJ2ZXlNYW5hZ2VtZW50JztcblxuZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24gQ29tcGxpYW5jZU1hbmFnZXJTdXJ2ZXlNYW5hZ2VtZW50KCkge1xuICByZXR1cm4gPFN1cnZleU1hbmFnZW1lbnQgLz47XG59XG4iXSwiZmlsZSI6Ii93b3Jrc3BhY2VzL2RlZmF1bHQvY29kZS9zcmMvYXBwL3BhZ2VzL2NvbXBsaWFuY2UtbWFuYWdlci9TdXJ2ZXlNYW5hZ2VtZW50LnRzeCJ9

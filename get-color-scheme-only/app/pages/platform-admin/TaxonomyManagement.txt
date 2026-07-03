@@ -1,0 +1,1552 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/app/pages/platform-admin/TaxonomyManagement.tsx");import { Fragment, jsxDEV } from "/@id/__x00__figma:react-jsx-dev-runtime";
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+var _s = $RefreshSig$();
+import { FGCmp } from "/@id/fginspector";
+import { useState } from "/@id/__x00__figma:react-base";
+import {
+  Settings,
+  Plus,
+  Edit2,
+  Eye,
+  EyeOff,
+  Tag,
+  Globe,
+  FileText,
+  CheckCircle,
+  AlertCircle,
+  Shield,
+  Database,
+  X
+} from "/node_modules/.vite/deps/lucide-react.js?v=25293e4c";
+import {
+  DOCUMENT_TYPES,
+  DOCUMENT_CATEGORIES,
+  SECTORS
+} from "/src/app/data/taxonomy.ts";
+import { AGED_CARE_STANDARDS, NDIS_STANDARDS } from "/src/app/data/standards.ts";
+export default function TaxonomyManagement() {
+  _s();
+  const [activeTab, setActiveTab] = useState("categories");
+  const [showAddModal, setShowAddModal] = useState(false);
+  const [editingItem, setEditingItem] = useState(null);
+  const categoryItems = DOCUMENT_CATEGORIES.map((cat, index) => ({
+    id: cat.value,
+    value: cat.value,
+    label: cat.label,
+    code: cat.code,
+    status: "active",
+    isSystemDefault: true,
+    createdDate: "2024-01-01",
+    usageCount: Math.floor(Math.random() * 150) + 20
+  }));
+  const typeItems = DOCUMENT_TYPES.map((type, index) => ({
+    id: type.value,
+    value: type.value,
+    label: type.label,
+    status: "active",
+    isSystemDefault: true,
+    createdDate: "2024-01-01",
+    usageCount: Math.floor(Math.random() * 200) + 30
+  }));
+  const sectorItems = SECTORS.map((sector, index) => ({
+    id: sector.value,
+    value: sector.value,
+    label: sector.label,
+    status: "active",
+    isSystemDefault: true,
+    createdDate: "2024-01-01",
+    usageCount: Math.floor(Math.random() * 180) + 50
+  }));
+  const stats = [
+    {
+      label: "Document Types",
+      value: DOCUMENT_TYPES.length,
+      icon: FileText,
+      color: "text-teal-400",
+      bgColor: "bg-teal-500/10"
+    },
+    {
+      label: "Categories",
+      value: DOCUMENT_CATEGORIES.length,
+      icon: Tag,
+      color: "text-blue-400",
+      bgColor: "bg-blue-500/10"
+    },
+    {
+      label: "Sectors",
+      value: SECTORS.length,
+      icon: Globe,
+      color: "text-purple-400",
+      bgColor: "bg-purple-500/10"
+    },
+    {
+      label: "Standards",
+      value: AGED_CARE_STANDARDS.length + NDIS_STANDARDS.length,
+      icon: Shield,
+      color: "text-emerald-400",
+      bgColor: "bg-emerald-500/10"
+    }
+  ];
+  const tabs = [
+    { id: "types", label: "Document Types", count: DOCUMENT_TYPES.length },
+    { id: "categories", label: "Categories", count: DOCUMENT_CATEGORIES.length },
+    { id: "sectors", label: "Sectors", count: SECTORS.length },
+    { id: "standards", label: "Standards", count: AGED_CARE_STANDARDS.length + NDIS_STANDARDS.length }
+  ];
+  const renderTaxonomyTable = (items, showCode = false) => /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x0", _fgB: 1779104381325, className: "overflow-x-auto", "data-fg-z0x0": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:114:5:3033:4355:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "table", _fgS: "z0x1", _fgB: 1779104381325, className: "w-full", "data-fg-z0x1": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:115:7:3073:4304:e:table:ete", children: [
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "thead", _fgS: "z0x2", _fgB: 1779104381325, "data-fg-z0x2": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:116:9:3108:1015:e:thead:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "tr", _fgS: "z0x3", _fgB: 1779104381325, className: "border-b border-white/5", "data-fg-z0x3": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:117:11:3126:980:e:tr:etxtetetete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "th", _fgS: "z0x4", _fgB: 1779104381325, className: "text-left py-3 px-4 text-xs font-medium text-gray-400 uppercase tracking-wider", "data-fg-z0x4": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:118:13:3179:132:e:th:t", children: "Name" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+        lineNumber: 138,
+        columnNumber: 13
+      }, this),
+      showCode && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "th", _fgS: "z0x7", _fgB: 1779104381325, className: "text-left py-3 px-4 text-xs font-medium text-gray-400 uppercase tracking-wider", "data-fg-z0x7": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:122:15:3353:136:e:th:t", children: "Code" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+        lineNumber: 142,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "th", _fgS: "z0x9", _fgB: 1779104381325, className: "text-left py-3 px-4 text-xs font-medium text-gray-400 uppercase tracking-wider", "data-fg-z0x9": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:126:13:3517:134:e:th:t", children: "Status" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+        lineNumber: 146,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "th", _fgS: "z0x11", _fgB: 1779104381325, className: "text-left py-3 px-4 text-xs font-medium text-gray-400 uppercase tracking-wider", "data-fg-z0x11": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:129:13:3664:132:e:th:t", children: "Type" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+        lineNumber: 149,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "th", _fgS: "z0x13", _fgB: 1779104381325, className: "text-left py-3 px-4 text-xs font-medium text-gray-400 uppercase tracking-wider", "data-fg-z0x13": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:132:13:3809:133:e:th:t", children: "Usage" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+        lineNumber: 152,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "th", _fgS: "z0x15", _fgB: 1779104381325, className: "text-left py-3 px-4 text-xs font-medium text-gray-400 uppercase tracking-wider", "data-fg-z0x15": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:135:13:3955:135:e:th:t", children: "Actions" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+        lineNumber: 155,
+        columnNumber: 13
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+      lineNumber: 137,
+      columnNumber: 11
+    }, this) }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+      lineNumber: 136,
+      columnNumber: 9
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "tbody", _fgS: "z0x17", _fgB: 1779104381325, className: "divide-y divide-white/5", "data-fg-z0x17": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:140:9:4132:3230:e:tbody:x", children: items.map(
+      (item) => /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "tr", _fgS: "z0x19", _fgB: 1779104381325, className: "hover:bg-white/5 transition-colors", "data-fg-z0x19": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:142:13:4221:3110:e:tr:etxtetetete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "td", _fgS: "z0x20", _fgB: 1779104381325, className: "py-3 px-4", "data-fg-z0x20": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:143:15:4301:202:e:td:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x21", _fgB: 1779104381325, className: "font-medium text-white", "data-fg-z0x21": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:144:17:4344:58:e:div:x", children: item.label }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 164,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x23", _fgB: 1779104381325, className: "text-xs text-gray-400 mt-0.5", "data-fg-z0x23": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:145:17:4419:64:e:div:x", children: item.value }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 165,
+            columnNumber: 17
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+          lineNumber: 163,
+          columnNumber: 15
+        }, this),
+        showCode && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "td", _fgS: "z0x26", _fgB: 1779104381325, className: "py-3 px-4", "data-fg-z0x26": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:148:17:4549:261:e:td:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "z0x27", _fgB: 1779104381325, className: "inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-teal-500/10 text-teal-400 border border-teal-500/20", "data-fg-z0x27": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:149:19:4594:194:e:span:x", children: item.code }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+          lineNumber: 169,
+          columnNumber: 19
+        }, this) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+          lineNumber: 168,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "td", _fgS: "z0x29", _fgB: 1779104381325, className: "py-3 px-4", "data-fg-z0x29": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:154:15:4842:639:e:td:x", children: item.status === "active" ? /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "z0x31", _fgB: 1779104381325, className: "inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400", "data-fg-z0x31": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:156:19:4933:236:e:span:et", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: CheckCircle, _fgS: "z0x32", _fgB: 1779104381325, className: "w-3 h-3", "data-fg-z0x32": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:157:21:5081:35:e:CheckCircle::::::C4Wc" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 177,
+            columnNumber: 21
+          }, this),
+          "Active"
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+          lineNumber: 176,
+          columnNumber: 13
+        }, this) : /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "z0x34", _fgB: 1779104381325, className: "inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-gray-500/10 text-gray-400", "data-fg-z0x34": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:161:19:5210:232:e:span:et", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: AlertCircle, _fgS: "z0x35", _fgB: 1779104381325, className: "w-3 h-3", "data-fg-z0x35": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:162:21:5352:35:e:AlertCircle::::::fAY" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 182,
+            columnNumber: 21
+          }, this),
+          "Inactive"
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+          lineNumber: 181,
+          columnNumber: 13
+        }, this) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+          lineNumber: 174,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "td", _fgS: "z0x37", _fgB: 1779104381325, className: "py-3 px-4", "data-fg-z0x37": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:167:15:5496:476:e:td:x", children: item.isSystemDefault ? /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "z0x39", _fgB: 1779104381325, className: "inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-medium bg-blue-500/10 text-blue-400 border border-blue-500/20", "data-fg-z0x39": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:169:19:5583:256:e:span:et", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Database, _fgS: "z0x40", _fgB: 1779104381325, className: "w-3 h-3", "data-fg-z0x40": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:170:21:5746:32:e:Database::::::D6M7" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 190,
+            columnNumber: 21
+          }, this),
+          "System Default"
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+          lineNumber: 189,
+          columnNumber: 13
+        }, this) : /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "z0x42", _fgB: 1779104381325, className: "text-xs text-gray-400", "data-fg-z0x42": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:174:19:5880:53:e:span:t", children: "Custom" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+          lineNumber: 194,
+          columnNumber: 13
+        }, this) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+          lineNumber: 187,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "td", _fgS: "z0x44", _fgB: 1779104381325, className: "py-3 px-4", "data-fg-z0x44": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:177:15:5987:132:e:td:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x45", _fgB: 1779104381325, className: "text-sm text-white", "data-fg-z0x45": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:178:17:6030:69:e:div:xt", children: [
+          item.usageCount,
+          " documents"
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+          lineNumber: 198,
+          columnNumber: 17
+        }, this) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+          lineNumber: 197,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "td", _fgS: "z0x48", _fgB: 1779104381325, className: "py-3 px-4", "data-fg-z0x48": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:180:15:6134:1179:e:td:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x49", _fgB: 1779104381325, className: "flex items-center gap-2", "data-fg-z0x49": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:181:17:6177:1116:e:div:etx", children: [
+          /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "button",
+              _fgS: "z0x50",
+              _fgB: 1779104381325,
+              onClick: () => setEditingItem(item),
+              className: "p-2 text-gray-400 hover:text-teal-400 hover:bg-teal-500/10 rounded transition-colors",
+              title: "View Details",
+              "data-fg-z0x50": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:182:19:6237:318:e:button:e",
+              children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Eye, _fgS: "z0x51", _fgB: 1779104381325, className: "w-4 h-4", "data-fg-z0x51": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:187:21:6500:27:e:Eye::::::EJvT" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+                lineNumber: 207,
+                columnNumber: 21
+              }, this)
+            },
+            void 0,
+            false,
+            {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+              lineNumber: 202,
+              columnNumber: 19
+            },
+            this
+          ),
+          !item.isSystemDefault && /* @__PURE__ */ jsxDEV(Fragment, { children: [
+            /* @__PURE__ */ jsxDEV(
+              FGCmp,
+              {
+                _fgT: "button",
+                _fgS: "z0x54",
+                _fgB: 1779104381325,
+                className: "p-2 text-gray-400 hover:text-blue-400 hover:bg-blue-500/10 rounded transition-colors",
+                title: "Edit",
+                "data-fg-z0x54": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:191:23:6647:275:e:button:e",
+                children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Edit2, _fgS: "z0x55", _fgB: 1779104381325, className: "w-4 h-4", "data-fg-z0x55": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:195:25:6861:29:e:Edit2::::::Ca4I" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+                  lineNumber: 215,
+                  columnNumber: 25
+                }, this)
+              },
+              void 0,
+              false,
+              {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+                lineNumber: 211,
+                columnNumber: 23
+              },
+              this
+            ),
+            /* @__PURE__ */ jsxDEV(
+              FGCmp,
+              {
+                _fgT: "button",
+                _fgS: "z0x56",
+                _fgB: 1779104381325,
+                className: "p-2 text-gray-400 hover:text-red-400 hover:bg-red-500/10 rounded transition-colors",
+                title: "Deactivate",
+                "data-fg-z0x56": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:197:23:6945:280:e:button:e",
+                children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: EyeOff, _fgS: "z0x57", _fgB: 1779104381325, className: "w-4 h-4", "data-fg-z0x57": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:201:25:7163:30:e:EyeOff::::::6Hc" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+                  lineNumber: 221,
+                  columnNumber: 25
+                }, this)
+              },
+              void 0,
+              false,
+              {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+                lineNumber: 217,
+                columnNumber: 23
+              },
+              this
+            )
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 210,
+            columnNumber: 15
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+          lineNumber: 201,
+          columnNumber: 17
+        }, this) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+          lineNumber: 200,
+          columnNumber: 15
+        }, this)
+      ] }, item.id, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+        lineNumber: 162,
+        columnNumber: 9
+      }, this)
+    ) }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+      lineNumber: 160,
+      columnNumber: 9
+    }, this)
+  ] }, void 0, true, {
+    fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+    lineNumber: 135,
+    columnNumber: 7
+  }, this) }, void 0, false, {
+    fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+    lineNumber: 134,
+    columnNumber: 3
+  }, this);
+  const renderStandardsTable = () => /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x58", _fgB: 1779104381325, className: "space-y-6", "data-fg-z0x58": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:215:5:7438:5227:e:div:xtetxte", children: [
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x60", _fgB: 1779104381325, className: "bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 p-6", "data-fg-z0x60": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:217:7:7506:2563:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x61", _fgB: 1779104381325, className: "flex items-center justify-between mb-4", "data-fg-z0x61": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:218:9:7598:799:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x62", _fgB: 1779104381325, className: "flex items-center gap-3", "data-fg-z0x62": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:219:11:7665:415:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x63", _fgB: 1779104381325, className: "p-2 rounded-lg bg-teal-500/10", "data-fg-z0x63": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:220:13:7719:125:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Shield, _fgS: "z0x64", _fgB: 1779104381325, className: "w-5 h-5 text-teal-400", "data-fg-z0x64": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:221:15:7781:44:e:Shield::::::B8zf" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 241,
+            columnNumber: 15
+          }, this) }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 240,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x65", _fgB: 1779104381325, "data-fg-z0x65": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:223:13:7857:206:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "z0x66", _fgB: 1779104381325, className: "text-lg font-semibold text-white", "data-fg-z0x66": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:224:15:7877:73:e:h3:t", children: "Aged Care Standards" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+              lineNumber: 244,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "z0x68", _fgB: 1779104381325, className: "text-sm text-gray-400", "data-fg-z0x68": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:225:15:7965:79:e:p:xt", children: [
+              AGED_CARE_STANDARDS.length,
+              " standards"
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+              lineNumber: 245,
+              columnNumber: 15
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 243,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+          lineNumber: 239,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "button",
+            _fgS: "z0x71",
+            _fgB: 1779104381325,
+            onClick: () => setShowAddModal(true),
+            className: "px-4 py-2 bg-teal-600 hover:bg-teal-500 text-white rounded-lg transition-colors text-sm font-medium",
+            "data-fg-z0x71": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:228:11:8091:291:e:button:et",
+            children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Plus, _fgS: "z0x72", _fgB: 1779104381325, className: "w-4 h-4 inline mr-1", "data-fg-z0x72": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:232:13:8297:40:e:Plus::::::ISW" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+                lineNumber: 252,
+                columnNumber: 13
+              }, this),
+              "Add Standard"
+            ]
+          },
+          void 0,
+          true,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 248,
+            columnNumber: 11
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+        lineNumber: 238,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x74", _fgB: 1779104381325, className: "space-y-2", "data-fg-z0x74": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:236:9:8406:1650:e:div:x", children: AGED_CARE_STANDARDS.map(
+        (standard) => /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "div",
+            _fgS: "z0x76",
+            _fgB: 1779104381325,
+            className: "flex items-center justify-between p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors border border-white/5",
+            "data-fg-z0x76": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:238:13:8497:1530:e:div:ete",
+            children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x77", _fgB: 1779104381325, className: "flex items-center gap-3", "data-fg-z0x77": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:242:15:8706:333:e:div:ete", children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "z0x78", _fgB: 1779104381325, className: "px-3 py-1 rounded-lg bg-teal-500/10 text-teal-400 font-semibold text-sm border border-teal-500/20", "data-fg-z0x78": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:243:17:8764:174:e:span:x", children: standard.code }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+                  lineNumber: 263,
+                  columnNumber: 17
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "z0x80", _fgB: 1779104381325, className: "text-white font-medium", "data-fg-z0x80": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:246:17:8955:63:e:span:x", children: standard.name }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+                  lineNumber: 266,
+                  columnNumber: 17
+                }, this)
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+                lineNumber: 262,
+                columnNumber: 15
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x82", _fgB: 1779104381325, className: "flex items-center gap-2", "data-fg-z0x82": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:248:15:9054:954:e:div:ete", children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "z0x83", _fgB: 1779104381325, className: "text-xs text-gray-400 bg-emerald-500/10 px-2 py-1 rounded", "data-fg-z0x83": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:249:17:9112:191:e:span:et", children: [
+                  /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: CheckCircle, _fgS: "z0x84", _fgB: 1779104381325, className: "w-3 h-3 inline mr-1", "data-fg-z0x84": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:250:19:9207:47:e:CheckCircle::::::C4Wc" }, void 0, false, {
+                    fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+                    lineNumber: 270,
+                    columnNumber: 19
+                  }, this),
+                  "Active"
+                ] }, void 0, true, {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+                  lineNumber: 269,
+                  columnNumber: 17
+                }, this),
+                /* @__PURE__ */ jsxDEV(
+                  FGCmp,
+                  {
+                    _fgT: "button",
+                    _fgS: "z0x86",
+                    _fgB: 1779104381325,
+                    onClick: () => {
+                      setEditingItem({
+                        id: standard.id,
+                        value: standard.id,
+                        label: standard.name,
+                        code: standard.code,
+                        status: "active",
+                        isSystemDefault: true,
+                        createdDate: "2024-01-01",
+                        usageCount: 0
+                      });
+                    },
+                    className: "p-2 text-gray-400 hover:text-teal-400 hover:bg-teal-500/10 rounded transition-colors",
+                    "data-fg-z0x86": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:253:17:9320:667:e:button:e",
+                    children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Eye, _fgS: "z0x87", _fgB: 1779104381325, className: "w-4 h-4", "data-fg-z0x87": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:268:19:9934:27:e:Eye::::::EJvT" }, void 0, false, {
+                      fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+                      lineNumber: 288,
+                      columnNumber: 19
+                    }, this)
+                  },
+                  void 0,
+                  false,
+                  {
+                    fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+                    lineNumber: 273,
+                    columnNumber: 17
+                  },
+                  this
+                )
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+                lineNumber: 268,
+                columnNumber: 15
+              }, this)
+            ]
+          },
+          standard.id,
+          true,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 258,
+            columnNumber: 9
+          },
+          this
+        )
+      ) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+        lineNumber: 256,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+      lineNumber: 237,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x89", _fgB: 1779104381325, className: "bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 p-6", "data-fg-z0x89": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:277:7:10106:2548:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x90", _fgB: 1779104381325, className: "flex items-center justify-between mb-4", "data-fg-z0x90": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:278:9:10198:789:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x91", _fgB: 1779104381325, className: "flex items-center gap-3", "data-fg-z0x91": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:279:11:10265:405:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x92", _fgB: 1779104381325, className: "p-2 rounded-lg bg-blue-500/10", "data-fg-z0x92": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:280:13:10319:125:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Shield, _fgS: "z0x93", _fgB: 1779104381325, className: "w-5 h-5 text-blue-400", "data-fg-z0x93": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:281:15:10381:44:e:Shield::::::B8zf" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 301,
+            columnNumber: 15
+          }, this) }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 300,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x94", _fgB: 1779104381325, "data-fg-z0x94": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:283:13:10457:196:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "z0x95", _fgB: 1779104381325, className: "text-lg font-semibold text-white", "data-fg-z0x95": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:284:15:10477:68:e:h3:t", children: "NDIS Standards" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+              lineNumber: 304,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "z0x97", _fgB: 1779104381325, className: "text-sm text-gray-400", "data-fg-z0x97": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:285:15:10560:74:e:p:xt", children: [
+              NDIS_STANDARDS.length,
+              " standards"
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+              lineNumber: 305,
+              columnNumber: 15
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 303,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+          lineNumber: 299,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "button",
+            _fgS: "z0x100",
+            _fgB: 1779104381325,
+            onClick: () => setShowAddModal(true),
+            className: "px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors text-sm font-medium",
+            "data-fg-z0x100": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:288:11:10681:291:e:button:et",
+            children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Plus, _fgS: "z0x101", _fgB: 1779104381325, className: "w-4 h-4 inline mr-1", "data-fg-z0x101": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:292:13:10887:40:e:Plus::::::ISW" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+                lineNumber: 312,
+                columnNumber: 13
+              }, this),
+              "Add Standard"
+            ]
+          },
+          void 0,
+          true,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 308,
+            columnNumber: 11
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+        lineNumber: 298,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x103", _fgB: 1779104381325, className: "space-y-2", "data-fg-z0x103": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:296:9:10996:1645:e:div:x", children: NDIS_STANDARDS.map(
+        (standard) => /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "div",
+            _fgS: "z0x105",
+            _fgB: 1779104381325,
+            className: "flex items-center justify-between p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors border border-white/5",
+            "data-fg-z0x105": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:298:13:11082:1530:e:div:ete",
+            children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x106", _fgB: 1779104381325, className: "flex items-center gap-3", "data-fg-z0x106": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:302:15:11291:333:e:div:ete", children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "z0x107", _fgB: 1779104381325, className: "px-3 py-1 rounded-lg bg-blue-500/10 text-blue-400 font-semibold text-sm border border-blue-500/20", "data-fg-z0x107": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:303:17:11349:174:e:span:x", children: standard.code }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+                  lineNumber: 323,
+                  columnNumber: 17
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "z0x109", _fgB: 1779104381325, className: "text-white font-medium", "data-fg-z0x109": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:306:17:11540:63:e:span:x", children: standard.name }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+                  lineNumber: 326,
+                  columnNumber: 17
+                }, this)
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+                lineNumber: 322,
+                columnNumber: 15
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x111", _fgB: 1779104381325, className: "flex items-center gap-2", "data-fg-z0x111": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:308:15:11639:954:e:div:ete", children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "z0x112", _fgB: 1779104381325, className: "text-xs text-gray-400 bg-emerald-500/10 px-2 py-1 rounded", "data-fg-z0x112": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:309:17:11697:191:e:span:et", children: [
+                  /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: CheckCircle, _fgS: "z0x113", _fgB: 1779104381325, className: "w-3 h-3 inline mr-1", "data-fg-z0x113": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:310:19:11792:47:e:CheckCircle::::::C4Wc" }, void 0, false, {
+                    fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+                    lineNumber: 330,
+                    columnNumber: 19
+                  }, this),
+                  "Active"
+                ] }, void 0, true, {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+                  lineNumber: 329,
+                  columnNumber: 17
+                }, this),
+                /* @__PURE__ */ jsxDEV(
+                  FGCmp,
+                  {
+                    _fgT: "button",
+                    _fgS: "z0x115",
+                    _fgB: 1779104381325,
+                    onClick: () => {
+                      setEditingItem({
+                        id: standard.id,
+                        value: standard.id,
+                        label: standard.name,
+                        code: standard.code,
+                        status: "active",
+                        isSystemDefault: true,
+                        createdDate: "2024-01-01",
+                        usageCount: 0
+                      });
+                    },
+                    className: "p-2 text-gray-400 hover:text-blue-400 hover:bg-blue-500/10 rounded transition-colors",
+                    "data-fg-z0x115": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:313:17:11905:667:e:button:e",
+                    children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Eye, _fgS: "z0x116", _fgB: 1779104381325, className: "w-4 h-4", "data-fg-z0x116": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:328:19:12519:27:e:Eye::::::EJvT" }, void 0, false, {
+                      fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+                      lineNumber: 348,
+                      columnNumber: 19
+                    }, this)
+                  },
+                  void 0,
+                  false,
+                  {
+                    fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+                    lineNumber: 333,
+                    columnNumber: 17
+                  },
+                  this
+                )
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+                lineNumber: 328,
+                columnNumber: 15
+              }, this)
+            ]
+          },
+          standard.id,
+          true,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 318,
+            columnNumber: 9
+          },
+          this
+        )
+      ) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+        lineNumber: 316,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+      lineNumber: 297,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+    lineNumber: 235,
+    columnNumber: 3
+  }, this);
+  return /* @__PURE__ */ jsxDEV(Fragment, { children: [
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x118", _fgB: 1779104381325, className: "min-h-screen bg-gradient-to-br from-[#0B1F2A] via-[#0d2331] to-[#0B1F2A] p-8", "data-fg-z0x118": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:340:7:12696:4283:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x119", _fgB: 1779104381325, className: "max-w-7xl mx-auto space-y-6", "data-fg-z0x119": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:341:9:12799:4167:e:div:xtetxtetxtetxte", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x121", _fgB: 1779104381325, className: "flex items-center justify-between", "data-fg-z0x121": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:343:11:12880:888:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x122", _fgB: 1779104381325, "data-fg-z0x122": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:344:13:12944:487:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h1", _fgS: "z0x123", _fgB: 1779104381325, className: "text-3xl font-bold text-white mb-2", "data-fg-z0x123": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:345:15:12964:75:e:h1:t", children: "Taxonomy Management" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 365,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "z0x125", _fgB: 1779104381325, className: "text-gray-400", "data-fg-z0x125": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:346:15:13054:358:e:p:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "z0x126", _fgB: 1779104381325, className: "inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 text-teal-400 border border-teal-500/20 text-sm font-medium", "data-fg-z0x126": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:347:17:13100:293:e:span:et", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Settings, _fgS: "z0x127", _fgB: 1779104381325, className: "w-4 h-4", "data-fg-z0x127": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:348:19:13266:32:e:Settings::::::D4nh" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+              lineNumber: 368,
+              columnNumber: 19
+            }, this),
+            "Source of Truth — All roles inherit from this system"
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 367,
+            columnNumber: 17
+          }, this) }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 366,
+            columnNumber: 15
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+          lineNumber: 364,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "button",
+            _fgS: "z0x129",
+            _fgB: 1779104381325,
+            onClick: () => setShowAddModal(true),
+            className: "px-4 py-2 bg-teal-600 hover:bg-teal-500 text-white rounded-lg transition-colors font-medium flex items-center gap-2",
+            "data-fg-z0x129": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:353:13:13444:307:e:button:et",
+            children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Plus, _fgS: "z0x130", _fgB: 1779104381325, className: "w-5 h-5", "data-fg-z0x130": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:357:15:13674:28:e:Plus::::::ISW" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+                lineNumber: 377,
+                columnNumber: 15
+              }, this),
+              "Add New Item"
+            ]
+          },
+          void 0,
+          true,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 373,
+            columnNumber: 13
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+        lineNumber: 363,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x133", _fgB: 1779104381325, className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6", "data-fg-z0x133": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:363:11:13809:786:e:div:x", children: stats.map(
+        (stat) => /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "div",
+            _fgS: "z0x135",
+            _fgB: 1779104381325,
+            className: "bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 p-6",
+            "data-fg-z0x135": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:365:15:13929:633:e:div:e",
+            children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x136", _fgB: 1779104381325, className: "flex items-center justify-between", "data-fg-z0x136": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:369:17:14093:448:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x137", _fgB: 1779104381325, "data-fg-z0x137": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:370:19:14163:191:e:div:ete", children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "z0x138", _fgB: 1779104381325, className: "text-gray-400 text-sm", "data-fg-z0x138": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:371:21:14189:53:e:p:x", children: stat.label }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+                  lineNumber: 391,
+                  columnNumber: 21
+                }, this),
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "z0x140", _fgB: 1779104381325, className: "text-3xl font-bold text-white mt-1", "data-fg-z0x140": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:372:21:14263:66:e:p:x", children: stat.value }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+                  lineNumber: 392,
+                  columnNumber: 21
+                }, this)
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+                lineNumber: 390,
+                columnNumber: 19
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x142", _fgB: 1779104381325, className: `p-3 rounded-lg ${stat.bgColor}`, "data-fg-z0x142": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:374:19:14373:145:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: stat.icon, _fgS: "z0x143", _fgB: 1779104381325, className: `w-6 h-6 ${stat.color}`, "data-fg-z0x143": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:375:21:14444:49:e:stat.icon" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+                lineNumber: 395,
+                columnNumber: 21
+              }, this) }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+                lineNumber: 394,
+                columnNumber: 19
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+              lineNumber: 389,
+              columnNumber: 17
+            }, this)
+          },
+          stat.label,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 385,
+            columnNumber: 13
+          },
+          this
+        )
+      ) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+        lineNumber: 383,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x145", _fgB: 1779104381325, className: "bg-white/5 backdrop-blur-sm rounded-lg border border-white/10", "data-fg-z0x145": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:383:11:14630:1549:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x146", _fgB: 1779104381325, className: "border-b border-white/10", "data-fg-z0x146": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:384:13:14722:1069:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x147", _fgB: 1779104381325, className: "flex gap-1 p-2", "data-fg-z0x147": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:385:15:14779:993:e:div:x", children: tabs.map(
+          (tab) => /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "button",
+              _fgS: "z0x149",
+              _fgB: 1779104381325,
+              onClick: () => setActiveTab(tab.id),
+              className: `px-4 py-2.5 rounded-lg transition-all font-medium flex items-center gap-2 ${activeTab === tab.id ? "bg-teal-600 text-white shadow-lg" : "text-gray-400 hover:text-white hover:bg-white/5"}`,
+              "data-fg-z0x149": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:387:19:14867:864:e:button:xte",
+              children: [
+                tab.label,
+                /* @__PURE__ */ jsxDEV(
+                  FGCmp,
+                  {
+                    _fgT: "span",
+                    _fgS: "z0x151",
+                    _fgB: 1779104381325,
+                    className: `px-2 py-0.5 rounded-full text-xs font-semibold ${activeTab === tab.id ? "bg-white/20 text-white" : "bg-white/10 text-gray-400"}`,
+                    "data-fg-z0x151": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:397:21:15350:353:e:span:x",
+                    children: tab.count
+                  },
+                  void 0,
+                  false,
+                  {
+                    fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+                    lineNumber: 417,
+                    columnNumber: 21
+                  },
+                  this
+                )
+              ]
+            },
+            tab.id,
+            true,
+            {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+              lineNumber: 407,
+              columnNumber: 17
+            },
+            this
+          )
+        ) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+          lineNumber: 405,
+          columnNumber: 15
+        }, this) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+          lineNumber: 404,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x153", _fgB: 1779104381325, className: "p-6", "data-fg-z0x153": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:411:13:15805:357:e:div:xtxtxtx", children: [
+          activeTab === "types" && renderTaxonomyTable(typeItems, false),
+          activeTab === "categories" && renderTaxonomyTable(categoryItems, true),
+          activeTab === "sectors" && renderTaxonomyTable(sectorItems, false),
+          activeTab === "standards" && renderStandardsTable()
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+          lineNumber: 431,
+          columnNumber: 13
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+        lineNumber: 403,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x159", _fgB: 1779104381325, className: "bg-blue-500/10 border border-blue-500/20 rounded-lg p-4", "data-fg-z0x159": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:420:11:16221:730:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x160", _fgB: 1779104381325, className: "flex items-start gap-3", "data-fg-z0x160": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:421:13:16307:627:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: AlertCircle, _fgS: "z0x161", _fgB: 1779104381325, className: "w-5 h-5 text-blue-400 mt-0.5", "data-fg-z0x161": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:422:15:16362:56:e:AlertCircle::::::fAY" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+          lineNumber: 442,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x162", _fgB: 1779104381325, "data-fg-z0x162": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:423:15:16433:482:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h4", _fgS: "z0x163", _fgB: 1779104381325, className: "text-blue-400 font-semibold mb-1", "data-fg-z0x163": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:424:17:16455:77:e:h4:t", children: "System-Wide Consistency" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 444,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "z0x165", _fgB: 1779104381325, className: "text-sm text-gray-400", "data-fg-z0x165": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:425:17:16549:345:e:p:t", children: "This taxonomy is enforced across all roles (Org Admin, Compliance Manager, Staff). System default values cannot be modified to ensure data integrity and compliance. Custom taxonomy items can be added for organization-specific needs." }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 445,
+            columnNumber: 17
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+          lineNumber: 443,
+          columnNumber: 15
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+        lineNumber: 441,
+        columnNumber: 13
+      }, this) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+        lineNumber: 440,
+        columnNumber: 11
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+      lineNumber: 361,
+      columnNumber: 9
+    }, this) }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+      lineNumber: 360,
+      columnNumber: 7
+    }, this),
+    showAddModal && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x169", _fgB: 1779104381325, className: "fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4", "data-fg-z0x169": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:438:9:17047:5160:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x170", _fgB: 1779104381325, className: "bg-gradient-to-br from-[#0B1F2A] to-[#0d2331] rounded-xl border border-white/10 shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto", "data-fg-z0x170": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:439:11:17160:5032:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x171", _fgB: 1779104381325, className: "sticky top-0 bg-gradient-to-r from-teal-600 to-teal-700 p-6 flex items-center justify-between border-b border-white/10", "data-fg-z0x171": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:440:13:17327:864:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x172", _fgB: 1779104381325, className: "flex items-center gap-3", "data-fg-z0x172": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:441:15:17478:445:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x173", _fgB: 1779104381325, className: "p-2 bg-white/10 rounded-lg", "data-fg-z0x173": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:442:17:17536:125:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Plus, _fgS: "z0x174", _fgB: 1779104381325, className: "w-6 h-6 text-white", "data-fg-z0x174": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:443:19:17599:39:e:Plus::::::ISW" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 463,
+            columnNumber: 19
+          }, this) }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 462,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x175", _fgB: 1779104381325, "data-fg-z0x175": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:445:17:17678:224:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h2", _fgS: "z0x176", _fgB: 1779104381325, className: "text-xl font-bold text-white", "data-fg-z0x176": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:446:19:17702:71:e:h2:t", children: "Add New Taxonomy Item" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+              lineNumber: 466,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "z0x178", _fgB: 1779104381325, className: "text-teal-100 text-sm", "data-fg-z0x178": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:447:19:17792:87:e:p:tx", children: [
+              "Create a custom taxonomy entry for ",
+              activeTab
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+              lineNumber: 467,
+              columnNumber: 19
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 465,
+            columnNumber: 17
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+          lineNumber: 461,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "button",
+            _fgS: "z0x181",
+            _fgB: 1779104381325,
+            onClick: () => setShowAddModal(false),
+            className: "p-2 hover:bg-white/10 rounded-lg transition-colors text-white",
+            "data-fg-z0x181": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:450:15:17938:234:e:button:e",
+            children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: X, _fgS: "z0x182", _fgB: 1779104381325, className: "w-5 h-5", "data-fg-z0x182": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:454:17:18123:25:e:X::::::TvS" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+              lineNumber: 474,
+              columnNumber: 17
+            }, this)
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 470,
+            columnNumber: 15
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+        lineNumber: 460,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x183", _fgB: 1779104381325, className: "p-6 space-y-4", "data-fg-z0x183": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:458:13:18205:3970:e:div:etetetxtetete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x184", _fgB: 1779104381325, "data-fg-z0x184": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:459:15:18251:447:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "z0x185", _fgB: 1779104381325, className: "block text-sm font-medium text-gray-400 mb-2", "data-fg-z0x185": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:460:17:18273:117:e:label:t", children: "Item Type" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 480,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "input",
+              _fgS: "z0x187",
+              _fgB: 1779104381325,
+              type: "text",
+              value: activeTab.charAt(0).toUpperCase() + activeTab.slice(1, -1),
+              disabled: true,
+              className: "w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white",
+              "data-fg-z0x187": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:463:17:18407:270:e:input"
+            },
+            void 0,
+            false,
+            {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+              lineNumber: 483,
+              columnNumber: 17
+            },
+            this
+          )
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+          lineNumber: 479,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x188", _fgB: 1779104381325, "data-fg-z0x188": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:471:15:18714:453:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "z0x189", _fgB: 1779104381325, className: "block text-sm font-medium text-gray-400 mb-2", "data-fg-z0x189": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:472:17:18736:122:e:label:t", children: "Display Name *" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 492,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "input",
+              _fgS: "z0x191",
+              _fgB: 1779104381325,
+              type: "text",
+              placeholder: "Enter display name",
+              className: "w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:border-teal-500 focus:outline-none",
+              "data-fg-z0x191": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:475:17:18875:271:e:input"
+            },
+            void 0,
+            false,
+            {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+              lineNumber: 495,
+              columnNumber: 17
+            },
+            this
+          )
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+          lineNumber: 491,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x192", _fgB: 1779104381325, "data-fg-z0x192": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:482:15:19183:472:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "z0x193", _fgB: 1779104381325, className: "block text-sm font-medium text-gray-400 mb-2", "data-fg-z0x193": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:483:17:19205:118:e:label:t", children: "Value/ID *" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 503,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "input",
+              _fgS: "z0x195",
+              _fgB: 1779104381325,
+              type: "text",
+              placeholder: "Enter unique value (lowercase, no spaces)",
+              className: "w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:border-teal-500 focus:outline-none",
+              "data-fg-z0x195": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:486:17:19340:294:e:input"
+            },
+            void 0,
+            false,
+            {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+              lineNumber: 506,
+              columnNumber: 17
+            },
+            this
+          )
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+          lineNumber: 502,
+          columnNumber: 15
+        }, this),
+        activeTab === "categories" && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x197", _fgB: 1779104381325, "data-fg-z0x197": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:494:17:19720:520:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "z0x198", _fgB: 1779104381325, className: "block text-sm font-medium text-gray-400 mb-2", "data-fg-z0x198": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:495:19:19744:118:e:label:t", children: "Code *" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 515,
+            columnNumber: 19
+          }, this),
+          /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "input",
+              _fgS: "z0x200",
+              _fgB: 1779104381325,
+              type: "text",
+              placeholder: "Enter 3-letter code (e.g., CUS)",
+              maxLength: 3,
+              className: "w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:border-teal-500 focus:outline-none uppercase",
+              "data-fg-z0x200": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:498:19:19881:336:e:input"
+            },
+            void 0,
+            false,
+            {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+              lineNumber: 518,
+              columnNumber: 19
+            },
+            this
+          )
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+          lineNumber: 514,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x201", _fgB: 1779104381325, "data-fg-z0x201": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:507:15:20273:464:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "z0x202", _fgB: 1779104381325, className: "block text-sm font-medium text-gray-400 mb-2", "data-fg-z0x202": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:508:17:20295:119:e:label:t", children: "Description" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 528,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "textarea",
+              _fgS: "z0x204",
+              _fgB: 1779104381325,
+              rows: 3,
+              placeholder: "Optional description",
+              className: "w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:border-teal-500 focus:outline-none resize-none",
+              "data-fg-z0x204": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:511:17:20431:285:e:textarea"
+            },
+            void 0,
+            false,
+            {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+              lineNumber: 531,
+              columnNumber: 17
+            },
+            this
+          )
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+          lineNumber: 527,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x205", _fgB: 1779104381325, className: "bg-yellow-500/10 border border-yellow-500/20 rounded-lg p-4", "data-fg-z0x205": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:518:15:20753:663:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x206", _fgB: 1779104381325, className: "flex items-start gap-3", "data-fg-z0x206": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:519:17:20847:548:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: AlertCircle, _fgS: "z0x207", _fgB: 1779104381325, className: "w-5 h-5 text-yellow-400 mt-0.5", "data-fg-z0x207": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:520:19:20906:58:e:AlertCircle::::::fAY" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 540,
+            columnNumber: 19
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x208", _fgB: 1779104381325, "data-fg-z0x208": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:521:19:20983:389:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h4", _fgS: "z0x209", _fgB: 1779104381325, className: "text-yellow-400 font-semibold mb-1", "data-fg-z0x209": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:522:21:21009:76:e:h4:t", children: "Custom Taxonomy Item" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+              lineNumber: 542,
+              columnNumber: 21
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "z0x211", _fgB: 1779104381325, className: "text-sm text-gray-400", "data-fg-z0x211": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:523:21:21106:241:e:p:t", children: "This will be a custom taxonomy item and can be modified or deactivated later. It will be available to all organizations in the system." }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+              lineNumber: 543,
+              columnNumber: 21
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 541,
+            columnNumber: 19
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+          lineNumber: 539,
+          columnNumber: 17
+        }, this) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+          lineNumber: 538,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x213", _fgB: 1779104381325, className: "flex gap-3 pt-4", "data-fg-z0x213": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:531:15:21432:724:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "button",
+              _fgS: "z0x214",
+              _fgB: 1779104381325,
+              onClick: () => setShowAddModal(false),
+              className: "flex-1 px-4 py-2.5 bg-white/5 hover:bg-white/10 text-white rounded-lg transition-colors font-medium border border-white/10",
+              "data-fg-z0x214": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:532:17:21482:286:e:button:t",
+              children: "Cancel"
+            },
+            void 0,
+            false,
+            {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+              lineNumber: 552,
+              columnNumber: 17
+            },
+            this
+          ),
+          /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "button",
+              _fgS: "z0x216",
+              _fgB: 1779104381325,
+              onClick: () => {
+                setShowAddModal(false);
+              },
+              className: "flex-1 px-4 py-2.5 bg-teal-600 hover:bg-teal-500 text-white rounded-lg transition-colors font-medium",
+              "data-fg-z0x216": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:538:17:21785:350:e:button:t",
+              children: "Create Item"
+            },
+            void 0,
+            false,
+            {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+              lineNumber: 558,
+              columnNumber: 17
+            },
+            this
+          )
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+          lineNumber: 551,
+          columnNumber: 15
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+        lineNumber: 478,
+        columnNumber: 13
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+      lineNumber: 459,
+      columnNumber: 11
+    }, this) }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+      lineNumber: 458,
+      columnNumber: 7
+    }, this),
+    editingItem && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x220", _fgB: 1779104381325, className: "fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4", "data-fg-z0x220": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:555:9:22285:6125:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x221", _fgB: 1779104381325, className: "bg-gradient-to-br from-[#0B1F2A] to-[#0d2331] rounded-xl border border-white/10 shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto", "data-fg-z0x221": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:556:11:22398:5997:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x222", _fgB: 1779104381325, className: "sticky top-0 bg-gradient-to-r from-blue-600 to-blue-700 p-6 flex items-center justify-between border-b border-white/10", "data-fg-z0x222": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:557:13:22565:825:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x223", _fgB: 1779104381325, className: "flex items-center gap-3", "data-fg-z0x223": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:558:15:22716:408:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x224", _fgB: 1779104381325, className: "p-2 bg-white/10 rounded-lg", "data-fg-z0x224": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:559:17:22774:124:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Eye, _fgS: "z0x225", _fgB: 1779104381325, className: "w-6 h-6 text-white", "data-fg-z0x225": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:560:19:22837:38:e:Eye::::::EJvT" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 580,
+            columnNumber: 19
+          }, this) }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 579,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x226", _fgB: 1779104381325, "data-fg-z0x226": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:562:17:22915:188:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h2", _fgS: "z0x227", _fgB: 1779104381325, className: "text-xl font-bold text-white", "data-fg-z0x227": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:563:19:22939:62:e:h2:t", children: "Item Details" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+              lineNumber: 583,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "z0x229", _fgB: 1779104381325, className: "text-blue-100 text-sm", "data-fg-z0x229": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:564:19:23020:60:e:p:x", children: editingItem.label }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+              lineNumber: 584,
+              columnNumber: 19
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 582,
+            columnNumber: 17
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+          lineNumber: 578,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "button",
+            _fgS: "z0x231",
+            _fgB: 1779104381325,
+            onClick: () => setEditingItem(null),
+            className: "p-2 hover:bg-white/10 rounded-lg transition-colors text-white",
+            "data-fg-z0x231": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:567:15:23139:232:e:button:e",
+            children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: X, _fgS: "z0x232", _fgB: 1779104381325, className: "w-5 h-5", "data-fg-z0x232": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:571:17:23322:25:e:X::::::TvS" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+              lineNumber: 591,
+              columnNumber: 17
+            }, this)
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 587,
+            columnNumber: 15
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+        lineNumber: 577,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x233", _fgB: 1779104381325, className: "p-6 space-y-6", "data-fg-z0x233": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:575:13:23404:4974:e:div:xtetxtetxtxtxte", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x235", _fgB: 1779104381325, className: "flex items-center justify-between", "data-fg-z0x235": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:577:15:23485:1197:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x236", _fgB: 1779104381325, className: "flex items-center gap-2", "data-fg-z0x236": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:578:17:23553:1108:e:div:xtx", children: [
+          editingItem.status === "active" ? /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "z0x238", _fgB: 1779104381325, className: "inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20", "data-fg-z0x238": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:580:21:23670:273:e:span:et", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: CheckCircle, _fgS: "z0x239", _fgB: 1779104381325, className: "w-4 h-4", "data-fg-z0x239": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:581:23:23851:35:e:CheckCircle::::::C4Wc" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+              lineNumber: 601,
+              columnNumber: 23
+            }, this),
+            "Active"
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 600,
+            columnNumber: 17
+          }, this) : /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "z0x241", _fgB: 1779104381325, className: "inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium bg-gray-500/10 text-gray-400 border border-gray-500/20", "data-fg-z0x241": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:585:21:23988:266:e:span:et", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: AlertCircle, _fgS: "z0x242", _fgB: 1779104381325, className: "w-4 h-4", "data-fg-z0x242": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:586:23:24160:35:e:AlertCircle::::::fAY" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+              lineNumber: 606,
+              columnNumber: 23
+            }, this),
+            "Inactive"
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 605,
+            columnNumber: 17
+          }, this),
+          editingItem.isSystemDefault && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "z0x245", _fgB: 1779104381325, className: "inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium bg-blue-500/10 text-blue-400 border border-blue-500/20", "data-fg-z0x245": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:591:21:24348:269:e:span:et", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Database, _fgS: "z0x246", _fgB: 1779104381325, className: "w-4 h-4", "data-fg-z0x246": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:592:23:24520:32:e:Database::::::D6M7" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+              lineNumber: 612,
+              columnNumber: 23
+            }, this),
+            "System Default"
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 611,
+            columnNumber: 17
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+          lineNumber: 598,
+          columnNumber: 17
+        }, this) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+          lineNumber: 597,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x249", _fgB: 1779104381325, className: "grid grid-cols-2 gap-4", "data-fg-z0x249": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:600:15:24733:1892:e:div:etetxtetete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x250", _fgB: 1779104381325, className: "bg-white/5 rounded-lg p-4 border border-white/10", "data-fg-z0x250": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:601:17:24790:272:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "z0x251", _fgB: 1779104381325, className: "block text-xs font-medium text-gray-400 mb-1", "data-fg-z0x251": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:602:19:24875:84:e:label:t", children: "Display Name" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+              lineNumber: 622,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "z0x253", _fgB: 1779104381325, className: "text-white font-medium", "data-fg-z0x253": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:603:19:24978:61:e:p:x", children: editingItem.label }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+              lineNumber: 623,
+              columnNumber: 19
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 621,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x255", _fgB: 1779104381325, className: "bg-white/5 rounded-lg p-4 border border-white/10", "data-fg-z0x255": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:606:17:25080:274:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "z0x256", _fgB: 1779104381325, className: "block text-xs font-medium text-gray-400 mb-1", "data-fg-z0x256": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:607:19:25165:80:e:label:t", children: "Value/ID" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+              lineNumber: 627,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "z0x258", _fgB: 1779104381325, className: "text-white font-mono text-sm", "data-fg-z0x258": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:608:19:25264:67:e:p:x", children: editingItem.value }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+              lineNumber: 628,
+              columnNumber: 19
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 626,
+            columnNumber: 17
+          }, this),
+          editingItem.code && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x261", _fgB: 1779104381325, className: "bg-white/5 rounded-lg p-4 border border-white/10", "data-fg-z0x261": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:612:19:25413:274:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "z0x262", _fgB: 1779104381325, className: "block text-xs font-medium text-gray-400 mb-1", "data-fg-z0x262": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:613:21:25500:76:e:label:t", children: "Code" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+              lineNumber: 633,
+              columnNumber: 21
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "z0x264", _fgB: 1779104381325, className: "text-teal-400 font-semibold", "data-fg-z0x264": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:614:21:25597:65:e:p:x", children: editingItem.code }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+              lineNumber: 634,
+              columnNumber: 21
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 632,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x266", _fgB: 1779104381325, className: "bg-white/5 rounded-lg p-4 border border-white/10", "data-fg-z0x266": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:618:17:25724:286:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "z0x267", _fgB: 1779104381325, className: "block text-xs font-medium text-gray-400 mb-1", "data-fg-z0x267": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:619:19:25809:83:e:label:t", children: "Usage Count" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+              lineNumber: 639,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "z0x269", _fgB: 1779104381325, className: "text-white font-medium", "data-fg-z0x269": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:620:19:25911:76:e:p:xt", children: [
+              editingItem.usageCount,
+              " documents"
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+              lineNumber: 640,
+              columnNumber: 19
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 638,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x272", _fgB: 1779104381325, className: "bg-white/5 rounded-lg p-4 border border-white/10", "data-fg-z0x272": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:623:17:26028:266:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "z0x273", _fgB: 1779104381325, className: "block text-xs font-medium text-gray-400 mb-1", "data-fg-z0x273": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:624:19:26113:84:e:label:t", children: "Created Date" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+              lineNumber: 644,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "z0x275", _fgB: 1779104381325, className: "text-white", "data-fg-z0x275": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:625:19:26216:55:e:p:x", children: editingItem.createdDate }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+              lineNumber: 645,
+              columnNumber: 19
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 643,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x277", _fgB: 1779104381325, className: "bg-white/5 rounded-lg p-4 border border-white/10", "data-fg-z0x277": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:628:17:26312:292:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "z0x278", _fgB: 1779104381325, className: "block text-xs font-medium text-gray-400 mb-1", "data-fg-z0x278": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:629:19:26397:76:e:label:t", children: "Type" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+              lineNumber: 649,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "z0x280", _fgB: 1779104381325, className: "text-white", "data-fg-z0x280": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:630:19:26492:89:e:p:x", children: editingItem.isSystemDefault ? "System Default" : "Custom" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+              lineNumber: 650,
+              columnNumber: 19
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 648,
+            columnNumber: 17
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+          lineNumber: 620,
+          columnNumber: 15
+        }, this),
+        editingItem.isSystemDefault && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x284", _fgB: 1779104381325, className: "bg-blue-500/10 border border-blue-500/20 rounded-lg p-4", "data-fg-z0x284": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:636:17:26736:686:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x285", _fgB: 1779104381325, className: "flex items-start gap-3", "data-fg-z0x285": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:637:19:26828:571:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: AlertCircle, _fgS: "z0x286", _fgB: 1779104381325, className: "w-5 h-5 text-blue-400 mt-0.5", "data-fg-z0x286": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:638:21:26889:56:e:AlertCircle::::::fAY" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 658,
+            columnNumber: 21
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x287", _fgB: 1779104381325, "data-fg-z0x287": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:639:21:26966:408:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h4", _fgS: "z0x288", _fgB: 1779104381325, className: "text-blue-400 font-semibold mb-1", "data-fg-z0x288": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:640:23:26994:73:e:h4:t", children: "System Default Item" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+              lineNumber: 660,
+              columnNumber: 23
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "z0x290", _fgB: 1779104381325, className: "text-sm text-gray-400", "data-fg-z0x290": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:641:23:27090:257:e:p:t", children: "This is a system-defined taxonomy item and cannot be modified or deleted. System defaults ensure consistency across all organizations and roles." }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+              lineNumber: 661,
+              columnNumber: 23
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 659,
+            columnNumber: 21
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+          lineNumber: 657,
+          columnNumber: 19
+        }, this) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+          lineNumber: 656,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "z0x293", _fgB: 1779104381325, className: "flex gap-3 pt-4", "data-fg-z0x293": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:651:15:27485:874:e:div:etx", children: [
+          /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "button",
+              _fgS: "z0x294",
+              _fgB: 1779104381325,
+              onClick: () => setEditingItem(null),
+              className: "flex-1 px-4 py-2.5 bg-white/5 hover:bg-white/10 text-white rounded-lg transition-colors font-medium border border-white/10",
+              "data-fg-z0x294": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:652:17:27535:283:e:button:t",
+              children: "Close"
+            },
+            void 0,
+            false,
+            {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+              lineNumber: 672,
+              columnNumber: 17
+            },
+            this
+          ),
+          !editingItem.isSystemDefault && /* @__PURE__ */ jsxDEV(Fragment, { children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "button", _fgS: "z0x298", _fgB: 1779104381325, className: "flex-1 px-4 py-2.5 bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors font-medium", "data-fg-z0x298": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:660:21:27911:183:e:button:t", children: "Edit Item" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+              lineNumber: 680,
+              columnNumber: 21
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "button", _fgS: "z0x300", _fgB: 1779104381325, className: "flex-1 px-4 py-2.5 bg-red-600 hover:bg-red-500 text-white rounded-lg transition-colors font-medium", "data-fg-z0x300": "541.13:750.12774:/src/app/pages/platform-admin/TaxonomyManagement.tsx:663:21:28115:182:e:button:t", children: "Deactivate" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+              lineNumber: 683,
+              columnNumber: 21
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+            lineNumber: 679,
+            columnNumber: 15
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+          lineNumber: 671,
+          columnNumber: 15
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+        lineNumber: 595,
+        columnNumber: 13
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+      lineNumber: 576,
+      columnNumber: 11
+    }, this) }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+      lineNumber: 575,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx",
+    lineNumber: 359,
+    columnNumber: 5
+  }, this);
+}
+_s(TaxonomyManagement, "oqXXIqSSUT7/w9fiHCLfx26fwNg=");
+_c = TaxonomyManagement;
+var _c;
+$RefreshReg$(_c, "TaxonomyManagement");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/workspaces/default/code/src/app/pages/platform-admin/TaxonomyManagement.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,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ZSxJQUFJO0FBQUEsY0FDbEMsV0FBVTtBQUFBLGNBQ2I7QUFBQSxjQUFDO0FBQUE7QUFBQSxZQUhBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQSxVQUtBO0FBQUEsVUFDQyxDQUFDRCxZQUFZVyxtQkFDWixtQ0FDRTtBQUFBLG1DQUFDLDhEQUFPLFdBQVUsd0dBQXFHLHVIQUFDLHlCQUF4SDtBQUFBO0FBQUE7QUFBQTtBQUFBLG1CQUVBO0FBQUEsWUFDQSx1QkFBQyw4REFBTyxXQUFVLHNHQUFtRyx1SEFBQywwQkFBdEg7QUFBQTtBQUFBO0FBQUE7QUFBQSxtQkFFQTtBQUFBLGVBTkY7QUFBQTtBQUFBO0FBQUE7QUFBQSxpQkFPQTtBQUFBLGFBZko7QUFBQTtBQUFBO0FBQUE7QUFBQSxlQWlCQTtBQUFBLFdBN0ZGO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUE4RkE7QUFBQSxTQWpIRjtBQUFBO0FBQUE7QUFBQTtBQUFBLFdBa0hBLEtBbkhGO0FBQUE7QUFBQTtBQUFBO0FBQUEsV0FvSEE7QUFBQSxPQTVVSjtBQUFBO0FBQUE7QUFBQTtBQUFBLFNBOFVBO0FBRUo7QUFBQWhCLEdBN25Cd0JELG9CQUFrQjtBQUFBOEMsS0FBbEI5QztBQUFrQixJQUFBOEM7QUFBQUMsYUFBQUQsSUFBQSIsIm5hbWVzIjpbInVzZVN0YXRlIiwiU2V0dGluZ3MiLCJQbHVzIiwiRWRpdDIiLCJFeWUiLCJFeWVPZmYiLCJUYWciLCJHbG9iZSIsIkZpbGVUZXh0IiwiQ2hlY2tDaXJjbGUiLCJBbGVydENpcmNsZSIsIlNoaWVsZCIsIkRhdGFiYXNlIiwiWCIsIkRPQ1VNRU5UX1RZUEVTIiwiRE9DVU1FTlRfQ0FURUdPUklFUyIsIlNFQ1RPUlMiLCJBR0VEX0NBUkVfU1RBTkRBUkRTIiwiTkRJU19TVEFOREFSRFMiLCJUYXhvbm9teU1hbmFnZW1lbnQiLCJfcyIsImFjdGl2ZVRhYiIsInNldEFjdGl2ZVRhYiIsInNob3dBZGRNb2RhbCIsInNldFNob3dBZGRNb2RhbCIsImVkaXRpbmdJdGVtIiwic2V0RWRpdGluZ0l0ZW0iLCJjYXRlZ29yeUl0ZW1zIiwibWFwIiwiY2F0IiwiaW5kZXgiLCJpZCIsInZhbHVlIiwibGFiZWwiLCJjb2RlIiwic3RhdHVzIiwiaXNTeXN0ZW1EZWZhdWx0IiwiY3JlYXRlZERhdGUiLCJ1c2FnZUNvdW50IiwiTWF0aCIsImZsb29yIiwicmFuZG9tIiwidHlwZUl0ZW1zIiwidHlwZSIsInNlY3Rvckl0ZW1zIiwic2VjdG9yIiwic3RhdHMiLCJsZW5ndGgiLCJpY29uIiwiY29sb3IiLCJiZ0NvbG9yIiwidGFicyIsImNvdW50IiwicmVuZGVyVGF4b25vbXlUYWJsZSIsIml0ZW1zIiwic2hvd0NvZGUiLCJpdGVtIiwicmVuZGVyU3RhbmRhcmRzVGFibGUiLCJzdGFuZGFyZCIsIm5hbWUiLCJzdGF0IiwidGFiIiwiY2hhckF0IiwidG9VcHBlckNhc2UiLCJzbGljZSIsIl9jIiwiJFJlZnJlc2hSZWckIl0sImlnbm9yZUxpc3QiOltdLCJzb3VyY2VzIjpbIlRheG9ub215TWFuYWdlbWVudC50c3giXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgdXNlU3RhdGUgfSBmcm9tICdyZWFjdCc7XG5pbXBvcnQge1xuICBTZXR0aW5ncyxcbiAgUGx1cyxcbiAgRWRpdDIsXG4gIEV5ZSxcbiAgRXllT2ZmLFxuICBUYWcsXG4gIExpc3QsXG4gIEdsb2JlLFxuICBGaWxlVGV4dCxcbiAgQ2hlY2tDaXJjbGUsXG4gIEFsZXJ0Q2lyY2xlLFxuICBTaGllbGQsXG4gIERhdGFiYXNlLFxuICBYLFxufSBmcm9tICdsdWNpZGUtcmVhY3QnO1xuaW1wb3J0IHtcbiAgRE9DVU1FTlRfVFlQRVMsXG4gIERPQ1VNRU5UX0NBVEVHT1JJRVMsXG4gIFNFQ1RPUlMsXG59IGZyb20gJy4uLy4uL2RhdGEvdGF4b25vbXknO1xuaW1wb3J0IHsgQUdFRF9DQVJFX1NUQU5EQVJEUywgTkRJU19TVEFOREFSRFMgfSBmcm9tICcuLi8uLi9kYXRhL3N0YW5kYXJkcyc7XG5cbnR5cGUgVGFiVHlwZSA9ICd0eXBlcycgfCAnY2F0ZWdvcmllcycgfCAnc2VjdG9ycycgfCAnc3RhbmRhcmRzJztcblxuaW50ZXJmYWNlIFRheG9ub215SXRlbSB7XG4gIGlkOiBzdHJpbmc7XG4gIHZhbHVlOiBzdHJpbmc7XG4gIGxhYmVsOiBzdHJpbmc7XG4gIGNvZGU/OiBzdHJpbmc7XG4gIHN0YXR1czogJ2FjdGl2ZScgfCAnaW5hY3RpdmUnO1xuICBpc1N5c3RlbURlZmF1bHQ6IGJvb2xlYW47XG4gIGNyZWF0ZWREYXRlOiBzdHJpbmc7XG4gIHVzYWdlQ291bnQ6IG51bWJlcjtcbn1cblxuZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24gVGF4b25vbXlNYW5hZ2VtZW50KCkge1xuICBjb25zdCBbYWN0aXZlVGFiLCBzZXRBY3RpdmVUYWJdID0gdXNlU3RhdGU8VGFiVHlwZT4oJ2NhdGVnb3JpZXMnKTtcbiAgY29uc3QgW3Nob3dBZGRNb2RhbCwgc2V0U2hvd0FkZE1vZGFsXSA9IHVzZVN0YXRlKGZhbHNlKTtcbiAgY29uc3QgW2VkaXRpbmdJdGVtLCBzZXRFZGl0aW5nSXRlbV0gPSB1c2VTdGF0ZTxUYXhvbm9teUl0ZW0gfCBudWxsPihudWxsKTtcblxuICAvLyBUcmFuc2Zvcm0gY2F0ZWdvcmllcyBpbnRvIHRheG9ub215IGl0ZW1zIHdpdGggbWV0YWRhdGFcbiAgY29uc3QgY2F0ZWdvcnlJdGVtczogVGF4b25vbXlJdGVtW10gPSBET0NVTUVOVF9DQVRFR09SSUVTLm1hcCgoY2F0LCBpbmRleCkgPT4gKHtcbiAgICBpZDogY2F0LnZhbHVlLFxuICAgIHZhbHVlOiBjYXQudmFsdWUsXG4gICAgbGFiZWw6IGNhdC5sYWJlbCxcbiAgICBjb2RlOiBjYXQuY29kZSxcbiAgICBzdGF0dXM6ICdhY3RpdmUnIGFzIGNvbnN0LFxuICAgIGlzU3lzdGVtRGVmYXVsdDogdHJ1ZSxcbiAgICBjcmVhdGVkRGF0ZTogJzIwMjQtMDEtMDEnLFxuICAgIHVzYWdlQ291bnQ6IE1hdGguZmxvb3IoTWF0aC5yYW5kb20oKSAqIDE1MCkgKyAyMCxcbiAgfSkpO1xuXG4gIGNvbnN0IHR5cGVJdGVtczogVGF4b25vbXlJdGVtW10gPSBET0NVTUVOVF9UWVBFUy5tYXAoKHR5cGUsIGluZGV4KSA9PiAoe1xuICAgIGlkOiB0eXBlLnZhbHVlLFxuICAgIHZhbHVlOiB0eXBlLnZhbHVlLFxuICAgIGxhYmVsOiB0eXBlLmxhYmVsLFxuICAgIHN0YXR1czogJ2FjdGl2ZScgYXMgY29uc3QsXG4gICAgaXNTeXN0ZW1EZWZhdWx0OiB0cnVlLFxuICAgIGNyZWF0ZWREYXRlOiAnMjAyNC0wMS0wMScsXG4gICAgdXNhZ2VDb3VudDogTWF0aC5mbG9vcihNYXRoLnJhbmRvbSgpICogMjAwKSArIDMwLFxuICB9KSk7XG5cbiAgY29uc3Qgc2VjdG9ySXRlbXM6IFRheG9ub215SXRlbVtdID0gU0VDVE9SUy5tYXAoKHNlY3RvciwgaW5kZXgpID0+ICh7XG4gICAgaWQ6IHNlY3Rvci52YWx1ZSxcbiAgICB2YWx1ZTogc2VjdG9yLnZhbHVlLFxuICAgIGxhYmVsOiBzZWN0b3IubGFiZWwsXG4gICAgc3RhdHVzOiAnYWN0aXZlJyBhcyBjb25zdCxcbiAgICBpc1N5c3RlbURlZmF1bHQ6IHRydWUsXG4gICAgY3JlYXRlZERhdGU6ICcyMDI0LTAxLTAxJyxcbiAgICB1c2FnZUNvdW50OiBNYXRoLmZsb29yKE1hdGgucmFuZG9tKCkgKiAxODApICsgNTAsXG4gIH0pKTtcblxuICBjb25zdCBzdGF0cyA9IFtcbiAgICB7XG4gICAgICBsYWJlbDogJ0RvY3VtZW50IFR5cGVzJyxcbiAgICAgIHZhbHVlOiBET0NVTUVOVF9UWVBFUy5sZW5ndGgsXG4gICAgICBpY29uOiBGaWxlVGV4dCxcbiAgICAgIGNvbG9yOiAndGV4dC10ZWFsLTQwMCcsXG4gICAgICBiZ0NvbG9yOiAnYmctdGVhbC01MDAvMTAnLFxuICAgIH0sXG4gICAge1xuICAgICAgbGFiZWw6ICdDYXRlZ29yaWVzJyxcbiAgICAgIHZhbHVlOiBET0NVTUVOVF9DQVRFR09SSUVTLmxlbmd0aCxcbiAgICAgIGljb246IFRhZyxcbiAgICAgIGNvbG9yOiAndGV4dC1ibHVlLTQwMCcsXG4gICAgICBiZ0NvbG9yOiAnYmctYmx1ZS01MDAvMTAnLFxuICAgIH0sXG4gICAge1xuICAgICAgbGFiZWw6ICdTZWN0b3JzJyxcbiAgICAgIHZhbHVlOiBTRUNUT1JTLmxlbmd0aCxcbiAgICAgIGljb246IEdsb2JlLFxuICAgICAgY29sb3I6ICd0ZXh0LXB1cnBsZS00MDAnLFxuICAgICAgYmdDb2xvcjogJ2JnLXB1cnBsZS01MDAvMTAnLFxuICAgIH0sXG4gICAge1xuICAgICAgbGFiZWw6ICdTdGFuZGFyZHMnLFxuICAgICAgdmFsdWU6IEFHRURfQ0FSRV9TVEFOREFSRFMubGVuZ3RoICsgTkRJU19TVEFOREFSRFMubGVuZ3RoLFxuICAgICAgaWNvbjogU2hpZWxkLFxuICAgICAgY29sb3I6ICd0ZXh0LWVtZXJhbGQtNDAwJyxcbiAgICAgIGJnQ29sb3I6ICdiZy1lbWVyYWxkLTUwMC8xMCcsXG4gICAgfSxcbiAgXTtcblxuICBjb25zdCB0YWJzID0gW1xuICAgIHsgaWQ6ICd0eXBlcycgYXMgVGFiVHlwZSwgbGFiZWw6ICdEb2N1bWVudCBUeXBlcycsIGNvdW50OiBET0NVTUVOVF9UWVBFUy5sZW5ndGggfSxcbiAgICB7IGlkOiAnY2F0ZWdvcmllcycgYXMgVGFiVHlwZSwgbGFiZWw6ICdDYXRlZ29yaWVzJywgY291bnQ6IERPQ1VNRU5UX0NBVEVHT1JJRVMubGVuZ3RoIH0sXG4gICAgeyBpZDogJ3NlY3RvcnMnIGFzIFRhYlR5cGUsIGxhYmVsOiAnU2VjdG9ycycsIGNvdW50OiBTRUNUT1JTLmxlbmd0aCB9LFxuICAgIHsgaWQ6ICdzdGFuZGFyZHMnIGFzIFRhYlR5cGUsIGxhYmVsOiAnU3RhbmRhcmRzJywgY291bnQ6IEFHRURfQ0FSRV9TVEFOREFSRFMubGVuZ3RoICsgTkRJU19TVEFOREFSRFMubGVuZ3RoIH0sXG4gIF07XG5cbiAgY29uc3QgcmVuZGVyVGF4b25vbXlUYWJsZSA9IChpdGVtczogVGF4b25vbXlJdGVtW10sIHNob3dDb2RlOiBib29sZWFuID0gZmFsc2UpID0+IChcbiAgICA8ZGl2IGNsYXNzTmFtZT1cIm92ZXJmbG93LXgtYXV0b1wiPlxuICAgICAgPHRhYmxlIGNsYXNzTmFtZT1cInctZnVsbFwiPlxuICAgICAgICA8dGhlYWQ+XG4gICAgICAgICAgPHRyIGNsYXNzTmFtZT1cImJvcmRlci1iIGJvcmRlci13aGl0ZS81XCI+XG4gICAgICAgICAgICA8dGggY2xhc3NOYW1lPVwidGV4dC1sZWZ0IHB5LTMgcHgtNCB0ZXh0LXhzIGZvbnQtbWVkaXVtIHRleHQtZ3JheS00MDAgdXBwZXJjYXNlIHRyYWNraW5nLXdpZGVyXCI+XG4gICAgICAgICAgICAgIE5hbWVcbiAgICAgICAgICAgIDwvdGg+XG4gICAgICAgICAgICB7c2hvd0NvZGUgJiYgKFxuICAgICAgICAgICAgICA8dGggY2xhc3NOYW1lPVwidGV4dC1sZWZ0IHB5LTMgcHgtNCB0ZXh0LXhzIGZvbnQtbWVkaXVtIHRleHQtZ3JheS00MDAgdXBwZXJjYXNlIHRyYWNraW5nLXdpZGVyXCI+XG4gICAgICAgICAgICAgICAgQ29kZVxuICAgICAgICAgICAgICA8L3RoPlxuICAgICAgICAgICAgKX1cbiAgICAgICAgICAgIDx0aCBjbGFzc05hbWU9XCJ0ZXh0LWxlZnQgcHktMyBweC00IHRleHQteHMgZm9udC1tZWRpdW0gdGV4dC1ncmF5LTQwMCB1cHBlcmNhc2UgdHJhY2tpbmctd2lkZXJcIj5cbiAgICAgICAgICAgICAgU3RhdHVzXG4gICAgICAgICAgICA8L3RoPlxuICAgICAgICAgICAgPHRoIGNsYXNzTmFtZT1cInRleHQtbGVmdCBweS0zIHB4LTQgdGV4dC14cyBmb250LW1lZGl1bSB0ZXh0LWdyYXktNDAwIHVwcGVyY2FzZSB0cmFja2luZy13aWRlclwiPlxuICAgICAgICAgICAgICBUeXBlXG4gICAgICAgICAgICA8L3RoPlxuICAgICAgICAgICAgPHRoIGNsYXNzTmFtZT1cInRleHQtbGVmdCBweS0zIHB4LTQgdGV4dC14cyBmb250LW1lZGl1bSB0ZXh0LWdyYXktNDAwIHVwcGVyY2FzZSB0cmFja2luZy13aWRlclwiPlxuICAgICAgICAgICAgICBVc2FnZVxuICAgICAgICAgICAgPC90aD5cbiAgICAgICAgICAgIDx0aCBjbGFzc05hbWU9XCJ0ZXh0LWxlZnQgcHktMyBweC00IHRleHQteHMgZm9udC1tZWRpdW0gdGV4dC1ncmF5LTQwMCB1cHBlcmNhc2UgdHJhY2tpbmctd2lkZXJcIj5cbiAgICAgICAgICAgICAgQWN0aW9uc1xuICAgICAgICAgICAgPC90aD5cbiAgICAgICAgICA8L3RyPlxuICAgICAgICA8L3RoZWFkPlxuICAgICAgICA8dGJvZHkgY2xhc3NOYW1lPVwiZGl2aWRlLXkgZGl2aWRlLXdoaXRlLzVcIj5cbiAgICAgICAgICB7aXRlbXMubWFwKChpdGVtKSA9PiAoXG4gICAgICAgICAgICA8dHIga2V5PXtpdGVtLmlkfSBjbGFzc05hbWU9XCJob3ZlcjpiZy13aGl0ZS81IHRyYW5zaXRpb24tY29sb3JzXCI+XG4gICAgICAgICAgICAgIDx0ZCBjbGFzc05hbWU9XCJweS0zIHB4LTRcIj5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZvbnQtbWVkaXVtIHRleHQtd2hpdGVcIj57aXRlbS5sYWJlbH08L2Rpdj5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC1ncmF5LTQwMCBtdC0wLjVcIj57aXRlbS52YWx1ZX08L2Rpdj5cbiAgICAgICAgICAgICAgPC90ZD5cbiAgICAgICAgICAgICAge3Nob3dDb2RlICYmIChcbiAgICAgICAgICAgICAgICA8dGQgY2xhc3NOYW1lPVwicHktMyBweC00XCI+XG4gICAgICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJpbmxpbmUtZmxleCBpdGVtcy1jZW50ZXIgcHgtMiBweS0xIHJvdW5kZWQgdGV4dC14cyBmb250LW1lZGl1bSBiZy10ZWFsLTUwMC8xMCB0ZXh0LXRlYWwtNDAwIGJvcmRlciBib3JkZXItdGVhbC01MDAvMjBcIj5cbiAgICAgICAgICAgICAgICAgICAge2l0ZW0uY29kZX1cbiAgICAgICAgICAgICAgICAgIDwvc3Bhbj5cbiAgICAgICAgICAgICAgICA8L3RkPlxuICAgICAgICAgICAgICApfVxuICAgICAgICAgICAgICA8dGQgY2xhc3NOYW1lPVwicHktMyBweC00XCI+XG4gICAgICAgICAgICAgICAge2l0ZW0uc3RhdHVzID09PSAnYWN0aXZlJyA/IChcbiAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cImlubGluZS1mbGV4IGl0ZW1zLWNlbnRlciBnYXAtMSBweC0yIHB5LTEgcm91bmRlZC1mdWxsIHRleHQteHMgZm9udC1tZWRpdW0gYmctZW1lcmFsZC01MDAvMTAgdGV4dC1lbWVyYWxkLTQwMFwiPlxuICAgICAgICAgICAgICAgICAgICA8Q2hlY2tDaXJjbGUgY2xhc3NOYW1lPVwidy0zIGgtM1wiIC8+XG4gICAgICAgICAgICAgICAgICAgIEFjdGl2ZVxuICAgICAgICAgICAgICAgICAgPC9zcGFuPlxuICAgICAgICAgICAgICAgICkgOiAoXG4gICAgICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJpbmxpbmUtZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTEgcHgtMiBweS0xIHJvdW5kZWQtZnVsbCB0ZXh0LXhzIGZvbnQtbWVkaXVtIGJnLWdyYXktNTAwLzEwIHRleHQtZ3JheS00MDBcIj5cbiAgICAgICAgICAgICAgICAgICAgPEFsZXJ0Q2lyY2xlIGNsYXNzTmFtZT1cInctMyBoLTNcIiAvPlxuICAgICAgICAgICAgICAgICAgICBJbmFjdGl2ZVxuICAgICAgICAgICAgICAgICAgPC9zcGFuPlxuICAgICAgICAgICAgICAgICl9XG4gICAgICAgICAgICAgIDwvdGQ+XG4gICAgICAgICAgICAgIDx0ZCBjbGFzc05hbWU9XCJweS0zIHB4LTRcIj5cbiAgICAgICAgICAgICAgICB7aXRlbS5pc1N5c3RlbURlZmF1bHQgPyAoXG4gICAgICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJpbmxpbmUtZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTEgcHgtMiBweS0xIHJvdW5kZWQgdGV4dC14cyBmb250LW1lZGl1bSBiZy1ibHVlLTUwMC8xMCB0ZXh0LWJsdWUtNDAwIGJvcmRlciBib3JkZXItYmx1ZS01MDAvMjBcIj5cbiAgICAgICAgICAgICAgICAgICAgPERhdGFiYXNlIGNsYXNzTmFtZT1cInctMyBoLTNcIiAvPlxuICAgICAgICAgICAgICAgICAgICBTeXN0ZW0gRGVmYXVsdFxuICAgICAgICAgICAgICAgICAgPC9zcGFuPlxuICAgICAgICAgICAgICAgICkgOiAoXG4gICAgICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LXhzIHRleHQtZ3JheS00MDBcIj5DdXN0b208L3NwYW4+XG4gICAgICAgICAgICAgICAgKX1cbiAgICAgICAgICAgICAgPC90ZD5cbiAgICAgICAgICAgICAgPHRkIGNsYXNzTmFtZT1cInB5LTMgcHgtNFwiPlxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC1zbSB0ZXh0LXdoaXRlXCI+e2l0ZW0udXNhZ2VDb3VudH0gZG9jdW1lbnRzPC9kaXY+XG4gICAgICAgICAgICAgIDwvdGQ+XG4gICAgICAgICAgICAgIDx0ZCBjbGFzc05hbWU9XCJweS0zIHB4LTRcIj5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0yXCI+XG4gICAgICAgICAgICAgICAgICA8YnV0dG9uXG4gICAgICAgICAgICAgICAgICAgIG9uQ2xpY2s9eygpID0+IHNldEVkaXRpbmdJdGVtKGl0ZW0pfVxuICAgICAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJwLTIgdGV4dC1ncmF5LTQwMCBob3Zlcjp0ZXh0LXRlYWwtNDAwIGhvdmVyOmJnLXRlYWwtNTAwLzEwIHJvdW5kZWQgdHJhbnNpdGlvbi1jb2xvcnNcIlxuICAgICAgICAgICAgICAgICAgICB0aXRsZT1cIlZpZXcgRGV0YWlsc1wiXG4gICAgICAgICAgICAgICAgICA+XG4gICAgICAgICAgICAgICAgICAgIDxFeWUgY2xhc3NOYW1lPVwidy00IGgtNFwiIC8+XG4gICAgICAgICAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgICAgICAgICAgIHshaXRlbS5pc1N5c3RlbURlZmF1bHQgJiYgKFxuICAgICAgICAgICAgICAgICAgICA8PlxuICAgICAgICAgICAgICAgICAgICAgIDxidXR0b25cbiAgICAgICAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cInAtMiB0ZXh0LWdyYXktNDAwIGhvdmVyOnRleHQtYmx1ZS00MDAgaG92ZXI6YmctYmx1ZS01MDAvMTAgcm91bmRlZCB0cmFuc2l0aW9uLWNvbG9yc1wiXG4gICAgICAgICAgICAgICAgICAgICAgICB0aXRsZT1cIkVkaXRcIlxuICAgICAgICAgICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICAgICAgICAgIDxFZGl0MiBjbGFzc05hbWU9XCJ3LTQgaC00XCIgLz5cbiAgICAgICAgICAgICAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgICAgICAgICAgICAgICA8YnV0dG9uXG4gICAgICAgICAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJwLTIgdGV4dC1ncmF5LTQwMCBob3Zlcjp0ZXh0LXJlZC00MDAgaG92ZXI6YmctcmVkLTUwMC8xMCByb3VuZGVkIHRyYW5zaXRpb24tY29sb3JzXCJcbiAgICAgICAgICAgICAgICAgICAgICAgIHRpdGxlPVwiRGVhY3RpdmF0ZVwiXG4gICAgICAgICAgICAgICAgICAgICAgPlxuICAgICAgICAgICAgICAgICAgICAgICAgPEV5ZU9mZiBjbGFzc05hbWU9XCJ3LTQgaC00XCIgLz5cbiAgICAgICAgICAgICAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgICAgICAgICAgICAgPC8+XG4gICAgICAgICAgICAgICAgICApfVxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICA8L3RkPlxuICAgICAgICAgICAgPC90cj5cbiAgICAgICAgICApKX1cbiAgICAgICAgPC90Ym9keT5cbiAgICAgIDwvdGFibGU+XG4gICAgPC9kaXY+XG4gICk7XG5cbiAgY29uc3QgcmVuZGVyU3RhbmRhcmRzVGFibGUgPSAoKSA9PiAoXG4gICAgPGRpdiBjbGFzc05hbWU9XCJzcGFjZS15LTZcIj5cbiAgICAgIHsvKiBBZ2VkIENhcmUgU3RhbmRhcmRzICovfVxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJiZy13aGl0ZS81IGJhY2tkcm9wLWJsdXItc20gcm91bmRlZC1sZyBib3JkZXIgYm9yZGVyLXdoaXRlLzEwIHAtNlwiPlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlbiBtYi00XCI+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtM1wiPlxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJwLTIgcm91bmRlZC1sZyBiZy10ZWFsLTUwMC8xMFwiPlxuICAgICAgICAgICAgICA8U2hpZWxkIGNsYXNzTmFtZT1cInctNSBoLTUgdGV4dC10ZWFsLTQwMFwiIC8+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgIDxoMyBjbGFzc05hbWU9XCJ0ZXh0LWxnIGZvbnQtc2VtaWJvbGQgdGV4dC13aGl0ZVwiPkFnZWQgQ2FyZSBTdGFuZGFyZHM8L2gzPlxuICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LXNtIHRleHQtZ3JheS00MDBcIj57QUdFRF9DQVJFX1NUQU5EQVJEUy5sZW5ndGh9IHN0YW5kYXJkczwvcD5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDxidXR0b25cbiAgICAgICAgICAgIG9uQ2xpY2s9eygpID0+IHNldFNob3dBZGRNb2RhbCh0cnVlKX1cbiAgICAgICAgICAgIGNsYXNzTmFtZT1cInB4LTQgcHktMiBiZy10ZWFsLTYwMCBob3ZlcjpiZy10ZWFsLTUwMCB0ZXh0LXdoaXRlIHJvdW5kZWQtbGcgdHJhbnNpdGlvbi1jb2xvcnMgdGV4dC1zbSBmb250LW1lZGl1bVwiXG4gICAgICAgICAgPlxuICAgICAgICAgICAgPFBsdXMgY2xhc3NOYW1lPVwidy00IGgtNCBpbmxpbmUgbXItMVwiIC8+XG4gICAgICAgICAgICBBZGQgU3RhbmRhcmRcbiAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgPC9kaXY+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwic3BhY2UteS0yXCI+XG4gICAgICAgICAge0FHRURfQ0FSRV9TVEFOREFSRFMubWFwKChzdGFuZGFyZCkgPT4gKFxuICAgICAgICAgICAgPGRpdlxuICAgICAgICAgICAgICBrZXk9e3N0YW5kYXJkLmlkfVxuICAgICAgICAgICAgICBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW4gcC0zIHJvdW5kZWQtbGcgYmctd2hpdGUvNSBob3ZlcjpiZy13aGl0ZS8xMCB0cmFuc2l0aW9uLWNvbG9ycyBib3JkZXIgYm9yZGVyLXdoaXRlLzVcIlxuICAgICAgICAgICAgPlxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0zXCI+XG4gICAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwicHgtMyBweS0xIHJvdW5kZWQtbGcgYmctdGVhbC01MDAvMTAgdGV4dC10ZWFsLTQwMCBmb250LXNlbWlib2xkIHRleHQtc20gYm9yZGVyIGJvcmRlci10ZWFsLTUwMC8yMFwiPlxuICAgICAgICAgICAgICAgICAge3N0YW5kYXJkLmNvZGV9XG4gICAgICAgICAgICAgICAgPC9zcGFuPlxuICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRleHQtd2hpdGUgZm9udC1tZWRpdW1cIj57c3RhbmRhcmQubmFtZX08L3NwYW4+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0yXCI+XG4gICAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwidGV4dC14cyB0ZXh0LWdyYXktNDAwIGJnLWVtZXJhbGQtNTAwLzEwIHB4LTIgcHktMSByb3VuZGVkXCI+XG4gICAgICAgICAgICAgICAgICA8Q2hlY2tDaXJjbGUgY2xhc3NOYW1lPVwidy0zIGgtMyBpbmxpbmUgbXItMVwiIC8+XG4gICAgICAgICAgICAgICAgICBBY3RpdmVcbiAgICAgICAgICAgICAgICA8L3NwYW4+XG4gICAgICAgICAgICAgICAgPGJ1dHRvblxuICAgICAgICAgICAgICAgICAgb25DbGljaz17KCkgPT4ge1xuICAgICAgICAgICAgICAgICAgICBzZXRFZGl0aW5nSXRlbSh7XG4gICAgICAgICAgICAgICAgICAgICAgaWQ6IHN0YW5kYXJkLmlkLFxuICAgICAgICAgICAgICAgICAgICAgIHZhbHVlOiBzdGFuZGFyZC5pZCxcbiAgICAgICAgICAgICAgICAgICAgICBsYWJlbDogc3RhbmRhcmQubmFtZSxcbiAgICAgICAgICAgICAgICAgICAgICBjb2RlOiBzdGFuZGFyZC5jb2RlLFxuICAgICAgICAgICAgICAgICAgICAgIHN0YXR1czogJ2FjdGl2ZScsXG4gICAgICAgICAgICAgICAgICAgICAgaXNTeXN0ZW1EZWZhdWx0OiB0cnVlLFxuICAgICAgICAgICAgICAgICAgICAgIGNyZWF0ZWREYXRlOiAnMjAyNC0wMS0wMScsXG4gICAgICAgICAgICAgICAgICAgICAgdXNhZ2VDb3VudDogMFxuICAgICAgICAgICAgICAgICAgICB9KTtcbiAgICAgICAgICAgICAgICAgIH19XG4gICAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJwLTIgdGV4dC1ncmF5LTQwMCBob3Zlcjp0ZXh0LXRlYWwtNDAwIGhvdmVyOmJnLXRlYWwtNTAwLzEwIHJvdW5kZWQgdHJhbnNpdGlvbi1jb2xvcnNcIlxuICAgICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICAgIDxFeWUgY2xhc3NOYW1lPVwidy00IGgtNFwiIC8+XG4gICAgICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgKSl9XG4gICAgICAgIDwvZGl2PlxuICAgICAgPC9kaXY+XG5cbiAgICAgIHsvKiBORElTIFN0YW5kYXJkcyAqL31cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYmctd2hpdGUvNSBiYWNrZHJvcC1ibHVyLXNtIHJvdW5kZWQtbGcgYm9yZGVyIGJvcmRlci13aGl0ZS8xMCBwLTZcIj5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW4gbWItNFwiPlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTNcIj5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicC0yIHJvdW5kZWQtbGcgYmctYmx1ZS01MDAvMTBcIj5cbiAgICAgICAgICAgICAgPFNoaWVsZCBjbGFzc05hbWU9XCJ3LTUgaC01IHRleHQtYmx1ZS00MDBcIiAvPlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICA8aDMgY2xhc3NOYW1lPVwidGV4dC1sZyBmb250LXNlbWlib2xkIHRleHQtd2hpdGVcIj5ORElTIFN0YW5kYXJkczwvaDM+XG4gICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtc20gdGV4dC1ncmF5LTQwMFwiPntORElTX1NUQU5EQVJEUy5sZW5ndGh9IHN0YW5kYXJkczwvcD5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDxidXR0b25cbiAgICAgICAgICAgIG9uQ2xpY2s9eygpID0+IHNldFNob3dBZGRNb2RhbCh0cnVlKX1cbiAgICAgICAgICAgIGNsYXNzTmFtZT1cInB4LTQgcHktMiBiZy1ibHVlLTYwMCBob3ZlcjpiZy1ibHVlLTUwMCB0ZXh0LXdoaXRlIHJvdW5kZWQtbGcgdHJhbnNpdGlvbi1jb2xvcnMgdGV4dC1zbSBmb250LW1lZGl1bVwiXG4gICAgICAgICAgPlxuICAgICAgICAgICAgPFBsdXMgY2xhc3NOYW1lPVwidy00IGgtNCBpbmxpbmUgbXItMVwiIC8+XG4gICAgICAgICAgICBBZGQgU3RhbmRhcmRcbiAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgPC9kaXY+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwic3BhY2UteS0yXCI+XG4gICAgICAgICAge05ESVNfU1RBTkRBUkRTLm1hcCgoc3RhbmRhcmQpID0+IChcbiAgICAgICAgICAgIDxkaXZcbiAgICAgICAgICAgICAga2V5PXtzdGFuZGFyZC5pZH1cbiAgICAgICAgICAgICAgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuIHAtMyByb3VuZGVkLWxnIGJnLXdoaXRlLzUgaG92ZXI6Ymctd2hpdGUvMTAgdHJhbnNpdGlvbi1jb2xvcnMgYm9yZGVyIGJvcmRlci13aGl0ZS81XCJcbiAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtM1wiPlxuICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInB4LTMgcHktMSByb3VuZGVkLWxnIGJnLWJsdWUtNTAwLzEwIHRleHQtYmx1ZS00MDAgZm9udC1zZW1pYm9sZCB0ZXh0LXNtIGJvcmRlciBib3JkZXItYmx1ZS01MDAvMjBcIj5cbiAgICAgICAgICAgICAgICAgIHtzdGFuZGFyZC5jb2RlfVxuICAgICAgICAgICAgICAgIDwvc3Bhbj5cbiAgICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LXdoaXRlIGZvbnQtbWVkaXVtXCI+e3N0YW5kYXJkLm5hbWV9PC9zcGFuPlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMlwiPlxuICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC1ncmF5LTQwMCBiZy1lbWVyYWxkLTUwMC8xMCBweC0yIHB5LTEgcm91bmRlZFwiPlxuICAgICAgICAgICAgICAgICAgPENoZWNrQ2lyY2xlIGNsYXNzTmFtZT1cInctMyBoLTMgaW5saW5lIG1yLTFcIiAvPlxuICAgICAgICAgICAgICAgICAgQWN0aXZlXG4gICAgICAgICAgICAgICAgPC9zcGFuPlxuICAgICAgICAgICAgICAgIDxidXR0b25cbiAgICAgICAgICAgICAgICAgIG9uQ2xpY2s9eygpID0+IHtcbiAgICAgICAgICAgICAgICAgICAgc2V0RWRpdGluZ0l0ZW0oe1xuICAgICAgICAgICAgICAgICAgICAgIGlkOiBzdGFuZGFyZC5pZCxcbiAgICAgICAgICAgICAgICAgICAgICB2YWx1ZTogc3RhbmRhcmQuaWQsXG4gICAgICAgICAgICAgICAgICAgICAgbGFiZWw6IHN0YW5kYXJkLm5hbWUsXG4gICAgICAgICAgICAgICAgICAgICAgY29kZTogc3RhbmRhcmQuY29kZSxcbiAgICAgICAgICAgICAgICAgICAgICBzdGF0dXM6ICdhY3RpdmUnLFxuICAgICAgICAgICAgICAgICAgICAgIGlzU3lzdGVtRGVmYXVsdDogdHJ1ZSxcbiAgICAgICAgICAgICAgICAgICAgICBjcmVhdGVkRGF0ZTogJzIwMjQtMDEtMDEnLFxuICAgICAgICAgICAgICAgICAgICAgIHVzYWdlQ291bnQ6IDBcbiAgICAgICAgICAgICAgICAgICAgfSk7XG4gICAgICAgICAgICAgICAgICB9fVxuICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwicC0yIHRleHQtZ3JheS00MDAgaG92ZXI6dGV4dC1ibHVlLTQwMCBob3ZlcjpiZy1ibHVlLTUwMC8xMCByb3VuZGVkIHRyYW5zaXRpb24tY29sb3JzXCJcbiAgICAgICAgICAgICAgICA+XG4gICAgICAgICAgICAgICAgICA8RXllIGNsYXNzTmFtZT1cInctNCBoLTRcIiAvPlxuICAgICAgICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICkpfVxuICAgICAgICA8L2Rpdj5cbiAgICAgIDwvZGl2PlxuICAgIDwvZGl2PlxuICApO1xuXG4gIHJldHVybiAoXG4gICAgPD5cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwibWluLWgtc2NyZWVuIGJnLWdyYWRpZW50LXRvLWJyIGZyb20tWyMwQjFGMkFdIHZpYS1bIzBkMjMzMV0gdG8tWyMwQjFGMkFdIHAtOFwiPlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cIm1heC13LTd4bCBteC1hdXRvIHNwYWNlLXktNlwiPlxuICAgICAgICAgIHsvKiBIZWFkZXIgKi99XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW5cIj5cbiAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgIDxoMSBjbGFzc05hbWU9XCJ0ZXh0LTN4bCBmb250LWJvbGQgdGV4dC13aGl0ZSBtYi0yXCI+VGF4b25vbXkgTWFuYWdlbWVudDwvaDE+XG4gICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtZ3JheS00MDBcIj5cbiAgICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJpbmxpbmUtZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTIgcHgtMyBweS0xIHJvdW5kZWQtZnVsbCBiZy10ZWFsLTUwMC8xMCB0ZXh0LXRlYWwtNDAwIGJvcmRlciBib3JkZXItdGVhbC01MDAvMjAgdGV4dC1zbSBmb250LW1lZGl1bVwiPlxuICAgICAgICAgICAgICAgICAgPFNldHRpbmdzIGNsYXNzTmFtZT1cInctNCBoLTRcIiAvPlxuICAgICAgICAgICAgICAgICAgU291cmNlIG9mIFRydXRoIOKAlCBBbGwgcm9sZXMgaW5oZXJpdCBmcm9tIHRoaXMgc3lzdGVtXG4gICAgICAgICAgICAgICAgPC9zcGFuPlxuICAgICAgICAgICAgICA8L3A+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDxidXR0b25cbiAgICAgICAgICAgICAgb25DbGljaz17KCkgPT4gc2V0U2hvd0FkZE1vZGFsKHRydWUpfVxuICAgICAgICAgICAgICBjbGFzc05hbWU9XCJweC00IHB5LTIgYmctdGVhbC02MDAgaG92ZXI6YmctdGVhbC01MDAgdGV4dC13aGl0ZSByb3VuZGVkLWxnIHRyYW5zaXRpb24tY29sb3JzIGZvbnQtbWVkaXVtIGZsZXggaXRlbXMtY2VudGVyIGdhcC0yXCJcbiAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgPFBsdXMgY2xhc3NOYW1lPVwidy01IGgtNVwiIC8+XG4gICAgICAgICAgICAgIEFkZCBOZXcgSXRlbVxuICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICB7LyogU3RhdHMgR3JpZCAqL31cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImdyaWQgZ3JpZC1jb2xzLTEgbWQ6Z3JpZC1jb2xzLTIgbGc6Z3JpZC1jb2xzLTQgZ2FwLTZcIj5cbiAgICAgICAgICAgIHtzdGF0cy5tYXAoKHN0YXQpID0+IChcbiAgICAgICAgICAgICAgPGRpdlxuICAgICAgICAgICAgICAgIGtleT17c3RhdC5sYWJlbH1cbiAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJiZy13aGl0ZS81IGJhY2tkcm9wLWJsdXItc20gcm91bmRlZC1sZyBib3JkZXIgYm9yZGVyLXdoaXRlLzEwIHAtNlwiXG4gICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlblwiPlxuICAgICAgICAgICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC1ncmF5LTQwMCB0ZXh0LXNtXCI+e3N0YXQubGFiZWx9PC9wPlxuICAgICAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LTN4bCBmb250LWJvbGQgdGV4dC13aGl0ZSBtdC0xXCI+e3N0YXQudmFsdWV9PC9wPlxuICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT17YHAtMyByb3VuZGVkLWxnICR7c3RhdC5iZ0NvbG9yfWB9PlxuICAgICAgICAgICAgICAgICAgICA8c3RhdC5pY29uIGNsYXNzTmFtZT17YHctNiBoLTYgJHtzdGF0LmNvbG9yfWB9IC8+XG4gICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICApKX1cbiAgICAgICAgICA8L2Rpdj5cblxuICAgICAgICAgIHsvKiBUYWJzICovfVxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYmctd2hpdGUvNSBiYWNrZHJvcC1ibHVyLXNtIHJvdW5kZWQtbGcgYm9yZGVyIGJvcmRlci13aGl0ZS8xMFwiPlxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJib3JkZXItYiBib3JkZXItd2hpdGUvMTBcIj5cbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGdhcC0xIHAtMlwiPlxuICAgICAgICAgICAgICAgIHt0YWJzLm1hcCgodGFiKSA9PiAoXG4gICAgICAgICAgICAgICAgICA8YnV0dG9uXG4gICAgICAgICAgICAgICAgICAgIGtleT17dGFiLmlkfVxuICAgICAgICAgICAgICAgICAgICBvbkNsaWNrPXsoKSA9PiBzZXRBY3RpdmVUYWIodGFiLmlkKX1cbiAgICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPXtgcHgtNCBweS0yLjUgcm91bmRlZC1sZyB0cmFuc2l0aW9uLWFsbCBmb250LW1lZGl1bSBmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMiAke1xuICAgICAgICAgICAgICAgICAgICAgIGFjdGl2ZVRhYiA9PT0gdGFiLmlkXG4gICAgICAgICAgICAgICAgICAgICAgICA/ICdiZy10ZWFsLTYwMCB0ZXh0LXdoaXRlIHNoYWRvdy1sZydcbiAgICAgICAgICAgICAgICAgICAgICAgIDogJ3RleHQtZ3JheS00MDAgaG92ZXI6dGV4dC13aGl0ZSBob3ZlcjpiZy13aGl0ZS81J1xuICAgICAgICAgICAgICAgICAgICB9YH1cbiAgICAgICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICAgICAge3RhYi5sYWJlbH1cbiAgICAgICAgICAgICAgICAgICAgPHNwYW5cbiAgICAgICAgICAgICAgICAgICAgICBjbGFzc05hbWU9e2BweC0yIHB5LTAuNSByb3VuZGVkLWZ1bGwgdGV4dC14cyBmb250LXNlbWlib2xkICR7XG4gICAgICAgICAgICAgICAgICAgICAgICBhY3RpdmVUYWIgPT09IHRhYi5pZFxuICAgICAgICAgICAgICAgICAgICAgICAgICA/ICdiZy13aGl0ZS8yMCB0ZXh0LXdoaXRlJ1xuICAgICAgICAgICAgICAgICAgICAgICAgICA6ICdiZy13aGl0ZS8xMCB0ZXh0LWdyYXktNDAwJ1xuICAgICAgICAgICAgICAgICAgICAgIH1gfVxuICAgICAgICAgICAgICAgICAgICA+XG4gICAgICAgICAgICAgICAgICAgICAge3RhYi5jb3VudH1cbiAgICAgICAgICAgICAgICAgICAgPC9zcGFuPlxuICAgICAgICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgICAgICAgKSl9XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicC02XCI+XG4gICAgICAgICAgICAgIHthY3RpdmVUYWIgPT09ICd0eXBlcycgJiYgcmVuZGVyVGF4b25vbXlUYWJsZSh0eXBlSXRlbXMsIGZhbHNlKX1cbiAgICAgICAgICAgICAge2FjdGl2ZVRhYiA9PT0gJ2NhdGVnb3JpZXMnICYmIHJlbmRlclRheG9ub215VGFibGUoY2F0ZWdvcnlJdGVtcywgdHJ1ZSl9XG4gICAgICAgICAgICAgIHthY3RpdmVUYWIgPT09ICdzZWN0b3JzJyAmJiByZW5kZXJUYXhvbm9teVRhYmxlKHNlY3Rvckl0ZW1zLCBmYWxzZSl9XG4gICAgICAgICAgICAgIHthY3RpdmVUYWIgPT09ICdzdGFuZGFyZHMnICYmIHJlbmRlclN0YW5kYXJkc1RhYmxlKCl9XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICA8L2Rpdj5cblxuICAgICAgICAgIHsvKiBJbmZvIEJhbm5lciAqL31cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLWJsdWUtNTAwLzEwIGJvcmRlciBib3JkZXItYmx1ZS01MDAvMjAgcm91bmRlZC1sZyBwLTRcIj5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1zdGFydCBnYXAtM1wiPlxuICAgICAgICAgICAgICA8QWxlcnRDaXJjbGUgY2xhc3NOYW1lPVwidy01IGgtNSB0ZXh0LWJsdWUtNDAwIG10LTAuNVwiIC8+XG4gICAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgICAgPGg0IGNsYXNzTmFtZT1cInRleHQtYmx1ZS00MDAgZm9udC1zZW1pYm9sZCBtYi0xXCI+U3lzdGVtLVdpZGUgQ29uc2lzdGVuY3k8L2g0PlxuICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtc20gdGV4dC1ncmF5LTQwMFwiPlxuICAgICAgICAgICAgICAgICAgVGhpcyB0YXhvbm9teSBpcyBlbmZvcmNlZCBhY3Jvc3MgYWxsIHJvbGVzIChPcmcgQWRtaW4sIENvbXBsaWFuY2UgTWFuYWdlciwgU3RhZmYpLlxuICAgICAgICAgICAgICAgICAgU3lzdGVtIGRlZmF1bHQgdmFsdWVzIGNhbm5vdCBiZSBtb2RpZmllZCB0byBlbnN1cmUgZGF0YSBpbnRlZ3JpdHkgYW5kIGNvbXBsaWFuY2UuXG4gICAgICAgICAgICAgICAgICBDdXN0b20gdGF4b25vbXkgaXRlbXMgY2FuIGJlIGFkZGVkIGZvciBvcmdhbml6YXRpb24tc3BlY2lmaWMgbmVlZHMuXG4gICAgICAgICAgICAgICAgPC9wPlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICA8L2Rpdj5cbiAgICAgIDwvZGl2PlxuXG4gICAgICB7LyogQWRkIE5ldyBJdGVtIE1vZGFsICovfVxuICAgICAge3Nob3dBZGRNb2RhbCAmJiAoXG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZml4ZWQgaW5zZXQtMCBiZy1ibGFjay81MCBiYWNrZHJvcC1ibHVyLXNtIGZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktY2VudGVyIHotNTAgcC00XCI+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJiZy1ncmFkaWVudC10by1iciBmcm9tLVsjMEIxRjJBXSB0by1bIzBkMjMzMV0gcm91bmRlZC14bCBib3JkZXIgYm9yZGVyLXdoaXRlLzEwIHNoYWRvdy0yeGwgbWF4LXctMnhsIHctZnVsbCBtYXgtaC1bOTB2aF0gb3ZlcmZsb3cteS1hdXRvXCI+XG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInN0aWNreSB0b3AtMCBiZy1ncmFkaWVudC10by1yIGZyb20tdGVhbC02MDAgdG8tdGVhbC03MDAgcC02IGZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlbiBib3JkZXItYiBib3JkZXItd2hpdGUvMTBcIj5cbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtM1wiPlxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicC0yIGJnLXdoaXRlLzEwIHJvdW5kZWQtbGdcIj5cbiAgICAgICAgICAgICAgICAgIDxQbHVzIGNsYXNzTmFtZT1cInctNiBoLTYgdGV4dC13aGl0ZVwiIC8+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgICAgICAgIDxoMiBjbGFzc05hbWU9XCJ0ZXh0LXhsIGZvbnQtYm9sZCB0ZXh0LXdoaXRlXCI+QWRkIE5ldyBUYXhvbm9teSBJdGVtPC9oMj5cbiAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtdGVhbC0xMDAgdGV4dC1zbVwiPkNyZWF0ZSBhIGN1c3RvbSB0YXhvbm9teSBlbnRyeSBmb3Ige2FjdGl2ZVRhYn08L3A+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICA8YnV0dG9uXG4gICAgICAgICAgICAgICAgb25DbGljaz17KCkgPT4gc2V0U2hvd0FkZE1vZGFsKGZhbHNlKX1cbiAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJwLTIgaG92ZXI6Ymctd2hpdGUvMTAgcm91bmRlZC1sZyB0cmFuc2l0aW9uLWNvbG9ycyB0ZXh0LXdoaXRlXCJcbiAgICAgICAgICAgICAgPlxuICAgICAgICAgICAgICAgIDxYIGNsYXNzTmFtZT1cInctNSBoLTVcIiAvPlxuICAgICAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgICAgIDwvZGl2PlxuXG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInAtNiBzcGFjZS15LTRcIj5cbiAgICAgICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgICAgICA8bGFiZWwgY2xhc3NOYW1lPVwiYmxvY2sgdGV4dC1zbSBmb250LW1lZGl1bSB0ZXh0LWdyYXktNDAwIG1iLTJcIj5cbiAgICAgICAgICAgICAgICAgIEl0ZW0gVHlwZVxuICAgICAgICAgICAgICAgIDwvbGFiZWw+XG4gICAgICAgICAgICAgICAgPGlucHV0XG4gICAgICAgICAgICAgICAgICB0eXBlPVwidGV4dFwiXG4gICAgICAgICAgICAgICAgICB2YWx1ZT17YWN0aXZlVGFiLmNoYXJBdCgwKS50b1VwcGVyQ2FzZSgpICsgYWN0aXZlVGFiLnNsaWNlKDEsIC0xKX1cbiAgICAgICAgICAgICAgICAgIGRpc2FibGVkXG4gICAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJ3LWZ1bGwgcHgtNCBweS0yIGJnLXdoaXRlLzUgYm9yZGVyIGJvcmRlci13aGl0ZS8xMCByb3VuZGVkLWxnIHRleHQtd2hpdGVcIlxuICAgICAgICAgICAgICAgIC8+XG4gICAgICAgICAgICAgIDwvZGl2PlxuXG4gICAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgICAgPGxhYmVsIGNsYXNzTmFtZT1cImJsb2NrIHRleHQtc20gZm9udC1tZWRpdW0gdGV4dC1ncmF5LTQwMCBtYi0yXCI+XG4gICAgICAgICAgICAgICAgICBEaXNwbGF5IE5hbWUgKlxuICAgICAgICAgICAgICAgIDwvbGFiZWw+XG4gICAgICAgICAgICAgICAgPGlucHV0XG4gICAgICAgICAgICAgICAgICB0eXBlPVwidGV4dFwiXG4gICAgICAgICAgICAgICAgICBwbGFjZWhvbGRlcj1cIkVudGVyIGRpc3BsYXkgbmFtZVwiXG4gICAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJ3LWZ1bGwgcHgtNCBweS0yIGJnLXdoaXRlLzUgYm9yZGVyIGJvcmRlci13aGl0ZS8xMCByb3VuZGVkLWxnIHRleHQtd2hpdGUgcGxhY2Vob2xkZXItZ3JheS01MDAgZm9jdXM6Ym9yZGVyLXRlYWwtNTAwIGZvY3VzOm91dGxpbmUtbm9uZVwiXG4gICAgICAgICAgICAgICAgLz5cbiAgICAgICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgICAgICA8bGFiZWwgY2xhc3NOYW1lPVwiYmxvY2sgdGV4dC1zbSBmb250LW1lZGl1bSB0ZXh0LWdyYXktNDAwIG1iLTJcIj5cbiAgICAgICAgICAgICAgICAgIFZhbHVlL0lEICpcbiAgICAgICAgICAgICAgICA8L2xhYmVsPlxuICAgICAgICAgICAgICAgIDxpbnB1dFxuICAgICAgICAgICAgICAgICAgdHlwZT1cInRleHRcIlxuICAgICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9XCJFbnRlciB1bmlxdWUgdmFsdWUgKGxvd2VyY2FzZSwgbm8gc3BhY2VzKVwiXG4gICAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJ3LWZ1bGwgcHgtNCBweS0yIGJnLXdoaXRlLzUgYm9yZGVyIGJvcmRlci13aGl0ZS8xMCByb3VuZGVkLWxnIHRleHQtd2hpdGUgcGxhY2Vob2xkZXItZ3JheS01MDAgZm9jdXM6Ym9yZGVyLXRlYWwtNTAwIGZvY3VzOm91dGxpbmUtbm9uZVwiXG4gICAgICAgICAgICAgICAgLz5cbiAgICAgICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICAgICAge2FjdGl2ZVRhYiA9PT0gJ2NhdGVnb3JpZXMnICYmIChcbiAgICAgICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICAgICAgPGxhYmVsIGNsYXNzTmFtZT1cImJsb2NrIHRleHQtc20gZm9udC1tZWRpdW0gdGV4dC1ncmF5LTQwMCBtYi0yXCI+XG4gICAgICAgICAgICAgICAgICAgIENvZGUgKlxuICAgICAgICAgICAgICAgICAgPC9sYWJlbD5cbiAgICAgICAgICAgICAgICAgIDxpbnB1dFxuICAgICAgICAgICAgICAgICAgICB0eXBlPVwidGV4dFwiXG4gICAgICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPVwiRW50ZXIgMy1sZXR0ZXIgY29kZSAoZS5nLiwgQ1VTKVwiXG4gICAgICAgICAgICAgICAgICAgIG1heExlbmd0aD17M31cbiAgICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwidy1mdWxsIHB4LTQgcHktMiBiZy13aGl0ZS81IGJvcmRlciBib3JkZXItd2hpdGUvMTAgcm91bmRlZC1sZyB0ZXh0LXdoaXRlIHBsYWNlaG9sZGVyLWdyYXktNTAwIGZvY3VzOmJvcmRlci10ZWFsLTUwMCBmb2N1czpvdXRsaW5lLW5vbmUgdXBwZXJjYXNlXCJcbiAgICAgICAgICAgICAgICAgIC8+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICl9XG5cbiAgICAgICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgICAgICA8bGFiZWwgY2xhc3NOYW1lPVwiYmxvY2sgdGV4dC1zbSBmb250LW1lZGl1bSB0ZXh0LWdyYXktNDAwIG1iLTJcIj5cbiAgICAgICAgICAgICAgICAgIERlc2NyaXB0aW9uXG4gICAgICAgICAgICAgICAgPC9sYWJlbD5cbiAgICAgICAgICAgICAgICA8dGV4dGFyZWFcbiAgICAgICAgICAgICAgICAgIHJvd3M9ezN9XG4gICAgICAgICAgICAgICAgICBwbGFjZWhvbGRlcj1cIk9wdGlvbmFsIGRlc2NyaXB0aW9uXCJcbiAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cInctZnVsbCBweC00IHB5LTIgYmctd2hpdGUvNSBib3JkZXIgYm9yZGVyLXdoaXRlLzEwIHJvdW5kZWQtbGcgdGV4dC13aGl0ZSBwbGFjZWhvbGRlci1ncmF5LTUwMCBmb2N1czpib3JkZXItdGVhbC01MDAgZm9jdXM6b3V0bGluZS1ub25lIHJlc2l6ZS1ub25lXCJcbiAgICAgICAgICAgICAgICAvPlxuICAgICAgICAgICAgICA8L2Rpdj5cblxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLXllbGxvdy01MDAvMTAgYm9yZGVyIGJvcmRlci15ZWxsb3ctNTAwLzIwIHJvdW5kZWQtbGcgcC00XCI+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLXN0YXJ0IGdhcC0zXCI+XG4gICAgICAgICAgICAgICAgICA8QWxlcnRDaXJjbGUgY2xhc3NOYW1lPVwidy01IGgtNSB0ZXh0LXllbGxvdy00MDAgbXQtMC41XCIgLz5cbiAgICAgICAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgICAgICAgIDxoNCBjbGFzc05hbWU9XCJ0ZXh0LXllbGxvdy00MDAgZm9udC1zZW1pYm9sZCBtYi0xXCI+Q3VzdG9tIFRheG9ub215IEl0ZW08L2g0PlxuICAgICAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LXNtIHRleHQtZ3JheS00MDBcIj5cbiAgICAgICAgICAgICAgICAgICAgICBUaGlzIHdpbGwgYmUgYSBjdXN0b20gdGF4b25vbXkgaXRlbSBhbmQgY2FuIGJlIG1vZGlmaWVkIG9yIGRlYWN0aXZhdGVkIGxhdGVyLlxuICAgICAgICAgICAgICAgICAgICAgIEl0IHdpbGwgYmUgYXZhaWxhYmxlIHRvIGFsbCBvcmdhbml6YXRpb25zIGluIHRoZSBzeXN0ZW0uXG4gICAgICAgICAgICAgICAgICAgIDwvcD5cbiAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICA8L2Rpdj5cblxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggZ2FwLTMgcHQtNFwiPlxuICAgICAgICAgICAgICAgIDxidXR0b25cbiAgICAgICAgICAgICAgICAgIG9uQ2xpY2s9eygpID0+IHNldFNob3dBZGRNb2RhbChmYWxzZSl9XG4gICAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJmbGV4LTEgcHgtNCBweS0yLjUgYmctd2hpdGUvNSBob3ZlcjpiZy13aGl0ZS8xMCB0ZXh0LXdoaXRlIHJvdW5kZWQtbGcgdHJhbnNpdGlvbi1jb2xvcnMgZm9udC1tZWRpdW0gYm9yZGVyIGJvcmRlci13aGl0ZS8xMFwiXG4gICAgICAgICAgICAgICAgPlxuICAgICAgICAgICAgICAgICAgQ2FuY2VsXG4gICAgICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgICAgICAgPGJ1dHRvblxuICAgICAgICAgICAgICAgICAgb25DbGljaz17KCkgPT4ge1xuICAgICAgICAgICAgICAgICAgICAvLyBBZGQgbG9naWMgaGVyZVxuICAgICAgICAgICAgICAgICAgICBzZXRTaG93QWRkTW9kYWwoZmFsc2UpO1xuICAgICAgICAgICAgICAgICAgfX1cbiAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cImZsZXgtMSBweC00IHB5LTIuNSBiZy10ZWFsLTYwMCBob3ZlcjpiZy10ZWFsLTUwMCB0ZXh0LXdoaXRlIHJvdW5kZWQtbGcgdHJhbnNpdGlvbi1jb2xvcnMgZm9udC1tZWRpdW1cIlxuICAgICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICAgIENyZWF0ZSBJdGVtXG4gICAgICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvZGl2PlxuICAgICAgKX1cblxuICAgICAgey8qIFZpZXcvRWRpdCBJdGVtIE1vZGFsICovfVxuICAgICAge2VkaXRpbmdJdGVtICYmIChcbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmaXhlZCBpbnNldC0wIGJnLWJsYWNrLzUwIGJhY2tkcm9wLWJsdXItc20gZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1jZW50ZXIgei01MCBwLTRcIj5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLWdyYWRpZW50LXRvLWJyIGZyb20tWyMwQjFGMkFdIHRvLVsjMGQyMzMxXSByb3VuZGVkLXhsIGJvcmRlciBib3JkZXItd2hpdGUvMTAgc2hhZG93LTJ4bCBtYXgtdy0yeGwgdy1mdWxsIG1heC1oLVs5MHZoXSBvdmVyZmxvdy15LWF1dG9cIj5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwic3RpY2t5IHRvcC0wIGJnLWdyYWRpZW50LXRvLXIgZnJvbS1ibHVlLTYwMCB0by1ibHVlLTcwMCBwLTYgZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuIGJvcmRlci1iIGJvcmRlci13aGl0ZS8xMFwiPlxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0zXCI+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJwLTIgYmctd2hpdGUvMTAgcm91bmRlZC1sZ1wiPlxuICAgICAgICAgICAgICAgICAgPEV5ZSBjbGFzc05hbWU9XCJ3LTYgaC02IHRleHQtd2hpdGVcIiAvPlxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgICAgICA8aDIgY2xhc3NOYW1lPVwidGV4dC14bCBmb250LWJvbGQgdGV4dC13aGl0ZVwiPkl0ZW0gRGV0YWlsczwvaDI+XG4gICAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LWJsdWUtMTAwIHRleHQtc21cIj57ZWRpdGluZ0l0ZW0ubGFiZWx9PC9wPlxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgPGJ1dHRvblxuICAgICAgICAgICAgICAgIG9uQ2xpY2s9eygpID0+IHNldEVkaXRpbmdJdGVtKG51bGwpfVxuICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cInAtMiBob3ZlcjpiZy13aGl0ZS8xMCByb3VuZGVkLWxnIHRyYW5zaXRpb24tY29sb3JzIHRleHQtd2hpdGVcIlxuICAgICAgICAgICAgICA+XG4gICAgICAgICAgICAgICAgPFggY2xhc3NOYW1lPVwidy01IGgtNVwiIC8+XG4gICAgICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicC02IHNwYWNlLXktNlwiPlxuICAgICAgICAgICAgICB7LyogU3RhdHVzIEJhZGdlICovfVxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlblwiPlxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTJcIj5cbiAgICAgICAgICAgICAgICAgIHtlZGl0aW5nSXRlbS5zdGF0dXMgPT09ICdhY3RpdmUnID8gKFxuICAgICAgICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJpbmxpbmUtZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTIgcHgtMyBweS0xLjUgcm91bmRlZC1mdWxsIHRleHQtc20gZm9udC1tZWRpdW0gYmctZW1lcmFsZC01MDAvMTAgdGV4dC1lbWVyYWxkLTQwMCBib3JkZXIgYm9yZGVyLWVtZXJhbGQtNTAwLzIwXCI+XG4gICAgICAgICAgICAgICAgICAgICAgPENoZWNrQ2lyY2xlIGNsYXNzTmFtZT1cInctNCBoLTRcIiAvPlxuICAgICAgICAgICAgICAgICAgICAgIEFjdGl2ZVxuICAgICAgICAgICAgICAgICAgICA8L3NwYW4+XG4gICAgICAgICAgICAgICAgICApIDogKFxuICAgICAgICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJpbmxpbmUtZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTIgcHgtMyBweS0xLjUgcm91bmRlZC1mdWxsIHRleHQtc20gZm9udC1tZWRpdW0gYmctZ3JheS01MDAvMTAgdGV4dC1ncmF5LTQwMCBib3JkZXIgYm9yZGVyLWdyYXktNTAwLzIwXCI+XG4gICAgICAgICAgICAgICAgICAgICAgPEFsZXJ0Q2lyY2xlIGNsYXNzTmFtZT1cInctNCBoLTRcIiAvPlxuICAgICAgICAgICAgICAgICAgICAgIEluYWN0aXZlXG4gICAgICAgICAgICAgICAgICAgIDwvc3Bhbj5cbiAgICAgICAgICAgICAgICAgICl9XG4gICAgICAgICAgICAgICAgICB7ZWRpdGluZ0l0ZW0uaXNTeXN0ZW1EZWZhdWx0ICYmIChcbiAgICAgICAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwiaW5saW5lLWZsZXggaXRlbXMtY2VudGVyIGdhcC0yIHB4LTMgcHktMS41IHJvdW5kZWQtZnVsbCB0ZXh0LXNtIGZvbnQtbWVkaXVtIGJnLWJsdWUtNTAwLzEwIHRleHQtYmx1ZS00MDAgYm9yZGVyIGJvcmRlci1ibHVlLTUwMC8yMFwiPlxuICAgICAgICAgICAgICAgICAgICAgIDxEYXRhYmFzZSBjbGFzc05hbWU9XCJ3LTQgaC00XCIgLz5cbiAgICAgICAgICAgICAgICAgICAgICBTeXN0ZW0gRGVmYXVsdFxuICAgICAgICAgICAgICAgICAgICA8L3NwYW4+XG4gICAgICAgICAgICAgICAgICApfVxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICA8L2Rpdj5cblxuICAgICAgICAgICAgICB7LyogRGV0YWlscyBHcmlkICovfVxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImdyaWQgZ3JpZC1jb2xzLTIgZ2FwLTRcIj5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLXdoaXRlLzUgcm91bmRlZC1sZyBwLTQgYm9yZGVyIGJvcmRlci13aGl0ZS8xMFwiPlxuICAgICAgICAgICAgICAgICAgPGxhYmVsIGNsYXNzTmFtZT1cImJsb2NrIHRleHQteHMgZm9udC1tZWRpdW0gdGV4dC1ncmF5LTQwMCBtYi0xXCI+RGlzcGxheSBOYW1lPC9sYWJlbD5cbiAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtd2hpdGUgZm9udC1tZWRpdW1cIj57ZWRpdGluZ0l0ZW0ubGFiZWx9PC9wPlxuICAgICAgICAgICAgICAgIDwvZGl2PlxuXG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJiZy13aGl0ZS81IHJvdW5kZWQtbGcgcC00IGJvcmRlciBib3JkZXItd2hpdGUvMTBcIj5cbiAgICAgICAgICAgICAgICAgIDxsYWJlbCBjbGFzc05hbWU9XCJibG9jayB0ZXh0LXhzIGZvbnQtbWVkaXVtIHRleHQtZ3JheS00MDAgbWItMVwiPlZhbHVlL0lEPC9sYWJlbD5cbiAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtd2hpdGUgZm9udC1tb25vIHRleHQtc21cIj57ZWRpdGluZ0l0ZW0udmFsdWV9PC9wPlxuICAgICAgICAgICAgICAgIDwvZGl2PlxuXG4gICAgICAgICAgICAgICAge2VkaXRpbmdJdGVtLmNvZGUgJiYgKFxuICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJiZy13aGl0ZS81IHJvdW5kZWQtbGcgcC00IGJvcmRlciBib3JkZXItd2hpdGUvMTBcIj5cbiAgICAgICAgICAgICAgICAgICAgPGxhYmVsIGNsYXNzTmFtZT1cImJsb2NrIHRleHQteHMgZm9udC1tZWRpdW0gdGV4dC1ncmF5LTQwMCBtYi0xXCI+Q29kZTwvbGFiZWw+XG4gICAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtdGVhbC00MDAgZm9udC1zZW1pYm9sZFwiPntlZGl0aW5nSXRlbS5jb2RlfTwvcD5cbiAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICl9XG5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLXdoaXRlLzUgcm91bmRlZC1sZyBwLTQgYm9yZGVyIGJvcmRlci13aGl0ZS8xMFwiPlxuICAgICAgICAgICAgICAgICAgPGxhYmVsIGNsYXNzTmFtZT1cImJsb2NrIHRleHQteHMgZm9udC1tZWRpdW0gdGV4dC1ncmF5LTQwMCBtYi0xXCI+VXNhZ2UgQ291bnQ8L2xhYmVsPlxuICAgICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC13aGl0ZSBmb250LW1lZGl1bVwiPntlZGl0aW5nSXRlbS51c2FnZUNvdW50fSBkb2N1bWVudHM8L3A+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLXdoaXRlLzUgcm91bmRlZC1sZyBwLTQgYm9yZGVyIGJvcmRlci13aGl0ZS8xMFwiPlxuICAgICAgICAgICAgICAgICAgPGxhYmVsIGNsYXNzTmFtZT1cImJsb2NrIHRleHQteHMgZm9udC1tZWRpdW0gdGV4dC1ncmF5LTQwMCBtYi0xXCI+Q3JlYXRlZCBEYXRlPC9sYWJlbD5cbiAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtd2hpdGVcIj57ZWRpdGluZ0l0ZW0uY3JlYXRlZERhdGV9PC9wPlxuICAgICAgICAgICAgICAgIDwvZGl2PlxuXG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJiZy13aGl0ZS81IHJvdW5kZWQtbGcgcC00IGJvcmRlciBib3JkZXItd2hpdGUvMTBcIj5cbiAgICAgICAgICAgICAgICAgIDxsYWJlbCBjbGFzc05hbWU9XCJibG9jayB0ZXh0LXhzIGZvbnQtbWVkaXVtIHRleHQtZ3JheS00MDAgbWItMVwiPlR5cGU8L2xhYmVsPlxuICAgICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC13aGl0ZVwiPntlZGl0aW5nSXRlbS5pc1N5c3RlbURlZmF1bHQgPyAnU3lzdGVtIERlZmF1bHQnIDogJ0N1c3RvbSd9PC9wPlxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICA8L2Rpdj5cblxuICAgICAgICAgICAgICB7LyogU3lzdGVtIERlZmF1bHQgV2FybmluZyAqL31cbiAgICAgICAgICAgICAge2VkaXRpbmdJdGVtLmlzU3lzdGVtRGVmYXVsdCAmJiAoXG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJiZy1ibHVlLTUwMC8xMCBib3JkZXIgYm9yZGVyLWJsdWUtNTAwLzIwIHJvdW5kZWQtbGcgcC00XCI+XG4gICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtc3RhcnQgZ2FwLTNcIj5cbiAgICAgICAgICAgICAgICAgICAgPEFsZXJ0Q2lyY2xlIGNsYXNzTmFtZT1cInctNSBoLTUgdGV4dC1ibHVlLTQwMCBtdC0wLjVcIiAvPlxuICAgICAgICAgICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICAgICAgICAgIDxoNCBjbGFzc05hbWU9XCJ0ZXh0LWJsdWUtNDAwIGZvbnQtc2VtaWJvbGQgbWItMVwiPlN5c3RlbSBEZWZhdWx0IEl0ZW08L2g0PlxuICAgICAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtc20gdGV4dC1ncmF5LTQwMFwiPlxuICAgICAgICAgICAgICAgICAgICAgICAgVGhpcyBpcyBhIHN5c3RlbS1kZWZpbmVkIHRheG9ub215IGl0ZW0gYW5kIGNhbm5vdCBiZSBtb2RpZmllZCBvciBkZWxldGVkLlxuICAgICAgICAgICAgICAgICAgICAgICAgU3lzdGVtIGRlZmF1bHRzIGVuc3VyZSBjb25zaXN0ZW5jeSBhY3Jvc3MgYWxsIG9yZ2FuaXphdGlvbnMgYW5kIHJvbGVzLlxuICAgICAgICAgICAgICAgICAgICAgIDwvcD5cbiAgICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgKX1cblxuICAgICAgICAgICAgICB7LyogQWN0aW9ucyAqL31cbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGdhcC0zIHB0LTRcIj5cbiAgICAgICAgICAgICAgICA8YnV0dG9uXG4gICAgICAgICAgICAgICAgICBvbkNsaWNrPXsoKSA9PiBzZXRFZGl0aW5nSXRlbShudWxsKX1cbiAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cImZsZXgtMSBweC00IHB5LTIuNSBiZy13aGl0ZS81IGhvdmVyOmJnLXdoaXRlLzEwIHRleHQtd2hpdGUgcm91bmRlZC1sZyB0cmFuc2l0aW9uLWNvbG9ycyBmb250LW1lZGl1bSBib3JkZXIgYm9yZGVyLXdoaXRlLzEwXCJcbiAgICAgICAgICAgICAgICA+XG4gICAgICAgICAgICAgICAgICBDbG9zZVxuICAgICAgICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICAgICAgICAgIHshZWRpdGluZ0l0ZW0uaXNTeXN0ZW1EZWZhdWx0ICYmIChcbiAgICAgICAgICAgICAgICAgIDw+XG4gICAgICAgICAgICAgICAgICAgIDxidXR0b24gY2xhc3NOYW1lPVwiZmxleC0xIHB4LTQgcHktMi41IGJnLWJsdWUtNjAwIGhvdmVyOmJnLWJsdWUtNTAwIHRleHQtd2hpdGUgcm91bmRlZC1sZyB0cmFuc2l0aW9uLWNvbG9ycyBmb250LW1lZGl1bVwiPlxuICAgICAgICAgICAgICAgICAgICAgIEVkaXQgSXRlbVxuICAgICAgICAgICAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgICAgICAgICAgICAgPGJ1dHRvbiBjbGFzc05hbWU9XCJmbGV4LTEgcHgtNCBweS0yLjUgYmctcmVkLTYwMCBob3ZlcjpiZy1yZWQtNTAwIHRleHQtd2hpdGUgcm91bmRlZC1sZyB0cmFuc2l0aW9uLWNvbG9ycyBmb250LW1lZGl1bVwiPlxuICAgICAgICAgICAgICAgICAgICAgIERlYWN0aXZhdGVcbiAgICAgICAgICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgICAgICAgICA8Lz5cbiAgICAgICAgICAgICAgICApfVxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICA8L2Rpdj5cbiAgICAgICl9XG4gICAgPC8+XG4gICk7XG59XG4iXSwiZmlsZSI6Ii93b3Jrc3BhY2VzL2RlZmF1bHQvY29kZS9zcmMvYXBwL3BhZ2VzL3BsYXRmb3JtLWFkbWluL1RheG9ub215TWFuYWdlbWVudC50c3gifQ==

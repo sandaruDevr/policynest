@@ -1,0 +1,44 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/app/pages/org-admin/AICommandCenter.tsx");import { jsxDEV } from "/@id/__x00__figma:react-jsx-dev-runtime";
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/workspaces/default/code/src/app/pages/org-admin/AICommandCenter.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+import { FGCmp } from "/@id/fginspector";
+import AICommandCenter from "/src/app/pages/shared/AICommandCenter.tsx";
+export default function OrgAdminAICommandCenter() {
+  return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: AICommandCenter, _fgS: "d7hk0", _fgB: 1779104381567, _fgD: true, role: "org-admin", "data-fg-d7hk0": "418.250:418.159:/src/app/pages/org-admin/AICommandCenter.tsx:4:10:119:36:e:AICommandCenter::1::::u6d" }, void 0, false, {
+    fileName: "/workspaces/default/code/src/app/pages/org-admin/AICommandCenter.tsx",
+    lineNumber: 24,
+    columnNumber: 10
+  }, this);
+}
+_c = OrgAdminAICommandCenter;
+var _c;
+$RefreshReg$(_c, "OrgAdminAICommandCenter");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/workspaces/default/code/src/app/pages/org-admin/AICommandCenter.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/workspaces/default/code/src/app/pages/org-admin/AICommandCenter.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6IkFBR1M7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBSFQsT0FBT0EscUJBQXFCO0FBRTVCLHdCQUF3QkMsMEJBQTBCO0FBQ2hELFNBQU8sdUJBQUMsZUFBQUQsaUJBQUEsMENBQWUsTUFBQyxNQUFLLGFBQVcsMkhBQWpDO0FBQUE7QUFBQTtBQUFBO0FBQUEsU0FBaUM7QUFDMUM7QUFBQUUsS0FGd0JEO0FBQXVCLElBQUFDO0FBQUFDLGFBQUFELElBQUEiLCJuYW1lcyI6WyJBSUNvbW1hbmRDZW50ZXIiLCJPcmdBZG1pbkFJQ29tbWFuZENlbnRlciIsIl9jIiwiJFJlZnJlc2hSZWckIl0sImlnbm9yZUxpc3QiOltdLCJzb3VyY2VzIjpbIkFJQ29tbWFuZENlbnRlci50c3giXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IEFJQ29tbWFuZENlbnRlciBmcm9tICcuLi9zaGFyZWQvQUlDb21tYW5kQ2VudGVyJztcblxuZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24gT3JnQWRtaW5BSUNvbW1hbmRDZW50ZXIoKSB7XG4gIHJldHVybiA8QUlDb21tYW5kQ2VudGVyIHJvbGU9XCJvcmctYWRtaW5cIiAvPjtcbn1cbiJdLCJmaWxlIjoiL3dvcmtzcGFjZXMvZGVmYXVsdC9jb2RlL3NyYy9hcHAvcGFnZXMvb3JnLWFkbWluL0FJQ29tbWFuZENlbnRlci50c3gifQ==

@@ -1,0 +1,839 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/app/components/DocumentUploadModal.tsx");import { jsxDEV } from "/@id/__x00__figma:react-jsx-dev-runtime";
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/workspaces/default/code/src/app/components/DocumentUploadModal.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+var _s = $RefreshSig$();
+import { FGCmp } from "/@id/fginspector";
+import { useState, useRef } from "/@id/__x00__figma:react-base";
+import { X, Upload, File, FileText, FileSpreadsheet, Image, CheckCircle, AlertCircle } from "/node_modules/.vite/deps/lucide-react.js?v=25293e4c";
+import { DOCUMENT_CATEGORIES, DOCUMENT_TYPES, SECTORS } from "/src/app/data/taxonomy.ts";
+export function DocumentUploadModal({ isOpen, onClose, onUpload }) {
+  _s();
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [uploadProgress, setUploadProgress] = useState(0);
+  const [formData, setFormData] = useState({
+    title: "",
+    type: "",
+    category: "",
+    sector: "",
+    description: "",
+    version: "1.0"
+  });
+  const [errors, setErrors] = useState([]);
+  const fileInputRef = useRef(null);
+  if (!isOpen) return null;
+  const allowedTypes = [
+    "application/pdf",
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    // DOCX
+    "application/msword",
+    // DOC
+    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    // XLSX
+    "application/vnd.ms-excel",
+    // XLS
+    "image/png",
+    "image/jpeg",
+    "image/jpg"
+  ];
+  const maxFileSize = 50 * 1024 * 1024;
+  const validateFile = (file) => {
+    const validationErrors = [];
+    if (!allowedTypes.includes(file.type)) {
+      validationErrors.push("File type not supported. Please upload PDF, DOCX, XLSX, or image files.");
+    }
+    if (file.size > maxFileSize) {
+      validationErrors.push("File size exceeds 50MB limit.");
+    }
+    return validationErrors;
+  };
+  const handleFileSelect = (file) => {
+    const validationErrors = validateFile(file);
+    if (validationErrors.length > 0) {
+      setErrors(validationErrors);
+      setSelectedFile(null);
+      return;
+    }
+    setErrors([]);
+    setSelectedFile(file);
+    if (!formData.title) {
+      const fileName = file.name.replace(/\.[^/.]+$/, "");
+      setFormData({ ...formData, title: fileName });
+    }
+  };
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    setIsDragging(true);
+  };
+  const handleDragLeave = () => {
+    setIsDragging(false);
+  };
+  const handleDrop = (e) => {
+    e.preventDefault();
+    setIsDragging(false);
+    const file = e.dataTransfer.files[0];
+    if (file) {
+      handleFileSelect(file);
+    }
+  };
+  const handleFileInputChange = (e) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      handleFileSelect(file);
+    }
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!selectedFile) {
+      setErrors(["Please select a file to upload"]);
+      return;
+    }
+    if (!formData.title || !formData.type || !formData.category || !formData.sector) {
+      setErrors(["Please fill in all required fields"]);
+      return;
+    }
+    setUploadProgress(0);
+    const interval = setInterval(() => {
+      setUploadProgress((prev) => {
+        if (prev >= 100) {
+          clearInterval(interval);
+          return 100;
+        }
+        return prev + 10;
+      });
+    }, 100);
+    setTimeout(() => {
+      onUpload({
+        file: selectedFile,
+        ...formData
+      });
+      setSelectedFile(null);
+      setFormData({
+        title: "",
+        type: "",
+        category: "",
+        sector: "",
+        description: "",
+        version: "1.0"
+      });
+      setUploadProgress(0);
+      setErrors([]);
+    }, 1200);
+  };
+  const getFileIcon = (file) => {
+    if (file.type.includes("pdf")) {
+      return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: FileText, _fgS: "bkaa0", _fgB: 1779104383191, className: "w-12 h-12 text-red-400", "data-fg-bkaa0": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:158:14:3999:47:e:FileText::::::B1i5" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+        lineNumber: 178,
+        columnNumber: 14
+      }, this);
+    } else if (file.type.includes("word")) {
+      return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: FileText, _fgS: "bkaa1", _fgB: 1779104383191, className: "w-12 h-12 text-blue-400", "data-fg-bkaa1": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:160:14:4106:48:e:FileText::::::B1i5" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+        lineNumber: 180,
+        columnNumber: 14
+      }, this);
+    } else if (file.type.includes("sheet") || file.type.includes("excel")) {
+      return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: FileSpreadsheet, _fgS: "bkaa2", _fgB: 1779104383191, className: "w-12 h-12 text-green-400", "data-fg-bkaa2": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:162:14:4246:56:e:FileSpreadsheet::::::EINS" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+        lineNumber: 182,
+        columnNumber: 14
+      }, this);
+    } else if (file.type.includes("image")) {
+      return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Image, _fgS: "bkaa3", _fgB: 1779104383191, className: "w-12 h-12 text-purple-400", "data-fg-bkaa3": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:164:14:4363:47:e:Image::::::CO8z" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+        lineNumber: 184,
+        columnNumber: 14
+      }, this);
+    }
+    return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: File, _fgS: "bkaa4", _fgB: 1779104383191, className: "w-12 h-12 text-gray-400", "data-fg-bkaa4": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:166:12:4429:44:e:File::::::DEHK" }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+      lineNumber: 186,
+      columnNumber: 12
+    }, this);
+  };
+  const formatFileSize = (bytes) => {
+    if (bytes === 0) return "0 Bytes";
+    const k = 1024;
+    const sizes = ["Bytes", "KB", "MB", "GB"];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return Math.round(bytes / Math.pow(k, i) * 100) / 100 + " " + sizes[i];
+  };
+  return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bkaa5", _fgB: 1779104383191, _fgD: true, className: "fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm", "data-fg-bkaa5": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:178:5:4795:10405:e:div:e:1", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bkaa6", _fgB: 1779104383191, className: "bg-[#0d2738] border border-white/10 rounded-xl shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto", "data-fg-bkaa6": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:179:7:4900:10289:e:div:xtete", children: [
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bkaa8", _fgB: 1779104383191, className: "flex items-center justify-between p-6 border-b border-white/10", "data-fg-bkaa8": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:181:9:5053:522:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bkaa9", _fgB: 1779104383191, "data-fg-bkaa9": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:182:11:5144:212:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h2", _fgS: "bkaa10", _fgB: 1779104383191, className: "text-xl font-semibold text-white", "data-fg-bkaa10": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:183:13:5162:69:e:h2:t", children: "Upload Document" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+          lineNumber: 203,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "bkaa12", _fgB: 1779104383191, className: "text-sm text-gray-400 mt-1", "data-fg-bkaa12": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:184:13:5244:95:e:p:t", children: "Upload PDF, DOCX, XLSX, or image files (max 50MB)" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+          lineNumber: 204,
+          columnNumber: 13
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+        lineNumber: 202,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV(
+        FGCmp,
+        {
+          _fgT: "button",
+          _fgS: "bkaa14",
+          _fgB: 1779104383191,
+          onClick: onClose,
+          className: "p-2 hover:bg-white/10 rounded-lg transition-all",
+          "data-fg-bkaa14": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:186:11:5367:193:e:button:e",
+          children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: X, _fgS: "bkaa15", _fgB: 1779104383191, className: "w-5 h-5 text-gray-400", "data-fg-bkaa15": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:190:13:5501:39:e:X::::::TvS" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+            lineNumber: 210,
+            columnNumber: 13
+          }, this)
+        },
+        void 0,
+        false,
+        {
+          fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+          lineNumber: 206,
+          columnNumber: 11
+        },
+        this
+      )
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+      lineNumber: 201,
+      columnNumber: 9
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "form", _fgS: "bkaa16", _fgB: 1779104383191, onSubmit: handleSubmit, className: "p-6 space-y-6", "data-fg-bkaa16": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:194:9:5585:9591:e:form:xtxtxtetxtetxtetxte", children: [
+      errors.length > 0 && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bkaa19", _fgB: 1779104383191, className: "bg-red-500/10 border border-red-500/30 rounded-lg p-4", "data-fg-bkaa19": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:197:13:5721:471:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bkaa20", _fgB: 1779104383191, className: "flex items-start gap-2", "data-fg-bkaa20": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:198:15:5807:366:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: AlertCircle, _fgS: "bkaa21", _fgB: 1779104383191, className: "w-5 h-5 text-red-400 flex-shrink-0 mt-0.5", "data-fg-bkaa21": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:199:17:5864:69:e:AlertCircle::::::fAY" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+          lineNumber: 219,
+          columnNumber: 17
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bkaa22", _fgB: 1779104383191, className: "space-y-1", "data-fg-bkaa22": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:200:17:5950:202:e:div:x", children: errors.map(
+          (error, index) => /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "bkaa24", _fgB: 1779104383191, className: "text-sm text-red-400", "data-fg-bkaa24": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:202:21:6048:59:e:p:x", children: error }, index, false, {
+            fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+            lineNumber: 222,
+            columnNumber: 17
+          }, this)
+        ) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+          lineNumber: 220,
+          columnNumber: 17
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+        lineNumber: 218,
+        columnNumber: 15
+      }, this) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+        lineNumber: 217,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bkaa27", _fgB: 1779104383191, "data-fg-bkaa27": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:210:11:6252:3096:e:div:etx", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "bkaa28", _fgB: 1779104383191, className: "block text-sm font-medium text-gray-300 mb-3", "data-fg-bkaa28": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:211:13:6270:113:e:label:t", children: "Select File *" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+          lineNumber: 231,
+          columnNumber: 13
+        }, this),
+        !selectedFile ? /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "div",
+            _fgS: "bkaa31",
+            _fgB: 1779104383191,
+            onDragOver: handleDragOver,
+            onDragLeave: handleDragLeave,
+            onDrop: handleDrop,
+            onClick: () => fileInputRef.current?.click(),
+            className: `border-2 border-dashed rounded-xl p-8 text-center cursor-pointer transition-all ${isDragging ? "border-teal-500 bg-teal-500/10" : "border-white/20 bg-white/5 hover:bg-white/10"}`,
+            "data-fg-bkaa31": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:216:15:6430:1118:e:div:etetete",
+            children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Upload, _fgS: "bkaa32", _fgB: 1779104383191, className: "w-12 h-12 text-gray-400 mx-auto mb-4", "data-fg-bkaa32": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:227:17:6939:59:e:Upload::::::4gZ" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+                lineNumber: 247,
+                columnNumber: 17
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "bkaa33", _fgB: 1779104383191, className: "text-white font-medium mb-1", "data-fg-bkaa33": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:228:17:7015:115:e:p:t", children: "Click to upload or drag and drop" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+                lineNumber: 248,
+                columnNumber: 17
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "bkaa35", _fgB: 1779104383191, className: "text-sm text-gray-400", "data-fg-bkaa35": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:231:17:7147:113:e:p:t", children: "PDF, DOCX, XLSX, PNG, JPG (max 50MB)" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+                lineNumber: 251,
+                columnNumber: 17
+              }, this),
+              /* @__PURE__ */ jsxDEV(
+                FGCmp,
+                {
+                  _fgT: "input",
+                  _fgS: "bkaa37",
+                  _fgB: 1779104383191,
+                  ref: fileInputRef,
+                  type: "file",
+                  onChange: handleFileInputChange,
+                  accept: ".pdf,.doc,.docx,.xls,.xlsx,.png,.jpg,.jpeg",
+                  className: "hidden",
+                  "data-fg-bkaa37": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:234:17:7277:250:e:input"
+                },
+                void 0,
+                false,
+                {
+                  fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+                  lineNumber: 254,
+                  columnNumber: 17
+                },
+                this
+              )
+            ]
+          },
+          void 0,
+          true,
+          {
+            fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+            lineNumber: 236,
+            columnNumber: 13
+          },
+          this
+        ) : /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bkaa38", _fgB: 1779104383191, className: "border border-white/10 rounded-xl p-4 bg-white/5", "data-fg-bkaa38": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:243:15:7581:1735:e:div:etxtx", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bkaa39", _fgB: 1779104383191, className: "flex items-center gap-4", "data-fg-bkaa39": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:244:17:7664:747:e:div:xtete", children: [
+            getFileIcon(selectedFile),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bkaa41", _fgB: 1779104383191, className: "flex-1", "data-fg-bkaa41": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:246:19:7770:228:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "bkaa42", _fgB: 1779104383191, className: "text-white font-medium", "data-fg-bkaa42": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:247:21:7815:61:e:p:x", children: selectedFile.name }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+                lineNumber: 267,
+                columnNumber: 21
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "bkaa44", _fgB: 1779104383191, className: "text-sm text-gray-400", "data-fg-bkaa44": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:248:21:7897:76:e:p:x", children: formatFileSize(selectedFile.size) }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+                lineNumber: 268,
+                columnNumber: 21
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+              lineNumber: 266,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV(
+              FGCmp,
+              {
+                _fgT: "button",
+                _fgS: "bkaa46",
+                _fgB: 1779104383191,
+                type: "button",
+                onClick: () => {
+                  setSelectedFile(null);
+                  setErrors([]);
+                },
+                className: "p-2 hover:bg-white/10 rounded-lg transition-all",
+                "data-fg-bkaa46": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:250:19:8017:371:e:button:e",
+                children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: X, _fgS: "bkaa47", _fgB: 1779104383191, className: "w-5 h-5 text-gray-400", "data-fg-bkaa47": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:258:21:8321:39:e:X::::::TvS" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+                  lineNumber: 278,
+                  columnNumber: 21
+                }, this)
+              },
+              void 0,
+              false,
+              {
+                fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+                lineNumber: 270,
+                columnNumber: 19
+              },
+              this
+            )
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+            lineNumber: 264,
+            columnNumber: 17
+          }, this),
+          uploadProgress > 0 && uploadProgress < 100 && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bkaa49", _fgB: 1779104383191, className: "mt-4", "data-fg-bkaa49": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:263:19:8496:484:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bkaa50", _fgB: 1779104383191, className: "h-2 bg-white/10 rounded-full overflow-hidden", "data-fg-bkaa50": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:264:21:8539:319:e:div:e", children: /* @__PURE__ */ jsxDEV(
+              FGCmp,
+              {
+                _fgT: "div",
+                _fgS: "bkaa51",
+                _fgB: 1779104383191,
+                className: "h-full bg-gradient-to-r from-teal-600 to-teal-500 transition-all duration-300",
+                style: { width: `${uploadProgress}%` },
+                "data-fg-bkaa51": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:265:23:8624:207:e:div"
+              },
+              void 0,
+              false,
+              {
+                fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+                lineNumber: 285,
+                columnNumber: 23
+              },
+              this
+            ) }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+              lineNumber: 284,
+              columnNumber: 21
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "bkaa52", _fgB: 1779104383191, className: "text-xs text-gray-400 mt-2", "data-fg-bkaa52": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:270:21:8879:76:e:p:txt", children: [
+              "Uploading... ",
+              uploadProgress,
+              "%"
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+              lineNumber: 290,
+              columnNumber: 21
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+            lineNumber: 283,
+            columnNumber: 15
+          }, this),
+          uploadProgress === 100 && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bkaa57", _fgB: 1779104383191, className: "mt-4 flex items-center gap-2 text-green-400", "data-fg-bkaa57": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:275:19:9064:212:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: CheckCircle, _fgS: "bkaa58", _fgB: 1779104383191, className: "w-4 h-4", "data-fg-bkaa58": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:276:21:9146:35:e:CheckCircle::::::C4Wc" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+              lineNumber: 296,
+              columnNumber: 21
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "bkaa59", _fgB: 1779104383191, className: "text-sm", "data-fg-bkaa59": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:277:21:9202:49:e:span:t", children: "Upload complete!" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+              lineNumber: 297,
+              columnNumber: 21
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+            lineNumber: 295,
+            columnNumber: 15
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+          lineNumber: 263,
+          columnNumber: 13
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+        lineNumber: 230,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bkaa62", _fgB: 1779104383191, className: "grid grid-cols-2 gap-4", "data-fg-bkaa62": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:285:11:9396:4238:e:div:etetetetete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bkaa63", _fgB: 1779104383191, className: "col-span-2", "data-fg-bkaa63": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:286:13:9449:620:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "bkaa64", _fgB: 1779104383191, className: "block text-sm font-medium text-gray-400 mb-2", "data-fg-bkaa64": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:287:15:9492:120:e:label:t", children: "Document Title *" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+            lineNumber: 307,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "input",
+              _fgS: "bkaa66",
+              _fgB: 1779104383191,
+              type: "text",
+              value: formData.title,
+              onChange: (e) => setFormData({ ...formData, title: e.target.value }),
+              required: true,
+              placeholder: "Enter document title...",
+              className: "w-full px-4 py-3 bg-[#0B1F2A] border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-teal-500/50",
+              "data-fg-bkaa66": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:290:15:9627:423:e:input"
+            },
+            void 0,
+            false,
+            {
+              fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+              lineNumber: 310,
+              columnNumber: 15
+            },
+            this
+          )
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+          lineNumber: 306,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bkaa67", _fgB: 1779104383191, "data-fg-bkaa67": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:300:13:10083:764:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "bkaa68", _fgB: 1779104383191, className: "block text-sm font-medium text-gray-400 mb-2", "data-fg-bkaa68": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:301:15:10103:119:e:label:t", children: "Document Type *" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+            lineNumber: 321,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "select",
+              _fgS: "bkaa70",
+              _fgB: 1779104383191,
+              value: formData.type,
+              onChange: (e) => setFormData({ ...formData, type: e.target.value }),
+              required: true,
+              className: "w-full px-4 py-3 bg-[#0B1F2A] border border-white/10 rounded-lg text-white focus:outline-none focus:border-teal-500/50",
+              "data-fg-bkaa70": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:304:15:10237:591:e:select:etx",
+              children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "bkaa71", _fgB: 1779104383191, value: "", "data-fg-bkaa71": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:310:17:10572:40:e:option:t", children: "Select type..." }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+                  lineNumber: 330,
+                  columnNumber: 17
+                }, this),
+                DOCUMENT_TYPES.map(
+                  (type) => /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "bkaa74", _fgB: 1779104383191, value: type.value, "data-fg-bkaa74": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:312:19:10679:105:e:option:x", children: type.label }, type.value, false, {
+                    fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+                    lineNumber: 332,
+                    columnNumber: 17
+                  }, this)
+                )
+              ]
+            },
+            void 0,
+            true,
+            {
+              fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+              lineNumber: 324,
+              columnNumber: 15
+            },
+            this
+          )
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+          lineNumber: 320,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bkaa76", _fgB: 1779104383191, "data-fg-bkaa76": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:319:13:10861:776:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "bkaa77", _fgB: 1779104383191, className: "block text-sm font-medium text-gray-400 mb-2", "data-fg-bkaa77": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:320:15:10881:114:e:label:t", children: "Category *" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+            lineNumber: 340,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "select",
+              _fgS: "bkaa79",
+              _fgB: 1779104383191,
+              value: formData.category,
+              onChange: (e) => setFormData({ ...formData, category: e.target.value }),
+              required: true,
+              className: "w-full px-4 py-3 bg-[#0B1F2A] border border-white/10 rounded-lg text-white focus:outline-none focus:border-teal-500/50",
+              "data-fg-bkaa79": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:323:15:11010:608:e:select:etx",
+              children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "bkaa80", _fgB: 1779104383191, value: "", "data-fg-bkaa80": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:329:17:11353:44:e:option:t", children: "Select category..." }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+                  lineNumber: 349,
+                  columnNumber: 17
+                }, this),
+                DOCUMENT_CATEGORIES.map(
+                  (cat) => /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "bkaa83", _fgB: 1779104383191, value: cat.value, "data-fg-bkaa83": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:331:19:11468:106:e:option:x", children: cat.fullLabel }, cat.value, false, {
+                    fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+                    lineNumber: 351,
+                    columnNumber: 17
+                  }, this)
+                )
+              ]
+            },
+            void 0,
+            true,
+            {
+              fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+              lineNumber: 343,
+              columnNumber: 15
+            },
+            this
+          )
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+          lineNumber: 339,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bkaa85", _fgB: 1779104383191, "data-fg-bkaa85": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:338:13:11651:764:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "bkaa86", _fgB: 1779104383191, className: "block text-sm font-medium text-gray-400 mb-2", "data-fg-bkaa86": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:339:15:11671:112:e:label:t", children: "Sector *" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+            lineNumber: 359,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "select",
+              _fgS: "bkaa88",
+              _fgB: 1779104383191,
+              value: formData.sector,
+              onChange: (e) => setFormData({ ...formData, sector: e.target.value }),
+              required: true,
+              className: "w-full px-4 py-3 bg-[#0B1F2A] border border-white/10 rounded-lg text-white focus:outline-none focus:border-teal-500/50",
+              "data-fg-bkaa88": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:342:15:11798:598:e:select:etx",
+              children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "bkaa89", _fgB: 1779104383191, value: "", "data-fg-bkaa89": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:348:17:12137:42:e:option:t", children: "Select sector..." }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+                  lineNumber: 368,
+                  columnNumber: 17
+                }, this),
+                SECTORS.map(
+                  (sector) => /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "option", _fgS: "bkaa92", _fgB: 1779104383191, value: sector.value, "data-fg-bkaa92": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:350:19:12241:111:e:option:x", children: sector.label }, sector.value, false, {
+                    fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+                    lineNumber: 370,
+                    columnNumber: 17
+                  }, this)
+                )
+              ]
+            },
+            void 0,
+            true,
+            {
+              fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+              lineNumber: 362,
+              columnNumber: 15
+            },
+            this
+          )
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+          lineNumber: 358,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bkaa94", _fgB: 1779104383191, "data-fg-bkaa94": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:357:13:12429:547:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "bkaa95", _fgB: 1779104383191, className: "block text-sm font-medium text-gray-400 mb-2", "data-fg-bkaa95": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:358:15:12449:111:e:label:t", children: "Version" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+            lineNumber: 378,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "input",
+              _fgS: "bkaa97",
+              _fgB: 1779104383191,
+              type: "text",
+              value: formData.version,
+              onChange: (e) => setFormData({ ...formData, version: e.target.value }),
+              placeholder: "1.0",
+              className: "w-full px-4 py-3 bg-[#0B1F2A] border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-teal-500/50",
+              "data-fg-bkaa97": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:361:15:12575:382:e:input"
+            },
+            void 0,
+            false,
+            {
+              fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+              lineNumber: 381,
+              columnNumber: 15
+            },
+            this
+          )
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+          lineNumber: 377,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bkaa98", _fgB: 1779104383191, className: "col-span-2", "data-fg-bkaa98": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:370:13:12990:627:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "bkaa99", _fgB: 1779104383191, className: "block text-sm font-medium text-gray-400 mb-2", "data-fg-bkaa99": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:371:15:13033:115:e:label:t", children: "Description" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+            lineNumber: 391,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "textarea",
+              _fgS: "bkaa101",
+              _fgB: 1779104383191,
+              value: formData.description,
+              onChange: (e) => setFormData({ ...formData, description: e.target.value }),
+              placeholder: "Brief description of the document...",
+              rows: 3,
+              className: "w-full px-4 py-3 bg-[#0B1F2A] border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-teal-500/50 resize-none",
+              "data-fg-bkaa101": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:374:15:13163:435:e:textarea"
+            },
+            void 0,
+            false,
+            {
+              fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+              lineNumber: 394,
+              columnNumber: 15
+            },
+            this
+          )
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+          lineNumber: 390,
+          columnNumber: 13
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+        lineNumber: 305,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bkaa103", _fgB: 1779104383191, className: "bg-blue-500/10 border border-blue-500/20 rounded-lg p-4", "data-fg-bkaa103": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:385:11:13690:661:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "bkaa104", _fgB: 1779104383191, className: "text-sm text-blue-400 font-medium mb-2", "data-fg-bkaa104": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:386:13:13776:83:e:p:t", children: "Supported Document Types:" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+          lineNumber: 406,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "ul", _fgS: "bkaa106", _fgB: 1779104383191, className: "text-xs text-gray-400 space-y-1", "data-fg-bkaa106": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:387:13:13872:462:e:ul:etetetete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "li", _fgS: "bkaa107", _fgB: 1779104383191, "data-fg-bkaa107": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:388:15:13935:73:e:li:tet", children: [
+            "• ",
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "strong", _fgS: "bkaa109", _fgB: 1779104383191, "data-fg-bkaa109": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:388:21:13941:35:e:strong:t", children: "Forms & Templates:" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+              lineNumber: 408,
+              columnNumber: 174
+            }, this),
+            " PDF (fillable), DOCX, XLSX"
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+            lineNumber: 408,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "li", _fgS: "bkaa112", _fgB: 1779104383191, "data-fg-bkaa112": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:389:15:14023:70:e:li:tet", children: [
+            "• ",
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "strong", _fgS: "bkaa114", _fgB: 1779104383191, "data-fg-bkaa114": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:389:21:14029:28:e:strong:t", children: "Guidelines:" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+              lineNumber: 409,
+              columnNumber: 174
+            }, this),
+            " PDF, DOCX with complex layouts"
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+            lineNumber: 409,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "li", _fgS: "bkaa117", _fgB: 1779104383191, "data-fg-bkaa117": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:390:15:14108:63:e:li:tet", children: [
+            "• ",
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "strong", _fgS: "bkaa119", _fgB: 1779104383191, "data-fg-bkaa119": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:390:21:14114:29:e:strong:t", children: "Fact Sheets:" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+              lineNumber: 410,
+              columnNumber: 174
+            }, this),
+            " PDF, images (PNG, JPG)"
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+            lineNumber: 410,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "li", _fgS: "bkaa122", _fgB: 1779104383191, "data-fg-bkaa122": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:391:15:14186:56:e:li:tet", children: [
+            "• ",
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "strong", _fgS: "bkaa124", _fgB: 1779104383191, "data-fg-bkaa124": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:391:21:14192:27:e:strong:t", children: "Registers:" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+              lineNumber: 411,
+              columnNumber: 174
+            }, this),
+            " Excel (XLSX, XLS)"
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+            lineNumber: 411,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "li", _fgS: "bkaa127", _fgB: 1779104383191, "data-fg-bkaa127": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:392:15:14257:59:e:li:tet", children: [
+            "• ",
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "strong", _fgS: "bkaa129", _fgB: 1779104383191, "data-fg-bkaa129": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:392:21:14263:27:e:strong:t", children: "Resources:" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+              lineNumber: 412,
+              columnNumber: 174
+            }, this),
+            " Any supported format"
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+            lineNumber: 412,
+            columnNumber: 15
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+          lineNumber: 407,
+          columnNumber: 13
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+        lineNumber: 405,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "bkaa133", _fgB: 1779104383191, className: "flex gap-3 pt-4", "data-fg-bkaa133": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:397:11:14389:771:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "button",
+            _fgS: "bkaa134",
+            _fgB: 1779104383191,
+            type: "button",
+            onClick: onClose,
+            className: "flex-1 px-4 py-3 bg-white/5 border border-white/10 text-white rounded-lg hover:bg-white/10 transition-all font-medium",
+            "data-fg-bkaa134": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:398:13:14435:268:e:button:t",
+            children: "Cancel"
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+            lineNumber: 418,
+            columnNumber: 13
+          },
+          this
+        ),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "button",
+            _fgS: "bkaa136",
+            _fgB: 1779104383191,
+            type: "submit",
+            disabled: !selectedFile || uploadProgress > 0,
+            className: "flex-1 px-4 py-3 bg-gradient-to-r from-teal-600 to-teal-500 text-white rounded-lg hover:shadow-lg transition-all font-medium disabled:opacity-50 disabled:cursor-not-allowed",
+            "data-fg-bkaa136": "618.69:618.15208:/src/app/components/DocumentUploadModal.tsx:405:13:14716:427:e:button:x",
+            children: uploadProgress > 0 && uploadProgress < 100 ? "Uploading..." : "Upload Document"
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+            lineNumber: 425,
+            columnNumber: 13
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+        lineNumber: 417,
+        columnNumber: 11
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+      lineNumber: 214,
+      columnNumber: 9
+    }, this)
+  ] }, void 0, true, {
+    fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+    lineNumber: 199,
+    columnNumber: 7
+  }, this) }, void 0, false, {
+    fileName: "/workspaces/default/code/src/app/components/DocumentUploadModal.tsx",
+    lineNumber: 198,
+    columnNumber: 5
+  }, this);
+}
+_s(DocumentUploadModal, "NKduJpSYVvDz9POVuq3iTFH2P2E=");
+_c = DocumentUploadModal;
+var _c;
+$RefreshReg$(_c, "DocumentUploadModal");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/workspaces/default/code/src/app/components/DocumentUploadModal.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/workspaces/default/code/src/app/components/DocumentUploadModal.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,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QUFBO0FBQUE7QUFBQSxRQU1BO0FBQUEsUUFDQTtBQUFBLFVBQUM7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLFlBQ0MsTUFBSztBQUFBLFlBQ0wsVUFBVSxDQUFDRyxnQkFBZ0JJLGlCQUFpQjtBQUFBLFlBQzVDLFdBQVU7QUFBQSxZQUNiO0FBQUEsWUFDSUEsMkJBQWlCLEtBQUtBLGlCQUFpQixNQUFNLGlCQUFpQjtBQUFBO0FBQUEsVUFMakU7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLFFBTUE7QUFBQSxXQWRGO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUFlQTtBQUFBLFNBMU5GO0FBQUE7QUFBQTtBQUFBO0FBQUEsV0EyTkE7QUFBQSxPQTFPRjtBQUFBO0FBQUE7QUFBQTtBQUFBLFNBMk9BLEtBNU9GO0FBQUE7QUFBQTtBQUFBO0FBQUEsU0E2T0E7QUFFSjtBQUFBTCxHQTVZZ0JKLHFCQUFtQjtBQUFBdUUsS0FBbkJ2RTtBQUFtQixJQUFBdUU7QUFBQUMsYUFBQUQsSUFBQSIsIm5hbWVzIjpbInVzZVN0YXRlIiwidXNlUmVmIiwiWCIsIlVwbG9hZCIsIkZpbGUiLCJGaWxlVGV4dCIsIkZpbGVTcHJlYWRzaGVldCIsIkltYWdlIiwiQ2hlY2tDaXJjbGUiLCJBbGVydENpcmNsZSIsIkRPQ1VNRU5UX0NBVEVHT1JJRVMiLCJET0NVTUVOVF9UWVBFUyIsIlNFQ1RPUlMiLCJEb2N1bWVudFVwbG9hZE1vZGFsIiwiaXNPcGVuIiwib25DbG9zZSIsIm9uVXBsb2FkIiwiX3MiLCJzZWxlY3RlZEZpbGUiLCJzZXRTZWxlY3RlZEZpbGUiLCJpc0RyYWdnaW5nIiwic2V0SXNEcmFnZ2luZyIsInVwbG9hZFByb2dyZXNzIiwic2V0VXBsb2FkUHJvZ3Jlc3MiLCJmb3JtRGF0YSIsInNldEZvcm1EYXRhIiwidGl0bGUiLCJ0eXBlIiwiY2F0ZWdvcnkiLCJzZWN0b3IiLCJkZXNjcmlwdGlvbiIsInZlcnNpb24iLCJlcnJvcnMiLCJzZXRFcnJvcnMiLCJmaWxlSW5wdXRSZWYiLCJhbGxvd2VkVHlwZXMiLCJtYXhGaWxlU2l6ZSIsInZhbGlkYXRlRmlsZSIsImZpbGUiLCJ2YWxpZGF0aW9uRXJyb3JzIiwiaW5jbHVkZXMiLCJwdXNoIiwic2l6ZSIsImhhbmRsZUZpbGVTZWxlY3QiLCJsZW5ndGgiLCJmaWxlTmFtZSIsIm5hbWUiLCJyZXBsYWNlIiwiaGFuZGxlRHJhZ092ZXIiLCJlIiwicHJldmVudERlZmF1bHQiLCJoYW5kbGVEcmFnTGVhdmUiLCJoYW5kbGVEcm9wIiwiZGF0YVRyYW5zZmVyIiwiZmlsZXMiLCJoYW5kbGVGaWxlSW5wdXRDaGFuZ2UiLCJ0YXJnZXQiLCJoYW5kbGVTdWJtaXQiLCJpbnRlcnZhbCIsInNldEludGVydmFsIiwicHJldiIsImNsZWFySW50ZXJ2YWwiLCJzZXRUaW1lb3V0IiwiZ2V0RmlsZUljb24iLCJmb3JtYXRGaWxlU2l6ZSIsImJ5dGVzIiwiayIsInNpemVzIiwiaSIsIk1hdGgiLCJmbG9vciIsImxvZyIsInJvdW5kIiwicG93IiwibWFwIiwiZXJyb3IiLCJpbmRleCIsImN1cnJlbnQiLCJjbGljayIsIndpZHRoIiwidmFsdWUiLCJsYWJlbCIsImNhdCIsImZ1bGxMYWJlbCIsIl9jIiwiJFJlZnJlc2hSZWckIl0sImlnbm9yZUxpc3QiOltdLCJzb3VyY2VzIjpbIkRvY3VtZW50VXBsb2FkTW9kYWwudHN4Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBSZWFjdCwgeyB1c2VTdGF0ZSwgdXNlUmVmIH0gZnJvbSAncmVhY3QnO1xuaW1wb3J0IHsgWCwgVXBsb2FkLCBGaWxlLCBGaWxlVGV4dCwgRmlsZVNwcmVhZHNoZWV0LCBJbWFnZSwgQ2hlY2tDaXJjbGUsIEFsZXJ0Q2lyY2xlIH0gZnJvbSAnbHVjaWRlLXJlYWN0JztcbmltcG9ydCB7IERPQ1VNRU5UX0NBVEVHT1JJRVMsIERPQ1VNRU5UX1RZUEVTLCBTRUNUT1JTIH0gZnJvbSAnLi4vZGF0YS90YXhvbm9teSc7XG5cbmludGVyZmFjZSBEb2N1bWVudFVwbG9hZE1vZGFsUHJvcHMge1xuICBpc09wZW46IGJvb2xlYW47XG4gIG9uQ2xvc2U6ICgpID0+IHZvaWQ7XG4gIG9uVXBsb2FkOiAoZGF0YTogVXBsb2FkRG9jdW1lbnREYXRhKSA9PiB2b2lkO1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIFVwbG9hZERvY3VtZW50RGF0YSB7XG4gIGZpbGU6IEZpbGU7XG4gIHRpdGxlOiBzdHJpbmc7XG4gIHR5cGU6IHN0cmluZztcbiAgY2F0ZWdvcnk6IHN0cmluZztcbiAgc2VjdG9yOiBzdHJpbmc7XG4gIGRlc2NyaXB0aW9uOiBzdHJpbmc7XG4gIHZlcnNpb246IHN0cmluZztcbn1cblxuZXhwb3J0IGZ1bmN0aW9uIERvY3VtZW50VXBsb2FkTW9kYWwoeyBpc09wZW4sIG9uQ2xvc2UsIG9uVXBsb2FkIH06IERvY3VtZW50VXBsb2FkTW9kYWxQcm9wcykge1xuICBjb25zdCBbc2VsZWN0ZWRGaWxlLCBzZXRTZWxlY3RlZEZpbGVdID0gdXNlU3RhdGU8RmlsZSB8IG51bGw+KG51bGwpO1xuICBjb25zdCBbaXNEcmFnZ2luZywgc2V0SXNEcmFnZ2luZ10gPSB1c2VTdGF0ZShmYWxzZSk7XG4gIGNvbnN0IFt1cGxvYWRQcm9ncmVzcywgc2V0VXBsb2FkUHJvZ3Jlc3NdID0gdXNlU3RhdGUoMCk7XG4gIGNvbnN0IFtmb3JtRGF0YSwgc2V0Rm9ybURhdGFdID0gdXNlU3RhdGUoe1xuICAgIHRpdGxlOiAnJyxcbiAgICB0eXBlOiAnJyxcbiAgICBjYXRlZ29yeTogJycsXG4gICAgc2VjdG9yOiAnJyxcbiAgICBkZXNjcmlwdGlvbjogJycsXG4gICAgdmVyc2lvbjogJzEuMCcsXG4gIH0pO1xuICBjb25zdCBbZXJyb3JzLCBzZXRFcnJvcnNdID0gdXNlU3RhdGU8c3RyaW5nW10+KFtdKTtcbiAgY29uc3QgZmlsZUlucHV0UmVmID0gdXNlUmVmPEhUTUxJbnB1dEVsZW1lbnQ+KG51bGwpO1xuXG4gIGlmICghaXNPcGVuKSByZXR1cm4gbnVsbDtcblxuICBjb25zdCBhbGxvd2VkVHlwZXMgPSBbXG4gICAgJ2FwcGxpY2F0aW9uL3BkZicsXG4gICAgJ2FwcGxpY2F0aW9uL3ZuZC5vcGVueG1sZm9ybWF0cy1vZmZpY2Vkb2N1bWVudC53b3JkcHJvY2Vzc2luZ21sLmRvY3VtZW50JywgLy8gRE9DWFxuICAgICdhcHBsaWNhdGlvbi9tc3dvcmQnLCAvLyBET0NcbiAgICAnYXBwbGljYXRpb24vdm5kLm9wZW54bWxmb3JtYXRzLW9mZmljZWRvY3VtZW50LnNwcmVhZHNoZWV0bWwuc2hlZXQnLCAvLyBYTFNYXG4gICAgJ2FwcGxpY2F0aW9uL3ZuZC5tcy1leGNlbCcsIC8vIFhMU1xuICAgICdpbWFnZS9wbmcnLFxuICAgICdpbWFnZS9qcGVnJyxcbiAgICAnaW1hZ2UvanBnJyxcbiAgXTtcblxuICBjb25zdCBtYXhGaWxlU2l6ZSA9IDUwICogMTAyNCAqIDEwMjQ7IC8vIDUwTUJcblxuICBjb25zdCB2YWxpZGF0ZUZpbGUgPSAoZmlsZTogRmlsZSk6IHN0cmluZ1tdID0+IHtcbiAgICBjb25zdCB2YWxpZGF0aW9uRXJyb3JzOiBzdHJpbmdbXSA9IFtdO1xuXG4gICAgaWYgKCFhbGxvd2VkVHlwZXMuaW5jbHVkZXMoZmlsZS50eXBlKSkge1xuICAgICAgdmFsaWRhdGlvbkVycm9ycy5wdXNoKCdGaWxlIHR5cGUgbm90IHN1cHBvcnRlZC4gUGxlYXNlIHVwbG9hZCBQREYsIERPQ1gsIFhMU1gsIG9yIGltYWdlIGZpbGVzLicpO1xuICAgIH1cblxuICAgIGlmIChmaWxlLnNpemUgPiBtYXhGaWxlU2l6ZSkge1xuICAgICAgdmFsaWRhdGlvbkVycm9ycy5wdXNoKCdGaWxlIHNpemUgZXhjZWVkcyA1ME1CIGxpbWl0LicpO1xuICAgIH1cblxuICAgIHJldHVybiB2YWxpZGF0aW9uRXJyb3JzO1xuICB9O1xuXG4gIGNvbnN0IGhhbmRsZUZpbGVTZWxlY3QgPSAoZmlsZTogRmlsZSkgPT4ge1xuICAgIGNvbnN0IHZhbGlkYXRpb25FcnJvcnMgPSB2YWxpZGF0ZUZpbGUoZmlsZSk7XG5cbiAgICBpZiAodmFsaWRhdGlvbkVycm9ycy5sZW5ndGggPiAwKSB7XG4gICAgICBzZXRFcnJvcnModmFsaWRhdGlvbkVycm9ycyk7XG4gICAgICBzZXRTZWxlY3RlZEZpbGUobnVsbCk7XG4gICAgICByZXR1cm47XG4gICAgfVxuXG4gICAgc2V0RXJyb3JzKFtdKTtcbiAgICBzZXRTZWxlY3RlZEZpbGUoZmlsZSk7XG5cbiAgICAvLyBBdXRvLXBvcHVsYXRlIHRpdGxlIGZyb20gZmlsZW5hbWVcbiAgICBpZiAoIWZvcm1EYXRhLnRpdGxlKSB7XG4gICAgICBjb25zdCBmaWxlTmFtZSA9IGZpbGUubmFtZS5yZXBsYWNlKC9cXC5bXi8uXSskLywgJycpOyAvLyBSZW1vdmUgZXh0ZW5zaW9uXG4gICAgICBzZXRGb3JtRGF0YSh7IC4uLmZvcm1EYXRhLCB0aXRsZTogZmlsZU5hbWUgfSk7XG4gICAgfVxuICB9O1xuXG4gIGNvbnN0IGhhbmRsZURyYWdPdmVyID0gKGU6IFJlYWN0LkRyYWdFdmVudCkgPT4ge1xuICAgIGUucHJldmVudERlZmF1bHQoKTtcbiAgICBzZXRJc0RyYWdnaW5nKHRydWUpO1xuICB9O1xuXG4gIGNvbnN0IGhhbmRsZURyYWdMZWF2ZSA9ICgpID0+IHtcbiAgICBzZXRJc0RyYWdnaW5nKGZhbHNlKTtcbiAgfTtcblxuICBjb25zdCBoYW5kbGVEcm9wID0gKGU6IFJlYWN0LkRyYWdFdmVudCkgPT4ge1xuICAgIGUucHJldmVudERlZmF1bHQoKTtcbiAgICBzZXRJc0RyYWdnaW5nKGZhbHNlKTtcblxuICAgIGNvbnN0IGZpbGUgPSBlLmRhdGFUcmFuc2Zlci5maWxlc1swXTtcbiAgICBpZiAoZmlsZSkge1xuICAgICAgaGFuZGxlRmlsZVNlbGVjdChmaWxlKTtcbiAgICB9XG4gIH07XG5cbiAgY29uc3QgaGFuZGxlRmlsZUlucHV0Q2hhbmdlID0gKGU6IFJlYWN0LkNoYW5nZUV2ZW50PEhUTUxJbnB1dEVsZW1lbnQ+KSA9PiB7XG4gICAgY29uc3QgZmlsZSA9IGUudGFyZ2V0LmZpbGVzPy5bMF07XG4gICAgaWYgKGZpbGUpIHtcbiAgICAgIGhhbmRsZUZpbGVTZWxlY3QoZmlsZSk7XG4gICAgfVxuICB9O1xuXG4gIGNvbnN0IGhhbmRsZVN1Ym1pdCA9IChlOiBSZWFjdC5Gb3JtRXZlbnQpID0+IHtcbiAgICBlLnByZXZlbnREZWZhdWx0KCk7XG5cbiAgICBpZiAoIXNlbGVjdGVkRmlsZSkge1xuICAgICAgc2V0RXJyb3JzKFsnUGxlYXNlIHNlbGVjdCBhIGZpbGUgdG8gdXBsb2FkJ10pO1xuICAgICAgcmV0dXJuO1xuICAgIH1cblxuICAgIGlmICghZm9ybURhdGEudGl0bGUgfHwgIWZvcm1EYXRhLnR5cGUgfHwgIWZvcm1EYXRhLmNhdGVnb3J5IHx8ICFmb3JtRGF0YS5zZWN0b3IpIHtcbiAgICAgIHNldEVycm9ycyhbJ1BsZWFzZSBmaWxsIGluIGFsbCByZXF1aXJlZCBmaWVsZHMnXSk7XG4gICAgICByZXR1cm47XG4gICAgfVxuXG4gICAgLy8gU2ltdWxhdGUgdXBsb2FkIHByb2dyZXNzXG4gICAgc2V0VXBsb2FkUHJvZ3Jlc3MoMCk7XG4gICAgY29uc3QgaW50ZXJ2YWwgPSBzZXRJbnRlcnZhbCgoKSA9PiB7XG4gICAgICBzZXRVcGxvYWRQcm9ncmVzcyhwcmV2ID0+IHtcbiAgICAgICAgaWYgKHByZXYgPj0gMTAwKSB7XG4gICAgICAgICAgY2xlYXJJbnRlcnZhbChpbnRlcnZhbCk7XG4gICAgICAgICAgcmV0dXJuIDEwMDtcbiAgICAgICAgfVxuICAgICAgICByZXR1cm4gcHJldiArIDEwO1xuICAgICAgfSk7XG4gICAgfSwgMTAwKTtcblxuICAgIHNldFRpbWVvdXQoKCkgPT4ge1xuICAgICAgb25VcGxvYWQoe1xuICAgICAgICBmaWxlOiBzZWxlY3RlZEZpbGUsXG4gICAgICAgIC4uLmZvcm1EYXRhLFxuICAgICAgfSk7XG5cbiAgICAgIC8vIFJlc2V0IGZvcm1cbiAgICAgIHNldFNlbGVjdGVkRmlsZShudWxsKTtcbiAgICAgIHNldEZvcm1EYXRhKHtcbiAgICAgICAgdGl0bGU6ICcnLFxuICAgICAgICB0eXBlOiAnJyxcbiAgICAgICAgY2F0ZWdvcnk6ICcnLFxuICAgICAgICBzZWN0b3I6ICcnLFxuICAgICAgICBkZXNjcmlwdGlvbjogJycsXG4gICAgICAgIHZlcnNpb246ICcxLjAnLFxuICAgICAgfSk7XG4gICAgICBzZXRVcGxvYWRQcm9ncmVzcygwKTtcbiAgICAgIHNldEVycm9ycyhbXSk7XG4gICAgfSwgMTIwMCk7XG4gIH07XG5cbiAgY29uc3QgZ2V0RmlsZUljb24gPSAoZmlsZTogRmlsZSkgPT4ge1xuICAgIGlmIChmaWxlLnR5cGUuaW5jbHVkZXMoJ3BkZicpKSB7XG4gICAgICByZXR1cm4gPEZpbGVUZXh0IGNsYXNzTmFtZT1cInctMTIgaC0xMiB0ZXh0LXJlZC00MDBcIiAvPjtcbiAgICB9IGVsc2UgaWYgKGZpbGUudHlwZS5pbmNsdWRlcygnd29yZCcpKSB7XG4gICAgICByZXR1cm4gPEZpbGVUZXh0IGNsYXNzTmFtZT1cInctMTIgaC0xMiB0ZXh0LWJsdWUtNDAwXCIgLz47XG4gICAgfSBlbHNlIGlmIChmaWxlLnR5cGUuaW5jbHVkZXMoJ3NoZWV0JykgfHwgZmlsZS50eXBlLmluY2x1ZGVzKCdleGNlbCcpKSB7XG4gICAgICByZXR1cm4gPEZpbGVTcHJlYWRzaGVldCBjbGFzc05hbWU9XCJ3LTEyIGgtMTIgdGV4dC1ncmVlbi00MDBcIiAvPjtcbiAgICB9IGVsc2UgaWYgKGZpbGUudHlwZS5pbmNsdWRlcygnaW1hZ2UnKSkge1xuICAgICAgcmV0dXJuIDxJbWFnZSBjbGFzc05hbWU9XCJ3LTEyIGgtMTIgdGV4dC1wdXJwbGUtNDAwXCIgLz47XG4gICAgfVxuICAgIHJldHVybiA8RmlsZSBjbGFzc05hbWU9XCJ3LTEyIGgtMTIgdGV4dC1ncmF5LTQwMFwiIC8+O1xuICB9O1xuXG4gIGNvbnN0IGZvcm1hdEZpbGVTaXplID0gKGJ5dGVzOiBudW1iZXIpOiBzdHJpbmcgPT4ge1xuICAgIGlmIChieXRlcyA9PT0gMCkgcmV0dXJuICcwIEJ5dGVzJztcbiAgICBjb25zdCBrID0gMTAyNDtcbiAgICBjb25zdCBzaXplcyA9IFsnQnl0ZXMnLCAnS0InLCAnTUInLCAnR0InXTtcbiAgICBjb25zdCBpID0gTWF0aC5mbG9vcihNYXRoLmxvZyhieXRlcykgLyBNYXRoLmxvZyhrKSk7XG4gICAgcmV0dXJuIE1hdGgucm91bmQoYnl0ZXMgLyBNYXRoLnBvdyhrLCBpKSAqIDEwMCkgLyAxMDAgKyAnICcgKyBzaXplc1tpXTtcbiAgfTtcblxuICByZXR1cm4gKFxuICAgIDxkaXYgY2xhc3NOYW1lPVwiZml4ZWQgaW5zZXQtMCB6LTUwIGZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktY2VudGVyIGJnLWJsYWNrLzUwIGJhY2tkcm9wLWJsdXItc21cIj5cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYmctWyMwZDI3MzhdIGJvcmRlciBib3JkZXItd2hpdGUvMTAgcm91bmRlZC14bCBzaGFkb3ctMnhsIHctZnVsbCBtYXgtdy0zeGwgbWF4LWgtWzkwdmhdIG92ZXJmbG93LXktYXV0b1wiPlxuICAgICAgICB7LyogSGVhZGVyICovfVxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlbiBwLTYgYm9yZGVyLWIgYm9yZGVyLXdoaXRlLzEwXCI+XG4gICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgIDxoMiBjbGFzc05hbWU9XCJ0ZXh0LXhsIGZvbnQtc2VtaWJvbGQgdGV4dC13aGl0ZVwiPlVwbG9hZCBEb2N1bWVudDwvaDI+XG4gICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LXNtIHRleHQtZ3JheS00MDAgbXQtMVwiPlVwbG9hZCBQREYsIERPQ1gsIFhMU1gsIG9yIGltYWdlIGZpbGVzIChtYXggNTBNQik8L3A+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgPGJ1dHRvblxuICAgICAgICAgICAgb25DbGljaz17b25DbG9zZX1cbiAgICAgICAgICAgIGNsYXNzTmFtZT1cInAtMiBob3ZlcjpiZy13aGl0ZS8xMCByb3VuZGVkLWxnIHRyYW5zaXRpb24tYWxsXCJcbiAgICAgICAgICA+XG4gICAgICAgICAgICA8WCBjbGFzc05hbWU9XCJ3LTUgaC01IHRleHQtZ3JheS00MDBcIiAvPlxuICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICA8L2Rpdj5cblxuICAgICAgICA8Zm9ybSBvblN1Ym1pdD17aGFuZGxlU3VibWl0fSBjbGFzc05hbWU9XCJwLTYgc3BhY2UteS02XCI+XG4gICAgICAgICAgey8qIEVycm9yIE1lc3NhZ2VzICovfVxuICAgICAgICAgIHtlcnJvcnMubGVuZ3RoID4gMCAmJiAoXG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLXJlZC01MDAvMTAgYm9yZGVyIGJvcmRlci1yZWQtNTAwLzMwIHJvdW5kZWQtbGcgcC00XCI+XG4gICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1zdGFydCBnYXAtMlwiPlxuICAgICAgICAgICAgICAgIDxBbGVydENpcmNsZSBjbGFzc05hbWU9XCJ3LTUgaC01IHRleHQtcmVkLTQwMCBmbGV4LXNocmluay0wIG10LTAuNVwiIC8+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJzcGFjZS15LTFcIj5cbiAgICAgICAgICAgICAgICAgIHtlcnJvcnMubWFwKChlcnJvciwgaW5kZXgpID0+IChcbiAgICAgICAgICAgICAgICAgICAgPHAga2V5PXtpbmRleH0gY2xhc3NOYW1lPVwidGV4dC1zbSB0ZXh0LXJlZC00MDBcIj57ZXJyb3J9PC9wPlxuICAgICAgICAgICAgICAgICAgKSl9XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgKX1cblxuICAgICAgICAgIHsvKiBGaWxlIFVwbG9hZCBBcmVhICovfVxuICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICA8bGFiZWwgY2xhc3NOYW1lPVwiYmxvY2sgdGV4dC1zbSBmb250LW1lZGl1bSB0ZXh0LWdyYXktMzAwIG1iLTNcIj5cbiAgICAgICAgICAgICAgU2VsZWN0IEZpbGUgKlxuICAgICAgICAgICAgPC9sYWJlbD5cblxuICAgICAgICAgICAgeyFzZWxlY3RlZEZpbGUgPyAoXG4gICAgICAgICAgICAgIDxkaXZcbiAgICAgICAgICAgICAgICBvbkRyYWdPdmVyPXtoYW5kbGVEcmFnT3Zlcn1cbiAgICAgICAgICAgICAgICBvbkRyYWdMZWF2ZT17aGFuZGxlRHJhZ0xlYXZlfVxuICAgICAgICAgICAgICAgIG9uRHJvcD17aGFuZGxlRHJvcH1cbiAgICAgICAgICAgICAgICBvbkNsaWNrPXsoKSA9PiBmaWxlSW5wdXRSZWYuY3VycmVudD8uY2xpY2soKX1cbiAgICAgICAgICAgICAgICBjbGFzc05hbWU9e2Bib3JkZXItMiBib3JkZXItZGFzaGVkIHJvdW5kZWQteGwgcC04IHRleHQtY2VudGVyIGN1cnNvci1wb2ludGVyIHRyYW5zaXRpb24tYWxsICR7XG4gICAgICAgICAgICAgICAgICBpc0RyYWdnaW5nXG4gICAgICAgICAgICAgICAgICAgID8gJ2JvcmRlci10ZWFsLTUwMCBiZy10ZWFsLTUwMC8xMCdcbiAgICAgICAgICAgICAgICAgICAgOiAnYm9yZGVyLXdoaXRlLzIwIGJnLXdoaXRlLzUgaG92ZXI6Ymctd2hpdGUvMTAnXG4gICAgICAgICAgICAgICAgfWB9XG4gICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICA8VXBsb2FkIGNsYXNzTmFtZT1cInctMTIgaC0xMiB0ZXh0LWdyYXktNDAwIG14LWF1dG8gbWItNFwiIC8+XG4gICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC13aGl0ZSBmb250LW1lZGl1bSBtYi0xXCI+XG4gICAgICAgICAgICAgICAgICBDbGljayB0byB1cGxvYWQgb3IgZHJhZyBhbmQgZHJvcFxuICAgICAgICAgICAgICAgIDwvcD5cbiAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LXNtIHRleHQtZ3JheS00MDBcIj5cbiAgICAgICAgICAgICAgICAgIFBERiwgRE9DWCwgWExTWCwgUE5HLCBKUEcgKG1heCA1ME1CKVxuICAgICAgICAgICAgICAgIDwvcD5cbiAgICAgICAgICAgICAgICA8aW5wdXRcbiAgICAgICAgICAgICAgICAgIHJlZj17ZmlsZUlucHV0UmVmfVxuICAgICAgICAgICAgICAgICAgdHlwZT1cImZpbGVcIlxuICAgICAgICAgICAgICAgICAgb25DaGFuZ2U9e2hhbmRsZUZpbGVJbnB1dENoYW5nZX1cbiAgICAgICAgICAgICAgICAgIGFjY2VwdD1cIi5wZGYsLmRvYywuZG9jeCwueGxzLC54bHN4LC5wbmcsLmpwZywuanBlZ1wiXG4gICAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJoaWRkZW5cIlxuICAgICAgICAgICAgICAgIC8+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgKSA6IChcbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJib3JkZXIgYm9yZGVyLXdoaXRlLzEwIHJvdW5kZWQteGwgcC00IGJnLXdoaXRlLzVcIj5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC00XCI+XG4gICAgICAgICAgICAgICAgICB7Z2V0RmlsZUljb24oc2VsZWN0ZWRGaWxlKX1cbiAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleC0xXCI+XG4gICAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtd2hpdGUgZm9udC1tZWRpdW1cIj57c2VsZWN0ZWRGaWxlLm5hbWV9PC9wPlxuICAgICAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LXNtIHRleHQtZ3JheS00MDBcIj57Zm9ybWF0RmlsZVNpemUoc2VsZWN0ZWRGaWxlLnNpemUpfTwvcD5cbiAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgPGJ1dHRvblxuICAgICAgICAgICAgICAgICAgICB0eXBlPVwiYnV0dG9uXCJcbiAgICAgICAgICAgICAgICAgICAgb25DbGljaz17KCkgPT4ge1xuICAgICAgICAgICAgICAgICAgICAgIHNldFNlbGVjdGVkRmlsZShudWxsKTtcbiAgICAgICAgICAgICAgICAgICAgICBzZXRFcnJvcnMoW10pO1xuICAgICAgICAgICAgICAgICAgICB9fVxuICAgICAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJwLTIgaG92ZXI6Ymctd2hpdGUvMTAgcm91bmRlZC1sZyB0cmFuc2l0aW9uLWFsbFwiXG4gICAgICAgICAgICAgICAgICA+XG4gICAgICAgICAgICAgICAgICAgIDxYIGNsYXNzTmFtZT1cInctNSBoLTUgdGV4dC1ncmF5LTQwMFwiIC8+XG4gICAgICAgICAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgICAgICAgICA8L2Rpdj5cblxuICAgICAgICAgICAgICAgIHt1cGxvYWRQcm9ncmVzcyA+IDAgJiYgdXBsb2FkUHJvZ3Jlc3MgPCAxMDAgJiYgKFxuICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJtdC00XCI+XG4gICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiaC0yIGJnLXdoaXRlLzEwIHJvdW5kZWQtZnVsbCBvdmVyZmxvdy1oaWRkZW5cIj5cbiAgICAgICAgICAgICAgICAgICAgICA8ZGl2XG4gICAgICAgICAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJoLWZ1bGwgYmctZ3JhZGllbnQtdG8tciBmcm9tLXRlYWwtNjAwIHRvLXRlYWwtNTAwIHRyYW5zaXRpb24tYWxsIGR1cmF0aW9uLTMwMFwiXG4gICAgICAgICAgICAgICAgICAgICAgICBzdHlsZT17eyB3aWR0aDogYCR7dXBsb2FkUHJvZ3Jlc3N9JWAgfX1cbiAgICAgICAgICAgICAgICAgICAgICAvPlxuICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC14cyB0ZXh0LWdyYXktNDAwIG10LTJcIj5VcGxvYWRpbmcuLi4ge3VwbG9hZFByb2dyZXNzfSU8L3A+XG4gICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICApfVxuXG4gICAgICAgICAgICAgICAge3VwbG9hZFByb2dyZXNzID09PSAxMDAgJiYgKFxuICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJtdC00IGZsZXggaXRlbXMtY2VudGVyIGdhcC0yIHRleHQtZ3JlZW4tNDAwXCI+XG4gICAgICAgICAgICAgICAgICAgIDxDaGVja0NpcmNsZSBjbGFzc05hbWU9XCJ3LTQgaC00XCIgLz5cbiAgICAgICAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwidGV4dC1zbVwiPlVwbG9hZCBjb21wbGV0ZSE8L3NwYW4+XG4gICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICApfVxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICl9XG4gICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICB7LyogRG9jdW1lbnQgTWV0YWRhdGEgKi99XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJncmlkIGdyaWQtY29scy0yIGdhcC00XCI+XG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImNvbC1zcGFuLTJcIj5cbiAgICAgICAgICAgICAgPGxhYmVsIGNsYXNzTmFtZT1cImJsb2NrIHRleHQtc20gZm9udC1tZWRpdW0gdGV4dC1ncmF5LTQwMCBtYi0yXCI+XG4gICAgICAgICAgICAgICAgRG9jdW1lbnQgVGl0bGUgKlxuICAgICAgICAgICAgICA8L2xhYmVsPlxuICAgICAgICAgICAgICA8aW5wdXRcbiAgICAgICAgICAgICAgICB0eXBlPVwidGV4dFwiXG4gICAgICAgICAgICAgICAgdmFsdWU9e2Zvcm1EYXRhLnRpdGxlfVxuICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXsoZSkgPT4gc2V0Rm9ybURhdGEoeyAuLi5mb3JtRGF0YSwgdGl0bGU6IGUudGFyZ2V0LnZhbHVlIH0pfVxuICAgICAgICAgICAgICAgIHJlcXVpcmVkXG4gICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9XCJFbnRlciBkb2N1bWVudCB0aXRsZS4uLlwiXG4gICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwidy1mdWxsIHB4LTQgcHktMyBiZy1bIzBCMUYyQV0gYm9yZGVyIGJvcmRlci13aGl0ZS8xMCByb3VuZGVkLWxnIHRleHQtd2hpdGUgcGxhY2Vob2xkZXItZ3JheS01MDAgZm9jdXM6b3V0bGluZS1ub25lIGZvY3VzOmJvcmRlci10ZWFsLTUwMC81MFwiXG4gICAgICAgICAgICAgIC8+XG4gICAgICAgICAgICA8L2Rpdj5cblxuICAgICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgICAgPGxhYmVsIGNsYXNzTmFtZT1cImJsb2NrIHRleHQtc20gZm9udC1tZWRpdW0gdGV4dC1ncmF5LTQwMCBtYi0yXCI+XG4gICAgICAgICAgICAgICAgRG9jdW1lbnQgVHlwZSAqXG4gICAgICAgICAgICAgIDwvbGFiZWw+XG4gICAgICAgICAgICAgIDxzZWxlY3RcbiAgICAgICAgICAgICAgICB2YWx1ZT17Zm9ybURhdGEudHlwZX1cbiAgICAgICAgICAgICAgICBvbkNoYW5nZT17KGUpID0+IHNldEZvcm1EYXRhKHsgLi4uZm9ybURhdGEsIHR5cGU6IGUudGFyZ2V0LnZhbHVlIH0pfVxuICAgICAgICAgICAgICAgIHJlcXVpcmVkXG4gICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwidy1mdWxsIHB4LTQgcHktMyBiZy1bIzBCMUYyQV0gYm9yZGVyIGJvcmRlci13aGl0ZS8xMCByb3VuZGVkLWxnIHRleHQtd2hpdGUgZm9jdXM6b3V0bGluZS1ub25lIGZvY3VzOmJvcmRlci10ZWFsLTUwMC81MFwiXG4gICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICA8b3B0aW9uIHZhbHVlPVwiXCI+U2VsZWN0IHR5cGUuLi48L29wdGlvbj5cbiAgICAgICAgICAgICAgICB7RE9DVU1FTlRfVFlQRVMubWFwKCh0eXBlKSA9PiAoXG4gICAgICAgICAgICAgICAgICA8b3B0aW9uIGtleT17dHlwZS52YWx1ZX0gdmFsdWU9e3R5cGUudmFsdWV9PlxuICAgICAgICAgICAgICAgICAgICB7dHlwZS5sYWJlbH1cbiAgICAgICAgICAgICAgICAgIDwvb3B0aW9uPlxuICAgICAgICAgICAgICAgICkpfVxuICAgICAgICAgICAgICA8L3NlbGVjdD5cbiAgICAgICAgICAgIDwvZGl2PlxuXG4gICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICA8bGFiZWwgY2xhc3NOYW1lPVwiYmxvY2sgdGV4dC1zbSBmb250LW1lZGl1bSB0ZXh0LWdyYXktNDAwIG1iLTJcIj5cbiAgICAgICAgICAgICAgICBDYXRlZ29yeSAqXG4gICAgICAgICAgICAgIDwvbGFiZWw+XG4gICAgICAgICAgICAgIDxzZWxlY3RcbiAgICAgICAgICAgICAgICB2YWx1ZT17Zm9ybURhdGEuY2F0ZWdvcnl9XG4gICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXRGb3JtRGF0YSh7IC4uLmZvcm1EYXRhLCBjYXRlZ29yeTogZS50YXJnZXQudmFsdWUgfSl9XG4gICAgICAgICAgICAgICAgcmVxdWlyZWRcbiAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJ3LWZ1bGwgcHgtNCBweS0zIGJnLVsjMEIxRjJBXSBib3JkZXIgYm9yZGVyLXdoaXRlLzEwIHJvdW5kZWQtbGcgdGV4dC13aGl0ZSBmb2N1czpvdXRsaW5lLW5vbmUgZm9jdXM6Ym9yZGVyLXRlYWwtNTAwLzUwXCJcbiAgICAgICAgICAgICAgPlxuICAgICAgICAgICAgICAgIDxvcHRpb24gdmFsdWU9XCJcIj5TZWxlY3QgY2F0ZWdvcnkuLi48L29wdGlvbj5cbiAgICAgICAgICAgICAgICB7RE9DVU1FTlRfQ0FURUdPUklFUy5tYXAoKGNhdCkgPT4gKFxuICAgICAgICAgICAgICAgICAgPG9wdGlvbiBrZXk9e2NhdC52YWx1ZX0gdmFsdWU9e2NhdC52YWx1ZX0+XG4gICAgICAgICAgICAgICAgICAgIHtjYXQuZnVsbExhYmVsfVxuICAgICAgICAgICAgICAgICAgPC9vcHRpb24+XG4gICAgICAgICAgICAgICAgKSl9XG4gICAgICAgICAgICAgIDwvc2VsZWN0PlxuICAgICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgIDxsYWJlbCBjbGFzc05hbWU9XCJibG9jayB0ZXh0LXNtIGZvbnQtbWVkaXVtIHRleHQtZ3JheS00MDAgbWItMlwiPlxuICAgICAgICAgICAgICAgIFNlY3RvciAqXG4gICAgICAgICAgICAgIDwvbGFiZWw+XG4gICAgICAgICAgICAgIDxzZWxlY3RcbiAgICAgICAgICAgICAgICB2YWx1ZT17Zm9ybURhdGEuc2VjdG9yfVxuICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXsoZSkgPT4gc2V0Rm9ybURhdGEoeyAuLi5mb3JtRGF0YSwgc2VjdG9yOiBlLnRhcmdldC52YWx1ZSB9KX1cbiAgICAgICAgICAgICAgICByZXF1aXJlZFxuICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cInctZnVsbCBweC00IHB5LTMgYmctWyMwQjFGMkFdIGJvcmRlciBib3JkZXItd2hpdGUvMTAgcm91bmRlZC1sZyB0ZXh0LXdoaXRlIGZvY3VzOm91dGxpbmUtbm9uZSBmb2N1czpib3JkZXItdGVhbC01MDAvNTBcIlxuICAgICAgICAgICAgICA+XG4gICAgICAgICAgICAgICAgPG9wdGlvbiB2YWx1ZT1cIlwiPlNlbGVjdCBzZWN0b3IuLi48L29wdGlvbj5cbiAgICAgICAgICAgICAgICB7U0VDVE9SUy5tYXAoKHNlY3RvcikgPT4gKFxuICAgICAgICAgICAgICAgICAgPG9wdGlvbiBrZXk9e3NlY3Rvci52YWx1ZX0gdmFsdWU9e3NlY3Rvci52YWx1ZX0+XG4gICAgICAgICAgICAgICAgICAgIHtzZWN0b3IubGFiZWx9XG4gICAgICAgICAgICAgICAgICA8L29wdGlvbj5cbiAgICAgICAgICAgICAgICApKX1cbiAgICAgICAgICAgICAgPC9zZWxlY3Q+XG4gICAgICAgICAgICA8L2Rpdj5cblxuICAgICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgICAgPGxhYmVsIGNsYXNzTmFtZT1cImJsb2NrIHRleHQtc20gZm9udC1tZWRpdW0gdGV4dC1ncmF5LTQwMCBtYi0yXCI+XG4gICAgICAgICAgICAgICAgVmVyc2lvblxuICAgICAgICAgICAgICA8L2xhYmVsPlxuICAgICAgICAgICAgICA8aW5wdXRcbiAgICAgICAgICAgICAgICB0eXBlPVwidGV4dFwiXG4gICAgICAgICAgICAgICAgdmFsdWU9e2Zvcm1EYXRhLnZlcnNpb259XG4gICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXRGb3JtRGF0YSh7IC4uLmZvcm1EYXRhLCB2ZXJzaW9uOiBlLnRhcmdldC52YWx1ZSB9KX1cbiAgICAgICAgICAgICAgICBwbGFjZWhvbGRlcj1cIjEuMFwiXG4gICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwidy1mdWxsIHB4LTQgcHktMyBiZy1bIzBCMUYyQV0gYm9yZGVyIGJvcmRlci13aGl0ZS8xMCByb3VuZGVkLWxnIHRleHQtd2hpdGUgcGxhY2Vob2xkZXItZ3JheS01MDAgZm9jdXM6b3V0bGluZS1ub25lIGZvY3VzOmJvcmRlci10ZWFsLTUwMC81MFwiXG4gICAgICAgICAgICAgIC8+XG4gICAgICAgICAgICA8L2Rpdj5cblxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJjb2wtc3Bhbi0yXCI+XG4gICAgICAgICAgICAgIDxsYWJlbCBjbGFzc05hbWU9XCJibG9jayB0ZXh0LXNtIGZvbnQtbWVkaXVtIHRleHQtZ3JheS00MDAgbWItMlwiPlxuICAgICAgICAgICAgICAgIERlc2NyaXB0aW9uXG4gICAgICAgICAgICAgIDwvbGFiZWw+XG4gICAgICAgICAgICAgIDx0ZXh0YXJlYVxuICAgICAgICAgICAgICAgIHZhbHVlPXtmb3JtRGF0YS5kZXNjcmlwdGlvbn1cbiAgICAgICAgICAgICAgICBvbkNoYW5nZT17KGUpID0+IHNldEZvcm1EYXRhKHsgLi4uZm9ybURhdGEsIGRlc2NyaXB0aW9uOiBlLnRhcmdldC52YWx1ZSB9KX1cbiAgICAgICAgICAgICAgICBwbGFjZWhvbGRlcj1cIkJyaWVmIGRlc2NyaXB0aW9uIG9mIHRoZSBkb2N1bWVudC4uLlwiXG4gICAgICAgICAgICAgICAgcm93cz17M31cbiAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJ3LWZ1bGwgcHgtNCBweS0zIGJnLVsjMEIxRjJBXSBib3JkZXIgYm9yZGVyLXdoaXRlLzEwIHJvdW5kZWQtbGcgdGV4dC13aGl0ZSBwbGFjZWhvbGRlci1ncmF5LTUwMCBmb2N1czpvdXRsaW5lLW5vbmUgZm9jdXM6Ym9yZGVyLXRlYWwtNTAwLzUwIHJlc2l6ZS1ub25lXCJcbiAgICAgICAgICAgICAgLz5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDwvZGl2PlxuXG4gICAgICAgICAgey8qIFN1cHBvcnRlZCBGaWxlIFR5cGVzIEluZm8gKi99XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJiZy1ibHVlLTUwMC8xMCBib3JkZXIgYm9yZGVyLWJsdWUtNTAwLzIwIHJvdW5kZWQtbGcgcC00XCI+XG4gICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LXNtIHRleHQtYmx1ZS00MDAgZm9udC1tZWRpdW0gbWItMlwiPlN1cHBvcnRlZCBEb2N1bWVudCBUeXBlczo8L3A+XG4gICAgICAgICAgICA8dWwgY2xhc3NOYW1lPVwidGV4dC14cyB0ZXh0LWdyYXktNDAwIHNwYWNlLXktMVwiPlxuICAgICAgICAgICAgICA8bGk+4oCiIDxzdHJvbmc+Rm9ybXMgJiBUZW1wbGF0ZXM6PC9zdHJvbmc+IFBERiAoZmlsbGFibGUpLCBET0NYLCBYTFNYPC9saT5cbiAgICAgICAgICAgICAgPGxpPuKAoiA8c3Ryb25nPkd1aWRlbGluZXM6PC9zdHJvbmc+IFBERiwgRE9DWCB3aXRoIGNvbXBsZXggbGF5b3V0czwvbGk+XG4gICAgICAgICAgICAgIDxsaT7igKIgPHN0cm9uZz5GYWN0IFNoZWV0czo8L3N0cm9uZz4gUERGLCBpbWFnZXMgKFBORywgSlBHKTwvbGk+XG4gICAgICAgICAgICAgIDxsaT7igKIgPHN0cm9uZz5SZWdpc3RlcnM6PC9zdHJvbmc+IEV4Y2VsIChYTFNYLCBYTFMpPC9saT5cbiAgICAgICAgICAgICAgPGxpPuKAoiA8c3Ryb25nPlJlc291cmNlczo8L3N0cm9uZz4gQW55IHN1cHBvcnRlZCBmb3JtYXQ8L2xpPlxuICAgICAgICAgICAgPC91bD5cbiAgICAgICAgICA8L2Rpdj5cblxuICAgICAgICAgIHsvKiBBY3Rpb25zICovfVxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBnYXAtMyBwdC00XCI+XG4gICAgICAgICAgICA8YnV0dG9uXG4gICAgICAgICAgICAgIHR5cGU9XCJidXR0b25cIlxuICAgICAgICAgICAgICBvbkNsaWNrPXtvbkNsb3NlfVxuICAgICAgICAgICAgICBjbGFzc05hbWU9XCJmbGV4LTEgcHgtNCBweS0zIGJnLXdoaXRlLzUgYm9yZGVyIGJvcmRlci13aGl0ZS8xMCB0ZXh0LXdoaXRlIHJvdW5kZWQtbGcgaG92ZXI6Ymctd2hpdGUvMTAgdHJhbnNpdGlvbi1hbGwgZm9udC1tZWRpdW1cIlxuICAgICAgICAgICAgPlxuICAgICAgICAgICAgICBDYW5jZWxcbiAgICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICAgICAgPGJ1dHRvblxuICAgICAgICAgICAgICB0eXBlPVwic3VibWl0XCJcbiAgICAgICAgICAgICAgZGlzYWJsZWQ9eyFzZWxlY3RlZEZpbGUgfHwgdXBsb2FkUHJvZ3Jlc3MgPiAwfVxuICAgICAgICAgICAgICBjbGFzc05hbWU9XCJmbGV4LTEgcHgtNCBweS0zIGJnLWdyYWRpZW50LXRvLXIgZnJvbS10ZWFsLTYwMCB0by10ZWFsLTUwMCB0ZXh0LXdoaXRlIHJvdW5kZWQtbGcgaG92ZXI6c2hhZG93LWxnIHRyYW5zaXRpb24tYWxsIGZvbnQtbWVkaXVtIGRpc2FibGVkOm9wYWNpdHktNTAgZGlzYWJsZWQ6Y3Vyc29yLW5vdC1hbGxvd2VkXCJcbiAgICAgICAgICAgID5cbiAgICAgICAgICAgICAge3VwbG9hZFByb2dyZXNzID4gMCAmJiB1cGxvYWRQcm9ncmVzcyA8IDEwMCA/ICdVcGxvYWRpbmcuLi4nIDogJ1VwbG9hZCBEb2N1bWVudCd9XG4gICAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgPC9mb3JtPlxuICAgICAgPC9kaXY+XG4gICAgPC9kaXY+XG4gICk7XG59XG4iXSwiZmlsZSI6Ii93b3Jrc3BhY2VzL2RlZmF1bHQvY29kZS9zcmMvYXBwL2NvbXBvbmVudHMvRG9jdW1lbnRVcGxvYWRNb2RhbC50c3gifQ==

@@ -1,0 +1,381 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/app/components/AustralianAIDisclaimer.tsx");import { jsxDEV } from "/@id/__x00__figma:react-jsx-dev-runtime";
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+import { FGCmp } from "/@id/fginspector";
+import { AlertCircle, Shield, Eye, FileCheck, Scale, Lock, RefreshCw } from "/node_modules/.vite/deps/lucide-react.js?v=25293e4c";
+export default function AustralianAIDisclaimer({ variant = "full", className = "" }) {
+  if (variant === "compact") {
+    return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b2dm0", _fgB: 1779104383697, className: `p-3 bg-orange-500/10 border border-orange-500/20 rounded-lg flex items-start gap-2 ${className}`, "data-fg-b2dm0": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:11:7:356:538:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: AlertCircle, _fgS: "b2dm1", _fgB: 1779104383697, className: "w-4 h-4 text-orange-400 flex-shrink-0 mt-0.5", "data-fg-b2dm1": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:12:9:480:72:e:AlertCircle::::::fAY" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+        lineNumber: 32,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b2dm2", _fgB: 1779104383697, className: "flex-1", "data-fg-b2dm2": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:13:9:561:320:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "b2dm3", _fgB: 1779104383697, className: "text-orange-300 text-xs font-medium", "data-fg-b2dm3": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:14:11:596:126:e:p:t", children: "⚠️ AI-Generated Content - Human Review Required" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+          lineNumber: 34,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "b2dm5", _fgB: 1779104383697, className: "text-gray-400 text-xs mt-0.5", "data-fg-b2dm5": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:17:11:733:133:e:p:t", children: "Generated in compliance with Australia's AI Ethics Principles" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+          lineNumber: 37,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+        lineNumber: 33,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+      lineNumber: 31,
+      columnNumber: 7
+    }, this);
+  }
+  return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b2dm7", _fgB: 1779104383697, _fgD: true, className: `p-6 bg-orange-500/10 border border-orange-500/20 rounded-xl ${className}`, "data-fg-b2dm7": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:26:5:922:4781:e:div:etxtetxtetxte:1", children: [
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b2dm8", _fgB: 1779104383697, className: "flex items-start gap-3 mb-4", "data-fg-b2dm8": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:27:7:1021:660:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b2dm9", _fgB: 1779104383697, className: "w-10 h-10 rounded-lg bg-orange-500/20 flex items-center justify-center flex-shrink-0", "data-fg-b2dm9": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:28:9:1075:179:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: AlertCircle, _fgS: "b2dm10", _fgB: 1779104383697, className: "w-5 h-5 text-orange-400", "data-fg-b2dm10": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:29:11:1188:51:e:AlertCircle::::::fAY" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+        lineNumber: 49,
+        columnNumber: 11
+      }, this) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+        lineNumber: 48,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b2dm11", _fgB: 1779104383697, className: "flex-1", "data-fg-b2dm11": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:31:9:1263:405:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h4", _fgS: "b2dm12", _fgB: 1779104383697, className: "text-orange-400 font-semibold text-lg mb-1", "data-fg-b2dm12": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:32:11:1298:122:e:h4:t", children: "⚠️ AI-Generated Content Disclaimer" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+          lineNumber: 52,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "b2dm14", _fgB: 1779104383697, className: "text-sm text-gray-300 mb-4", "data-fg-b2dm14": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:35:11:1431:222:e:p:tet", children: [
+          "This content has been generated using Artificial Intelligence and ",
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "strong", _fgS: "b2dm16", _fgB: 1779104383697, "data-fg-b2dm16": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:36:79:1552:46:e:strong:t", children: "must be reviewed and approved" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+            lineNumber: 56,
+            columnNumber: 79
+          }, this),
+          " by a qualified professional before use."
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+          lineNumber: 55,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+        lineNumber: 51,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+      lineNumber: 47,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b2dm20", _fgB: 1779104383697, className: "bg-white/5 border border-white/10 rounded-lg p-4 mb-4", "data-fg-b2dm20": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:42:7:1735:2880:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "b2dm21", _fgB: 1779104383697, className: "text-xs font-semibold text-white mb-3 flex items-center gap-2", "data-fg-b2dm21": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:43:9:1815:204:e:p:et", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Shield, _fgS: "b2dm22", _fgB: 1779104383697, className: "w-4 h-4 text-teal-400", "data-fg-b2dm22": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:44:11:1903:44:e:Shield::::::B8zf" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+          lineNumber: 64,
+          columnNumber: 11
+        }, this),
+        "Compliance with Australia's AI Ethics Principles"
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+        lineNumber: 63,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b2dm24", _fgB: 1779104383697, className: "grid grid-cols-1 md:grid-cols-2 gap-3 text-xs", "data-fg-b2dm24": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:47:9:2028:2574:e:div:etetetetetete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b2dm25", _fgB: 1779104383697, className: "flex items-start gap-2", "data-fg-b2dm25": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:48:11:2102:347:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Eye, _fgS: "b2dm26", _fgB: 1779104383697, className: "w-3 h-3 text-teal-400 mt-0.5 flex-shrink-0", "data-fg-b2dm26": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:49:13:2155:62:e:Eye::::::EJvT" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+            lineNumber: 69,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b2dm27", _fgB: 1779104383697, "data-fg-b2dm27": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:50:13:2230:202:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b2dm28", _fgB: 1779104383697, className: "text-white font-medium", "data-fg-b2dm28": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:51:15:2250:64:e:span:t", children: "Human Oversight:" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+              lineNumber: 71,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b2dm30", _fgB: 1779104383697, className: "text-gray-400 ml-1", "data-fg-b2dm30": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:52:15:2329:84:e:span:t", children: "Human decision-making and accountability" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+              lineNumber: 72,
+              columnNumber: 15
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+            lineNumber: 70,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+          lineNumber: 68,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b2dm32", _fgB: 1779104383697, className: "flex items-start gap-2", "data-fg-b2dm32": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:55:11:2460:348:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: FileCheck, _fgS: "b2dm33", _fgB: 1779104383697, className: "w-3 h-3 text-teal-400 mt-0.5 flex-shrink-0", "data-fg-b2dm33": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:56:13:2513:68:e:FileCheck::::::k3S" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+            lineNumber: 76,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b2dm34", _fgB: 1779104383697, "data-fg-b2dm34": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:57:13:2594:197:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b2dm35", _fgB: 1779104383697, className: "text-white font-medium", "data-fg-b2dm35": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:58:15:2614:61:e:span:t", children: "Transparency:" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+              lineNumber: 78,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b2dm37", _fgB: 1779104383697, className: "text-gray-400 ml-1", "data-fg-b2dm37": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:59:15:2690:82:e:span:t", children: "Clear AI disclosure and explainability" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+              lineNumber: 79,
+              columnNumber: 15
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+            lineNumber: 77,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+          lineNumber: 75,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b2dm39", _fgB: 1779104383697, className: "flex items-start gap-2", "data-fg-b2dm39": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:62:11:2819:338:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Scale, _fgS: "b2dm40", _fgB: 1779104383697, className: "w-3 h-3 text-teal-400 mt-0.5 flex-shrink-0", "data-fg-b2dm40": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:63:13:2872:64:e:Scale::::::B8sC" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+            lineNumber: 83,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b2dm41", _fgB: 1779104383697, "data-fg-b2dm41": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:64:13:2949:191:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b2dm42", _fgB: 1779104383697, className: "text-white font-medium", "data-fg-b2dm42": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:65:15:2969:57:e:span:t", children: "Fairness:" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+              lineNumber: 85,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b2dm44", _fgB: 1779104383697, className: "text-gray-400 ml-1", "data-fg-b2dm44": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:66:15:3041:80:e:span:t", children: "Inclusive, non-discriminatory design" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+              lineNumber: 86,
+              columnNumber: 15
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+            lineNumber: 84,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+          lineNumber: 82,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b2dm46", _fgB: 1779104383697, className: "flex items-start gap-2", "data-fg-b2dm46": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:69:11:3168:344:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Shield, _fgS: "b2dm47", _fgB: 1779104383697, className: "w-3 h-3 text-teal-400 mt-0.5 flex-shrink-0", "data-fg-b2dm47": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:70:13:3221:65:e:Shield::::::B8zf" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+            lineNumber: 90,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b2dm48", _fgB: 1779104383697, "data-fg-b2dm48": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:71:13:3299:196:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b2dm49", _fgB: 1779104383697, className: "text-white font-medium", "data-fg-b2dm49": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:72:15:3319:63:e:span:t", children: "Accountability:" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+              lineNumber: 92,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b2dm51", _fgB: 1779104383697, className: "text-gray-400 ml-1", "data-fg-b2dm51": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:73:15:3397:79:e:span:t", children: "Clear governance and responsibility" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+              lineNumber: 93,
+              columnNumber: 15
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+            lineNumber: 91,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+          lineNumber: 89,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b2dm53", _fgB: 1779104383697, className: "flex items-start gap-2", "data-fg-b2dm53": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:76:11:3523:344:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Lock, _fgS: "b2dm54", _fgB: 1779104383697, className: "w-3 h-3 text-teal-400 mt-0.5 flex-shrink-0", "data-fg-b2dm54": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:77:13:3576:63:e:Lock::::::D0Cv" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+            lineNumber: 97,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b2dm55", _fgB: 1779104383697, "data-fg-b2dm55": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:78:13:3652:198:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b2dm56", _fgB: 1779104383697, className: "text-white font-medium", "data-fg-b2dm56": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:79:15:3672:67:e:span:t", children: "Privacy Protection:" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+              lineNumber: 99,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b2dm58", _fgB: 1779104383697, className: "text-gray-400 ml-1", "data-fg-b2dm58": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:80:15:3754:77:e:span:t", children: "Data security and confidentiality" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+              lineNumber: 100,
+              columnNumber: 15
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+            lineNumber: 98,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+          lineNumber: 96,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b2dm60", _fgB: 1779104383697, className: "flex items-start gap-2", "data-fg-b2dm60": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:83:11:3878:343:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: RefreshCw, _fgS: "b2dm61", _fgB: 1779104383697, className: "w-3 h-3 text-teal-400 mt-0.5 flex-shrink-0", "data-fg-b2dm61": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:84:13:3931:68:e:RefreshCw::::::FaX" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+            lineNumber: 104,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b2dm62", _fgB: 1779104383697, "data-fg-b2dm62": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:85:13:4012:192:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b2dm63", _fgB: 1779104383697, className: "text-white font-medium", "data-fg-b2dm63": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:86:15:4032:69:e:span:t", children: "Reliability & Safety:" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+              lineNumber: 106,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b2dm65", _fgB: 1779104383697, className: "text-gray-400 ml-1", "data-fg-b2dm65": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:87:15:4116:69:e:span:t", children: "Secure, stable AI systems" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+              lineNumber: 107,
+              columnNumber: 15
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+            lineNumber: 105,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+          lineNumber: 103,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b2dm67", _fgB: 1779104383697, className: "flex items-start gap-2 md:col-span-2", "data-fg-b2dm67": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:90:11:4232:355:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Scale, _fgS: "b2dm68", _fgB: 1779104383697, className: "w-3 h-3 text-teal-400 mt-0.5 flex-shrink-0", "data-fg-b2dm68": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:91:13:4299:64:e:Scale::::::B8sC" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+            lineNumber: 111,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b2dm69", _fgB: 1779104383697, "data-fg-b2dm69": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:92:13:4376:194:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b2dm70", _fgB: 1779104383697, className: "text-white font-medium", "data-fg-b2dm70": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:93:15:4396:63:e:span:t", children: "Contestability:" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+              lineNumber: 113,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "b2dm72", _fgB: 1779104383697, className: "text-gray-400 ml-1", "data-fg-b2dm72": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:94:15:4474:77:e:span:t", children: "Challenge and review AI decisions" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+              lineNumber: 114,
+              columnNumber: 15
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+            lineNumber: 112,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+          lineNumber: 110,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+        lineNumber: 67,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+      lineNumber: 62,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "b2dm75", _fgB: 1779104383697, className: "bg-orange-500/5 border border-orange-500/20 rounded-lg p-3", "data-fg-b2dm75": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:101:7:4653:664:e:div:ete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "b2dm76", _fgB: 1779104383697, className: "text-xs text-orange-300 font-medium mb-1", "data-fg-b2dm76": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:102:9:4738:117:e:p:t", children: "📋 Action Required Before Publishing:" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+        lineNumber: 122,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "ul", _fgS: "b2dm78", _fgB: 1779104383697, className: "text-xs text-gray-400 space-y-1 ml-4 list-disc", "data-fg-b2dm78": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:105:9:4864:440:e:ul:etetetete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "li", _fgS: "b2dm79", _fgB: 1779104383697, "data-fg-b2dm79": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:106:11:4938:55:e:li:t", children: "Review all content for accuracy and compliance" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+          lineNumber: 126,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "li", _fgS: "b2dm81", _fgB: 1779104383697, "data-fg-b2dm81": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:107:11:5004:77:e:li:t", children: "Verify alignment with organizational policies and legal requirements" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+          lineNumber: 127,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "li", _fgS: "b2dm83", _fgB: 1779104383697, "data-fg-b2dm83": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:108:11:5092:63:e:li:t", children: "Ensure content meets industry and regulatory standards" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+          lineNumber: 128,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "li", _fgS: "b2dm85", _fgB: 1779104383697, "data-fg-b2dm85": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:109:11:5166:64:e:li:t", children: "Obtain necessary approvals from qualified professionals" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+          lineNumber: 129,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "li", _fgS: "b2dm87", _fgB: 1779104383697, "data-fg-b2dm87": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:110:11:5241:49:e:li:t", children: "Document the review and approval process" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+          lineNumber: 130,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+        lineNumber: 125,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+      lineNumber: 121,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "b2dm90", _fgB: 1779104383697, className: "text-xs text-gray-500 mt-4", "data-fg-b2dm90": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:115:7:5349:343:e:p:tet", children: [
+      "Reference: ",
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "a", _fgS: "b2dm92", _fgB: 1779104383697, href: "https://www.industry.gov.au/publications/australias-artificial-intelligence-ethics-framework", target: "_blank", rel: "noopener noreferrer", className: "text-teal-400 hover:underline", "data-fg-b2dm92": "423.402:423.5710:/src/app/components/AustralianAIDisclaimer.tsx:116:20:5411:222:e:a:t", children: "Australia's AI Ethics Framework" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+        lineNumber: 136,
+        columnNumber: 20
+      }, this),
+      " - Department of Industry, Science and Resources"
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+      lineNumber: 135,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx",
+    lineNumber: 46,
+    columnNumber: 5
+  }, this);
+}
+_c = AustralianAIDisclaimer;
+var _c;
+$RefreshReg$(_c, "AustralianAIDisclaimer");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/workspaces/default/code/src/app/components/AustralianAIDisclaimer.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,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K0NBQTNMO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUFBME47QUFBQSxNQUFJO0FBQUEsU0FEM087QUFBQTtBQUFBO0FBQUE7QUFBQSxXQUVBO0FBQUEsT0EzRkY7QUFBQTtBQUFBO0FBQUE7QUFBQSxTQTRGQTtBQUVKO0FBQUFNLEtBaEh3Qkg7QUFBc0IsSUFBQUc7QUFBQUMsYUFBQUQsSUFBQSIsIm5hbWVzIjpbIkFsZXJ0Q2lyY2xlIiwiU2hpZWxkIiwiRXllIiwiRmlsZUNoZWNrIiwiU2NhbGUiLCJMb2NrIiwiUmVmcmVzaEN3IiwiQXVzdHJhbGlhbkFJRGlzY2xhaW1lciIsInZhcmlhbnQiLCJjbGFzc05hbWUiLCJfYyIsIiRSZWZyZXNoUmVnJCJdLCJpZ25vcmVMaXN0IjpbXSwic291cmNlcyI6WyJBdXN0cmFsaWFuQUlEaXNjbGFpbWVyLnRzeCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBBbGVydENpcmNsZSwgU2hpZWxkLCBFeWUsIEZpbGVDaGVjaywgU2NhbGUsIExvY2ssIFJlZnJlc2hDdyB9IGZyb20gJ2x1Y2lkZS1yZWFjdCc7XG5cbmludGVyZmFjZSBBdXN0cmFsaWFuQUlEaXNjbGFpbWVyUHJvcHMge1xuICB2YXJpYW50PzogJ2Z1bGwnIHwgJ2NvbXBhY3QnO1xuICBjbGFzc05hbWU/OiBzdHJpbmc7XG59XG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIEF1c3RyYWxpYW5BSURpc2NsYWltZXIoeyB2YXJpYW50ID0gJ2Z1bGwnLCBjbGFzc05hbWUgPSAnJyB9OiBBdXN0cmFsaWFuQUlEaXNjbGFpbWVyUHJvcHMpIHtcbiAgaWYgKHZhcmlhbnQgPT09ICdjb21wYWN0Jykge1xuICAgIHJldHVybiAoXG4gICAgICA8ZGl2IGNsYXNzTmFtZT17YHAtMyBiZy1vcmFuZ2UtNTAwLzEwIGJvcmRlciBib3JkZXItb3JhbmdlLTUwMC8yMCByb3VuZGVkLWxnIGZsZXggaXRlbXMtc3RhcnQgZ2FwLTIgJHtjbGFzc05hbWV9YH0+XG4gICAgICAgIDxBbGVydENpcmNsZSBjbGFzc05hbWU9XCJ3LTQgaC00IHRleHQtb3JhbmdlLTQwMCBmbGV4LXNocmluay0wIG10LTAuNVwiIC8+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleC0xXCI+XG4gICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC1vcmFuZ2UtMzAwIHRleHQteHMgZm9udC1tZWRpdW1cIj5cbiAgICAgICAgICAgIOKaoO+4jyBBSS1HZW5lcmF0ZWQgQ29udGVudCAtIEh1bWFuIFJldmlldyBSZXF1aXJlZFxuICAgICAgICAgIDwvcD5cbiAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LWdyYXktNDAwIHRleHQteHMgbXQtMC41XCI+XG4gICAgICAgICAgICBHZW5lcmF0ZWQgaW4gY29tcGxpYW5jZSB3aXRoIEF1c3RyYWxpYSdzIEFJIEV0aGljcyBQcmluY2lwbGVzXG4gICAgICAgICAgPC9wPlxuICAgICAgICA8L2Rpdj5cbiAgICAgIDwvZGl2PlxuICAgICk7XG4gIH1cblxuICByZXR1cm4gKFxuICAgIDxkaXYgY2xhc3NOYW1lPXtgcC02IGJnLW9yYW5nZS01MDAvMTAgYm9yZGVyIGJvcmRlci1vcmFuZ2UtNTAwLzIwIHJvdW5kZWQteGwgJHtjbGFzc05hbWV9YH0+XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtc3RhcnQgZ2FwLTMgbWItNFwiPlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInctMTAgaC0xMCByb3VuZGVkLWxnIGJnLW9yYW5nZS01MDAvMjAgZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1jZW50ZXIgZmxleC1zaHJpbmstMFwiPlxuICAgICAgICAgIDxBbGVydENpcmNsZSBjbGFzc05hbWU9XCJ3LTUgaC01IHRleHQtb3JhbmdlLTQwMFwiIC8+XG4gICAgICAgIDwvZGl2PlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXgtMVwiPlxuICAgICAgICAgIDxoNCBjbGFzc05hbWU9XCJ0ZXh0LW9yYW5nZS00MDAgZm9udC1zZW1pYm9sZCB0ZXh0LWxnIG1iLTFcIj5cbiAgICAgICAgICAgIOKaoO+4jyBBSS1HZW5lcmF0ZWQgQ29udGVudCBEaXNjbGFpbWVyXG4gICAgICAgICAgPC9oND5cbiAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LXNtIHRleHQtZ3JheS0zMDAgbWItNFwiPlxuICAgICAgICAgICAgVGhpcyBjb250ZW50IGhhcyBiZWVuIGdlbmVyYXRlZCB1c2luZyBBcnRpZmljaWFsIEludGVsbGlnZW5jZSBhbmQgPHN0cm9uZz5tdXN0IGJlIHJldmlld2VkIGFuZCBhcHByb3ZlZDwvc3Ryb25nPiBieSBhIHF1YWxpZmllZCBwcm9mZXNzaW9uYWwgYmVmb3JlIHVzZS5cbiAgICAgICAgICA8L3A+XG4gICAgICAgIDwvZGl2PlxuICAgICAgPC9kaXY+XG5cbiAgICAgIHsvKiBBdXN0cmFsaWFuIEFJIEV0aGljcyBQcmluY2lwbGVzICovfVxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJiZy13aGl0ZS81IGJvcmRlciBib3JkZXItd2hpdGUvMTAgcm91bmRlZC1sZyBwLTQgbWItNFwiPlxuICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LXhzIGZvbnQtc2VtaWJvbGQgdGV4dC13aGl0ZSBtYi0zIGZsZXggaXRlbXMtY2VudGVyIGdhcC0yXCI+XG4gICAgICAgICAgPFNoaWVsZCBjbGFzc05hbWU9XCJ3LTQgaC00IHRleHQtdGVhbC00MDBcIiAvPlxuICAgICAgICAgIENvbXBsaWFuY2Ugd2l0aCBBdXN0cmFsaWEncyBBSSBFdGhpY3MgUHJpbmNpcGxlc1xuICAgICAgICA8L3A+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZ3JpZCBncmlkLWNvbHMtMSBtZDpncmlkLWNvbHMtMiBnYXAtMyB0ZXh0LXhzXCI+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLXN0YXJ0IGdhcC0yXCI+XG4gICAgICAgICAgICA8RXllIGNsYXNzTmFtZT1cInctMyBoLTMgdGV4dC10ZWFsLTQwMCBtdC0wLjUgZmxleC1zaHJpbmstMFwiIC8+XG4gICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LXdoaXRlIGZvbnQtbWVkaXVtXCI+SHVtYW4gT3ZlcnNpZ2h0Ojwvc3Bhbj5cbiAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwidGV4dC1ncmF5LTQwMCBtbC0xXCI+SHVtYW4gZGVjaXNpb24tbWFraW5nIGFuZCBhY2NvdW50YWJpbGl0eTwvc3Bhbj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1zdGFydCBnYXAtMlwiPlxuICAgICAgICAgICAgPEZpbGVDaGVjayBjbGFzc05hbWU9XCJ3LTMgaC0zIHRleHQtdGVhbC00MDAgbXQtMC41IGZsZXgtc2hyaW5rLTBcIiAvPlxuICAgICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwidGV4dC13aGl0ZSBmb250LW1lZGl1bVwiPlRyYW5zcGFyZW5jeTo8L3NwYW4+XG4gICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRleHQtZ3JheS00MDAgbWwtMVwiPkNsZWFyIEFJIGRpc2Nsb3N1cmUgYW5kIGV4cGxhaW5hYmlsaXR5PC9zcGFuPlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLXN0YXJ0IGdhcC0yXCI+XG4gICAgICAgICAgICA8U2NhbGUgY2xhc3NOYW1lPVwidy0zIGgtMyB0ZXh0LXRlYWwtNDAwIG10LTAuNSBmbGV4LXNocmluay0wXCIgLz5cbiAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRleHQtd2hpdGUgZm9udC1tZWRpdW1cIj5GYWlybmVzczo8L3NwYW4+XG4gICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRleHQtZ3JheS00MDAgbWwtMVwiPkluY2x1c2l2ZSwgbm9uLWRpc2NyaW1pbmF0b3J5IGRlc2lnbjwvc3Bhbj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1zdGFydCBnYXAtMlwiPlxuICAgICAgICAgICAgPFNoaWVsZCBjbGFzc05hbWU9XCJ3LTMgaC0zIHRleHQtdGVhbC00MDAgbXQtMC41IGZsZXgtc2hyaW5rLTBcIiAvPlxuICAgICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwidGV4dC13aGl0ZSBmb250LW1lZGl1bVwiPkFjY291bnRhYmlsaXR5Ojwvc3Bhbj5cbiAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwidGV4dC1ncmF5LTQwMCBtbC0xXCI+Q2xlYXIgZ292ZXJuYW5jZSBhbmQgcmVzcG9uc2liaWxpdHk8L3NwYW4+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtc3RhcnQgZ2FwLTJcIj5cbiAgICAgICAgICAgIDxMb2NrIGNsYXNzTmFtZT1cInctMyBoLTMgdGV4dC10ZWFsLTQwMCBtdC0wLjUgZmxleC1zaHJpbmstMFwiIC8+XG4gICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LXdoaXRlIGZvbnQtbWVkaXVtXCI+UHJpdmFjeSBQcm90ZWN0aW9uOjwvc3Bhbj5cbiAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwidGV4dC1ncmF5LTQwMCBtbC0xXCI+RGF0YSBzZWN1cml0eSBhbmQgY29uZmlkZW50aWFsaXR5PC9zcGFuPlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLXN0YXJ0IGdhcC0yXCI+XG4gICAgICAgICAgICA8UmVmcmVzaEN3IGNsYXNzTmFtZT1cInctMyBoLTMgdGV4dC10ZWFsLTQwMCBtdC0wLjUgZmxleC1zaHJpbmstMFwiIC8+XG4gICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LXdoaXRlIGZvbnQtbWVkaXVtXCI+UmVsaWFiaWxpdHkgJiBTYWZldHk6PC9zcGFuPlxuICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LWdyYXktNDAwIG1sLTFcIj5TZWN1cmUsIHN0YWJsZSBBSSBzeXN0ZW1zPC9zcGFuPlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLXN0YXJ0IGdhcC0yIG1kOmNvbC1zcGFuLTJcIj5cbiAgICAgICAgICAgIDxTY2FsZSBjbGFzc05hbWU9XCJ3LTMgaC0zIHRleHQtdGVhbC00MDAgbXQtMC41IGZsZXgtc2hyaW5rLTBcIiAvPlxuICAgICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwidGV4dC13aGl0ZSBmb250LW1lZGl1bVwiPkNvbnRlc3RhYmlsaXR5Ojwvc3Bhbj5cbiAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwidGV4dC1ncmF5LTQwMCBtbC0xXCI+Q2hhbGxlbmdlIGFuZCByZXZpZXcgQUkgZGVjaXNpb25zPC9zcGFuPlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvZGl2PlxuICAgICAgPC9kaXY+XG5cbiAgICAgIHsvKiBBY3Rpb24gUmVxdWlyZWQgKi99XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLW9yYW5nZS01MDAvNSBib3JkZXIgYm9yZGVyLW9yYW5nZS01MDAvMjAgcm91bmRlZC1sZyBwLTNcIj5cbiAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC14cyB0ZXh0LW9yYW5nZS0zMDAgZm9udC1tZWRpdW0gbWItMVwiPlxuICAgICAgICAgIPCfk4sgQWN0aW9uIFJlcXVpcmVkIEJlZm9yZSBQdWJsaXNoaW5nOlxuICAgICAgICA8L3A+XG4gICAgICAgIDx1bCBjbGFzc05hbWU9XCJ0ZXh0LXhzIHRleHQtZ3JheS00MDAgc3BhY2UteS0xIG1sLTQgbGlzdC1kaXNjXCI+XG4gICAgICAgICAgPGxpPlJldmlldyBhbGwgY29udGVudCBmb3IgYWNjdXJhY3kgYW5kIGNvbXBsaWFuY2U8L2xpPlxuICAgICAgICAgIDxsaT5WZXJpZnkgYWxpZ25tZW50IHdpdGggb3JnYW5pemF0aW9uYWwgcG9saWNpZXMgYW5kIGxlZ2FsIHJlcXVpcmVtZW50czwvbGk+XG4gICAgICAgICAgPGxpPkVuc3VyZSBjb250ZW50IG1lZXRzIGluZHVzdHJ5IGFuZCByZWd1bGF0b3J5IHN0YW5kYXJkczwvbGk+XG4gICAgICAgICAgPGxpPk9idGFpbiBuZWNlc3NhcnkgYXBwcm92YWxzIGZyb20gcXVhbGlmaWVkIHByb2Zlc3Npb25hbHM8L2xpPlxuICAgICAgICAgIDxsaT5Eb2N1bWVudCB0aGUgcmV2aWV3IGFuZCBhcHByb3ZhbCBwcm9jZXNzPC9saT5cbiAgICAgICAgPC91bD5cbiAgICAgIDwvZGl2PlxuXG4gICAgICB7LyogUmVmZXJlbmNlICovfVxuICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC14cyB0ZXh0LWdyYXktNTAwIG10LTRcIj5cbiAgICAgICAgUmVmZXJlbmNlOiA8YSBocmVmPVwiaHR0cHM6Ly93d3cuaW5kdXN0cnkuZ292LmF1L3B1YmxpY2F0aW9ucy9hdXN0cmFsaWFzLWFydGlmaWNpYWwtaW50ZWxsaWdlbmNlLWV0aGljcy1mcmFtZXdvcmtcIiB0YXJnZXQ9XCJfYmxhbmtcIiByZWw9XCJub29wZW5lciBub3JlZmVycmVyXCIgY2xhc3NOYW1lPVwidGV4dC10ZWFsLTQwMCBob3Zlcjp1bmRlcmxpbmVcIj5BdXN0cmFsaWEncyBBSSBFdGhpY3MgRnJhbWV3b3JrPC9hPiAtIERlcGFydG1lbnQgb2YgSW5kdXN0cnksIFNjaWVuY2UgYW5kIFJlc291cmNlc1xuICAgICAgPC9wPlxuICAgIDwvZGl2PlxuICApO1xufVxuIl0sImZpbGUiOiIvd29ya3NwYWNlcy9kZWZhdWx0L2NvZGUvc3JjL2FwcC9jb21wb25lbnRzL0F1c3RyYWxpYW5BSURpc2NsYWltZXIudHN4In0=

@@ -1,0 +1,742 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/app/components/UnifiedDocumentViewerModal.tsx");import { Fragment, jsxDEV } from "/@id/__x00__figma:react-jsx-dev-runtime";
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+var _s = $RefreshSig$();
+import { FGCmp } from "/@id/fginspector";
+import { useState } from "/@id/__x00__figma:react-base";
+import { X, Download, CheckCircle, Clock, User, FileText, Tag } from "/node_modules/.vite/deps/lucide-react.js?v=25293e4c";
+import { useApp } from "/src/app/contexts/AppContext.tsx";
+export function UnifiedDocumentViewerModal({
+  isOpen,
+  onClose,
+  document,
+  mode,
+  onAcknowledge,
+  onApprove,
+  onReject
+}) {
+  _s();
+  const { addAuditLog } = useApp();
+  const [acknowledged, setAcknowledged] = useState(false);
+  const [signature, setSignature] = useState("");
+  const [rejectReason, setRejectReason] = useState("");
+  const [showRejectModal, setShowRejectModal] = useState(false);
+  const [processing, setProcessing] = useState(false);
+  if (!isOpen) return null;
+  const handleAcknowledge = () => {
+    if (!acknowledged || !signature.trim()) {
+      alert("Please check the acknowledgment box and provide your signature");
+      return;
+    }
+    setProcessing(true);
+    setTimeout(() => {
+      if (onAcknowledge) {
+        onAcknowledge(document.id, signature);
+        addAuditLog({
+          action: "Document Acknowledged",
+          details: `Acknowledged document: ${document.title}`
+        });
+      }
+      setProcessing(false);
+      setAcknowledged(false);
+      setSignature("");
+      onClose();
+    }, 800);
+  };
+  const handleApprove = () => {
+    setProcessing(true);
+    setTimeout(() => {
+      if (onApprove) {
+        onApprove(document.id);
+        addAuditLog({
+          action: "Document Approved",
+          details: `Approved document: ${document.title}`
+        });
+      }
+      setProcessing(false);
+      onClose();
+    }, 800);
+  };
+  const handleReject = () => {
+    if (!rejectReason.trim()) {
+      alert("Please provide a reason for rejection");
+      return;
+    }
+    setProcessing(true);
+    setTimeout(() => {
+      if (onReject) {
+        onReject(document.id, rejectReason);
+        addAuditLog({
+          action: "Document Rejected",
+          details: `Rejected document: ${document.title}. Reason: ${rejectReason}`
+        });
+      }
+      setProcessing(false);
+      setRejectReason("");
+      setShowRejectModal(false);
+      onClose();
+    }, 800);
+  };
+  const handleDownload = () => {
+    addAuditLog({
+      action: "Document Downloaded",
+      details: `Downloaded document: ${document.title}`
+    });
+    alert(`📥 Downloading: ${document.title}`);
+  };
+  return /* @__PURE__ */ jsxDEV(Fragment, { children: [
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cqqv1", _fgB: 1779104383641, className: "fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4", "data-fg-cqqv1": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:116:7:2991:9665:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cqqv2", _fgB: 1779104383641, className: "bg-[#0f2832] border border-[#1a3440] rounded-2xl w-full max-w-6xl max-h-[90vh] flex flex-col", "data-fg-cqqv2": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:117:9:3102:9541:e:div:xtetxtetxte", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cqqv4", _fgB: 1779104383641, className: "p-6 border-b border-[#1a3440] flex items-center justify-between", "data-fg-cqqv4": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:119:11:3248:913:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cqqv5", _fgB: 1779104383641, className: "flex items-center gap-3", "data-fg-cqqv5": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:120:13:3342:533:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cqqv6", _fgB: 1779104383641, className: "w-10 h-10 rounded-lg bg-gradient-to-br from-teal-600 to-teal-500 flex items-center justify-center", "data-fg-cqqv6": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:121:15:3398:196:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: FileText, _fgS: "cqqv7", _fgB: 1779104383641, className: "w-5 h-5 text-white", "data-fg-cqqv7": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:122:17:3530:43:e:FileText::::::B1i5" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+            lineNumber: 142,
+            columnNumber: 17
+          }, this) }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+            lineNumber: 141,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cqqv8", _fgB: 1779104383641, "data-fg-cqqv8": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:124:15:3609:247:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h2", _fgS: "cqqv9", _fgB: 1779104383641, className: "text-xl font-bold text-white", "data-fg-cqqv9": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:125:17:3631:66:e:h2:x", children: document.title }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+              lineNumber: 145,
+              columnNumber: 17
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "cqqv11", _fgB: 1779104383641, className: "text-xs text-gray-400", "data-fg-cqqv11": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:126:17:3714:121:e:p:xtx", children: [
+              document.type,
+              " • Version ",
+              document.version
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+              lineNumber: 146,
+              columnNumber: 17
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+            lineNumber: 144,
+            columnNumber: 15
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+          lineNumber: 140,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "button",
+            _fgS: "cqqv15",
+            _fgB: 1779104383641,
+            onClick: onClose,
+            className: "w-10 h-10 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors",
+            "data-fg-cqqv15": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:131:13:3888:256:e:button:e",
+            children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: X, _fgS: "cqqv16", _fgB: 1779104383641, className: "w-5 h-5 text-gray-400", "data-fg-cqqv16": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:135:15:4083:39:e:X::::::TvS" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+              lineNumber: 155,
+              columnNumber: 15
+            }, this)
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+            lineNumber: 151,
+            columnNumber: 13
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+        lineNumber: 139,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cqqv18", _fgB: 1779104383641, className: "flex-1 overflow-y-auto flex", "data-fg-cqqv18": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:140:11:4199:3806:e:div:xtetxte", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cqqv20", _fgB: 1779104383641, className: "flex-1 p-8 overflow-y-auto", "data-fg-cqqv20": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:142:13:4296:410:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cqqv21", _fgB: 1779104383641, className: "bg-white rounded-lg p-8 shadow-lg max-w-4xl mx-auto", "data-fg-cqqv21": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:143:15:4355:332:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cqqv22", _fgB: 1779104383641, className: "prose max-w-none", "data-fg-cqqv22": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:144:17:4441:225:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "pre", _fgS: "cqqv23", _fgB: 1779104383641, className: "whitespace-pre-wrap font-sans text-gray-800 text-sm leading-relaxed", "data-fg-cqqv23": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:145:19:4494:149:e:pre:x", children: document.content }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+          lineNumber: 165,
+          columnNumber: 19
+        }, this) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+          lineNumber: 164,
+          columnNumber: 17
+        }, this) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+          lineNumber: 163,
+          columnNumber: 15
+        }, this) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+          lineNumber: 162,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cqqv26", _fgB: 1779104383641, className: "w-80 border-l border-[#1a3440] p-6 overflow-y-auto bg-[#0B1F2A]", "data-fg-cqqv26": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:153:13:4757:3231:e:div:etetxte", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "cqqv27", _fgB: 1779104383641, className: "text-white font-semibold mb-4", "data-fg-cqqv27": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:154:15:4853:71:e:h3:t", children: "Document Information" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+            lineNumber: 174,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cqqv29", _fgB: 1779104383641, className: "space-y-4", "data-fg-cqqv29": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:156:15:4954:2527:e:div:etxtxtxtx", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cqqv30", _fgB: 1779104383641, "data-fg-cqqv30": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:157:17:4998:191:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "cqqv31", _fgB: 1779104383641, className: "text-xs text-gray-500 uppercase", "data-fg-cqqv31": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:158:19:5022:67:e:label:t", children: "Category" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+                lineNumber: 178,
+                columnNumber: 19
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cqqv33", _fgB: 1779104383641, className: "mt-1 text-white", "data-fg-cqqv33": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:159:19:5108:58:e:div:x", children: document.category }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+                lineNumber: 179,
+                columnNumber: 19
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+              lineNumber: 177,
+              columnNumber: 17
+            }, this),
+            document.status && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cqqv36", _fgB: 1779104383641, "data-fg-cqqv36": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:163:19:5247:711:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "cqqv37", _fgB: 1779104383641, className: "text-xs text-gray-500 uppercase", "data-fg-cqqv37": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:164:21:5273:65:e:label:t", children: "Status" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+                lineNumber: 184,
+                columnNumber: 21
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cqqv39", _fgB: 1779104383641, className: "mt-1", "data-fg-cqqv39": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:165:21:5359:574:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "cqqv40", _fgB: 1779104383641, className: `px-2 py-1 rounded text-xs font-medium ${document.status === "published" ? "bg-green-500/20 text-green-400" : document.status === "approved" ? "bg-blue-500/20 text-blue-400" : document.status === "pending" ? "bg-yellow-500/20 text-yellow-400" : "bg-gray-500/20 text-gray-400"}`, "data-fg-cqqv40": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:166:23:5404:502:e:span:x", children: document.status.toUpperCase() }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+                lineNumber: 186,
+                columnNumber: 23
+              }, this) }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+                lineNumber: 185,
+                columnNumber: 21
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+              lineNumber: 183,
+              columnNumber: 17
+            }, this),
+            document.author && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cqqv43", _fgB: 1779104383641, "data-fg-cqqv43": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:179:19:6035:312:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "cqqv44", _fgB: 1779104383641, className: "text-xs text-gray-500 uppercase flex items-center gap-1", "data-fg-cqqv44": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:180:21:6061:184:e:label:et", children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: User, _fgS: "cqqv45", _fgB: 1779104383641, className: "w-3 h-3", "data-fg-cqqv45": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:181:23:6159:28:e:User::::::wpV" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+                  lineNumber: 201,
+                  columnNumber: 23
+                }, this),
+                "Author"
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+                lineNumber: 200,
+                columnNumber: 21
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cqqv47", _fgB: 1779104383641, className: "mt-1 text-white", "data-fg-cqqv47": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:184:21:6266:56:e:div:x", children: document.author }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+                lineNumber: 204,
+                columnNumber: 21
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+              lineNumber: 199,
+              columnNumber: 17
+            }, this),
+            document.lastModified && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cqqv50", _fgB: 1779104383641, "data-fg-cqqv50": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:189:19:6430:326:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "cqqv51", _fgB: 1779104383641, className: "text-xs text-gray-500 uppercase flex items-center gap-1", "data-fg-cqqv51": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:190:21:6456:192:e:label:et", children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Clock, _fgS: "cqqv52", _fgB: 1779104383641, className: "w-3 h-3", "data-fg-cqqv52": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:191:23:6554:29:e:Clock::::::EGEm" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+                  lineNumber: 211,
+                  columnNumber: 23
+                }, this),
+                "Last Modified"
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+                lineNumber: 210,
+                columnNumber: 21
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cqqv54", _fgB: 1779104383641, className: "mt-1 text-white", "data-fg-cqqv54": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:194:21:6669:62:e:div:x", children: document.lastModified }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+                lineNumber: 214,
+                columnNumber: 21
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+              lineNumber: 209,
+              columnNumber: 17
+            }, this),
+            document.tags && document.tags.length > 0 && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cqqv57", _fgB: 1779104383641, "data-fg-cqqv57": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:199:19:6859:582:e:div:ete", children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "cqqv58", _fgB: 1779104383641, className: "text-xs text-gray-500 uppercase flex items-center gap-1", "data-fg-cqqv58": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:200:21:6885:181:e:label:et", children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Tag, _fgS: "cqqv59", _fgB: 1779104383641, className: "w-3 h-3", "data-fg-cqqv59": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:201:23:6983:27:e:Tag::::::BKy" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+                  lineNumber: 221,
+                  columnNumber: 23
+                }, this),
+                "Tags"
+              ] }, void 0, true, {
+                fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+                lineNumber: 220,
+                columnNumber: 21
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cqqv61", _fgB: 1779104383641, className: "mt-2 flex flex-wrap gap-2", "data-fg-cqqv61": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:204:21:7087:329:e:div:x", children: document.tags.map(
+                (tag, index) => /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "cqqv63", _fgB: 1779104383641, className: "px-2 py-1 bg-teal-500/20 text-teal-400 rounded text-xs", "data-fg-cqqv63": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:206:25:7214:149:e:span:x", children: tag }, index, false, {
+                  fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+                  lineNumber: 226,
+                  columnNumber: 21
+                }, this)
+              ) }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+                lineNumber: 224,
+                columnNumber: 21
+              }, this)
+            ] }, void 0, true, {
+              fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+              lineNumber: 219,
+              columnNumber: 17
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+            lineNumber: 176,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cqqv66", _fgB: 1779104383641, className: "mt-6 pt-6 border-t border-[#1a3440]", "data-fg-cqqv66": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:216:15:7527:442:e:div:e", children: /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "button",
+              _fgS: "cqqv67",
+              _fgB: 1779104383641,
+              onClick: handleDownload,
+              className: "w-full px-4 py-2 bg-white/5 border border-white/10 text-white rounded-lg hover:bg-white/10 transition-all flex items-center justify-center gap-2",
+              "data-fg-cqqv67": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:217:17:7597:351:e:button:et",
+              children: [
+                /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Download, _fgS: "cqqv68", _fgB: 1779104383641, className: "w-4 h-4", "data-fg-cqqv68": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:221:19:7859:32:e:Download::::::yh6" }, void 0, false, {
+                  fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+                  lineNumber: 241,
+                  columnNumber: 19
+                }, this),
+                "Download PDF"
+              ]
+            },
+            void 0,
+            true,
+            {
+              fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+              lineNumber: 237,
+              columnNumber: 17
+            },
+            this
+          ) }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+            lineNumber: 236,
+            columnNumber: 15
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+          lineNumber: 173,
+          columnNumber: 13
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+        lineNumber: 160,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cqqv71", _fgB: 1779104383641, className: "p-6 border-t border-[#1a3440]", "data-fg-cqqv71": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:229:11:8050:4578:e:div:xtxtx", children: [
+        mode === "acknowledge" && document.requiresAcknowledgement && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cqqv73", _fgB: 1779104383641, className: "space-y-4", "data-fg-cqqv73": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:231:15:8189:2461:e:div:etete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "label", _fgS: "cqqv74", _fgB: 1779104383641, className: "flex items-start gap-3 p-4 bg-[#0B1F2A] border border-[#1a3440] rounded-lg cursor-pointer hover:bg-white/5 transition-colors", "data-fg-cqqv74": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:232:17:8233:699:e:label:ete", children: [
+            /* @__PURE__ */ jsxDEV(
+              FGCmp,
+              {
+                _fgT: "input",
+                _fgS: "cqqv75",
+                _fgB: 1779104383641,
+                type: "checkbox",
+                checked: acknowledged,
+                onChange: (e) => setAcknowledged(e.target.checked),
+                className: "mt-1 w-5 h-5 rounded border-gray-600 bg-[#0B1F2A] text-teal-500",
+                "data-fg-cqqv75": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:233:19:8396:274:e:input"
+              },
+              void 0,
+              false,
+              {
+                fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+                lineNumber: 253,
+                columnNumber: 19
+              },
+              this
+            ),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cqqv76", _fgB: 1779104383641, className: "flex-1 text-sm text-gray-300", "data-fg-cqqv76": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:239:19:8689:218:e:div:t", children: "I have read and understood the contents of this document and agree to comply with all policies and procedures outlined herein." }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+              lineNumber: 259,
+              columnNumber: 19
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+            lineNumber: 252,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "input",
+              _fgS: "cqqv78",
+              _fgB: 1779104383641,
+              type: "text",
+              value: signature,
+              onChange: (e) => setSignature(e.target.value),
+              placeholder: "Type your full name as signature",
+              disabled: !acknowledged,
+              className: "w-full px-4 py-3 bg-[#0B1F2A] border border-[#1a3440] rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-teal-500/50 disabled:opacity-50",
+              "data-fg-cqqv78": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:244:17:8950:455:e:input"
+            },
+            void 0,
+            false,
+            {
+              fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+              lineNumber: 264,
+              columnNumber: 17
+            },
+            this
+          ),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cqqv79", _fgB: 1779104383641, className: "flex items-center justify-between", "data-fg-cqqv79": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:253:17:9423:1206:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(
+              FGCmp,
+              {
+                _fgT: "button",
+                _fgS: "cqqv80",
+                _fgB: 1779104383641,
+                onClick: onClose,
+                className: "px-6 py-2 bg-white/5 border border-white/10 text-white rounded-lg hover:bg-white/10 transition-all",
+                "data-fg-cqqv80": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:254:19:9493:251:e:button:t",
+                children: "Cancel"
+              },
+              void 0,
+              false,
+              {
+                fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+                lineNumber: 274,
+                columnNumber: 19
+              },
+              this
+            ),
+            /* @__PURE__ */ jsxDEV(
+              FGCmp,
+              {
+                _fgT: "button",
+                _fgS: "cqqv82",
+                _fgB: 1779104383641,
+                onClick: handleAcknowledge,
+                disabled: !acknowledged || !signature.trim() || processing,
+                className: "px-6 py-2 bg-[#d4a574] text-[#0B1F2A] rounded-lg hover:bg-[#c99563] transition-all flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed font-medium",
+                "data-fg-cqqv82": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:260:19:9763:843:e:button:x",
+                children: processing ? /* @__PURE__ */ jsxDEV(Fragment, { children: [
+                  /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cqqv85", _fgB: 1779104383641, className: "w-4 h-4 border-2 border-[#0B1F2A]/30 border-t-[#0B1F2A] rounded-full animate-spin", "data-fg-cqqv85": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:267:25:10203:105:e:div:_" }, void 0, false, {
+                    fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+                    lineNumber: 287,
+                    columnNumber: 25
+                  }, this),
+                  "Processing..."
+                ] }, void 0, true, {
+                  fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+                  lineNumber: 286,
+                  columnNumber: 19
+                }, this) : /* @__PURE__ */ jsxDEV(Fragment, { children: [
+                  /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: CheckCircle, _fgS: "cqqv88", _fgB: 1779104383641, className: "w-4 h-4", "data-fg-cqqv88": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:272:25:10448:35:e:CheckCircle::::::C4Wc" }, void 0, false, {
+                    fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+                    lineNumber: 292,
+                    columnNumber: 25
+                  }, this),
+                  "Submit Acknowledgment"
+                ] }, void 0, true, {
+                  fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+                  lineNumber: 291,
+                  columnNumber: 19
+                }, this)
+              },
+              void 0,
+              false,
+              {
+                fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+                lineNumber: 280,
+                columnNumber: 19
+              },
+              this
+            )
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+            lineNumber: 273,
+            columnNumber: 17
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+          lineNumber: 251,
+          columnNumber: 13
+        }, this),
+        mode === "review" && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cqqv91", _fgB: 1779104383641, className: "flex items-center justify-between", "data-fg-cqqv91": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:282:15:10717:1489:e:div:ete", children: [
+          /* @__PURE__ */ jsxDEV(
+            FGCmp,
+            {
+              _fgT: "button",
+              _fgS: "cqqv92",
+              _fgB: 1779104383641,
+              onClick: onClose,
+              className: "px-6 py-2 bg-white/5 border border-white/10 text-white rounded-lg hover:bg-white/10 transition-all",
+              "data-fg-cqqv92": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:283:17:10785:240:e:button:t",
+              children: "Close"
+            },
+            void 0,
+            false,
+            {
+              fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+              lineNumber: 303,
+              columnNumber: 17
+            },
+            this
+          ),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cqqv94", _fgB: 1779104383641, className: "flex gap-3", "data-fg-cqqv94": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:289:17:11042:1143:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(
+              FGCmp,
+              {
+                _fgT: "button",
+                _fgS: "cqqv95",
+                _fgB: 1779104383641,
+                onClick: () => setShowRejectModal(true),
+                className: "px-6 py-2 bg-red-500/20 border border-red-500/30 text-red-400 rounded-lg hover:bg-red-500/30 transition-all font-medium",
+                "data-fg-cqqv95": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:290:19:11089:295:e:button:t",
+                children: "Reject"
+              },
+              void 0,
+              false,
+              {
+                fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+                lineNumber: 310,
+                columnNumber: 19
+              },
+              this
+            ),
+            /* @__PURE__ */ jsxDEV(
+              FGCmp,
+              {
+                _fgT: "button",
+                _fgS: "cqqv97",
+                _fgB: 1779104383641,
+                onClick: handleApprove,
+                disabled: processing,
+                className: "px-6 py-2 bg-[#d4a574] text-[#0B1F2A] rounded-lg hover:bg-[#c99563] transition-all flex items-center gap-2 disabled:opacity-50 font-medium",
+                "data-fg-cqqv97": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:296:19:11403:759:e:button:x",
+                children: processing ? /* @__PURE__ */ jsxDEV(Fragment, { children: [
+                  /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cqqv100", _fgB: 1779104383641, className: "w-4 h-4 border-2 border-[#0B1F2A]/30 border-t-[#0B1F2A] rounded-full animate-spin", "data-fg-cqqv100": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:303:25:11773:105:e:div:_" }, void 0, false, {
+                    fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+                    lineNumber: 323,
+                    columnNumber: 25
+                  }, this),
+                  "Processing..."
+                ] }, void 0, true, {
+                  fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+                  lineNumber: 322,
+                  columnNumber: 19
+                }, this) : /* @__PURE__ */ jsxDEV(Fragment, { children: [
+                  /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: CheckCircle, _fgS: "cqqv103", _fgB: 1779104383641, className: "w-4 h-4", "data-fg-cqqv103": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:308:25:12018:35:e:CheckCircle::::::C4Wc" }, void 0, false, {
+                    fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+                    lineNumber: 328,
+                    columnNumber: 25
+                  }, this),
+                  "Approve"
+                ] }, void 0, true, {
+                  fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+                  lineNumber: 327,
+                  columnNumber: 19
+                }, this)
+              },
+              void 0,
+              false,
+              {
+                fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+                lineNumber: 316,
+                columnNumber: 19
+              },
+              this
+            )
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+            lineNumber: 309,
+            columnNumber: 17
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+          lineNumber: 302,
+          columnNumber: 13
+        }, this),
+        mode === "view" && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cqqv106", _fgB: 1779104383641, className: "flex items-center justify-end", "data-fg-cqqv106": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:318:15:12271:325:e:div:e", children: /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "button",
+            _fgS: "cqqv107",
+            _fgB: 1779104383641,
+            onClick: onClose,
+            className: "px-6 py-2 bg-white/5 border border-white/10 text-white rounded-lg hover:bg-white/10 transition-all",
+            "data-fg-cqqv107": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:319:17:12335:240:e:button:t",
+            children: "Close"
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+            lineNumber: 339,
+            columnNumber: 17
+          },
+          this
+        ) }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+          lineNumber: 338,
+          columnNumber: 13
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+        lineNumber: 249,
+        columnNumber: 11
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+      lineNumber: 137,
+      columnNumber: 9
+    }, this) }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+      lineNumber: 136,
+      columnNumber: 7
+    }, this),
+    showRejectModal && /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cqqv111", _fgB: 1779104383641, className: "fixed inset-0 bg-black/80 backdrop-blur-sm z-[60] flex items-center justify-center p-4", "data-fg-cqqv111": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:333:9:12721:1805:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cqqv112", _fgB: 1779104383641, className: "bg-[#0f2832] border border-[#1a3440] rounded-2xl w-full max-w-md", "data-fg-cqqv112": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:334:11:12836:1675:e:div:etete", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cqqv113", _fgB: 1779104383641, className: "p-6 border-b border-[#1a3440]", "data-fg-cqqv113": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:335:13:12931:244:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "h3", _fgS: "cqqv114", _fgB: 1779104383641, className: "text-xl font-bold text-white", "data-fg-cqqv114": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:336:15:12993:65:e:h3:t", children: "Reject Document" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+          lineNumber: 356,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "cqqv116", _fgB: 1779104383641, className: "text-sm text-gray-400 mt-1", "data-fg-cqqv116": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:337:15:13073:83:e:p:t", children: "Please provide a reason for rejection" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+          lineNumber: 357,
+          columnNumber: 15
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+        lineNumber: 355,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cqqv118", _fgB: 1779104383641, className: "p-6", "data-fg-cqqv118": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:339:13:13188:445:e:div:e", children: /* @__PURE__ */ jsxDEV(
+        FGCmp,
+        {
+          _fgT: "textarea",
+          _fgS: "cqqv119",
+          _fgB: 1779104383641,
+          value: rejectReason,
+          onChange: (e) => setRejectReason(e.target.value),
+          placeholder: "Enter rejection reason...",
+          rows: 5,
+          className: "w-full px-4 py-3 bg-[#0B1F2A] border border-[#1a3440] rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-red-500/50 resize-none",
+          "data-fg-cqqv119": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:340:15:13224:390:e:textarea"
+        },
+        void 0,
+        false,
+        {
+          fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+          lineNumber: 360,
+          columnNumber: 15
+        },
+        this
+      ) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+        lineNumber: 359,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "cqqv120", _fgB: 1779104383641, className: "p-6 border-t border-[#1a3440] flex items-center justify-between", "data-fg-cqqv120": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:348:13:13646:848:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "button",
+            _fgS: "cqqv121",
+            _fgB: 1779104383641,
+            onClick: () => {
+              setShowRejectModal(false);
+              setRejectReason("");
+            },
+            className: "px-6 py-2 bg-white/5 border border-white/10 text-white rounded-lg hover:bg-white/10 transition-all",
+            "data-fg-cqqv121": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:349:15:13742:333:e:button:t",
+            children: "Cancel"
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+            lineNumber: 369,
+            columnNumber: 15
+          },
+          this
+        ),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "button",
+            _fgS: "cqqv123",
+            _fgB: 1779104383641,
+            onClick: handleReject,
+            disabled: !rejectReason.trim() || processing,
+            className: "px-6 py-2 bg-red-500/20 border border-red-500/30 text-red-400 rounded-lg hover:bg-red-500/30 transition-all disabled:opacity-50 font-medium",
+            "data-fg-cqqv123": "418.169:418.14550:/src/app/components/UnifiedDocumentViewerModal.tsx:358:15:14090:385:e:button:x",
+            children: processing ? "Processing..." : "Confirm Rejection"
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+            lineNumber: 378,
+            columnNumber: 15
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+        lineNumber: 368,
+        columnNumber: 13
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+      lineNumber: 354,
+      columnNumber: 11
+    }, this) }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+      lineNumber: 353,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx",
+    lineNumber: 135,
+    columnNumber: 5
+  }, this);
+}
+_s(UnifiedDocumentViewerModal, "dcZKCJn2FHiYdpS9Sli5EmZzuTo=", false, function() {
+  return [useApp];
+});
+_c = UnifiedDocumentViewerModal;
+var _c;
+$RefreshReg$(_c, "UnifiedDocumentViewerModal");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/workspaces/default/code/src/app/components/UnifiedDocumentViewerModal.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,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TTtBQUFBO0FBQUFrRCxLQVRoQmpEO0FBQTBCLElBQUFpRDtBQUFBQyxhQUFBRCxJQUFBIiwibmFtZXMiOlsidXNlU3RhdGUiLCJYIiwiRG93bmxvYWQiLCJDaGVja0NpcmNsZSIsIkNsb2NrIiwiVXNlciIsIkZpbGVUZXh0IiwiVGFnIiwidXNlQXBwIiwiVW5pZmllZERvY3VtZW50Vmlld2VyTW9kYWwiLCJpc09wZW4iLCJvbkNsb3NlIiwiZG9jdW1lbnQiLCJtb2RlIiwib25BY2tub3dsZWRnZSIsIm9uQXBwcm92ZSIsIm9uUmVqZWN0IiwiX3MiLCJhZGRBdWRpdExvZyIsImFja25vd2xlZGdlZCIsInNldEFja25vd2xlZGdlZCIsInNpZ25hdHVyZSIsInNldFNpZ25hdHVyZSIsInJlamVjdFJlYXNvbiIsInNldFJlamVjdFJlYXNvbiIsInNob3dSZWplY3RNb2RhbCIsInNldFNob3dSZWplY3RNb2RhbCIsInByb2Nlc3NpbmciLCJzZXRQcm9jZXNzaW5nIiwiaGFuZGxlQWNrbm93bGVkZ2UiLCJ0cmltIiwiYWxlcnQiLCJzZXRUaW1lb3V0IiwiaWQiLCJhY3Rpb24iLCJkZXRhaWxzIiwidGl0bGUiLCJoYW5kbGVBcHByb3ZlIiwiaGFuZGxlUmVqZWN0IiwiaGFuZGxlRG93bmxvYWQiLCJ0eXBlIiwidmVyc2lvbiIsImNvbnRlbnQiLCJjYXRlZ29yeSIsInN0YXR1cyIsInRvVXBwZXJDYXNlIiwiYXV0aG9yIiwibGFzdE1vZGlmaWVkIiwidGFncyIsImxlbmd0aCIsIm1hcCIsInRhZyIsImluZGV4IiwicmVxdWlyZXNBY2tub3dsZWRnZW1lbnQiLCJlIiwidGFyZ2V0IiwiY2hlY2tlZCIsInZhbHVlIiwiX2MiLCIkUmVmcmVzaFJlZyQiXSwiaWdub3JlTGlzdCI6W10sInNvdXJjZXMiOlsiVW5pZmllZERvY3VtZW50Vmlld2VyTW9kYWwudHN4Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IHVzZVN0YXRlIH0gZnJvbSAncmVhY3QnO1xuaW1wb3J0IHsgWCwgRG93bmxvYWQsIEV5ZSwgQ2hlY2tDaXJjbGUsIEVkaXQsIENsb2NrLCBVc2VyLCBGaWxlVGV4dCwgVGFnIH0gZnJvbSAnbHVjaWRlLXJlYWN0JztcbmltcG9ydCB7IHVzZUFwcCB9IGZyb20gJy4uL2NvbnRleHRzL0FwcENvbnRleHQnO1xuXG5pbnRlcmZhY2UgRG9jdW1lbnQge1xuICBpZDogc3RyaW5nO1xuICB0aXRsZTogc3RyaW5nO1xuICB0eXBlOiBzdHJpbmc7XG4gIGNhdGVnb3J5OiBzdHJpbmc7XG4gIHZlcnNpb246IHN0cmluZztcbiAgY29udGVudDogc3RyaW5nO1xuICBzdGF0dXM/OiAnZHJhZnQnIHwgJ3BlbmRpbmcnIHwgJ2FwcHJvdmVkJyB8ICdwdWJsaXNoZWQnO1xuICBhdXRob3I/OiBzdHJpbmc7XG4gIGxhc3RNb2RpZmllZD86IHN0cmluZztcbiAgcmVxdWlyZXNBY2tub3dsZWRnZW1lbnQ/OiBib29sZWFuO1xuICB0YWdzPzogc3RyaW5nW107XG59XG5cbmludGVyZmFjZSBVbmlmaWVkRG9jdW1lbnRWaWV3ZXJNb2RhbFByb3BzIHtcbiAgaXNPcGVuOiBib29sZWFuO1xuICBvbkNsb3NlOiAoKSA9PiB2b2lkO1xuICBkb2N1bWVudDogRG9jdW1lbnQ7XG4gIG1vZGU6ICd2aWV3JyB8ICdyZXZpZXcnIHwgJ2Fja25vd2xlZGdlJztcbiAgb25BY2tub3dsZWRnZT86IChkb2N1bWVudElkOiBzdHJpbmcsIHNpZ25hdHVyZTogc3RyaW5nKSA9PiB2b2lkO1xuICBvbkFwcHJvdmU/OiAoZG9jdW1lbnRJZDogc3RyaW5nKSA9PiB2b2lkO1xuICBvblJlamVjdD86IChkb2N1bWVudElkOiBzdHJpbmcsIHJlYXNvbjogc3RyaW5nKSA9PiB2b2lkO1xufVxuXG5leHBvcnQgZnVuY3Rpb24gVW5pZmllZERvY3VtZW50Vmlld2VyTW9kYWwoe1xuICBpc09wZW4sXG4gIG9uQ2xvc2UsXG4gIGRvY3VtZW50LFxuICBtb2RlLFxuICBvbkFja25vd2xlZGdlLFxuICBvbkFwcHJvdmUsXG4gIG9uUmVqZWN0LFxufTogVW5pZmllZERvY3VtZW50Vmlld2VyTW9kYWxQcm9wcykge1xuICBjb25zdCB7IGFkZEF1ZGl0TG9nIH0gPSB1c2VBcHAoKTtcbiAgY29uc3QgW2Fja25vd2xlZGdlZCwgc2V0QWNrbm93bGVkZ2VkXSA9IHVzZVN0YXRlKGZhbHNlKTtcbiAgY29uc3QgW3NpZ25hdHVyZSwgc2V0U2lnbmF0dXJlXSA9IHVzZVN0YXRlKCcnKTtcbiAgY29uc3QgW3JlamVjdFJlYXNvbiwgc2V0UmVqZWN0UmVhc29uXSA9IHVzZVN0YXRlKCcnKTtcbiAgY29uc3QgW3Nob3dSZWplY3RNb2RhbCwgc2V0U2hvd1JlamVjdE1vZGFsXSA9IHVzZVN0YXRlKGZhbHNlKTtcbiAgY29uc3QgW3Byb2Nlc3NpbmcsIHNldFByb2Nlc3NpbmddID0gdXNlU3RhdGUoZmFsc2UpO1xuXG4gIGlmICghaXNPcGVuKSByZXR1cm4gbnVsbDtcblxuICBjb25zdCBoYW5kbGVBY2tub3dsZWRnZSA9ICgpID0+IHtcbiAgICBpZiAoIWFja25vd2xlZGdlZCB8fCAhc2lnbmF0dXJlLnRyaW0oKSkge1xuICAgICAgYWxlcnQoJ1BsZWFzZSBjaGVjayB0aGUgYWNrbm93bGVkZ21lbnQgYm94IGFuZCBwcm92aWRlIHlvdXIgc2lnbmF0dXJlJyk7XG4gICAgICByZXR1cm47XG4gICAgfVxuXG4gICAgc2V0UHJvY2Vzc2luZyh0cnVlKTtcbiAgICBzZXRUaW1lb3V0KCgpID0+IHtcbiAgICAgIGlmIChvbkFja25vd2xlZGdlKSB7XG4gICAgICAgIG9uQWNrbm93bGVkZ2UoZG9jdW1lbnQuaWQsIHNpZ25hdHVyZSk7XG4gICAgICAgIGFkZEF1ZGl0TG9nKHtcbiAgICAgICAgICBhY3Rpb246ICdEb2N1bWVudCBBY2tub3dsZWRnZWQnLFxuICAgICAgICAgIGRldGFpbHM6IGBBY2tub3dsZWRnZWQgZG9jdW1lbnQ6ICR7ZG9jdW1lbnQudGl0bGV9YCxcbiAgICAgICAgfSk7XG4gICAgICB9XG4gICAgICBzZXRQcm9jZXNzaW5nKGZhbHNlKTtcbiAgICAgIHNldEFja25vd2xlZGdlZChmYWxzZSk7XG4gICAgICBzZXRTaWduYXR1cmUoJycpO1xuICAgICAgb25DbG9zZSgpO1xuICAgIH0sIDgwMCk7XG4gIH07XG5cbiAgY29uc3QgaGFuZGxlQXBwcm92ZSA9ICgpID0+IHtcbiAgICBzZXRQcm9jZXNzaW5nKHRydWUpO1xuICAgIHNldFRpbWVvdXQoKCkgPT4ge1xuICAgICAgaWYgKG9uQXBwcm92ZSkge1xuICAgICAgICBvbkFwcHJvdmUoZG9jdW1lbnQuaWQpO1xuICAgICAgICBhZGRBdWRpdExvZyh7XG4gICAgICAgICAgYWN0aW9uOiAnRG9jdW1lbnQgQXBwcm92ZWQnLFxuICAgICAgICAgIGRldGFpbHM6IGBBcHByb3ZlZCBkb2N1bWVudDogJHtkb2N1bWVudC50aXRsZX1gLFxuICAgICAgICB9KTtcbiAgICAgIH1cbiAgICAgIHNldFByb2Nlc3NpbmcoZmFsc2UpO1xuICAgICAgb25DbG9zZSgpO1xuICAgIH0sIDgwMCk7XG4gIH07XG5cbiAgY29uc3QgaGFuZGxlUmVqZWN0ID0gKCkgPT4ge1xuICAgIGlmICghcmVqZWN0UmVhc29uLnRyaW0oKSkge1xuICAgICAgYWxlcnQoJ1BsZWFzZSBwcm92aWRlIGEgcmVhc29uIGZvciByZWplY3Rpb24nKTtcbiAgICAgIHJldHVybjtcbiAgICB9XG5cbiAgICBzZXRQcm9jZXNzaW5nKHRydWUpO1xuICAgIHNldFRpbWVvdXQoKCkgPT4ge1xuICAgICAgaWYgKG9uUmVqZWN0KSB7XG4gICAgICAgIG9uUmVqZWN0KGRvY3VtZW50LmlkLCByZWplY3RSZWFzb24pO1xuICAgICAgICBhZGRBdWRpdExvZyh7XG4gICAgICAgICAgYWN0aW9uOiAnRG9jdW1lbnQgUmVqZWN0ZWQnLFxuICAgICAgICAgIGRldGFpbHM6IGBSZWplY3RlZCBkb2N1bWVudDogJHtkb2N1bWVudC50aXRsZX0uIFJlYXNvbjogJHtyZWplY3RSZWFzb259YCxcbiAgICAgICAgfSk7XG4gICAgICB9XG4gICAgICBzZXRQcm9jZXNzaW5nKGZhbHNlKTtcbiAgICAgIHNldFJlamVjdFJlYXNvbignJyk7XG4gICAgICBzZXRTaG93UmVqZWN0TW9kYWwoZmFsc2UpO1xuICAgICAgb25DbG9zZSgpO1xuICAgIH0sIDgwMCk7XG4gIH07XG5cbiAgY29uc3QgaGFuZGxlRG93bmxvYWQgPSAoKSA9PiB7XG4gICAgYWRkQXVkaXRMb2coe1xuICAgICAgYWN0aW9uOiAnRG9jdW1lbnQgRG93bmxvYWRlZCcsXG4gICAgICBkZXRhaWxzOiBgRG93bmxvYWRlZCBkb2N1bWVudDogJHtkb2N1bWVudC50aXRsZX1gLFxuICAgIH0pO1xuICAgIGFsZXJ0KGDwn5OlIERvd25sb2FkaW5nOiAke2RvY3VtZW50LnRpdGxlfWApO1xuICB9O1xuXG4gIHJldHVybiAoXG4gICAgPD5cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZml4ZWQgaW5zZXQtMCBiZy1ibGFjay84MCBiYWNrZHJvcC1ibHVyLXNtIHotNTAgZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1jZW50ZXIgcC00XCI+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYmctWyMwZjI4MzJdIGJvcmRlciBib3JkZXItWyMxYTM0NDBdIHJvdW5kZWQtMnhsIHctZnVsbCBtYXgtdy02eGwgbWF4LWgtWzkwdmhdIGZsZXggZmxleC1jb2xcIj5cbiAgICAgICAgICB7LyogSGVhZGVyICovfVxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicC02IGJvcmRlci1iIGJvcmRlci1bIzFhMzQ0MF0gZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuXCI+XG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0zXCI+XG4gICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidy0xMCBoLTEwIHJvdW5kZWQtbGcgYmctZ3JhZGllbnQtdG8tYnIgZnJvbS10ZWFsLTYwMCB0by10ZWFsLTUwMCBmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlclwiPlxuICAgICAgICAgICAgICAgIDxGaWxlVGV4dCBjbGFzc05hbWU9XCJ3LTUgaC01IHRleHQtd2hpdGVcIiAvPlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgICAgICA8aDIgY2xhc3NOYW1lPVwidGV4dC14bCBmb250LWJvbGQgdGV4dC13aGl0ZVwiPntkb2N1bWVudC50aXRsZX08L2gyPlxuICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC1ncmF5LTQwMFwiPlxuICAgICAgICAgICAgICAgICAge2RvY3VtZW50LnR5cGV9IOKAoiBWZXJzaW9uIHtkb2N1bWVudC52ZXJzaW9ufVxuICAgICAgICAgICAgICAgIDwvcD5cbiAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDxidXR0b25cbiAgICAgICAgICAgICAgb25DbGljaz17b25DbG9zZX1cbiAgICAgICAgICAgICAgY2xhc3NOYW1lPVwidy0xMCBoLTEwIHJvdW5kZWQtbGcgYmctd2hpdGUvNSBob3ZlcjpiZy13aGl0ZS8xMCBmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlciB0cmFuc2l0aW9uLWNvbG9yc1wiXG4gICAgICAgICAgICA+XG4gICAgICAgICAgICAgIDxYIGNsYXNzTmFtZT1cInctNSBoLTUgdGV4dC1ncmF5LTQwMFwiIC8+XG4gICAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgICA8L2Rpdj5cblxuICAgICAgICAgIHsvKiBDb250ZW50ICovfVxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleC0xIG92ZXJmbG93LXktYXV0byBmbGV4XCI+XG4gICAgICAgICAgICB7LyogTWFpbiBEb2N1bWVudCBWaWV3ICovfVxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4LTEgcC04IG92ZXJmbG93LXktYXV0b1wiPlxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLXdoaXRlIHJvdW5kZWQtbGcgcC04IHNoYWRvdy1sZyBtYXgtdy00eGwgbXgtYXV0b1wiPlxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicHJvc2UgbWF4LXctbm9uZVwiPlxuICAgICAgICAgICAgICAgICAgPHByZSBjbGFzc05hbWU9XCJ3aGl0ZXNwYWNlLXByZS13cmFwIGZvbnQtc2FucyB0ZXh0LWdyYXktODAwIHRleHQtc20gbGVhZGluZy1yZWxheGVkXCI+XG4gICAgICAgICAgICAgICAgICAgIHtkb2N1bWVudC5jb250ZW50fVxuICAgICAgICAgICAgICAgICAgPC9wcmU+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICAgIHsvKiBNZXRhZGF0YSBTaWRlYmFyICovfVxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ3LTgwIGJvcmRlci1sIGJvcmRlci1bIzFhMzQ0MF0gcC02IG92ZXJmbG93LXktYXV0byBiZy1bIzBCMUYyQV1cIj5cbiAgICAgICAgICAgICAgPGgzIGNsYXNzTmFtZT1cInRleHQtd2hpdGUgZm9udC1zZW1pYm9sZCBtYi00XCI+RG9jdW1lbnQgSW5mb3JtYXRpb248L2gzPlxuICAgICAgICAgICAgICBcbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJzcGFjZS15LTRcIj5cbiAgICAgICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICAgICAgPGxhYmVsIGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC1ncmF5LTUwMCB1cHBlcmNhc2VcIj5DYXRlZ29yeTwvbGFiZWw+XG4gICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cIm10LTEgdGV4dC13aGl0ZVwiPntkb2N1bWVudC5jYXRlZ29yeX08L2Rpdj5cbiAgICAgICAgICAgICAgICA8L2Rpdj5cblxuICAgICAgICAgICAgICAgIHtkb2N1bWVudC5zdGF0dXMgJiYgKFxuICAgICAgICAgICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgICAgICAgICAgPGxhYmVsIGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC1ncmF5LTUwMCB1cHBlcmNhc2VcIj5TdGF0dXM8L2xhYmVsPlxuICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cIm10LTFcIj5cbiAgICAgICAgICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9e2BweC0yIHB5LTEgcm91bmRlZCB0ZXh0LXhzIGZvbnQtbWVkaXVtICR7XG4gICAgICAgICAgICAgICAgICAgICAgICBkb2N1bWVudC5zdGF0dXMgPT09ICdwdWJsaXNoZWQnID8gJ2JnLWdyZWVuLTUwMC8yMCB0ZXh0LWdyZWVuLTQwMCcgOlxuICAgICAgICAgICAgICAgICAgICAgICAgZG9jdW1lbnQuc3RhdHVzID09PSAnYXBwcm92ZWQnID8gJ2JnLWJsdWUtNTAwLzIwIHRleHQtYmx1ZS00MDAnIDpcbiAgICAgICAgICAgICAgICAgICAgICAgIGRvY3VtZW50LnN0YXR1cyA9PT0gJ3BlbmRpbmcnID8gJ2JnLXllbGxvdy01MDAvMjAgdGV4dC15ZWxsb3ctNDAwJyA6XG4gICAgICAgICAgICAgICAgICAgICAgICAnYmctZ3JheS01MDAvMjAgdGV4dC1ncmF5LTQwMCdcbiAgICAgICAgICAgICAgICAgICAgICB9YH0+XG4gICAgICAgICAgICAgICAgICAgICAgICB7ZG9jdW1lbnQuc3RhdHVzLnRvVXBwZXJDYXNlKCl9XG4gICAgICAgICAgICAgICAgICAgICAgPC9zcGFuPlxuICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICl9XG5cbiAgICAgICAgICAgICAgICB7ZG9jdW1lbnQuYXV0aG9yICYmIChcbiAgICAgICAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgICAgICAgIDxsYWJlbCBjbGFzc05hbWU9XCJ0ZXh0LXhzIHRleHQtZ3JheS01MDAgdXBwZXJjYXNlIGZsZXggaXRlbXMtY2VudGVyIGdhcC0xXCI+XG4gICAgICAgICAgICAgICAgICAgICAgPFVzZXIgY2xhc3NOYW1lPVwidy0zIGgtM1wiIC8+XG4gICAgICAgICAgICAgICAgICAgICAgQXV0aG9yXG4gICAgICAgICAgICAgICAgICAgIDwvbGFiZWw+XG4gICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwibXQtMSB0ZXh0LXdoaXRlXCI+e2RvY3VtZW50LmF1dGhvcn08L2Rpdj5cbiAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICl9XG5cbiAgICAgICAgICAgICAgICB7ZG9jdW1lbnQubGFzdE1vZGlmaWVkICYmIChcbiAgICAgICAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgICAgICAgIDxsYWJlbCBjbGFzc05hbWU9XCJ0ZXh0LXhzIHRleHQtZ3JheS01MDAgdXBwZXJjYXNlIGZsZXggaXRlbXMtY2VudGVyIGdhcC0xXCI+XG4gICAgICAgICAgICAgICAgICAgICAgPENsb2NrIGNsYXNzTmFtZT1cInctMyBoLTNcIiAvPlxuICAgICAgICAgICAgICAgICAgICAgIExhc3QgTW9kaWZpZWRcbiAgICAgICAgICAgICAgICAgICAgPC9sYWJlbD5cbiAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJtdC0xIHRleHQtd2hpdGVcIj57ZG9jdW1lbnQubGFzdE1vZGlmaWVkfTwvZGl2PlxuICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgKX1cblxuICAgICAgICAgICAgICAgIHtkb2N1bWVudC50YWdzICYmIGRvY3VtZW50LnRhZ3MubGVuZ3RoID4gMCAmJiAoXG4gICAgICAgICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICAgICAgICA8bGFiZWwgY2xhc3NOYW1lPVwidGV4dC14cyB0ZXh0LWdyYXktNTAwIHVwcGVyY2FzZSBmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMVwiPlxuICAgICAgICAgICAgICAgICAgICAgIDxUYWcgY2xhc3NOYW1lPVwidy0zIGgtM1wiIC8+XG4gICAgICAgICAgICAgICAgICAgICAgVGFnc1xuICAgICAgICAgICAgICAgICAgICA8L2xhYmVsPlxuICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cIm10LTIgZmxleCBmbGV4LXdyYXAgZ2FwLTJcIj5cbiAgICAgICAgICAgICAgICAgICAgICB7ZG9jdW1lbnQudGFncy5tYXAoKHRhZywgaW5kZXgpID0+IChcbiAgICAgICAgICAgICAgICAgICAgICAgIDxzcGFuIGtleT17aW5kZXh9IGNsYXNzTmFtZT1cInB4LTIgcHktMSBiZy10ZWFsLTUwMC8yMCB0ZXh0LXRlYWwtNDAwIHJvdW5kZWQgdGV4dC14c1wiPlxuICAgICAgICAgICAgICAgICAgICAgICAgICB7dGFnfVxuICAgICAgICAgICAgICAgICAgICAgICAgPC9zcGFuPlxuICAgICAgICAgICAgICAgICAgICAgICkpfVxuICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICl9XG4gICAgICAgICAgICAgIDwvZGl2PlxuXG4gICAgICAgICAgICAgIHsvKiBBY3Rpb25zICovfVxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cIm10LTYgcHQtNiBib3JkZXItdCBib3JkZXItWyMxYTM0NDBdXCI+XG4gICAgICAgICAgICAgICAgPGJ1dHRvblxuICAgICAgICAgICAgICAgICAgb25DbGljaz17aGFuZGxlRG93bmxvYWR9XG4gICAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJ3LWZ1bGwgcHgtNCBweS0yIGJnLXdoaXRlLzUgYm9yZGVyIGJvcmRlci13aGl0ZS8xMCB0ZXh0LXdoaXRlIHJvdW5kZWQtbGcgaG92ZXI6Ymctd2hpdGUvMTAgdHJhbnNpdGlvbi1hbGwgZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1jZW50ZXIgZ2FwLTJcIlxuICAgICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICAgIDxEb3dubG9hZCBjbGFzc05hbWU9XCJ3LTQgaC00XCIgLz5cbiAgICAgICAgICAgICAgICAgIERvd25sb2FkIFBERlxuICAgICAgICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDwvZGl2PlxuXG4gICAgICAgICAgey8qIEZvb3RlciBBY3Rpb25zICovfVxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicC02IGJvcmRlci10IGJvcmRlci1bIzFhMzQ0MF1cIj5cbiAgICAgICAgICAgIHttb2RlID09PSAnYWNrbm93bGVkZ2UnICYmIGRvY3VtZW50LnJlcXVpcmVzQWNrbm93bGVkZ2VtZW50ICYmIChcbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJzcGFjZS15LTRcIj5cbiAgICAgICAgICAgICAgICA8bGFiZWwgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1zdGFydCBnYXAtMyBwLTQgYmctWyMwQjFGMkFdIGJvcmRlciBib3JkZXItWyMxYTM0NDBdIHJvdW5kZWQtbGcgY3Vyc29yLXBvaW50ZXIgaG92ZXI6Ymctd2hpdGUvNSB0cmFuc2l0aW9uLWNvbG9yc1wiPlxuICAgICAgICAgICAgICAgICAgPGlucHV0XG4gICAgICAgICAgICAgICAgICAgIHR5cGU9XCJjaGVja2JveFwiXG4gICAgICAgICAgICAgICAgICAgIGNoZWNrZWQ9e2Fja25vd2xlZGdlZH1cbiAgICAgICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXRBY2tub3dsZWRnZWQoZS50YXJnZXQuY2hlY2tlZCl9XG4gICAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cIm10LTEgdy01IGgtNSByb3VuZGVkIGJvcmRlci1ncmF5LTYwMCBiZy1bIzBCMUYyQV0gdGV4dC10ZWFsLTUwMFwiXG4gICAgICAgICAgICAgICAgICAvPlxuICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4LTEgdGV4dC1zbSB0ZXh0LWdyYXktMzAwXCI+XG4gICAgICAgICAgICAgICAgICAgIEkgaGF2ZSByZWFkIGFuZCB1bmRlcnN0b29kIHRoZSBjb250ZW50cyBvZiB0aGlzIGRvY3VtZW50IGFuZCBhZ3JlZSB0byBjb21wbHkgd2l0aCBhbGwgcG9saWNpZXMgYW5kIHByb2NlZHVyZXMgb3V0bGluZWQgaGVyZWluLlxuICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgPC9sYWJlbD5cblxuICAgICAgICAgICAgICAgIDxpbnB1dFxuICAgICAgICAgICAgICAgICAgdHlwZT1cInRleHRcIlxuICAgICAgICAgICAgICAgICAgdmFsdWU9e3NpZ25hdHVyZX1cbiAgICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXsoZSkgPT4gc2V0U2lnbmF0dXJlKGUudGFyZ2V0LnZhbHVlKX1cbiAgICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPVwiVHlwZSB5b3VyIGZ1bGwgbmFtZSBhcyBzaWduYXR1cmVcIlxuICAgICAgICAgICAgICAgICAgZGlzYWJsZWQ9eyFhY2tub3dsZWRnZWR9XG4gICAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJ3LWZ1bGwgcHgtNCBweS0zIGJnLVsjMEIxRjJBXSBib3JkZXIgYm9yZGVyLVsjMWEzNDQwXSByb3VuZGVkLWxnIHRleHQtd2hpdGUgcGxhY2Vob2xkZXItZ3JheS01MDAgZm9jdXM6b3V0bGluZS1ub25lIGZvY3VzOmJvcmRlci10ZWFsLTUwMC81MCBkaXNhYmxlZDpvcGFjaXR5LTUwXCJcbiAgICAgICAgICAgICAgICAvPlxuXG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW5cIj5cbiAgICAgICAgICAgICAgICAgIDxidXR0b25cbiAgICAgICAgICAgICAgICAgICAgb25DbGljaz17b25DbG9zZX1cbiAgICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwicHgtNiBweS0yIGJnLXdoaXRlLzUgYm9yZGVyIGJvcmRlci13aGl0ZS8xMCB0ZXh0LXdoaXRlIHJvdW5kZWQtbGcgaG92ZXI6Ymctd2hpdGUvMTAgdHJhbnNpdGlvbi1hbGxcIlxuICAgICAgICAgICAgICAgICAgPlxuICAgICAgICAgICAgICAgICAgICBDYW5jZWxcbiAgICAgICAgICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICAgICAgICAgICAgPGJ1dHRvblxuICAgICAgICAgICAgICAgICAgICBvbkNsaWNrPXtoYW5kbGVBY2tub3dsZWRnZX1cbiAgICAgICAgICAgICAgICAgICAgZGlzYWJsZWQ9eyFhY2tub3dsZWRnZWQgfHwgIXNpZ25hdHVyZS50cmltKCkgfHwgcHJvY2Vzc2luZ31cbiAgICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwicHgtNiBweS0yIGJnLVsjZDRhNTc0XSB0ZXh0LVsjMEIxRjJBXSByb3VuZGVkLWxnIGhvdmVyOmJnLVsjYzk5NTYzXSB0cmFuc2l0aW9uLWFsbCBmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMiBkaXNhYmxlZDpvcGFjaXR5LTUwIGRpc2FibGVkOmN1cnNvci1ub3QtYWxsb3dlZCBmb250LW1lZGl1bVwiXG4gICAgICAgICAgICAgICAgICA+XG4gICAgICAgICAgICAgICAgICAgIHtwcm9jZXNzaW5nID8gKFxuICAgICAgICAgICAgICAgICAgICAgIDw+XG4gICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInctNCBoLTQgYm9yZGVyLTIgYm9yZGVyLVsjMEIxRjJBXS8zMCBib3JkZXItdC1bIzBCMUYyQV0gcm91bmRlZC1mdWxsIGFuaW1hdGUtc3BpblwiPjwvZGl2PlxuICAgICAgICAgICAgICAgICAgICAgICAgUHJvY2Vzc2luZy4uLlxuICAgICAgICAgICAgICAgICAgICAgIDwvPlxuICAgICAgICAgICAgICAgICAgICApIDogKFxuICAgICAgICAgICAgICAgICAgICAgIDw+XG4gICAgICAgICAgICAgICAgICAgICAgICA8Q2hlY2tDaXJjbGUgY2xhc3NOYW1lPVwidy00IGgtNFwiIC8+XG4gICAgICAgICAgICAgICAgICAgICAgICBTdWJtaXQgQWNrbm93bGVkZ21lbnRcbiAgICAgICAgICAgICAgICAgICAgICA8Lz5cbiAgICAgICAgICAgICAgICAgICAgKX1cbiAgICAgICAgICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICl9XG5cbiAgICAgICAgICAgIHttb2RlID09PSAncmV2aWV3JyAmJiAoXG4gICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuXCI+XG4gICAgICAgICAgICAgICAgPGJ1dHRvblxuICAgICAgICAgICAgICAgICAgb25DbGljaz17b25DbG9zZX1cbiAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cInB4LTYgcHktMiBiZy13aGl0ZS81IGJvcmRlciBib3JkZXItd2hpdGUvMTAgdGV4dC13aGl0ZSByb3VuZGVkLWxnIGhvdmVyOmJnLXdoaXRlLzEwIHRyYW5zaXRpb24tYWxsXCJcbiAgICAgICAgICAgICAgICA+XG4gICAgICAgICAgICAgICAgICBDbG9zZVxuICAgICAgICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBnYXAtM1wiPlxuICAgICAgICAgICAgICAgICAgPGJ1dHRvblxuICAgICAgICAgICAgICAgICAgICBvbkNsaWNrPXsoKSA9PiBzZXRTaG93UmVqZWN0TW9kYWwodHJ1ZSl9XG4gICAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cInB4LTYgcHktMiBiZy1yZWQtNTAwLzIwIGJvcmRlciBib3JkZXItcmVkLTUwMC8zMCB0ZXh0LXJlZC00MDAgcm91bmRlZC1sZyBob3ZlcjpiZy1yZWQtNTAwLzMwIHRyYW5zaXRpb24tYWxsIGZvbnQtbWVkaXVtXCJcbiAgICAgICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICAgICAgUmVqZWN0XG4gICAgICAgICAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgICAgICAgICAgIDxidXR0b25cbiAgICAgICAgICAgICAgICAgICAgb25DbGljaz17aGFuZGxlQXBwcm92ZX1cbiAgICAgICAgICAgICAgICAgICAgZGlzYWJsZWQ9e3Byb2Nlc3Npbmd9XG4gICAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cInB4LTYgcHktMiBiZy1bI2Q0YTU3NF0gdGV4dC1bIzBCMUYyQV0gcm91bmRlZC1sZyBob3ZlcjpiZy1bI2M5OTU2M10gdHJhbnNpdGlvbi1hbGwgZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTIgZGlzYWJsZWQ6b3BhY2l0eS01MCBmb250LW1lZGl1bVwiXG4gICAgICAgICAgICAgICAgICA+XG4gICAgICAgICAgICAgICAgICAgIHtwcm9jZXNzaW5nID8gKFxuICAgICAgICAgICAgICAgICAgICAgIDw+XG4gICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInctNCBoLTQgYm9yZGVyLTIgYm9yZGVyLVsjMEIxRjJBXS8zMCBib3JkZXItdC1bIzBCMUYyQV0gcm91bmRlZC1mdWxsIGFuaW1hdGUtc3BpblwiPjwvZGl2PlxuICAgICAgICAgICAgICAgICAgICAgICAgUHJvY2Vzc2luZy4uLlxuICAgICAgICAgICAgICAgICAgICAgIDwvPlxuICAgICAgICAgICAgICAgICAgICApIDogKFxuICAgICAgICAgICAgICAgICAgICAgIDw+XG4gICAgICAgICAgICAgICAgICAgICAgICA8Q2hlY2tDaXJjbGUgY2xhc3NOYW1lPVwidy00IGgtNFwiIC8+XG4gICAgICAgICAgICAgICAgICAgICAgICBBcHByb3ZlXG4gICAgICAgICAgICAgICAgICAgICAgPC8+XG4gICAgICAgICAgICAgICAgICAgICl9XG4gICAgICAgICAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICApfVxuXG4gICAgICAgICAgICB7bW9kZSA9PT0gJ3ZpZXcnICYmIChcbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWVuZFwiPlxuICAgICAgICAgICAgICAgIDxidXR0b25cbiAgICAgICAgICAgICAgICAgIG9uQ2xpY2s9e29uQ2xvc2V9XG4gICAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJweC02IHB5LTIgYmctd2hpdGUvNSBib3JkZXIgYm9yZGVyLXdoaXRlLzEwIHRleHQtd2hpdGUgcm91bmRlZC1sZyBob3ZlcjpiZy13aGl0ZS8xMCB0cmFuc2l0aW9uLWFsbFwiXG4gICAgICAgICAgICAgICAgPlxuICAgICAgICAgICAgICAgICAgQ2xvc2VcbiAgICAgICAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICApfVxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICA8L2Rpdj5cbiAgICAgIDwvZGl2PlxuXG4gICAgICB7LyogUmVqZWN0IE1vZGFsICovfVxuICAgICAge3Nob3dSZWplY3RNb2RhbCAmJiAoXG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZml4ZWQgaW5zZXQtMCBiZy1ibGFjay84MCBiYWNrZHJvcC1ibHVyLXNtIHotWzYwXSBmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlciBwLTRcIj5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLVsjMGYyODMyXSBib3JkZXIgYm9yZGVyLVsjMWEzNDQwXSByb3VuZGVkLTJ4bCB3LWZ1bGwgbWF4LXctbWRcIj5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicC02IGJvcmRlci1iIGJvcmRlci1bIzFhMzQ0MF1cIj5cbiAgICAgICAgICAgICAgPGgzIGNsYXNzTmFtZT1cInRleHQteGwgZm9udC1ib2xkIHRleHQtd2hpdGVcIj5SZWplY3QgRG9jdW1lbnQ8L2gzPlxuICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LXNtIHRleHQtZ3JheS00MDAgbXQtMVwiPlBsZWFzZSBwcm92aWRlIGEgcmVhc29uIGZvciByZWplY3Rpb248L3A+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicC02XCI+XG4gICAgICAgICAgICAgIDx0ZXh0YXJlYVxuICAgICAgICAgICAgICAgIHZhbHVlPXtyZWplY3RSZWFzb259XG4gICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXRSZWplY3RSZWFzb24oZS50YXJnZXQudmFsdWUpfVxuICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPVwiRW50ZXIgcmVqZWN0aW9uIHJlYXNvbi4uLlwiXG4gICAgICAgICAgICAgICAgcm93cz17NX1cbiAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJ3LWZ1bGwgcHgtNCBweS0zIGJnLVsjMEIxRjJBXSBib3JkZXIgYm9yZGVyLVsjMWEzNDQwXSByb3VuZGVkLWxnIHRleHQtd2hpdGUgcGxhY2Vob2xkZXItZ3JheS01MDAgZm9jdXM6b3V0bGluZS1ub25lIGZvY3VzOmJvcmRlci1yZWQtNTAwLzUwIHJlc2l6ZS1ub25lXCJcbiAgICAgICAgICAgICAgLz5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJwLTYgYm9yZGVyLXQgYm9yZGVyLVsjMWEzNDQwXSBmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW5cIj5cbiAgICAgICAgICAgICAgPGJ1dHRvblxuICAgICAgICAgICAgICAgIG9uQ2xpY2s9eygpID0+IHtcbiAgICAgICAgICAgICAgICAgIHNldFNob3dSZWplY3RNb2RhbChmYWxzZSk7XG4gICAgICAgICAgICAgICAgICBzZXRSZWplY3RSZWFzb24oJycpO1xuICAgICAgICAgICAgICAgIH19XG4gICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwicHgtNiBweS0yIGJnLXdoaXRlLzUgYm9yZGVyIGJvcmRlci13aGl0ZS8xMCB0ZXh0LXdoaXRlIHJvdW5kZWQtbGcgaG92ZXI6Ymctd2hpdGUvMTAgdHJhbnNpdGlvbi1hbGxcIlxuICAgICAgICAgICAgICA+XG4gICAgICAgICAgICAgICAgQ2FuY2VsXG4gICAgICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICAgICAgICA8YnV0dG9uXG4gICAgICAgICAgICAgICAgb25DbGljaz17aGFuZGxlUmVqZWN0fVxuICAgICAgICAgICAgICAgIGRpc2FibGVkPXshcmVqZWN0UmVhc29uLnRyaW0oKSB8fCBwcm9jZXNzaW5nfVxuICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cInB4LTYgcHktMiBiZy1yZWQtNTAwLzIwIGJvcmRlciBib3JkZXItcmVkLTUwMC8zMCB0ZXh0LXJlZC00MDAgcm91bmRlZC1sZyBob3ZlcjpiZy1yZWQtNTAwLzMwIHRyYW5zaXRpb24tYWxsIGRpc2FibGVkOm9wYWNpdHktNTAgZm9udC1tZWRpdW1cIlxuICAgICAgICAgICAgICA+XG4gICAgICAgICAgICAgICAge3Byb2Nlc3NpbmcgPyAnUHJvY2Vzc2luZy4uLicgOiAnQ29uZmlybSBSZWplY3Rpb24nfVxuICAgICAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICA8L2Rpdj5cbiAgICAgICl9XG4gICAgPC8+XG4gICk7XG59XG4iXSwiZmlsZSI6Ii93b3Jrc3BhY2VzL2RlZmF1bHQvY29kZS9zcmMvYXBwL2NvbXBvbmVudHMvVW5pZmllZERvY3VtZW50Vmlld2VyTW9kYWwudHN4In0=

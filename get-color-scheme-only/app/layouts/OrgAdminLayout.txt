@@ -1,0 +1,302 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/app/layouts/OrgAdminLayout.tsx");import { jsxDEV } from "/@id/__x00__figma:react-jsx-dev-runtime";
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/workspaces/default/code/src/app/layouts/OrgAdminLayout.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+var _s = $RefreshSig$();
+import { FGCmp } from "/@id/fginspector";
+import { Outlet, NavLink, useNavigate } from "/node_modules/.vite/deps/react-router.js?v=d6d2548b";
+import {
+  LayoutDashboard,
+  FileText,
+  Sparkles,
+  Shield,
+  GraduationCap,
+  ClipboardList,
+  AlertTriangle,
+  Users,
+  BarChart3,
+  HelpCircle,
+  Settings,
+  LogOut,
+  Bell,
+  Search,
+  User,
+  UserCog,
+  TrendingUp,
+  FileCheck
+} from "/node_modules/.vite/deps/lucide-react.js?v=25293e4c";
+import logo from "/@id/__x00__figma:asset/5f89b30332c9cbe8f68705cd2c85bdcad46833fb.png?import";
+import GlobalSOSButton from "/src/app/components/GlobalSOSButton.tsx";
+import LanguageSwitcher from "/src/app/components/LanguageSwitcher.tsx";
+const navItems = [
+  { path: "/org-admin/dashboard", icon: LayoutDashboard, label: "Dashboard" },
+  { path: "/org-admin/document-suite", icon: FileText, label: "Document Suite" },
+  { path: "/org-admin/ai-command-center", icon: Sparkles, label: "AI Command Center" },
+  { path: "/org-admin/compliance", icon: Shield, label: "Compliance Tracker" },
+  { path: "/org-admin/training", icon: GraduationCap, label: "Training Center" },
+  { path: "/org-admin/surveys", icon: ClipboardList, label: "Survey Management" },
+  { path: "/org-admin/emergency", icon: AlertTriangle, label: "Emergency & Safety" },
+  { path: "/org-admin/staff", icon: Users, label: "Workforce & Roles" },
+  { path: "/org-admin/role-management", icon: UserCog, label: "Role Management" },
+  { path: "/org-admin/policy-register", icon: FileCheck, label: "Policy Register" },
+  { path: "/org-admin/usage-tracking", icon: TrendingUp, label: "Usage Tracking" },
+  { path: "/org-admin/reports", icon: BarChart3, label: "Reports" },
+  { path: "/org-admin/settings", icon: Settings, label: "Org Settings" },
+  { path: "/org-admin/support", icon: HelpCircle, label: "Support" }
+];
+export default function OrgAdminLayout() {
+  _s();
+  const navigate = useNavigate();
+  return /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dci30", _fgB: 1779104380112, _fgD: true, className: "min-h-screen bg-[#0B1F2A]", "data-fg-dci30": "418.223:758.97:/src/app/layouts/OrgAdminLayout.tsx:48:5:1764:3462:e:div:xtetxte:1", children: [
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "header", _fgS: "dci32", _fgB: 1779104380112, className: "fixed top-0 left-0 right-0 h-16 bg-[#0B1F2A]/80 backdrop-blur-xl border-b border-white/8 z-50", "data-fg-dci32": "418.223:758.97:/src/app/layouts/OrgAdminLayout.tsx:50:7:1843:2262:e:header:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dci33", _fgB: 1779104380112, className: "h-full flex items-center justify-between px-6", "data-fg-dci33": "418.223:758.97:/src/app/layouts/OrgAdminLayout.tsx:51:9:1966:2123:e:div:xtetxtetxte", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dci35", _fgB: 1779104380112, className: "flex items-center gap-3", "data-fg-dci35": "418.223:758.97:/src/app/layouts/OrgAdminLayout.tsx:53:11:2063:185:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "img", _fgS: "dci36", _fgB: 1779104380112, src: logo, alt: "PolicyNest", className: "h-8", "data-fg-dci36": "418.223:758.97:/src/app/layouts/OrgAdminLayout.tsx:54:13:2117:51:e:img" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/layouts/OrgAdminLayout.tsx",
+          lineNumber: 74,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dci37", _fgB: 1779104380112, className: "text-xs text-gray-400", "data-fg-dci37": "418.223:758.97:/src/app/layouts/OrgAdminLayout.tsx:55:13:2181:50:e:p:t", children: "Org Admin" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/layouts/OrgAdminLayout.tsx",
+          lineNumber: 75,
+          columnNumber: 13
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/layouts/OrgAdminLayout.tsx",
+        lineNumber: 73,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dci310", _fgB: 1779104380112, className: "flex-1 max-w-xl mx-8", "data-fg-dci310": "418.223:758.97:/src/app/layouts/OrgAdminLayout.tsx:59:11:2285:527:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dci311", _fgB: 1779104380112, className: "relative", "data-fg-dci311": "418.223:758.97:/src/app/layouts/OrgAdminLayout.tsx:60:13:2336:459:e:div:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Search, _fgS: "dci312", _fgB: 1779104380112, className: "absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400", "data-fg-dci312": "418.223:758.97:/src/app/layouts/OrgAdminLayout.tsx:61:15:2377:85:e:Search::::::B9rK" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/layouts/OrgAdminLayout.tsx",
+          lineNumber: 81,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "input",
+            _fgS: "dci313",
+            _fgB: 1779104380112,
+            type: "text",
+            placeholder: "Search policies, procedures, staff...",
+            className: "w-full pl-10 pr-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-white placeholder-gray-500 focus:outline-none focus:border-teal-500/50",
+            "data-fg-dci313": "418.223:758.97:/src/app/layouts/OrgAdminLayout.tsx:62:15:2477:299:e:input"
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/layouts/OrgAdminLayout.tsx",
+            lineNumber: 82,
+            columnNumber: 15
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/layouts/OrgAdminLayout.tsx",
+        lineNumber: 80,
+        columnNumber: 13
+      }, this) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/layouts/OrgAdminLayout.tsx",
+        lineNumber: 79,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dci315", _fgB: 1779104380112, className: "flex items-center gap-4", "data-fg-dci315": "418.223:758.97:/src/app/layouts/OrgAdminLayout.tsx:71:11:2850:1224:e:div:etetetete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "button", _fgS: "dci316", _fgB: 1779104380112, className: "relative p-2 hover:bg-white/5 rounded-lg transition-colors", "data-fg-dci316": "418.223:758.97:/src/app/layouts/OrgAdminLayout.tsx:72:13:2904:253:e:button:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Bell, _fgS: "dci317", _fgB: 1779104380112, className: "w-5 h-5 text-gray-400", "data-fg-dci317": "418.223:758.97:/src/app/layouts/OrgAdminLayout.tsx:73:15:2998:42:e:Bell::::::CiHR" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/layouts/OrgAdminLayout.tsx",
+            lineNumber: 93,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "dci318", _fgB: 1779104380112, className: "absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full", "data-fg-dci318": "418.223:758.97:/src/app/layouts/OrgAdminLayout.tsx:74:15:3055:80:e:span:_" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/layouts/OrgAdminLayout.tsx",
+            lineNumber: 94,
+            columnNumber: 15
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/layouts/OrgAdminLayout.tsx",
+          lineNumber: 92,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: LanguageSwitcher, _fgS: "dci319", _fgB: 1779104380112, "data-fg-dci319": "418.223:758.97:/src/app/layouts/OrgAdminLayout.tsx:77:13:3171:20:e:LanguageSwitcher::::::BA6m" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/layouts/OrgAdminLayout.tsx",
+          lineNumber: 97,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dci320", _fgB: 1779104380112, className: "h-8 w-px bg-white/10", "data-fg-dci320": "418.223:758.97:/src/app/layouts/OrgAdminLayout.tsx:79:13:3205:44:e:div:_" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/layouts/OrgAdminLayout.tsx",
+          lineNumber: 99,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "button", _fgS: "dci321", _fgB: 1779104380112, className: "flex items-center gap-2 hover:bg-white/5 px-3 py-2 rounded-lg transition-colors", "data-fg-dci321": "418.223:758.97:/src/app/layouts/OrgAdminLayout.tsx:81:13:3263:529:e:button:ete", children: [
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dci322", _fgB: 1779104380112, className: "w-8 h-8 rounded-full bg-gradient-to-br from-teal-600 to-teal-500 flex items-center justify-center", "data-fg-dci322": "418.223:758.97:/src/app/layouts/OrgAdminLayout.tsx:82:15:3378:192:e:div:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: User, _fgS: "dci323", _fgB: 1779104380112, className: "w-4 h-4 text-white", "data-fg-dci323": "418.223:758.97:/src/app/layouts/OrgAdminLayout.tsx:83:17:3510:39:e:User::::::wpV" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/layouts/OrgAdminLayout.tsx",
+            lineNumber: 103,
+            columnNumber: 17
+          }, this) }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/layouts/OrgAdminLayout.tsx",
+            lineNumber: 102,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dci324", _fgB: 1779104380112, className: "text-left", "data-fg-dci324": "418.223:758.97:/src/app/layouts/OrgAdminLayout.tsx:85:15:3585:185:e:div:ete", children: [
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dci325", _fgB: 1779104380112, className: "text-sm text-white", "data-fg-dci325": "418.223:758.97:/src/app/layouts/OrgAdminLayout.tsx:86:17:3629:47:e:p:t", children: "Org Admin" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/layouts/OrgAdminLayout.tsx",
+              lineNumber: 106,
+              columnNumber: 17
+            }, this),
+            /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "p", _fgS: "dci327", _fgB: 1779104380112, className: "text-xs text-gray-400", "data-fg-dci327": "418.223:758.97:/src/app/layouts/OrgAdminLayout.tsx:87:17:3693:56:e:p:t", children: "Acme Healthcare" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/layouts/OrgAdminLayout.tsx",
+              lineNumber: 107,
+              columnNumber: 17
+            }, this)
+          ] }, void 0, true, {
+            fileName: "/workspaces/default/code/src/app/layouts/OrgAdminLayout.tsx",
+            lineNumber: 105,
+            columnNumber: 15
+          }, this)
+        ] }, void 0, true, {
+          fileName: "/workspaces/default/code/src/app/layouts/OrgAdminLayout.tsx",
+          lineNumber: 101,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: "button",
+            _fgS: "dci329",
+            _fgB: 1779104380112,
+            onClick: () => navigate("/"),
+            className: "p-2 hover:bg-white/5 rounded-lg transition-colors",
+            title: "Logout",
+            "data-fg-dci329": "418.223:758.97:/src/app/layouts/OrgAdminLayout.tsx:91:13:3806:251:e:button:e",
+            children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: LogOut, _fgS: "dci330", _fgB: 1779104380112, className: "w-5 h-5 text-gray-400", "data-fg-dci330": "418.223:758.97:/src/app/layouts/OrgAdminLayout.tsx:96:15:3991:44:e:LogOut::::::B3pg" }, void 0, false, {
+              fileName: "/workspaces/default/code/src/app/layouts/OrgAdminLayout.tsx",
+              lineNumber: 116,
+              columnNumber: 15
+            }, this)
+          },
+          void 0,
+          false,
+          {
+            fileName: "/workspaces/default/code/src/app/layouts/OrgAdminLayout.tsx",
+            lineNumber: 111,
+            columnNumber: 13
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/layouts/OrgAdminLayout.tsx",
+        lineNumber: 91,
+        columnNumber: 11
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/layouts/OrgAdminLayout.tsx",
+      lineNumber: 71,
+      columnNumber: 9
+    }, this) }, void 0, false, {
+      fileName: "/workspaces/default/code/src/app/layouts/OrgAdminLayout.tsx",
+      lineNumber: 70,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "div", _fgS: "dci332", _fgB: 1779104380112, className: "flex pt-16", "data-fg-dci332": "418.223:758.97:/src/app/layouts/OrgAdminLayout.tsx:103:7:4139:1076:e:div:xtetxte", children: [
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "aside", _fgS: "dci334", _fgB: 1779104380112, className: "fixed left-0 w-64 h-[calc(100vh-4rem)] bg-white/5 backdrop-blur-lg border-r border-white/8 overflow-y-auto", "data-fg-dci334": "418.223:758.97:/src/app/layouts/OrgAdminLayout.tsx:105:9:4200:866:e:aside:e", children: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "nav", _fgS: "dci335", _fgB: 1779104380112, className: "p-4 space-y-1", "data-fg-dci335": "418.223:758.97:/src/app/layouts/OrgAdminLayout.tsx:106:11:4337:712:e:nav:x", children: navItems.map(
+        (item) => /* @__PURE__ */ jsxDEV(
+          FGCmp,
+          {
+            _fgT: NavLink,
+            _fgS: "dci337",
+            _fgB: 1779104380112,
+            to: item.path,
+            className: ({ isActive }) => `flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${isActive ? "bg-gradient-to-r from-teal-600 to-teal-500 text-white shadow-lg" : "text-gray-400 hover:bg-white/5 hover:text-white"}`,
+            "data-fg-dci337": "418.223:758.97:/src/app/layouts/OrgAdminLayout.tsx:108:15:4421:595:e:NavLink:ete:::::rcG",
+            children: [
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: item.icon, _fgS: "dci338", _fgB: 1779104380112, className: "w-5 h-5", "data-fg-dci338": "418.223:758.97:/src/app/layouts/OrgAdminLayout.tsx:119:17:4884:33:e:item.icon" }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/layouts/OrgAdminLayout.tsx",
+                lineNumber: 139,
+                columnNumber: 17
+              }, this),
+              /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "span", _fgS: "dci339", _fgB: 1779104380112, className: "text-sm font-medium", "data-fg-dci339": "418.223:758.97:/src/app/layouts/OrgAdminLayout.tsx:120:17:4934:57:e:span:x", children: item.label }, void 0, false, {
+                fileName: "/workspaces/default/code/src/app/layouts/OrgAdminLayout.tsx",
+                lineNumber: 140,
+                columnNumber: 17
+              }, this)
+            ]
+          },
+          item.path,
+          true,
+          {
+            fileName: "/workspaces/default/code/src/app/layouts/OrgAdminLayout.tsx",
+            lineNumber: 128,
+            columnNumber: 13
+          },
+          this
+        )
+      ) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/layouts/OrgAdminLayout.tsx",
+        lineNumber: 126,
+        columnNumber: 11
+      }, this) }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/layouts/OrgAdminLayout.tsx",
+        lineNumber: 125,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: "main", _fgS: "dci342", _fgB: 1779104380112, className: "ml-64 flex-1 p-8", "data-fg-dci342": "418.223:758.97:/src/app/layouts/OrgAdminLayout.tsx:127:9:5100:102:e:main:ete", children: [
+        /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: GlobalSOSButton, _fgS: "dci343", _fgB: 1779104380112, "data-fg-dci343": "418.223:758.97:/src/app/layouts/OrgAdminLayout.tsx:128:11:5146:19:e:GlobalSOSButton::::::BBWF" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/layouts/OrgAdminLayout.tsx",
+          lineNumber: 148,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(Outlet, { "data-fg-dci344": "418.223:758.97:/src/app/layouts/OrgAdminLayout.tsx:129:11:5176:10:e:Outlet::::::1VG" }, void 0, false, {
+          fileName: "/workspaces/default/code/src/app/layouts/OrgAdminLayout.tsx",
+          lineNumber: 149,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "/workspaces/default/code/src/app/layouts/OrgAdminLayout.tsx",
+        lineNumber: 147,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "/workspaces/default/code/src/app/layouts/OrgAdminLayout.tsx",
+      lineNumber: 123,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "/workspaces/default/code/src/app/layouts/OrgAdminLayout.tsx",
+    lineNumber: 68,
+    columnNumber: 5
+  }, this);
+}
+_s(OrgAdminLayout, "CzcTeTziyjMsSrAVmHuCCb6+Bfg=", false, function() {
+  return [useNavigate];
+});
+_c = OrgAdminLayout;
+var _c;
+$RefreshReg$(_c, "OrgAdminLayout");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("/workspaces/default/code/src/app/layouts/OrgAdminLayout.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/workspaces/default/code/src/app/layouts/OrgAdminLayout.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,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QUFBO0FBQUE7QUFBQTtBQUFBLFFBYUE7QUFBQSxNQUNELEtBaEJIO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUFpQkEsS0FsQkY7QUFBQTtBQUFBO0FBQUE7QUFBQSxhQW1CQTtBQUFBLE1BR0EsdUJBQUMsNERBQUssV0FBVSxvQkFBaUIsa0dBQy9CO0FBQUEsK0JBQUMsZUFBQUgsaUJBQUEscUNBQWUscUhBQWhCO0FBQUE7QUFBQTtBQUFBO0FBQUEsZUFBZ0I7QUFBQSxRQUNoQix1QkFBQyxVQUFNLDJHQUFQO0FBQUE7QUFBQTtBQUFBO0FBQUEsZUFBTztBQUFBLFdBRlQ7QUFBQTtBQUFBO0FBQUE7QUFBQSxhQUdBO0FBQUEsU0EzQkY7QUFBQTtBQUFBO0FBQUE7QUFBQSxXQTRCQTtBQUFBLE9BbkZGO0FBQUE7QUFBQTtBQUFBO0FBQUEsU0FvRkE7QUFFSjtBQUFBTyxHQTFGd0JELGdCQUFjO0FBQUEsVUFDbkIxQixXQUFXO0FBQUE7QUFBQWdDLEtBRE5OO0FBQWMsSUFBQU07QUFBQUMsYUFBQUQsSUFBQSIsIm5hbWVzIjpbIk91dGxldCIsIk5hdkxpbmsiLCJ1c2VOYXZpZ2F0ZSIsIkxheW91dERhc2hib2FyZCIsIkZpbGVUZXh0IiwiU3BhcmtsZXMiLCJTaGllbGQiLCJHcmFkdWF0aW9uQ2FwIiwiQ2xpcGJvYXJkTGlzdCIsIkFsZXJ0VHJpYW5nbGUiLCJVc2VycyIsIkJhckNoYXJ0MyIsIkhlbHBDaXJjbGUiLCJTZXR0aW5ncyIsIkxvZ091dCIsIkJlbGwiLCJTZWFyY2giLCJVc2VyIiwiVXNlckNvZyIsIlRyZW5kaW5nVXAiLCJGaWxlQ2hlY2siLCJsb2dvIiwiR2xvYmFsU09TQnV0dG9uIiwiTGFuZ3VhZ2VTd2l0Y2hlciIsIm5hdkl0ZW1zIiwicGF0aCIsImljb24iLCJsYWJlbCIsIk9yZ0FkbWluTGF5b3V0IiwiX3MiLCJuYXZpZ2F0ZSIsIm1hcCIsIml0ZW0iLCJpc0FjdGl2ZSIsIl9jIiwiJFJlZnJlc2hSZWckIl0sImlnbm9yZUxpc3QiOltdLCJzb3VyY2VzIjpbIk9yZ0FkbWluTGF5b3V0LnRzeCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBPdXRsZXQsIE5hdkxpbmssIHVzZU5hdmlnYXRlIH0gZnJvbSAncmVhY3Qtcm91dGVyJztcbmltcG9ydCB7XG4gIExheW91dERhc2hib2FyZCxcbiAgRmlsZVRleHQsXG4gIFNwYXJrbGVzLFxuICBTaGllbGQsXG4gIEdyYWR1YXRpb25DYXAsXG4gIENsaXBib2FyZExpc3QsXG4gIEFsZXJ0VHJpYW5nbGUsXG4gIFVzZXJzLFxuICBCYXJDaGFydDMsXG4gIEhlbHBDaXJjbGUsXG4gIFNldHRpbmdzLFxuICBHbG9iZSxcbiAgTG9nT3V0LFxuICBCZWxsLFxuICBTZWFyY2gsXG4gIFVzZXIsXG4gIFVzZXJDb2csXG4gIFRyZW5kaW5nVXAsXG4gIEZpbGVDaGVjayxcbn0gZnJvbSAnbHVjaWRlLXJlYWN0JztcbmltcG9ydCBsb2dvIGZyb20gJ2ZpZ21hOmFzc2V0LzVmODliMzAzMzJjOWNiZThmNjg3MDVjZDJjODViZGNhZDQ2ODMzZmIucG5nJztcbmltcG9ydCBHbG9iYWxTT1NCdXR0b24gZnJvbSAnLi4vY29tcG9uZW50cy9HbG9iYWxTT1NCdXR0b24nO1xuaW1wb3J0IExhbmd1YWdlU3dpdGNoZXIgZnJvbSAnLi4vY29tcG9uZW50cy9MYW5ndWFnZVN3aXRjaGVyJztcblxuY29uc3QgbmF2SXRlbXMgPSBbXG4gIHsgcGF0aDogJy9vcmctYWRtaW4vZGFzaGJvYXJkJywgaWNvbjogTGF5b3V0RGFzaGJvYXJkLCBsYWJlbDogJ0Rhc2hib2FyZCcgfSxcbiAgeyBwYXRoOiAnL29yZy1hZG1pbi9kb2N1bWVudC1zdWl0ZScsIGljb246IEZpbGVUZXh0LCBsYWJlbDogJ0RvY3VtZW50IFN1aXRlJyB9LFxuICB7IHBhdGg6ICcvb3JnLWFkbWluL2FpLWNvbW1hbmQtY2VudGVyJywgaWNvbjogU3BhcmtsZXMsIGxhYmVsOiAnQUkgQ29tbWFuZCBDZW50ZXInIH0sXG4gIHsgcGF0aDogJy9vcmctYWRtaW4vY29tcGxpYW5jZScsIGljb246IFNoaWVsZCwgbGFiZWw6ICdDb21wbGlhbmNlIFRyYWNrZXInIH0sXG4gIHsgcGF0aDogJy9vcmctYWRtaW4vdHJhaW5pbmcnLCBpY29uOiBHcmFkdWF0aW9uQ2FwLCBsYWJlbDogJ1RyYWluaW5nIENlbnRlcicgfSxcbiAgeyBwYXRoOiAnL29yZy1hZG1pbi9zdXJ2ZXlzJywgaWNvbjogQ2xpcGJvYXJkTGlzdCwgbGFiZWw6ICdTdXJ2ZXkgTWFuYWdlbWVudCcgfSxcbiAgeyBwYXRoOiAnL29yZy1hZG1pbi9lbWVyZ2VuY3knLCBpY29uOiBBbGVydFRyaWFuZ2xlLCBsYWJlbDogJ0VtZXJnZW5jeSAmIFNhZmV0eScgfSxcbiAgeyBwYXRoOiAnL29yZy1hZG1pbi9zdGFmZicsIGljb246IFVzZXJzLCBsYWJlbDogJ1dvcmtmb3JjZSAmIFJvbGVzJyB9LFxuICB7IHBhdGg6ICcvb3JnLWFkbWluL3JvbGUtbWFuYWdlbWVudCcsIGljb246IFVzZXJDb2csIGxhYmVsOiAnUm9sZSBNYW5hZ2VtZW50JyB9LFxuICB7IHBhdGg6ICcvb3JnLWFkbWluL3BvbGljeS1yZWdpc3RlcicsIGljb246IEZpbGVDaGVjaywgbGFiZWw6ICdQb2xpY3kgUmVnaXN0ZXInIH0sXG4gIHsgcGF0aDogJy9vcmctYWRtaW4vdXNhZ2UtdHJhY2tpbmcnLCBpY29uOiBUcmVuZGluZ1VwLCBsYWJlbDogJ1VzYWdlIFRyYWNraW5nJyB9LFxuICB7IHBhdGg6ICcvb3JnLWFkbWluL3JlcG9ydHMnLCBpY29uOiBCYXJDaGFydDMsIGxhYmVsOiAnUmVwb3J0cycgfSxcbiAgeyBwYXRoOiAnL29yZy1hZG1pbi9zZXR0aW5ncycsIGljb246IFNldHRpbmdzLCBsYWJlbDogJ09yZyBTZXR0aW5ncycgfSxcbiAgeyBwYXRoOiAnL29yZy1hZG1pbi9zdXBwb3J0JywgaWNvbjogSGVscENpcmNsZSwgbGFiZWw6ICdTdXBwb3J0JyB9LFxuXTtcblxuZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24gT3JnQWRtaW5MYXlvdXQoKSB7XG4gIGNvbnN0IG5hdmlnYXRlID0gdXNlTmF2aWdhdGUoKTtcblxuICByZXR1cm4gKFxuICAgIDxkaXYgY2xhc3NOYW1lPVwibWluLWgtc2NyZWVuIGJnLVsjMEIxRjJBXVwiPlxuICAgICAgey8qIFRvcCBOYXZpZ2F0aW9uICovfVxuICAgICAgPGhlYWRlciBjbGFzc05hbWU9XCJmaXhlZCB0b3AtMCBsZWZ0LTAgcmlnaHQtMCBoLTE2IGJnLVsjMEIxRjJBXS84MCBiYWNrZHJvcC1ibHVyLXhsIGJvcmRlci1iIGJvcmRlci13aGl0ZS84IHotNTBcIj5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJoLWZ1bGwgZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuIHB4LTZcIj5cbiAgICAgICAgICB7LyogTG9nbyAqL31cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0zXCI+XG4gICAgICAgICAgICA8aW1nIHNyYz17bG9nb30gYWx0PVwiUG9saWN5TmVzdFwiIGNsYXNzTmFtZT1cImgtOFwiIC8+XG4gICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LXhzIHRleHQtZ3JheS00MDBcIj5PcmcgQWRtaW48L3A+XG4gICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICB7LyogU2VhcmNoICovfVxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleC0xIG1heC13LXhsIG14LThcIj5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicmVsYXRpdmVcIj5cbiAgICAgICAgICAgICAgPFNlYXJjaCBjbGFzc05hbWU9XCJhYnNvbHV0ZSBsZWZ0LTMgdG9wLTEvMiAtdHJhbnNsYXRlLXktMS8yIHctNCBoLTQgdGV4dC1ncmF5LTQwMFwiIC8+XG4gICAgICAgICAgICAgIDxpbnB1dFxuICAgICAgICAgICAgICAgIHR5cGU9XCJ0ZXh0XCJcbiAgICAgICAgICAgICAgICBwbGFjZWhvbGRlcj1cIlNlYXJjaCBwb2xpY2llcywgcHJvY2VkdXJlcywgc3RhZmYuLi5cIlxuICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cInctZnVsbCBwbC0xMCBwci00IHB5LTIgYmctd2hpdGUvNSBib3JkZXIgYm9yZGVyLXdoaXRlLzEwIHJvdW5kZWQtbGcgdGV4dC1zbSB0ZXh0LXdoaXRlIHBsYWNlaG9sZGVyLWdyYXktNTAwIGZvY3VzOm91dGxpbmUtbm9uZSBmb2N1czpib3JkZXItdGVhbC01MDAvNTBcIlxuICAgICAgICAgICAgICAvPlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICB7LyogQWN0aW9ucyAqL31cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC00XCI+XG4gICAgICAgICAgICA8YnV0dG9uIGNsYXNzTmFtZT1cInJlbGF0aXZlIHAtMiBob3ZlcjpiZy13aGl0ZS81IHJvdW5kZWQtbGcgdHJhbnNpdGlvbi1jb2xvcnNcIj5cbiAgICAgICAgICAgICAgPEJlbGwgY2xhc3NOYW1lPVwidy01IGgtNSB0ZXh0LWdyYXktNDAwXCIgLz5cbiAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwiYWJzb2x1dGUgdG9wLTEgcmlnaHQtMSB3LTIgaC0yIGJnLXJlZC01MDAgcm91bmRlZC1mdWxsXCI+PC9zcGFuPlxuICAgICAgICAgICAgPC9idXR0b24+XG5cbiAgICAgICAgICAgIDxMYW5ndWFnZVN3aXRjaGVyIC8+XG5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiaC04IHctcHggYmctd2hpdGUvMTBcIj48L2Rpdj5cblxuICAgICAgICAgICAgPGJ1dHRvbiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMiBob3ZlcjpiZy13aGl0ZS81IHB4LTMgcHktMiByb3VuZGVkLWxnIHRyYW5zaXRpb24tY29sb3JzXCI+XG4gICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidy04IGgtOCByb3VuZGVkLWZ1bGwgYmctZ3JhZGllbnQtdG8tYnIgZnJvbS10ZWFsLTYwMCB0by10ZWFsLTUwMCBmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlclwiPlxuICAgICAgICAgICAgICAgIDxVc2VyIGNsYXNzTmFtZT1cInctNCBoLTQgdGV4dC13aGl0ZVwiIC8+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQtbGVmdFwiPlxuICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtc20gdGV4dC13aGl0ZVwiPk9yZyBBZG1pbjwvcD5cbiAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LXhzIHRleHQtZ3JheS00MDBcIj5BY21lIEhlYWx0aGNhcmU8L3A+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPC9idXR0b24+XG5cbiAgICAgICAgICAgIDxidXR0b25cbiAgICAgICAgICAgICAgb25DbGljaz17KCkgPT4gbmF2aWdhdGUoJy8nKX1cbiAgICAgICAgICAgICAgY2xhc3NOYW1lPVwicC0yIGhvdmVyOmJnLXdoaXRlLzUgcm91bmRlZC1sZyB0cmFuc2l0aW9uLWNvbG9yc1wiXG4gICAgICAgICAgICAgIHRpdGxlPVwiTG9nb3V0XCJcbiAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgPExvZ091dCBjbGFzc05hbWU9XCJ3LTUgaC01IHRleHQtZ3JheS00MDBcIiAvPlxuICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvZGl2PlxuICAgICAgPC9oZWFkZXI+XG5cbiAgICAgIHsvKiBNYWluIExheW91dCAqL31cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBwdC0xNlwiPlxuICAgICAgICB7LyogU2lkZWJhciAqL31cbiAgICAgICAgPGFzaWRlIGNsYXNzTmFtZT1cImZpeGVkIGxlZnQtMCB3LTY0IGgtW2NhbGMoMTAwdmgtNHJlbSldIGJnLXdoaXRlLzUgYmFja2Ryb3AtYmx1ci1sZyBib3JkZXItciBib3JkZXItd2hpdGUvOCBvdmVyZmxvdy15LWF1dG9cIj5cbiAgICAgICAgICA8bmF2IGNsYXNzTmFtZT1cInAtNCBzcGFjZS15LTFcIj5cbiAgICAgICAgICAgIHtuYXZJdGVtcy5tYXAoKGl0ZW0pID0+IChcbiAgICAgICAgICAgICAgPE5hdkxpbmtcbiAgICAgICAgICAgICAgICBrZXk9e2l0ZW0ucGF0aH1cbiAgICAgICAgICAgICAgICB0bz17aXRlbS5wYXRofVxuICAgICAgICAgICAgICAgIGNsYXNzTmFtZT17KHsgaXNBY3RpdmUgfSkgPT5cbiAgICAgICAgICAgICAgICAgIGBmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMyBweC00IHB5LTMgcm91bmRlZC1sZyB0cmFuc2l0aW9uLWFsbCAke1xuICAgICAgICAgICAgICAgICAgICBpc0FjdGl2ZVxuICAgICAgICAgICAgICAgICAgICAgID8gJ2JnLWdyYWRpZW50LXRvLXIgZnJvbS10ZWFsLTYwMCB0by10ZWFsLTUwMCB0ZXh0LXdoaXRlIHNoYWRvdy1sZydcbiAgICAgICAgICAgICAgICAgICAgICA6ICd0ZXh0LWdyYXktNDAwIGhvdmVyOmJnLXdoaXRlLzUgaG92ZXI6dGV4dC13aGl0ZSdcbiAgICAgICAgICAgICAgICAgIH1gXG4gICAgICAgICAgICAgICAgfVxuICAgICAgICAgICAgICA+XG4gICAgICAgICAgICAgICAgPGl0ZW0uaWNvbiBjbGFzc05hbWU9XCJ3LTUgaC01XCIgLz5cbiAgICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LXNtIGZvbnQtbWVkaXVtXCI+e2l0ZW0ubGFiZWx9PC9zcGFuPlxuICAgICAgICAgICAgICA8L05hdkxpbms+XG4gICAgICAgICAgICApKX1cbiAgICAgICAgICA8L25hdj5cbiAgICAgICAgPC9hc2lkZT5cblxuICAgICAgICB7LyogQ29udGVudCAqL31cbiAgICAgICAgPG1haW4gY2xhc3NOYW1lPVwibWwtNjQgZmxleC0xIHAtOFwiPlxuICAgICAgICAgIDxHbG9iYWxTT1NCdXR0b24gLz5cbiAgICAgICAgICA8T3V0bGV0IC8+XG4gICAgICAgIDwvbWFpbj5cbiAgICAgIDwvZGl2PlxuICAgIDwvZGl2PlxuICApO1xufSJdLCJmaWxlIjoiL3dvcmtzcGFjZXMvZGVmYXVsdC9jb2RlL3NyYy9hcHAvbGF5b3V0cy9PcmdBZG1pbkxheW91dC50c3gifQ==

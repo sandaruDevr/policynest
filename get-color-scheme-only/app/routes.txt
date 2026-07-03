@@ -1,0 +1,616 @@
+import { jsxDEV } from "/@id/__x00__figma:react-jsx-dev-runtime";
+import { FGCmp } from "/@id/fginspector";
+import { createBrowserRouter, Navigate } from "/node_modules/.vite/deps/react-router.js?v=d6d2548b";
+import PlatformAdminLayout from "/src/app/layouts/PlatformAdminLayout.tsx";
+import OrgAdminLayout from "/src/app/layouts/OrgAdminLayout.tsx";
+import ComplianceManagerLayout from "/src/app/layouts/ComplianceManagerLayout.tsx";
+import StaffLayout from "/src/app/layouts/StaffLayout.tsx";
+import RoleSelection from "/src/app/pages/RoleSelection.tsx";
+import NotFound from "/src/app/pages/NotFound.tsx";
+import ControlCenter from "/src/app/pages/platform-admin/ControlCenter.tsx";
+import TenantGovernance from "/src/app/pages/platform-admin/TenantGovernance.tsx";
+import GoldenLibrary from "/src/app/pages/platform-admin/GoldenLibrary.tsx";
+import StandardsMapping from "/src/app/pages/platform-admin/StandardsMapping.tsx";
+import AICortex from "/src/app/pages/platform-admin/AICortex.tsx";
+import AITraining from "/src/app/pages/platform-admin/AITraining.tsx";
+import LanguageIntelligence from "/src/app/pages/platform-admin/LanguageIntelligence.tsx";
+import RevenueGovernance from "/src/app/pages/platform-admin/RevenueGovernance.tsx";
+import PlatformWebsiteCMS from "/src/app/pages/platform-admin/WebsiteCMS.tsx";
+import AuditLedger from "/src/app/pages/platform-admin/AuditLedger.tsx";
+import SecurityCenter from "/src/app/pages/platform-admin/SecurityCenter.tsx";
+import PlatformConfig from "/src/app/pages/platform-admin/PlatformConfig.tsx";
+import SupportEcosystem from "/src/app/pages/platform-admin/SupportEcosystem.tsx";
+import RolesPermissions from "/src/app/pages/platform-admin/RolesPermissions.tsx";
+import TaxonomyManagement from "/src/app/pages/platform-admin/TaxonomyManagement.tsx";
+import CategoryManagement from "/src/app/pages/platform-admin/CategoryManagement.tsx";
+import OrgAdminDashboard from "/src/app/pages/org-admin/Dashboard.tsx";
+import OrgDocumentSuite from "/src/app/pages/org-admin/DocumentSuite.tsx";
+import OrgAICommandCenter from "/src/app/pages/org-admin/AICommandCenter.tsx";
+import OrgComplianceTracker from "/src/app/pages/org-admin/ComplianceTracker.tsx";
+import OrgTrainingCenter from "/src/app/pages/org-admin/TrainingCenter.tsx";
+import OrgSurveyManagement from "/src/app/pages/org-admin/SurveyManagement.tsx";
+import OrgEmergencySafety from "/src/app/pages/org-admin/EmergencySafetyManagement.tsx";
+import OrgStaffDirectory from "/src/app/pages/org-admin/StaffDirectory.tsx";
+import OrgReports from "/src/app/pages/org-admin/Reports.tsx";
+import OrgSupport from "/src/app/pages/org-admin/Support.tsx";
+import OrgSettings from "/src/app/pages/org-admin/OrgSettings.tsx";
+import OrgSubscriptionUsage from "/src/app/pages/org-admin/SubscriptionUsage.tsx";
+import OrgUsageTracking from "/src/app/pages/org-admin/UsageTracking.tsx";
+import OrgPolicyRegister from "/src/app/pages/org-admin/PolicyRegister.tsx";
+import OrgRoleManagement from "/src/app/pages/org-admin/RoleManagement.tsx";
+import ComplianceDashboard from "/src/app/pages/compliance-manager/Dashboard.tsx";
+import CompDocumentSuite from "/src/app/pages/compliance-manager/DocumentSuite.tsx";
+import CompAICommandCenter from "/src/app/pages/compliance-manager/AICommandCenter.tsx";
+import ComplianceTrackerPage from "/src/app/pages/compliance-manager/ComplianceDashboard.tsx";
+import CompTrainingCenter from "/src/app/pages/compliance-manager/TrainingCenter.tsx";
+import CompSurveyManagement from "/src/app/pages/compliance-manager/SurveyManagement.tsx";
+import CompEmergencySafety from "/src/app/pages/compliance-manager/EmergencySafety.tsx";
+import CompStaffDirectory from "/src/app/pages/compliance-manager/StaffDirectory.tsx";
+import CompReports from "/src/app/pages/compliance-manager/Reports.tsx";
+import CompSupport from "/src/app/pages/compliance-manager/Support.tsx";
+import CompSettings from "/src/app/pages/compliance-manager/Settings.tsx";
+import CompWebsiteCMS from "/src/app/pages/compliance-manager/WebsiteCMS.tsx";
+import CompIncidentTracker from "/src/app/pages/compliance-manager/IncidentTracker.tsx";
+import CompAuditLogs from "/src/app/pages/compliance-manager/AuditLogs.tsx";
+import StaffDashboard from "/src/app/pages/staff/Dashboard.tsx";
+import StaffDocumentSuite from "/src/app/pages/staff/DocumentSuite.tsx";
+import StaffAICompanion from "/src/app/pages/staff/AICompanion.tsx";
+import StaffComplianceDashboard from "/src/app/pages/staff/ComplianceDashboard.tsx";
+import StaffTrainingCenter from "/src/app/pages/staff/TrainingCenter.tsx";
+import StaffSurveys from "/src/app/pages/staff/Surveys.tsx";
+import StaffEmergencySafety from "/src/app/pages/staff/EmergencySafety.tsx";
+import StaffDirectory from "/src/app/pages/staff/StaffDirectory.tsx";
+import StaffReports from "/src/app/pages/staff/Reports.tsx";
+import StaffSupport from "/src/app/pages/staff/Support.tsx";
+import StaffSettings from "/src/app/pages/staff/Settings.tsx";
+import MyCompliance from "/src/app/pages/staff/MyCompliance.tsx";
+export const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: RoleSelection, _fgS: "dnxq0", _fgB: 1779104379913, "data-fg-dnxq0": "418.308:618.502:/src/app/routes.tsx:122:14:5822:17:e:RoleSelection::::::CM99" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/routes.tsx",
+        lineNumber: 123,
+        columnNumber: 12
+      }, this)
+    },
+    {
+      path: "/platform-admin",
+      element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: PlatformAdminLayout, _fgS: "dnxq1", _fgB: 1779104379913, "data-fg-dnxq1": "418.308:618.502:/src/app/routes.tsx:126:14:5892:23:e:PlatformAdminLayout::::::D8wg" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/routes.tsx",
+        lineNumber: 127,
+        columnNumber: 12
+      }, this),
+      children: [
+        {
+          index: true,
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Navigate, _fgS: "dnxq2", _fgB: 1779104379913, to: "/platform-admin/control-center", replace: true, "data-fg-dnxq2": "418.308:618.502:/src/app/routes.tsx:130:18:5979:56:e:Navigate::::::DtII" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 131,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "control-center",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: ControlCenter, _fgS: "dnxq3", _fgB: 1779104379913, "data-fg-dnxq3": "418.308:618.502:/src/app/routes.tsx:134:18:6103:17:e:ControlCenter::::::Dpkn" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 135,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "tenant-governance",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: TenantGovernance, _fgS: "dnxq4", _fgB: 1779104379913, "data-fg-dnxq4": "418.308:618.502:/src/app/routes.tsx:138:18:6191:20:e:TenantGovernance::::::BG9d" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 139,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "golden-library",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: GoldenLibrary, _fgS: "dnxq5", _fgB: 1779104379913, "data-fg-dnxq5": "418.308:618.502:/src/app/routes.tsx:142:18:6279:17:e:GoldenLibrary::::::CvbV" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 143,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "standards-mapping",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: StandardsMapping, _fgS: "dnxq6", _fgB: 1779104379913, "data-fg-dnxq6": "418.308:618.502:/src/app/routes.tsx:146:18:6367:20:e:StandardsMapping::::::rsL" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 147,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "ai-cortex",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: AICortex, _fgS: "dnxq7", _fgB: 1779104379913, "data-fg-dnxq7": "418.308:618.502:/src/app/routes.tsx:150:18:6450:12:e:AICortex::::::CuK8" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 151,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "ai-training",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: AITraining, _fgS: "dnxq8", _fgB: 1779104379913, "data-fg-dnxq8": "418.308:618.502:/src/app/routes.tsx:154:18:6527:14:e:AITraining::::::D0AR" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 155,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "language-intelligence",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: LanguageIntelligence, _fgS: "dnxq9", _fgB: 1779104379913, "data-fg-dnxq9": "418.308:618.502:/src/app/routes.tsx:158:18:6616:24:e:LanguageIntelligence::::::Tj4" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 159,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "revenue-governance",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: RevenueGovernance, _fgS: "dnxq10", _fgB: 1779104379913, "data-fg-dnxq10": "418.308:618.502:/src/app/routes.tsx:162:18:6712:21:e:RevenueGovernance::::::D0LV" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 163,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "website-cms",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: PlatformWebsiteCMS, _fgS: "dnxq11", _fgB: 1779104379913, "data-fg-dnxq11": "418.308:618.502:/src/app/routes.tsx:166:18:6798:22:e:PlatformWebsiteCMS::::::BHBj" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 167,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "audit-ledger",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: AuditLedger, _fgS: "dnxq12", _fgB: 1779104379913, "data-fg-dnxq12": "418.308:618.502:/src/app/routes.tsx:170:18:6886:15:e:AuditLedger::::::tNj" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 171,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "security-center",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: SecurityCenter, _fgS: "dnxq13", _fgB: 1779104379913, "data-fg-dnxq13": "418.308:618.502:/src/app/routes.tsx:174:18:6970:18:e:SecurityCenter::::::CoXa" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 175,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "platform-config",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: PlatformConfig, _fgS: "dnxq14", _fgB: 1779104379913, "data-fg-dnxq14": "418.308:618.502:/src/app/routes.tsx:178:18:7057:18:e:PlatformConfig::::::D1u8" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 179,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "support-ecosystem",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: SupportEcosystem, _fgS: "dnxq15", _fgB: 1779104379913, "data-fg-dnxq15": "418.308:618.502:/src/app/routes.tsx:182:18:7146:20:e:SupportEcosystem::::::Dqn2" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 183,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "roles-permissions",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: RolesPermissions, _fgS: "dnxq16", _fgB: 1779104379913, "data-fg-dnxq16": "418.308:618.502:/src/app/routes.tsx:186:18:7237:20:e:RolesPermissions::::::BCpg" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 187,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "taxonomy-management",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: TaxonomyManagement, _fgS: "dnxq17", _fgB: 1779104379913, "data-fg-dnxq17": "418.308:618.502:/src/app/routes.tsx:190:18:7330:22:e:TaxonomyManagement::::::CLZR" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 191,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "category-management",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: CategoryManagement, _fgS: "dnxq18", _fgB: 1779104379913, "data-fg-dnxq18": "418.308:618.502:/src/app/routes.tsx:194:18:7425:22:e:CategoryManagement::::::CDiw" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 195,
+            columnNumber: 14
+          }, this)
+        }
+      ]
+    },
+    {
+      path: "/org-admin",
+      element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: OrgAdminLayout, _fgS: "dnxq19", _fgB: 1779104379913, "data-fg-dnxq19": "418.308:618.502:/src/app/routes.tsx:200:14:7511:18:e:OrgAdminLayout::::::CXz9" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/routes.tsx",
+        lineNumber: 201,
+        columnNumber: 12
+      }, this),
+      children: [
+        {
+          index: true,
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Navigate, _fgS: "dnxq20", _fgB: 1779104379913, to: "/org-admin/dashboard", replace: true, "data-fg-dnxq20": "418.308:618.502:/src/app/routes.tsx:204:18:7593:46:e:Navigate::::::DtII" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 205,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "dashboard",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: OrgAdminDashboard, _fgS: "dnxq21", _fgB: 1779104379913, "data-fg-dnxq21": "418.308:618.502:/src/app/routes.tsx:208:18:7702:21:e:OrgAdminDashboard::::::BxWI" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 209,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "document-suite",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: OrgDocumentSuite, _fgS: "dnxq22", _fgB: 1779104379913, "data-fg-dnxq22": "418.308:618.502:/src/app/routes.tsx:212:18:7791:20:e:OrgDocumentSuite::::::vfj" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 213,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "ai-command-center",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: OrgAICommandCenter, _fgS: "dnxq23", _fgB: 1779104379913, "data-fg-dnxq23": "418.308:618.502:/src/app/routes.tsx:216:18:7882:22:e:OrgAICommandCenter::::::HVq" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 217,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "compliance",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: OrgComplianceTracker, _fgS: "dnxq24", _fgB: 1779104379913, "data-fg-dnxq24": "418.308:618.502:/src/app/routes.tsx:220:18:7968:24:e:OrgComplianceTracker::::::F01" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 221,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "training",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: OrgTrainingCenter, _fgS: "dnxq25", _fgB: 1779104379913, "data-fg-dnxq25": "418.308:618.502:/src/app/routes.tsx:224:18:8054:21:e:OrgTrainingCenter::::::EFv1" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 225,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "surveys",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: OrgSurveyManagement, _fgS: "dnxq26", _fgB: 1779104379913, "data-fg-dnxq26": "418.308:618.502:/src/app/routes.tsx:228:18:8136:23:e:OrgSurveyManagement::::::D6Fz" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 229,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "emergency",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: OrgEmergencySafety, _fgS: "dnxq27", _fgB: 1779104379913, "data-fg-dnxq27": "418.308:618.502:/src/app/routes.tsx:232:18:8222:22:e:OrgEmergencySafety::::::D27g" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 233,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "staff",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: OrgStaffDirectory, _fgS: "dnxq28", _fgB: 1779104379913, "data-fg-dnxq28": "418.308:618.502:/src/app/routes.tsx:236:18:8303:21:e:OrgStaffDirectory::::::CQrP" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 237,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "reports",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: OrgReports, _fgS: "dnxq29", _fgB: 1779104379913, "data-fg-dnxq29": "418.308:618.502:/src/app/routes.tsx:240:18:8385:14:e:OrgReports::::::DYWn" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 241,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "usage-tracking",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: OrgUsageTracking, _fgS: "dnxq30", _fgB: 1779104379913, "data-fg-dnxq30": "418.308:618.502:/src/app/routes.tsx:244:18:8467:20:e:OrgUsageTracking::::::CMu4" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 245,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "policy-register",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: OrgPolicyRegister, _fgS: "dnxq31", _fgB: 1779104379913, "data-fg-dnxq31": "418.308:618.502:/src/app/routes.tsx:248:18:8556:21:e:OrgPolicyRegister::::::C5fb" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 249,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "role-management",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: OrgRoleManagement, _fgS: "dnxq32", _fgB: 1779104379913, "data-fg-dnxq32": "418.308:618.502:/src/app/routes.tsx:252:18:8646:21:e:OrgRoleManagement::::::Dtbv" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 253,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "support",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: OrgSupport, _fgS: "dnxq33", _fgB: 1779104379913, "data-fg-dnxq33": "418.308:618.502:/src/app/routes.tsx:256:18:8728:14:e:OrgSupport::::::B8uH" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 257,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "settings",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: OrgSettings, _fgS: "dnxq34", _fgB: 1779104379913, "data-fg-dnxq34": "418.308:618.502:/src/app/routes.tsx:260:18:8804:15:e:OrgSettings::::::Docb" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 261,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "subscription-usage",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: OrgSubscriptionUsage, _fgS: "dnxq35", _fgB: 1779104379913, "data-fg-dnxq35": "418.308:618.502:/src/app/routes.tsx:264:18:8891:24:e:OrgSubscriptionUsage::::::D4zm" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 265,
+            columnNumber: 14
+          }, this)
+        }
+      ]
+    },
+    {
+      path: "/compliance-manager",
+      element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: ComplianceManagerLayout, _fgS: "dnxq36", _fgB: 1779104379913, "data-fg-dnxq36": "418.308:618.502:/src/app/routes.tsx:270:14:8988:27:e:ComplianceManagerLayout::::::B0nU" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/routes.tsx",
+        lineNumber: 271,
+        columnNumber: 12
+      }, this),
+      children: [
+        {
+          index: true,
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Navigate, _fgS: "dnxq37", _fgB: 1779104379913, to: "/compliance-manager/dashboard", replace: true, "data-fg-dnxq37": "418.308:618.502:/src/app/routes.tsx:274:18:9079:55:e:Navigate::::::DtII" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 275,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "dashboard",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: ComplianceDashboard, _fgS: "dnxq38", _fgB: 1779104379913, "data-fg-dnxq38": "418.308:618.502:/src/app/routes.tsx:278:18:9197:23:e:ComplianceDashboard::::::DQkT" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 279,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "document-suite",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: CompDocumentSuite, _fgS: "dnxq39", _fgB: 1779104379913, "data-fg-dnxq39": "418.308:618.502:/src/app/routes.tsx:282:18:9288:21:e:CompDocumentSuite::::::BPX2" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 283,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "ai-command-center",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: CompAICommandCenter, _fgS: "dnxq40", _fgB: 1779104379913, "data-fg-dnxq40": "418.308:618.502:/src/app/routes.tsx:286:18:9380:23:e:CompAICommandCenter::::::BoEn" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 287,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "compliance",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: ComplianceTrackerPage, _fgS: "dnxq41", _fgB: 1779104379913, "data-fg-dnxq41": "418.308:618.502:/src/app/routes.tsx:290:18:9467:25:e:ComplianceTrackerPage::::::D8GM" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 291,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "training",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: CompTrainingCenter, _fgS: "dnxq42", _fgB: 1779104379913, "data-fg-dnxq42": "418.308:618.502:/src/app/routes.tsx:294:18:9554:22:e:CompTrainingCenter::::::CPVO" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 295,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "surveys",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: CompSurveyManagement, _fgS: "dnxq43", _fgB: 1779104379913, "data-fg-dnxq43": "418.308:618.502:/src/app/routes.tsx:298:18:9637:24:e:CompSurveyManagement::::::6y6" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 299,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "emergency",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: CompEmergencySafety, _fgS: "dnxq44", _fgB: 1779104379913, "data-fg-dnxq44": "418.308:618.502:/src/app/routes.tsx:302:18:9724:23:e:CompEmergencySafety::::::DZtw" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 303,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "staff",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: CompStaffDirectory, _fgS: "dnxq45", _fgB: 1779104379913, "data-fg-dnxq45": "418.308:618.502:/src/app/routes.tsx:306:18:9806:22:e:CompStaffDirectory::::::aQm" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 307,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "reports",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: CompReports, _fgS: "dnxq46", _fgB: 1779104379913, "data-fg-dnxq46": "418.308:618.502:/src/app/routes.tsx:310:18:9889:15:e:CompReports::::::D8tg" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 311,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "support",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: CompSupport, _fgS: "dnxq47", _fgB: 1779104379913, "data-fg-dnxq47": "418.308:618.502:/src/app/routes.tsx:314:18:9965:15:e:CompSupport::::::CjHA" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 315,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "settings",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: CompSettings, _fgS: "dnxq48", _fgB: 1779104379913, "data-fg-dnxq48": "418.308:618.502:/src/app/routes.tsx:318:18:10042:16:e:CompSettings::::::IHS" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 319,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "website",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: CompWebsiteCMS, _fgS: "dnxq49", _fgB: 1779104379913, "data-fg-dnxq49": "418.308:618.502:/src/app/routes.tsx:322:18:10119:18:e:CompWebsiteCMS::::::C7BV" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 323,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "incident-tracker",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: CompIncidentTracker, _fgS: "dnxq50", _fgB: 1779104379913, "data-fg-dnxq50": "418.308:618.502:/src/app/routes.tsx:326:18:10207:23:e:CompIncidentTracker::::::ED1j" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 327,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "audit-logs",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: CompAuditLogs, _fgS: "dnxq51", _fgB: 1779104379913, "data-fg-dnxq51": "418.308:618.502:/src/app/routes.tsx:330:18:10294:17:e:CompAuditLogs::::::DMyV" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 331,
+            columnNumber: 14
+          }, this)
+        }
+      ]
+    },
+    {
+      path: "/staff",
+      element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: StaffLayout, _fgS: "dnxq52", _fgB: 1779104379913, "data-fg-dnxq52": "418.308:618.502:/src/app/routes.tsx:336:14:10371:15:e:StaffLayout::::::xJq" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/routes.tsx",
+        lineNumber: 337,
+        columnNumber: 12
+      }, this),
+      children: [
+        {
+          index: true,
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: Navigate, _fgS: "dnxq53", _fgB: 1779104379913, to: "/staff/dashboard", replace: true, "data-fg-dnxq53": "418.308:618.502:/src/app/routes.tsx:340:18:10450:42:e:Navigate::::::DtII" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 341,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "dashboard",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: StaffDashboard, _fgS: "dnxq54", _fgB: 1779104379913, "data-fg-dnxq54": "418.308:618.502:/src/app/routes.tsx:344:18:10555:18:e:StaffDashboard::::::DANE" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 345,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "document-suite",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: StaffDocumentSuite, _fgS: "dnxq55", _fgB: 1779104379913, "data-fg-dnxq55": "418.308:618.502:/src/app/routes.tsx:348:18:10641:22:e:StaffDocumentSuite::::::BHuj" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 349,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "ai-command-center",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: StaffAICompanion, _fgS: "dnxq56", _fgB: 1779104379913, "data-fg-dnxq56": "418.308:618.502:/src/app/routes.tsx:352:18:10734:20:e:StaffAICompanion::::::BUZM" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 353,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "my-compliance",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: MyCompliance, _fgS: "dnxq57", _fgB: 1779104379913, "data-fg-dnxq57": "418.308:618.502:/src/app/routes.tsx:356:18:10821:16:e:MyCompliance::::::C9iJ" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 357,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "compliance",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: StaffComplianceDashboard, _fgS: "dnxq58", _fgB: 1779104379913, "data-fg-dnxq58": "418.308:618.502:/src/app/routes.tsx:360:18:10901:28:e:StaffComplianceDashboard::::::BxGH" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 361,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "training",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: StaffTrainingCenter, _fgS: "dnxq59", _fgB: 1779104379913, "data-fg-dnxq59": "418.308:618.502:/src/app/routes.tsx:364:18:10991:23:e:StaffTrainingCenter::::::Cmzv" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 365,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "surveys",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: StaffSurveys, _fgS: "dnxq60", _fgB: 1779104379913, "data-fg-dnxq60": "418.308:618.502:/src/app/routes.tsx:368:18:11075:16:e:StaffSurveys::::::D6JZ" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 369,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "emergency",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: StaffEmergencySafety, _fgS: "dnxq61", _fgB: 1779104379913, "data-fg-dnxq61": "418.308:618.502:/src/app/routes.tsx:372:18:11154:24:e:StaffEmergencySafety::::::CjjL" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 373,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "staff",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: StaffDirectory, _fgS: "dnxq62", _fgB: 1779104379913, "data-fg-dnxq62": "418.308:618.502:/src/app/routes.tsx:376:18:11237:18:e:StaffDirectory::::::xvJ" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 377,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "reports",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: StaffReports, _fgS: "dnxq63", _fgB: 1779104379913, "data-fg-dnxq63": "418.308:618.502:/src/app/routes.tsx:380:18:11316:16:e:StaffReports::::::CLcZ" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 381,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "support",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: StaffSupport, _fgS: "dnxq64", _fgB: 1779104379913, "data-fg-dnxq64": "418.308:618.502:/src/app/routes.tsx:384:18:11393:16:e:StaffSupport::::::vz3" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 385,
+            columnNumber: 14
+          }, this)
+        },
+        {
+          path: "settings",
+          element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: StaffSettings, _fgS: "dnxq65", _fgB: 1779104379913, "data-fg-dnxq65": "418.308:618.502:/src/app/routes.tsx:388:18:11471:17:e:StaffSettings::::::DOlP" }, void 0, false, {
+            fileName: "/workspaces/default/code/src/app/routes.tsx",
+            lineNumber: 389,
+            columnNumber: 14
+          }, this)
+        }
+      ]
+    },
+    {
+      path: "*",
+      element: /* @__PURE__ */ jsxDEV(FGCmp, { _fgT: NotFound, _fgS: "dnxq66", _fgB: 1779104379913, "data-fg-dnxq66": "418.308:618.502:/src/app/routes.tsx:394:14:11543:12:e:NotFound::::::Bljc" }, void 0, false, {
+        fileName: "/workspaces/default/code/src/app/routes.tsx",
+        lineNumber: 395,
+        columnNumber: 12
+      }, this)
+    }
+  ]
+);
+
+//# sourceMappingURL=data:application/json;base64,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ciIsIk5hdmlnYXRlIiwiUGxhdGZvcm1BZG1pbkxheW91dCIsIk9yZ0FkbWluTGF5b3V0IiwiQ29tcGxpYW5jZU1hbmFnZXJMYXlvdXQiLCJTdGFmZkxheW91dCIsIlJvbGVTZWxlY3Rpb24iLCJOb3RGb3VuZCIsIkNvbnRyb2xDZW50ZXIiLCJUZW5hbnRHb3Zlcm5hbmNlIiwiR29sZGVuTGlicmFyeSIsIlN0YW5kYXJkc01hcHBpbmciLCJBSUNvcnRleCIsIkFJVHJhaW5pbmciLCJMYW5ndWFnZUludGVsbGlnZW5jZSIsIlJldmVudWVHb3Zlcm5hbmNlIiwiUGxhdGZvcm1XZWJzaXRlQ01TIiwiQXVkaXRMZWRnZXIiLCJTZWN1cml0eUNlbnRlciIsIlBsYXRmb3JtQ29uZmlnIiwiU3VwcG9ydEVjb3N5c3RlbSIsIlJvbGVzUGVybWlzc2lvbnMiLCJUYXhvbm9teU1hbmFnZW1lbnQiLCJDYXRlZ29yeU1hbmFnZW1lbnQiLCJPcmdBZG1pbkRhc2hib2FyZCIsIk9yZ0RvY3VtZW50U3VpdGUiLCJPcmdBSUNvbW1hbmRDZW50ZXIiLCJPcmdDb21wbGlhbmNlVHJhY2tlciIsIk9yZ1RyYWluaW5nQ2VudGVyIiwiT3JnU3VydmV5TWFuYWdlbWVudCIsIk9yZ0VtZXJnZW5jeVNhZmV0eSIsIk9yZ1N0YWZmRGlyZWN0b3J5IiwiT3JnUmVwb3J0cyIsIk9yZ1N1cHBvcnQiLCJPcmdTZXR0aW5ncyIsIk9yZ1N1YnNjcmlwdGlvblVzYWdlIiwiT3JnVXNhZ2VUcmFja2luZyIsIk9yZ1BvbGljeVJlZ2lzdGVyIiwiT3JnUm9sZU1hbmFnZW1lbnQiLCJDb21wbGlhbmNlRGFzaGJvYXJkIiwiQ29tcERvY3VtZW50U3VpdGUiLCJDb21wQUlDb21tYW5kQ2VudGVyIiwiQ29tcGxpYW5jZVRyYWNrZXJQYWdlIiwiQ29tcFRyYWluaW5nQ2VudGVyIiwiQ29tcFN1cnZleU1hbmFnZW1lbnQiLCJDb21wRW1lcmdlbmN5U2FmZXR5IiwiQ29tcFN0YWZmRGlyZWN0b3J5IiwiQ29tcFJlcG9ydHMiLCJDb21wU3VwcG9ydCIsIkNvbXBTZXR0aW5ncyIsIkNvbXBXZWJzaXRlQ01TIiwiQ29tcEluY2lkZW50VHJhY2tlciIsIkNvbXBBdWRpdExvZ3MiLCJTdGFmZkRhc2hib2FyZCIsIlN0YWZmRG9jdW1lbnRTdWl0ZSIsIlN0YWZmQUlDb21wYW5pb24iLCJTdGFmZkNvbXBsaWFuY2VEYXNoYm9hcmQiLCJTdGFmZlRyYWluaW5nQ2VudGVyIiwiU3RhZmZTdXJ2ZXlzIiwiU3RhZmZFbWVyZ2VuY3lTYWZldHkiLCJTdGFmZkRpcmVjdG9yeSIsIlN0YWZmUmVwb3J0cyIsIlN0YWZmU3VwcG9ydCIsIlN0YWZmU2V0dGluZ3MiLCJNeUNvbXBsaWFuY2UiLCJyb3V0ZXIiLCJwYXRoIiwiZWxlbWVudCIsImNoaWxkcmVuIiwiaW5kZXgiXSwiaWdub3JlTGlzdCI6W10sInNvdXJjZXMiOlsicm91dGVzLnRzeCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBjcmVhdGVCcm93c2VyUm91dGVyLCBOYXZpZ2F0ZSB9IGZyb20gXCJyZWFjdC1yb3V0ZXJcIjtcblxuLy8gTGF5b3V0c1xuaW1wb3J0IFBsYXRmb3JtQWRtaW5MYXlvdXQgZnJvbSBcIi4vbGF5b3V0cy9QbGF0Zm9ybUFkbWluTGF5b3V0XCI7XG5pbXBvcnQgT3JnQWRtaW5MYXlvdXQgZnJvbSBcIi4vbGF5b3V0cy9PcmdBZG1pbkxheW91dFwiO1xuaW1wb3J0IENvbXBsaWFuY2VNYW5hZ2VyTGF5b3V0IGZyb20gXCIuL2xheW91dHMvQ29tcGxpYW5jZU1hbmFnZXJMYXlvdXRcIjtcbmltcG9ydCBTdGFmZkxheW91dCBmcm9tIFwiLi9sYXlvdXRzL1N0YWZmTGF5b3V0XCI7XG5cbi8vIENvbW1vbiBQYWdlc1xuaW1wb3J0IFJvbGVTZWxlY3Rpb24gZnJvbSBcIi4vcGFnZXMvUm9sZVNlbGVjdGlvblwiO1xuaW1wb3J0IE5vdEZvdW5kIGZyb20gXCIuL3BhZ2VzL05vdEZvdW5kXCI7XG5cbi8vIFBsYXRmb3JtIEFkbWluIFBhZ2VzXG5pbXBvcnQgQ29udHJvbENlbnRlciBmcm9tIFwiLi9wYWdlcy9wbGF0Zm9ybS1hZG1pbi9Db250cm9sQ2VudGVyXCI7XG5pbXBvcnQgVGVuYW50R292ZXJuYW5jZSBmcm9tIFwiLi9wYWdlcy9wbGF0Zm9ybS1hZG1pbi9UZW5hbnRHb3Zlcm5hbmNlXCI7XG5pbXBvcnQgR29sZGVuTGlicmFyeSBmcm9tIFwiLi9wYWdlcy9wbGF0Zm9ybS1hZG1pbi9Hb2xkZW5MaWJyYXJ5XCI7XG5pbXBvcnQgU3RhbmRhcmRzTWFwcGluZyBmcm9tIFwiLi9wYWdlcy9wbGF0Zm9ybS1hZG1pbi9TdGFuZGFyZHNNYXBwaW5nXCI7XG5pbXBvcnQgQUlDb3J0ZXggZnJvbSBcIi4vcGFnZXMvcGxhdGZvcm0tYWRtaW4vQUlDb3J0ZXhcIjtcbmltcG9ydCBBSVRyYWluaW5nIGZyb20gXCIuL3BhZ2VzL3BsYXRmb3JtLWFkbWluL0FJVHJhaW5pbmdcIjtcbmltcG9ydCBMYW5ndWFnZUludGVsbGlnZW5jZSBmcm9tIFwiLi9wYWdlcy9wbGF0Zm9ybS1hZG1pbi9MYW5ndWFnZUludGVsbGlnZW5jZVwiO1xuaW1wb3J0IFJldmVudWVHb3Zlcm5hbmNlIGZyb20gXCIuL3BhZ2VzL3BsYXRmb3JtLWFkbWluL1JldmVudWVHb3Zlcm5hbmNlXCI7XG5pbXBvcnQgUGxhdGZvcm1XZWJzaXRlQ01TIGZyb20gXCIuL3BhZ2VzL3BsYXRmb3JtLWFkbWluL1dlYnNpdGVDTVNcIjtcbmltcG9ydCBBdWRpdExlZGdlciBmcm9tIFwiLi9wYWdlcy9wbGF0Zm9ybS1hZG1pbi9BdWRpdExlZGdlclwiO1xuaW1wb3J0IFNlY3VyaXR5Q2VudGVyIGZyb20gXCIuL3BhZ2VzL3BsYXRmb3JtLWFkbWluL1NlY3VyaXR5Q2VudGVyXCI7XG5pbXBvcnQgUGxhdGZvcm1Db25maWcgZnJvbSBcIi4vcGFnZXMvcGxhdGZvcm0tYWRtaW4vUGxhdGZvcm1Db25maWdcIjtcbmltcG9ydCBTdXBwb3J0RWNvc3lzdGVtIGZyb20gXCIuL3BhZ2VzL3BsYXRmb3JtLWFkbWluL1N1cHBvcnRFY29zeXN0ZW1cIjtcbmltcG9ydCBSb2xlc1Blcm1pc3Npb25zIGZyb20gXCIuL3BhZ2VzL3BsYXRmb3JtLWFkbWluL1JvbGVzUGVybWlzc2lvbnNcIjtcbmltcG9ydCBUYXhvbm9teU1hbmFnZW1lbnQgZnJvbSBcIi4vcGFnZXMvcGxhdGZvcm0tYWRtaW4vVGF4b25vbXlNYW5hZ2VtZW50XCI7XG5pbXBvcnQgQ2F0ZWdvcnlNYW5hZ2VtZW50IGZyb20gXCIuL3BhZ2VzL3BsYXRmb3JtLWFkbWluL0NhdGVnb3J5TWFuYWdlbWVudFwiO1xuXG4vLyBPcmcgQWRtaW4gUGFnZXNcbmltcG9ydCBPcmdBZG1pbkRhc2hib2FyZCBmcm9tIFwiLi9wYWdlcy9vcmctYWRtaW4vRGFzaGJvYXJkXCI7XG5pbXBvcnQgT3JnRG9jdW1lbnRTdWl0ZSBmcm9tIFwiLi9wYWdlcy9vcmctYWRtaW4vRG9jdW1lbnRTdWl0ZVwiO1xuaW1wb3J0IE9yZ0FJQ29tbWFuZENlbnRlciBmcm9tIFwiLi9wYWdlcy9vcmctYWRtaW4vQUlDb21tYW5kQ2VudGVyXCI7XG5pbXBvcnQgT3JnQ29tcGxpYW5jZVRyYWNrZXIgZnJvbSBcIi4vcGFnZXMvb3JnLWFkbWluL0NvbXBsaWFuY2VUcmFja2VyXCI7XG5pbXBvcnQgT3JnVHJhaW5pbmdDZW50ZXIgZnJvbSBcIi4vcGFnZXMvb3JnLWFkbWluL1RyYWluaW5nQ2VudGVyXCI7XG5pbXBvcnQgT3JnU3VydmV5TWFuYWdlbWVudCBmcm9tIFwiLi9wYWdlcy9vcmctYWRtaW4vU3VydmV5TWFuYWdlbWVudFwiO1xuaW1wb3J0IE9yZ0VtZXJnZW5jeVNhZmV0eSBmcm9tIFwiLi9wYWdlcy9vcmctYWRtaW4vRW1lcmdlbmN5U2FmZXR5TWFuYWdlbWVudFwiO1xuaW1wb3J0IE9yZ1N0YWZmRGlyZWN0b3J5IGZyb20gXCIuL3BhZ2VzL29yZy1hZG1pbi9TdGFmZkRpcmVjdG9yeVwiO1xuaW1wb3J0IE9yZ1JlcG9ydHMgZnJvbSBcIi4vcGFnZXMvb3JnLWFkbWluL1JlcG9ydHNcIjtcbmltcG9ydCBPcmdTdXBwb3J0IGZyb20gXCIuL3BhZ2VzL29yZy1hZG1pbi9TdXBwb3J0XCI7XG5pbXBvcnQgT3JnU2V0dGluZ3MgZnJvbSBcIi4vcGFnZXMvb3JnLWFkbWluL09yZ1NldHRpbmdzXCI7XG5pbXBvcnQgT3JnU3Vic2NyaXB0aW9uVXNhZ2UgZnJvbSBcIi4vcGFnZXMvb3JnLWFkbWluL1N1YnNjcmlwdGlvblVzYWdlXCI7XG5pbXBvcnQgT3JnVXNhZ2VUcmFja2luZyBmcm9tIFwiLi9wYWdlcy9vcmctYWRtaW4vVXNhZ2VUcmFja2luZ1wiO1xuaW1wb3J0IE9yZ1BvbGljeVJlZ2lzdGVyIGZyb20gXCIuL3BhZ2VzL29yZy1hZG1pbi9Qb2xpY3lSZWdpc3RlclwiO1xuaW1wb3J0IE9yZ1JvbGVNYW5hZ2VtZW50IGZyb20gXCIuL3BhZ2VzL29yZy1hZG1pbi9Sb2xlTWFuYWdlbWVudFwiO1xuXG4vLyBDb21wbGlhbmNlIE1hbmFnZXIgUGFnZXNcbmltcG9ydCBDb21wbGlhbmNlRGFzaGJvYXJkIGZyb20gXCIuL3BhZ2VzL2NvbXBsaWFuY2UtbWFuYWdlci9EYXNoYm9hcmRcIjtcbmltcG9ydCBDb21wRG9jdW1lbnRTdWl0ZSBmcm9tIFwiLi9wYWdlcy9jb21wbGlhbmNlLW1hbmFnZXIvRG9jdW1lbnRTdWl0ZVwiO1xuaW1wb3J0IENvbXBBSUNvbW1hbmRDZW50ZXIgZnJvbSBcIi4vcGFnZXMvY29tcGxpYW5jZS1tYW5hZ2VyL0FJQ29tbWFuZENlbnRlclwiO1xuaW1wb3J0IENvbXBsaWFuY2VUcmFja2VyUGFnZSBmcm9tIFwiLi9wYWdlcy9jb21wbGlhbmNlLW1hbmFnZXIvQ29tcGxpYW5jZURhc2hib2FyZFwiO1xuaW1wb3J0IENvbXBUcmFpbmluZ0NlbnRlciBmcm9tIFwiLi9wYWdlcy9jb21wbGlhbmNlLW1hbmFnZXIvVHJhaW5pbmdDZW50ZXJcIjtcbmltcG9ydCBDb21wU3VydmV5TWFuYWdlbWVudCBmcm9tIFwiLi9wYWdlcy9jb21wbGlhbmNlLW1hbmFnZXIvU3VydmV5TWFuYWdlbWVudFwiO1xuaW1wb3J0IENvbXBFbWVyZ2VuY3lTYWZldHkgZnJvbSBcIi4vcGFnZXMvY29tcGxpYW5jZS1tYW5hZ2VyL0VtZXJnZW5jeVNhZmV0eVwiO1xuaW1wb3J0IENvbXBTdGFmZkRpcmVjdG9yeSBmcm9tIFwiLi9wYWdlcy9jb21wbGlhbmNlLW1hbmFnZXIvU3RhZmZEaXJlY3RvcnlcIjtcbmltcG9ydCBDb21wUmVwb3J0cyBmcm9tIFwiLi9wYWdlcy9jb21wbGlhbmNlLW1hbmFnZXIvUmVwb3J0c1wiO1xuaW1wb3J0IENvbXBTdXBwb3J0IGZyb20gXCIuL3BhZ2VzL2NvbXBsaWFuY2UtbWFuYWdlci9TdXBwb3J0XCI7XG5pbXBvcnQgQ29tcFNldHRpbmdzIGZyb20gXCIuL3BhZ2VzL2NvbXBsaWFuY2UtbWFuYWdlci9TZXR0aW5nc1wiO1xuaW1wb3J0IENvbXBXZWJzaXRlQ01TIGZyb20gXCIuL3BhZ2VzL2NvbXBsaWFuY2UtbWFuYWdlci9XZWJzaXRlQ01TXCI7XG5pbXBvcnQgQ29tcEluY2lkZW50VHJhY2tlciBmcm9tIFwiLi9wYWdlcy9jb21wbGlhbmNlLW1hbmFnZXIvSW5jaWRlbnRUcmFja2VyXCI7XG5pbXBvcnQgQ29tcEF1ZGl0TG9ncyBmcm9tIFwiLi9wYWdlcy9jb21wbGlhbmNlLW1hbmFnZXIvQXVkaXRMb2dzXCI7XG5cbi8vIFN0YWZmIFBhZ2VzXG5pbXBvcnQgU3RhZmZEYXNoYm9hcmQgZnJvbSBcIi4vcGFnZXMvc3RhZmYvRGFzaGJvYXJkXCI7XG5pbXBvcnQgU3RhZmZEb2N1bWVudFN1aXRlIGZyb20gXCIuL3BhZ2VzL3N0YWZmL0RvY3VtZW50U3VpdGVcIjtcbmltcG9ydCBTdGFmZkFJQ29tcGFuaW9uIGZyb20gXCIuL3BhZ2VzL3N0YWZmL0FJQ29tcGFuaW9uXCI7XG5pbXBvcnQgU3RhZmZDb21wbGlhbmNlRGFzaGJvYXJkIGZyb20gXCIuL3BhZ2VzL3N0YWZmL0NvbXBsaWFuY2VEYXNoYm9hcmRcIjtcbmltcG9ydCBTdGFmZlRyYWluaW5nQ2VudGVyIGZyb20gXCIuL3BhZ2VzL3N0YWZmL1RyYWluaW5nQ2VudGVyXCI7XG5pbXBvcnQgU3RhZmZTdXJ2ZXlzIGZyb20gXCIuL3BhZ2VzL3N0YWZmL1N1cnZleXNcIjtcbmltcG9ydCBTdGFmZkVtZXJnZW5jeVNhZmV0eSBmcm9tIFwiLi9wYWdlcy9zdGFmZi9FbWVyZ2VuY3lTYWZldHlcIjtcbmltcG9ydCBTdGFmZkRpcmVjdG9yeSBmcm9tIFwiLi9wYWdlcy9zdGFmZi9TdGFmZkRpcmVjdG9yeVwiO1xuaW1wb3J0IFN0YWZmUmVwb3J0cyBmcm9tIFwiLi9wYWdlcy9zdGFmZi9SZXBvcnRzXCI7XG5pbXBvcnQgU3RhZmZTdXBwb3J0IGZyb20gXCIuL3BhZ2VzL3N0YWZmL1N1cHBvcnRcIjtcbmltcG9ydCBTdGFmZlNldHRpbmdzIGZyb20gXCIuL3BhZ2VzL3N0YWZmL1NldHRpbmdzXCI7XG5pbXBvcnQgTXlDb21wbGlhbmNlIGZyb20gXCIuL3BhZ2VzL3N0YWZmL015Q29tcGxpYW5jZVwiO1xuXG4vKipcbiAqIFBvbGljeU5lc3QgQ29tcGxldGUgUm91dGluZyBTeXN0ZW1cbiAqIFxuICogUk9MRS1CQVNFRCBST1VUSU5HIFNUUlVDVFVSRTpcbiAqID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PVxuICogXG4gKiAvIC0gUm9sZSBTZWxlY3Rpb24gUGFnZVxuICogXG4gKiAvcGxhdGZvcm0tYWRtaW4vKiAtIFBsYXRmb3JtIEFkbWluIHJvdXRlcyAoMTQgcGFnZXMpXG4gKiAgIC0gY29udHJvbC1jZW50ZXIgKGRlZmF1bHQpXG4gKiAgIC0gdGVuYW50LWdvdmVybmFuY2UsIGdvbGRlbi1saWJyYXJ5LCBzdGFuZGFyZHMtbWFwcGluZ1xuICogICAtIGFpLWNvcnRleCwgYWktdHJhaW5pbmcsIGxhbmd1YWdlLWludGVsbGlnZW5jZVxuICogICAtIHJldmVudWUtZ292ZXJuYW5jZSwgd2Vic2l0ZS1jbXMsIGF1ZGl0LWxlZGdlclxuICogICAtIHNlY3VyaXR5LWNlbnRlciwgcGxhdGZvcm0tY29uZmlnLCBzdXBwb3J0LWVjb3N5c3RlbVxuICogICAtIHJvbGVzLXBlcm1pc3Npb25zXG4gKiBcbiAqIC9vcmctYWRtaW4vKiAtIE9yZ2FuaXphdGlvbiBBZG1pbiByb3V0ZXMgKDEyIHBhZ2VzKVxuICogICAtIGRhc2hib2FyZCAoZGVmYXVsdClcbiAqICAgLSBkb2N1bWVudC1zdWl0ZSwgYWktY29tbWFuZC1jZW50ZXIsIGNvbXBsaWFuY2VcbiAqICAgLSB0cmFpbmluZywgc3VydmV5cywgZW1lcmdlbmN5LCBzdGFmZlxuICogICAtIHJlcG9ydHMsIHN1cHBvcnQsIHNldHRpbmdzLCB3ZWJzaXRlXG4gKiBcbiAqIC9jb21wbGlhbmNlLW1hbmFnZXIvKiAtIENvbXBsaWFuY2UgTWFuYWdlciByb3V0ZXMgKDEyIHBhZ2VzKVxuICogICAtIGRhc2hib2FyZCAoZGVmYXVsdClcbiAqICAgLSBkb2N1bWVudC1zdWl0ZSwgYWktY29tbWFuZC1jZW50ZXIsIGNvbXBsaWFuY2VcbiAqICAgLSB0cmFpbmluZywgc3VydmV5cywgZW1lcmdlbmN5LCBzdGFmZlxuICogICAtIHJlcG9ydHMsIHN1cHBvcnQsIHNldHRpbmdzLCB3ZWJzaXRlXG4gKiBcbiAqIC9zdGFmZi8qIC0gU3RhZmYgcm91dGVzICgxMSBwYWdlcylcbiAqICAgLSBkYXNoYm9hcmQgKGRlZmF1bHQpXG4gKiAgIC0gZG9jdW1lbnQtc3VpdGUsIGFpLWNvbW1hbmQtY2VudGVyLCBjb21wbGlhbmNlXG4gKiAgIC0gdHJhaW5pbmcsIHN1cnZleXMsIGVtZXJnZW5jeSwgc3RhZmZcbiAqICAgLSByZXBvcnRzLCBzdXBwb3J0LCBzZXR0aW5nc1xuICogXG4gKiBOT1RFUzpcbiAqIC0gQWxsIHJvbGVzIHNoYXJlIHRoZSBzYW1lIG5hdmlnYXRpb24gc3RydWN0dXJlIChwZXIgY2xpZW50IHJlcXVpcmVtZW50KVxuICogLSBPbmx5IHBlcm1pc3Npb25zIGFuZCBjb250ZW50IHZpc2liaWxpdHkgZGlmZmVyIGJ5IHJvbGVcbiAqIC0gRWFjaCByb2xlIHVzZXMgYSBkZWRpY2F0ZWQgTGF5b3V0IGNvbXBvbmVudCB3aXRoIHJvbGUtc3BlY2lmaWMgc3R5bGluZ1xuICogLSBJbmRleCByb3V0ZXMgcmVkaXJlY3QgdG8gdGhlIGRlZmF1bHQgcGFnZSBmb3IgZWFjaCByb2xlXG4gKi9cblxuZXhwb3J0IGNvbnN0IHJvdXRlciA9IGNyZWF0ZUJyb3dzZXJSb3V0ZXIoW1xuICB7XG4gICAgcGF0aDogXCIvXCIsXG4gICAgZWxlbWVudDogPFJvbGVTZWxlY3Rpb24gLz4sXG4gIH0sXG4gIHtcbiAgICBwYXRoOiBcIi9wbGF0Zm9ybS1hZG1pblwiLFxuICAgIGVsZW1lbnQ6IDxQbGF0Zm9ybUFkbWluTGF5b3V0IC8+LFxuICAgIGNoaWxkcmVuOiBbXG4gICAgICB7XG4gICAgICAgIGluZGV4OiB0cnVlLFxuICAgICAgICBlbGVtZW50OiA8TmF2aWdhdGUgdG89XCIvcGxhdGZvcm0tYWRtaW4vY29udHJvbC1jZW50ZXJcIiByZXBsYWNlIC8+LFxuICAgICAgfSxcbiAgICAgIHtcbiAgICAgICAgcGF0aDogXCJjb250cm9sLWNlbnRlclwiLFxuICAgICAgICBlbGVtZW50OiA8Q29udHJvbENlbnRlciAvPixcbiAgICAgIH0sXG4gICAgICB7XG4gICAgICAgIHBhdGg6IFwidGVuYW50LWdvdmVybmFuY2VcIixcbiAgICAgICAgZWxlbWVudDogPFRlbmFudEdvdmVybmFuY2UgLz4sXG4gICAgICB9LFxuICAgICAge1xuICAgICAgICBwYXRoOiBcImdvbGRlbi1saWJyYXJ5XCIsXG4gICAgICAgIGVsZW1lbnQ6IDxHb2xkZW5MaWJyYXJ5IC8+LFxuICAgICAgfSxcbiAgICAgIHtcbiAgICAgICAgcGF0aDogXCJzdGFuZGFyZHMtbWFwcGluZ1wiLFxuICAgICAgICBlbGVtZW50OiA8U3RhbmRhcmRzTWFwcGluZyAvPixcbiAgICAgIH0sXG4gICAgICB7XG4gICAgICAgIHBhdGg6IFwiYWktY29ydGV4XCIsXG4gICAgICAgIGVsZW1lbnQ6IDxBSUNvcnRleCAvPixcbiAgICAgIH0sXG4gICAgICB7XG4gICAgICAgIHBhdGg6IFwiYWktdHJhaW5pbmdcIixcbiAgICAgICAgZWxlbWVudDogPEFJVHJhaW5pbmcgLz4sXG4gICAgICB9LFxuICAgICAge1xuICAgICAgICBwYXRoOiBcImxhbmd1YWdlLWludGVsbGlnZW5jZVwiLFxuICAgICAgICBlbGVtZW50OiA8TGFuZ3VhZ2VJbnRlbGxpZ2VuY2UgLz4sXG4gICAgICB9LFxuICAgICAge1xuICAgICAgICBwYXRoOiBcInJldmVudWUtZ292ZXJuYW5jZVwiLFxuICAgICAgICBlbGVtZW50OiA8UmV2ZW51ZUdvdmVybmFuY2UgLz4sXG4gICAgICB9LFxuICAgICAge1xuICAgICAgICBwYXRoOiBcIndlYnNpdGUtY21zXCIsXG4gICAgICAgIGVsZW1lbnQ6IDxQbGF0Zm9ybVdlYnNpdGVDTVMgLz4sXG4gICAgICB9LFxuICAgICAge1xuICAgICAgICBwYXRoOiBcImF1ZGl0LWxlZGdlclwiLFxuICAgICAgICBlbGVtZW50OiA8QXVkaXRMZWRnZXIgLz4sXG4gICAgICB9LFxuICAgICAge1xuICAgICAgICBwYXRoOiBcInNlY3VyaXR5LWNlbnRlclwiLFxuICAgICAgICBlbGVtZW50OiA8U2VjdXJpdHlDZW50ZXIgLz4sXG4gICAgICB9LFxuICAgICAge1xuICAgICAgICBwYXRoOiBcInBsYXRmb3JtLWNvbmZpZ1wiLFxuICAgICAgICBlbGVtZW50OiA8UGxhdGZvcm1Db25maWcgLz4sXG4gICAgICB9LFxuICAgICAge1xuICAgICAgICBwYXRoOiBcInN1cHBvcnQtZWNvc3lzdGVtXCIsXG4gICAgICAgIGVsZW1lbnQ6IDxTdXBwb3J0RWNvc3lzdGVtIC8+LFxuICAgICAgfSxcbiAgICAgIHtcbiAgICAgICAgcGF0aDogXCJyb2xlcy1wZXJtaXNzaW9uc1wiLFxuICAgICAgICBlbGVtZW50OiA8Um9sZXNQZXJtaXNzaW9ucyAvPixcbiAgICAgIH0sXG4gICAgICB7XG4gICAgICAgIHBhdGg6IFwidGF4b25vbXktbWFuYWdlbWVudFwiLFxuICAgICAgICBlbGVtZW50OiA8VGF4b25vbXlNYW5hZ2VtZW50IC8+LFxuICAgICAgfSxcbiAgICAgIHtcbiAgICAgICAgcGF0aDogXCJjYXRlZ29yeS1tYW5hZ2VtZW50XCIsXG4gICAgICAgIGVsZW1lbnQ6IDxDYXRlZ29yeU1hbmFnZW1lbnQgLz4sXG4gICAgICB9LFxuICAgIF0sXG4gIH0sXG4gIHtcbiAgICBwYXRoOiBcIi9vcmctYWRtaW5cIixcbiAgICBlbGVtZW50OiA8T3JnQWRtaW5MYXlvdXQgLz4sXG4gICAgY2hpbGRyZW46IFtcbiAgICAgIHtcbiAgICAgICAgaW5kZXg6IHRydWUsXG4gICAgICAgIGVsZW1lbnQ6IDxOYXZpZ2F0ZSB0bz1cIi9vcmctYWRtaW4vZGFzaGJvYXJkXCIgcmVwbGFjZSAvPixcbiAgICAgIH0sXG4gICAgICB7XG4gICAgICAgIHBhdGg6IFwiZGFzaGJvYXJkXCIsXG4gICAgICAgIGVsZW1lbnQ6IDxPcmdBZG1pbkRhc2hib2FyZCAvPixcbiAgICAgIH0sXG4gICAgICB7XG4gICAgICAgIHBhdGg6IFwiZG9jdW1lbnQtc3VpdGVcIixcbiAgICAgICAgZWxlbWVudDogPE9yZ0RvY3VtZW50U3VpdGUgLz4sXG4gICAgICB9LFxuICAgICAge1xuICAgICAgICBwYXRoOiBcImFpLWNvbW1hbmQtY2VudGVyXCIsXG4gICAgICAgIGVsZW1lbnQ6IDxPcmdBSUNvbW1hbmRDZW50ZXIgLz4sXG4gICAgICB9LFxuICAgICAge1xuICAgICAgICBwYXRoOiBcImNvbXBsaWFuY2VcIixcbiAgICAgICAgZWxlbWVudDogPE9yZ0NvbXBsaWFuY2VUcmFja2VyIC8+LFxuICAgICAgfSxcbiAgICAgIHtcbiAgICAgICAgcGF0aDogXCJ0cmFpbmluZ1wiLFxuICAgICAgICBlbGVtZW50OiA8T3JnVHJhaW5pbmdDZW50ZXIgLz4sXG4gICAgICB9LFxuICAgICAge1xuICAgICAgICBwYXRoOiBcInN1cnZleXNcIixcbiAgICAgICAgZWxlbWVudDogPE9yZ1N1cnZleU1hbmFnZW1lbnQgLz4sXG4gICAgICB9LFxuICAgICAge1xuICAgICAgICBwYXRoOiBcImVtZXJnZW5jeVwiLFxuICAgICAgICBlbGVtZW50OiA8T3JnRW1lcmdlbmN5U2FmZXR5IC8+LFxuICAgICAgfSxcbiAgICAgIHtcbiAgICAgICAgcGF0aDogXCJzdGFmZlwiLFxuICAgICAgICBlbGVtZW50OiA8T3JnU3RhZmZEaXJlY3RvcnkgLz4sXG4gICAgICB9LFxuICAgICAge1xuICAgICAgICBwYXRoOiBcInJlcG9ydHNcIixcbiAgICAgICAgZWxlbWVudDogPE9yZ1JlcG9ydHMgLz4sXG4gICAgICB9LFxuICAgICAge1xuICAgICAgICBwYXRoOiBcInVzYWdlLXRyYWNraW5nXCIsXG4gICAgICAgIGVsZW1lbnQ6IDxPcmdVc2FnZVRyYWNraW5nIC8+LFxuICAgICAgfSxcbiAgICAgIHtcbiAgICAgICAgcGF0aDogXCJwb2xpY3ktcmVnaXN0ZXJcIixcbiAgICAgICAgZWxlbWVudDogPE9yZ1BvbGljeVJlZ2lzdGVyIC8+LFxuICAgICAgfSxcbiAgICAgIHtcbiAgICAgICAgcGF0aDogXCJyb2xlLW1hbmFnZW1lbnRcIixcbiAgICAgICAgZWxlbWVudDogPE9yZ1JvbGVNYW5hZ2VtZW50IC8+LFxuICAgICAgfSxcbiAgICAgIHtcbiAgICAgICAgcGF0aDogXCJzdXBwb3J0XCIsXG4gICAgICAgIGVsZW1lbnQ6IDxPcmdTdXBwb3J0IC8+LFxuICAgICAgfSxcbiAgICAgIHtcbiAgICAgICAgcGF0aDogXCJzZXR0aW5nc1wiLFxuICAgICAgICBlbGVtZW50OiA8T3JnU2V0dGluZ3MgLz4sXG4gICAgICB9LFxuICAgICAge1xuICAgICAgICBwYXRoOiBcInN1YnNjcmlwdGlvbi11c2FnZVwiLFxuICAgICAgICBlbGVtZW50OiA8T3JnU3Vic2NyaXB0aW9uVXNhZ2UgLz4sXG4gICAgICB9LFxuICAgIF0sXG4gIH0sXG4gIHtcbiAgICBwYXRoOiBcIi9jb21wbGlhbmNlLW1hbmFnZXJcIixcbiAgICBlbGVtZW50OiA8Q29tcGxpYW5jZU1hbmFnZXJMYXlvdXQgLz4sXG4gICAgY2hpbGRyZW46IFtcbiAgICAgIHtcbiAgICAgICAgaW5kZXg6IHRydWUsXG4gICAgICAgIGVsZW1lbnQ6IDxOYXZpZ2F0ZSB0bz1cIi9jb21wbGlhbmNlLW1hbmFnZXIvZGFzaGJvYXJkXCIgcmVwbGFjZSAvPixcbiAgICAgIH0sXG4gICAgICB7XG4gICAgICAgIHBhdGg6IFwiZGFzaGJvYXJkXCIsXG4gICAgICAgIGVsZW1lbnQ6IDxDb21wbGlhbmNlRGFzaGJvYXJkIC8+LFxuICAgICAgfSxcbiAgICAgIHtcbiAgICAgICAgcGF0aDogXCJkb2N1bWVudC1zdWl0ZVwiLFxuICAgICAgICBlbGVtZW50OiA8Q29tcERvY3VtZW50U3VpdGUgLz4sXG4gICAgICB9LFxuICAgICAge1xuICAgICAgICBwYXRoOiBcImFpLWNvbW1hbmQtY2VudGVyXCIsXG4gICAgICAgIGVsZW1lbnQ6IDxDb21wQUlDb21tYW5kQ2VudGVyIC8+LFxuICAgICAgfSxcbiAgICAgIHtcbiAgICAgICAgcGF0aDogXCJjb21wbGlhbmNlXCIsXG4gICAgICAgIGVsZW1lbnQ6IDxDb21wbGlhbmNlVHJhY2tlclBhZ2UgLz4sXG4gICAgICB9LFxuICAgICAge1xuICAgICAgICBwYXRoOiBcInRyYWluaW5nXCIsXG4gICAgICAgIGVsZW1lbnQ6IDxDb21wVHJhaW5pbmdDZW50ZXIgLz4sXG4gICAgICB9LFxuICAgICAge1xuICAgICAgICBwYXRoOiBcInN1cnZleXNcIixcbiAgICAgICAgZWxlbWVudDogPENvbXBTdXJ2ZXlNYW5hZ2VtZW50IC8+LFxuICAgICAgfSxcbiAgICAgIHtcbiAgICAgICAgcGF0aDogXCJlbWVyZ2VuY3lcIixcbiAgICAgICAgZWxlbWVudDogPENvbXBFbWVyZ2VuY3lTYWZldHkgLz4sXG4gICAgICB9LFxuICAgICAge1xuICAgICAgICBwYXRoOiBcInN0YWZmXCIsXG4gICAgICAgIGVsZW1lbnQ6IDxDb21wU3RhZmZEaXJlY3RvcnkgLz4sXG4gICAgICB9LFxuICAgICAge1xuICAgICAgICBwYXRoOiBcInJlcG9ydHNcIixcbiAgICAgICAgZWxlbWVudDogPENvbXBSZXBvcnRzIC8+LFxuICAgICAgfSxcbiAgICAgIHtcbiAgICAgICAgcGF0aDogXCJzdXBwb3J0XCIsXG4gICAgICAgIGVsZW1lbnQ6IDxDb21wU3VwcG9ydCAvPixcbiAgICAgIH0sXG4gICAgICB7XG4gICAgICAgIHBhdGg6IFwic2V0dGluZ3NcIixcbiAgICAgICAgZWxlbWVudDogPENvbXBTZXR0aW5ncyAvPixcbiAgICAgIH0sXG4gICAgICB7XG4gICAgICAgIHBhdGg6IFwid2Vic2l0ZVwiLFxuICAgICAgICBlbGVtZW50OiA8Q29tcFdlYnNpdGVDTVMgLz4sXG4gICAgICB9LFxuICAgICAge1xuICAgICAgICBwYXRoOiBcImluY2lkZW50LXRyYWNrZXJcIixcbiAgICAgICAgZWxlbWVudDogPENvbXBJbmNpZGVudFRyYWNrZXIgLz4sXG4gICAgICB9LFxuICAgICAge1xuICAgICAgICBwYXRoOiBcImF1ZGl0LWxvZ3NcIixcbiAgICAgICAgZWxlbWVudDogPENvbXBBdWRpdExvZ3MgLz4sXG4gICAgICB9LFxuICAgIF0sXG4gIH0sXG4gIHtcbiAgICBwYXRoOiBcIi9zdGFmZlwiLFxuICAgIGVsZW1lbnQ6IDxTdGFmZkxheW91dCAvPixcbiAgICBjaGlsZHJlbjogW1xuICAgICAge1xuICAgICAgICBpbmRleDogdHJ1ZSxcbiAgICAgICAgZWxlbWVudDogPE5hdmlnYXRlIHRvPVwiL3N0YWZmL2Rhc2hib2FyZFwiIHJlcGxhY2UgLz4sXG4gICAgICB9LFxuICAgICAge1xuICAgICAgICBwYXRoOiBcImRhc2hib2FyZFwiLFxuICAgICAgICBlbGVtZW50OiA8U3RhZmZEYXNoYm9hcmQgLz4sXG4gICAgICB9LFxuICAgICAge1xuICAgICAgICBwYXRoOiBcImRvY3VtZW50LXN1aXRlXCIsXG4gICAgICAgIGVsZW1lbnQ6IDxTdGFmZkRvY3VtZW50U3VpdGUgLz4sXG4gICAgICB9LFxuICAgICAge1xuICAgICAgICBwYXRoOiBcImFpLWNvbW1hbmQtY2VudGVyXCIsXG4gICAgICAgIGVsZW1lbnQ6IDxTdGFmZkFJQ29tcGFuaW9uIC8+LFxuICAgICAgfSxcbiAgICAgIHtcbiAgICAgICAgcGF0aDogXCJteS1jb21wbGlhbmNlXCIsXG4gICAgICAgIGVsZW1lbnQ6IDxNeUNvbXBsaWFuY2UgLz4sXG4gICAgICB9LFxuICAgICAge1xuICAgICAgICBwYXRoOiBcImNvbXBsaWFuY2VcIixcbiAgICAgICAgZWxlbWVudDogPFN0YWZmQ29tcGxpYW5jZURhc2hib2FyZCAvPixcbiAgICAgIH0sXG4gICAgICB7XG4gICAgICAgIHBhdGg6IFwidHJhaW5pbmdcIixcbiAgICAgICAgZWxlbWVudDogPFN0YWZmVHJhaW5pbmdDZW50ZXIgLz4sXG4gICAgICB9LFxuICAgICAge1xuICAgICAgICBwYXRoOiBcInN1cnZleXNcIixcbiAgICAgICAgZWxlbWVudDogPFN0YWZmU3VydmV5cyAvPixcbiAgICAgIH0sXG4gICAgICB7XG4gICAgICAgIHBhdGg6IFwiZW1lcmdlbmN5XCIsXG4gICAgICAgIGVsZW1lbnQ6IDxTdGFmZkVtZXJnZW5jeVNhZmV0eSAvPixcbiAgICAgIH0sXG4gICAgICB7XG4gICAgICAgIHBhdGg6IFwic3RhZmZcIixcbiAgICAgICAgZWxlbWVudDogPFN0YWZmRGlyZWN0b3J5IC8+LFxuICAgICAgfSxcbiAgICAgIHtcbiAgICAgICAgcGF0aDogXCJyZXBvcnRzXCIsXG4gICAgICAgIGVsZW1lbnQ6IDxTdGFmZlJlcG9ydHMgLz4sXG4gICAgICB9LFxuICAgICAge1xuICAgICAgICBwYXRoOiBcInN1cHBvcnRcIixcbiAgICAgICAgZWxlbWVudDogPFN0YWZmU3VwcG9ydCAvPixcbiAgICAgIH0sXG4gICAgICB7XG4gICAgICAgIHBhdGg6IFwic2V0dGluZ3NcIixcbiAgICAgICAgZWxlbWVudDogPFN0YWZmU2V0dGluZ3MgLz4sXG4gICAgICB9LFxuICAgIF0sXG4gIH0sXG4gIHtcbiAgICBwYXRoOiBcIipcIixcbiAgICBlbGVtZW50OiA8Tm90Rm91bmQgLz4sXG4gIH0sXG5dKTsiXSwiZmlsZSI6Ii93b3Jrc3BhY2VzL2RlZmF1bHQvY29kZS9zcmMvYXBwL3JvdXRlcy50c3gifQ==
