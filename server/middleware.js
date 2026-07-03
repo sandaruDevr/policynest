@@ -1,4 +1,4 @@
-import rateLimit, { ipKeyGenerator } from 'express-rate-limit'
+import rateLimit from 'express-rate-limit'
 
 // ---------------------------------------------------------------------
 // Structured logging
@@ -62,9 +62,6 @@ export function createLimiter({ windowMs = 60_000, max = 100, message = 'Too man
     max,
     standardHeaders: true,
     legacyHeaders: false,
-    keyGenerator(req) {
-      return ipKeyGenerator(req)
-    },
     handler(req, res, _next, options) {
       logger({
         level: 'warn',
