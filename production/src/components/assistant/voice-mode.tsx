@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Keyboard, Volume2, VolumeX } from "lucide-react";
+import { X, Keyboard, Volume2, VolumeX, Mic } from "lucide-react";
 import { VoiceOrb } from "@/components/assistant/voice-orb";
 import { useVoiceRecorder } from "@/hooks/use-voice-recorder";
 import { useAudioAmplitude } from "@/hooks/use-audio-amplitude";
@@ -30,6 +30,15 @@ function extractSpeakableText(response: GuidanceResponse | null): string {
   return parts.join(" ") || "Here's what I found. Check the screen for full details.";
 }
 
+const STATE_LABELS: Record<VoiceState, string> = {
+  idle: "Tap to speak",
+  recording: "Listening...",
+  transcribing: "Transcribing...",
+  thinking: "Thinking...",
+  speaking: "Speaking...",
+  error: "Something went wrong",
+};
+
 export function VoiceMode({ open, onClose, onSubmit }: VoiceModeProps) {
   const [state, setState] = React.useState<VoiceState>("idle");
   const [transcript, setTranscript] = React.useState("");
@@ -42,7 +51,6 @@ export function VoiceMode({ open, onClose, onSubmit }: VoiceModeProps) {
   const [playingEl, setPlayingEl] = React.useState<HTMLAudioElement | null>(null);
   const amplitude = useAudioAmplitude(playingEl, state === "speaking");
 
-  // When recording stops and we have a blob, transcribe it.
   React.useEffect(() => {
     if (recState === "stopped" && audioBlob && state === "recording") {
       void transcribeAndSubmit(audioBlob);
@@ -50,7 +58,6 @@ export function VoiceMode({ open, onClose, onSubmit }: VoiceModeProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [recState, audioBlob]);
 
-  // Reset everything when the overlay closes.
   React.useEffect(() => {
     if (!open) {
       setState("idle");
@@ -101,7 +108,6 @@ export function VoiceMode({ open, onClose, onSubmit }: VoiceModeProps) {
       console.error("Voice flow error:", err);
       setErrorMsg("Something went wrong. Try again.");
       setState("idle");
-    } finally {
       reset();
     }
   };
@@ -131,10 +137,12 @@ export function VoiceMode({ open, onClose, onSubmit }: VoiceModeProps) {
       URL.revokeObjectURL(url);
       setPlayingEl(null);
       setState("idle");
+      reset();
     } catch (err) {
       console.error("TTS playback error:", err);
       setState("idle");
       setPlayingEl(null);
+      reset();
     }
   };
 
@@ -155,16 +163,14 @@ export function VoiceMode({ open, onClose, onSubmit }: VoiceModeProps) {
     }
   };
 
-  const stateLabel =
+  const orbState =
     state === "recording"
-      ? "Listening…"
-      : state === "transcribing"
-        ? "Transcribing…"
-        : state === "thinking"
-          ? "Thinking…"
-          : state === "speaking"
-            ? "Speaking…"
-            : "Tap to speak";
+      ? "recording"
+      : state === "transcribing" || state === "thinking"
+        ? "processing"
+        : state === "speaking"
+          ? "speaking"
+          : "idle";
 
   return (
     <AnimatePresence>
@@ -173,102 +179,127 @@ export function VoiceMode({ open, onClose, onSubmit }: VoiceModeProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.25 }}
-          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-canvas/98 backdrop-blur-xl"
+          transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-canvas/95 backdrop-blur-2xl"
         >
+          {/* Ambient background glow */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0"
+            style={{
+              background:
+                "radial-gradient(60% 50% at 50% 45%, rgba(108,84,245,0.12) 0%, transparent 70%)",
+            }}
+          />
+
           {/* Top bar */}
-          <div className="absolute top-0 left-0 right-0 flex items-center justify-between p-4 sm:p-6">
-            <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-300/80">
-              Voice mode
-            </span>
-            <div className="flex items-center gap-2">
+          <motion.div
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.3, delay: 0.05 }}
+            className="absolute top-0 left-0 right-0 flex items-center justify-between px-4 py-5 sm:px-8"
+          >
+            <div className="flex items-center gap-2.5">
+              <span className="grid h-8 w-8 place-items-center rounded-lg bg-brand-500/15">
+                <Mic className="h-4 w-4 text-brand-300" />
+              </span>
+              <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-300/80">
+                Voice Mode
+              </span>
+            </div>
+            <div className="flex items-center gap-1.5">
               <button
                 type="button"
                 aria-label={muted ? "Unmute responses" : "Mute responses"}
                 onClick={() => setMuted((m) => !m)}
-                className="grid h-9 w-9 place-items-center rounded-full text-ink-muted hover:bg-white/5 hover:text-ink transition-colors focus-ring"
+                className="grid h-9 w-9 place-items-center rounded-full text-ink-muted transition-colors hover:bg-white/5 hover:text-ink focus-ring"
               >
                 {muted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
               </button>
               <button
                 type="button"
-                aria-label="Switch to text mode"
+                aria-label="Close voice mode"
                 onClick={onClose}
-                className="grid h-9 w-9 place-items-center rounded-full text-ink-muted hover:bg-white/5 hover:text-ink transition-colors focus-ring"
+                className="grid h-9 w-9 place-items-center rounded-full text-ink-muted transition-colors hover:bg-white/5 hover:text-ink focus-ring"
               >
                 <X className="h-4 w-4" />
               </button>
             </div>
-          </div>
-
-          {/* Orb */}
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <VoiceOrb
-              state={
-                state === "recording"
-                  ? "recording"
-                  : state === "transcribing" || state === "thinking"
-                    ? "processing"
-                    : state === "speaking"
-                      ? "speaking"
-                      : "idle"
-              }
-              amplitude={amplitude}
-              onClick={handleOrbClick}
-              disabled={state === "transcribing" || state === "thinking"}
-            />
           </motion.div>
 
-          {/* State label */}
-          <motion.p
-            key={stateLabel}
-            initial={{ opacity: 0, y: 4 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mt-6 text-sm font-medium text-ink-muted"
-          >
-            {stateLabel}
-          </motion.p>
+          {/* Center: orb + state label */}
+          <div className="relative flex flex-col items-center">
+            <motion.div
+              initial={{ scale: 0.7, opacity: 0, y: 10 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <VoiceOrb
+                state={orbState}
+                amplitude={amplitude}
+                onClick={handleOrbClick}
+                disabled={state === "transcribing" || state === "thinking"}
+              />
+            </motion.div>
 
-          {/* Live transcript / answer */}
-          <div className="mt-8 w-full max-w-lg px-6 text-center">
+            {/* State label */}
+            <AnimatePresence mode="wait">
+              <motion.p
+                key={state}
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -4 }}
+                transition={{ duration: 0.25 }}
+                className="mt-8 text-sm font-medium tracking-wide text-ink-muted"
+              >
+                {STATE_LABELS[state]}
+              </motion.p>
+            </AnimatePresence>
+          </div>
+
+          {/* Transcript / answer / hint area */}
+          <div className="relative mt-8 w-full max-w-xl px-6 sm:px-8">
             <AnimatePresence mode="wait">
               {errorMsg ? (
-                <motion.p
+                <motion.div
                   key="error"
-                  initial={{ opacity: 0, y: 6 }}
+                  initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0 }}
-                  className="text-sm text-critical-300"
+                  className="mx-auto max-w-md rounded-xl border border-critical-500/20 bg-critical-500/8 px-4 py-3 text-center"
                 >
-                  {errorMsg}
-                </motion.p>
+                  <p className="text-sm text-critical-400">{errorMsg}</p>
+                </motion.div>
               ) : transcript ? (
                 <motion.div
                   key="transcript"
-                  initial={{ opacity: 0, y: 6 }}
+                  initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0 }}
                   className="space-y-3"
                 >
-                  <p className="text-sm text-ink">
-                    <span className="text-ink-dim">You said: </span>
-                    &ldquo;{transcript}&rdquo;
-                  </p>
+                  <div className="rounded-xl border border-hairline bg-surface px-4 py-3">
+                    <p className="text-xs font-medium uppercase tracking-wider text-ink-dim">
+                      You said
+                    </p>
+                    <p className="mt-1 text-sm text-ink">&ldquo;{transcript}&rdquo;</p>
+                  </div>
                   {answerText ? (
-                    <p className="text-sm leading-relaxed text-ink-muted">{answerText}</p>
+                    <div className="rounded-xl border border-brand-500/15 bg-brand-500/5 px-4 py-3">
+                      <p className="text-xs font-medium uppercase tracking-wider text-brand-300/70">
+                        Assistant
+                      </p>
+                      <p className="mt-1 text-sm leading-relaxed text-ink-muted">{answerText}</p>
+                    </div>
                   ) : null}
                 </motion.div>
               ) : (
                 <motion.p
                   key="hint"
-                  initial={{ opacity: 0, y: 6 }}
+                  initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0 }}
-                  className="text-sm text-ink-dim"
+                  className="text-center text-sm text-ink-dim"
                 >
                   Ask about a procedure, escalation, or scenario — I&apos;ll answer out loud.
                 </motion.p>
@@ -276,15 +307,22 @@ export function VoiceMode({ open, onClose, onSubmit }: VoiceModeProps) {
             </AnimatePresence>
           </div>
 
-          {/* Bottom: switch to text */}
-          <button
-            type="button"
-            onClick={onClose}
-            className="absolute bottom-8 flex items-center gap-2 rounded-full border border-hairline bg-canvas-inset/60 px-4 py-2 text-xs text-ink-muted transition-colors hover:border-brand-500/30 hover:text-ink focus-ring"
+          {/* Bottom action bar */}
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.3, delay: 0.15 }}
+            className="absolute bottom-0 left-0 right-0 flex items-center justify-center px-4 py-6 sm:py-8"
           >
-            <Keyboard className="h-3.5 w-3.5" />
-            Switch to text
-          </button>
+            <button
+              type="button"
+              onClick={onClose}
+              className="flex items-center gap-2 rounded-full border border-hairline bg-surface px-5 py-2.5 text-xs font-medium text-ink-muted transition-all hover:border-brand-500/30 hover:bg-brand-500/8 hover:text-ink focus-ring"
+            >
+              <Keyboard className="h-3.5 w-3.5" />
+              Switch to text mode
+            </button>
+          </motion.div>
         </motion.div>
       ) : null}
     </AnimatePresence>
