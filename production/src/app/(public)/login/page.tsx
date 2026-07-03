@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import { STAFF_FIXTURE_USERS } from "@/lib/auth/staff-fixtures";
 import { ADMIN_FIXTURE_USERS } from "@/lib/auth/admin-fixtures";
 
+export const dynamic = "force-dynamic";
+
 interface QuickLoginUser {
   id: string;
   email: string;
