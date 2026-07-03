@@ -51,3 +51,10 @@ export function validateConfig() {
     )
   }
 }
+
+// Validate immediately on module load. ES module imports are resolved
+// depth-first before any top-level code in index.js runs, so calling this
+// only from index.js would happen too late (e.g. supabase.js already
+// crashes with an opaque error while constructing its client). Validating
+// here guarantees a clear, actionable error message first.
+validateConfig()

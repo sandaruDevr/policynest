@@ -6,7 +6,7 @@ import cors from 'cors'
 import helmet from 'helmet'
 import { z } from 'zod'
 import multer from 'multer'
-import { config, validateConfig } from './config.js'
+import { config } from './config.js'
 import { processDocument } from './documentProcessor.js'
 import { validateDocument } from './documentValidator.js'
 import { processRAGQuery } from './ragService.js'
@@ -23,9 +23,6 @@ import {
 
 // Multer in-memory upload (no disk storage; file discarded after extraction)
 const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 25 * 1024 * 1024 } })
-
-// Fail fast if required configuration is missing.
-validateConfig()
 
 const app = express()
 
