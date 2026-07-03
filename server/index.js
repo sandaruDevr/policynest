@@ -506,6 +506,81 @@ app.post(
   }),
 )
 
+// ------------------------------------------------------------------
+// Voice: Speech-to-Text (STT) via OpenAI Whisper
+// ------------------------------------------------------------------
+
+const voiceUpload = multer({
+  storage: multer.memoryStorage(),
+  limits: { fileSize: 10 * 1024 * 1024 },
+})
+
+app.post(
+  '/api/voice/stt',
+  internalAuth,
+  voiceUpload.single('audio'),
+  asyncHandler(async (req, res) => {
+    const file = req.file
+    if (!file) {
+      const err = new Error('No audio file uploaded')
+      err.status = 400
+      err.expose = true
+      throw err
+    }
+
+    const openai = (await import('openai')).default
+    const client = new openai({ apiKey: config.openaiApiKey })
+
+    const tempPath = path.join(os.tmpdir(), `voice-${Date.now()}.webm`)
+    await fs.promises.writeFile(tempPath, file.buffer)
+
+    try {
+      const transcription = await client.audio.transcriptions.create({
+        file: fs.createReadStream(tempPath),
+        model: 'whisper-1',
+        language: 'en',
+        response_format: 'json',
+      })
+      res.json({ text: transcription.text })
+    } finally {
+      try { await fs.promises.unlink(tempPath) } catch {}
+    }
+  }),
+)
+
+// ------------------------------------------------------------------
+// Voice: Text-to-Speech (TTS) via OpenAI
+// ------------------------------------------------------------------
+
+const ttsSchema = z.object({
+  text: z.string().min(1).max(4000),
+  voice: z.enum(['alloy', 'nova', 'shimmer', 'echo', 'fable', 'onyx']).optional(),
+})
+
+app.post(
+  '/api/voice/tts',
+  internalAuth,
+  validateBody(ttsSchema),
+  asyncHandler(async (req, res) => {
+    const { text, voice } = req.validated
+
+    const openai = (await import('openai')).default
+    const client = new openai({ apiKey: config.openaiApiKey })
+
+    const audio = await client.audio.speech.create({
+      model: 'tts-1',
+      voice: voice || 'nova',
+      input: text,
+      response_format: 'mp3',
+    })
+
+    const buffer = Buffer.from(await audio.arrayBuffer())
+    res.set('Content-Type', 'audio/mpeg')
+    res.set('Content-Length', String(buffer.length))
+    res.send(buffer)
+  }),
+)
+
 // Global error handler
 app.use(globalErrorHandler)
 

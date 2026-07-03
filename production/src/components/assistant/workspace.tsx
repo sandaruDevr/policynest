@@ -4,6 +4,7 @@ import * as React from "react";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import {
+  Mic,
   RotateCcw,
   ShieldAlert,
   Sparkles,
@@ -20,6 +21,7 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs";
 import { Composer } from "@/components/assistant/composer";
+import { VoiceMode } from "@/components/assistant/voice-mode";
 import { ResponseCard } from "@/components/assistant/response-card";
 import { ConfidenceTag } from "@/components/assistant/response-blocks";
 import { SavedResponses } from "@/components/assistant/saved-responses";
@@ -31,6 +33,7 @@ import type {
   ConversationTurn,
   DocumentSummary,
   GuidanceQuery,
+  GuidanceResponse,
   QuickReferenceItem,
   SuggestedPrompt,
 } from "@/types";
@@ -57,19 +60,32 @@ export function AssistantWorkspace({
   const [turns, setTurns] = React.useState<ConversationTurn[]>(initialHistory);
   const [explainNew, setExplainNew] = React.useState(false);
   const [selectedSavedItem, setSelectedSavedItem] = React.useState<QuickReferenceItem | null>(null);
+  const [voiceModeOpen, setVoiceModeOpen] = React.useState(false);
   const scrollRef = React.useRef<HTMLDivElement>(null);
   const documentTitleById = React.useMemo(
     () => Object.fromEntries(documents.map((d) => [d.id, d.shortTitle ?? d.title])),
     [documents],
   );
 
-  // Restore conversation from localStorage on mount
+  // Restore conversation: prefer server-fetched history, fall back to localStorage
   React.useEffect(() => {
+    if (initialHistory.length > 0) {
+      // Server has fresh history — clear stale localStorage so it doesn't
+      // resurface old conversations on next load.
+      try {
+        localStorage.removeItem("caresuite:assistant-conversation");
+      } catch {
+        // ignore
+      }
+      return;
+    }
+
+    // No server history — try localStorage as a fallback (offline / first load)
     try {
       const saved = localStorage.getItem("caresuite:assistant-conversation");
       if (saved) {
         const parsed = JSON.parse(saved) as ConversationTurn[];
-        if (parsed.length > 0 && initialHistory.length === 0) {
+        if (parsed.length > 0) {
           setTurns(parsed);
         }
       }
@@ -126,7 +142,7 @@ export function AssistantWorkspace({
   }, [turns.length]);
 
   const submitQuery = React.useCallback(
-    async (text: string, options?: { voice?: boolean; retryId?: string }) => {
+    async (text: string, options?: { voice?: boolean; retryId?: string }): Promise<GuidanceResponse | null> => {
       const id = options?.retryId || `q_${Date.now()}`;
       const q: GuidanceQuery = {
         id,
@@ -175,6 +191,7 @@ export function AssistantWorkspace({
               : t,
           ),
         );
+        return data as GuidanceResponse;
       } catch (error) {
         console.error("Failed to submit query:", error);
         setTurns((prev) =>
@@ -184,6 +201,7 @@ export function AssistantWorkspace({
               : t,
           ),
         );
+        return null;
       }
     },
     [explainNew, turns],
@@ -249,6 +267,14 @@ export function AssistantWorkspace({
 
   return (
     <>
+      <VoiceMode
+        open={voiceModeOpen}
+        onClose={() => setVoiceModeOpen(false)}
+        onSubmit={async (text: string) => {
+          const response = await submitQuery(text, { voice: true });
+          return response;
+        }}
+      />
       <Tabs defaultValue={defaultTab}>
         <div className="sticky top-16 z-20 -mx-4 bg-canvas/95 backdrop-blur-md px-4 pb-3 pt-1.5 sm:-mx-6 sm:px-6">
           <Header
@@ -256,6 +282,7 @@ export function AssistantWorkspace({
             setExplainNew={setExplainNew}
             onReset={resetConversation}
             hasTurns={turns.length > 0}
+            onVoiceMode={() => setVoiceModeOpen(true)}
           />
           <TabsList className="mt-2">
             <TabsTrigger value="conversation">Conversation</TabsTrigger>
@@ -325,11 +352,13 @@ function Header({
   setExplainNew,
   onReset,
   hasTurns,
+  onVoiceMode,
 }: {
   explainNew: boolean;
   setExplainNew: (v: boolean) => void;
   onReset: () => void;
   hasTurns: boolean;
+  onVoiceMode: () => void;
 }) {
   return (
     <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
@@ -348,6 +377,21 @@ function Header({
       </div>
 
       <div className="flex flex-wrap items-center gap-2">
+        <Button
+          variant="primary"
+          size="sm"
+          onClick={onVoiceMode}
+          className="relative overflow-hidden"
+          aria-label="Start voice mode"
+        >
+          <motion.span
+            className="absolute inset-0 bg-white/20"
+            animate={{ opacity: [0, 0.3, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <Mic className="h-3.5 w-3.5" />
+          Voice
+        </Button>
         <span className="inline-flex items-center gap-2 rounded-full border border-hairline bg-canvas-inset/50 px-3 py-1.5 text-xs">
           <WandSparkles className="h-3.5 w-3.5 text-brand-300" />
           <span className="text-ink-muted">Explain like I&apos;m new</span>

@@ -3,6 +3,8 @@ import { AssistantApi, LibraryApi, QuickRefApi } from "@/lib/api-contracts";
 import { AssistantWorkspace } from "@/components/assistant/workspace";
 
 export const metadata = { title: "Assistant · CareSuite" };
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export default async function AssistantPage() {
   const [prompts, history, documents, savedItems] = await Promise.all([
