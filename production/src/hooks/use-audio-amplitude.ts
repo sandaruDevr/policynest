@@ -19,7 +19,6 @@ export function useAudioAmplitude(audioEl: HTMLAudioElement | null, active: bool
     }
 
     let analyser: AnalyserNode;
-    let dataArray: Uint8Array;
 
     try {
       if (!ctxRef.current) {
@@ -34,16 +33,14 @@ export function useAudioAmplitude(audioEl: HTMLAudioElement | null, active: bool
 
       analyser = ctx.createAnalyser();
       analyser.fftSize = 256;
-      const buffer = new ArrayBuffer(analyser.frequencyBinCount);
-      dataArray = new Uint8Array(buffer);
 
       sourceRef.current.connect(analyser);
       analyser.connect(ctx.destination);
 
       const tick = () => {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        analyser.getByteFrequencyData(dataArray as any);
-        const avg = dataArray.reduce((a, b) => a + b, 0) / dataArray.length;
+        const freqData = new Uint8Array(analyser.frequencyBinCount);
+        analyser.getByteFrequencyData(freqData);
+        const avg = freqData.reduce((a, b) => a + b, 0) / freqData.length;
         setAmplitude(Math.min(avg / 128, 1));
         rafRef.current = requestAnimationFrame(tick);
       };
