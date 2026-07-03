@@ -144,7 +144,7 @@ export function Topbar({
               </div>
               <DropdownMenuSeparator />
               {notifications.length === 0 ? (
-                <div className="px-3 py-4 text-sm text-ink-muted">You're all caught up.</div>
+                <div className="px-3 py-4 text-sm text-ink-muted">You&apos;re all caught up.</div>
               ) : (
                 notifications.slice(0, 6).map((n) => (
                   <DropdownMenuItem key={n.id} asChild>

@@ -186,7 +186,7 @@ export function AssistantWorkspace({
         );
       }
     },
-    [explainNew],
+    [explainNew, turns],
   );
 
   const retryTurn = React.useCallback(
@@ -350,7 +350,7 @@ function Header({
       <div className="flex flex-wrap items-center gap-2">
         <span className="inline-flex items-center gap-2 rounded-full border border-hairline bg-canvas-inset/50 px-3 py-1.5 text-xs">
           <WandSparkles className="h-3.5 w-3.5 text-brand-300" />
-          <span className="text-ink-muted">Explain like I'm new</span>
+          <span className="text-ink-muted">Explain like I&apos;m new</span>
           <Switch checked={explainNew} onCheckedChange={setExplainNew} />
         </span>
         {hasTurns ? (
