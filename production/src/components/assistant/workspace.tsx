@@ -296,7 +296,7 @@ export function AssistantWorkspace({
         <div className="pt-4">
           <TabsContent value="conversation" className="space-y-4">
             {turns.length === 0 ? (
-              <EmptyHero onPrompt={(t) => submitQuery(t)} prompts={prompts} />
+              <EmptyHero onPrompt={(t) => submitQuery(t)} prompts={prompts} onVoiceMode={() => setVoiceModeOpen(true)} />
             ) : (
               <ul className="space-y-4">
                 {turns.map((t) => (
@@ -343,6 +343,26 @@ export function AssistantWorkspace({
         documentTitleById={documentTitleById}
         onClose={() => setSelectedSavedItem(null)}
       />
+
+      {/* Floating voice button — always visible */}
+      <motion.button
+        type="button"
+        onClick={() => setVoiceModeOpen(true)}
+        aria-label="Start voice mode"
+        className="fixed bottom-6 right-6 z-30 grid h-14 w-14 place-items-center rounded-full bg-gradient-to-br from-brand-400 to-brand-600 shadow-glow transition-transform hover:scale-105 active:scale-95 focus-ring"
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 0.3, type: "spring", stiffness: 200, damping: 16 }}
+        whileHover={{ scale: 1.08 }}
+        whileTap={{ scale: 0.92 }}
+      >
+        <motion.span
+          className="absolute inset-0 rounded-full bg-brand-400/40"
+          animate={{ scale: [1, 1.4], opacity: [0.5, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
+        />
+        <Mic className="relative h-5 w-5 text-white" />
+      </motion.button>
     </>
   );
 }
@@ -504,9 +524,11 @@ function ErrorState({ turn, onRetry }: { turn: ConversationTurn; onRetry: (t: Co
 function EmptyHero({
   prompts,
   onPrompt,
+  onVoiceMode,
 }: {
   prompts: SuggestedPrompt[];
   onPrompt: (t: string) => void;
+  onVoiceMode: () => void;
 }) {
   return (
     <div className="surface-card relative overflow-hidden p-6">
@@ -524,6 +546,14 @@ function EmptyHero({
         <p className="mt-1.5 max-w-xl text-sm text-ink-muted">
           Answers cite published policies for your role and sector. Use voice or text.
         </p>
+        <button
+          type="button"
+          onClick={onVoiceMode}
+          className="mt-4 inline-flex items-center gap-2 rounded-xl bg-gradient-to-br from-brand-500 to-brand-700 px-5 py-3 text-sm font-medium text-white shadow-glow transition-transform hover:scale-[1.02] active:scale-[0.98] focus-ring"
+        >
+          <Mic className="h-4 w-4" />
+          Start voice conversation
+        </button>
       </div>
 
       <div className="relative mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
