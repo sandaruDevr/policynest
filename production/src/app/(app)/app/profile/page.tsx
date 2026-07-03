@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { formatDate } from "@/lib/utils/format";
 
-export const metadata = { title: "Profile · CareSuite" };
+export const metadata = { title: "Profile · Policy Nest" };
 
 export default async function ProfilePage() {
   const { data: profile } = await ProfileApi.getMe();

@@ -5,7 +5,7 @@ import { IncidentRow } from "@/components/incidents/incident-row";
 import { PageHeader } from "@/components/shared/page-header";
 import { IncidentsApi } from "@/lib/api-contracts";
 
-export const metadata = { title: "Incidents · CareSuite" };
+export const metadata = { title: "Incidents · Policy Nest" };
 
 export default async function IncidentsPage() {
   const { data: incidents } = await IncidentsApi.list();

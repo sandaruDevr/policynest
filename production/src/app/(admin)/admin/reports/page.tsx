@@ -20,7 +20,7 @@ import {
 } from "@/components/admin/reports/charts";
 import { getAdminAnalytics } from "@/lib/data/admin/analytics";
 
-export const metadata = { title: "Reports · CareSuite Admin" };
+export const metadata = { title: "Reports · Policy Nest Admin" };
 export const dynamic = "force-dynamic";
 
 function pct(value: number): string {
@@ -184,7 +184,7 @@ export default async function ReportsPage() {
 
         <Card className="p-5 sm:p-6">
           <SectionHeader
-            title="AI assistant (30d)"
+            title="Nestor AI (30d)"
             description="Policy intelligence usage"
           />
           <div className="mt-4 space-y-3">

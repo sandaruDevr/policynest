@@ -100,7 +100,7 @@ function CommandPalette({
         <DialogHeader className="px-5 pt-5">
           <DialogTitle className="sr-only">Command palette</DialogTitle>
           <DialogDescription className="sr-only">
-            Search policies, navigate, or ask the assistant.
+            Search policies, navigate, or ask Nestor AI.
           </DialogDescription>
           <div className="flex items-center gap-3 rounded-xl border border-hairline-strong bg-canvas-inset/70 px-3.5 h-11">
             <Search className="h-4 w-4 text-ink-muted" />
@@ -108,7 +108,7 @@ function CommandPalette({
               autoFocus
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search policies, ask the assistant…"
+              placeholder="Search policies, ask Nestor AI…"
               className="flex-1 bg-transparent text-sm text-ink placeholder:text-ink-dim focus:outline-none"
             />
             <kbd className="hidden sm:inline-flex items-center gap-1 rounded-md border border-hairline bg-canvas-raised/80 px-1.5 py-0.5 text-[10px] text-ink-dim">
@@ -129,7 +129,7 @@ function CommandPalette({
                   <Sparkles className="h-4 w-4 text-brand-300" />
                 </span>
                 <span className="flex-1 text-sm">
-                  <span className="block font-medium text-ink">Ask the assistant</span>
+                  <span className="block font-medium text-ink">Ask Nestor AI</span>
                   <span className="block text-xs text-ink-muted line-clamp-1">{query}</span>
                 </span>
                 <ArrowRight className="h-4 w-4 text-ink-muted" />

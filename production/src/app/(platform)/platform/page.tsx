@@ -17,7 +17,7 @@ import { listTenants } from "@/lib/data/platform/tenants";
 import { listPlatformAudit } from "@/lib/data/platform/audit";
 import { TENANT_STATUS_LABEL } from "@/types/platform";
 
-export const metadata = { title: "Platform Dashboard · CareSuite" };
+export const metadata = { title: "Platform Dashboard · Policy Nest" };
 export const dynamic = "force-dynamic";
 
 function pct(n: number): string {
@@ -36,7 +36,7 @@ export default async function PlatformDashboardPage() {
       <PageHeader
         eyebrow="Platform Operations"
         title="Dashboard"
-        description="Real-time platform health, tenant growth, and AI governance metrics across the CareSuite ecosystem."
+        description="Real-time platform health, tenant growth, and AI governance metrics across the Policy Nest ecosystem."
       />
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">

@@ -74,8 +74,8 @@ export function AiSettings({ settings }: { settings: TenantAiSettings }) {
 
       <Card className="divide-y divide-hairline p-0">
         <ToggleRow
-          title="Assistant enabled"
-          description="Allow staff to query the AI policy assistant."
+          title="Nestor AI enabled"
+          description="Allow staff to query Nestor AI for policy guidance."
           checked={form.assistantEnabled}
           onChange={(v) => set("assistantEnabled", v)}
         />
@@ -131,7 +131,7 @@ export function AiSettings({ settings }: { settings: TenantAiSettings }) {
       <Card className="space-y-2 p-4">
         <label className="block space-y-1.5">
           <span className="text-sm font-medium text-ink">
-            Custom assistant guidance
+            Custom Nestor AI guidance
           </span>
           <span className="block text-xs text-ink-muted">
             Optional tenant-specific instructions appended to the system prompt.

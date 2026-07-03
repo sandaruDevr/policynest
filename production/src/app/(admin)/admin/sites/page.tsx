@@ -4,7 +4,7 @@ import { SiteDirectory } from "@/components/admin/sites/site-directory";
 import { listAdminSites } from "@/lib/data/admin/sites";
 import { requireOrgAdmin } from "@/lib/data/admin/session";
 
-export const metadata = { title: "Sites · CareSuite Admin" };
+export const metadata = { title: "Sites · Policy Nest Admin" };
 export const dynamic = "force-dynamic";
 
 export default async function SitesPage() {

@@ -2,175 +2,64 @@
 
 import * as React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Keyboard, Volume2, VolumeX, Mic } from "lucide-react";
+import { X, Keyboard, Mic, MicOff } from "lucide-react";
 import { VoiceOrb } from "@/components/assistant/voice-orb";
-import { useVoiceRecorder } from "@/hooks/use-voice-recorder";
-import { useAudioAmplitude } from "@/hooks/use-audio-amplitude";
-import type { GuidanceResponse } from "@/types";
-
-type VoiceState = "idle" | "recording" | "transcribing" | "thinking" | "speaking" | "error";
+import { useRealtimeSession } from "@/hooks/use-realtime-session";
 
 interface VoiceModeProps {
   open: boolean;
   onClose: () => void;
-  onSubmit: (text: string) => Promise<GuidanceResponse | null>;
 }
 
-function extractSpeakableText(response: GuidanceResponse | null): string {
-  if (!response) return "";
-  const parts: string[] = [];
-  for (const block of response.blocks) {
-    if (block.kind === "summary") parts.push(block.text);
-    else if (block.kind === "warning") parts.push(block.text);
-    else if (block.kind === "escalation") parts.push(`This requires escalation. ${block.reason}`);
-  }
-  if (parts.length === 0 && response.policyNotFound) {
-    return "I couldn't find a relevant policy for that question. Please try rephrasing, or check with your supervisor.";
-  }
-  return parts.join(" ") || "Here's what I found. Check the screen for full details.";
-}
-
-const STATE_LABELS: Record<VoiceState, string> = {
-  idle: "Tap to speak",
-  recording: "Listening...",
-  transcribing: "Transcribing...",
-  thinking: "Thinking...",
+const STATE_LABELS: Record<string, string> = {
+  idle: "Tap to connect",
+  connecting: "Connecting...",
+  connected: "Listening — just speak",
+  listening: "Listening...",
   speaking: "Speaking...",
-  error: "Something went wrong",
+  error: "Connection error",
 };
 
-export function VoiceMode({ open, onClose, onSubmit }: VoiceModeProps) {
-  const [state, setState] = React.useState<VoiceState>("idle");
-  const [transcript, setTranscript] = React.useState("");
-  const [answerText, setAnswerText] = React.useState("");
-  const [errorMsg, setErrorMsg] = React.useState("");
-  const [muted, setMuted] = React.useState(false);
+export function VoiceMode({ open, onClose }: VoiceModeProps) {
+  const {
+    state,
+    transcript,
+    assistantText,
+    error,
+    connect,
+    disconnect,
+    toggleMute,
+    muted,
+  } = useRealtimeSession();
 
-  const { state: recState, audioBlob, startRecording, stopRecording, reset } = useVoiceRecorder();
-  const audioElRef = React.useRef<HTMLAudioElement | null>(null);
-  const [playingEl, setPlayingEl] = React.useState<HTMLAudioElement | null>(null);
-  const amplitude = useAudioAmplitude(playingEl, state === "speaking");
+  const hasConnected = React.useRef(false);
 
   React.useEffect(() => {
-    if (recState === "stopped" && audioBlob && state === "recording") {
-      void transcribeAndSubmit(audioBlob);
+    if (open && !hasConnected.current && state === "idle") {
+      hasConnected.current = true;
+      void connect();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [recState, audioBlob]);
-
-  React.useEffect(() => {
     if (!open) {
-      setState("idle");
-      setTranscript("");
-      setAnswerText("");
-      setErrorMsg("");
-      reset();
-      if (audioElRef.current) {
-        audioElRef.current.pause();
-        audioElRef.current = null;
-      }
-      setPlayingEl(null);
+      hasConnected.current = false;
+      disconnect();
     }
-  }, [open, reset]);
-
-  const transcribeAndSubmit = async (blob: Blob) => {
-    setState("transcribing");
-    setErrorMsg("");
-    try {
-      const form = new FormData();
-      form.append("audio", blob, "recording.webm");
-      const res = await fetch("/api/voice/stt", { method: "POST", body: form });
-      if (!res.ok) throw new Error("Transcription failed");
-      const { text } = await res.json();
-
-      if (!text || !text.trim()) {
-        setErrorMsg("Didn't catch that. Try again.");
-        setState("idle");
-        reset();
-        return;
-      }
-
-      setTranscript(text);
-      setState("thinking");
-
-      const response = await onSubmit(text);
-      const speakable = extractSpeakableText(response);
-      setAnswerText(speakable);
-
-      if (muted || !speakable) {
-        setState("idle");
-        reset();
-        return;
-      }
-
-      await speak(speakable);
-    } catch (err) {
-      console.error("Voice flow error:", err);
-      setErrorMsg("Something went wrong. Try again.");
-      setState("idle");
-      reset();
-    }
-  };
-
-  const speak = async (text: string) => {
-    setState("speaking");
-    try {
-      const res = await fetch("/api/voice/tts", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text }),
-      });
-      if (!res.ok) throw new Error("TTS failed");
-
-      const blob = await res.blob();
-      const url = URL.createObjectURL(blob);
-      const audioEl = new Audio(url);
-      audioElRef.current = audioEl;
-      setPlayingEl(audioEl);
-
-      await new Promise<void>((resolve) => {
-        audioEl.onended = () => resolve();
-        audioEl.onerror = () => resolve();
-        audioEl.play().catch(() => resolve());
-      });
-
-      URL.revokeObjectURL(url);
-      setPlayingEl(null);
-      setState("idle");
-      reset();
-    } catch (err) {
-      console.error("TTS playback error:", err);
-      setState("idle");
-      setPlayingEl(null);
-      reset();
-    }
-  };
-
-  const handleOrbClick = () => {
-    if (state === "idle" || state === "error") {
-      setErrorMsg("");
-      setTranscript("");
-      setAnswerText("");
-      void startRecording();
-      setState("recording");
-    } else if (state === "recording") {
-      stopRecording();
-    } else if (state === "speaking") {
-      audioElRef.current?.pause();
-      audioElRef.current = null;
-      setPlayingEl(null);
-      setState("idle");
-    }
-  };
+  }, [open, state, connect, disconnect]);
 
   const orbState =
-    state === "recording"
-      ? "recording"
-      : state === "transcribing" || state === "thinking"
-        ? "processing"
+    state === "connecting"
+      ? "processing"
+      : state === "listening"
+        ? "recording"
         : state === "speaking"
           ? "speaking"
           : "idle";
+
+  const handleOrbClick = () => {
+    if (state === "error" || state === "idle") {
+      hasConnected.current = true;
+      void connect();
+    }
+  };
 
   return (
     <AnimatePresence>
@@ -204,17 +93,17 @@ export function VoiceMode({ open, onClose, onSubmit }: VoiceModeProps) {
                 <Mic className="h-4 w-4 text-brand-300" />
               </span>
               <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-300/80">
-                Voice Mode
+                Nestor AI · Voice
               </span>
             </div>
             <div className="flex items-center gap-1.5">
               <button
                 type="button"
-                aria-label={muted ? "Unmute responses" : "Mute responses"}
-                onClick={() => setMuted((m) => !m)}
+                aria-label={muted ? "Unmute microphone" : "Mute microphone"}
+                onClick={toggleMute}
                 className="grid h-9 w-9 place-items-center rounded-full text-ink-muted transition-colors hover:bg-white/5 hover:text-ink focus-ring"
               >
-                {muted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
+                {muted ? <MicOff className="h-4 w-4" /> : <Mic className="h-4 w-4" />}
               </button>
               <button
                 type="button"
@@ -236,9 +125,9 @@ export function VoiceMode({ open, onClose, onSubmit }: VoiceModeProps) {
             >
               <VoiceOrb
                 state={orbState}
-                amplitude={amplitude}
+                amplitude={state === "speaking" ? 0.6 : 0}
                 onClick={handleOrbClick}
-                disabled={state === "transcribing" || state === "thinking"}
+                disabled={state === "connecting" || state === "connected" || state === "listening" || state === "speaking"}
               />
             </motion.div>
 
@@ -252,7 +141,7 @@ export function VoiceMode({ open, onClose, onSubmit }: VoiceModeProps) {
                 transition={{ duration: 0.25 }}
                 className="mt-8 text-sm font-medium tracking-wide text-ink-muted"
               >
-                {STATE_LABELS[state]}
+                {STATE_LABELS[state] || "Ready"}
               </motion.p>
             </AnimatePresence>
           </div>
@@ -260,7 +149,7 @@ export function VoiceMode({ open, onClose, onSubmit }: VoiceModeProps) {
           {/* Transcript / answer / hint area */}
           <div className="relative mt-8 w-full max-w-xl px-6 sm:px-8">
             <AnimatePresence mode="wait">
-              {errorMsg ? (
+              {error ? (
                 <motion.div
                   key="error"
                   initial={{ opacity: 0, y: 8 }}
@@ -268,30 +157,33 @@ export function VoiceMode({ open, onClose, onSubmit }: VoiceModeProps) {
                   exit={{ opacity: 0 }}
                   className="mx-auto max-w-md rounded-xl border border-critical-500/20 bg-critical-500/8 px-4 py-3 text-center"
                 >
-                  <p className="text-sm text-critical-400">{errorMsg}</p>
+                  <p className="text-sm text-critical-400">{error}</p>
+                  <p className="mt-1 text-xs text-ink-dim">Tap the orb to retry</p>
                 </motion.div>
-              ) : transcript ? (
+              ) : transcript || assistantText ? (
                 <motion.div
-                  key="transcript"
+                  key="conversation"
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0 }}
                   className="space-y-3"
                 >
-                  <div className="rounded-xl border border-hairline bg-surface px-4 py-3">
-                    <p className="text-xs font-medium uppercase tracking-wider text-ink-dim">
-                      You said
-                    </p>
-                    <p className="mt-1 text-sm text-ink">&ldquo;{transcript}&rdquo;</p>
-                  </div>
-                  {answerText ? (
+                  {transcript && (
+                    <div className="rounded-xl border border-hairline bg-surface px-4 py-3">
+                      <p className="text-xs font-medium uppercase tracking-wider text-ink-dim">
+                        You said
+                      </p>
+                      <p className="mt-1 text-sm text-ink">&ldquo;{transcript}&rdquo;</p>
+                    </div>
+                  )}
+                  {assistantText && (
                     <div className="rounded-xl border border-brand-500/15 bg-brand-500/5 px-4 py-3">
                       <p className="text-xs font-medium uppercase tracking-wider text-brand-300/70">
-                        Assistant
+                        Nestor AI
                       </p>
-                      <p className="mt-1 text-sm leading-relaxed text-ink-muted">{answerText}</p>
+                      <p className="mt-1 text-sm leading-relaxed text-ink-muted">{assistantText}</p>
                     </div>
-                  ) : null}
+                  )}
                 </motion.div>
               ) : (
                 <motion.p
@@ -301,7 +193,9 @@ export function VoiceMode({ open, onClose, onSubmit }: VoiceModeProps) {
                   exit={{ opacity: 0 }}
                   className="text-center text-sm text-ink-dim"
                 >
-                  Ask about a procedure, escalation, or scenario — I&apos;ll answer out loud.
+                  {state === "connecting"
+                    ? "Establishing realtime connection..."
+                    : "Just start speaking — I'll search your policies and answer out loud."}
                 </motion.p>
               )}
             </AnimatePresence>
@@ -312,7 +206,7 @@ export function VoiceMode({ open, onClose, onSubmit }: VoiceModeProps) {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.3, delay: 0.15 }}
-            className="absolute bottom-0 left-0 right-0 flex items-center justify-center px-4 py-6 sm:py-8"
+            className="absolute bottom-0 left-0 right-0 flex items-center justify-center gap-3 px-4 py-6 sm:py-8"
           >
             <button
               type="button"

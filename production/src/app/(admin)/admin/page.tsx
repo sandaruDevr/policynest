@@ -16,7 +16,7 @@ import { StatCard } from "@/components/admin/stat-card";
 import { getAdminContext } from "@/lib/data/admin/session";
 import { getAdminDashboard } from "@/lib/data/admin/dashboard";
 
-export const metadata = { title: "Dashboard · CareSuite Admin" };
+export const metadata = { title: "Dashboard · Policy Nest Admin" };
 export const dynamic = "force-dynamic";
 
 function formatDate(iso: string | null): string {

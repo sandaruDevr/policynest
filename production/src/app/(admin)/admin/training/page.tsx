@@ -6,7 +6,7 @@ import {
   listSurveys,
 } from "@/lib/data/admin/training";
 
-export const metadata = { title: "Training & Surveys · CareSuite Admin" };
+export const metadata = { title: "Training & Surveys · Policy Nest Admin" };
 export const dynamic = "force-dynamic";
 
 export default async function TrainingPage() {

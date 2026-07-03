@@ -4,7 +4,7 @@ import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 
-export const metadata = { title: "Compliance · CareSuite" };
+export const metadata = { title: "Compliance · Policy Nest" };
 
 export default async function CompliancePage() {
   const [{ data: summary }, { data: items }] = await Promise.all([

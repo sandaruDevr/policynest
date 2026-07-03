@@ -3,7 +3,7 @@ import { listTenants } from "@/lib/data/platform/tenants";
 import { listPlans } from "@/lib/data/platform/tenant-management";
 import type { TenantPlan } from "@/types/platform";
 
-export const metadata = { title: "Tenants · CareSuite Platform" };
+export const metadata = { title: "Tenants · Policy Nest Platform" };
 export const dynamic = "force-dynamic";
 
 export default async function PlatformTenantsPage() {

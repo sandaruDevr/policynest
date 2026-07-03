@@ -18,7 +18,7 @@ export function SavedResponses({ savedItems, onSelectItem, onUnpin }: SavedRespo
         <Sparkles className="h-8 w-8 text-ink-dim/60" />
         <p className="mt-3 text-sm font-medium text-ink-muted">No saved responses yet</p>
         <p className="mt-1 text-xs text-ink-dim">
-          Pin an assistant answer to see it here.
+          Pin a Nestor AI answer to see it here.
         </p>
       </div>
     );

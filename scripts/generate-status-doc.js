@@ -1,6 +1,6 @@
 /**
  * Generates a clean, professional Word document (PROJECT_STATUS_UPDATE.docx)
- * for the CareSuite AI project status update.
+ * for the Nestor AI project status update.
  *
  * Run: node scripts/generate-status-doc.js
  */
@@ -153,7 +153,7 @@ const children = [];
 children.push(
   new Paragraph({
     spacing: { after: 40 },
-    children: [new TextRun({ text: "CareSuite AI", bold: true, size: 52, color: NAVY, font: FONT })],
+    children: [new TextRun({ text: "Nestor AI", bold: true, size: 52, color: NAVY, font: FONT })],
   }),
   new Paragraph({
     spacing: { after: 200 },
@@ -195,7 +195,7 @@ children.push(metaTable, divider());
 // Executive Summary
 children.push(
   heading1("Executive Summary"),
-  body("CareSuite AI is a **multi-tenant, AI-powered compliance and policy intelligence platform** for regulated care providers (Aged Care, NDIS, Healthcare). The platform is built on a secure, enterprise-grade architecture with strict data isolation between client organisations."),
+  body("Nestor AI is a **multi-tenant, AI-powered compliance and policy intelligence platform** for regulated care providers (Aged Care, NDIS, Healthcare). The platform is built on a secure, enterprise-grade architecture with strict data isolation between client organisations."),
   body("We are pleased to report that all three core layers of the platform — the **Staff Experience**, the **Organisation Admin Console**, and the **Super Admin Platform** — are now operational, with a hardened backend and a fully versioned database."),
   body("The system is production-ready at its core, with ongoing work focused on expanding advanced governance, analytics, and commercial features."),
 );
@@ -256,7 +256,7 @@ children.push(
 // Section 3 — Super Admin
 children.push(
   heading1("3. Super Admin Platform — Phases 1–5 Complete"),
-  body("The platform-level command centre that lets us (the platform operator) manage all client organisations from a single secure console. This is the foundation for operating CareSuite AI as a commercial SaaS product."),
+  body("The platform-level command centre that lets us (the platform operator) manage all client organisations from a single secure console. This is the foundation for operating Nestor AI as a commercial SaaS product."),
   heading2("Delivered:"),
   buildTable(
     ["Phase", "Capability", "Status"],
@@ -328,7 +328,7 @@ children.push(
 // ---- Build & write ----------------------------------------------------
 const doc = new Document({
   creator: "Development Team",
-  title: "CareSuite AI — Project Status Update",
+  title: "Nestor AI — Project Status Update",
   description: "Client status report",
   styles: {
     default: {

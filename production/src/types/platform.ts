@@ -5,7 +5,7 @@ import type { SystemRole } from "./admin";
  * Super Admin (platform-governance) domain types.
  *
  * The platform layer sits ABOVE organization tenants. A platform admin is a
- * `profiles` row inside the internal "CareSuite Platform" tenant and gains
+ * `profiles` row inside the internal "Policy Nest Platform" tenant and gains
  * cross-tenant access through PostgreSQL-enforced platform RLS policies.
  */
 

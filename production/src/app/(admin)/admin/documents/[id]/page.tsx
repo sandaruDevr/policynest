@@ -12,7 +12,7 @@ export async function generateMetadata({
   params: { id: string };
 }) {
   const doc = await getAdminDocument(params.id).catch(() => null);
-  return { title: `${doc?.title ?? "Document"} · CareSuite Admin` };
+  return { title: `${doc?.title ?? "Document"} · Policy Nest Admin` };
 }
 
 export default async function AdminDocumentDetailPage({

@@ -54,7 +54,7 @@ export function PlatformSidebar() {
           Environment
         </p>
         <p className="mt-0.5 text-sm font-medium text-ink">
-          CareSuite Platform
+          Policy Nest Platform
         </p>
       </div>
 

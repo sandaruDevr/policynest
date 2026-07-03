@@ -8,7 +8,7 @@ import {
   listHitlItems,
 } from "@/lib/data/admin/governance";
 
-export const metadata = { title: "AI Governance · CareSuite Admin" };
+export const metadata = { title: "AI Governance · Policy Nest Admin" };
 export const dynamic = "force-dynamic";
 
 export default async function GovernancePage() {
@@ -26,7 +26,7 @@ export default async function GovernancePage() {
       <PageHeader
         eyebrow="Governance"
         title="AI Governance"
-        description="Review escalated answers, curate golden answers, and tune assistant behaviour."
+        description="Review escalated answers, curate golden answers, and tune Nestor AI behaviour."
       />
       <GovernanceConsole
         metrics={metrics}

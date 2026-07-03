@@ -1,7 +1,7 @@
 import { AiGovernanceConsole } from "@/components/platform/ai-governance-console";
 import { listModels, listPrompts, listEvaluations } from "@/lib/data/platform/ai-governance";
 
-export const metadata = { title: "AI Governance · CareSuite Platform" };
+export const metadata = { title: "AI Governance · Policy Nest Platform" };
 export const dynamic = "force-dynamic";
 
 export default async function PlatformAiGovernancePage() {

@@ -18,7 +18,7 @@ export async function generateMetadata({
 }) {
   const incident = await getIncident(params.incidentId);
   return {
-    title: incident ? `${incident.reference} · Incident` : "Incident · CareSuite",
+    title: incident ? `${incident.reference} · Incident` : "Incident · Policy Nest",
   };
 }
 

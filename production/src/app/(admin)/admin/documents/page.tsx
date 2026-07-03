@@ -2,7 +2,7 @@ import { PageHeader } from "@/components/shared/page-header";
 import { DocumentRepository } from "@/components/admin/documents/document-repository";
 import { listAdminDocuments } from "@/lib/data/admin/documents";
 
-export const metadata = { title: "Documents · CareSuite Admin" };
+export const metadata = { title: "Documents · Policy Nest Admin" };
 export const dynamic = "force-dynamic";
 
 export default async function AdminDocumentsPage() {

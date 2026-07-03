@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { formatDate } from "@/lib/utils/format";
 
-export const metadata = { title: "Training · CareSuite" };
+export const metadata = { title: "Training · Policy Nest" };
 
 export default async function TrainingPage() {
   const [{ data: modules }, { data: induction }, { data: credentials }] =

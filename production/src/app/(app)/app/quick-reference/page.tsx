@@ -4,7 +4,7 @@ import { PageHeader } from "@/components/shared/page-header";
 import { BookOpen, PinOff, Sparkles } from "lucide-react";
 import { QuickRefCard } from "@/components/quick-ref/quick-ref-card";
 
-export const metadata = { title: "Quick Reference · CareSuite" };
+export const metadata = { title: "Quick Reference · Policy Nest" };
 
 export default async function QuickReferencePage() {
   const { data: refs } = await QuickRefApi.list();
@@ -26,7 +26,7 @@ export default async function QuickReferencePage() {
             <div>
               <p className="text-sm font-medium text-ink">Nothing pinned yet</p>
               <p className="mt-1 text-xs text-ink-muted max-w-sm">
-                Pin items from the Assistant, Library, or Emergency pages to see them here.
+                Pin items from Nestor AI, Library, or Emergency pages to see them here.
               </p>
             </div>
             <div className="flex items-center gap-3">
@@ -35,7 +35,7 @@ export default async function QuickReferencePage() {
                 className="inline-flex items-center gap-2 rounded-lg bg-brand-500/10 px-3 py-2 text-xs font-medium text-brand-300 ring-1 ring-brand-500/20 hover:bg-brand-500/15"
               >
                 <Sparkles className="h-3.5 w-3.5" />
-                Ask Assistant
+                Ask Nestor AI
               </Link>
               <Link
                 href="/app/library"

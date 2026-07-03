@@ -106,7 +106,7 @@ const ragQuerySchema = z.object({
         answer: z.string().nullable().optional(),
       }),
     )
-    .max(20)
+    .max(50)
     .optional(),
 })
 
@@ -542,6 +542,13 @@ app.post(
         response_format: 'json',
       })
       res.json({ text: transcription.text })
+    } catch (err) {
+      console.error('STT error:', err)
+      const message = err && typeof err === 'object' && 'message' in err ? String(err.message) : 'Speech transcription failed'
+      const apiError = new Error(message)
+      apiError.status = 500
+      apiError.expose = true
+      throw apiError
     } finally {
       try { await fs.promises.unlink(tempPath) } catch {}
     }
@@ -567,17 +574,171 @@ app.post(
     const openai = (await import('openai')).default
     const client = new openai({ apiKey: config.openaiApiKey })
 
-    const audio = await client.audio.speech.create({
-      model: 'tts-1',
-      voice: voice || 'nova',
-      input: text,
-      response_format: 'mp3',
+    try {
+      const audio = await client.audio.speech.create({
+        model: 'tts-1',
+        voice: voice || 'nova',
+        input: text,
+        response_format: 'mp3',
+      })
+
+      const buffer = Buffer.from(await audio.arrayBuffer())
+      res.set('Content-Type', 'audio/mpeg')
+      res.set('Content-Length', String(buffer.length))
+      res.send(buffer)
+    } catch (err) {
+      console.error('TTS error:', err)
+      const message = err && typeof err === 'object' && 'message' in err ? String(err.message) : 'Speech synthesis failed'
+      const apiError = new Error(message)
+      apiError.status = 500
+      apiError.expose = true
+      throw apiError
+    }
+  }),
+)
+
+// ------------------------------------------------------------------
+// Voice: OpenAI Realtime API — mint ephemeral token for WebRTC
+// ------------------------------------------------------------------
+
+const realtimeSessionSchema = z.object({
+  user_id: z.string().uuid(),
+  tenant_id: z.string().uuid(),
+  role: z.string(),
+  staff_role: z.string().nullable().optional(),
+  site_id: z.string().uuid().nullable().optional(),
+  voice: z.enum(['alloy', 'ash', 'ballad', 'coral', 'echo', 'sage', 'shimmer', 'verse', 'marin', 'cedar']).optional(),
+})
+
+app.post(
+  '/api/voice/realtime-token',
+  internalAuth,
+  validateBody(realtimeSessionSchema),
+  asyncHandler(async (req, res) => {
+    const { user_id, tenant_id, role, staff_role, site_id, voice } = req.validated
+
+    // Build RAG-aware system instructions so the model knows to call search_policies
+    const instructions = [
+      'You are Nestor AI, an operational AI assistant for aged care and healthcare staff.',
+      `The user's role is: ${role}${staff_role ? ` (${staff_role})` : ''}.`,
+      'Always use the search_policies function to find relevant policy documents before answering.',
+      'When you find relevant policies, cite the document title and section in your spoken response.',
+      'If no relevant policy is found, advise the user to escalate to their supervisor.',
+      'Keep responses concise and spoken-language friendly — avoid markdown, use natural speech.',
+      'If the query involves an emergency or critical incident, advise the user to escalate immediately.',
+    ].join(' ')
+
+    const sessionConfig = {
+      type: 'realtime',
+      model: 'gpt-realtime',
+      instructions,
+      audio: {
+        output: {
+          voice: voice || 'marin',
+        },
+      },
+      tools: [
+        {
+          type: 'function',
+          name: 'search_policies',
+          description: 'Search the organisation policy library for relevant documents. Call this for any operational question about procedures, policies, or compliance.',
+          parameters: {
+            type: 'object',
+            properties: {
+              query: {
+                type: 'string',
+                description: 'The search query to find relevant policy documents',
+              },
+            },
+            required: ['query'],
+          },
+        },
+      ],
+      tool_choice: 'auto',
+    }
+
+    try {
+      const response = await fetch('https://api.openai.com/v1/realtime/client_secrets', {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${config.openaiApiKey}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          expires_after: { anchor: 'created_at', seconds: 600 },
+          session: sessionConfig,
+        }),
+      })
+
+      if (!response.ok) {
+        const errText = await response.text()
+        console.error('Realtime token error:', errText)
+        const apiError = new Error(`Failed to create realtime session: ${errText.slice(0, 200)}`)
+        apiError.status = 500
+        apiError.expose = true
+        throw apiError
+      }
+
+      const data = await response.json()
+
+      // Return the ephemeral token + session config metadata for the client
+      res.json({
+        token: data.value,
+        expires_at: data.expires_at,
+        session_config: {
+          user_id,
+          tenant_id,
+          role,
+          staff_role,
+          site_id,
+        },
+      })
+    } catch (err) {
+      console.error('Realtime token mint error:', err)
+      const message = err && typeof err === 'object' && 'message' in err ? String(err.message) : 'Failed to create realtime session'
+      const apiError = new Error(message)
+      apiError.status = err?.status || 500
+      apiError.expose = true
+      throw apiError
+    }
+  }),
+)
+
+// ------------------------------------------------------------------
+// Voice: Realtime function call handler — RAG query proxy
+// ------------------------------------------------------------------
+
+app.post(
+  '/api/voice/rag-tool',
+  internalAuth,
+  validateBody(z.object({
+    user_id: z.string().uuid(),
+    tenant_id: z.string().uuid(),
+    role: z.string(),
+    staff_role: z.string().nullable().optional(),
+    site_id: z.string().uuid().nullable().optional(),
+    query: z.string().min(1).max(2000),
+  })),
+  asyncHandler(async (req, res) => {
+    const { user_id, tenant_id, role, staff_role, site_id, query } = req.validated
+
+    const result = await processRAGQuery(user_id, tenant_id, role, staff_role, site_id, query, {
+      voice: true,
     })
 
-    const buffer = Buffer.from(await audio.arrayBuffer())
-    res.set('Content-Type', 'audio/mpeg')
-    res.set('Content-Length', String(buffer.length))
-    res.send(buffer)
+    // Format for Realtime function call response — concise text for the model to speak
+    const citations = (result.citations || []).map((c) => ({
+      title: c.title || c.document_title || 'Document',
+      section: c.section_title || c.section_anchor || '',
+    }))
+
+    res.json({
+      answer: result.answer || 'No relevant policy found.',
+      citations,
+      confidence: result.confidence,
+      requires_escalation: result.requires_escalation || false,
+      policy_not_found: result.policy_not_found || false,
+    })
   }),
 )
 
@@ -586,5 +747,5 @@ app.use(globalErrorHandler)
 
 app.listen(config.port, () => {
   // eslint-disable-next-line no-console
-  console.log(`CareSuite AI server running on port ${config.port} (${config.env})`)
+  console.log(`Policy Nest server running on port ${config.port} (${config.env})`)
 })

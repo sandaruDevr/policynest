@@ -27,7 +27,7 @@ export const MOCK_QUICK_REFS: QuickReferenceItem[] = [
     id: "qr_3",
     kind: "ai-answer",
     title: "Unwitnessed fall — first response",
-    subtitle: "Saved from Assistant",
+    subtitle: "Saved from Nestor AI",
     pinnedAt: "2025-05-23T08:55:00+10:00",
   },
   {

@@ -51,7 +51,7 @@ export function AiGovernanceConsole({
       <PageHeader
         eyebrow="Platform Governance"
         title="AI Governance"
-        description="Model registry, prompt versioning, and evaluation across the CareSuite AI ecosystem."
+        description="Model registry, prompt versioning, and evaluation across the Nestor AI ecosystem."
       />
 
       <div className="flex gap-1 border-b border-hairline">
@@ -502,7 +502,7 @@ function CreatePromptDialog({
             <Input value={form.changeReason} onChange={(e) => setForm((f) => ({ ...f, changeReason: e.target.value }))} placeholder="Initial version" />
           </Field>
           <Field label="Prompt Content" required>
-            <Textarea value={form.content} onChange={(e) => setForm((f) => ({ ...f, content: e.target.value }))} rows={10} required placeholder="You are CareSuite AI..." />
+            <Textarea value={form.content} onChange={(e) => setForm((f) => ({ ...f, content: e.target.value }))} rows={10} required placeholder="You are Nestor AI..." />
           </Field>
           {error ? <p className="text-sm text-critical-400">{error}</p> : null}
           <div className="flex justify-end gap-2">

@@ -14,10 +14,10 @@ const interTight = Inter_Tight({
 });
 
 export const metadata: Metadata = {
-  title: "CareSuite — Staff Workspace",
+  title: "Policy Nest — Staff Workspace",
   description:
-    "Operational AI assistant, policies, training, incidents, and emergency protocols for regulated care.",
-  applicationName: "CareSuite",
+    "Nestor AI policy assistant, policies, training, incidents, and emergency protocols for regulated care.",
+  applicationName: "Policy Nest",
 };
 
 export const viewport: Viewport = {

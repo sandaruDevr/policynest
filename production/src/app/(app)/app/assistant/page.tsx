@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import { AssistantApi, LibraryApi, QuickRefApi } from "@/lib/api-contracts";
 import { AssistantWorkspace } from "@/components/assistant/workspace";
 
-export const metadata = { title: "Assistant · CareSuite" };
+export const metadata = { title: "Nestor AI · Policy Nest" };
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 

@@ -4,7 +4,7 @@ import { EmergencyContacts } from "@/components/emergency/contacts";
 import { DrillSchedule } from "@/components/emergency/drill-schedule";
 import { PageHeader } from "@/components/shared/page-header";
 
-export const metadata = { title: "Emergency · CareSuite" };
+export const metadata = { title: "Emergency · Policy Nest" };
 
 export default async function EmergencyPage() {
   const [{ data: protocols }, { data: contacts }, { data: drills }] =

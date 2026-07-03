@@ -3,7 +3,7 @@ import { PageHeader } from "@/components/shared/page-header";
 import { Badge } from "@/components/ui/badge";
 import { formatDate } from "@/lib/utils/format";
 
-export const metadata = { title: "History · CareSuite" };
+export const metadata = { title: "History · Policy Nest" };
 
 export default async function HistoryPage() {
   const { data: activity } = await ActivityApi.list();

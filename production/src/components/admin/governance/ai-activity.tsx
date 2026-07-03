@@ -11,7 +11,7 @@ export function AiActivity({ entries }: { entries: AiActivityEntry[] }) {
       <Card className="p-10 text-center">
         <Activity className="mx-auto h-8 w-8 text-ink-dim" />
         <p className="mt-3 text-sm text-ink-muted">
-          No assistant activity yet. Queries from staff will appear here.
+          No Nestor AI activity yet. Queries from staff will appear here.
         </p>
       </Card>
     );

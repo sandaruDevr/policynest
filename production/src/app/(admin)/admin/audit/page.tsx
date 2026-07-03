@@ -1,7 +1,7 @@
 import { ScrollText } from "lucide-react";
 import { ModulePlaceholder } from "@/components/admin/module-placeholder";
 
-export const metadata = { title: "Audit & Compliance · CareSuite Admin" };
+export const metadata = { title: "Audit & Compliance · Policy Nest Admin" };
 
 export default function AuditPage() {
   return (

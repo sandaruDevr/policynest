@@ -49,6 +49,25 @@ function buildBlocks(answer: string | null, rawCitations: unknown): GuidanceBloc
 }
 
 /**
+ * Permanently delete the signed-in user's conversation history from the
+ * `rag_audit_logs` table so it does not reappear on refresh.
+ */
+export async function clearConversationHistory(): Promise<void> {
+  const supabase = createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) return;
+
+  const { error } = await supabase
+    .from("rag_audit_logs")
+    .delete()
+    .eq("user_id", user.id);
+
+  if (error) throw error;
+}
+
+/**
  * Reconstruct the signed-in user's recent assistant conversation from the
  * persisted RAG audit trail (`rag_audit_logs`). Returns turns in chronological
  * order so the workspace renders oldest -> newest. Provides cross-device

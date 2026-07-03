@@ -78,7 +78,7 @@ export default function LoginPage() {
       <div className="w-full max-w-5xl">
         <div className="text-center mb-8">
           <h1 className="font-display text-3xl font-semibold tracking-tight text-ink mb-2">
-            CareSuite
+            Policy Nest
           </h1>
           <p className="text-sm text-ink-muted">
             Select your organization to sign in as staff

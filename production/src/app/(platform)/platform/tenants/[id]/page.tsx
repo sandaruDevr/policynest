@@ -3,7 +3,7 @@ import { TenantDetailPanel } from "@/components/platform/tenant-detail-panel";
 import { getTenantDetail, listPlans } from "@/lib/data/platform/tenant-management";
 import type { TenantPlan } from "@/types/platform";
 
-export const metadata = { title: "Tenant Detail · CareSuite Platform" };
+export const metadata = { title: "Tenant Detail · Policy Nest Platform" };
 export const dynamic = "force-dynamic";
 
 export default async function TenantDetailPage({

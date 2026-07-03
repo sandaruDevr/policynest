@@ -40,7 +40,7 @@ export function PlatformTopbar({ context, onOpenMobileNav }: PlatformTopbarProps
             <Globe2 className="h-4 w-4 text-brand-300" />
           </span>
           <div className="leading-tight">
-            <p className="font-medium text-ink">CareSuite Platform</p>
+            <p className="font-medium text-ink">Policy Nest Platform</p>
             <p className="text-[11px] text-ink-muted">
               Super Admin Console
             </p>
@@ -101,7 +101,7 @@ function PlatformProfileMenu({
         <DropdownMenuLabel className="!normal-case !tracking-normal">
           <div className="px-1 pb-1">
             <p className="text-sm font-medium text-ink">{fullName}</p>
-            <p className="text-xs text-ink-muted">CareSuite Platform</p>
+            <p className="text-xs text-ink-muted">Policy Nest Platform</p>
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />

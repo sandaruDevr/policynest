@@ -164,7 +164,7 @@ export function GoldenAnswers({ answers }: { answers: GoldenAnswer[] }) {
         <Card className="p-10 text-center">
           <BookCheck className="mx-auto h-8 w-8 text-ink-dim" />
           <p className="mt-3 text-sm text-ink-muted">
-            No golden answers yet. Curate trusted answers that the assistant
+            No golden answers yet. Curate trusted answers that Nestor AI
             serves directly for common questions.
           </p>
         </Card>
@@ -273,7 +273,7 @@ export function GoldenAnswers({ answers }: { answers: GoldenAnswer[] }) {
               {editId ? "Edit golden answer" : "New golden answer"}
             </DialogTitle>
             <DialogDescription>
-              The assistant serves active golden answers directly when a
+              Nestor AI serves active golden answers directly when a
               question closely matches the pattern.
             </DialogDescription>
           </DialogHeader>

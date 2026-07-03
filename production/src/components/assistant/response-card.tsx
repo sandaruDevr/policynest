@@ -69,7 +69,7 @@ export function ResponseCard({ response, documentTitleById, onAction }: Response
           <span className="grid h-7 w-7 place-items-center rounded-lg bg-brand-500/15 ring-1 ring-brand-500/30">
             <Sparkles className="h-3.5 w-3.5 text-brand-300" />
           </span>
-          <span className="text-sm font-medium text-ink">Assistant</span>
+          <span className="text-sm font-medium text-ink">Nestor AI</span>
           <ConfidenceTag level={response.confidence} />
           {response.escalate ? (
             <span className="inline-flex items-center gap-1 rounded-full border border-critical-500/40 bg-critical-500/10 px-2 py-0.5 text-[11px] text-critical-300">

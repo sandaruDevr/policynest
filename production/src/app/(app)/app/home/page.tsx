@@ -15,7 +15,7 @@ import { ComplianceSnapshot } from "@/components/home/compliance-snapshot";
 import { QuickRefGrid } from "@/components/home/quick-ref-grid";
 import { BroadcastsAndSurveys } from "@/components/home/broadcasts-surveys";
 
-export const metadata = { title: "Home · CareSuite" };
+export const metadata = { title: "Home · Policy Nest" };
 
 export default async function StaffHomePage() {
   const [

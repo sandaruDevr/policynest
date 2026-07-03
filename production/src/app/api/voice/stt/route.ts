@@ -19,7 +19,7 @@ export async function POST(request: NextRequest) {
 
   try {
     const forwardForm = new FormData();
-    forwardForm.append("file", audioFile, "audio.webm");
+    forwardForm.append("audio", audioFile, "audio.webm");
 
     const res = await fetch(`${EXPRESS_URL}/api/voice/stt`, {
       method: "POST",

@@ -5,7 +5,7 @@ import { listAdminUsers } from "@/lib/data/admin/users";
 import { listAdminSites } from "@/lib/data/admin/sites";
 import { requireOrgAdmin } from "@/lib/data/admin/session";
 
-export const metadata = { title: "Users & Roles · CareSuite Admin" };
+export const metadata = { title: "Users & Roles · Policy Nest Admin" };
 export const dynamic = "force-dynamic";
 
 export default async function UsersPage() {

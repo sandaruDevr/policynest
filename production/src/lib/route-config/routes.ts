@@ -37,7 +37,7 @@ export const STAFF_ROUTES: RouteEntry[] = [
   {
     key: "assistant",
     href: "/app/assistant",
-    label: "Assistant",
+    label: "Nestor AI",
     icon: Sparkles,
     group: "primary",
     mobilePrimary: true,

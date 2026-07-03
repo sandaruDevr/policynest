@@ -35,7 +35,7 @@ export function QuickAsk({ prompts }: { prompts: SuggestedPrompt[] }) {
           id="quick-ask-heading"
           className="font-display text-base font-semibold tracking-tight text-ink"
         >
-          Ask the assistant
+          Ask Nestor AI
         </h2>
       </div>
 

@@ -73,7 +73,7 @@ export function AssistantWorkspace({
       // Server has fresh history — clear stale localStorage so it doesn't
       // resurface old conversations on next load.
       try {
-        localStorage.removeItem("caresuite:assistant-conversation");
+        localStorage.removeItem("policynest:assistant-conversation");
       } catch {
         // ignore
       }
@@ -82,7 +82,7 @@ export function AssistantWorkspace({
 
     // No server history — try localStorage as a fallback (offline / first load)
     try {
-      const saved = localStorage.getItem("caresuite:assistant-conversation");
+      const saved = localStorage.getItem("policynest:assistant-conversation");
       if (saved) {
         const parsed = JSON.parse(saved) as ConversationTurn[];
         if (parsed.length > 0) {
@@ -98,7 +98,7 @@ export function AssistantWorkspace({
   // Persist conversation to localStorage
   React.useEffect(() => {
     try {
-      localStorage.setItem("caresuite:assistant-conversation", JSON.stringify(turns));
+      localStorage.setItem("policynest:assistant-conversation", JSON.stringify(turns));
     } catch {
       // ignore storage errors
     }
@@ -167,7 +167,8 @@ export function AssistantWorkspace({
         .map((t) => ({
           query: t.query.text,
           answer: t.response?.blocks?.find((b) => b.kind === "summary")?.text || "",
-        }));
+        }))
+        .slice(-20);
 
       try {
         const res = await fetch("/api/rag/query", {
@@ -214,9 +215,14 @@ export function AssistantWorkspace({
     [submitQuery],
   );
 
-  const resetConversation = () => {
+  const resetConversation = async () => {
     setTurns([]);
-    localStorage.removeItem("caresuite:assistant-conversation");
+    localStorage.removeItem("policynest:assistant-conversation");
+    try {
+      await fetch("/api/assistant/history", { method: "DELETE" });
+    } catch {
+      // ignore — localStorage already cleared
+    }
   };
 
   // Honor ?q= prefill (route from Home or palette)
@@ -270,10 +276,6 @@ export function AssistantWorkspace({
       <VoiceMode
         open={voiceModeOpen}
         onClose={() => setVoiceModeOpen(false)}
-        onSubmit={async (text: string) => {
-          const response = await submitQuery(text, { voice: true });
-          return response;
-        }}
       />
       <Tabs defaultValue={defaultTab}>
         <div className="sticky top-16 z-20 -mx-4 bg-canvas/95 backdrop-blur-md px-4 pb-3 pt-1.5 sm:-mx-6 sm:px-6">
@@ -296,7 +298,7 @@ export function AssistantWorkspace({
         <div className="pt-4">
           <TabsContent value="conversation" className="space-y-4">
             {turns.length === 0 ? (
-              <EmptyHero onPrompt={(t) => submitQuery(t)} prompts={prompts} onVoiceMode={() => setVoiceModeOpen(true)} />
+              <EmptyHero onPrompt={(t) => submitQuery(t)} prompts={prompts} />
             ) : (
               <ul className="space-y-4">
                 {turns.map((t) => (
@@ -343,26 +345,6 @@ export function AssistantWorkspace({
         documentTitleById={documentTitleById}
         onClose={() => setSelectedSavedItem(null)}
       />
-
-      {/* Floating voice button — always visible */}
-      <motion.button
-        type="button"
-        onClick={() => setVoiceModeOpen(true)}
-        aria-label="Start voice mode"
-        className="fixed bottom-6 right-6 z-30 grid h-14 w-14 place-items-center rounded-full bg-gradient-to-br from-brand-400 to-brand-600 shadow-glow transition-transform hover:scale-105 active:scale-95 focus-ring"
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 0.3, type: "spring", stiffness: 200, damping: 16 }}
-        whileHover={{ scale: 1.08 }}
-        whileTap={{ scale: 0.92 }}
-      >
-        <motion.span
-          className="absolute inset-0 rounded-full bg-brand-400/40"
-          animate={{ scale: [1, 1.4], opacity: [0.5, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
-        />
-        <Mic className="relative h-5 w-5 text-white" />
-      </motion.button>
     </>
   );
 }
@@ -388,7 +370,7 @@ function Header({
         </span>
         <div>
           <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-300/80">
-            Operational assistant
+            Nestor AI
           </p>
           <h1 className="font-display text-xl font-semibold tracking-tight text-ink sm:text-2xl">
             Get role-aware guidance, with sources.
@@ -470,7 +452,7 @@ function ResponseSkeleton() {
         <span className="grid h-7 w-7 place-items-center rounded-lg bg-brand-500/15 ring-1 ring-brand-500/30">
           <Sparkles className="h-3.5 w-3.5 text-brand-300 animate-pulse" />
         </span>
-        <span className="text-sm font-medium text-ink">Assistant</span>
+        <span className="text-sm font-medium text-ink">Nestor AI</span>
         <ConfidenceTag level="medium" />
       </div>
       <div className="space-y-3 p-4">
@@ -504,7 +486,7 @@ function ErrorState({ turn, onRetry }: { turn: ConversationTurn; onRetry: (t: Co
         <span className="grid h-7 w-7 place-items-center rounded-lg bg-critical-500/15 ring-1 ring-critical-500/30">
           <ShieldAlert className="h-3.5 w-3.5 text-critical-300" />
         </span>
-        <span className="text-sm font-medium text-ink">Assistant</span>
+        <span className="text-sm font-medium text-ink">Nestor AI</span>
       </div>
       <div className="space-y-3 p-4 sm:p-5">
         <p className="text-sm text-ink-muted">
@@ -524,11 +506,9 @@ function ErrorState({ turn, onRetry }: { turn: ConversationTurn; onRetry: (t: Co
 function EmptyHero({
   prompts,
   onPrompt,
-  onVoiceMode,
 }: {
   prompts: SuggestedPrompt[];
   onPrompt: (t: string) => void;
-  onVoiceMode: () => void;
 }) {
   return (
     <div className="surface-card relative overflow-hidden p-6">
@@ -546,14 +526,6 @@ function EmptyHero({
         <p className="mt-1.5 max-w-xl text-sm text-ink-muted">
           Answers cite published policies for your role and sector. Use voice or text.
         </p>
-        <button
-          type="button"
-          onClick={onVoiceMode}
-          className="mt-4 inline-flex items-center gap-2 rounded-xl bg-gradient-to-br from-brand-500 to-brand-700 px-5 py-3 text-sm font-medium text-white shadow-glow transition-transform hover:scale-[1.02] active:scale-[0.98] focus-ring"
-        >
-          <Mic className="h-4 w-4" />
-          Start voice conversation
-        </button>
       </div>
 
       <div className="relative mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">

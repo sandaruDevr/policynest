@@ -24,5 +24,5 @@ export const SEVERITY_LABEL: Record<Severity, string> = {
   critical: "Critical",
 };
 
-export const APP_NAME = "CareSuite";
+export const APP_NAME = "Policy Nest";
 export const APP_TAGLINE = "Staff Workspace";
