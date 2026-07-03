@@ -4,13 +4,14 @@ import { appendActivity } from "@/lib/data/activity";
 import type { GuidanceResponse, GuidanceBlock, AssistantNextAction, Citation, GuidanceStep } from "@/types";
 
 const EXPRESS_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
-const INTERNAL_SECRET = process.env.INTERNAL_SHARED_SECRET;
-
-if (!INTERNAL_SECRET) {
-  throw new Error("Missing INTERNAL_SHARED_SECRET environment variable");
-}
 
 export async function POST(request: NextRequest) {
+  const INTERNAL_SECRET = process.env.INTERNAL_SHARED_SECRET;
+  if (!INTERNAL_SECRET) {
+    console.error("Missing INTERNAL_SHARED_SECRET environment variable");
+    return NextResponse.json({ error: "Server misconfiguration" }, { status: 500 });
+  }
+
   const supabase = createClient();
   const { data: { user }, error: authError } = await supabase.auth.getUser();
 
